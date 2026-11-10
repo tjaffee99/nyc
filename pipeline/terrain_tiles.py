@@ -214,8 +214,13 @@ def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet):
     zone_end = np.full((rows, cols), np.nan, np.float32)
     p = MANUAL / "fill_zones.csv"
     n_zone = 0
+    z = None
     if p.exists():
-        z = pd.read_csv(p)
+        try:
+            z = pd.read_csv(p)
+        except Exception as e:  # noqa: BLE001 - a file being written
+            log(f"terrain {name}: fill_zones.csv unreadable ({e})")
+    if z is not None and len(z):
         z["poly"] = [parse_ring(r) for r in z.ring]
         z = z[z.poly.notna()]
         z["poly"] = [to_merc(q if q.is_valid else q.buffer(0)) for q in z.poly]

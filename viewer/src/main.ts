@@ -309,14 +309,22 @@ function showInfo(info: PickingInfo) {
   }
   let title = 'Building';
   let rows: Record<string, string | number> = {};
+  const tileSet = (info as any).tile?.content as BuildingSet | undefined;
   if (info.layer?.id === 'buildings' && buildings) {
     rows = buildings.info(info.index);
+  } else if (info.layer?.id.startsWith('region-buildings') && tileSet?.info) {
+    // a building of the other boroughs: its tile's set (the picked sublayer's index)
+    rows = tileSet.info(info.index);
   } else if (info.layer?.id.startsWith('landmark') && landmarks) {
     const r = landmarkInfo(landmarks, info);
     if (!r) return;
     title = r.title;
     rows = r.rows;
   } else return;
+  if (rows['Name']) {
+    title = String(rows['Name']);
+    delete rows['Name'];
+  }
   infoBox.hidden = false;
   infoBox.innerHTML =
     `<button class="close" aria-label="Close">✕</button><h3>${escapeHtml(title)}</h3><table>` +

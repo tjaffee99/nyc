@@ -60,6 +60,16 @@ def write_buildings(path, df, origin, conf_codes, use_categories, extra_meta=Non
         "fid|shuffle": fid,
     }
     meta = {"position_scale": 1e-7, "use_categories": use_categories, "confidence": list(conf_codes)}
+    # where the year comes from (shown in the click popup), and the names of named buildings
+    if "year_src" in df:
+        labels = [source_label(v) for v in df.year_src.fillna("").astype(str).values]
+        cats = sorted(set(labels))
+        code = {c: i for i, c in enumerate(cats)}
+        cols["src"] = np.array([code[v] for v in labels], dtype=np.uint8)
+        meta["sources"] = cats
+    if "name" in df:
+        nm = df["name"].values
+        meta["names"] = {str(i): str(v) for i, v in enumerate(nm) if isinstance(v, str) and v.strip()}
     meta.update(extra_meta or {})
     return write_columnar(path, cols, origin=origin, counts={"features": len(df), "vertices": int(vcount)}, meta=meta)
 
@@ -73,3 +83,30 @@ M_GENERIC, M_EARLY, M_FRAME, M_BRICK, M_MASONRY, M_STUCCO, M_MIDCENTURY, M_TOWER
     M_INDUSTRIAL, M_DUTCH, M_BARK, M_BROWNSTONE, M_WHITEBRICK = range(16)
 # roof codes: 0 flat (tar / gravel / membrane), 1 clay tile, 2 shingle / slate (pitched), 3 same as walls
 R_FLAT, R_TILE, R_SHINGLE, R_WALL = range(4)
+
+
+def source_label(src: str) -> str:
+    """Plain words for a year_src code (nyc_buildings.py, nyc_predecessors.py)."""
+    if src == "known":
+        return "researched record"
+    if src == "lpc":
+        return "Landmarks Preservation Commission database"
+    if src == "assessor":
+        return "city records (footprint / tax lot year)"
+    if src.startswith("heap_by"):
+        return "assessor: 'by 1900' placeholder, estimated from the buildings around"
+    if src.startswith("heap_about"):
+        return "assessor: rounded year, spread over its range"
+    if src == "neighbours":
+        return "no recorded year: estimated from the buildings around"
+    if src == "on_map":
+        return "standing on a 19th-century atlas (year estimated)"
+    if src.startswith("atlas_"):
+        return f"outline traced from the {src[6:]} fire-insurance atlas (NYPL Building Inspector); years estimated"
+    if src.startswith("map_"):
+        return f"outline traced from a {src[4:]} map (OpenHistoricalMap); years estimated"
+    if src == "ohm_documented":
+        return "OpenHistoricalMap (documented lost building)"
+    if src == "generated":
+        return "generated from the built-up extent of the time (no outline survives)"
+    return src or "unknown"

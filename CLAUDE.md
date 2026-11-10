@@ -111,6 +111,54 @@ make deploy     # build + publish viewer/dist to gh-pages -> nyc.theojaffee.net
 - Landmarks: anchor, orientation and plan from the real footprint, heights from cited sources,
   checked numerically against the footprint and the measured roof height.
 
+## Pipeline stages (pipeline/, one script per stage; see Makefile)
+
+`download_nyc` · `download_overture` → `footprints_raw` → `extent` → `terrain_grid` →
+`nyc_buildings` (+ `nyc_predecessors`) → `terrain_tiles` → `cities`, `transit`, `roads`,
+`ground_detail`, `airports` → `audit` (invariants on the built files) → `deploy`.
+Tools: `footprint_at.py` (footprints around a point, in the landmark kit's local metres).
+
+Not yet ported from the Bay copy (kept as reference, they do not run): `sf_predecessors.py`,
+`region_predecessors.py` (extent fill, clearance corridors), `sanborn_trace.py`,
+`topo_farmsteads.py`, `lidar_parts.py`, `ohm_import.py`, `geocode.py`.
+
 ## Status and decisions log
 
-(Written at the end of each working session — see below.)
+(Deviations from the Bay project and New York-specific decisions, with reasons. Add to it.)
+
+1. **Extent: the five boroughs** (TIGER county outlines grown ~1 km; the fade is 1 km wide so
+   Manhattan's Hudson shore, 500-700 m from the state line, does not fade). New Jersey's shore
+   lies in the faded band without buildings. One bounding box (`common.NYC_BBOX`) for the
+   terrain grids and every extract.
+2. **Buildings: Manhattan is one file, the other boroughs are z13 tiles.** The viewer's
+   "core" set (always loaded, 118 k features with the vanished ones) is Manhattan; the other
+   boroughs load as tiles from zoom 11, large / tall buildings from zoom 9. Clicks work on both.
+3. **Years.** `nyc_buildings.py` docstring has the rules. The city's construction years come
+   from the assessor and four fifths are heaps (1899, 1900, 1901, 1910, 1915, 1920, 1925,
+   1930, 1931, 1935, 1940 …, detected per borough): a heap up to 1901 means "by then", a later
+   one "about then" (± 2.5 years; 1940 stops at mid-1942, 1945 starts after the war). Recorded
+   years around a heap building refine it; the result is `estimated`. The LPC building
+   database (38 k buildings) outranks the assessor. Height floors: 25 m ≥ 1870, 40 m ≥ 1889,
+   80 m ≥ 1895 for estimated years.
+4. **Heights are measured** (the footprints' roof height). OpenStreetMap's 3D parts replace
+   the flat extrusion of ~3,300 buildings where at least two part heights exist and the
+   tallest part is within 0.85-1.3x of the measured roof.
+5. **Terrain: the Bay's two grids** (z13 ≈ 58 m for zooms 8-13, z14 ≈ 29 m close in) over the
+   whole box. The viewer's terrain code assumes those zooms; a finer Manhattan grid would
+   need viewer work. Piers are narrower than a cell and are not in the terrain.
+6. **Farms are a model.** No citywide map of fields exists before the USGS sheets: ground that
+   is city today is cleared outward from the colonial settlements at 12 years per km (seeds
+   = towns in `places.csv` founded before 1800), Manhattan no later than 1779 (the British
+   occupation stripped it of wood), elsewhere no later than 1860; steep ground and today's
+   wooded big parks stay forest. `estimated`; no farmsteads are generated.
+7. **The forest of 1609 is drawn** (procedural tree positions in real forest cells, each tree
+   gone when its cell is cleared); today's trees stand on real WorldCover canopy pixels.
+8. **What stood before** (`nyc_predecessors.py`): NYPL Building Inspector footprints (Perris
+   1857 Manhattan to ~86th St, 1855 Brooklyn, 1890 / 1894 atlases). Outline and wall material
+   are real; start, end and storeys are estimated by the rules in the docstring. A traced
+   outline that coincides with a standing building is that building (re-dated to before its
+   atlas if its own year was only an estimate).
+9. **Built data is not committed.** `make data` rebuilds it (about 20 minutes after the
+   downloads); `make deploy` ships it. Only `data/manual`, `data/tables`, `data/research` are
+   precious.
+10. **First view:** Manhattan from the harbour at bearing 29° (the avenues run up the screen).

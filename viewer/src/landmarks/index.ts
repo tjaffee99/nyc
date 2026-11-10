@@ -32,7 +32,13 @@ const M_PER_DEG_LAT = 110_574;
 export async function loadLandmarks(): Promise<LandmarkSet> {
   const meshes = LANDMARKS.map(lm => {
     const b = new MeshBuilder();
-    lm.build(b);
+    try {
+      lm.build(b);
+    } catch (e) {
+      // one broken model must not take the others with it
+      console.warn('landmark', lm.id, e);
+      return new MeshBuilder().build();
+    }
     return b.build();
   });
   const total = meshes.reduce((a, m) => a + m.positions.value.length / 3, 0);

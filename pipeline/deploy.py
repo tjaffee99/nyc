@@ -6,7 +6,7 @@ up in history. The commit is made in a temporary git directory with viewer/dist 
 tree; the repository itself is not touched. Prints the size of the published site (GitHub
 Pages cancels a deployment whose file sync runs over ten minutes: keep it well under 400 MB).
 
-  python pipeline/deploy.py [--dry-run]
+  python pipeline/deploy.py [--dry-run]     (DEPLOY_DIST=<dir> to publish another build)
 """
 from __future__ import annotations
 
@@ -17,7 +17,8 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DIST = ROOT / "viewer" / "dist"
+# DEPLOY_DIST: publish another build directory (a clean copy of the viewer built elsewhere)
+DIST = Path(os.environ.get("DEPLOY_DIST") or ROOT / "viewer" / "dist")
 LIMIT_MB = 400
 
 

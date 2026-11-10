@@ -158,6 +158,8 @@ export function fromBinary(file: ColumnarFile & {dim: number}): BuildingSet {
     replaced: new Float32Array(n).fill(NaN),
     info: i => {
       const out: Record<string, string | number> = {};
+      const nm = meta.names?.[i];
+      if (nm) out['Name'] = nm;
       const raw = (c.raw_year as Int16Array)?.[i];
       out['Built'] = fmtYear(start[i]);
       if (end[i] < 9000) out['Removed'] = fmtYear(end[i]);
@@ -167,7 +169,9 @@ export function fromBinary(file: ColumnarFile & {dim: number}): BuildingSet {
       const st = (c.stories as Uint8Array)?.[i];
       if (st) out['Stories'] = st;
       const u = (c.use as Uint8Array)?.[i];
-      if (u !== undefined && uses[u]) out['Use'] = uses[u];
+      if (u !== undefined && uses[u] && u !== 0) out['Use'] = uses[u];
+      const sc = (c.src as Uint8Array | undefined)?.[i];
+      if (sc !== undefined && meta.sources?.[sc]) out['Evidence'] = meta.sources[sc];
       return out;
     }
   };
