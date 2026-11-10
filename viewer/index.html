@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New York City Through Time</title>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <div id="population">
+      <div class="label">Population</div>
+      <div id="population-value">—</div>
+      <div id="population-area" class="sublabel"></div>
+    </div>
+
+    <div id="year-label">1609</div>
+
+    <!-- debug panel: shown with ?debug -->
+    <div id="toolbar" hidden>
+      <label><input type="checkbox" id="toggle-quality" /> Data quality</label>
+      <select id="events-select"><option value="">Jump to event…</option></select>
+    </div>
+
+    <div id="legend" hidden></div>
+
+    <footer id="controls">
+      <button id="play" aria-label="Play">▶</button>
+      <div id="slider-wrap">
+        <div id="event-ticks"></div>
+        <input id="slider" type="range" min="1609" max="2026.99" step="0.01" value="1609" aria-label="Year" />
+      </div>
+      <select id="speed" aria-label="Playback speed">
+        <option value="1">1 yr/s</option>
+        <option value="3">3 yr/s</option>
+        <option value="6" selected>6 yr/s</option>
+        <option value="12">12 yr/s</option>
+        <option value="25">25 yr/s</option>
+      </select>
+    </footer>
+
+    <div id="info" hidden></div>
+    <div id="loading">Loading New York…</div>
+    <div id="attribution"></div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
