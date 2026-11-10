@@ -352,15 +352,20 @@ def known_dates(g, year, conf, src):
     Rows whose id starts with `site_floor:` are not dates (see site_floors)."""
     end = np.full(len(g), 9999.0)
     files = sorted(TABLES.glob("known_building_dates*.csv"))
-    if not files:
-        return year, conf, src, end
     bins = g.bin.fillna(0).astype("int64").values
     by_bin = pd.DataFrame({"bin": bins, "i": np.arange(len(g))})
     by_bin = by_bin[(by_bin.bin % 1000000) != 0]   # the borough's placeholder BIN (x000000) is not a building
     tree = shapely.STRtree(g.geometry.values)
     done = np.zeros(len(g), bool)
-    for p in files:
-        t = pd.read_csv(p)
+    tables = [(p.name, pd.read_csv(p)) for p in files]
+    try:   # colonial houses that still stand (data/tables/early_nyc.csv rows without an end year)
+        import nyc_extras
+        es = nyc_extras.early_standing()
+        if es is not None and len(es):
+            tables.insert(1 if files and files[0].name == "known_building_dates.csv" else 0, ("early_nyc.csv (standing)", es))
+    except Exception as e:  # noqa: BLE001
+        log(f"buildings: early_nyc.csv standing rows not used ({type(e).__name__}: {e})")
+    for pname, t in tables:
         t = t[~t.id.astype(str).str.startswith("site_floor:")]
         t = t[pd.to_numeric(t.start_year, errors="coerce").notna()].reset_index(drop=True)
         if not len(t):
@@ -388,7 +393,7 @@ def known_dates(g, year, conf, src):
         e_ok = np.isfinite(ey[k]) & (ey[k] < 9000)
         end[i[e_ok]] = ey[k][e_ok]
         done[i] = True
-        log(f"buildings: {len(i)} footprints dated by {len(t)} researched rows ({p.name}; "
+        log(f"buildings: {len(i)} footprints dated by {len(t)} researched rows ({pname}; "
             f"{len(t) - len(np.unique(k))} rows matched no footprint)")
     return year, conf, src, end
 

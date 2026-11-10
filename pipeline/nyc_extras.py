@@ -133,7 +133,10 @@ def early_sites():
     if not p.exists():
         return rows
     t = pd.read_csv(p)
+    # (a row without an end is a house that still stands: it dates today's footprint — early_standing)
+    t = t[pd.to_numeric(t.end_year, errors="coerce") < 9000].reset_index(drop=True)
     X, Y = _to_utm(t.lon.values, t.lat.values)
+    skipped = 0
     for k, r in enumerate(t.itertuples()):
         w, d = _wxd(getattr(r, "footprint_m", ""))
         n = int(_num(getattr(r, "count", 1), 1) or 1)
@@ -143,21 +146,26 @@ def early_sites():
         kind = str(getattr(r, "kind", "")).strip().lower()
         lenape = kind.startswith("lenape") or mat == "bark"
         h = _num(getattr(r, "height_m", np.nan), 3.0 if lenape else 5.0)
-        scale = VILLAGE_SCALE if (lenape or max(w, d) < 14) else 1.0
+        scale = VILLAGE_SCALE if lenape else 1.0
         placed = []
         for i in range(max(n, 1)):
             if i == 0 and n == 1:
                 dx = dy = 0.0
             else:
                 # a hashed spot inside the site; a few tries to keep the dwellings apart
-                # (and off the water and marsh of the time)
-                for t_ in range(12):
+                # (and off the water and marsh of the time: a dwelling that finds no dry spot is left out)
+                found = False
+                for t_ in range(24):
                     ang = 2 * math.pi * h01(f"{r.id}a{i}_{t_}")
                     rad = max(spread, 3 * max(w, d)) * math.sqrt(h01(f"{r.id}r{i}_{t_}"))
                     dx, dy = rad * math.sin(ang), rad * math.cos(ang)
                     if all(math.hypot(dx - px, dy - py) > 1.6 * scale * max(w, d) for px, py in placed) \
                             and not natural_wet(X[k] + dx, Y[k] + dy)[0]:
+                        found = True
                         break
+                if not found:
+                    skipped += 1
+                    continue
             placed.append((dx, dy))
             if lenape and abs(w - d) < 1.5 and max(w, d) <= 8:
                 shape = _round(max(w, d) * scale)                      # a wigwam
@@ -169,8 +177,23 @@ def early_sites():
                          "start_doc": _num(r.start_year), "end_doc": _num(r.end_year), "h_doc": h * (1.5 if scale > 1 else 1.0),
                          "cls": "documented", "conf_doc": "procedural" if n > 1 else "estimated",
                          "mat_doc": "bark" if lenape else mat, "geometry": poly})
-    log(f"extras: {len(rows)} early dwellings from {len(t)} researched rows (early_nyc.csv)")
+    log(f"extras: {len(rows)} early dwellings from {len(t)} researched rows (early_nyc.csv); "
+        f"{skipped} of a cluster found no dry ground and were left out")
     return rows
+
+
+def early_standing():
+    """The rows of early_nyc.csv that still stand (no end year), in the format of
+    known_building_dates.csv: they date the standing footprint their point lies in."""
+    p = TABLES / "early_nyc.csv"
+    if not p.exists():
+        return None
+    t = pd.read_csv(p)
+    t = t[pd.to_numeric(t.end_year, errors="coerce") >= 9000]
+    conf = t.confidence.astype(str).str.lower() if "confidence" in t else pd.Series("", index=t.index)
+    return pd.DataFrame({"id": "early:" + t.id.astype(str), "name": t.name.values, "lat": t.lat.values, "lon": t.lon.values,
+                         "bin": np.nan, "start_year": t.start_year.values, "end_year": np.nan, "source_url": t.source_url.values,
+                         "note": np.where(conf.values == "high", "", "estimated (early_nyc.csv: confidence " + conf.values + ")")})
 
 
 def notable():
@@ -205,25 +228,31 @@ def notable():
 
 
 def demolished():
-    """Rows (UTM) from the city's record of removed buildings."""
+    """Rows (UTM) from the city's record of removed buildings (building_records.py: the
+    footprints the city retired since the 1990s, each with the year it was removed).
+    start_doc: a recorded construction year; start_est: the assessor's rounded year (an
+    estimate); neither: dated from the buildings around (nyc_predecessors)."""
     p = MANUAL / "demolished" / "demolished_footprints.geojson"
     rows = []
     if not p.exists():
         return rows
     g = gpd.read_file(p).to_crs(UTM)
-    for r in g.itertuples():
-        geom = r.geometry
-        if geom is None or geom.is_empty:
+    sq = g.start_quality.fillna("").astype(str).str.lower().values if "start_quality" in g else np.full(len(g), "")
+    sy = pd.to_numeric(g.start_year, errors="coerce").values if "start_year" in g else np.full(len(g), np.nan)
+    ey = pd.to_numeric(g.end_year, errors="coerce").values
+    hm = pd.to_numeric(g.height_m, errors="coerce").values if "height_m" in g else np.full(len(g), np.nan)
+    st = pd.to_numeric(g.storeys, errors="coerce").values if "storeys" in g else np.full(len(g), np.nan)
+    names = g["name"].values if "name" in g else np.full(len(g), None, dtype=object)
+    for k, geom in enumerate(g.geometry.values):
+        if geom is None or geom.is_empty or not np.isfinite(ey[k]):
             continue
-        geom = max(getattr(geom, "geoms", [geom]), key=lambda q: q.area)
-        end = _num(getattr(r, "end_year", np.nan))
-        if not np.isfinite(end):
-            continue
-        sq = str(getattr(r, "start_quality", "")).lower()
-        rows.append({"id": f"demo:{r.id}", "map_year": int(end) - 1, "boro": "", "colors": "", "name": getattr(r, "name", None),
-                     "start_doc": _num(getattr(r, "start_year", np.nan)) if sq == "recorded" else np.nan, "end_doc": end,
-                     "h_doc": _num(getattr(r, "height_m", np.nan)), "cls": "documented", "conf_doc": None, "mat_doc": "",
-                     "geometry": geom})
+        if geom.geom_type != "Polygon":
+            geom = max(getattr(geom, "geoms", [geom]), key=lambda q: q.area)
+        h = hm[k] if np.isfinite(hm[k]) and hm[k] > 2 else (st[k] * 3.3 + 1.0 if np.isfinite(st[k]) and st[k] > 0 else np.nan)
+        rows.append({"id": f"demo:{g.id.values[k]}", "map_year": int(ey[k]) - 1, "boro": "", "colors": "",
+                     "name": names[k] if isinstance(names[k], str) else None,
+                     "start_doc": sy[k] if sq[k] == "recorded" else np.nan, "start_est": sy[k] if sq[k] == "estimated" else np.nan,
+                     "end_doc": ey[k], "h_doc": h, "cls": "documented", "conf_doc": None, "mat_doc": "", "geometry": geom})
     log(f"extras: {len(rows)} removed buildings from the city's records")
     return rows
 

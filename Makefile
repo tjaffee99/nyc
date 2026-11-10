@@ -5,7 +5,7 @@
 PY := .venv/bin/python
 P  := cd pipeline &&
 
-.PHONY: setup data download overture footprints extent grid land ohm buildings airports terrain ground-detail cities transit roads audit dev build deploy
+.PHONY: setup data download overture footprints extent grid evidence land ohm aerial farmsteads counties buildings county-buildings street-trees airports terrain ground-detail cities transit roads labels audit dev build deploy
 
 setup:
 	python3 -m venv .venv
@@ -13,20 +13,25 @@ setup:
 	cd viewer && npm install
 
 # everything, in dependency order
-data: download overture footprints extent grid ohm land buildings airports terrain ground-detail cities transit roads audit
+data: download overture footprints extent grid ohm aerial farmsteads counties evidence land buildings county-buildings street-trees airports terrain ground-detail labels cities transit roads audit
 
 # NYC Open Data (footprints, PLUTO, LPC, parks), NYPL Building Inspector, MTA GTFS, TIGER
 download:
 	$(P) ../$(PY) download_nyc.py
 
-# Overture extracts of the map box: buildings + OSM 3D parts, land / water, land use, roads, rail
+# Overture extracts: buildings + OSM 3D parts of the city box; land / water, land use, roads,
+# rail and every footprint of the wider box (the counties)
 overture:
 	$(P) ../$(PY) download_overture.py
+	$(P) ../$(PY) download_overture.py region
+	$(P) ../$(PY) download_overture.py region_buildings
 
 footprints: download
 	$(P) ../$(PY) footprints_raw.py
 
-# the map's outline (five boroughs) -> viewer/public/data/map-extent.json
+# the map's outline (the five boroughs + the counties of data/manual/extent_counties.json)
+#   -> viewer/public/data/map-extent.json.  To change the counties:
+#   cd pipeline && ../.venv/bin/python extent.py counties 34017 34003 ...   (state + county FIPS)
 extent: download
 	$(P) ../$(PY) extent.py
 
@@ -34,9 +39,29 @@ extent: download
 grid:
 	$(P) ../$(PY) terrain_grid.py
 
-# year each cell of made land became land (natural 1609 layer + fill zones) -> used by buildings
-land: grid overture
+# dated outlines that prove their ground existed (landmark records, recorded years, traced maps)
+evidence: footprints
+	$(P) ../$(PY) nyc_buildings.py evidence
+
+# year each cell of made land became land (natural 1609 layer + fill zones, moved back where
+# dated buildings prove the ground) -> used by buildings, roads, ground detail
+land: grid overture evidence
 	$(P) ../$(PY) terrain_tiles.py land
+
+# is each footprint standing on the 1924 / 1951 aerial photographs? (cached under
+# data/raw/aerial; the result, data/manual/aerial/presence.parquet, is committed)
+aerial: footprints
+	$(P) ../$(PY) aerial_presence.py
+
+# building marks of the 1890s USGS sheets -> data/manual/farmsteads (committed)
+farmsteads: footprints
+	$(P) ../$(PY) topo_farmsteads.py
+
+# the counties' footprints with parcel years (NJ MOD-IV, NY assessment rolls)
+#   -> data/interim/counties/<state>_<county>.parquet
+counties:
+	$(P) ../$(PY) counties_nj.py
+	$(P) ../$(PY) counties_ny.py
 
 # OpenHistoricalMap buildings of the map box -> data/manual/ohm/ (committed; only needs the
 # network when data/raw/ohm is empty)
@@ -48,6 +73,14 @@ ohm: footprints
 #   -> viewer/public/data/core-buildings.bin.gz (Manhattan) + region-buildings/ tiles
 buildings: footprints overture grid land
 	$(P) ../$(PY) nyc_buildings.py
+
+# the counties on the map -> viewer/public/data/county-buildings/ tiles
+county-buildings: land
+	$(P) ../$(PY) county_buildings.py
+
+# street trees of the 1995 / 2005 / 2015 censuses with planting years
+street-trees: download
+	$(P) ../$(PY) street_trees.py
 
 # runways, taxiways, aprons with researched years (data/tables/airports.csv); airfield outlines
 # for the terrain
@@ -62,7 +95,11 @@ terrain: grid overture buildings airports
 ground-detail: terrain buildings
 	$(P) ../$(PY) ground_detail.py
 
-# borough outlines + census series for the population counter
+# labels of military and industrial sites (data/manual/sites) -> park-labels.json
+labels: ground-detail
+	$(P) ../$(PY) nyc_extras.py
+
+# borough and county outlines + census series for the population counter
 cities: download
 	$(P) ../$(PY) cities.py
 

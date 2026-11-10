@@ -1,7 +1,7 @@
 """Invariants of the built building files (run after every rebuild; CLAUDE.md "Data").
 
-Reads what the viewer reads — viewer/public/data/core-buildings.bin.gz and the
-region-buildings/13 tiles — and checks:
+Reads what the viewer reads — viewer/public/data/core-buildings.bin.gz, the
+region-buildings/13 tiles and the counties' county-buildings/13 tiles — and checks:
   1. no feature with start >= end;
   2. years inside the slider's range;
   3. no year carrying thousands of buildings more than its neighbours (a heap that was
@@ -48,12 +48,18 @@ def read_set(path):
             polys.append(shapely.Polygon(rings[0], rings[1:]) if rings else None)
         except Exception:  # noqa: BLE001
             polys.append(None)
+    # piers stand over the water by nature: not subject to the ground rule
+    srcs = h.get("meta", {}).get("sources", [])
+    pier = np.isin(c["src"], [i for i, v in enumerate(srcs) if v.startswith("pier")]) if "src" in c else np.zeros(n, bool)
     return {"start": c["start_year"].astype(float), "end": c["end_year"].astype(float), "height": c["height"].astype(float),
-            "base": c["base"].astype(float), "conf": c["confidence"], "fid": c["fid"], "poly": np.array(polys, dtype=object)}
+            "base": c["base"].astype(float), "conf": c["confidence"], "fid": c["fid"], "poly": np.array(polys, dtype=object),
+            "pier": pier}
 
 
 def main():
     files = [VIEWER_DATA / "core-buildings.bin.gz"] + sorted((VIEWER_DATA / "region-buildings" / "13").glob("*/*.bin.gz"))
+    n_city = len(files)
+    files += sorted((VIEWER_DATA / "county-buildings" / "13").glob("*/*.bin.gz"))
     files = [f for f in files if f.exists()]
     start, end, conf = [], [], []
     overlaps = 0
@@ -71,7 +77,7 @@ def main():
         # nothing before its ground (ground_rule.py): the whole outline, blend and construction time
         # (the stored height includes the plinth: a slightly longer construction time, on the safe side)
         es = earliest_start(polys, np.maximum(h - 2.0, 3.0))
-        wet = np.isfinite(es) & (st < es - 0.75)
+        wet = np.isfinite(es) & (st < es - 0.75) & ~s["pier"][ok]
         before_ground += int(wet.sum())
         if wet.any() and len(wet_examples) < 8:
             k = int(np.nonzero(wet)[0][0])
@@ -109,7 +115,7 @@ def main():
         if c > 3000 and c > 2.2 * max(float(np.median(nb)), 1.0):
             spikes.append({"year": v, "count": c, "neighbours_median": float(np.median(nb))})
     out = {
-        "files": len(files), "buildings": int(len(start)),
+        "files": len(files), "county_files": len(files) - min(n_city, len(files)), "buildings": int(len(start)),
         "confidence": {k: int((conf == i).sum()) for i, k in enumerate(["exact", "estimated", "procedural", "reconstructed"])},
         "start_ge_end": int((start >= end).sum()),
         "out_of_range": int(((start < YEAR_MIN) | (start > NOW)).sum()),

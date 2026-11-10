@@ -139,6 +139,7 @@ def load_structures():
     t = gpd.GeoDataFrame(pd.DataFrame(rows, columns=COLS), geometry="geometry", crs=4326).to_crs(UTM)
     t["conf_doc"] = None
     t["mat_doc"] = ""
+    t["start_est"] = np.nan
     # researched extras (nyc_extras.py): early sites, documented lost buildings, the city's
     # record of removed buildings, atlas layers traced for this map
     import nyc_extras
@@ -151,7 +152,7 @@ def load_structures():
     if extra:
         x = gpd.GeoDataFrame(pd.DataFrame(extra), geometry="geometry", crs=UTM)
         x["boro"] = nyc_extras.boro_of(x.geometry.representative_point().to_crs(4326).values)
-        t = gpd.GeoDataFrame(pd.concat([t, x[list(t.columns)]], ignore_index=True), geometry="geometry", crs=UTM)
+        t = gpd.GeoDataFrame(pd.concat([t, x.reindex(columns=list(t.columns))], ignore_index=True), geometry="geometry", crs=UTM)
     t["mat_doc"] = t.mat_doc.fillna("").astype(str)
     t["geometry"] = t.geometry.buffer(0)
     t = t[t.geometry.geom_type == "Polygon"]
@@ -345,6 +346,24 @@ def add_predecessors(g):
     first_gen = has_hi & (h3 < 0.55)
     est = np.where(first_gen, a + (hi - a) * hk, np.where(has_hi, hi + (b - hi) * hk, a + (b - a) * np.sqrt(hk)))
     start = np.where(np.isnan(start), est, start)
+    # a building the city removed in recent decades (nyc_extras.demolished) without a recorded
+    # year: the assessor's rounded year spread over five years, else the years of the standing
+    # buildings around it — not the decades before its "map" (the year it was removed)
+    demo = v.id.str.startswith("demo:").values
+    if demo.any():
+        sest = pd.to_numeric(v.start_est, errors="coerce").values.astype(float)
+        edoc0 = v.end_doc.values.astype(float)
+        gp = gu.geometry.representative_point()
+        d, j = cKDTree(np.column_stack([gp.x.values, gp.y.values])).query(xy[demo], k=8, distance_upper_bound=150.0)
+        nb = np.where(np.isfinite(d), gu.start.values[np.minimum(j, len(gu) - 1)], np.nan)
+        nb = np.where(nb < edoc0[demo][:, None] - 5.0, nb, np.nan)
+        with np.errstate(all="ignore"):
+            import warnings
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                med = np.nanmedian(nb, axis=1)
+        around = np.where(np.isfinite(med), med, edoc0[demo] - 60.0) + (hsh[demo] - 0.5) * 6.0
+        start[demo] = np.where(np.isfinite(sest[demo]), sest[demo] - 0.5 + (hsh[demo] - 0.5) * 5.0, around)
     sdoc = v.start_doc.values.astype(float)
     start = np.where(np.isfinite(sdoc), sdoc, start)
     documented_start = np.isfinite(sdoc)
@@ -415,6 +434,25 @@ def add_predecessors(g):
     # today's building is recorded as older than the last map (or has much the same outline):
     # the traced outline is that building drawn differently, not a second building
     conflict = late_map & ~redate2
+    # the city's record says a building was removed here in year X, and today's building on
+    # the spot carries an earlier year: if that year is only an estimate, today's building is
+    # the replacement and went up after X; if it is recorded, the retired outline is an
+    # earlier drawing of the standing building, not a second one
+    f_today = ov2.f.reindex(range(n)).fillna(0).values
+    clash = demo & np.isfinite(edoc) & np.isfinite(t_today) & (t_today < edoc + 0.3)
+    redate3 = clash & ~t_exact & (f_today >= 0.5)
+    if redate3.any():
+        rd = pd.DataFrame({"j": j_today[redate3], "y": edoc[redate3] + 0.6 + 1.6 * hsh2[redate3]}).groupby("j").y.max()
+        gs = g.start_year.values.copy()
+        gc = g.year_confidence.values.copy()
+        gsrc = g.year_src.values.copy()
+        gs[rd.index.values] = np.minimum(np.maximum(gs[rd.index.values], rd.values), 2029.9)
+        gc[rd.index.values] = "estimated"
+        gsrc[rd.index.values] = "after_demolition"
+        g = g.assign(start_year=gs, year_confidence=gc, year_src=gsrc)
+        t_today = np.where(redate3, rd.reindex(j_today).values, t_today)
+        log(f"predecessors: {len(rd)} standing buildings re-dated to after the recorded removal of the building before them")
+    conflict |= clash & ~redate3
     # nothing vanished outlasts the start of the building standing on its spot (a documented
     # building that starts no earlier than today's is that building under an old name: it goes)
     end = np.where(np.isfinite(t_today), np.minimum(end, t_today - 0.3), end)
