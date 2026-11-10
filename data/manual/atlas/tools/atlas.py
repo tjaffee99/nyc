@@ -5,6 +5,7 @@ Not a pipeline stage: it writes hand-checked data into data/manual/atlas/ (commi
     python -I atlas.py fetch   <layer> [plate ...]      # NYPL master scans -> data/raw/atlas/nypl_u/<imageId>.jpg
     python -I atlas.py refine  <layer> [plate ...]      # street match -> data/interim/atlas/<layer>/<plate>_corr.json
     python -I atlas.py trace   <layer> [plate ...]      # per plate -> data/interim/atlas/<layer>/<plate>.pkl + stats
+    python -I atlas.py refine_buildings <layer> [plate ...]   # city plates: fine registration on standing buildings
     python -I atlas.py export  <layer>                  # -> data/manual/atlas/<layer>.geojson + _coverage.geojson + _stats.json
     python -I atlas.py overlay <layer> <plate> <x,y> <size_m> <out.png> [--px] [--scale 3]
                                                         # plate crop with traced outlines (red = frame, magenta = brick)
@@ -583,7 +584,39 @@ def match(polys, box):
     return iou, off, fyear
 
 
-def trace(layer, pid, save=True, verbose=True, window=None):
+def trace_window(P, full, inside, paper, win, core=None):
+    """Buildings of one pixel window (x0, y0, x1, y1) of a plate: [(pixel polygon, material)]; with `core`, only
+    those whose centre lies in the core box (the plate is traced in overlapping tiles to keep memory small)."""
+    st = P.style
+    x0, y0, x1, y1 = [int(v) for v in win]
+    x0, y0 = max(0, x0), max(0, y0)
+    img, ins = full[y0:y1, x0:x1], inside[y0:y1, x0:x1]
+    if not ins.any():
+        return []
+    c = classes(img, paper, st)
+    line = thin_lines(img, st["line_depth"])
+    mpp = P.m.src_mpp
+    lo, hi = 0.6 * st["min_m2"] / mpp ** 2, 1.5 * st["max_m2"] / mpp ** 2
+    found = []
+    if st.get("split_by_ink"):
+        lab, mat = fills_rows(c, line, st, ins)
+        found = [(p, mat[v - 1]) for p, v in label_polygons(lab, lo, hi)]
+    else:
+        f = fills(c, line, st, ins)
+        for name in ("frame", "brick"):
+            found += [(p, name) for p, apx in polygons(f[name], 0.0, lo, hi)]
+    out = []
+    for p, name in found:
+        q = shapely.affinity.translate(tidy(p), x0, y0)
+        if core is not None:
+            cx, cy = q.centroid.x, q.centroid.y
+            if not (core[0] <= cx < core[2] and core[1] <= cy < core[3]):
+                continue
+        out.append((q, name))
+    return out
+
+
+def trace(layer, pid, save=True, verbose=True, window=None, tile=2000, margin=220):
     """Trace one plate (or, for checking, a pixel window x0, y0, x1, y1 of it)."""
     t0 = time.time()
     P = Plate(layer, pid, verbose=verbose)
@@ -591,57 +624,176 @@ def trace(layer, pid, save=True, verbose=True, window=None):
     full = P.img()
     inside = P.inside(full.shape[:2])
     paper = paper_colour(full, inside)
-    x0, y0 = 0, 0
-    img = full
     if window is not None:
-        x0, y0, x1, y1 = [int(v) for v in window]
-        x0, y0 = max(0, x0), max(0, y0)
-        img, inside = full[y0:y1, x0:x1], inside[y0:y1, x0:x1]
-    c = classes(img, paper, st)
-    line = thin_lines(img, st["line_depth"])
-    mpp = P.m.src_mpp
-    lo, hi = 0.6 * st["min_m2"] / mpp ** 2, 1.5 * st["max_m2"] / mpp ** 2
-    found = []
-    if st.get("split_by_ink"):
-        lab, mat = fills_rows(c, line, st, inside)
-        found = [(p, mat[v - 1]) for p, v in label_polygons(lab, lo, hi)]
+        found = trace_window(P, full, inside, paper, window)
     else:
-        f = fills(c, line, st, inside)
-        for name in ("frame", "brick"):
-            found += [(p, name) for p, apx in polygons(f[name], 0.0, lo, hi)]
+        found = []
+        H, W = full.shape[:2]
+        for ty in range(0, H, tile):
+            for tx in range(0, W, tile):
+                core = (tx, ty, min(W, tx + tile), min(H, ty + tile))
+                found += trace_window(P, full, inside, paper, (tx - margin, ty - margin, core[2] + margin, core[3] + margin), core)
     out = []
-    for p, name in found:
-        q = shapely.affinity.translate(tidy(p), x0, y0)
-        xy = P.fwd(np.asarray(q.exterior.coords))
-        g = sg.Polygon(xy)
+    for q, name in found:
+        g = sg.Polygon(P.fwd(np.asarray(q.exterior.coords)))
         if not g.is_valid:
             g = g.buffer(0)
         if g.is_empty or g.geom_type != "Polygon" or not (st["min_m2"] <= g.area <= st["max_m2"]):
             continue
         out.append(dict(material=name, px=wkb.dumps(q), geom=wkb.dumps(g), area=g.area))
+    if window is None:
+        stats = _stats(P, out, paper)
+    else:
+        polys = [wkb.loads(o["geom"]) for o in out]
+        iou, off, fy = match(polys, shapely.MultiPolygon(polys).bounds if polys else (0, 0, 1, 1))
+        for o, i in zip(out, iou):
+            o["iou"] = float(i)
+        stats = dict(plate=P.id, n=len(out), coincide=int((iou > 0.5).sum()))
+    cf = WORK / layer / f"{P.id}_corr.json"
+    if cf.exists():
+        stats["street"] = json.loads(cf.read_text()).get("report")
+    if verbose:
+        print(json.dumps(stats), "%.0fs" % (time.time() - t0), flush=True)
+    if save and window is None:
+        (WORK / layer).mkdir(parents=True, exist_ok=True)
+        ml = P.mask_local()
+        pickle.dump(dict(stats=stats, items=out, mask=wkb.dumps(ml) if ml is not None else None), open(WORK / layer / f"{P.id}.pkl", "wb"))
+    return P, out, stats, None
+
+
+def _stats(P, out, paper=None):
     polys = [wkb.loads(o["geom"]) for o in out]
     ml = P.mask_local()
-    box = ml.bounds if (ml is not None and window is None) else (shapely.MultiPolygon(polys).bounds if polys else (0, 0, 1, 1))
+    box = ml.bounds if ml is not None else shapely.MultiPolygon(polys).bounds
     iou, off, fy = match(polys, box)
     for o, i, d, y in zip(out, iou, off, fy):
         o["iou"], o["off"], o["fyear"] = float(i), (float(d[0]), float(d[1])), int(y)
     hit = iou > 0.5
     stats = dict(plate=P.id, image=P.m.rec["imageId"], name=P.m.rec["name"][:90], gcps=int(P.m.keep.sum()), model=P.m.model,
-                 cv_rms=round(P.m.cv_rms, 1), mpp=round(mpp, 3), paper=[float(v) for v in paper], n=len(out),
+                 cv_rms=round(P.m.cv_rms, 1), mpp=round(P.m.src_mpp, 3), n=len(out),
                  frame=sum(o["material"] == "frame" for o in out), brick=sum(o["material"] == "brick" for o in out),
                  stone=sum(o["material"] == "stone" for o in out),
-                 coincide=int(hit.sum()), share=round(float(hit.mean()), 3) if len(out) else 0.0,
-                 corrected=P.corr is not None)
+                 coincide=int(hit.sum()), share=round(float(hit.mean()), 3) if len(out) else 0.0, corrected=P.corr is not None)
+    if paper is not None:
+        stats["paper"] = [float(v) for v in paper]
     if hit.sum():
         d = off[hit]
         stats["off_median_vec"] = [round(float(v), 2) for v in np.median(d, 0)]
         stats["off_median_m"] = round(float(np.median(np.hypot(d[:, 0], d[:, 1]))), 2)
+    return stats
+
+
+def regeo(layer, pid, verbose=True):
+    """Recompute the ground geometry and the match against today's footprints of a traced plate with the plate's
+    current correction (after refine / refine_buildings); the tracing itself (pixel outlines) is not redone."""
+    f = WORK / layer / f"{pid}.pkl"
+    d = pickle.load(open(f, "rb"))
+    P = Plate(layer, pid, verbose=False)
+    st = P.style
+    out = []
+    for o in d["items"]:
+        g = sg.Polygon(P.fwd(np.asarray(wkb.loads(o["px"]).exterior.coords)))
+        if not g.is_valid:
+            g = g.buffer(0)
+        if g.is_empty or g.geom_type != "Polygon" or not (st["min_m2"] <= g.area <= st["max_m2"]):
+            continue
+        out.append(dict(material=o["material"], px=o["px"], geom=wkb.dumps(g), area=g.area))
+    stats = _stats(P, out, d["stats"].get("paper"))
+    for k in ("street", "bld"):
+        if k in d["stats"]:
+            stats[k] = d["stats"][k]
+    cf = WORK / layer / f"{pid}_corr.json"
+    if cf.exists():
+        r = json.loads(cf.read_text())
+        stats["street"] = r.get("report", stats.get("street"))
+        if r.get("bld"):
+            stats["bld"] = r["bld"]
     if verbose:
-        print(json.dumps(stats), "%.0fs" % (time.time() - t0), flush=True)
-    if save and window is None:
-        (WORK / layer).mkdir(parents=True, exist_ok=True)
-        pickle.dump(dict(stats=stats, items=out, mask=wkb.dumps(ml) if ml is not None else None), open(WORK / layer / f"{P.id}.pkl", "wb"))
-    return P, out, stats, c
+        print(json.dumps(stats), flush=True)
+    ml = P.mask_local()
+    pickle.dump(dict(stats=stats, items=out, mask=wkb.dumps(ml) if ml is not None else None), open(f, "wb"))
+    return stats
+
+
+def refine_buildings(layer, pid, cell=0.5, win_m=240.0, search_m=6.0, min_q=0.45, verbose=True):
+    """Fine registration of a city plate on the buildings that still stand: the traced building mask is matched to
+    today's footprints of buildings old enough to be on the map (recorded year <= map year + 4, or none), window
+    by window (filled masks, so the rhythm of equal row houses cannot alias; the row ends, yards and corner
+    buildings give the position). The consensus of the window shifts corrects the plate (affine with >= 10
+    windows, constant shift with >= 3), on top of any street correction. Then regeo."""
+    from rasterio import features
+    from affine import Affine
+    from scipy import signal
+    d = pickle.load(open(WORK / layer / f"{pid}.pkl", "rb"))
+    P = Plate(layer, pid, verbose=False)
+    polys = [sg.Polygon(P.fwd(np.asarray(wkb.loads(o["px"]).exterior.coords))).buffer(0) for o in d["items"]]
+    polys = [q for q in polys if not q.is_empty]
+    rep = dict(plate=str(pid), n=len(polys))
+    if len(polys) < 50:
+        rep["kind"] = "none"
+        return rep
+    b = shapely.total_bounds(np.asarray(polys, object))
+    x0, y0, x1, y1 = np.floor(b[0]) - 20, np.floor(b[1]) - 20, np.ceil(b[2]) + 20, np.ceil(b[3]) + 20
+    fp, yr, _ = footprints((x0, y0, x1, y1), pad=0)
+    old = (yr == 0) | (yr <= P.spec["map_year"] + 4)
+    shp = (int((y1 - y0) / cell), int((x1 - x0) / cell))
+    tr = Affine(cell, 0, x0, 0, -cell, y1)
+    A = features.rasterize([(q, 1) for q in polys], out_shape=shp, transform=tr, dtype="uint8").astype(np.float32)
+    B = features.rasterize([(q, 1) for q in fp[old]], out_shape=shp, transform=tr, dtype="uint8").astype(np.float32)
+    w, sr = int(win_m / cell) // 2 * 2, int(round(search_m / cell))
+    h = w // 2
+    rows = []
+    for cy in range(h + sr, shp[0] - h - sr, h):
+        for cx in range(h + sr, shp[1] - h - sr, h):
+            a = A[cy - h:cy + h, cx - h:cx + h]
+            bb = B[cy - h - sr:cy + h + sr, cx - h - sr:cx + h + sr]
+            if a.mean() < 0.04 or bb.mean() < 0.04:
+                continue
+            c = signal.correlate(bb - bb.mean(), (a - a.mean()) / a.std(), mode="valid", method="fft")
+            j = np.unravel_index(np.argmax(c), c.shape)
+            bs = bb[j[0]:j[0] + w, j[1]:j[1] + w]
+            q = c[j] / (a.size * max(bs.std(), 1e-6))
+            if q < min_q or not (0 < j[0] < 2 * sr and 0 < j[1] < 2 * sr):
+                continue
+            def sub(m1, m0, p1):
+                dd = m1 - 2 * m0 + p1
+                return 0.0 if dd >= 0 else 0.5 * (m1 - p1) / dd
+            dy = j[0] - sr + sub(c[j[0] - 1, j[1]], c[j], c[j[0] + 1, j[1]])
+            dx = j[1] - sr + sub(c[j[0], j[1] - 1], c[j], c[j[0], j[1] + 1])
+            rows.append((x0 + cx * cell, y1 - cy * cell, dx * cell, -dy * cell, q))
+    rows = np.array(rows).reshape(-1, 5)
+    rep["windows"] = len(rows)
+    A1, t1, kind = np.eye(2), np.zeros(2), "none"
+    if len(rows) >= 3:
+        o, dlt = rows[:, :2], rows[:, 2:4]
+        rep["shift_median"] = [round(float(v), 2) for v in np.median(dlt, 0)]
+        keep = np.hypot(*(dlt - np.median(dlt, 0)).T) < 3.0
+        if keep.sum() >= 10:
+            for _ in range(3):
+                X = np.column_stack([o[keep], np.ones(keep.sum())])
+                C = np.linalg.lstsq(X, (o + dlt)[keep], rcond=None)[0]
+                e = np.hypot(*(np.column_stack([o, np.ones(len(o))]) @ C - (o + dlt)).T)
+                k2 = e < max(1.5, 2.5 * np.median(e[keep]))
+                if k2.sum() < 10 or (k2 == keep).all():
+                    break
+                keep = k2
+            A1, t1, kind = C[:2].T, C[2], "affine"
+            rep["fit_residual_m"] = round(float(np.median(e[keep])), 2)
+        elif keep.sum() >= 3:
+            t1, kind = dlt[keep].mean(0), "shift"
+            rep["fit_residual_m"] = round(float(np.median(np.hypot(*(dlt[keep] - t1).T))), 2)
+        rep["agree"] = int(keep.sum())
+    rep["kind"] = kind
+    if kind != "none":
+        cf = WORK / layer / f"{pid}_corr.json"
+        prev = json.loads(cf.read_text()) if cf.exists() else dict(A=np.eye(2).tolist(), t=[0.0, 0.0])
+        A0, t0 = np.array(prev["A"]), np.array(prev["t"])
+        prev.update(A=(A1 @ A0).tolist(), t=(A1 @ t0 + t1).tolist(), bld=rep)
+        cf.write_text(json.dumps(prev))
+    if verbose:
+        print(json.dumps(rep), flush=True)
+    regeo(layer, pid, verbose=verbose)
+    return rep
 
 
 # --------------------------------------------------------------------------------------------- pictures
@@ -701,6 +853,12 @@ if __name__ == "__main__":
                 refine(a[1], pid)
             except Exception as e:  # noqa
                 print(json.dumps(dict(plate=str(pid), error=str(e))), flush=True)
+    elif a[0] == "refine_buildings":
+        for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
+            refine_buildings(a[1], pid)
+    elif a[0] == "regeo":
+        for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
+            regeo(a[1], pid)
     elif a[0] == "trace":
         for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
             trace(a[1], pid)

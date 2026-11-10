@@ -27,15 +27,17 @@ OUT = G.ROOT / "data" / "tables" / "known_building_dates.sites.csv"
 COLS = ["id", "name", "lat", "lon", "bin", "start_year", "end_year", "source_url", "note"]
 
 
-# Sites whose buildings may take a map-bracket year: founded after 1925 and not a military post, so
-# that a building drawn late cannot be an old one the sheets left out (site id -> founding year).
+# Sites whose buildings may take a map-bracket year (site id -> founding year). Kept to isolated
+# civil campuses and plants founded after 1925, whose first sheets after the founding draw single
+# buildings: the readings failed everywhere else (README, "What the map brackets are worth").
 BRACKET_SITES = {
     "rikers_island_jails": 1932, "bronx_state_hospital": 1963, "bronx_municipal_hospital": 1955,
-    "hunts_point_produce_market": 1967, "hunts_point_meat_market": 1974, "ravenswood_station": 1963,
-    "poletti_power_project": 1977, "hillside_facility": 1991, "pitkin_yard": 1948, "jamaica_yard": 1936,
-    "yard_207th_street": 1932, "concourse_yard": 1933, "corona_yard": 1928, "coney_island_yard": 1926,
-    "willowbrook_state_school": 1942, "fresh_kills_landfill": 1948, "east_river_station": 1926,
+    "hunts_point_produce_market": 1967, "hunts_point_meat_market": 1974, "poletti_power_project": 1977,
+    "willowbrook_state_school": 1942, "fresh_kills_landfill": 1948,
 }
+# absent-then-drawn brackets are written only where the sheets were also looked at (Rikers Island:
+# the 1977 and 1997 revisions print the new jails in purple)
+TWO_SIDED = {"rikers_island_jails"}
 
 
 def url(src):
@@ -115,6 +117,8 @@ def main():
             two = pd.notna(r.last_absent)
             if two and r.first_drawn - r.last_absent > 25:
                 continue  # too wide to say anything (an 1890s sheet against the 1940s one)
+            if two and r.site not in TWO_SIDED:
+                continue
             if two:
                 # one empty sheet is not enough: a symbol missed once makes a false bracket (measured:
                 # one in six old buildings is missed on a given sheet). Ask for two empty 1:24k sheets

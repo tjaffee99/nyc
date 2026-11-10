@@ -1,5 +1,6 @@
 """USGS 15-minute sheets of 1888-1901 -> land / water / marsh per sheet, registered on the soil survey.
-The method is the city layer's (data/manual/natural/tools/usgs_sheets.py), with four changes:
+The method is the city layer's (data/manual/natural/tools/usgs_sheets.py), with five changes:
+  * blue ink by chromaticity instead of B - R (see one());
   * the labels come from thirteen soil survey areas (the eight counties and the five boroughs);
   * every sheet is written as its own raster (sheet pixels, shift folded into the transform) instead of one mosaic;
   * registration by area agreement instead of shoreline edges (see register());
@@ -9,7 +10,8 @@ It is also written to stay under 1 GB (features are computed in strips and kept 
 build machine is shared.
 
 Per sheet (own pixel grid, about 5.3 m):
- 1. wet = blue-ink density (water lining, marsh ruling or tint), thin lines removed;
+ 1. wet = blue-ink density (water lining, marsh ruling or tint), thin lines removed; blue ink is found by
+    chromaticity (B - R) / (R + G + B) against the paper's, which also works on yellowed sheets;
  2. registration: the sheet is shifted so that its wet mask agrees best with the soil survey's wet set near the
     survey's upland boundary;
  3. marsh against water inside wet: a linear discriminant on print texture (mean tint, fine and coarse texture,
@@ -114,14 +116,21 @@ def one(stem, soil):
     lon0, lat0, lon1, lat1, sid = SHEETS[stem]
     with rasterio.open(f"{RAW}/usgs/{stem}_62500_geo.tif") as s:
         rgb = s.read([1, 2, 3]); crs = s.crs; tr = s.transform; H, W = s.height, s.width
+    # blue ink by chromaticity (B - R) / (R + G + B), not by B - R as in the city layer: on the yellow-paper sheets
+    # (all the New Jersey ones) the grey edge pixels of black line work have a higher B - R than the paper, so dense
+    # street grids read as water with B - R (seen at Jersey City on the Staten Island sheet); their chromaticity
+    # stays at or below the paper's
     r, b = rgb[0].astype("float32"), rgb[2].astype("float32")
-    dark = (r + rgb[1] + b) <= 180          # lum <= 60
+    tot = r + rgb[1] + b
+    dark = tot <= 180          # lum <= 60
     del rgb
-    v = b - r
-    del r, b
-    hist, edges = np.histogram(v[::4, ::4], bins=256, range=(-128, 128))
-    paper = edges[np.argmax(hist)] + 0.5
-    rng = float(np.percentile(v[::4, ::4], 99.5) - paper)
+    v = (b - r) / (tot + 1.0)
+    del r, b, tot
+    sub = v[::4, ::4][~dark[::4, ::4]]
+    hist, edges = np.histogram(sub, bins=480, range=(-0.6, 0.6))
+    paper = float(edges[np.argmax(hist)] + 0.00125)
+    rng = float(np.percentile(sub, 99.5) - paper)
+    del sub
     ink = (v > paper + 0.35 * rng) & ~dark
     del dark
     vn = ((v - paper) / rng).astype("float16")
@@ -155,7 +164,7 @@ def one(stem, soil):
         wet |= pale
     del lab
     # 3. features in strips -> scratch file
-    eps = 1e-3 / rng ** 2
+    eps = 1e-6
     rows = [(a, min(H, a + STRIP)) for a in range(0, H, STRIP)]
     angs = [strip_features(vn, ink, wet, a, b_, eps) for a, b_ in rows[::3]]
     angs = np.concatenate(angs) if angs else np.zeros(0)
@@ -170,7 +179,7 @@ def one(stem, soil):
     lab_m = ndimage.binary_erosion(np.isin(code, (TMARSH, MARSHSUB)) & wet & quad, structure=rt.disk(3))
     del code, w_today
     info = dict(source=sid, shift_px=[dx, dy], shift_m=[round(float(dx * tr.a), 1), round(float(-dy * abs(tr.e)), 1)], registration=reg,
-                ruling_angle=round(a0, 1), n_water=int(lab_w.sum()), n_marsh=int(lab_m.sum()))
+                paper_chroma=round(paper, 3), ink_range=round(rng, 3), ruling_angle=round(a0, 1), n_water=int(lab_w.sum()), n_marsh=int(lab_m.sum()))
     rg = np.random.default_rng(0)
 
     def sample(mask, k):

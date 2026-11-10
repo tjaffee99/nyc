@@ -106,7 +106,11 @@ COUNTY_RADIUS = 90.0
 # vertex spacing (m) of a draped road: the terrain is the ~29 m grid inside the city box and
 # the ~58 m grid beyond it; outlines are simplified to 1 m in the city, 2.5 m in the counties
 STEP_CITY, STEP_OUTER = 30.0, 60.0
-SIMPLIFY_CITY, SIMPLIFY_COUNTY = 1.0, 2.5
+SIMPLIFY_COUNTY = 2.5
+# written coordinates are rounded to 2^-18 degree (0.42 m north-south, 0.32 m east-west) and
+# heights to 0.25 m: float32 offsets then gzip to about 63 % of their unrounded size (the site
+# has a size budget: CLAUDE.md, decision 20)
+QUANT_XY, QUANT_Z = 2.0 ** -18, 0.25
 # how a year was found (report)
 SRC_BUILDINGS, SRC_NEIGHBOUR, SRC_DEFAULT, SRC_RESEARCHED, SRC_BUILDINGS_WIDE = 0, 1, 2, 3, 4
 SRC_NAMES = (("buildings", SRC_BUILDINGS), ("buildings_90m", SRC_BUILDINGS_WIDE), ("neighbour", SRC_NEIGHBOUR),
@@ -660,9 +664,12 @@ def write_paths(path, items, ground, z_offset_fn, step=25.0, step_outer=None):
         return 0
     counts = np.concatenate(counts)
     starts = np.concatenate([[0], np.cumsum(counts)])
+    pos = np.vstack(pos)
+    pos[:, :2] = np.round(pos[:, :2] / QUANT_XY) * QUANT_XY
+    pos[:, 2] = np.round(pos[:, 2] / QUANT_Z) * QUANT_Z
     write_columnar(path, {
         "start_indices|shuffle": starts.astype(np.uint32),
-        "positions|shuffle": np.vstack(pos).astype(np.float32).ravel(),
+        "positions|shuffle": pos.astype(np.float32).ravel(),
         "kind": np.asarray([m[0] for m in meta], np.uint8),
         "width": np.clip(np.rint([m[1] for m in meta]), 1, 255).astype(np.uint8),
         "years": np.asarray([(m[2], m[3]) for m in meta], np.float32).ravel(),

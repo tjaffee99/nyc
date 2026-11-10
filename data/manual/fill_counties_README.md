@@ -6,7 +6,7 @@ Files:
 
 - `data/manual/fill_zones_counties.csv`: 70 dated zones, exactly the columns of `fill_zones.csv`. `borough` holds the county name.
 - `data/manual/fill_counties_tools/`: the scripts that built every ring from data on disk, and the checks.
-- `data/raw/fill_counties/` (gitignored): this part's Overture extracts of the wider box, 328 Wikipedia articles as wikitext, and the other pages behind the dates.
+- `data/raw/fill_counties/` (gitignored): this part's Overture extracts of the wider box, 321 Wikipedia articles as wikitext, and the other pages behind the dates.
 
 | | |
 |---|---|
@@ -128,7 +128,7 @@ What they are, and the terms:
 
 | Source | Used for | Licence / terms |
 |---|---|---|
-| English Wikipedia, fetched as wikitext with `wiki_fetch.py` into `data/raw/fill_counties/wiki/` (410 titles asked, 328 exist; the row's `source_url` names the article used) | most dates; the quoted sentences in the notes | text CC BY-SA 4.0; cite the article |
+| English Wikipedia, fetched as wikitext with `wiki_fetch.py` into `data/raw/fill_counties/wiki/` (403 titles asked, 321 exist; the row's `source_url` names the article used) | most dates; the quoted sentences in the notes | text CC BY-SA 4.0; cite the article |
 | New Jersey Meadowlands Commission / MERI, *Meadowlands Environmental Site Information Compilation*, site pages (fetched through the site's public JSON listing) | closing years of the Keegan, Malanka, Kingsland, Avon and Erie landfills | New Jersey state agency pages; cited, not redistributed |
 | S. Marshall, "The Meadowlands Before the Commission: Three Centuries of Human Use and Alteration of the Newark and Hackensack Meadows", *Urban Habitats* 2 (1), 2004 | Port Newark 1914, the Newark Meadows "totally filled in" 1914–1974, the dike schemes | journal article, free to read online; cited, not redistributed |
 | US EPA, corrective action page for the Military Ocean Terminal Bayonne (January 2025 snapshot) | the peninsula's fill from 1939 | US Government work |
