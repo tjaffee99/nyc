@@ -3,7 +3,10 @@
   1. researched years of standing buildings (buildings_def.py, text sources),
   2. years bracketed by USGS map editions (edition_brackets.csv from run_editions.py), `estimated`,
   3. one floor row per site with floor=True: id `site_floor:<site id>` - no building inside the
-     site's outline (sites.geojson) may predate the founding (to be applied to estimated years).
+     site's outline (sites.geojson) may predate the founding (to be applied to estimated years),
+  4. `site_stamp:<site>:<BIN>` rows: buildings inside such a site whose assessor year is the lot's
+     year (shared by five or more buildings of the site) and more than three years older than the
+     site - they take the founding year, `estimated` (the floor does not reach assessor years).
 
   cd data/manual/sites && ../../../.venv/bin/python -I tools/build_buildings.py
 """
@@ -38,12 +41,6 @@ BRACKET_SITES = {
 # absent-then-drawn brackets are written only where the sheets were also looked at (Rikers Island:
 # the 1977 and 1997 revisions print the new jails in purple)
 TWO_SIDED = {"rikers_island_jails"}
-
-
-# floors that should also reach assessor years (the lot's year stamped on every building)
-FLOOR_NOTE = {
-    "fort_tilden": "; HERE ALSO to assessor years: the lot's 1900 / 1901 is stamped on 50 of the fort's 60 buildings",
-}
 
 
 def url(src):
@@ -155,14 +152,33 @@ def main():
         rows.append([f"site_floor:{sid}", p["name"] + " (no building older than the site)", p["lat"], p["lon"], "",
                      p["start_year"], 9999, p["source_url"],
                      f"site_floor; site={sid}; no building inside this site's outline (data/manual/sites/sites.geojson) "
-                     f"predates {p['start_year']} - apply to estimated years only" + FLOOR_NOTE.get(sid, "")])
+                     f"predates {p['start_year']} - apply to estimated years only"])
+    # 4. the lot's year stamped on a site's buildings, earlier than the site itself: the floor as a row
+    n_stamp = 0
+    for sid, (p, g) in sites.items():
+        if not p["floor"]:
+            continue
+        b = G.built(g)
+        if not len(b):
+            continue
+        vc = b.raw_year.round().value_counts()
+        for r in b.itertuples():
+            if (r.year_src == "assessor" and r.year_confidence == "exact" and pd.notna(r.bin) and int(r.bin) % 1000000
+                    and int(r.bin) not in bins and vc.get(round(r.raw_year), 0) >= 5 and r.start_year < p["start_year"] - 3):
+                bins.add(int(r.bin))
+                n_stamp += 1
+                rows.append([f"site_stamp:{sid}:{int(r.bin)}", "", round(r.lat, 6), round(r.lon, 6), int(r.bin),
+                             p["start_year"], 9999, p["source_url"],
+                             f"estimated: not before the site's founding ({p['start_year']}); the built file had "
+                             f"{r.raw_year:.0f} from the assessor - the lot's year, stamped on "
+                             f"{int(vc.get(round(r.raw_year), 0))} buildings of the site; site={sid}"])
     with open(OUT, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(COLS)
         w.writerows(rows)
     for x in log:
         print("  ", *x)
-    print(f"{len(rows)} rows -> {OUT}: {n_text} text, {n_map} map brackets, {n_floor} site floors")
+    print(f"{len(rows)} rows -> {OUT}: {n_text} text, {n_map} map brackets, {n_floor} site floors, {n_stamp} lot-stamp fixes")
 
 
 if __name__ == "__main__":

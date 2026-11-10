@@ -857,16 +857,16 @@ def demolitions_without_outline(c, rep):
 
 # legal class of a multiple dwelling -> (not before, not after). Multiple Dwelling Law s. 4: an old-law
 # tenement existed before 12 April 1901; a new-law tenement was erected between then and 18 April 1929;
-# "heretofore" / "hereafter" erected or converted = before / after 18 April 1929.
+# "heretofore" erected or converted = before 18 April 1929. The "hereafter erected", "converted ... law"
+# and single-room-occupancy classes are left out: where the Landmarks Commission has an exact date they
+# fail it too often (31-68 %; buildings reclassified after an alteration).
 HPD_CLASS = {
-    "OLD LAW TENEMENT": (None, 1901.28), "OLD LAW SINGLE ROOM OCCUPANCY": (None, 1901.28),
-    "CONVERTED OLD LAW TENEMENT": (None, 1901.28),
-    "NEW LAW TENEMENT": (1901.28, 1929.3), "NEW LAW SINGLE ROOM OCCUPANCY": (1901.28, 1929.3),
-    "CONVERTED NEW LAW TENEMENT": (1901.28, 1929.3),
-    "HEREAFTER ERECTED CLASS A": (1929.3, None), "HEREAFTER ERECTED CLASS B": (1929.3, None),
+    "OLD LAW TENEMENT": (None, 1901.28),
+    "NEW LAW TENEMENT": (1901.28, 1929.3),
     "HERETOFORE ERECTED EXISTING CLASS A": (None, 1929.3), "HERETOFORE ERECTED EXISTING CLASS B": (None, 1929.3),
     "HERETOFORE CONVERTED CLASS A": (None, 1929.3), "HERETOFORE CONVERTED CLASS B": (None, 1929.3),
 }
+MDL_URL = "https://www.nysenate.gov/legislation/laws/MDW/4"
 
 
 def bounds(c, rep):
@@ -888,6 +888,12 @@ def bounds(c, rep):
     h[["bin", "not_before", "not_after", "cls", "p_year", "p_src", "p_conf", "violates", "source_url"]].round(2).to_csv(
         WORK / "year_bounds.csv", index=False)
     exact = h.p_conf == "exact"
+    out3 = (h.p_year < h.not_before.fillna(-1e9) - 3) | (h.p_year > h.not_after.fillna(1e9) + 3)
+    lp = exact & (h.p_src == "lpc")
+    rep["hpd_class_checked_against_lpc_exact_dates"] = {
+        k: [int(len(g_)), round(float(1 - out3[g_.index].mean()), 3)] for k, g_ in h[lp].groupby("cls")}
+    rep["hpd_class_assessor_exact_years_outside_by_3plus"] = {
+        k: [int(len(g_)), int(out3[g_.index].sum())] for k, g_ in h[exact & (h.p_src == "assessor")].groupby("cls")}
     rep["hpd_class_bounds"] = {
         "bins": int(len(h)),
         "by_class": h.cls.value_counts().to_dict(),

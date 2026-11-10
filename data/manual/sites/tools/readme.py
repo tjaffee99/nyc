@@ -59,6 +59,7 @@ def main():
     kt = k[~k.id.str.startswith("site_")]
     km = k[k.id.str.startswith("site_map:")]
     kf = k[k.id.str.startswith("site_floor:")]
+    ks = k[k.id.str.startswith("site_stamp:")]
     two = int(km.note.str.contains("absent on").sum())
     L = []
     A = L.append
@@ -75,8 +76,8 @@ def main():
     A("| file | what |\n|---|---|")
     A(f"| `sites.geojson` | {len(P)} site features (one per site and name period), WGS84 |")
     A(f"| `../../tables/known_building_dates.sites.csv` | {len(k)} rows: {len(kt)} researched years of standing buildings "
-      f"(text), {len(km)} years from USGS map editions (`site_map:` ids, estimated), {len(kf)} site floors "
-      "(`site_floor:` ids) |")
+      f"(text), {len(km)} years from USGS map editions (`site_map:` ids, estimated), {len(ks)} lot-stamp fixes "
+      f"(`site_stamp:` ids, estimated), {len(kf)} site floors (`site_floor:` ids, not dates) |")
     A(f"| `../../tables/notable_demolished.sites.csv` | {len(d)} structures that are gone ({int(d.outline.notna().sum())} "
       "with an outline, the rest as `footprint_m` + `rotation_deg`) |")
     A(f"| `edition_brackets.csv` | every footprint read on the USGS editions ({len(br)} rows, {br.site.nunique()} sites): "
@@ -126,7 +127,9 @@ def main():
     A("**Site floors**: one `site_floor:<site id>` row per site whose outline is a mapped one and whose founding is "
       "from text: no building inside the outline predates the founding. Meant for estimated years only (LPC and "
       "recorded years stand: Governors Island, Fort Totten and Welfare Island keep buildings older than a later name). "
-      "Fort Tilden's row asks for assessor years too.\n")
+      f"Where the assessor's year is the lot's year stamped on the site's buildings and older than the site, the floor "
+      f"is written out as rows ({len(ks)} `site_stamp:` rows, all in " + ", ".join(sorted(set(ks.id.str.split(":").str[1]))) +
+      "), because the pipeline's floor does not reach recorded years.\n")
     A("**Structures that are gone** (`demolished_def.py`): outlines of Fort Lafayette, the two Elmhurst gas holders, "
       "five holders of the Gas House District, Goldwater Memorial Hospital and City Hospital were read on USGS 1:24,000 "
       "sheets in a metre grid (`topo.py render`; NAD27 by PROJ's three-parameter shift, +-10 m); Waterside is its two "

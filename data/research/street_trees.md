@@ -11,12 +11,12 @@ inventory changes every two weeks, so a later download gives slightly different 
 
 | borough | trees | of them park | recorded | after-2015 bracket | diameter (species eq.) | diameter (other eq.) | output |
 |---|---|---|---|---|---|---|---|
-| Manhattan | 97,143 | 29,765 | 11,400 | 3,958 | 57,752 | 24,033 | street-trees.bin.gz |
-| Bronx | 135,662 | 40,016 | 22,293 | 4,617 | 69,164 | 39,588 | region-trees/ tiles |
-| Brooklyn | 233,776 | 40,766 | 36,124 | 7,975 | 135,299 | 54,378 | region-trees/ tiles |
-| Queens | 293,223 | 46,498 | 36,832 | 10,211 | 180,276 | 65,904 | region-trees/ tiles |
-| Staten Island | 124,384 | 15,711 | 9,870 | 5,608 | 80,527 | 28,379 | region-trees/ tiles |
-| **all** | **884,188** | 172,756 | 116,519 | 32,369 | 523,018 | 212,282 | |
+| Manhattan | 97,143 | 29,765 | 11,417 | 4,240 | 57,545 | 23,941 | street-trees.bin.gz |
+| Bronx | 135,662 | 40,016 | 22,297 | 4,743 | 69,082 | 39,540 | region-trees/ tiles |
+| Brooklyn | 233,776 | 40,766 | 36,132 | 8,194 | 135,160 | 54,290 | region-trees/ tiles |
+| Queens | 293,223 | 46,498 | 36,850 | 10,661 | 180,040 | 65,672 | region-trees/ tiles |
+| Staten Island | 124,384 | 15,711 | 9,871 | 5,850 | 80,364 | 28,299 | region-trees/ tiles |
+| **all** | **884,188** | 172,756 | 116,567 | 33,688 | 522,191 | 211,742 | |
 
 `site` of the planting space: Street 709,128, Park 172,756, unknown 2,304.
 Forms: 856,836 broadleaf, 27,352 conifer, 0 palm.
@@ -58,10 +58,10 @@ were not read — field meanings are taken from the dataset descriptions and fro
 
 | evidence (`source` column) | trees | share | `confidence` |
 |---|---|---|---|
-| 0 recorded planting date (ForMS) | 116,519 | 13.2 % | exact (0) |
-| 1 planted after the 2015 census (census + ForMS record) | 32,369 | 3.7 % | estimated (1) |
-| 2 trunk diameter, species equation (Urban Tree Database, NoEast) | 523,018 | 59.2 % | estimated (1) |
-| 3 trunk diameter, genus / neighbouring-region / pooled equation | 212,282 | 24.0 % | estimated (1) |
+| 0 recorded planting date (ForMS) | 116,567 | 13.2 % | exact (0) |
+| 1 planted after the 2015 census (census + ForMS record) | 33,688 | 3.8 % | estimated (1) |
+| 2 trunk diameter, species equation (Urban Tree Database, NoEast) | 522,191 | 59.1 % | estimated (1) |
+| 3 trunk diameter, genus / neighbouring-region / pooled equation | 211,742 | 23.9 % | estimated (1) |
 
 Order of evidence, per tree:
 
@@ -69,7 +69,7 @@ Order of evidence, per tree:
    is not a bulk date and is not contradicted by the trunk. Checks made: the busiest day holds about 540
    trees (15 May 2023), all young (median trunk 2 in, 95th percentile 3 in) — planting days, not
    data-entry stamps; no year stands out against the years around it (rule: 5 times their median);
-   0 dates rejected as bulk. 5,722 dates rejected because the trunk is far too thick for the
+   0 dates rejected as bulk. 5,674 dates rejected because the trunk is far too thick for the
    date (the trunk-age is more than max(8 years, half the tree's recorded life) older than the date):
    those are records of old trees that carry the date of something else. Stored to a tenth of a year.
    Garbage years in the table (0202, 1207, 2030, 2108) fall outside the range.
@@ -83,10 +83,12 @@ Order of evidence, per tree:
    planted tree at 3 in, the median of every year's dated plantings) -> the day the record was made
    (records that have both dates were made a median 9 days after the planting; not applied to
    records made in bulk loads, i.e. creation stamps shared by 500 records or more); else the trunk-age,
-   clipped into the bracket.
+   clipped into the bracket. The same holds for 2,324 census-period records whose ForMS trunk is
+   now much thinner than the census counted (60 % of it or less, and at least 3 in less): the tree
+   was replaced; its bracket ends at the record's last update.
 2. **Trunk diameter, species equation** and 3. **trunk diameter, other equation** (estimated): see
    "Growth equations". The trunk used is the one the 2015 census measured when the ForMS record is
-   that census tree (same spot within 1.5 m, record of the census period, 496,920 trees), dated at the
+   that census tree (same spot within 1.5 m, record of the census period, 494,596 trees), dated at the
    census record's date; otherwise ForMS's `dbh`, dated at the record's last update (else its
    creation). A whole-inch reading stands for anything within half an inch of it: each tree takes a
    stable point inside (hash of its object id), so one species' trees of one reading are not all
@@ -96,19 +98,19 @@ Bounds, applied after the estimate:
 
 - **The street** (diameter-dated trees only): not more than 3 years before the 2nd-earliest building
   within 45 m (the only one if there is one; standing or vanished, `data/interim/nyc_building_points.parquet`,
-  eight nearest) — the rule that dates the streets in `roads.py`. 26,734 trees were moved later by it.
+  eight nearest) — the rule that dates the streets in `roads.py`. 26,561 trees were moved later by it.
   Recorded dates and the census bracket are records and are not moved.
 - **Remnants**: trunks of 75 cm or more are exempt from the street bound when the species grew here
   before the town (oaks, tulip tree, beech, hickories, sweetgum, black gum, American sycamore, red /
   sugar / silver maple, American elm, ashes, basswood, black cherry, sassafras, black walnut, birches,
   white / pitch pine, hemlock, cottonwood, hackberry, chestnut, black willow, persimmon, red cedar:
-  `NATIVE` in the stage) or when the tree stands in a park: 25,588 trees (15,844 in parks), ages capped at 250
+  `NATIVE` in the stage) or when the tree stands in a park: 25,513 trees (15,844 in parks), ages capped at 250
   years (others at 150). **Deviation from the brief**, which exempts every trunk over 75 cm: a London
   plane or Norway maple is always planted, never a remnant, so thick trunks of planted species stay
-  bound to their street — this moved 2,293 trees. `REMNANT_ANY_SPECIES = True` in the stage gives
+  bound to their street — this moved 2,222 trees. `REMNANT_ANY_SPECIES = True` in the stage gives
   the wider reading.
 - **The ground**: no tree before the land under it (`data/interim/grid_detail_landyear.npy`, the cell of
-  the stored position, + 1 year). 88,895 trees stand on made land; 1,636 were moved later (2 of them
+  the stored position, + 1 year). 88,895 trees stand on made land; 1,634 were moved later (2 of them
   recorded dates, then marked estimated).
 - Never after the measurement / record date. Plantings of 2026 are stored at 2025.95 (the slider ends
   at 2026), as the Bay stage did.
@@ -289,8 +291,7 @@ Largest groups without a species equation in Queens:
 
 ## Size and form
 
-Height and crown radius from today's trunk (ForMS `dbh`, or the census trunk if larger / ForMS has
-none) with the equations above, clamped to the Bay's ranges (height 3-24 m, crown radius 1-7 m) and
+Height and crown radius from today's trunk (ForMS `dbh`; the census trunk if ForMS has none) with the equations above, clamped to the Bay's ranges (height 3-24 m, crown radius 1-7 m) and
 stored in steps of 0.5 m and 0.25 m. Form: conifer if the genus is one (abies, araucaria, calocedrus, cedrus, chamaecyparis, cryptomeria, cunninghamia, cupressocyparis, cupressus, cuprocyparis, juniperus, larix ...;
 dawn redwood, bald cypress and larch included), else broadleaf; ginkgo is drawn as a broadleaf. No
 palms: the Bay's name patterns would have turned *Acer palmatum* into palms and *Carpinus* into
@@ -300,9 +301,9 @@ conifers ("pinus"), so they are not used.
 
 | file | trees | bytes |
 |---|---|---|
-| `viewer/public/data/street-trees.bin.gz` (Manhattan, always loaded; `loadTrees`) | 97,143 | 622,819 |
-| `viewer/public/data/region-trees/index.json` + `12/<x>/<y>.bin.gz` (28 tiles; Bronx, Brooklyn, Queens, Staten Island) | 787,045 | 5,099,168 |
-| both | 884,188 | 5,721,987 (5.72 MB; budget 9 MB) |
+| `viewer/public/data/street-trees.bin.gz` (Manhattan, always loaded; `loadTrees`) | 97,143 | 623,051 |
+| `viewer/public/data/region-trees/index.json` + `12/<x>/<y>.bin.gz` (28 tiles; Bronx, Brooklyn, Queens, Staten Island) | 787,045 | 5,099,222 |
+| both | 884,188 | 5,722,273 (5.72 MB; budget 9 MB) |
 
 Format: BAYT columnar, the columns of the Bay's `sf-trees.bin.gz` / `region-trees` tiles —
 `position_q` (int32 pairs, byte-shuffled, relative to the viewer's `DECO_ORIGIN` (-73.97, 40.72) in
@@ -330,36 +331,36 @@ Read back from the files the viewer loads (29 files, 884,188 trees):
   passes the viewer's extent test (`extentDistance >= -8 km`; the farthest is 2.7 km outside the line)
 - spikes (a year with 2,000 trees or more and over 2.5 times the median of the five years on either
   side): none
-- trees per year since 2000: 2000: 15,876, 2001: 16,533, 2002: 17,835, 2003: 19,216, 2004: 20,794, 2005: 22,363, 2006: 24,580, 2007: 27,475, 2008: 28,336, 2009: 29,562, 2010: 30,220, 2011: 25,700, 2012: 20,287, 2013: 15,426, 2014: 9,937, 2015: 15,445, 2016: 12,210, 2017: 14,405, 2018: 9,923, 2019: 10,232, 2020: 10,839, 2021: 11,210, 2022: 14,813, 2023: 18,581, 2024: 20,849, 2025: 21,502, 2026: 12,375
+- trees per year since 2000: 2000: 15,833, 2001: 16,478, 2002: 17,798, 2003: 19,190, 2004: 20,744, 2005: 22,355, 2006: 24,584, 2007: 27,484, 2008: 28,391, 2009: 29,655, 2010: 30,324, 2011: 25,735, 2012: 20,286, 2013: 15,428, 2014: 9,938, 2015: 15,912, 2016: 12,520, 2017: 14,526, 2018: 10,036, 2019: 10,346, 2020: 10,920, 2021: 11,274, 2022: 14,849, 2023: 18,615, 2024: 20,871, 2025: 21,509, 2026: 12,375
 
 Planting decades:
 
 | decade | trees |
 |---|---|
 | 1830s | 1 |
-| 1850s | 7 |
-| 1860s | 25 |
-| 1870s | 53 |
-| 1880s | 202 |
-| 1890s | 343 |
-| 1900s | 887 |
-| 1910s | 1,983 |
-| 1920s | 4,193 |
-| 1930s | 11,257 |
-| 1940s | 22,143 |
-| 1950s | 33,969 |
-| 1960s | 59,506 |
-| 1970s | 55,610 |
-| 1980s | 75,286 |
-| 1990s | 122,199 |
-| 2000s | 222,570 |
-| 2010s | 163,785 |
-| 2020s | 110,169 |
+| 1850s | 5 |
+| 1860s | 22 |
+| 1870s | 51 |
+| 1880s | 194 |
+| 1890s | 341 |
+| 1900s | 865 |
+| 1910s | 1,965 |
+| 1920s | 4,156 |
+| 1930s | 11,202 |
+| 1940s | 22,054 |
+| 1950s | 33,842 |
+| 1960s | 59,333 |
+| 1970s | 55,414 |
+| 1980s | 75,013 |
+| 1990s | 121,754 |
+| 2000s | 222,512 |
+| 2010s | 165,051 |
+| 2020s | 110,413 |
 
 The rise to 2010 and the fall after it is what diameter dating of the 2015 census gives (most
 trees were measured in 2015-16); the MillionTreesNYC planting campaign falls in those years
 (2007-2015 per https://en.wikipedia.org/wiki/MillionTreesNYC — from memory, not re-read here). Recorded dates
-start in 2015 and are thin until 2019 (2015: 1,841; 2016: 4,773; 2017: 7,813; 2018: 4,622; 2019: 5,929; 2020: 8,030; 2021: 8,297; 2022: 12,319; 2023: 16,079; 2024: 17,735; 2025: 18,943; 2026: 10,133) — the bracket class fills part of that gap.
+start in 2015 and are thin until 2019 (2015: 1,852; 2016: 4,801; 2017: 7,813; 2018: 4,622; 2019: 5,929; 2020: 8,030; 2021: 8,299; 2022: 12,321; 2023: 16,082; 2024: 17,737; 2025: 18,943; 2026: 10,133) — the bracket class fills part of that gap.
 
 ## The terrain's canopy trees and the inventory
 
@@ -369,7 +370,7 @@ inventory trees have a terrain tree within 10 m (10 % of the street trees, 41 % 
 The two sets are mostly complementary (the canopy trees are woods, yards and park interiors); the
 doubles are along tree-lined streets and in landscaped parks. `street_trees.inventory_mask(transform,
 shape, reach=1)` returns the canopy cells the real trees already stand for (cells of the terrain's
-7 m canopy grid holding an inventory tree: 813,965; with their eight neighbours: 3,919,092; 2 s).
+7 m canopy grid holding an inventory tree: 813,965; with their eight neighbours: 3,919,092; 3 s).
 
 ## Not done, weak spots
 

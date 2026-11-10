@@ -4,7 +4,8 @@ D(id, name, start, end, lat, lon, height_m, storeys, material, shape, shape_note
   shape   ("outline", [(lon, lat), ...])        a real outline (traced on the cited map, or a mapped block)
           ("local", cx, cy, [(x, y), ...])      the same, in metres east / north of (cx, cy) as read on the sheet
           ("circle", lon, lat, radius_m)        a gas holder read on the sheet
-          ("rect", w, d, rotation_deg)          no outline known: footprint_m = WxD at lat / lon
+          ("rect", w, d, rotation_deg)          no outline known: footprint_m = WxD at lat / lon; w runs east-west
+                                                at 0 and turns clockwise (the convention of pipeline/nyc_extras._rect)
   Everything not stated in the source says "estimated" in shape_note.
 Sheets (USGS Historical Topographic Map Collection, public domain, read through tools/topo.py;
 positions +-10 m):
@@ -81,12 +82,12 @@ D("city_hospital_roosevelt_island", "City Hospital (Charity Hospital)", 1861, 19
   "Renwick's hospital completed 1861, closed 1957, demolished 1994; outline traced on the USGS Central Park "
   "1:24,000 sheet of 1966, +-10 m; height estimated.", "City_Hospital_(Roosevelt_Island)")
 D("blackwells_island_penitentiary", "Blackwell's Island Penitentiary", 1830, 1936, 40.7549, -73.9563, 15, "", "stone",
-  ("rect", 180, 18, 60), "Opened 3 August 1830; the inmates left and the jail was demolished by 1936, Goldwater "
+  ("rect", 180, 18, -60), "Opened 3 August 1830; the inmates left and the jail was demolished by 1936, Goldwater "
   "hospital taking the ground; position, footprint and height estimated.", "Roosevelt_Island")
 
 # ------------------------------------------------------------------ power, rail, works
 D("pearl_street_station", "Pearl Street Station (Edison Electric Illuminating Company)", 1882, 1895, 40.70778, -74.00472,
-  15, "", "brick", ("rect", 15, 30, 60), "255-257 Pearl Street on a lot of 50 by 100 ft (cited); generating from "
+  15, "", "brick", ("rect", 15, 30, -50), "255-257 Pearl Street on a lot of 50 by 100 ft (cited); generating from "
   "4 September 1882, burned 1890 and rebuilt, decommissioned 1895 (end = that year; the building's demolition was "
   "not researched); orientation, height and material estimated.", "Pearl_Street_Station")
 D("waterside_station_buildings", "Waterside Generating Station (Nos. 1 and 2)", 1901, 2007, None, None, 40, "", "brick",

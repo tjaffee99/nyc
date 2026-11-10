@@ -5,7 +5,7 @@
 "type": "Feature",
 "properties": {
 "id": "governors_island_fort_jay_1794",
-"name": "Fort Jay (Governors Island)",
+"name": "Fort Jay",
 "kind": "fort",
 "start_year": 1794,
 "end_year": 1809,
@@ -248,7 +248,7 @@
 "type": "Feature",
 "properties": {
 "id": "governors_island_fort_columbus",
-"name": "Fort Columbus (Governors Island)",
+"name": "Fort Columbus",
 "kind": "fort",
 "start_year": 1809,
 "end_year": 1904,
@@ -491,7 +491,7 @@
 "type": "Feature",
 "properties": {
 "id": "governors_island_army_1904",
-"name": "Fort Jay (Governors Island Army post)",
+"name": "Fort Jay",
 "kind": "military_base",
 "start_year": 1904,
 "end_year": 1966,
@@ -817,7 +817,7 @@
 "type": "Feature",
 "properties": {
 "id": "fort_wood",
-"name": "Fort Wood (Bedloe's Island)",
+"name": "Fort Wood",
 "kind": "fort",
 "start_year": 1806,
 "end_year": 1937,
@@ -912,7 +912,7 @@
 "type": "Feature",
 "properties": {
 "id": "fort_gibson",
-"name": "Fort Gibson (Ellis Island)",
+"name": "Fort Gibson",
 "kind": "fort",
 "start_year": 1808,
 "end_year": 1890,
@@ -1321,7 +1321,7 @@
 "type": "Feature",
 "properties": {
 "id": "fort_wadsworth_1806",
-"name": "Fort Tompkins and Fort Richmond (New York State works)",
+"name": "Fort Richmond and Fort Tompkins",
 "kind": "fort",
 "start_year": 1806,
 "end_year": 1865,
@@ -1895,7 +1895,7 @@
 "type": "Feature",
 "properties": {
 "id": "fort_at_willets_point",
-"name": "Fort at Willets Point (Camp Morgan)",
+"name": "Fort at Willets Point",
 "kind": "fort",
 "start_year": 1862,
 "end_year": 1898,
@@ -3282,7 +3282,7 @@
 "type": "Feature",
 "properties": {
 "id": "fort_lafayette",
-"name": "Fort Lafayette (Fort Diamond)",
+"name": "Fort Lafayette",
 "kind": "fort",
 "start_year": 1812,
 "end_year": 1960,
@@ -3341,7 +3341,7 @@
 "type": "Feature",
 "properties": {
 "id": "nas_new_york",
-"name": "Naval Air Station New York (Floyd Bennett Field)",
+"name": "Naval Air Station New York",
 "kind": "military_base",
 "start_year": 1941,
 "end_year": 1971,
@@ -4110,7 +4110,7 @@
 "type": "Feature",
 "properties": {
 "id": "miller_field",
-"name": "Miller Field (Army airfield)",
+"name": "Miller Field",
 "kind": "military_base",
 "start_year": 1919,
 "end_year": 1969,
@@ -4460,7 +4460,7 @@
 "type": "Feature",
 "properties": {
 "id": "brooklyn_navy_yard",
-"name": "New York Navy Yard (Brooklyn Navy Yard)",
+"name": "Brooklyn Navy Yard",
 "kind": "navy_yard",
 "start_year": 1801,
 "end_year": 1966,
@@ -4995,7 +4995,7 @@
 "type": "Feature",
 "properties": {
 "id": "brooklyn_navy_yard_industrial",
-"name": "Brooklyn Navy Yard (industrial park)",
+"name": "Brooklyn Navy Yard",
 "kind": "factory",
 "start_year": 1969,
 "end_year": 9999,
@@ -5653,7 +5653,7 @@
 "type": "Feature",
 "properties": {
 "id": "brooklyn_army_base",
-"name": "Brooklyn Army Base (New York Port of Embarkation)",
+"name": "Brooklyn Army Base",
 "kind": "military_base",
 "start_year": 1919,
 "end_year": 1966,
@@ -5859,7 +5859,7 @@
 "type": "Feature",
 "properties": {
 "id": "naval_station_new_york",
-"name": "Naval Station New York (Stapleton home port)",
+"name": "Naval Station New York",
 "kind": "military_base",
 "start_year": 1990,
 "end_year": 1994,
@@ -6253,7 +6253,7 @@
 "type": "Feature",
 "properties": {
 "id": "halloran_general_hospital",
-"name": "Halloran General Hospital (Army)",
+"name": "Halloran General Hospital",
 "kind": "hospital_campus",
 "start_year": 1942,
 "end_year": 1947,
@@ -6771,7 +6771,7 @@
 "type": "Feature",
 "properties": {
 "id": "quarantine_tompkinsville",
-"name": "New York Marine Hospital (the Quarantine)",
+"name": "The Quarantine",
 "kind": "hospital_campus",
 "start_year": 1799,
 "end_year": 1858,
@@ -6934,7 +6934,7 @@
 "type": "Feature",
 "properties": {
 "id": "hoffman_island_quarantine",
-"name": "Hoffman Island quarantine station",
+"name": "Hoffman Island Quarantine",
 "kind": "hospital_campus",
 "start_year": 1873,
 "end_year": 1938,
@@ -7001,7 +7001,7 @@
 "type": "Feature",
 "properties": {
 "id": "swinburne_island_quarantine",
-"name": "Swinburne Island quarantine hospital",
+"name": "Swinburne Island Quarantine",
 "kind": "hospital_campus",
 "start_year": 1870,
 "end_year": 1938,
@@ -7986,7 +7986,7 @@
 "type": "Feature",
 "properties": {
 "id": "thirtieth_street_yard",
-"name": "30th Street Yard (Hudson River Railroad, New York Central)",
+"name": "30th Street Yard",
 "kind": "rail_yard",
 "start_year": 1851,
 "end_year": 1987,
@@ -8065,7 +8065,7 @@
 "type": "Feature",
 "properties": {
 "id": "west_side_yard",
-"name": "West Side Yard (John D. Caemmerer)",
+"name": "West Side Yard",
 "kind": "rail_yard",
 "start_year": 1987,
 "end_year": 9999,
@@ -8219,7 +8219,7 @@
 "type": "Feature",
 "properties": {
 "id": "sixtieth_street_yard",
-"name": "60th Street Yard (New York Central)",
+"name": "60th Street Yard",
 "kind": "rail_yard",
 "start_year": 1880,
 "end_year": 1975,
@@ -8378,7 +8378,7 @@
 "type": "Feature",
 "properties": {
 "id": "bay_ridge_65th_street_yard",
-"name": "Bay Ridge (65th Street) Yard",
+"name": "Bay Ridge Yard",
 "kind": "rail_yard",
 "start_year": 1876,
 "end_year": 9999,
@@ -8485,7 +8485,7 @@
 "type": "Feature",
 "properties": {
 "id": "coney_island_yard",
-"name": "Coney Island Yard and Shops",
+"name": "Coney Island Yard",
 "kind": "rail_yard",
 "start_year": 1926,
 "end_year": 9999,
@@ -9678,7 +9678,7 @@
 "type": "Feature",
 "properties": {
 "id": "morris_park_shops",
-"name": "Morris Park Shops (Long Island Rail Road)",
+"name": "Morris Park Shops",
 "kind": "rail_yard",
 "start_year": 1889,
 "end_year": 9999,
@@ -10374,7 +10374,7 @@
 "type": "Feature",
 "properties": {
 "id": "elmhurst_gas_tanks",
-"name": "Elmhurst gas tanks (Newtown Holder Station)",
+"name": "Elmhurst gas tanks",
 "kind": "gasworks",
 "start_year": 1910,
 "end_year": 1996,
@@ -10449,7 +10449,7 @@
 "type": "Feature",
 "properties": {
 "id": "gashouse_district",
-"name": "Gas House District (Consolidated Gas works and holders)",
+"name": "Gas House District",
 "kind": "gasworks",
 "start_year": 1842,
 "end_year": 1945,
@@ -11008,7 +11008,7 @@
 "type": "Feature",
 "properties": {
 "id": "astral_oil_works",
-"name": "Astral Oil Works (Charles Pratt, Standard Oil)",
+"name": "Astral Oil Works",
 "kind": "refinery",
 "start_year": 1867,
 "end_year": 1949,
@@ -11103,7 +11103,7 @@
 "type": "Feature",
 "properties": {
 "id": "standard_oil_brooklyn_refinery",
-"name": "Standard Oil (Socony, Mobil) Brooklyn refinery",
+"name": "Standard Oil Brooklyn Refinery",
 "kind": "refinery",
 "start_year": 1870,
 "end_year": 1966,
@@ -11537,7 +11537,7 @@
 "type": "Feature",
 "properties": {
 "id": "bethlehem_staten_island",
-"name": "Bethlehem Steel Staten Island shipyard",
+"name": "Bethlehem Steel shipyard",
 "kind": "shipyard",
 "start_year": 1938,
 "end_year": 1959,
@@ -11997,7 +11997,7 @@
 "type": "Feature",
 "properties": {
 "id": "bethlehem_56th_street",
-"name": "Bethlehem Steel 56th Street shipyard",
+"name": "Bethlehem Steel shipyard",
 "kind": "shipyard",
 "start_year": 1938,
 "end_year": 1963,
@@ -12136,7 +12136,7 @@
 "type": "Feature",
 "properties": {
 "id": "erie_basin_dry_docks",
-"name": "Erie Basin dry docks (Robins Dry Dock, Todd Shipyards)",
+"name": "Erie Basin dry docks",
 "kind": "shipyard",
 "start_year": 1866,
 "end_year": 2008,
@@ -12744,7 +12744,7 @@
 "type": "Feature",
 "properties": {
 "id": "shooters_island_shipyard",
-"name": "Townsend-Downey Shipbuilding (Shooters Island)",
+"name": "Townsend-Downey Shipyard",
 "kind": "shipyard",
 "start_year": 1898,
 "end_year": 1910,
@@ -12919,7 +12919,7 @@
 "type": "Feature",
 "properties": {
 "id": "steinway_factory",
-"name": "Steinway & Sons factory (Steinway village)",
+"name": "Steinway & Sons",
 "kind": "factory",
 "start_year": 1870,
 "end_year": 9999,
@@ -13129,7 +13129,7 @@
 "type": "Feature",
 "properties": {
 "id": "domino_sugar_refinery",
-"name": "Domino Sugar Refinery (American Sugar Refining)",
+"name": "Domino Sugar Refinery",
 "kind": "factory",
 "start_year": 1882,
 "end_year": 2004,
@@ -13260,7 +13260,7 @@
 "type": "Feature",
 "properties": {
 "id": "pfizer_brooklyn",
-"name": "Charles Pfizer & Company (Brooklyn plant)",
+"name": "Chas. Pfizer & Co.",
 "kind": "factory",
 "start_year": 1849,
 "end_year": 2008,
@@ -13490,7 +13490,7 @@
 "type": "Feature",
 "properties": {
 "id": "port_ivory",
-"name": "Procter & Gamble, Port Ivory",
+"name": "Port Ivory (Procter & Gamble)",
 "kind": "factory",
 "start_year": 1907,
 "end_year": 1991,
@@ -13791,7 +13791,7 @@
 "type": "Feature",
 "properties": {
 "id": "kreischer_brick_works",
-"name": "Kreischer brick works (Kreischerville)",
+"name": "Kreischer Brick Works",
 "kind": "factory",
 "start_year": 1854,
 "end_year": 1927,
@@ -15713,7 +15713,7 @@
 "type": "Feature",
 "properties": {
 "id": "fulton_fish_market",
-"name": "Fulton Market and Fulton Fish Market",
+"name": "Fulton Fish Market",
 "kind": "terminal",
 "start_year": 1822,
 "end_year": 2005,
@@ -15920,7 +15920,7 @@
 "type": "Feature",
 "properties": {
 "id": "hunts_point_produce_market",
-"name": "Hunts Point Terminal Produce Market",
+"name": "Hunts Point Market",
 "kind": "terminal",
 "start_year": 1967,
 "end_year": 9999,
@@ -21204,7 +21204,7 @@
 "type": "Feature",
 "properties": {
 "id": "barren_island_works",
-"name": "Barren Island rendering and fertilizer works",
+"name": "Barren Island works",
 "kind": "factory",
 "start_year": 1859,
 "end_year": 1934,
@@ -21363,13 +21363,13 @@
 "type": "Feature",
 "properties": {
 "id": "rikers_island_landfill",
-"name": "Rikers Island (city farm and ash landfill)",
+"name": "Rikers Island dump",
 "kind": "landfill",
 "start_year": 1884,
 "end_year": 1932,
 "after": "same",
 "ground": "open",
-"label": true,
+"label": false,
 "source_url": "https://en.wikipedia.org/wiki/Rikers_Island",
 "note": "Bought by the city 1884 and enlarged with ashes from 90 to 415 acres until 1943 (the terrain's land year decides when ground exists).",
 "date_basis": "text",
@@ -21830,7 +21830,7 @@
 "type": "Feature",
 "properties": {
 "id": "rikers_island_jails",
-"name": "Rikers Island (penitentiary and jails)",
+"name": "Rikers Island jails",
 "kind": "prison",
 "start_year": 1932,
 "end_year": 9999,
@@ -22297,7 +22297,7 @@
 "type": "Feature",
 "properties": {
 "id": "blackwells_island",
-"name": "Blackwell's Island (penitentiary, asylum, almshouse, hospitals)",
+"name": "Blackwell's Island",
 "kind": "prison",
 "start_year": 1828,
 "end_year": 1921,
@@ -22798,7 +22798,7 @@
 "type": "Feature",
 "properties": {
 "id": "welfare_island",
-"name": "Welfare Island (city hospitals)",
+"name": "Welfare Island",
 "kind": "hospital_campus",
 "start_year": 1921,
 "end_year": 1973,
@@ -23299,7 +23299,7 @@
 "type": "Feature",
 "properties": {
 "id": "hart_island",
-"name": "Hart Island (potter's field, workhouse and institutions)",
+"name": "Hart Island potter's field",
 "kind": "other",
 "start_year": 1868,
 "end_year": 9999,
@@ -23778,7 +23778,7 @@
 "type": "Feature",
 "properties": {
 "id": "north_brother_island",
-"name": "Riverside Hospital (North Brother Island)",
+"name": "Riverside Hospital",
 "kind": "hospital_campus",
 "start_year": 1885,
 "end_year": 1963,
@@ -23977,7 +23977,7 @@
 "type": "Feature",
 "properties": {
 "id": "randalls_island_institutions",
-"name": "Randall's Island (House of Refuge, almshouse and children's hospitals)",
+"name": "House of Refuge",
 "kind": "asylum",
 "start_year": 1845,
 "end_year": 1935,
@@ -24356,7 +24356,7 @@
 "type": "Feature",
 "properties": {
 "id": "wards_island_institutions",
-"name": "Wards Island (State Emigrant Refuge, City Asylum for the Insane)",
+"name": "Wards Island asylum",
 "kind": "asylum",
 "start_year": 1847,
 "end_year": 1899,
@@ -24699,7 +24699,7 @@
 "type": "Feature",
 "properties": {
 "id": "manhattan_state_hospital",
-"name": "Manhattan State Hospital (Wards Island)",
+"name": "Manhattan State Hospital",
 "kind": "asylum",
 "start_year": 1899,
 "end_year": 1936,
@@ -25730,7 +25730,7 @@
 "type": "Feature",
 "properties": {
 "id": "creedmoor_state_hospital",
-"name": "Creedmoor State Hospital (Creedmoor Psychiatric Center)",
+"name": "Creedmoor State Hospital",
 "kind": "asylum",
 "start_year": 1912,
 "end_year": 9999,
@@ -25987,7 +25987,7 @@
 "type": "Feature",
 "properties": {
 "id": "kings_county_hospital",
-"name": "Kings County Hospital (Kings County Almshouse)",
+"name": "Kings County Hospital",
 "kind": "hospital_campus",
 "start_year": 1831,
 "end_year": 9999,

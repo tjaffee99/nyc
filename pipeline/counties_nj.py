@@ -437,23 +437,36 @@ def download_wikidata(key: str, outline) -> Path:
     return out
 
 
+# words in a Wikidata class label that mean "this item is a building, and its inception is the
+# building's" (a school, a museum, a hospital or a company is an institution: left out)
+WD_BUILDING_WORDS = ("building", "skyscraper", "high-rise", "house", "mansion", "villa", "cottage", "tower",
+                     "cathedral", "chapel", "synagogue", "mosque", "temple", "theatre", "theater", "cinema",
+                     "courthouse", "city hall", "town hall", "hotel", "shopping mall", "shopping center",
+                     "arena", "armory", "lighthouse", "castle", "barn", "mill", "factory", "warehouse",
+                     "fire station", "power station", "condominium", "meetinghouse", "inn", "tavern",
+                     "church", "basilica", "detached home", "tenement", "police station", "post office",
+                     "department store", "movie palace", "stadium", "venue", "dormitory", "rathaus",
+                     "parking garage")
+
+
 def _wd_classes(classes):
-    """Wikidata class -> [is a building (subclass of Q41176), is an architectural structure
-    (Q811979), is an organization (Q43229)], cached across counties in
+    """Wikidata class -> {b: is a building (subclass of Q41176), s: is an architectural
+    structure (Q811979), label}, cached across counties in
     data/raw/counties_nj/wikidata/classes.json."""
     p = RAWDIR / "wikidata" / "classes.json"
     known = json.loads(p.read_text()) if p.exists() else {}
-    roots = ("Q41176", "Q811979", "Q43229")
-    todo = sorted(c for c in classes if c.startswith("Q") and len(known.get(c, [])) < len(roots))
+    todo = sorted(c for c in classes if c.startswith("Q") and c not in known)
     for i in range(0, len(todo), 60):
         chunk = todo[i:i + 60]
         vals = " ".join("wd:" + c for c in chunk)
         hit = {}
-        for root in roots:
+        for root in ("Q41176", "Q811979"):
             got = _sparql(f"SELECT ?c WHERE {{ VALUES ?c {{ {vals} }} ?c wdt:P279* wd:{root} }}")
             hit[root] = {r["c"]["value"].rsplit("/", 1)[-1] for r in got}
+        lab = _sparql(f'SELECT ?c ?l WHERE {{ VALUES ?c {{ {vals} }} ?c rdfs:label ?l FILTER(LANG(?l) = "en") }}')
+        lab = {r["c"]["value"].rsplit("/", 1)[-1]: r["l"]["value"] for r in lab}
         for c in chunk:
-            known[c] = [c in hit[r] for r in roots]
+            known[c] = {"b": c in hit["Q41176"], "s": c in hit["Q811979"], "label": lab.get(c, "")}
         p.write_text(json.dumps(known))
     return known
 
@@ -466,17 +479,17 @@ def _norm(s):
 def join_wikidata(g, key, outline):
     """year_hist / hist_src / hist_nrhp / hist_name per footprint, from a Wikidata item that
       - is on the National Register of Historic Places (P649) and is an architectural structure, or
-      - has a class that is a building and not an organization (a skyscraper, a church building,
-        a house: yes; a school, a museum, a hospital, a company: no - their inception is the
-        institution's, not the building's),
+      - has a class that is a building by Wikidata's class tree and by its label (a skyscraper,
+        a church building, a house: yes; a school, a museum, a hospital, a company: no - their
+        inception is the institution's, not the building's; WD_BUILDING_WORDS),
     is not marked demolished, and whose point lies inside the footprint - or whose English label
     equals the footprint's name within 150 m. The year is the item's earliest inception (P571)
     or opening (P1619) year: not checked building by building."""
     import shapely
     d = json.loads(download_wikidata(key, outline).read_text())
     cls = _wd_classes({r["class"]["value"].rsplit("/", 1)[-1] for r in d["rows"] if "class" in r})
-    bld = {c for c, v in cls.items() if v[0] and not v[2]}
-    struct = {c for c, v in cls.items() if v[1]}
+    bld = {c for c, v in cls.items() if v["b"] and any(w in v["label"].lower() for w in WD_BUILDING_WORDS)}
+    struct = {c for c, v in cls.items() if v["s"]}
     items = {}
     for r in d["rows"]:
         q = r["item"]["value"].rsplit("/", 1)[-1]
