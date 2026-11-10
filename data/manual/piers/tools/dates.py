@@ -261,6 +261,20 @@ def main():
         c, r = ~gtr * (np.array(X), np.array(Y))
         return ly[np.clip(r.astype(int), 0, ly.shape[0] - 1), np.clip(c.astype(int), 0, ly.shape[1] - 1)]
 
+    bp = con.execute(f"SELECT lon, lat, start_year, area_m2 FROM '{E.ROOT}/data/interim/nyc_building_points.parquet' WHERE end_year = 9999 AND area_m2 >= 150").fetchnumpy()
+    bx, by = UTM.transform(np.asarray(bp["lon"], float), np.asarray(bp["lat"], float))
+    from scipy.spatial import cKDTree
+    btree = cKDTree(np.column_stack([bx, by]))
+
+    def buildings_on(g):
+        """(roofed share, earliest start year) of today's buildings whose centre lies on the outline."""
+        c = g.centroid
+        r = max(dims(g)[0], 30.0) / 2 + 20
+        idx = [i for i in btree.query_ball_point([c.x, c.y], r) if g.contains(shapely.Point(bx[i], by[i]))]
+        if not idx:
+            return 0.0, None
+        return float(sum(bp["area_m2"][i] for i in idx) / g.area), float(min(bp["start_year"][i] for i in idx))
+
     research = load_research()
 
     def research_for(t, seg, last, first):
@@ -334,9 +348,32 @@ def main():
                 p["source_url"] = sheets[src_sheet]["url"]
             else:
                 p["source"], p["source_url"] = "osm", SRC_URL["osm"]
-            # ground: share of the outline on cells that are land while the pier stands
-            if seg["start"] is not None:
-                p["land_share"] = round(float(np.mean(lyv <= (seg["end"] if seg["end"] != 9999 else TODAY) - 1)), 2)
+            if seg["first"] is not None and seg["first"].get("stroke"):
+                note.append("the 1890s sheet draws a pier here as a stroke; the outline is the later map's")
+            # ground (terrain grid, 38 m cells): made land under the outline
+            if seg["start"] is not None and not standing:
+                before = float(np.mean(lyv <= seg["start"]))                       # land before the pier: cannot be
+                during = (lyv > seg["start"]) & (lyv < seg["end"])                 # filled while the maps still show it
+                p["made_land_share"] = round(float(np.mean(lyv <= seg["end"])), 2)
+                if before > 0.6 and t["osm"] is None:
+                    review.append(dict(reason="on land older than itself (terrain grid)", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))
+                    continue
+                if during.mean() > 0.5 and seg["end_quality"] != "recorded":
+                    fy = float(np.median(lyv[during]))
+                    note.append(f"the terrain makes this ground land in {fy:.0f}, before the maps' end {seg['end']}: ended then")
+                    p["end_year"], p["end_quality"] = round(fy, 1), "estimated"
+            if standing:
+                share, by0 = buildings_on(t["g"])
+                if share >= 0.25:
+                    p["shed_building_share"] = round(share, 2)
+                    if by0 is not None and p["shed"] != "none" and by0 > (seg["start"] or 0) + 1:
+                        p["shed_end"] = by0
+                        note.append(f"from {by0:.0f} the roof is the building in the city's footprints (do not draw the shed after that)")
+                    else:
+                        p["shed"] = "none"
+                        p.pop("shed_m", None); p.pop("shed_end", None); p.pop("shed_start", None)
+                        note = [n for n in note if not n.startswith("shed height")]
+                        note.append("the building on it is in the city's footprints: no shed to draw")
             r = research_for(t, seg, k == len(segs) - 1, k == 0)
             extra = None
             if r is not None:
@@ -395,7 +432,8 @@ def main():
             if min(pi["end_year"], pj["end_year"]) - max(pi["start_year"] or 0, pj["start_year"] or 0) <= 1 or "research_url" in pj:
                 continue                                    # one after the other on the same spot: both stay
             dead.add(j)
-            review.append(dict(reason="same spot and years as a better outline", borough=pj["borough"], lon=round(gs[j].centroid.x), lat=round(gs[j].centroid.y)))
+            cw = to_wgs(gs[j].centroid)
+            review.append(dict(reason="same spot and years as a better outline", borough=pj["borough"], lon=round(cw.x, 5), lat=round(cw.y, 5)))
     feats = [f for k, f in enumerate(feats) if k not in dead]
     # ids, order
     code = {"Manhattan": "mn", "Brooklyn": "bk", "Queens": "qn", "Bronx": "bx", "Staten Island": "si"}

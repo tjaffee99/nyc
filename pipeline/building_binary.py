@@ -112,6 +112,14 @@ def source_label(src: str) -> str:
         return "no recorded year: estimated from the buildings around"
     if src == "on_map":
         return "standing on a 19th-century atlas (year estimated)"
+    if src == "evidence_by:law_old":
+        return "an old-law tenement in the city's housing records: built by April 1901 (the assessor's year is later)"
+    if src == "evidence_by:law_1929":
+        return "a tenement class of before 1929 in the city's housing records: built by then (the assessor's year is later)"
+    if src == "evidence_after:law_new":
+        return "a new-law tenement in the city's housing records: built after April 1901"
+    if src == "assessor_flagged":
+        return "city records: a year the Department of Finance marks as its own estimate"
     if src.startswith("evidence_by:aerial"):
         return f"standing on the {src[-4:]} aerial photograph: built by then (the assessor's rounded year is later)"
     if src.startswith("evidence_after:aerial"):

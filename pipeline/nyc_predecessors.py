@@ -455,7 +455,9 @@ def add_predecessors(g):
         g = g.assign(start_year=gs, year_confidence=gc, year_src=gsrc)
         t_today = np.where(redate3, rd.reindex(j_today).values, t_today)
         log(f"predecessors: {len(rd)} standing buildings re-dated to after the recorded removal of the building before them")
-    conflict |= clash & ~redate3
+    # (a recorded year up to three years before the removal is the permit year of the
+    # replacement: both records stand, the old building ends when the new one starts)
+    conflict |= clash & ~redate3 & ~(t_exact & (edoc - t_today <= 3.0))
     # nothing vanished outlasts the start of the building standing on its spot (a documented
     # building that starts no earlier than today's is that building under an old name: it goes)
     end = np.where(np.isfinite(t_today), np.minimum(end, t_today - 0.3), end)

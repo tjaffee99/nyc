@@ -5,7 +5,7 @@
 PY := .venv/bin/python
 P  := cd pipeline &&
 
-.PHONY: setup data download overture footprints extent grid evidence land ohm aerial farmsteads counties buildings county-buildings street-trees airports terrain ground-detail cities transit roads labels audit dev build deploy
+.PHONY: setup data download overture footprints extent grid evidence land ohm aerial farmsteads counties records buildings county-buildings street-trees airports terrain ground-detail cities transit roads labels audit dev build deploy
 
 setup:
 	python3 -m venv .venv
@@ -73,6 +73,12 @@ ohm: footprints
 #   -> viewer/public/data/core-buildings.bin.gz (Manhattan) + region-buildings/ tiles
 buildings: footprints overture grid land
 	$(P) ../$(PY) nyc_buildings.py
+
+# city records (not part of `make data`: its results are committed): recorded construction and
+# removal dates -> data/tables/known_building_dates.records.csv, data/manual/demolished/, and
+# the side lists copied to data/manual/records/ (README there)
+records:
+	$(P) ../$(PY) building_records.py
 
 # the counties on the map -> viewer/public/data/county-buildings/ tiles
 county-buildings: land

@@ -194,6 +194,22 @@ def assign_years(g, pluto, lpc):
     log(f"buildings: {int(has.sum())} footprints dated by the LPC building database, "
         f"{int((src == 'assessor').sum())} by a recorded assessor year, {int(is_heap.sum())} on heap years, "
         f"{int((~np.isfinite(raw)).sum())} without any year")
+    # the legal class of a tenement bounds its year (tenement_bounds): a recorded year that
+    # breaks the bound by three years or more is not this building's, and is treated as a placeholder
+    t_lo, t_hi, t_cls = tenement_bounds(g)
+    broke = (src == "assessor") & ((year > t_hi + 3.0) | (year < t_lo - 3.0))
+    is_heap |= broke
+    year[broke] = np.nan
+    conf[broke] = "estimated"
+    src[broke] = ""
+    # a year the Department of Finance itself flags as an estimate: kept, as an estimate
+    fp = ROOT_MANUAL / "records" / "dof_flagged_estimates.csv"
+    if fp.exists():
+        fl = np.isin(g.bin.fillna(0).astype("int64").values, pd.read_csv(fp).bin.values) & (src == "assessor")
+        conf[fl] = "estimated"
+        src[fl] = "assessor_flagged"
+        log(f"buildings: {int(broke.sum())} recorded years break their tenement class and are treated as placeholders; "
+            f"{int(fl.sum())} are flagged as estimates by the Department of Finance")
     # a year stamped on every building of an institutional lot (Rikers Island: 193 buildings
     # "1933") is the lot's year, not each building's: kept, but an estimate. Housing built in
     # one campaign (residential lots) keeps its year.
@@ -207,6 +223,16 @@ def assign_years(g, pluto, lpc):
     # researched rows
     year, conf, src, end = known_dates(g, year, conf, src)
     lo, hi, ev = evidence_bounds(g)
+    # the tenement classes: the tighter bound says what the evidence is
+    ev = np.where(t_hi < hi, np.where(t_cls == "old_law", "law_old", "law_1929"), ev)
+    hi = np.fmin(hi, t_hi)
+    ev = np.where(np.isfinite(t_lo) & ~(lo >= t_lo) & (ev == ""), "law_new", ev)
+    lo = np.fmax(lo, t_lo)
+    # footprints still in the city's file although their demolition is signed off
+    dp = ROOT_MANUAL / "records" / "standing_marked_for_demolition.csv"
+    if dp.exists():
+        d = pd.read_csv(dp).drop_duplicates("bin").set_index("bin").end_year.reindex(g.bin.fillna(0).astype("int64").values).values
+        end = np.where(np.isfinite(d) & (d > year + 1.0), d, end)
     sf = site_floors(g)
     ev = np.where(np.isfinite(sf) & ~(lo >= sf), "site", ev)
     lo = np.fmax(lo, sf)
@@ -278,7 +304,11 @@ def fill_estimates(xy, year, raw, is_heap, H, keys, src, lo=None, hi=None, ev=No
         # evidence beats the assessor's rounded year: standing before its window (a photograph,
         # a map shows it), or not yet there after it
         by = hi[late] < year[late]
-        year[late] = np.where(by, hi[late] - 0.5 - 7.0 * ((hb[late] + 0.3 * hl[late]) % 1.0), year[late])
+        # (how far before the bound: seven years before a photograph; the old-law tenements
+        # went up over the two decades before 1901)
+        span = np.where(ev[late].astype(str) == "law_old", 20.0, 7.0)
+        year[late] = np.where(by, hi[late] - 0.5 - span * ((hb[late] + 0.3 * hl[late]) % 1.0), year[late])
+        year[late] = np.maximum(year[late], floor[late])
         src[late] = np.where(by, "evidence_by:" + ev[late].astype(str), src[late])
         after = np.isfinite(lo[late]) & (lo[late] > v + 2.5) & ~by
         src[late] = np.where(after, "evidence_after:" + ev[late].astype(str), src[late])
@@ -360,6 +390,24 @@ def evidence_bounds(g):
     return lo, hi, ev
 
 
+def tenement_bounds(g):
+    """(not before, not after, class) per footprint from the legal class of its tenement in the
+    housing department's file (data/manual/records/year_bounds.csv, README there): old-law by
+    April 1901, new-law April 1901 - April 1929, "heretofore" by April 1929."""
+    n = len(g)
+    lo, hi, cls = np.full(n, np.nan), np.full(n, np.inf), np.full(n, "", dtype=object)
+    p = ROOT_MANUAL / "records" / "year_bounds.csv"
+    if not p.exists():
+        return lo, hi, cls
+    b = pd.read_csv(p).drop_duplicates("bin").set_index("bin").reindex(g.bin.fillna(0).astype("int64").values)
+    lo = b.not_before.values.astype(float)
+    hi = np.where(np.isfinite(b.not_after.values.astype(float)), b.not_after.values.astype(float), np.inf)
+    cls = b.cls.fillna("").values.astype(object)
+    log(f"buildings: {int((cls != '').sum())} tenements with a legal class (old-law {int((cls == 'old_law').sum())}, "
+        f"new-law {int((cls == 'new_law').sum())})")
+    return lo, hi, cls
+
+
 def known_dates(g, year, conf, src):
     """data/tables/known_building_dates*.csv: id,name,lat,lon,bin,start_year,end_year,source_url,note —
     researched years for buildings the roll misdates (exempt and institutional property, landmarks
@@ -368,7 +416,8 @@ def known_dates(g, year, conf, src):
     overwrite an earlier one's building (known_building_dates.csv, the hand-checked rows, first).
     Rows whose id starts with `site_floor:` are not dates (see site_floors)."""
     end = np.full(len(g), 9999.0)
-    files = sorted(TABLES.glob("known_building_dates*.csv"))
+    # (the bulk city records last: a hand-researched row wins)
+    files = sorted(TABLES.glob("known_building_dates*.csv"), key=lambda q: (q.name.endswith(".records.csv"), q.name))
     bins = g.bin.fillna(0).astype("int64").values
     by_bin = pd.DataFrame({"bin": bins, "i": np.arange(len(g))})
     by_bin = by_bin[(by_bin.bin % 1000000) != 0]   # the borough's placeholder BIN (x000000) is not a building

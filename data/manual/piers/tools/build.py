@@ -219,9 +219,24 @@ def load_sources():
     return out
 
 
-def boroughs():
-    g = gpd.read_file(E.OUT / "boroughs.gpkg").to_crs("EPSG:32618")
-    return [(BORO[r.COUNTYFP], r.geometry) for r in g.itertuples()]
+class Boroughs:
+    """inside the city = inside one of the five counties (TIGER, water included); which borough = the borough of the
+    nearest building (the county lines put the whole East River in New York County, so a Brooklyn pier is not in Kings)."""
+
+    def __init__(self):
+        from scipy.spatial import cKDTree
+        g = gpd.read_file(E.OUT / "boroughs.gpkg").to_crs("EPSG:32618")
+        self.city = shapely.unary_union(list(g.geometry))
+        con = duckdb.connect()
+        lon, lat, boro = con.execute(f"SELECT lon, lat, CAST(boro AS VARCHAR) FROM '{E.ROOT}/data/interim/nyc_building_points.parquet' WHERE end_year = 9999").fetchnumpy().values()
+        x, y = UTM.transform(np.asarray(lon, float), np.asarray(lat, float))
+        self.tree, self.boro = cKDTree(np.column_stack([x, y])), np.asarray(boro)
+        self.names = {"1": "Manhattan", "2": "Bronx", "3": "Brooklyn", "4": "Queens", "5": "Staten Island"}
+
+    def of(self, pt):
+        if not self.city.contains(pt):
+            return None
+        return self.names[str(self.boro[self.tree.query([pt.x, pt.y])[1]])[:1]]
 
 
 def osm_piers(boros):
@@ -234,7 +249,7 @@ def osm_piers(boros):
         g = to_utm(shapely.from_wkb(bytes(wkb)))
         if not g.is_valid:
             g = g.buffer(0)
-        b = next((n for n, poly in boros if poly.contains(g.centroid)), None)
+        b = boros.of(g.centroid)
         if b is None or (g.area < 150 and not name):
             continue
         t = json.loads(tags) if tags else {}
@@ -322,7 +337,7 @@ def dims(g):
 
 
 def main():
-    boros = boroughs()
+    boros = Boroughs()
     sources = load_sources()
     by_name = {s.name: s for s in sources}
     print(len(sources), "sources:", Counter("chart" if s.chart else E.SHEETS[s.name]["edition"] for s in sources))
@@ -341,7 +356,7 @@ def main():
             g = to_utm(shape(f["geometry"]))
             if not s.chart and s.shift != (0.0, 0.0):
                 g = shapely.affinity.translate(g, *s.shift)
-            b = next((n for n, poly in boros if poly.contains(g.centroid)), None)
+            b = boros.of(g.centroid)
             if b is not None:
                 c = dict(kind="map", src=s.name, geom=g.buffer(0), borough=b, p=p)
                 c["f"] = flags(c["geom"], ctx)

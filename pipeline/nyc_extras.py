@@ -238,6 +238,14 @@ def notable():
     return rows
 
 
+# outlines of the city's retired-footprint layer that are not buildings that stood: the World
+# Trade Center site's construction phases (data/research/building_records.md)
+DEMO_SKIP = {"oti-h79828", "oti-h1108000", "oti-h996388", "oti-h1078803", "oti-h1054572", "oti-h1037035"}
+# Shea Stadium and the old Yankee Stadium: the record says 2004, they came down in 2009-10
+# (the outline's retirement date is used)
+DEMO_RETIRED = {"oti-h560134", "oti-h72245"}
+
+
 def demolished():
     """Rows (UTM) from the city's record of removed buildings (building_records.py: the
     footprints the city retired since the 1990s, each with the year it was removed).
@@ -254,16 +262,24 @@ def demolished():
     hm = pd.to_numeric(g.height_m, errors="coerce").values if "height_m" in g else np.full(len(g), np.nan)
     st = pd.to_numeric(g.storeys, errors="coerce").values if "storeys" in g else np.full(len(g), np.nan)
     names = g["name"].values if "name" in g else np.full(len(g), None, dtype=object)
+    eq = g.end_quality.fillna("").astype(str).str.lower().values if "end_quality" in g else np.full(len(g), "recorded")
+    retired = pd.to_numeric(g.retired, errors="coerce").values if "retired" in g else np.full(len(g), np.nan)
+    ids = g.id.astype(str).values
     for k, geom in enumerate(g.geometry.values):
-        if geom is None or geom.is_empty or not np.isfinite(ey[k]):
+        if geom is None or geom.is_empty or not np.isfinite(ey[k]) or ids[k] in DEMO_SKIP:
             continue
+        if ids[k] in DEMO_RETIRED and np.isfinite(retired[k]):
+            ey[k] = retired[k]
         if geom.geom_type != "Polygon":
             geom = max(getattr(geom, "geoms", [geom]), key=lambda q: q.area)
-        h = hm[k] if np.isfinite(hm[k]) and hm[k] > 2 else (st[k] * 3.3 + 1.0 if np.isfinite(st[k]) and st[k] > 0 else np.nan)
+        # the measured height unless it is impossible for the storeys (measured in mid-demolition)
+        ok_h = np.isfinite(hm[k]) and hm[k] > 2 and not (np.isfinite(st[k]) and st[k] > 0 and hm[k] / st[k] < 2.2)
+        h = hm[k] if ok_h else (st[k] * 3.3 + 1.0 if np.isfinite(st[k]) and st[k] > 0 else np.nan)
         rows.append({"id": f"demo:{g.id.values[k]}", "map_year": int(ey[k]) - 1, "boro": "", "colors": "",
                      "name": names[k] if isinstance(names[k], str) else None,
                      "start_doc": sy[k] if sq[k] == "recorded" else np.nan, "start_est": sy[k] if sq[k] == "estimated" else np.nan,
-                     "end_doc": ey[k], "h_doc": h, "cls": "documented", "conf_doc": None, "mat_doc": "", "geometry": geom})
+                     "end_doc": ey[k], "h_doc": h, "cls": "documented",
+                     "conf_doc": None if (sq[k] == "recorded" and eq[k] == "recorded") else "estimated", "mat_doc": "", "geometry": geom})
     log(f"extras: {len(rows)} removed buildings from the city's records")
     return rows
 
