@@ -121,7 +121,7 @@ S("brooklyn_army_terminal", "Brooklyn Army Terminal", "terminal", 1981, 9999, "s
   "Brooklyn_Army_Terminal", "Bought by the city in 1981 and let to industry.", lambda: G.osm("7a7fa665"))
 S("naval_station_new_york", "Naval Station New York (Stapleton home port)", "military_base", 1990, 1994, "vacant", "paved",
   True, "Naval_Station_New_York", "Opened 1990 under the Strategic Homeport programme, closed 1994.",
-  lambda: G.union(G.osm("3a84716e"), G.osm("5f14f09b"), G.osm("0cf6216c")), floor=True)
+  lambda: G.union(G.osm("3a84716e"), G.osm("5f14f09b"), G.osm("0cf6216c")))
 S("stapleton_piers", "Stapleton piers (Foreign-Trade Zone No. 1)", "terminal", 1920, 1975, "vacant", "paved", False,
   "Stapleton,_Staten_Island", "City piers built 1920; the first Foreign Trade Zone in the United States 1937-1942 "
   "and again after the war; most piers demolished by the 1970s (end year estimated). Outline estimated: the later "
@@ -145,7 +145,7 @@ S("swinburne_island_quarantine", "Swinburne Island quarantine hospital", "hospit
   "training station from 1938 (end year = that hand-over).", lambda: G.osm("b7e6eee1"))
 S("seamens_retreat", "Seamen's Retreat / U.S. Marine Hospital (Bayley Seton)", "hospital_campus", 1831, 9999, "same",
   "open", False, "Bayley_Seton_Hospital", "Opened 1 October 1831; a private hospital from 1981. Outline: the street "
-  "block of today's campus.", lambda: G.block((-74.07542, 40.62233)), floor=True)
+  "block of today's campus.", lambda: G.block((-74.07542, 40.62233)))
 S("sailors_snug_harbor", "Sailors' Snug Harbor", "other", 1831, 1976, "park", "open", True, "Sailors'_Snug_Harbor",
   "Site bought May 1831, Building C opened August 1833; home for retired seamen until 1976 (cultural centre since).",
   lambda: G.osm("70be5c64"), floor=True)
@@ -205,7 +205,7 @@ S("yard_239th_street", "239th Street Yard", "rail_yard", 1916, 9999, "same", "ya
   "Opened 1916.", lambda: G.osm("9a91857e"), floor=True)
 S("unionport_yard", "East 180th Street and Unionport Yards", "rail_yard", 1918, 9999, "same", "yard", False,
   "New_York_City_Subway_yards", "The original shop building dated from 1918 (year of the yard estimated from it).",
-  lambda: G.osm("ecd27cab"), basis="estimated", floor=True)
+  lambda: G.osm("ecd27cab"), basis="estimated")
 S("morris_park_shops", "Morris Park Shops (Long Island Rail Road)", "rail_yard", 1889, 9999, "same", "yard", True,
   "Morris_Park_Facility", "Opened 1 November 1889.", lambda: G.union(G.osm("5b009c46"), G.osm("2f459f1c")), floor=True)
 S("hillside_facility", "Hillside Maintenance Complex (Long Island Rail Road)", "rail_yard", 1991, 9999, "same", "yard",

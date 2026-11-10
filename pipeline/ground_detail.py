@@ -33,12 +33,36 @@ rest estimated):
 Outlines are simplified to 1 m, pieces under 20 m2 dropped, holes cut open (a running track
 is a ring around its pitch), edges split at 25 m so the flat polygons follow the terrain.
 
+The counties around the city (data/manual/extent_counties.json; `boro` = "9", `county` = name):
+the same features and rules, with these differences —
+  * no Parks Department: a park / reservation / cemetery is dated only by a researched row —
+    data/tables/parks_counties.csv (another stage's table, parks.csv columns, by name; a row
+    with lon / lat or a `county` column applies to that outline only) or
+    data/tables/park_names.csv rows that carry a point (the outline of that name within
+    1.5 km of the point; the park starts with its first listed name). No official acquisition
+    dates are on disk for the counties, so that tier is empty there.
+  * golf features of a course without a researched year: the whole course at once, at the
+    median of what the buildings around its holes give (`golf_estimated`; a course does not
+    appear hole by hole).
+  * where nothing stands within 400 m the search widens to 1 km before the 1950 fallback.
+  * to keep the file small, outlines there are simplified to 2 m and the smallest pieces
+    dropped (COUNTY_MIN_AREA: lawns, gardens and plazas under 150 m2, the rest under 40 m2).
+  * labels: researched greens (as the city's greens that are not city properties: no
+    researched year, no label), golf courses with a researched year, and airfields
+    (data/interim/airports.parquet; name periods from park_names.csv). A label that repeats a
+    site of data/manual/sites/sites.geojson (drawn by another stage) is left out.
+Building years come from nyc_building_points.parquet and county_building_points.parquet.
+Everything keyed on the five boroughs (Parks properties, parks.csv, Manhattan's own file)
+applies to the city only; city features and labels are the same as before the counties.
+
 Outputs (BAYT: start_indices, positions f32[3] offsets from ORIGIN with z = ground + 0.3 m,
 kind u8, years f32[2]):
   viewer/public/data/ground-detail.bin.gz          Manhattan (loaded at start)
   viewer/public/data/region-ground-detail.bin.gz   the Bronx, Brooklyn, Queens, Staten Island
+                                                   and the counties
   viewer/public/data/park-labels.json              [{name, lon, lat, start, end?, ha, tier?}]
-  data/interim/ground_detail/report.json           counts by class and by dating rule
+  data/interim/ground_detail/report.json           counts by class and by dating rule, per county
+  data/interim/ground_detail/features.parquet      every feature: class, county, rule, year
 
 Run after pipeline/airports.py (lawns on airfields) and after the terrain grids, the
 buildings (nyc_building_points.parquet) and data/tables/parks.csv: re-run when any changes.
@@ -58,12 +82,21 @@ from shapely.geometry import box
 
 from common import BORO_COUNTY, CURRENT_YEAR, INTERIM, MANUAL, NYC_CRS, OVERTURE_RELEASE, RAW, TABLES, VIEWER_DATA, YEAR_MIN, log
 from export_columnar import write_columnar
-from extent import in_extent
+from extent import in_extent, map_counties
 
 UTM = NYC_CRS
 # offsets in the binary files are degrees from here (the header carries it; the viewer reads it)
 ORIGIN = (-73.97, 40.75)
 MANHATTAN = "061"
+COUNTY_BORO = "9"     # `boro` of the counties around the city (as county_building_points.parquet)
+# outside the city (the file is loaded at start: see CLAUDE.md, the site must stay small)
+COUNTY_SIMPLIFY_M = 2.0
+COUNTY_MIN_AREA = {"grass": 150.0, "garden": 150.0, "flowerbed": 150.0, "pedestrian": 150.0, "plaza": 150.0,
+                   "recreation_ground": 150.0, "village_green": 150.0}
+COUNTY_MIN_AREA_DEFAULT = 40.0
+COUNTY_RADIUS_M = 1000.0   # last search radius for the buildings around a feature
+MATCH_M = 1500.0           # a table row's point belongs to the outline of its name this close
+AIRPORT_LABELS_CITY = False   # JFK / LaGuardia had no label before the counties: unchanged
 
 # kinds — keep in sync with viewer/src/layers/ground-detail.ts
 KINDS = {"fairway": 0, "green": 1, "tee": 2, "rough": 3, "bunker": 4, "driving_range": 5, "pitch": 6, "track": 7,
@@ -103,6 +136,7 @@ OSM_ALIASES = {
 }
 GREEN_CLASSES = ["park", "cemetery", "grave_yard", "zoo", "nature_reserve", "state_park", "national_park", "garden",
                  "recreation_ground", "protected_landscape_seascape", "village_green"]
+COUNTY_GREEN_CLASSES = GREEN_CLASSES + ["theme_park"]   # Playland
 
 
 def norm(s):
@@ -117,24 +151,51 @@ def to_ll():
     return Transformer.from_crs(UTM, 4326, always_xy=True)
 
 
-def boroughs():
-    co = gpd.read_file(f"zip://{RAW / 'tiger' / 'tl_2024_us_county.zip'}")
-    return co[(co.STATEFP == "36") & co.COUNTYFP.isin(list(BORO_COUNTY))].to_crs(4326)[["COUNTYFP", "geometry"]]
+_counties = None
+
+
+def counties():
+    """County outlines on the map (TIGER): the five boroughs (`boro` = the county code, as
+    before the counties) and the counties around them (extent_counties.json: `boro` = "9"),
+    each with its name (`county`)."""
+    global _counties
+    if _counties is None:
+        co = gpd.read_file(f"zip://{RAW / 'tiger' / 'tl_2024_us_county.zip'}")
+        fips = (co.STATEFP + co.COUNTYFP).values
+        city = ((co.STATEFP == "36") & co.COUNTYFP.isin(list(BORO_COUNTY))).values
+        around = map_counties()
+        more = np.array([f in around for f in fips]) & ~city
+        co = co.assign(boro=np.where(city, co.COUNTYFP.values, COUNTY_BORO),
+                       county=[BORO_COUNTY[c] if ci else around.get(f, "") for c, f, ci in zip(co.COUNTYFP, fips, city)])
+        _counties = co[city | more].to_crs(4326)[["boro", "county", "geometry"]].reset_index(drop=True)
+    return _counties
+
+
+def in_city(points):
+    """Boolean mask: shapely points (EPSG:4326) inside the five boroughs."""
+    c = counties()
+    poly = shapely.union_all(c.geometry.values[c.boro.values != COUNTY_BORO])
+    shapely.prepare(poly)
+    return shapely.contains(poly, np.asarray(getattr(points, "values", points)))
 
 
 def land_use():
-    """OpenStreetMap land use polygons (Overture base/land_use) inside the five boroughs,
-    with the county code of each (`boro`)."""
+    """OpenStreetMap land use polygons (Overture base/land_use) inside the five boroughs and
+    the counties on the map, with the county code of each (`boro`; "9" outside the city),
+    the county's name (`county`) and `city` (inside the five boroughs)."""
     lu = pd.read_parquet(RAW / "overture" / OVERTURE_RELEASE / "base_land_use.parquet")
     lu = gpd.GeoDataFrame(lu, geometry=gpd.GeoSeries.from_wkb(lu.geometry), crs=4326)
     rp = lu.geometry.representative_point()
     keep = in_extent(rp)
     lu, rp = lu[keep], rp[keep]
-    j = gpd.sjoin(gpd.GeoDataFrame(geometry=rp, crs=4326), boroughs(), predicate="within", how="left")
+    j = gpd.sjoin(gpd.GeoDataFrame(geometry=rp, crs=4326), counties(), predicate="within", how="left")
     j = j[~j.index.duplicated()]
-    lu["boro"] = j.COUNTYFP.reindex(lu.index).values
-    # outside the five counties nothing can date a feature (no building years): left out
-    return lu[lu.boro.notna()].reset_index(drop=True)
+    lu["boro"] = j.boro.reindex(lu.index).values
+    lu["county"] = j.county.reindex(lu.index).values
+    # outside the counties of the map nothing can date a feature (no building years): left out
+    lu = lu[lu.boro.notna()].reset_index(drop=True)
+    lu["city"] = (lu.boro != COUNTY_BORO).values
+    return lu
 
 
 def researched_parks():
@@ -146,6 +207,67 @@ def researched_parks():
     y0 = pd.to_numeric(t.start_year, errors="coerce")
     y1 = pd.to_numeric(t.end_year, errors="coerce").fillna(9999.0)
     return {norm(n): (float(a), float(b)) for n, a, b in zip(t.name, y0, y1) if np.isfinite(a)}
+
+
+def county_researched(lu):
+    """Researched years of the counties' greens (see the module docstring): {row label of lu:
+    {"year", "end", "rows" (name periods of park_names.csv, may be empty), "src"}}, and the
+    table names that matched no outline."""
+    g = lu[~lu.city & lu["class"].isin(COUNTY_GREEN_CLASSES) & lu["name"].notna()]
+    if not len(g):
+        return {}, []
+    gu = g.to_crs(UTM)
+    key = g["name"].map(norm).values
+    area = gu.geometry.area.values
+    rows_of = {}
+    for i, k in enumerate(key):
+        rows_of.setdefault(k, []).append(i)
+    geom = gu.geometry.values
+    tr = to_utm()
+    out, missing = {}, []
+    p = TABLES / "parks_counties.csv"
+    if p.exists():
+        t = pd.read_csv(p)
+        y0 = pd.to_numeric(t.start_year, errors="coerce")
+        y1 = pd.to_numeric(t.end_year, errors="coerce").fillna(9999.0)
+        lon = pd.to_numeric(t["lon"], errors="coerce") if "lon" in t else pd.Series(np.nan, index=t.index)
+        lat = pd.to_numeric(t["lat"], errors="coerce") if "lat" in t else pd.Series(np.nan, index=t.index)
+        cty = t["county"].astype(str) if "county" in t else pd.Series("", index=t.index)
+        for nm, a, b, x, y, c in zip(t.name, y0, y1, lon, lat, cty):
+            if not np.isfinite(a) or b < 9999:
+                continue
+            cand = np.array(rows_of.get(norm(nm), rows_of.get(norm(OSM_ALIASES.get(str(nm), nm)), [])), dtype=int)
+            if len(cand) and np.isfinite(x) and np.isfinite(y):
+                pt = shapely.Point(*tr.transform(x, y))
+                cand = cand[shapely.distance(geom[cand], pt) <= MATCH_M]
+            elif len(cand) and c.strip() and c != "nan":
+                cc = norm(c).replace(" county", "")
+                cand = cand[np.array([norm(v) == cc for v in g.county.values[cand]])]
+            elif len(cand):
+                big = cand[np.argmax(area[cand])]
+                cand = cand[shapely.distance(geom[cand], geom[big]) <= 3000.0]
+            if not len(cand):
+                missing.append(str(nm))
+                continue
+            for i in cand:
+                out[g.index[i]] = {"year": float(a), "end": float(b), "rows": [], "src": "parks_counties"}
+    hist, _ = park_name_periods()
+    for k, periods in hist.items():
+        cand = rows_of.get(k)
+        pts = [(r, shapely.Point(*tr.transform(r[3], r[4]))) for r in periods if np.isfinite(r[3]) and np.isfinite(r[4])]
+        if not cand or not pts:
+            continue
+        for i in cand:
+            rows = [r for r, pt in pts if geom[i].distance(pt) <= MATCH_M]
+            if not rows:
+                continue
+            end = max(r[2] for r in rows)
+            prev = out.get(g.index[i])
+            if prev is not None:
+                prev["rows"] = rows
+            elif end >= 9999:
+                out[g.index[i]] = {"year": min(r[1] for r in rows), "end": 9999.0, "rows": rows, "src": "park_names"}
+    return out, missing
 
 
 def load_parks(lu):
@@ -172,7 +294,7 @@ def load_parks(lu):
     have = set(key[ry.notna()])
     rest = {k for k in live if k not in have}
     alias = {norm(v): k for k, v in OSM_ALIASES.items() if norm(k) in rest}   # OSM name -> parks.csv name
-    g = lu[lu["class"].isin(GREEN_CLASSES) & lu["name"].notna()].copy()
+    g = lu[lu.city & lu["class"].isin(GREEN_CLASSES) & lu["name"].notna()].copy()
     g["name"] = g["name"].map(lambda n: alias.get(norm(n), n))
     g = g[g["name"].map(norm).isin(rest)].copy()
     if len(g):
@@ -187,24 +309,47 @@ def load_parks(lu):
         rest -= set(k2)
     if rest:
         log(f"ground detail: parks.csv names with no outline in the Parks dataset or OpenStreetMap: {sorted(rest)}")
+    # the counties: OpenStreetMap greens with a researched year
+    cres, missing = county_researched(lu)
+    if cres:
+        gc = lu.loc[list(cres)].copy()
+        gc["year"] = [cres[i]["year"] for i in gc.index]
+        gc["end"] = 9999.0
+        gc["dated"] = "researched"
+        gc["kind"] = gc["class"]
+        gc["city"] = False
+        gc["name"] = gc["name"].str.strip()
+        out.append(gc[["name", "year", "end", "dated", "kind", "city", "geometry"]])
+    log(f"ground detail: {len(cres)} green outlines of the counties with a researched year "
+        f"({sum(1 for v in cres.values() if v['src'] == 'parks_counties')} by parks_counties.csv, "
+        f"{sum(1 for v in cres.values() if v['src'] == 'park_names')} by park_names.csv)"
+        + (f"; parks_counties.csv names with no OpenStreetMap outline: {sorted(set(missing))}" if missing else ""))
     parks = gpd.GeoDataFrame(pd.concat(out, ignore_index=True), geometry="geometry", crs=4326)
     parks["area_m2"] = parks.to_crs(UTM).geometry.area.values
+    parks.attrs["county_researched"] = cres
+    parks.attrs["county_missing"] = sorted(set(missing))
     return parks
 
 
 def building_points():
     """Building centroids with their years (nyc_building_points.parquet, vanished ones
-    included). The file is rewritten by the buildings stage: retry while it is being replaced."""
-    p = INTERIM / "nyc_building_points.parquet"
-    for attempt in range(12):
-        try:
-            b = pd.read_parquet(p, columns=["lon", "lat", "start_year", "end_year", "area_m2"])
-            break
-        except Exception as e:  # noqa: BLE001 — half-written file
-            log(f"ground detail: building points not readable ({e!r}), waiting")
-            time.sleep(30)
-    else:
-        raise RuntimeError(f"cannot read {p}")
+    included, and county_building_points.parquet where the counties were built). The files
+    are rewritten by the buildings stages: retry while one is being replaced."""
+    parts = []
+    for p in (INTERIM / "nyc_building_points.parquet", INTERIM / "county_building_points.parquet"):
+        if not p.exists() and p.name.startswith("county"):
+            log("ground detail: no county_building_points.parquet — the counties are dated without buildings")
+            continue
+        for attempt in range(12):
+            try:
+                parts.append(pd.read_parquet(p, columns=["lon", "lat", "start_year", "end_year", "area_m2"]))
+                break
+            except Exception as e:  # noqa: BLE001 — half-written file
+                log(f"ground detail: building points not readable ({e!r}), waiting")
+                time.sleep(30)
+        else:
+            raise RuntimeError(f"cannot read {p}")
+    b = pd.concat(parts, ignore_index=True) if len(parts) > 1 else parts[0]
     b = b[b.start_year.notna() & (b.start_year >= YEAR_MIN)]
     x, y = to_utm().transform(b.lon.values, b.lat.values)
     return (np.column_stack([x, y]), b.start_year.values.astype(float), b.end_year.fillna(9999.0).values.astype(float),

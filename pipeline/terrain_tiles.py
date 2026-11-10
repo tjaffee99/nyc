@@ -113,9 +113,10 @@ def lonlat_of(g):
     return np.meshgrid(lon, lat)
 
 
-def rasterize_on(g, shapes, fill=np.nan, dtype="float32"):
+def rasterize_on(g, shapes, fill=np.nan, dtype="float32", all_touched=False):
     t = Affine(*g["transform"][:6]) if not isinstance(g["transform"], Affine) else g["transform"]
-    return features.rasterize(shapes, out_shape=(g["rows"], g["cols"]), transform=t, fill=fill, dtype=dtype)
+    return features.rasterize(shapes, out_shape=(g["rows"], g["cols"]), transform=t, fill=fill, dtype=dtype,
+                              all_touched=all_touched)
 
 
 def nearest_fill(a, valid):
@@ -271,10 +272,12 @@ def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet, known):
         order = {"fill": 0, "pond_fill": 1, "water_fill": 1, "excavation": 2, "reservoir": 3}
         z["ord"] = z.kind.map(order).fillna(9)
         for zi, r in z.sort_values(["ord", "prec"]).iterrows():
-            m = rasterize_on(g, [(r.poly, 1)], fill=0, dtype="uint8").astype(bool)
+            kind, prec = str(r.kind), int(r.prec)
+            # a coarse ring narrower than a cell (a railroad causeway along the shore) dates every cell it touches
+            thin = kind == "fill" and not prec and r.poly.length > 0 and 2 * r.poly.area / r.poly.length < g["res"]
+            m = rasterize_on(g, [(r.poly, 1)], fill=0, dtype="uint8", all_touched=bool(thin)).astype(bool)
             if not m.any():
                 continue
-            kind, prec = str(r.kind), int(r.prec)
             ys = float(r.year_start)
             ye = float(r.year_end) if float(r.year_end) < 9000 else ys
             if kind in ("fill", "pond_fill", "water_fill"):
@@ -311,7 +314,11 @@ def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet, known):
                     temp_land &= ~cut
                     n_zone += 1
             elif kind == "reservoir":
-                sel = m & (land_now | lake_now)
+                # one that still holds water: only the cells that are water today (the rings
+                # close across causeways and take in islands); a drained one: the whole ring
+                sel = m & (lake_now if float(r.year_end) >= 9000 else (land_now | lake_now))
+                if not sel.any():
+                    continue
                 N[sel & (N == RESERVOIR) & ~known] = FOREST
                 reservoirs.append((sel, ys, float(r.year_end)))
                 n_zone += 1

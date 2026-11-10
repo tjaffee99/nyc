@@ -24,7 +24,7 @@ S("ravenswood_station", "Ravenswood Generating Station", "power_plant", 1963, 99
   "Ravenswood_Generating_Station", "Units 10 and 20 built 1963, unit 30 ('Big Allis') 1965.",
   lambda: G.osm("da0141b8"), floor=True)
 S("poletti_power_project", "Charles Poletti Power Project (Astoria 6)", "power_plant", 1977, 2010, "same", "paved", False,
-  "Charles_Poletti_Power_Project", "Generating from 1977, shut 2010.", lambda: G.osm("9cae9487"), floor=True)
+  "Charles_Poletti_Power_Project", "Generating from 1977, shut 2010.", lambda: G.osm("9cae9487"))
 S("astral_oil_works", "Astral Oil Works (Charles Pratt, Standard Oil)", "refinery", 1867, 1949, "vacant", "paved", True,
   "Astral_Oil_Works",
   "Pratt's refinery of 1867 on the block between North 12th and North 13th Streets from First Street (Kent Avenue) "

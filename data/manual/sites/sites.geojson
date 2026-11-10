@@ -5869,7 +5869,7 @@
 "source_url": "https://en.wikipedia.org/wiki/Naval_Station_New_York",
 "note": "Opened 1990 under the Strategic Homeport programme, closed 1994.",
 "date_basis": "text",
-"floor": true,
+"floor": false,
 "area_ha": 6.1,
 "lon": -74.073908,
 "lat": 40.631825
@@ -7078,7 +7078,7 @@
 "source_url": "https://en.wikipedia.org/wiki/Bayley_Seton_Hospital",
 "note": "Opened 1 October 1831; a private hospital from 1981. Outline: the street block of today's campus.",
 "date_basis": "text",
-"floor": true,
+"floor": false,
 "area_ha": 16.1,
 "lon": -74.075713,
 "lat": 40.622772
@@ -9545,7 +9545,7 @@
 "source_url": "https://en.wikipedia.org/wiki/New_York_City_Subway_yards",
 "note": "The original shop building dated from 1918 (year of the yard estimated from it).",
 "date_basis": "estimated",
-"floor": true,
+"floor": false,
 "area_ha": 6.2,
 "lon": -73.870442,
 "lat": 40.844221
@@ -10835,7 +10835,7 @@
 "source_url": "https://en.wikipedia.org/wiki/Charles_Poletti_Power_Project",
 "note": "Generating from 1977, shut 2010.",
 "date_basis": "text",
-"floor": true,
+"floor": false,
 "area_ha": 13.5,
 "lon": -73.907007,
 "lat": 40.789203
