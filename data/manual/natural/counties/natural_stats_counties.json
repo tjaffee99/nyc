@@ -1,4 +1,188 @@
 {
+ "Bergen": {
+  "county": "Bergen",
+  "area": "NJ003",
+  "bands": 2,
+  "land_today_ha": 60198.6,
+  "water_today_ha": 3780.2,
+  "no_sheet_land_ha": 21308.9,
+  "blank_paper_taken_as_water_ha": 122.2,
+  "cover_ha": {
+   "water": 736.4,
+   "tidal_marsh": 3877.3,
+   "tidal_flat": 0.0,
+   "beach": 0.0,
+   "dunes": 0.0,
+   "pond": 1149.0,
+   "freshwater_wetland": 5864.2,
+   "dry_valley": 608.6
+  },
+  "by_kind_ha": {
+   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water, land today": 35.2,
+   "pond | inland water on the USGS sheet, land today (may be a mill pond or rese": 998.1,
+   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water; soil survey: fil": 51.0,
+   "freshwater_wetland | soil survey: fill over wet substratum, not connected to tidewater; tak": 4205.2,
+   "freshwater_wetland | soil survey: Udorthents, organic substratum (fill over peat), not conn": 49.8,
+   "freshwater_wetland | soil survey: hydric natural soil (muck, or poorly drained mineral soil": 1425.2,
+   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water; soil survey maps": 97.9,
+   "pond | inland water on the USGS sheet, land today; soil survey maps upland he": 150.9,
+   "water | water on the USGS sheet, land today; soil survey: fill over wet substr": 84.0,
+   "water | water on the USGS sheet, land today": 577.0,
+   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 1314.5,
+   "tidal_marsh | marsh on the USGS sheet (sheet water over 150 m from today's tidal wat": 227.1,
+   "water | soil survey: fill over wet substratum; land already on the USGS sheet,": 6.2,
+   "tidal_marsh | soil survey: fill over wet substratum; land already on the USGS sheet,": 596.5,
+   "tidal_marsh | soil survey: Udorthents, organic substratum (fill over marsh peat)": 603.8,
+   "tidal_marsh | soil survey: tidal-marsh soil, still marsh today": 1133.2,
+   "tidal_marsh | marsh on the USGS sheet, land today; soil survey maps upland here": 2.2,
+   "water | blank on the USGS sheet seaward of its water lining (open water is not": 68.6,
+   "water | blank on the USGS sheet seaward of its water lining, land today: taken": 0.6
+  },
+  "made_land_ha": {
+   "was_water": 736.4,
+   "was_tidal_marsh": 2744.1,
+   "tidal_marsh_still_marsh": 1133.2
+  },
+  "reservoirs": [
+   {
+    "name": "Oradell Reservoir",
+    "county": "Bergen",
+    "year": 1923,
+    "ha": 238.9,
+    "sheet_wet_share": 0.376,
+    "sheets": [
+     "usgs_harlem_1891",
+     "usgs_paterson_1888"
+    ]
+   },
+   {
+    "name": "Oradell Reservoir (part 2)",
+    "county": "Bergen",
+    "year": 1923,
+    "ha": 42.3,
+    "sheet_wet_share": 0.63,
+    "sheets": [
+     "usgs_harlem_1891"
+    ]
+   },
+   {
+    "name": "Lake Tappan (Bergen and Rockland counties)",
+    "county": "Bergen",
+    "year": 1967,
+    "ha": 262.3,
+    "sheet_wet_share": 0.009,
+    "sheets": [
+     "usgs_tarrytown_1892"
+    ]
+   },
+   {
+    "name": "Woodcliff Lake reservoir",
+    "county": "Bergen",
+    "year": 1905,
+    "ha": 65.1,
+    "sheet_wet_share": null,
+    "sheets": []
+   }
+  ],
+  "lining_share": {
+   "usgs_harlem_1891": [
+    [
+     40406,
+     1.0
+    ],
+    [
+     51025,
+     0.999
+    ]
+   ],
+   "usgs_paterson_1888": [
+    [
+     0,
+     0.0
+    ],
+    [
+     50287,
+     0.865
+    ]
+   ],
+   "usgs_tarrytown_1892": [
+    [
+     55541,
+     0.109
+    ]
+   ],
+   "usgs_brooklyn_1897": [
+    [
+     0,
+     0.0
+    ]
+   ]
+  },
+  "cells_in_both_this_county_and_city_survey": 0,
+  "polygons": 1928
+ },
+ "Essex": {
+  "county": "Essex",
+  "area": "NJ013",
+  "bands": 1,
+  "land_today_ha": 32631.7,
+  "water_today_ha": 835.7,
+  "no_sheet_land_ha": 16338.4,
+  "blank_paper_taken_as_water_ha": 264.8,
+  "cover_ha": {
+   "water": 427.2,
+   "tidal_marsh": 1430.2,
+   "tidal_flat": 0.0,
+   "beach": 0.0,
+   "dunes": 0.0,
+   "pond": 102.8,
+   "freshwater_wetland": 2421.1,
+   "dry_valley": 25.2
+  },
+  "by_kind_ha": {
+   "water | water on the USGS sheet, land today": 162.2,
+   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 1408.7,
+   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water, land today": 18.6,
+   "pond | inland water on the USGS sheet, land today (may be a mill pond or rese": 27.6,
+   "freshwater_wetland | soil survey: hydric natural soil (muck, or poorly drained mineral soil": 2399.6,
+   "water | water on the USGS sheet, land today; soil survey maps upland here": 7.3,
+   "tidal_marsh | marsh on the USGS sheet, land today; soil survey maps upland here": 21.5,
+   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water; soil survey maps": 2.9,
+   "pond | inland water on the USGS sheet, land today; soil survey maps upland he": 75.2,
+   "water | blank on the USGS sheet seaward of its water lining (open water is not": 257.7
+  },
+  "made_land_ha": {
+   "was_water": 427.2,
+   "was_tidal_marsh": 1430.2,
+   "tidal_marsh_still_marsh": 0.0
+  },
+  "reservoirs": [
+   {
+    "name": "Orange Reservoir (South Mountain Reservation)",
+    "county": "Essex",
+    "year": 1885,
+    "ha": 25.2,
+    "sheet_wet_share": null,
+    "sheets": []
+   }
+  ],
+  "lining_share": {
+   "usgs_staten_island_1898": [
+    [
+     13674,
+     0.525
+    ]
+   ],
+   "usgs_paterson_1888": [
+    [
+     43028,
+     0.859
+    ]
+   ]
+  },
+  "cells_in_both_this_county_and_city_survey": 0,
+  "polygons": 237
+ },
  "Hudson": {
   "county": "Hudson",
   "area": "NJ017",
@@ -8,8 +192,8 @@
   "no_sheet_land_ha": 0.0,
   "blank_paper_taken_as_water_ha": 1687.3,
   "cover_ha": {
-   "water": 3106.9,
-   "tidal_marsh": 2377.2,
+   "water": 2513.3,
+   "tidal_marsh": 2973.1,
    "tidal_flat": 0.0,
    "beach": 0.0,
    "dunes": 0.0,
@@ -18,26 +202,27 @@
    "dry_valley": 3.3
   },
   "by_kind_ha": {
-   "water | water on the USGS sheet, land today": 446.9,
-   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture), land t": 153.1,
+   "water | water on the USGS sheet, land today": 326.3,
+   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 273.4,
    "freshwater_wetland | marsh on the USGS sheet not connected to tidal water, land today": 6.5,
    "pond | inland water on the USGS sheet, land today (may be a mill pond or rese": 26.2,
-   "tidal_marsh | marsh on the USGS sheet; soil survey: fill over wet substratum": 464.1,
+   "tidal_marsh | marsh on the USGS sheet (sheet water over 150 m from today's tidal wat": 930.7,
    "freshwater_wetland | marsh on the USGS sheet not connected to tidal water; soil survey: fil": 0.5,
    "water | soil survey: fill over wet substratum; land already on the USGS sheet,": 77.5,
-   "tidal_marsh | soil survey: fill over wet substratum; land already on the USGS sheet,": 980.5,
+   "tidal_marsh | soil survey: fill over wet substratum; land already on the USGS sheet,": 981.5,
    "freshwater_wetland | soil survey: fill over wet substratum, not connected to tidewater; tak": 16.9,
    "tidal_marsh | soil survey: tidal-marsh soil, still marsh today": 779.5,
    "freshwater_wetland | soil survey: hydric natural soil (muck, or poorly drained mineral soil": 6.8,
-   "water | water on the USGS sheet, land today; soil survey maps upland here": 8.6,
+   "water | water on the USGS sheet, land today; soil survey maps upland here": 0.6,
+   "tidal_marsh | marsh on the USGS sheet, land today; soil survey maps upland here": 8.0,
    "pond | inland water on the USGS sheet, land today; soil survey maps upland he": 8.0,
-   "water | water on the USGS sheet, land today; soil survey: fill over wet substr": 1060.9,
+   "water | water on the USGS sheet, land today; soil survey: fill over wet substr": 595.8,
    "water | blank on the USGS sheet seaward of its water lining (open water is not": 567.5,
    "water | blank on the USGS sheet seaward of its water lining, land today: taken": 945.6
   },
   "made_land_ha": {
-   "was_water": 3106.9,
-   "was_tidal_marsh": 1597.8,
+   "was_water": 2513.3,
+   "was_tidal_marsh": 2193.6,
    "tidal_marsh_still_marsh": 779.5
   },
   "reservoirs": [
@@ -79,6 +264,61 @@
    ]
   },
   "cells_in_both_this_county_and_city_survey": 0,
-  "polygons": 887
+  "polygons": 926
+ },
+ "Union": {
+  "county": "Union",
+  "area": "NJ039",
+  "bands": 1,
+  "land_today_ha": 26671.7,
+  "water_today_ha": 601.8,
+  "no_sheet_land_ha": 20237.3,
+  "blank_paper_taken_as_water_ha": 550.9,
+  "cover_ha": {
+   "water": 570.9,
+   "tidal_marsh": 1681.9,
+   "tidal_flat": 0.0,
+   "beach": 0.0,
+   "dunes": 0.0,
+   "pond": 3.6,
+   "freshwater_wetland": 759.1,
+   "dry_valley": 11.0
+  },
+  "by_kind_ha": {
+   "water | water on the USGS sheet, land today": 115.9,
+   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 597.5,
+   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water, land today": 0.0,
+   "pond | inland water on the USGS sheet, land today (may be a mill pond or rese": 3.6,
+   "tidal_marsh | soil survey: Udorthents, organic substratum (fill over marsh peat)": 877.9,
+   "freshwater_wetland | soil survey: Udorthents, organic substratum (fill over peat), not conn": 39.4,
+   "tidal_marsh | soil survey: tidal-marsh soil, still marsh today": 206.5,
+   "freshwater_wetland | soil survey: hydric natural soil (muck, or poorly drained mineral soil": 719.6,
+   "water | blank on the USGS sheet seaward of its water lining (open water is not": 455.0
+  },
+  "made_land_ha": {
+   "was_water": 570.9,
+   "was_tidal_marsh": 1475.4,
+   "tidal_marsh_still_marsh": 206.5
+  },
+  "reservoirs": [
+   {
+    "name": "Lake Surprise (Watchung Reservation)",
+    "county": "Union",
+    "year": 1845,
+    "ha": 11.0,
+    "sheet_wet_share": null,
+    "sheets": []
+   }
+  ],
+  "lining_share": {
+   "usgs_staten_island_1898": [
+    [
+     16330,
+     0.576
+    ]
+   ]
+  },
+  "cells_in_both_this_county_and_city_survey": 0,
+  "polygons": 199
  }
 }

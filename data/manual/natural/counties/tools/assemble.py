@@ -17,8 +17,12 @@ cells under a polygon of the city layer are left out) is decided, in this order,
   hydric natural soils                      freshwater_wetland
   fill and urban land that does not say     what the sheet shows: water / marsh / dry; beaches and dunes stay beach /
   what it covers; beaches; dunes            dunes unless the sheet shows water or marsh
-  upland soils                              dry (nothing written), except blocks >= 2 ha that the sheet shows wet
-                                            >= 36 m inside the unit (confidence low)
+  upland soils                              dry (nothing written), except, in the tidal zone, blocks >= 2 ha that the
+                                            sheet shows wet >= 36 m inside the unit (confidence low)
+Inland (not connected to tidewater) the sheets only turn fill / urban units into freshwater wetland where they show
+a marsh or water symbol; no ponds are written (water on the sheets there is mostly mill ponds, and the print
+texture does not separate water from marsh).  Urban land and unnamed fill below 3 m in a tidal setting that the
+sheet leaves blank is taken as marsh or filled water (source "estimated_lowland").
   reservoirs of data/manual/fill_zones_counties.csv   dry_valley over today's water
 
 "Tidal" = connected to today's tidal water (sea.tif) through cells that are water or marsh on the sheet, tidal
@@ -28,8 +32,8 @@ blank-paper open water; farther in it is counted as marsh (the print texture doe
 Blank paper on a sheet is either land or open water (the water lining stops a few hundred metres from shore): two
 fronts spread through the blank cells, one from natural upland and dune soils, one from today's open tidewater
 that the sheet leaves blank; a blank cell belongs to the front that reaches it first.  Blank patches neither front
-reaches (enclosed by lining or marsh): water if >= 60 % of the patch is water today, holes under 3 ha take what
-surrounds them (marsh or water), the rest is land (islands, barrier beaches).  This is used only where the sheet
+reaches (enclosed by lining or marsh): water if >= 60 % of the patch is water today; holes under 3 ha, and larger
+patches lying below 4.5 m today, take what surrounds them (marsh or water); the rest is land (upland islands).  This is used only where the sheet
 does line its water (>= 40 % of today's tidal water within 120 m of natural upland soil is wet on it); on a sheet without usable lining, and
 where there is no sheet, blank paper says nothing and only the soil survey decides.
 A county larger than 26 million cells is worked in horizontal bands with a 1200 m margin (memory).
@@ -65,10 +69,10 @@ SKIP_RESERVOIRS = ("Greenwood Lake", "Weequahic", "Branch Brook")   # a natural 
 KINDS = {
     1: ("sheet", "medium", "water on the USGS sheet, land today"),
     2: ("sheet", "low", "marsh on the USGS sheet (marsh / water split by print texture; sheet water over 150 m from today's tidal water counts as marsh), land today"),
-    3: ("sheet", "low", "marsh on the USGS sheet not connected to tidal water, land today"),
+    3: ("sheet", "low", "wet (marsh or water symbol) on the USGS sheet, not connected to tidal water, land today: taken as freshwater wetland"),
     4: ("sheet", "low", "inland water on the USGS sheet, land today (may be a mill pond or reservoir of the 19th century)"),
     5: ("sheet", "medium", "marsh on the USGS sheet (sheet water over 150 m from today's tidal water counts as marsh); soil survey: fill over wet substratum"),
-    6: ("sheet", "medium", "marsh on the USGS sheet not connected to tidal water; soil survey: fill over wet substratum"),
+    6: ("sheet", "medium", "wet (marsh or water symbol) on the USGS sheet, not connected to tidal water; soil survey: fill over wet substratum"),
     7: ("ssurgo", "low", "soil survey: fill over wet substratum; land already on the USGS sheet, or no usable sheet; within 150 m of open tidewater, so taken as filled water (estimated)"),
     8: ("ssurgo", "low", "soil survey: fill over wet substratum; land already on the USGS sheet, or no usable sheet; over 150 m from open tidewater, so taken as salt marsh (estimated)"),
     9: ("ssurgo", "low", "soil survey: fill over wet substratum, not connected to tidewater; taken as freshwater wetland (estimated; the survey does not say swamp, wet meadow or flood plain)"),
@@ -84,6 +88,8 @@ KINDS = {
     19: ("sheet", "low", "marsh on the USGS sheet not connected to tidal water; soil survey maps upland here"),
     20: ("sheet", "low", "inland water on the USGS sheet, land today; soil survey maps upland here"),
     21: ("sheet", "medium", "water on the USGS sheet, land today; soil survey: fill over wet substratum"),
+    24: ("estimated_lowland", "low", "urban land or unnamed fill lying below 3 m, blank on the USGS sheet (its swamp symbol is not read) or no usable sheet; over half of the ground within 300 m is tidal marsh, wet-substratum fill or tidal water: taken as marsh (estimated)"),
+    25: ("estimated_lowland", "low", "urban land or unnamed fill lying below 3 m, blank on the USGS sheet or no usable sheet; over half of the ground within 300 m is tidal water today: taken as filled water (estimated)"),
     22: ("sheet", "low", "blank on the USGS sheet seaward of its water lining (open water is not lined far from shore), land today: taken as open water"),
     23: ("sheet", "low", "blank on the USGS sheet seaward of its water lining, land today: taken as open water; soil survey: fill over wet substratum"),
 }
@@ -107,7 +113,11 @@ def big_parts(mask, min_cells):
     return np.isin(lab, keep)
 
 
-def blank_paper(blank, land_anchor, sea_anchor, u_marsh, u_water, water_today):
+RED = lambda a: a.reshape(a.shape[0] // 4, 4, a.shape[1] // 4, 4).mean(axis=(1, 3), dtype="float32")
+UP = lambda a: np.repeat(np.repeat(a, 4, axis=0), 4, axis=1)
+
+
+def blank_paper(blank, land_anchor, sea_anchor, u_marsh, u_water, water_today, dem):
     """Decide blank paper at 24 m: returns (pale_water, pale_marsh) masks at 6 m.  See the module docstring."""
     h, w = blank.shape
     red = lambda a: a.reshape(h // 4, 4, w // 4, 4).mean(axis=(1, 3), dtype="float32")
@@ -140,8 +150,9 @@ def blank_paper(blank, land_anchor, sea_anchor, u_marsh, u_water, water_today):
         wc = np.bincount(ids, weights=np.maximum(w24, wt24)[ring], minlength=n + 1)[1:]
         tc = np.bincount(ids, minlength=n + 1)[1:]
         enclosed = (mc + wc) > 0.5 * np.maximum(tc, 1)
-        as_w = (wshare >= 0.6) | ((size * 576 < 3e4) & enclosed & (wc >= mc))
-        as_m = (size * 576 < 3e4) & enclosed & (mc > wc) & ~as_w
+        small_or_low = (size * 576 < 3e4) | (ndimage.mean(RED(np.where(np.isnan(dem), 99.0, dem)), lab, index=idx) <= 4.5)
+        as_w = (wshare >= 0.6) | (small_or_low & enclosed & (wc >= mc))
+        as_m = small_or_low & enclosed & (mc > wc) & ~as_w
         pw |= np.isin(lab, idx[as_w])
         pm |= np.isin(lab, idx[as_m])
     up = lambda a: np.repeat(np.repeat(a, 4, axis=0), 4, axis=1)
@@ -205,7 +216,6 @@ def band(area, name, soilwin, rings, c0, c1, r0, r1, k0, k1, acc):
     sea = sea.astype(bool) & water_today
     barrier = dilate(water_today & ~sea & (dem > 3.0), 10)
     low8 = ~(dem > 8.0)
-    del dem
     u_water, u_marsh = us == 1, us == 2
     # does the sheet line its water?  share of today's near-shore tidal water that is wet on it
     shore = sea & dilate(natural_up, 20)          # tidal water within 120 m of natural upland soil: shores that have not moved
@@ -221,7 +231,7 @@ def band(area, name, soilwin, rings, c0, c1, r0, r1, k0, k1, acc):
     # blank paper: land or open water?
     open_w = dilate(erode(sea, 10), 10) & sea
     blank = ~(u_water | u_marsh) & (sc != 0)
-    pale_w, pale_m = blank_paper(blank, blank & np.isin(sc, (UPLAND, DUNES)), blank & open_w, u_marsh, u_water, water_today)
+    pale_w, pale_m = blank_paper(blank, blank & np.isin(sc, (UPLAND, DUNES)), blank & open_w, u_marsh, u_water, water_today, dem)
     pale_w &= lined; pale_m &= lined
     u_water |= pale_w; u_marsh |= pale_m
     del blank, pale_m, lined
@@ -246,6 +256,7 @@ def band(area, name, soilwin, rings, c0, c1, r0, r1, k0, k1, acc):
     u_water2 &= ~far
     del far
     near_open = dilate(open_w, 25)
+    sea0 = sea
     del open_w, sea
     land = own & ~water_today
     out = np.zeros((h, w), "uint8"); kind = np.zeros((h, w), "uint8")
@@ -256,10 +267,9 @@ def band(area, name, soilwin, rings, c0, c1, r0, r1, k0, k1, acc):
 
     ws = sc == WETSUB
     put(ws & u_marsh2 & tidal, 2, 5)
-    put(ws & u_marsh2 & ~tidal, 7, 6)
+    put(ws & (u_marsh2 | u_water2) & ~tidal, 7, 6)
     put(ws & pale_w & tidal, 1, 23)
     put(ws & u_water2 & tidal, 1, 21)
-    put(ws & u_water2 & ~tidal, 6, 4)
     put(ws & tidal & near_open, 1, 7)
     put(ws & tidal, 2, 8)
     put(ws, 7, 9)
@@ -273,8 +283,13 @@ def band(area, name, soilwin, rings, c0, c1, r0, r1, k0, k1, acc):
     put(amb & pale_w & tidal, 1, 22)
     put(amb & u_water2 & tidal, 1, 1)
     put(amb & u_marsh2 & tidal, 2, 2)
-    put(amb & u_marsh2 & ~tidal, 7, 3)
-    put(amb & u_water2 & ~tidal, 6, 4)
+    put(amb & (u_marsh2 | u_water2) & ~tidal, 7, 3)
+    # undifferentiated urban land and unnamed fill below 3 m, blank on the sheet, in a tidal setting (estimated)
+    ctx = lambda m: UP(ndimage.uniform_filter(RED(m), 25)) >= 0.5
+    lowl = (sc == AMBIG) & (dem <= 3.0) & (out == 0)
+    put(lowl & ctx(sea0), 1, 25)
+    put(lowl & ctx(tidal | np.isin(sc, (WETSUB, MARSHSUB, TMARSH))), 2, 24)
+    del lowl, sea0, dem
     put(sc == BEACH, 4, 15)
     put(sc == DUNES, 5, 16)
     del amb
@@ -284,8 +299,6 @@ def band(area, name, soilwin, rings, c0, c1, r0, r1, k0, k1, acc):
     del u_wet
     put(deep & u_water2 & tidal, 1, 17)
     put(deep & u_marsh2 & tidal, 2, 18)
-    put(deep & u_marsh2 & ~tidal, 7, 19)
-    put(deep & u_water2 & ~tidal, 6, 20)
     del deep, tidal, u_water2, u_marsh2
     for c in COV:                                    # small specks
         m = out == c
@@ -314,7 +327,7 @@ def band(area, name, soilwin, rings, c0, c1, r0, r1, k0, k1, acc):
         for k in np.unique(kind[out == c]):
             src, conf, note = KINDS[int(k)]
             m0 = (out == c) & (kind == k)
-            parts = [(m0, "ssurgo")] if src == "ssurgo" else [(m0 & (usid == j), SID[j - 1]) for j in np.unique(usid[m0]) if j]
+            parts = [(m0, src)] if src != "sheet" else [(m0 & (usid == j), SID[j - 1]) for j in np.unique(usid[m0]) if j]
             for m, source in parts:
                 for g in rt.polygons(m, tr, 1200.0, 5.0):
                     rows.append(dict(cover=cover, source=source, confidence=conf, note=note, county=name, kind=int(k), geometry=g))

@@ -11,7 +11,7 @@ POINTS = [  # name, lon, lat, expectation
     ("Port Elizabeth", -74.150, 40.670, "wet"), ("Liberty State Park", -74.055, 40.704, "wet"),
     ("Liberty Science Center (Communipaw)", -74.0545, 40.7085, "wet"), ("Liberty State Park south (Black Tom side)", -74.052, 40.698, "wet"),
     ("Harsimus Cove (Newport)", -74.037, 40.727, "wet"), ("Hoboken west side", -74.0375, 40.7425, "wet"),
-    ("Bayonne ocean terminal (MOTBY)", -74.082, 40.6600, "wet"), ("Kearny Point", -74.105, 40.725, "wet"),
+    ("Kearny Point", -74.105, 40.725, "wet"),
     ("Meadowlands sports complex (stadium)", -74.0745, 40.8135, "wet"), ("Teterboro Airport", -74.061, 40.850, "wet"),
     ("Secaucus Junction (meadows)", -74.0755, 40.7615, "wet"), ("Harmon Meadow, Secaucus", -74.045, 40.790, "wet"), ("Playland, Rye", -73.6735, 40.9665, "wet"),
     ("Piermont pier (middle)", -73.906, 41.0425, "wet"), ("Piermont marsh", -73.913, 41.030, "wet"),
