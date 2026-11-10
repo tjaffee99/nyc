@@ -79,7 +79,30 @@ def load():
     g = g.explode(index_parts=False)
     g = g[g.geometry.geom_type == "Polygon"].reset_index(drop=True)
     g["area"] = g.geometry.to_crs(UTM).area.values
-    return g[g["area"] > 12].reset_index(drop=True)
+    # (outbuildings under 25 m2 — sheds — are not drawn in the counties: the site must stay small)
+    return g[g["area"] > 25].reset_index(drop=True)
+
+
+def recorded_evidence():
+    """(outlines EPSG:4326, years, strong) of the county buildings with a recorded year of
+    their own: evidence that their ground existed (ground_rule.write_evidence). A state
+    inventory year is strong; a parcel year (not a placeholder, the lot's main building) weak."""
+    g = load()
+    if g is None:
+        return np.zeros(0, dtype=object), np.zeros(0), np.zeros(0, bool)
+    n = len(g)
+    county = g.county.astype(str).values
+    raw = pd.to_numeric(g.year_raw, errors="coerce").values.astype(float)
+    raw = np.where((raw >= YEAR_MIN) & (raw <= NOW + 1), raw, np.nan)
+    heap = g.heap.fillna(False).astype(bool).values.copy() if "heap" in g else np.zeros(n, bool)
+    for c, hs in find_heaps(raw, county).items():
+        heap |= (county == c) & np.isin(raw, list(hs))
+    secondary = g.secondary.fillna(False).astype(bool).values if "secondary" in g else np.zeros(n, bool)
+    hist = pd.to_numeric(g.year_hist, errors="coerce").values.astype(float) if "year_hist" in g else np.full(n, np.nan)
+    hist_ok = np.isfinite(hist) & (hist >= YEAR_MIN) & (hist <= NOW)
+    year = np.where(hist_ok, hist, np.where(heap | secondary, np.nan, raw))
+    ok = np.isfinite(year)
+    return g.geometry.values[ok], year[ok], hist_ok[ok]
 
 
 def main():
@@ -123,7 +146,9 @@ def main():
     conf = np.where(np.isin(src, ["parcel", "historic_register"]), "exact", "estimated").astype(object)
     log(f"counties: {n} footprints: {pd.Series(src).str.split(':').str[0].value_counts().to_dict()}")
     start = row_timing(xy, year, keys)
+    start0 = start
     start = land_check(g.geometry.values, start, src, H, keys)
+    conf = np.where(start > start0 + 0.05, "estimated", conf).astype(object)   # waits for its ground: no longer the record's year
     start = np.minimum(start, 2029.9)
     stories = np.where(floors > 0, floors, np.maximum(1, np.round(H / 3.4)))
     cls = np.array([USE_CLASS.get(int(u), "") for u in use], dtype=object)
@@ -139,7 +164,7 @@ def main():
                             "year_confidence": conf, "use": use, "raw_year": np.nan_to_num(raw), "stories": stories,
                             "mat": mat, "roof": roof, "fid_key": keys, "year_src": src, "name": names, "county": county,
                             "height_m": H, "area": area}, geometry=g.geometry.values, crs=4326)
-    out["geometry"] = out.geometry.to_crs(UTM).simplify(0.4, preserve_topology=True).to_crs(4326)
+    out["geometry"] = out.geometry.to_crs(UTM).simplify(0.6, preserve_topology=True).to_crs(4326)
     out = out[~out.geometry.is_empty & out.geometry.is_valid & (out.geometry.geom_type == "Polygon")]
     rp = out.geometry.representative_point()
     pd.DataFrame({"lon": rp.x.values, "lat": rp.y.values, "start_year": out.start_year.values, "end_year": out.end_year.values,

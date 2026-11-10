@@ -387,7 +387,35 @@ def piers():
                                         mat=M_EARLY, roof=R_SHINGLE, fid_key=f"pier:{r.id}:shed", geometry=inner))
     if not out:
         return None
-    gdf = gpd.GeoDataFrame(out, geometry="geometry", crs=UTM).to_crs(4326)
+    gdf = gpd.GeoDataFrame(out, geometry="geometry", crs=UTM)
+    # no two decks on one spot at once (the same pier read from two map editions, a pier
+    # rebuilt longer): the earlier deck ends when the later one starts, or the lesser one goes
+    deck = ~gdf.fid_key.str.endswith(":shed").values
+    d = gdf[deck].reset_index(drop=True)
+    ii, jj = d.sindex.query(d.geometry.values, predicate="intersects")
+    m = ii < jj
+    ii, jj = ii[m], jj[m]
+    ar = d.geometry.area.values
+    inter = shapely.area(shapely.intersection(d.geometry.values[ii], d.geometry.values[jj]))
+    s_, e_ = d.start_year.values.copy(), d.end_year.values.copy()
+    drop = np.zeros(len(d), bool)
+    for i, j in zip(ii[inter > 0.3 * np.minimum(ar[ii], ar[jj])], jj[inter > 0.3 * np.minimum(ar[ii], ar[jj])]):
+        if drop[i] or drop[j] or s_[i] >= e_[j] or s_[j] >= e_[i]:
+            continue
+        a, b = (i, j) if s_[i] <= s_[j] else (j, i)       # a starts first
+        if e_[b] > e_[a] - 0.5 and s_[b] - s_[a] > 1.5:
+            e_[a] = s_[b] - 0.2
+        else:
+            drop[b if ar[b] <= ar[a] else a] = True
+    keep_key = dict(zip(d.fid_key.values[~drop], zip(s_[~drop], e_[~drop])))
+    base_key = gdf.fid_key.str.replace(":shed", "", regex=False).values
+    keep = np.array([k in keep_key for k in base_key])
+    gdf = gdf[keep].reset_index(drop=True)
+    lim = np.array([keep_key[k] for k in base_key[keep]])
+    gdf["end_year"] = np.minimum(gdf.end_year.values, lim[:, 1])
+    gdf = gdf[gdf.end_year > gdf.start_year + 0.5]
+    log(f"extras: piers: {int(drop.sum())} overlapping decks dropped, {int((e_ != d.end_year.values).sum())} ended when their successor starts")
+    gdf = gdf.to_crs(4326)
     gdf["boro"] = boro_of(gdf.geometry.representative_point().values)
     # piers inside the map (Manhattan's go into the core file with boro "1"; the New Jersey
     # shore's, boro "", into the tiles)

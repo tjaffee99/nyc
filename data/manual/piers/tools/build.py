@@ -69,7 +69,8 @@ class Source:
             self.label = f"C&GS / NOAA chart {meta['quad'].split()[-1] if meta['date_on_map'] < 1974 else {'745': '12335', '541': '12334'}[meta['quad'].split()[-1]]}, {meta['date_on_map']} edition"
             self.A = rasterio.Affine(*meta["affine"])
             fit = meta["fit"][-1]
-            self.use = fit["used"] >= 8 and fit["rms_m"] <= 30
+            # a chart without a land tint (541 of 1898 and 1912) fits nothing: its fit is not to be believed
+            self.use = (fit["used"] >= 8 and fit["rms_m"] <= 30 and meta["coarse_score"] >= 0.2 and meta["tint_means"][1] - meta["tint_means"][0] >= 20)
             self.trusted = fit["rms_m"] <= 5          # fitted to today's shore within 5 m: its outlines are control
             self.shift = (0.0, 0.0)
         else:
@@ -242,7 +243,9 @@ class Boroughs:
     def of(self, pt):
         if not self.city.contains(pt):
             return None
-        return self.names[str(self.boro[self.tree.query([pt.x, pt.y])[1]])[:1]]
+        # majority of the 25 nearest buildings (a shed on a pier can carry the wrong borough)
+        idx = self.tree.query([pt.x, pt.y], k=25)[1]
+        return self.names[Counter(str(b)[:1] for b in self.boro[idx]).most_common(1)[0][0]]
 
 
 def osm_piers(boros):

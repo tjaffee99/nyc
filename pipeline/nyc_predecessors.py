@@ -377,7 +377,9 @@ def add_predecessors(g):
                        "tstart": gu.start.values[j3]})
     # today's building took the spot: it covers a good part of the old outline, or lies mostly inside it
     ov["iou"] = it3 / (v["area"].values[i3] + gu["area"].values[j3] - it3)
-    ov2 = ov[(ov.f >= 0.3) | (ov.fb >= 0.5)].sort_values("tstart").drop_duplicates("i").set_index("i")
+    # (or holds the old outline's centre: a traced row drawn as one long outline)
+    ov["cin"] = shapely.contains(gu.geometry.values[j3], cen.values[i3])
+    ov2 = ov[(ov.f >= 0.3) | (ov.fb >= 0.5) | ov.cin].sort_values("tstart").drop_duplicates("i").set_index("i")
     t_today = ov2.tstart.reindex(range(n)).values.astype(float)
     j_today = ov2.j.reindex(range(n)).fillna(-1).values.astype(int)
     iou_today = ov2.iou.reindex(range(n)).fillna(0).values

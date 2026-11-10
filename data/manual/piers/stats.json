@@ -1,88 +1,88 @@
 {
- "features": 983,
- "standing": 251,
- "vanished": 732,
+ "features": 898,
+ "standing": 245,
+ "vanished": 653,
  "by_borough": {
-  "Bronx": 86,
-  "Brooklyn": 268,
-  "Manhattan": 329,
-  "Queens": 129,
-  "Staten Island": 171
+  "Bronx": 84,
+  "Brooklyn": 255,
+  "Manhattan": 296,
+  "Queens": 105,
+  "Staten Island": 158
  },
  "by_borough_vanished": {
-  "Bronx": 64,
-  "Brooklyn": 197,
-  "Manhattan": 232,
-  "Queens": 101,
-  "Staten Island": 138
+  "Bronx": 61,
+  "Brooklyn": 184,
+  "Manhattan": 202,
+  "Queens": 80,
+  "Staten Island": 126
  },
  "start_decade": {
-  "1880s": 22,
-  "1890s": 311,
-  "1900s": 11,
-  "1910s": 73,
-  "1920s": 69,
-  "1930s": 87,
-  "1940s": 125,
-  "1950s": 61,
-  "1960s": 58,
-  "1970s": 22,
-  "1980s": 12,
+  "1880s": 21,
+  "1890s": 308,
+  "1900s": 12,
+  "1910s": 71,
+  "1920s": 72,
+  "1930s": 70,
+  "1940s": 102,
+  "1950s": 44,
+  "1960s": 49,
+  "1970s": 18,
+  "1980s": 13,
   "1990s": 36,
-  "2000s": 14,
-  "2010s": 33,
-  "2020s": 49
+  "2000s": 20,
+  "2010s": 31,
+  "2020s": 31
  },
  "end_decade": {
-  "1910s": 49,
+  "1910s": 47,
   "1920s": 10,
-  "1930s": 63,
-  "1940s": 86,
-  "1950s": 49,
-  "1960s": 69,
+  "1930s": 42,
+  "1940s": 68,
+  "1950s": 39,
+  "1960s": 63,
   "1970s": 69,
-  "1980s": 57,
-  "1990s": 98,
-  "2000s": 80,
-  "2010s": 102,
-  "standing": 251
+  "1980s": 61,
+  "1990s": 92,
+  "2000s": 67,
+  "2010s": 95,
+  "standing": 245
  },
  "start_quality": {
-  "estimated": 693,
-  "bracket": 258,
-  "recorded": 32
+  "estimated": 654,
+  "bracket": 205,
+  "recorded": 39
  },
  "end_quality": {
-  "recorded": 216,
-  "estimated": 361,
-  "bracket": 406
+  "estimated": 340,
+  "recorded": 217,
+  "bracket": 341
  },
- "start_upper_bound_only": 471,
+ "start_upper_bound_only": 454,
  "shed": {
-  "none": 410,
-  "shed": 573
+  "shed": 504,
+  "none": 394
  },
- "terrain_conflicts": 36,
+ "terrain_conflicts": 43,
  "terrain_conflicts_by_borough": {
-  "Manhattan": 26,
-  "Queens": 1,
-  "Bronx": 1,
-  "Staten Island": 2,
-  "Brooklyn": 6
+  "Staten Island": 6,
+  "Manhattan": 9,
+  "Brooklyn": 8,
+  "Queens": 15,
+  "Bronx": 5
  },
  "dropped": {
-  "one sighting, ragged outline": 137,
-  "outline not long and thin": 38,
-  "on land older than itself": 39,
-  "one sighting": 46,
+  "on land older than itself": 46,
+  "one sighting, ragged outline": 144,
+  "outline not long and thin": 32,
+  "one sighting": 41,
   "never a pier on any source": 28,
-  "an earlier pier at a standing pier's place, without an outline of its own": 95,
-  "in OpenStreetMap but on no dated source used here": 2,
-  "same spot and years as a better outline": 36
+  "an earlier pier at a standing pier's place, without an outline of its own": 79,
+  "in OpenStreetMap but on no dated source used here": 3,
+  "same spot and years as a better outline": 24
  },
  "outline_source": {
-  "osm": 216,
-  "usgs": 405,
-  "noaa": 362
+  "usgs": 347,
+  "osm": 217,
+  "noaa": 334
  }
 }

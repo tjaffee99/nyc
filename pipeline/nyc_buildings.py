@@ -750,7 +750,9 @@ def build():
     year, raw, conf, end, src, xy = assign_years(g, pluto, lpc)
     start = row_timing(xy, year, g.doitt_id.values)
     start = np.where(src == "known", year, start)
+    start0 = start
     start = land_check(g.geometry.values, start, src, g.height_m.fillna(7.0).values.astype(float), g.doitt_id.values)
+    conf = np.where(start > start0 + 0.05, "estimated", conf).astype(object)   # waits for its ground: no longer the record's year
     start = np.minimum(start, 2029.9)   # under construction today (also when its made land is dated later)
     g = g.assign(start_year=start, end_year=end, year_confidence=conf, raw_year=raw, year_src=src)
     bbl = g.pluto_bbl.fillna("").astype(str).values
@@ -892,6 +894,16 @@ def evidence():
         strong.append(np.ones(len(t), bool))
     except Exception as e:  # noqa: BLE001
         log(f"buildings: traced layers not used as ground evidence ({e})")
+    try:   # the counties' recorded years
+        from county_buildings import recorded_evidence
+        cg, cy, cs = recorded_evidence()
+        if len(cg):
+            geoms.append(cg)
+            years.append(cy)
+            strong.append(cs)
+            log(f"buildings: {len(cg)} county buildings with a recorded year count as ground evidence")
+    except Exception as e:  # noqa: BLE001
+        log(f"buildings: county years not used as ground evidence ({type(e).__name__}: {e})")
     write_evidence(np.concatenate([np.asarray(a, dtype=object) for a in geoms]), np.concatenate(years), np.concatenate(strong))
 
 

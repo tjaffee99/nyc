@@ -544,6 +544,16 @@ def histories(name, g, d, land_only=False):
     land_year, N, extra, reservoirs = fill_layers(name, g, N, land_now, lake_now, first_use, (land_now & (wc == 90)) | stream, known)
     if land_only:
         return land_year
+    # The buildings, streets and tracks were checked against the land years of the `land` run
+    # (grid_<name>_landyear.npy). Made land without a dated zone takes its year from the
+    # buildings around it, so a recomputation after the buildings moved would differ by a few
+    # years and leave some of them standing before their ground: keep the saved years.
+    sv = INTERIM / f"grid_{name}_landyear.npy"
+    if sv.exists():
+        saved = np.load(sv)
+        if saved.shape == land_year.shape:
+            both = np.isfinite(saved) & np.isfinite(land_year)
+            land_year = np.where(both, saved, land_year).astype(np.float32)
     # slope (rise over run) for "too steep to plough"
     cell_m = g["res"] * 0.758
     gy, gx = np.gradient(elev, cell_m)

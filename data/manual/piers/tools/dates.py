@@ -164,6 +164,12 @@ def segments(t):
     """lifespans of the pier(s) at one place."""
     runs, noise = clean(t["obs"])
     standing = t["osm"] is not None
+    recent_gap = False
+    if standing and len(runs) >= 2 and runs[-1][0] == "A" and all(o["lo"] >= 2001 for o in runs[-1][1]):
+        # OpenStreetMap has the pier, older maps have it, only the latest charts do not draw it (a slender or rebuilt
+        # deck): one pier, not a new one of the 2020s
+        runs = runs[:-1]
+        recent_gap = True
     segs = []
     for i, (l, os_) in enumerate(runs):
         if l != "P":
@@ -189,7 +195,7 @@ def segments(t):
             seg.update(end=round((a_e + b_e) / 2, 1), end_quality=quality(a_e, b_e), end_note=f"last on {last['label']}; gone on {nw['label']}"
                        + (" (its place is land there)" if nw["state"] == "land" else ""))
         elif standing:
-            seg.update(end=9999, end_quality="recorded", end_note="stands (OpenStreetMap)")
+            seg.update(end=9999, end_quality="recorded", end_note="stands (OpenStreetMap)" + ("; the charts after 2000 do not draw it, taken as the same pier" if recent_gap else ""))
         elif a_e >= 2012:
             seg.update(end=9999, end_quality="estimated", end_note=f"on {last['label']} and no later source without it; not in OpenStreetMap {TODAY}: taken as standing")
         else:

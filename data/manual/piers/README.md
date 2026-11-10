@@ -4,7 +4,53 @@
 
 Nothing here is generated. Every outline is either today's OpenStreetMap pier or was read off a dated government map, and every year is a cited date, a bracket between two map editions, or marked `estimated`.
 
-@@STATS@@
+## Counts (from `stats.json`)
+
+898 piers: 245 standing (214 from OpenStreetMap, 31 last seen on a chart of 2012 or later and taken as standing) and 653 vanished. A pier that was rebuilt, or whose place stood empty between two piers, is two features.
+
+| borough | piers | standing | vanished |
+|---|---|---|---|
+| Manhattan | 296 | 94 | 202 |
+| Brooklyn | 255 | 71 | 184 |
+| Queens | 105 | 25 | 80 |
+| Bronx | 84 | 23 | 61 |
+| Staten Island | 158 | 32 | 126 |
+| **all** | 898 | 245 | 653 |
+
+| decade | start | end |
+|---|---|---|
+| 1880s | 21 | 0 |
+| 1890s | 308 | 0 |
+| 1900s | 12 | 0 |
+| 1910s | 71 | 47 |
+| 1920s | 72 | 10 |
+| 1930s | 70 | 42 |
+| 1940s | 102 | 68 |
+| 1950s | 44 | 39 |
+| 1960s | 49 | 63 |
+| 1970s | 18 | 69 |
+| 1980s | 13 | 61 |
+| 1990s | 36 | 92 |
+| 2000s | 20 | 67 |
+| 2010s | 31 | 95 |
+| 2020s | 31 | 0 |
+| standing |  | 245 |
+
+The 1890s column is mostly "by 1897" (454 piers have `start_is_upper_bound`). The end years after 1990 include 207 piers whose last map is old and whose end is only the middle of a long bracket.
+
+| quality | start_year | end_year |
+|---|---|---|
+| recorded | 39 | 217 |
+| bracket | 205 | 341 |
+| estimated | 654 | 340 |
+
+For `end_year`, `recorded` means "stands, it is in OpenStreetMap".
+
+Outlines: 334 from the charts, 347 from the USGS 1:24,000 sheets, 217 from OpenStreetMap. Sheds: 504 piers drawn roofed, 394 open or not drawn.
+
+Sources read: 42 USGS 1:24,000 sheets as full editions, 9 more for additions only, 27 chart editions, 4 sheets of 1888-98. Listed in `sources_used.csv`.
+
+Set aside: 43 vanished piers in `piers_terrain_conflict.geojson`. Thrown out (`review.csv`): 144 × one sighting, ragged outline; 79 × an earlier pier at a standing pier's place, without an outline of its own; 46 × on land older than itself; 41 × one sighting; 32 × outline not long and thin; 28 × never a pier on any source; 24 × same spot and years as a better outline; 3 × in OpenStreetMap but on no dated source used here.
 
 ## Files
 
@@ -54,7 +100,6 @@ Nothing here is generated. Every outline is either today's OpenStreetMap pier or
 Not used, and why:
 
 - **Chart 541 of 1898 and 1912**: no land tint, so the automatic fit failed (190 m and 260 m off). They would need control points by hand.
-- **Chart 745 of 1939**: the fit failed.
 - **The NYPL atlases (Bromley)** and **the 1924 / 1951 aerials**: not attempted.
 - **OpenHistoricalMap's pier polygons** (`data/manual/ohm/extras_water_dated.geojson`, about 119 East River piers stamped 1800-1848): real outlines, but the dates are placeholders. They are the obvious next source for the waterfront before 1890.
 - **New Jersey's shore** (Hoboken, Jersey City): left out as the brief allows. The same charts cover it.
@@ -62,7 +107,7 @@ Not used, and why:
 ## Method
 
 1. **Reading a sheet** (`tools/extract.py`). Non-water is what is not water-coloured (tinted sheets), or black ink with small enclosed areas filled, plus the land of the period (untinted scans). Lines and lettering are opened away. *Core land* is non-water opened by 45 m, which removes everything narrower than 90 m. A *finger* is what remains outside the core. Each finger is kept with its outline, its bounding rectangle, how far it reaches from the core, where it touches it, and the share of ink inside it.
-2. **Reading a chart** (`tools/chart.py`). The scans carry no georeference. The land tint is found by Otsu's threshold; the chart is fitted to today's shoreline, first coarsely (rotation, scale, offset by cross-correlation; chart 745 is turned 29.5° so that the avenues run up the sheet), then in 35 blocks by least squares. The fits are 2-5 m rms on all but the 1931 edition. Then the same finger analysis.
+2. **Reading a chart** (`tools/chart.py`). The scans carry no georeference. The land tint is found by Otsu's threshold; the chart is fitted to today's shoreline, first coarsely (rotation, scale, offset by cross-correlation; chart 745 is turned 29.5° so that the avenues run up the sheet), then in 35 blocks by least squares. The fits are 2-4 m rms, except chart 745 of 1931 (9 m), 1939 (17 m, 8 blocks) and 1944 (5 m) and chart 541 of 1927 (6 m); those four are then treated like the USGS scans (step 4) and never supply control. Then the same finger analysis.
 3. **What counts as a pier** (`tools/build.py`). A finger that reaches 35 m or more from the bulkhead, is attached at one end only (this drops bridges and quays), is at least 1.4 times as long as wide and at most 100 m wide, fills 55 % of its rectangle (62 % outside the working port), and lies over today's tidal water or over land made later. Dropped as natural: unroofed fingers at marshes, and short fingers on the ocean beaches (groynes).
 4. **Registration of the USGS scans.** They sit up to 30 m off in places. Each sheet's local offset is measured from the piers whose position is known (OpenStreetMap's and the well-fitted charts') and its own outlines are moved back by it (`data/interim/piers/sheet_offsets.json`).
 5. **One pier across editions is one track**: two outlines match when half of the smaller lies in the larger. The outline kept is OpenStreetMap's for a standing pier, else the best-fitted chart's, else a USGS sheet's. An outline that is nearly its bounding rectangle is replaced by it, since outlines read off a 2 m raster are ragged.
@@ -84,7 +129,28 @@ For a standing pier with buildings of the city's footprints on a quarter or more
 
 ## Checks (`tools/check.py`)
 
-@@CHECKS@@
+All pass on the files as delivered:
+
+```
+ok   properties present: 0 of 898 
+ok   ids unique: 0 of 898 
+ok   qualities: 0 of 898 
+ok   shed vocabulary: 0 of 898 
+ok   shed has a height: 0 of 898 
+ok   start year present: 0 of 898 
+ok   start < end: 0 of 898 
+ok   years in range: 0 of 898 
+ok   shed years inside the pier's: 0 of 898 
+ok   every date has its source in the note: 0 of 898 
+ok   valid polygons: 0 of 898 
+ok   inside the five counties: 0 of 898 
+ok   100 m2 or more: 0 of 898 
+ok   map outlines are long and thin (length >= 1.3 x width, width <= 105 m): 0 of 681 
+ok   no two piers on one spot at once: 0 of 898 
+ok   vanished piers on land older than themselves (terrain grid, > 60 % of the outline): 0 of 653 ; 204 outlines touch a cell that is made land before their end (roots, and fills the maps date later than the terrain)
+ok   named piers carry their researched dates: 0 of 11 
+features 898 | standing 245 | vanished 653
+```
 
 Also looked at: overlays of the result on the 1955 and 1967 sheets for Lower Manhattan, the Hudson to 50th Street, Sunset Park, St George to Stapleton, Greenpoint and Williamsburg, College Point (`tools/overlay.py`); the picture of the whole city (`tools/overview.py`).
 
@@ -116,7 +182,7 @@ Downloads go to `data/raw/piers/` (about 2.4 GB), intermediates to `data/interim
 ## For the lead
 
 - **Drawing.** Extrude each outline from the water to `deck_m` (2.5 m) between `start_year` and `end_year`. Where `shed` is `shed`, add a box of `shed_m` (10 m, estimated) on the outline inset by about 2 m, between `shed_start` (default: the pier's start) and `shed_end` (default: the pier's end).
-- **Do not land-check the piers against the terrain grid.** A pier root always overlaps the bulkhead cell, and @@TOUCH@@ outlines touch a cell that the terrain makes land before the pier's end. `made_land_share` says how much.
+- **Do not land-check the piers against the terrain grid.** A pier root always overlaps the bulkhead cell, and 204 outlines touch a cell that the terrain makes land before the pier's end. `made_land_share` says how much.
 - **`piers_terrain_conflict.geojson`** holds the vanished piers where the terrain has the ground as land before the pier's start (`terrain_land_year`, `terrain_conflict_share`). Most are short pieces at the bulkhead. The ones along the Chelsea shore sit on the Thirteenth Avenue fill of 1837 that was dug out again for the Chelsea Piers: the terrain keeps that ground as land. Either fix the terrain year from the pier's dates or leave these out.
 - **`start_is_upper_bound`** piers appear on the slider in the year of their first map. If the waterfront should not spring up in 1897, the honest alternatives are to fade them in, or to trace an older source (see "Not used").
 - **Attribution** for `SOURCES.md`: USGS Historical Topographic Map Collection (public domain); NOAA Office of Coast Survey Historical Map & Chart Collection (public domain); © OpenStreetMap contributors (ODbL) via Overture Maps.

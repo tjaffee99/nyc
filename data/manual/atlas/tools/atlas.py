@@ -725,31 +725,43 @@ def trace_window(P, full, inside, paper, win, core=None):
     # at least 3 pixels wide, grown by 30 pixels; each group is traced in its own box, restricted to itself.
     cand5 = None
     if st.get("band") and not st.get("split_by_ink"):
-        # Is there an orange property band in this tile? Bands are the long thin warm structures (not part of a
-        # fill 13 pixels wide, 150 pixels long or more, mostly of the band hue). Without any, the band hue is
-        # just this sheet's frame pigment (the colourists' ochre runs to orange on some sheets): read it as frame.
-        # (Deciding this pixel by pixel - band hue counts as band only near a detected band - was tried and
-        # dropped: bands wider than 13 pixels are not detected and came out as buildings.)
+        # Is there an orange property band nearby? Bands are the long thin warm structures (not part of a fill
+        # 13 pixels wide, 150 pixels long or more, mostly of the band hue). Where there is none, the band hue
+        # is just the sheet's frame pigment (the colourists' ochre runs to orange on some sheets and some
+        # buildings): read it as frame. (Deciding this pixel by pixel - band hue counts as band only within 12
+        # pixels of a detected band - was tried and dropped: bands wider than 13 pixels are not detected and
+        # came out as buildings. Deciding it per tile of 2400 pixels lost the orange buildings of Coney Island.)
         m5 = (c == 5) & ins
         warm = ((c == 2) & ins) | m5
         thin = warm & ~_dil(_open(warm, 13), 6)
         tl, tn = ndi.label(thin, structure=SQ3)
-        nb = 0
+        band = np.zeros(c.shape, bool)
         if tn:
             n_all = np.bincount(tl.ravel(), minlength=tn + 1)
             n_5 = np.bincount(tl.ravel(), weights=m5.ravel(), minlength=tn + 1)
+            isband = np.zeros(tn + 1, bool)
             for k, sl in enumerate(ndi.find_objects(tl), 1):
                 if sl is not None and max(sl[0].stop - sl[0].start, sl[1].stop - sl[1].start) >= 150 and n_5[k] >= 0.5 * n_all[k]:
-                    nb += int(n_all[k])
-        if nb < 600:
-            c[c == 5] = 2
-        else:
-            # bands and band-hued fills together: the second frame path of `fills` is used where the wide
-            # band-hued fills are a quarter or more of all wide warm fills (this tile's buildings run to orange)
-            w5, w2 = int(_open(m5, 13).sum()), int(_open((c == 2) & ins, 13).sum())
-            if w5 > 0.25 * (w5 + w2):
-                st = dict(st, warm_path=True)
-                cand5 = _open(m5, st["core_frame"])
+                    isband[k] = True
+            band = isband[tl]
+        # decided in cells of 500 pixels (with 100 pixels around): a cell without band pixels has no band hue
+        warm_cells = False
+        for cy in range(0, c.shape[0], 500):
+            for cx in range(0, c.shape[1], 500):
+                near = band[max(0, cy - 100):cy + 600, max(0, cx - 100):cx + 600]
+                cell = (slice(cy, cy + 500), slice(cx, cx + 500))
+                if int(near.sum()) < 150:
+                    c[cell][c[cell] == 5] = 2
+                elif not warm_cells:
+                    # bands and band-hued fills together: the second frame path of `fills` is used where wide
+                    # band-hued fills are a quarter or more of the wide warm fills of the tile
+                    w5, w2 = int(_open(m5, 13).sum()), int(_open((c == 2) & ins, 13).sum())
+                    warm_cells = True
+                    if w5 > 0.25 * (w5 + w2):
+                        st = dict(st, warm_path=True)
+                        cand5 = _open((c == 5) & ins, st["core_frame"])
+        if cand5 is not None:
+            cand5 = _open((c == 5) & ins, st["core_frame"])
     fillc = (c == 2) | (c == 3) | (c == 4)
     cand = _open(fillc & ins, 3)
     if cand5 is not None:
@@ -1004,7 +1016,7 @@ def score_frames(layer, pid, verbose=True):
 
 
 # --------------------------------------------------------------------------------------------- export
-def _ll(geom, nd=7):
+def _ll(geom, nd=6):
     return shapely.transform(geom, lambda c: np.round(np.column_stack(S.lonlat(c[:, 0], c[:, 1])), nd))
 
 
@@ -1049,10 +1061,22 @@ def export(layer, max_off=8.0):
         st["lettering_dropped"] = lettering
         # county plates: pieces of carmine property band read as brick are ragged or long; a brick building is
         # kept only if it is 50 m2 or more and fills 80 % of its rectangle
+        # ... and pieces of orange band read as frame are long and narrow or hook-shaped: a frame outline under
+        # 5 m wide and 4.5 times as long, or one under 400 m2 filling less than 45 % of its rectangle, is dropped
         bands = 0
         if spec["style"] == "robinson_300ft":
             for k, (o, g) in enumerate(zip(d["items"], polys)):
-                if keep[k] and o["material"] == "brick" and (g.area < 50.0 or g.area < 0.8 * g.minimum_rotated_rectangle.area):
+                if not keep[k]:
+                    continue
+                r = g.minimum_rotated_rectangle
+                if o["material"] == "brick":
+                    bad = g.area < 50.0 or g.area < 0.8 * r.area
+                else:
+                    xy = np.asarray(r.exterior.coords)
+                    e1, e2 = np.hypot(*(xy[1] - xy[0])), np.hypot(*(xy[2] - xy[1]))
+                    w, l = min(e1, e2), max(e1, e2)
+                    bad = (w < 5.0 and l >= 4.5 * w) or (g.area < 400.0 and g.area < 0.45 * r.area)
+                if bad:
                     keep[k] = False
                     bands += 1
         st["band_pieces_dropped"] = bands
@@ -1072,8 +1096,10 @@ def export(layer, max_off=8.0):
         for k, (o, g) in enumerate(zip(d["items"], polys)):
             if not keep[k]:
                 continue
-            g = g.simplify(0.15)
-            if not g.is_valid or g.is_empty or g.geom_type != "Polygon":
+            g = g.simplify(0.25)
+            if not g.is_valid:
+                g = g.buffer(0)
+            if g.is_empty or g.geom_type != "Polygon":
                 continue
             acc.append(g)
             feats.append(dict(type="Feature", properties=dict(
@@ -1090,7 +1116,12 @@ def export(layer, max_off=8.0):
             m = wkb.loads(d["mask"]).simplify(0.5)
             cov.append(dict(type="Feature", properties=dict(
                 layer=layer, map_year=spec["map_year"], source=spec["source"], sheet=pl["sheet"], plate=int(pl["id"]),
-                buildings=len(feats) - n0, registration_m=st.get("off_median_m"), coincide_share=st.get("share")),
+                buildings=len(feats) - n0, registration_m=st.get("off_median_m"), coincide_share=st.get("share"),
+                street_match_left_m=(st.get("street") or {}).get("after_abs_median"),
+                building_match_residual_m=(st.get("bld") or {}).get("fit_residual_m"),
+                registration=("street match" if (st.get("street") or {}).get("kind", "none") != "none" else "")
+                + (" + building match" if (st.get("bld") or {}).get("kind", "none") != "none" else "")
+                or "control points only, not checked"),
                 geometry=sg.mapping(_ll(m))))
     crs = {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}}
     OUT.mkdir(parents=True, exist_ok=True)
