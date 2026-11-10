@@ -30,6 +30,7 @@ NOW = 2030.0
 def read_set(path):
     h, c = read_bayt(path)
     ox, oy = h["origin"]
+    scale = h.get("meta", {}).get("position_scale", 1e-7)
     pos = c["positions_delta"].reshape(-1, 2).astype(np.int64)
     st = c["start_indices"].astype(np.int64)
     valid = c["vertex_valid"]
@@ -37,7 +38,7 @@ def read_set(path):
     polys = []
     for f in range(n):
         a, b = st[f], st[f + 1]
-        xy = np.cumsum(pos[a:b], axis=0) * 1e-7 + (ox, oy)
+        xy = np.cumsum(pos[a:b], axis=0) * scale + (ox, oy)
         # rings end at the ring-end markers: the first is the outline, the rest are courtyards
         ends = np.nonzero(valid[a:b] == 0)[0] + 1
         rings = [xy[s0:e0] for s0, e0 in zip(np.r_[0, ends[:-1]], ends) if e0 - s0 >= 4]

@@ -158,7 +158,7 @@ function streetTiles(
     visibleMinZoom: loadFrom,
     visibleMaxZoom: loadTo,
     maxCacheSize: 400,
-    extent: [-123.68, 36.78, -121.16, 38.91],
+    extent: [-74.29, 40.47, -73.67, 40.94],
     getTileData: async ({index: t}: any) => {
       if (!have.has(`${t.x}/${t.y}`)) return null;
       return decodeSet(`${id}-${t.x}-${t.y}`, await loadColumnar(`data/region-streets/${z}/${t.x}/${t.y}.bin.gz`));

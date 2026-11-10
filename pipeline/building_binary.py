@@ -1,5 +1,5 @@
 """Encode building footprints into the viewer's BAYT building format (as sf_export.py
-does for San Francisco): delta-coded 1e-7° int32 rings with ring-end markers, plus
+does for San Francisco): delta-coded integer rings (POSITION_SCALE degrees) with ring-end markers, plus
 per-feature columns. Shared by the region tiles (region_buildings.py)."""
 from __future__ import annotations
 
@@ -9,6 +9,11 @@ import numpy as np
 import shapely
 
 from export_columnar import write_columnar
+
+
+# coordinates are stored as integer steps of this many degrees (about 11 cm north-south,
+# 8 cm east-west: the footprints are good to 60 cm) — the published site must stay small
+POSITION_SCALE = 1e-6
 
 
 def encode(geoms, origin):
@@ -26,7 +31,7 @@ def encode(geoms, origin):
         for r in rings:
             e += len(r)
             valid[e - 1] = 0
-        q = np.rint((closed - (ox, oy)) * 1e7).astype(np.int64)
+        q = np.rint((closed - (ox, oy)) / POSITION_SCALE).astype(np.int64)
         d = np.diff(q, axis=0, prepend=np.zeros((1, 2), np.int64))  # first vertex relative to the origin
         pos_chunks.append(d.astype(np.int32))
         valid_chunks.append(valid)
@@ -59,7 +64,7 @@ def write_buildings(path, df, origin, conf_codes, use_categories, extra_meta=Non
         "roof": df.roof.astype(np.uint8).values,
         "fid|shuffle": fid,
     }
-    meta = {"position_scale": 1e-7, "use_categories": use_categories, "confidence": list(conf_codes)}
+    meta = {"position_scale": POSITION_SCALE, "use_categories": use_categories, "confidence": list(conf_codes)}
     # where the year comes from (shown in the click popup), and the names of named buildings
     if "year_src" in df:
         labels = [source_label(v) for v in df.year_src.fillna("").astype(str).values]

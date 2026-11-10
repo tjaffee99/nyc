@@ -109,7 +109,8 @@ export const DECO_MESHES_LOW = [broadleafLow(), coniferLow(), palmLow(), orchard
 export function treeLod(zoom: number): {low: boolean; keep: number} {
   // keep = share of trees left when zoomed out; the shader (deco-layer.ts) thins
   // continuously from zoom 14.3 down to 12.5
-  return {low: zoom < 15, keep: 0.4};
+  // (0.15: the overview tiles ship only that share — pipeline terrain_tiles.prune_unseen_deco)
+  return {low: zoom < 15, keep: 0.15};
 }
 
 export const DECO_COLORS: [number, number, number][][] = [

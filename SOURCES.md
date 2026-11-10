@@ -53,6 +53,8 @@ layers; each has a README with its own sources.
 | id | What | From | Licence | Used for |
 |---|---|---|---|---|
 | `osm_rail`, `osm_roads` | Rail and road segments | OpenStreetMap via Overture Maps transportation theme, release 2026-10-21.0 | ODbL | Tracks, streets, bridges |
+| `ohm_roads` | Vanished roads with dates (the Bloomingdale Road's old line, lanes on the Central Park site, Brooklyn's town roads, the West Side Elevated Highway) | OpenHistoricalMap | CC0 | Researched routes (`data/manual/routes.csv`); OHM's years are often placeholders and are flagged |
+| `highway_dates` | Opening years of highways, parkways and bridge approaches, section by section | Wikipedia articles, nycroads.com (URL per row in `data/manual/routes.csv`, `data/tables/street_dates.csv`) | Facts | Dating today's highway geometry; streets opened at a documented date |
 | `mta_gtfs` | Subway GTFS (stations, shapes) | Metropolitan Transportation Authority — https://www.mta.info/developers | MTA developer terms | Stations and service lines |
 
 | `mta_stations` | Subway Stations table | MTA Open Data, data.ny.gov `39hk-dx4f` | MTA / New York State open data terms | Station identifiers and structure |

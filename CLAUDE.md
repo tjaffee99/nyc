@@ -190,4 +190,63 @@ Not yet ported from the Bay copy (kept as reference, they do not run): `sf_prede
 14. **Population counter**: the borough under the map centre when zoomed in, else the five
     boroughs' area; before the first census of the area (1698) the town on Manhattan
     ("New Amsterdam" until September 1664), before 1626 the Lenape estimate.
+15. **Landmarks** (`viewer/src/landmarks/nyc-*.ts`, 192 models; dimensions and what is
+    estimated per model in `data/research/landmarks_*.md`): 33 bridge models of 24 bridges on
+    OpenStreetMap tower and pier positions; 46 towers on the official footprints with OSM
+    set-backs and cited heights; 66 civic buildings, churches, museums, forts and stadiums;
+    47 lost landmarks (Twin Towers, Penn Station, Crystal Palace, Fort Amsterdam, the Wall,
+    ballparks). Each model's `Model:` fact names its estimates and is shown in the popup;
+    half of the lost ones are LOW confidence (no published height). One broken model does not
+    stop the others (`loadLandmarks` catches it).
+16. **Transit** (`transit.py`): subway, Staten Island Railway and the demolished elevated
+    lines with trains; railroads as track and station labels only. The viewer's system keys
+    are still the Bay's: `bart` = subway / SIR / els, `muni` = railroad stations; vehicle keys
+    `bart` = B Division car, `ebart` = A Division car, `el` = elevated car. Elevated routes
+    without a traced line follow the centre line of the street they ran above.
+17. **Ground detail and airports** (`ground_detail.py`, `airports.py`): OSM outlines dated by
+    the park's researched year, else the Parks acquisition date, else the standing buildings
+    around (vanished buildings are not counted: they dated plazas to 1851). Airfield
+    outlines turn the terrain to grass from their opening year.
+18. **Built-up extents** (`data/manual/extents`, per borough): used to bound the start of
+    traced buildings and to place the generated pre-atlas town. A snapshot says nothing
+    outside its map (Ratzer and Dripps 1852 to 50th St, Colton to 42nd St), and one within
+    15 years of an atlas is not a lower bound.
 
+19. **Roads** (`roads.py`): Overture / OpenStreetMap geometry. A street is cut a year before
+    the second-earliest building within 45 m (counting vanished ones), never before its ground
+    (median land year under it); researched rows (`data/tables/street_dates.csv`: the 1811
+    grid, Broadway, the Bowery, Seventh Avenue South …) override. Highways take the opening
+    year of the researched row running parallel (`data/manual/routes.csv`, 155 rows) and are
+    drawn in 3D from Overture's level / bridge flags; decks under a landmark bridge model are
+    left out and their ends pinned to the model's height. Vanished roads, ferries and the
+    West Side Elevated Highway are drawn from `routes.csv`. Researched openings are not
+    pushed later by the land-year grid (`data/interim/roads/ground_conflicts.csv` lists them).
+20. **The published site must stay small.** GitHub Pages cancelled a 152 MB deployment at its
+    ten-minute limit here (149 MB went through in 8.5 minutes): this repository syncs at
+    about 17 MB a minute, half the Bay's rate. Hence: tree records to a metre and whole
+    years, overview tiles with 15 % of the trees (the share the viewer draws below zoom
+    12.5), building coordinates in 1e-6 degrees, outlines simplified to 0.4 m. Budget:
+    about 110 MB. `pipeline/deploy.py` prints the size; check the "pages build and
+    deployment" run afterwards and compare a checksum with the live site.
+
+## What is not done (as of 2026-11)
+
+- **Above 86th St and outside downtown Brooklyn nothing vanished is drawn** before today's
+  buildings: no traced atlas exists in the data for Harlem, the Bronx, most of Brooklyn,
+  Queens, Staten Island. Candidates: Bromley / Robinson atlases on the NYPL dump (same
+  tooling as `data/manual/extents/tools`), the 1924 and 1951 aerials (maps.nyc.gov tiles),
+  farmsteads from the 1890s USGS sheets (`topo_farmsteads.py`, not ported).
+- **Lenape settlements are labels only**; no dwellings are drawn.
+- **Street trees** (the 2015 census, 680 k trees) are not used; today's trees stand on
+  WorldCover canopy pixels.
+- **LiDAR massing** (`lidar_parts.py`, not ported): towers without OSM parts are flat extrusions.
+- **Researched building dates** (`data/tables/known_building_dates.csv`) do not exist yet:
+  exempt and institutional buildings carry the assessor's (often heaped) year.
+- **Clearance dates** (Lincoln Center, Stuyvesant Town, public housing superblocks, bridge and
+  tunnel approaches): a vanished building with nothing on its spot ends when the big
+  building beside it went up — an estimate, not a researched clearance.
+- **Piers** are not in the terrain (narrower than a cell) and not drawn as structures.
+- **The rest of the metropolitan area** (see Scope).
+- Not checked on a real GPU: nothing was looked at on screen in this environment (software
+  rendering times out). Checks were numeric (`audit.py`, the agents' per-part checks) and a
+  headless boot at eight years / views without console errors.

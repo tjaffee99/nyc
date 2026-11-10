@@ -631,7 +631,7 @@ def decorations(name, g, covers, years, elev, urban_y, park_y, wood_y):
         kinds, ys, xs, sizes, starts, ends = [], [], [], [], [], []
         # --- today's trees on real canopy pixels
         tr, tc = np.nonzero(tree_fine[rs, cs])
-        keep = rng.random(len(tr)) < (0.55 if name == "detail" else 0.35)
+        keep = rng.random(len(tr)) < (0.45 if name == "detail" else 0.3)
         tr, tc = tr[keep] + rs.start, tc[keep] + cs.start
         if len(tr):
             fy = tr + rng.uniform(-0.45, 0.45, len(tr))
@@ -661,7 +661,8 @@ def decorations(name, g, covers, years, elev, urban_y, park_y, wood_y):
         if len(vy):
             per = 9 if name == "detail" else 3
             vy = np.repeat(vy, per); vx = np.repeat(vx, per)
-            keep = rng.random(len(vy)) < (0.62 if name == "detail" else 0.5)
+            # (trees are drawn at about twice their size: one or two per 29 m cell read as closed forest)
+            keep = rng.random(len(vy)) < (0.42 if name == "detail" else 0.4)
             vy, vx = vy[keep], vx[keep]
             fy = (vy + cr0 + rng.uniform(-0.5, 0.5, len(vy))) * sub
             fx = (vx + cc0 + rng.uniform(-0.5, 0.5, len(vy))) * sub
@@ -676,11 +677,14 @@ def decorations(name, g, covers, years, elev, urban_y, park_y, wood_y):
         sizes = np.concatenate(sizes); starts = np.concatenate(starts); ends = np.concatenate(ends)
         ly = np.clip((ys / sub - (ty - g["ty0"]) * VERTS) / VERTS * 65535, 0, 65535)
         lx = np.clip((xs / sub - (tx - g["tx0"]) * VERTS) / VERTS * 65535, 0, 65535)
+        # Positions to about a metre (multiples of 32 of the tile's 65,535) and years to whole
+        # years: trees need no more, and the files gzip much smaller. Quantised HERE, before
+        # the rank-based pruning, because the viewer ranks a tree by its stored position.
         return {
-            "deco_pos": np.column_stack([lx, ly]).astype(np.uint16).ravel(),
+            "deco_pos": (np.column_stack([lx, ly]).astype(np.uint16) & np.uint16(0xFFE0)).ravel(),
             "deco_kind": kinds.astype(np.uint8),
-            "deco_size": np.clip(np.rint(sizes), 1, 255).astype(np.uint8),
-            "deco_years": np.column_stack([enc_year(starts), enc_year(ends)]).ravel(),
+            "deco_size": np.clip(np.rint(sizes / 2) * 2, 2, 254).astype(np.uint8),
+            "deco_years": np.column_stack([enc_year(np.round(starts)), enc_year(np.round(ends))]).ravel(),
         }
 
     return fn
@@ -869,7 +873,9 @@ def prune_unseen_deco():
             dense = len(kind) * (4 if z == 14 else 1) > 6000
             drop = high & (kind <= 1) & dense
             if z == 13 and all((TILES / "14" / str(2 * x + i) / f"{2 * y + j}.bin.gz").exists() for i in (0, 1) for j in (0, 1)):
-                drop |= high
+                # (the overview tiles keep the share the viewer draws below zoom 12.5:
+                # decoration-meshes.ts treeLod keep = 0.15)
+                drop |= rank_byte(lon, lat) / 255 > 0.15
             n_all += len(kind)
             if not drop.any():
                 continue
@@ -881,6 +887,30 @@ def prune_unseen_deco():
             n_tiles += 1
             n_drop += int(drop.sum())
     log(f"terrain: {n_drop} of {n_all} decorations the viewer never draws removed from {n_tiles} tiles")
+
+
+def pack_tiles():
+    """Last pass over the z13 / z14 tiles: decorations sorted by position and the 16-bit
+    columns byte-shuffled, so the files gzip a quarter smaller (the published site must stay
+    small: CLAUDE.md "Hosting"). Nothing the viewer reads changes: the reader un-shuffles,
+    and the order of decorations carries no meaning."""
+    from export_columnar import read_bayt
+    before = after = 0
+    for z in (13, 14):
+        for f in (TILES / str(z)).glob("*/*.bin.gz"):
+            before += f.stat().st_size
+            h, c = read_bayt(f)
+            cols = {"elev|shuffle": c["elev"], "cover": c["cover"], "year|shuffle": c["year"]}
+            if "deco_kind" in c and len(c["deco_kind"]):
+                pos = c["deco_pos"].reshape(-1, 2)
+                yrs = c["deco_years"].reshape(-1, 2)
+                # by position (coarse rows, then coarse columns): neighbours share high bytes and years
+                o = np.lexsort((pos[:, 0], pos[:, 1], pos[:, 0] >> 9, pos[:, 1] >> 9))
+                cols.update({"deco_pos|shuffle": np.ascontiguousarray(pos[o]).ravel(), "deco_kind": c["deco_kind"][o],
+                             "deco_size": c["deco_size"][o], "deco_years|shuffle": np.ascontiguousarray(yrs[o]).ravel()})
+            write_columnar(f, cols, counts=h.get("counts", {}))
+            after += f.stat().st_size
+    log(f"terrain: tiles packed, {before / 1e6:.1f} MB -> {after / 1e6:.1f} MB")
 
 
 def main():
@@ -904,6 +934,7 @@ def main():
         meta[name] = {"z": g["z"], "tx0": g["tx0"], "ty0": g["ty0"], "tx1": g["tx1"], "ty1": g["ty1"], "zooms": zooms}
     merge_detail_deco()
     prune_unseen_deco()
+    pack_tiles()
     (VIEWER_DATA / "terrain.json").write_text(json.dumps({"grids": meta, "covers": COVER_NAMES,
                                                           "deco": ["broadleaf", "conifer", "palm", "orchard", "farmhouse", "shrub", "farmyard"]}, indent=1))
 

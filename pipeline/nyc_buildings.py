@@ -577,7 +577,7 @@ def build():
 def write_outputs(g):
     full = g
     g = g[COLS + ["boro"] + [c for c in ("year_src", "name") if c in g]].copy()
-    g["geometry"] = g.geometry.to_crs(UTM).simplify(0.3, preserve_topology=True).to_crs(4326)
+    g["geometry"] = g.geometry.to_crs(UTM).simplify(0.4, preserve_topology=True).to_crs(4326)
     ok = ~g.geometry.is_empty & g.geometry.is_valid & (g.geometry.geom_type == "Polygon")
     g = g[ok]
     full = full[ok.values]
