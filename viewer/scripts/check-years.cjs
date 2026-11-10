@@ -59,6 +59,14 @@ const VIEWS = [
     return {present: true, first, second, paused, closed: panel.hidden};
   });
   console.log(`story: ${JSON.stringify(story)}`);
+  // the heavy tile sets: read from the page's own origin locally, from the branch on the published site
+  const tiles = await page.evaluate(() => {
+    const names = performance.getEntriesByType('resource').map(e => e.name);
+    const count = re => names.filter(n => re.test(n)).length;
+    return {regionBuildingTiles: count(/region-buildings\/1[13]\//), countyBuildingTiles: count(/county-buildings\/1[13]\//),
+      terrain13: count(/tiles\/terrain\/13\//), fromRawHost: count(/raw\.githubusercontent\.com/)};
+  });
+  console.log(`heavy tiles fetched: ${JSON.stringify(tiles)}`);
   const uniq = [...new Set(msgs)].filter(m => !/404|503|bad magic|Failed to load resource/.test(m));
   console.log(`${uniq.length} messages other than missing optional files`);
   for (const m of uniq.slice(0, 25)) console.log('  ' + m);

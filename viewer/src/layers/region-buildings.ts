@@ -40,8 +40,12 @@ export async function loadRegionIndex() {
     SETS.map(async ({id, dir}) => {
       try {
         const r = await fetch(`${dir}/index.json`);
-        if (!r.ok || !(r.headers.get('content-type') ?? '').includes('json')) return null; // not built yet
-        const index = (await r.json()) as Index;
+        if (!r.ok) return null; // not built yet
+        // (by content, not by content type: a dev server answers a missing file with
+        // index.html, and GitHub's raw host serves JSON as text/plain)
+        const text = await r.text();
+        if (!text.trimStart().startsWith('{')) return null;
+        const index = JSON.parse(text) as Index;
         return {
           id,
           dir,
