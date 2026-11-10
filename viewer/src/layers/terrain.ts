@@ -11,6 +11,7 @@
  * orchard rows, farmsteads) come with each high-zoom tile.
  */
 import {COORDINATE_SYSTEM, Layer, project32, phongMaterial} from '@deck.gl/core';
+import {HEAVY_BASE} from '../remote';
 import type {LayerContext, UpdateParameters, DefaultProps} from '@deck.gl/core';
 import {TileLayer} from '@deck.gl/geo-layers';
 import {Geometry, Model} from '@luma.gl/engine';
@@ -622,7 +623,8 @@ function decodeYear(v: number) {
 
 async function fetchTile(z: number, x: number, y: number) {
   try {
-    return await loadColumnar(`tiles/terrain/${z}/${x}/${y}.bin.gz`);
+    // (the z13 set is not part of the Pages build: remote.ts)
+    return await loadColumnar(`${z === 13 ? HEAVY_BASE : ''}tiles/terrain/${z}/${x}/${y}.bin.gz`);
   } catch {
     return null;
   }

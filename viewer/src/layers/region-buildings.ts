@@ -5,6 +5,7 @@
  * same time-aware BuildingLayer as San Francisco (construction frames, removal).
  */
 import {TileLayer} from '@deck.gl/geo-layers';
+import {HEAVY_BASE} from '../remote';
 import type {Layer} from '@deck.gl/core';
 import {buildingsLayer, fromBinary, loadTileInWorker, type BuildingSet} from './buildings';
 import {occupiedMask, replacedMask, type LandmarkSet} from '../landmarks';
@@ -29,8 +30,8 @@ type Index = {
  *  (county_buildings.py). Same format, separate folders, so each can be rebuilt alone. */
 type TileSet = {id: string; dir: string; index: Index; have: Set<string>; haveLow: Set<string>};
 const SETS: {id: string; dir: string}[] = [
-  {id: 'region-buildings', dir: 'data/region-buildings'},
-  {id: 'region-buildings-county', dir: 'data/county-buildings'}
+  {id: 'region-buildings', dir: `${HEAVY_BASE}data/region-buildings`},
+  {id: 'region-buildings-county', dir: `${HEAVY_BASE}data/county-buildings`}
 ];
 let sets: TileSet[] = [];
 
