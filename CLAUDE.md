@@ -67,6 +67,17 @@ make dev        # viewer at http://localhost:5173
 make deploy     # build + publish viewer/dist to gh-pages -> nyc.theojaffee.net
 ```
 
+## Checking a build
+
+```
+cd pipeline && ../.venv/bin/python audit.py           # invariants on the built building files
+cd viewer && node scripts/check-years.cjs http://localhost:5173/   # headless boot at 8 years / views
+```
+
+`audit.py` must report 0 for start >= end and out of range; overlapping pairs and nested
+pairs in the city's own footprints are reported, not failed. After a deploy run the second
+command against https://nyc.theojaffee.net/ and compare a file's checksum with `viewer/dist`.
+
 ## Working conventions
 
 - Commit after each working step; keep the viewer runnable.

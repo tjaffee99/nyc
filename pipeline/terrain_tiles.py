@@ -331,7 +331,7 @@ def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet, known):
         if rest.any():
             uy = nearest_fill(np.where(np.isfinite(urban_y), urban_y, 0).astype(np.float32), np.isfinite(urban_y))
             land_year[rest] = np.clip(uy[rest] - 4.0, YEAR_MIN + 20, 2020)
-            log(f"terrain {name}: {int(rest.sum())} made-land cells have no zone: dated 4 years before the buildings around")
+            log(f"terrain {name}: {int(rest.sum())} made-land cells have no zone: dated 4 years before their first use")
     return land_year, N, events, reservoirs
 
 
@@ -480,10 +480,6 @@ def histories(name, g, d, land_only=False):
     N, known, stream = natural_cover(name, g, d, land_now, lake_now)
     built = np.isfinite(urban_y)
     urban_fill = nearest_fill(np.where(built, urban_y, 0).astype(np.float32), built) if built.any() else np.full((rows, cols), 1900.0, np.float32)
-    # (streams are not made land: nothing waits for them, the city simply covers them)
-    land_year, N, extra, reservoirs = fill_layers(name, g, N, land_now, lake_now, urban_y, (land_now & (wc == 90)) | stream, known)
-    if land_only:
-        return land_year
     # undated greens take the year of the buildings standing around them today (a housing
     # estate's lawns are as old as the estate, not as the tenements it replaced)
     urban_now_y, _ = building_evidence(g, standing_only=True)
@@ -492,6 +488,13 @@ def histories(name, g, d, land_only=False):
     del urban_now_y, now_ok
     park_y, is_park, big_green = park_layers(g, urban_now_fill)
     ext_y = extent_years(g)
+    # made land without a dated zone appears a little before its first use: the buildings
+    # around, the park it lies in, or the built-up extent that first includes it
+    first_use = np.fmin(np.fmin(urban_fill, np.where(is_park, park_y, np.nan)), ext_y).astype(np.float32)
+    # (streams are not made land: nothing waits for them, the city simply covers them)
+    land_year, N, extra, reservoirs = fill_layers(name, g, N, land_now, lake_now, first_use, (land_now & (wc == 90)) | stream, known)
+    if land_only:
+        return land_year
     # slope (rise over run) for "too steep to plough"
     cell_m = g["res"] * 0.758
     gy, gx = np.gradient(elev, cell_m)
