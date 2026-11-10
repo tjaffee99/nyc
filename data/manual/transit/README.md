@@ -4,11 +4,12 @@ Everything `pipeline/transit.py` draws comes from four committed things:
 
 | file | what | rows |
 |---|---|---|
-| `data/tables/transit_stations.csv` | every station with opening / closing day, note, source, line, structure, lon/lat | 829 |
-| `data/tables/transit_openings.csv` | every stretch of line with its opening day (closing day for what is gone) | 234 |
+| `data/tables/transit_stations.csv` | every station with opening / closing day, note, source, line, structure, lon/lat | 1039 (828 city, 211 counties) |
+| `data/tables/transit_openings.csv` | every stretch of line with its opening day (closing day for what is gone) | 299 (234 city, 65 counties) |
 | `data/tables/transit_station_names.csv` | earlier names of renamed stations | 2 |
 | `data/manual/transit/elevated_lines.geojson` | routes of the 17 elevated lines / branches that are gone | 17 lines, 105 km |
-| `data/manual/transit/former_railroads.geojson` | railroads and bits of subway that are gone | 145 pieces |
+| `data/manual/transit/former_railroads.geojson` | railroads and bits of subway that are gone | 145 pieces in the city, 233 in the counties (`"part": "counties"`) |
+| `data/manual/transit/city_ring.json` | the five boroughs' outline of the first map (TIGER counties grown 0.012°): what lies outside it counts as "the counties" in the stage's statistics | 1 ring |
 
 The scripts in `tools/` rebuild them from downloads kept under `data/raw/transit/` (gitignored).
 Run them from `data/manual/transit/tools` with `../../../../.venv/bin/python <script>` in this order:
@@ -126,3 +127,78 @@ OpenHistoricalMap ways with an end date (Hudson River Railroad on the West Side,
 and Rockaway Beach branches, the Staten Island North Shore and South Beach branches, Hudson
 Terminal …) with OHM's dates as mapped, the High Line pieces OpenStreetMap still has as railway
 (1934–1980) and the New York, Westchester & Boston right of way (1912–1937).
+
+## The counties (Hudson, Bergen, Essex, Union, Passaic; Westchester, Rockland) — added 2026-11-10
+
+The stage draws every Overture / OpenStreetMap track inside the map outline (`pipeline/extent.py`), so the
+counties needed dates, stations and, for rapid transit, service lines. Tools (run from `tools/`, in this order;
+each rewrites only its own rows / features, the city's are not touched):
+
+1. `fetch_region.py` — downloads for the region box (-74.52, 40.47, -73.40, 41.38) into `data/raw/transit/`:
+   OpenHistoricalMap railways (`ohm/ohm_rail_region.json`, CC0), OpenStreetMap stations, PATH / light rail
+   route relations and abandoned railway ways (Overpass, ODbL), Wikidata station items with P1619 / P3999
+   (CC0), the Port Authority's PATH GTFS and the MTA's Metro-North GTFS (public feeds). NJ Transit's GTFS is
+   behind a developer login and is **not used**: its stations and the light rail routes come from OpenStreetMap.
+   User-Agent `NYCThroughTime-research/0.1`.
+2. `fetch_articles.py <titles>` — the line and railroad articles (the list is `data/interim/transit/line_titles.txt`;
+   station articles are fetched by step 3).
+3. `build_county_stations.py` — the `[counties]` rows of `transit_stations.csv`: systems `njt` (82), `mnr` (46),
+   `path` (5 new; 13 with the city's), `hblr` (23), `nlr` (17) and `rail` (38 stations that are gone, from
+   Wikidata). Position and name: OpenStreetMap (gone ones: Wikidata). Days: the rule of the city's table
+   (infobox day > Wikidata day > infobox month / year, else Wikidata year — then **estimated**). 107 rows carry
+   a cited day, 83 a year or month only (estimated), 21 have no opening date anywhere: `opened` is empty and
+   the stage gives them the opening year of the track they stand on (estimated; the note says so).
+   AirTrain Newark's stations are left out.
+4. `build_county_rail_rows.py` — the 65 `cty_*` rows (system `rail`) of `transit_openings.csv`: a line name (or
+   several, `|`-separated) inside a box, with the opening day and its article. Sections end at the stations
+   where the articles say a stretch ended; where OpenHistoricalMap's ways show the exact end (Paterson
+   Junction, Nanuet, Branch Brook Park) the box follows them. 22 rows are known to the year or month only
+   (**estimated** in the note); 6 take the day from OpenHistoricalMap where the article has the year.
+5. `build_county_former.py` — railroads that are gone: OpenHistoricalMap ways with an end date (dates as
+   mapped: Piermont, Nyack, Greenwood Lake, Caldwell, Haverstraw, New City, Harrison cut-off …; the Central
+   of New Jersey's main line and Newark Bay bridge with cited dates), the New York, Westchester & Boston north
+   of the city line (OpenStreetMap's abandoned roadbed; 1912 / 1921-29 by stretch, closed 31 Dec 1937) and
+   the Putnam Division (OpenStreetMap's abandoned roadbed and the North / South County Trailway on it;
+   1881 to 1962 / 1975 / 1977 / 1989 by stretch — years only, estimated).
+6. `check_counties.py` — outline, start < end, the city's subway against a copy made before the change.
+
+### How a track gets its year (pipeline/transit.py, `railroad_tracks`)
+
+Point by point along each track: (1) the first `rail` row naming its line whose box holds the point;
+(2) else OpenHistoricalMap's dated way within 20 m; (3) else the nearest dated track of its own kind within
+400 m (**estimated**; in the counties such a year also waits for the made land under it); (4) else the track
+is left out. The stage logs the kilometres of each and writes `data/interim/transit/county_rail_dating.csv`
+(line by line), `county_rail_ohm_check.csv` (every row against OpenHistoricalMap's dates along it) and
+`county_rail_ground.csv` (track older than its ground — reported, researched dates are not moved).
+
+State on 2026-11-10 (km of track, every track of a line counted): 1,552 km by a row, 263 km by
+OpenHistoricalMap (Passaic & Harsimus, Whippany, National Docks, Greenville, the old Erie main at Passaic …),
+381 km from the nearest dated track (yards: Meadows Maintenance Complex, South Kearny, Bay Line; Northern
+Branch in Jersey City; Portal North Bridge; 249 km of unnamed sidings), 172 km left out (Port Newark Yard 40,
+Garden State Secondary 12, Hempstead Branch 10 in the Nassau margin, industrial tracks, 76 km unnamed).
+
+Where the rows differ from OpenHistoricalMap by more than a year (the rows follow the articles): Morris &
+Essex (OHM 1856 for the whole line; rows 1836-38), Gladstone Branch (OHM 1900; row 1872), Northern Railroad
+(OHM 1856; row 1859), Jersey City & Albany (OHM 1881; row 1873), West Shore (OHM 1881; row 1883), New Jersey
+Midland (OHM 1871; row 1872), Lehigh Valley (OHM 1890; row 1891), the Northeast Corridor at Harrison
+(OHM 1870; row 1834), PATH on the Pennsylvania's line (OHM dates the roadbed 1834 / 1881; rows 1911 / 1937).
+The Paterson & Ramapo row (19 Oct 1848, station infoboxes) agrees with OHM (17 Oct 1848), not with the
+railroad's own article ("fall 1849").
+
+### PATH and light rail trains
+
+`RAPID` in `pipeline/transit.py`: four PATH services and two services each of the Hudson-Bergen Light Rail
+and the Newark Light Rail, on OpenStreetMap's route relations (one per direction; the centreline is the
+middle between them), heights / tunnels / opening years from the dated tracks. PATH: system `bart`, vehicle
+`ebart` (the A Division key: PA5 cars are 51 ft like the IRT's), 8 cars on the Newark line (article), 7
+elsewhere (estimated), headways from the Port Authority's GTFS (weekday trips). Light rail: system `muni`,
+vehicle `lrv` (car dimensions from memory of NJ Transit's Kinki Sharyo cars — **estimated**, not cited), 2 / 1
+cars and a 10-minute headway (**estimated**). The Newark City Subway ran PCC cars until 2001; the line is
+drawn with today's cars for all its years.
+
+### Not done
+
+The Public Service trolley subway in Newark (Cedar Street, 1916); the Putnam Division south of Elmsford
+(OpenStreetMap's trailway there carries no railway tag and the Overpass request for it by name failed);
+stations of the lines that are gone beyond the 38 Wikidata has with a closing date; the opening of the
+Chemical Coast line (Garden State Secondary) and of Port Newark's tracks (no date found: left out of the map).

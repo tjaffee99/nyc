@@ -881,6 +881,24 @@ def railroad_tracks(r, ground, ohm, openings):
                 at = np.nonzero(miss)[0][ok]
                 s["year"][at] = ty[ii[ok]]
                 s["src"][at] = 3
+    # nothing stands before its ground: a year taken from the nearest track (an estimate) waits for the made
+    # land under it, in the counties; researched rows and OpenHistoricalMap's dates are not moved (reported)
+    try:
+        from ground_rule import land_year_at
+        n_wait = 0.0
+        for s in segs:
+            m = s["county"] & (s["src"] == 3)
+            if m.any():
+                ly = land_year_at(s["lon"][m], s["lat"][m])
+                late = np.isfinite(ly) & (ly > s["year"][m])
+                if late.any():
+                    at = np.nonzero(m)[0][late]
+                    s["year"][at] = ly[late]
+                    n_wait += s["L"] / len(s["xy"]) / 1000 * float(late.sum())
+        if n_wait:
+            log(f"transit: counties: {n_wait:.1f} km of track dated from its neighbours waits for its made land")
+    except Exception as e:  # noqa: BLE001
+        log(f"transit: ground_rule not available ({e}): fallback years not checked against the ground")
     keep = [s for s in segs if not np.isnan(s["year"]).any()]
     km = defaultdict(float)
     for s in segs:

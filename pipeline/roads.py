@@ -958,10 +958,8 @@ def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None, 
         _, lab = connected_components(csr_matrix((np.ones(int(inner.sum())), (a_[inner], b_[inner])), shape=(N, N)), directed=False)
         edge = brm[a_] != brm[b_]
         eu = np.where(brm[a_[edge]], a_[edge], b_[edge])   # the bridge vertex
-        ev = np.where(brm[a_[edge]], b_[edge], a_[edge])   # its abutment (not a model's end, not a portal)
+        ev = np.where(brm[a_[edge]], b_[edge], a_[edge])   # its abutment (also a tunnel portal, the end of a landmark model)
         ew = wts[edge]
-        ok = ~lm_mask[ev] & ~real_tn[ev]
-        eu, ev, ew = eu[ok], ev[ok], ew[ok]
         ab = pd.DataFrame({"c": lab[eu], "u": eu, "v": ev, "w": ew})
         bv = np.nonzero(brm)[0]
         mem = pd.DataFrame({"c": lab[bv], "i": bv, "z": zabs[bv]})
