@@ -1,0 +1,147 @@
+{
+ "kings_towns_1890": {
+  "map_year": 1890,
+  "atlas": "Robinson's atlas of Kings County, New York (E. Robinson, 1890; entered 1889), scale 300 ft to the inch",
+  "source": "robinson_kings_1890",
+  "style": "robinson_300ft",
+  "plates": [
+   {
+    "id": 8526,
+    "sheet": "1"
+   },
+   {
+    "id": 8527,
+    "sheet": "2"
+   },
+   {
+    "id": 8528,
+    "sheet": "3"
+   },
+   {
+    "id": 8529,
+    "sheet": "4"
+   },
+   {
+    "id": 8530,
+    "sheet": "5"
+   },
+   {
+    "id": 8531,
+    "sheet": "6"
+   },
+   {
+    "id": 8532,
+    "sheet": "7"
+   },
+   {
+    "id": 8533,
+    "sheet": "8"
+   },
+   {
+    "id": 8534,
+    "sheet": "9"
+   },
+   {
+    "id": 8535,
+    "sheet": "10"
+   },
+   {
+    "id": 8536,
+    "sheet": "11"
+   },
+   {
+    "id": 8537,
+    "sheet": "12"
+   },
+   {
+    "id": 8538,
+    "sheet": "13"
+   },
+   {
+    "id": 8539,
+    "sheet": "14"
+   },
+   {
+    "id": 8540,
+    "sheet": "15"
+   },
+   {
+    "id": 8541,
+    "sheet": "16"
+   },
+   {
+    "id": 8542,
+    "sheet": "17"
+   },
+   {
+    "id": 8543,
+    "sheet": "18"
+   },
+   {
+    "id": 8544,
+    "sheet": "19"
+   },
+   {
+    "id": 8545,
+    "sheet": "20"
+   },
+   {
+    "id": 8546,
+    "sheet": "21"
+   },
+   {
+    "id": 8547,
+    "sheet": "22"
+   },
+   {
+    "id": 8548,
+    "sheet": "23"
+   },
+   {
+    "id": 8549,
+    "sheet": "24"
+   },
+   {
+    "id": 8550,
+    "sheet": "25"
+   },
+   {
+    "id": 8551,
+    "sheet": "26"
+   },
+   {
+    "id": 8552,
+    "sheet": "27"
+   },
+   {
+    "id": 8553,
+    "sheet": "28"
+   },
+   {
+    "id": 8554,
+    "sheet": "29"
+   },
+   {
+    "id": 8555,
+    "sheet": "30"
+   },
+   {
+    "id": 8556,
+    "sheet": "31"
+   }
+  ],
+  "source_url": "https://digitalcollections.nypl.org/ (Robinson's atlas of Kings County, New York, 1890; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)"
+ },
+ "harlem_1897": {
+  "map_year": 1897,
+  "atlas": "Atlas of the city of New York, Manhattan Island. From actual surveys and official plans by George W. and Walter S. Bromley (G. W. Bromley & Co., Philadelphia, 1897)",
+  "source": "bromley_manhattan_1897",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 8188,
+    "sheet": "40"
+   }
+  ]
+ }
+}

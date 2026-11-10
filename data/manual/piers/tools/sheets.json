@@ -1,0 +1,1058 @@
+{
+ "NY_Arthur_Kill_136694_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Arthur Kill",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -74.25,
+   "maxX": -74.125,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "aerial_photo_year": 1940,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Arthur%20Kill_136694_1947_24000_geo.tif"
+ },
+ "NY_Brooklyn_123124_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Brooklyn",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "aerial_photo_year": 1940,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Brooklyn_123124_1947_24000_geo.tif"
+ },
+ "NY_Central_Park_122894_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Central Park",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "aerial_photo_year": 1941,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Central%20Park_122894_1947_24000_geo.tif"
+ },
+ "NY_Coney_Island_137694_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Coney Island",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "aerial_photo_year": 1940,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Coney%20Island_137694_1947_24000_geo.tif"
+ },
+ "NJ_Elizabeth_254343_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Elizabeth",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -74.25,
+   "maxX": -74.125,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "aerial_photo_year": 1941,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Elizabeth_254343_1947_24000_geo.tif"
+ },
+ "NY_Far_Rockaway_138136_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Far Rockaway",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "aerial_photo_year": 1941,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Far%20Rockaway_138136_1947_24000_geo.tif"
+ },
+ "NY_Flushing_138246_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Flushing",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "aerial_photo_year": 1942,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Flushing_138246_1947_24000_geo.tif"
+ },
+ "NY_Jamaica_129963_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Jamaica",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "aerial_photo_year": 1941,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Jamaica_129963_1947_24000_geo.tif"
+ },
+ "NJ_Jersey_City_254499_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Jersey City",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "aerial_photo_year": 1940,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Jersey%20City_254499_1947_24000_geo.tif"
+ },
+ "NY_Mt_Vernon_130724_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Mt Vernon",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.875,
+   "maxY": 41.0
+  },
+  "aerial_photo_year": 1941,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Mt%20Vernon_130724_1947_24000_geo.tif"
+ },
+ "NJ_Perth_Amboy_254721_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Perth Amboy",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -74.375,
+   "maxX": -74.25,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "aerial_photo_year": 1941,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Perth%20Amboy_254721_1947_24000_geo.tif"
+ },
+ "NY_The_Narrows_139982_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "The Narrows",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "aerial_photo_year": 1941,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_The%20Narrows_139982_1947_24000_geo.tif"
+ },
+ "NJ_Weehawken_255030_1947_25000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Weehawken",
+  "scale": 25000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "edit_year": 1947,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Weehawken_255030_1947_25000_geo.tif"
+ },
+ "NJ_Yonkers_255024_1947_24000_geo.tif": {
+  "edition": "e1947",
+  "quad": "Yonkers",
+  "scale": 24000,
+  "date_on_map": 1947,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.875,
+   "maxY": 41.0
+  },
+  "aerial_photo_year": 1941,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NJ_Yonkers_255024_1947_24000_geo.tif"
+ },
+ "NY_Arthur_Kill_136697_1955_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "Arthur Kill",
+  "scale": 24000,
+  "date_on_map": 1955,
+  "bbox": {
+   "minX": -74.25,
+   "maxX": -74.125,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1957,
+  "aerial_photo_year": 1954,
+  "field_check_year": 1955,
+  "survey_year": 1955,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Arthur%20Kill_136697_1955_24000_geo.tif"
+ },
+ "NY_Brooklyn_123128_1956_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "Brooklyn",
+  "scale": 24000,
+  "date_on_map": 1956,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1958,
+  "survey_year": 1956,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Brooklyn_123128_1956_24000_geo.tif"
+ },
+ "NY_Central_Park_122895_1956_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "Central Park",
+  "scale": 24000,
+  "date_on_map": 1956,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "imprint_year": 1959,
+  "field_check_year": 1956,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Central%20Park_122895_1956_24000_geo.tif"
+ },
+ "NY_Coney_Island_137695_1955_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "Coney Island",
+  "scale": 24000,
+  "date_on_map": 1955,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1957,
+  "aerial_photo_year": 1954,
+  "survey_year": 1955,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Coney%20Island_137695_1955_24000_geo.tif"
+ },
+ "NJ_Elizabeth_254346_1955_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "Elizabeth",
+  "scale": 24000,
+  "date_on_map": 1955,
+  "bbox": {
+   "minX": -74.25,
+   "maxX": -74.125,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1958,
+  "aerial_photo_year": 1953,
+  "survey_year": 1955,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Elizabeth_254346_1955_24000_geo.tif"
+ },
+ "NY_Flushing_138249_1955_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "Flushing",
+  "scale": 24000,
+  "date_on_map": 1955,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "imprint_year": 1957,
+  "aerial_photo_year": 1954,
+  "field_check_year": 1955,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Flushing_138249_1955_24000_geo.tif"
+ },
+ "NY_Jamaica_129966_1957_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "Jamaica",
+  "scale": 24000,
+  "date_on_map": 1957,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1959,
+  "aerial_photo_year": 1957,
+  "survey_year": 1957,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Jamaica_129966_1957_24000_geo.tif"
+ },
+ "NJ_Jersey_City_254501_1955_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "Jersey City",
+  "scale": 24000,
+  "date_on_map": 1955,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1958,
+  "aerial_photo_year": 1954,
+  "field_check_year": 1955,
+  "survey_year": 1955,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Jersey%20City_254501_1955_24000_geo.tif"
+ },
+ "NY_Mount_Vernon_130719_1956_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "Mount Vernon",
+  "scale": 24000,
+  "date_on_map": 1956,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.875,
+   "maxY": 41.0
+  },
+  "imprint_year": 1958,
+  "aerial_photo_year": 1954,
+  "field_check_year": 1956,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Mount%20Vernon_130719_1956_24000_geo.tif"
+ },
+ "NJ_Perth_Amboy_254723_1956_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "Perth Amboy",
+  "scale": 24000,
+  "date_on_map": 1956,
+  "bbox": {
+   "minX": -74.375,
+   "maxX": -74.25,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1958,
+  "survey_year": 1934,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Perth%20Amboy_254723_1956_24000_geo.tif"
+ },
+ "NY_The_Narrows_139984_1955_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "The Narrows",
+  "scale": 24000,
+  "date_on_map": 1955,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1957,
+  "aerial_photo_year": 1954,
+  "field_check_year": 1955,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_The%20Narrows_139984_1955_24000_geo.tif"
+ },
+ "NJ_Weehawken_472504_1955_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "Weehawken",
+  "scale": 24000,
+  "date_on_map": 1955,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "imprint_year": 1958,
+  "survey_year": 1935,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Weehawken_472504_1955_24000_geo.tif"
+ },
+ "NJ_Yonkers_472567_1956_24000_geo.tif": {
+  "edition": "e1955",
+  "quad": "Yonkers",
+  "scale": 24000,
+  "date_on_map": 1956,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.875,
+   "maxY": 41.0
+  },
+  "imprint_year": 1958,
+  "aerial_photo_year": 1954,
+  "field_check_year": 1956,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NJ_Yonkers_472567_1956_24000_geo.tif"
+ },
+ "NY_Arthur_Kill_710166_1966_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "Arthur Kill",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -74.25,
+   "maxX": -74.125,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1969,
+  "aerial_photo_year": 1966,
+  "field_check_year": 1966,
+  "survey_year": 1955,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Arthur%20Kill_710166_1966_24000_geo.tif"
+ },
+ "NY_Brooklyn_123129_1967_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "Brooklyn",
+  "scale": 24000,
+  "date_on_map": 1967,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1970,
+  "aerial_photo_year": 1966,
+  "field_check_year": 1967,
+  "survey_year": 1956,
+  "edit_year": 1966,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Brooklyn_123129_1967_24000_geo.tif"
+ },
+ "NY_Central_Park_122898_1966_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "Central Park",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "imprint_year": 1970,
+  "aerial_photo_year": 1966,
+  "field_check_year": 1966,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Central%20Park_122898_1966_24000_geo.tif"
+ },
+ "NY_Coney_Island_137696_1966_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "Coney Island",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1968,
+  "aerial_photo_year": 1954,
+  "survey_year": 1955,
+  "edit_year": 1966,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Coney%20Island_137696_1966_24000_geo.tif"
+ },
+ "NJ_Elizabeth_254348_1967_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "Elizabeth",
+  "scale": 24000,
+  "date_on_map": 1967,
+  "bbox": {
+   "minX": -74.25,
+   "maxX": -74.125,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1969,
+  "aerial_photo_year": 1966,
+  "field_check_year": 1967,
+  "survey_year": 1955,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Elizabeth_254348_1967_24000_geo.tif"
+ },
+ "NY_Far_Rockaway_138139_1969_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "Far Rockaway",
+  "scale": 24000,
+  "date_on_map": 1969,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1971,
+  "aerial_photo_year": 1966,
+  "field_check_year": 1969,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Far%20Rockaway_138139_1969_24000_geo.tif"
+ },
+ "NY_Flushing_138250_1966_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "Flushing",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "imprint_year": 1968,
+  "aerial_photo_year": 1954,
+  "field_check_year": 1955,
+  "edit_year": 1966,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Flushing_138250_1966_24000_geo.tif"
+ },
+ "NY_Jamaica_129967_1966_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "Jamaica",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1969,
+  "photo_revision_year": 1966,
+  "aerial_photo_year": 1953,
+  "field_check_year": 1966,
+  "survey_year": 1957,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Jamaica_129967_1966_24000_geo.tif"
+ },
+ "NJ_Jersey_City_254502_1967_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "Jersey City",
+  "scale": 24000,
+  "date_on_map": 1967,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1969,
+  "aerial_photo_year": 1966,
+  "field_check_year": 1967,
+  "survey_year": 1955,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Jersey%20City_254502_1967_24000_geo.tif"
+ },
+ "NY_Mount_Vernon_130721_1966_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "Mount Vernon",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.875,
+   "maxY": 41.0
+  },
+  "imprint_year": 1970,
+  "aerial_photo_year": 1966,
+  "field_check_year": 1966,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Mount%20Vernon_130721_1966_24000_geo.tif"
+ },
+ "NY_The_Narrows_139987_1966_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "The Narrows",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1968,
+  "aerial_photo_year": 1966,
+  "field_check_year": 1966,
+  "survey_year": 1955,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_The%20Narrows_139987_1966_24000_geo.tif"
+ },
+ "NJ_Weehawken_254972_1967_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "Weehawken",
+  "scale": 24000,
+  "date_on_map": 1967,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "imprint_year": 1968,
+  "aerial_photo_year": 1966,
+  "field_check_year": 1967,
+  "survey_year": 1935,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Weehawken_254972_1967_24000_geo.tif"
+ },
+ "NJ_Yonkers_255027_1966_24000_geo.tif": {
+  "edition": "e1966",
+  "quad": "Yonkers",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.875,
+   "maxY": 41.0
+  },
+  "imprint_year": 1968,
+  "aerial_photo_year": 1954,
+  "field_check_year": 1956,
+  "edit_year": 1966,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NJ_Yonkers_255027_1966_24000_geo.tif"
+ },
+ "NY_Arthur_Kill_137078_1966_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "Arthur Kill",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -74.25,
+   "maxX": -74.125,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1982,
+  "photo_revision_year": 1981,
+  "aerial_photo_year": 1976,
+  "field_check_year": 1966,
+  "survey_year": 1955,
+  "edit_year": 1981,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Arthur%20Kill_137078_1966_24000_geo.tif"
+ },
+ "NY_Brooklyn_123131_1967_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "Brooklyn",
+  "scale": 24000,
+  "date_on_map": 1967,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1979,
+  "photo_revision_year": 1979,
+  "aerial_photo_year": 1977,
+  "edit_year": 1979,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Brooklyn_123131_1967_24000_geo.tif"
+ },
+ "NY_Central_Park_122899_1966_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "Central Park",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "imprint_year": 1979,
+  "photo_revision_year": 1979,
+  "aerial_photo_year": 1977,
+  "field_check_year": 1966,
+  "edit_year": 1979,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Central%20Park_122899_1966_24000_geo.tif"
+ },
+ "NY_Coney_Island_137698_1966_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "Coney Island",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1979,
+  "photo_revision_year": 1979,
+  "aerial_photo_year": 1977,
+  "survey_year": 1955,
+  "edit_year": 1979,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Coney%20Island_137698_1966_24000_geo.tif"
+ },
+ "NJ_Elizabeth_254350_1967_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "Elizabeth",
+  "scale": 24000,
+  "date_on_map": 1967,
+  "bbox": {
+   "minX": -74.25,
+   "maxX": -74.125,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1982,
+  "photo_revision_year": 1981,
+  "aerial_photo_year": 1976,
+  "field_check_year": 1967,
+  "survey_year": 1955,
+  "edit_year": 1981,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Elizabeth_254350_1967_24000_geo.tif"
+ },
+ "NY_Flushing_138252_1966_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "Flushing",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "imprint_year": 1979,
+  "photo_revision_year": 1979,
+  "aerial_photo_year": 1977,
+  "field_check_year": 1955,
+  "edit_year": 1979,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Flushing_138252_1966_24000_geo.tif"
+ },
+ "NY_Jamaica_129968_1979_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "Jamaica",
+  "scale": 24000,
+  "date_on_map": 1979,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1979,
+  "photo_revision_year": 1979,
+  "aerial_photo_year": 1953,
+  "field_check_year": 1966,
+  "survey_year": 1957,
+  "edit_year": 1979,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Jamaica_129968_1979_24000_geo.tif"
+ },
+ "NJ_Jersey_City_254503_1967_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "Jersey City",
+  "scale": 24000,
+  "date_on_map": 1967,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1982,
+  "photo_revision_year": 1981,
+  "aerial_photo_year": 1976,
+  "field_check_year": 1967,
+  "edit_year": 1981,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Jersey%20City_254503_1967_24000_geo.tif"
+ },
+ "NY_Mount_Vernon_130722_1966_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "Mount Vernon",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.875,
+   "maxY": 41.0
+  },
+  "imprint_year": 1979,
+  "photo_revision_year": 1979,
+  "aerial_photo_year": 1977,
+  "edit_year": 1979,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Mount%20Vernon_130722_1966_24000_geo.tif"
+ },
+ "NY_The_Narrows_139988_1966_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "The Narrows",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1982,
+  "photo_revision_year": 1981,
+  "aerial_photo_year": 1976,
+  "field_check_year": 1966,
+  "survey_year": 1955,
+  "edit_year": 1981,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_The%20Narrows_139988_1966_24000_geo.tif"
+ },
+ "NJ_Weehawken_254974_1967_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "Weehawken",
+  "scale": 24000,
+  "date_on_map": 1967,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "imprint_year": 1982,
+  "photo_revision_year": 1981,
+  "aerial_photo_year": 1976,
+  "field_check_year": 1967,
+  "edit_year": 1981,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Weehawken_254974_1967_24000_geo.tif"
+ },
+ "NY_Yonkers_140393_1966_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "Yonkers",
+  "scale": 24000,
+  "date_on_map": 1966,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.875,
+   "maxY": 41.0
+  },
+  "imprint_year": 1980,
+  "photo_revision_year": 1979,
+  "aerial_photo_year": 1977,
+  "edit_year": 1979,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Yonkers_140393_1966_24000_geo.tif"
+ },
+ "NJ_Perth_Amboy_254726_1956_24000_geo.tif": {
+  "edition": "e1979",
+  "quad": "Perth Amboy",
+  "scale": 24000,
+  "date_on_map": 1956,
+  "bbox": {
+   "minX": -74.375,
+   "maxX": -74.25,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1982,
+  "photo_revision_year": 1981,
+  "aerial_photo_year": 1979,
+  "survey_year": 1934,
+  "edit_year": 1981,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Perth%20Amboy_254726_1956_24000_geo.tif"
+ },
+ "NY_Brooklyn_137132_1995_24000_geo.tif": {
+  "edition": "e1995",
+  "quad": "Brooklyn",
+  "scale": 24000,
+  "date_on_map": 1995,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1999,
+  "aerial_photo_year": 1977,
+  "photo_inspection_year": 1995,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Brooklyn_137132_1995_24000_geo.tif"
+ },
+ "NY_Central_Park_137165_1995_24000_geo.tif": {
+  "edition": "e1995",
+  "quad": "Central Park",
+  "scale": 24000,
+  "date_on_map": 1995,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "imprint_year": 1999,
+  "aerial_photo_year": 1997,
+  "photo_inspection_year": 1995,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Central%20Park_137165_1995_24000_geo.tif"
+ },
+ "NY_Coney_Island_137185_1995_24000_geo.tif": {
+  "edition": "e1995",
+  "quad": "Coney Island",
+  "scale": 24000,
+  "date_on_map": 1995,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 1999,
+  "aerial_photo_year": 1977,
+  "photo_inspection_year": 1995,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Coney%20Island_137185_1995_24000_geo.tif"
+ },
+ "NJ_Elizabeth_254351_1995_24000_geo.tif": {
+  "edition": "e1995",
+  "quad": "Elizabeth",
+  "scale": 24000,
+  "date_on_map": 1995,
+  "bbox": {
+   "minX": -74.25,
+   "maxX": -74.125,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 1998,
+  "aerial_photo_year": 1995,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Elizabeth_254351_1995_24000_geo.tif"
+ },
+ "NY_Flushing_137332_1995_24000_geo.tif": {
+  "edition": "e1995",
+  "quad": "Flushing",
+  "scale": 24000,
+  "date_on_map": 1995,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "imprint_year": 1999,
+  "aerial_photo_year": 1977,
+  "photo_inspection_year": 1995,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Flushing_137332_1995_24000_geo.tif"
+ },
+ "NY_Jamaica_137282_1994_24000_geo.tif": {
+  "edition": "e1995",
+  "quad": "Jamaica",
+  "scale": 24000,
+  "date_on_map": 1994,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.625,
+   "maxY": 40.75
+  },
+  "imprint_year": 2000,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Jamaica_137282_1994_24000_geo.tif"
+ },
+ "NY_Mount_Vernon_137393_1995_24000_geo.tif": {
+  "edition": "e1995",
+  "quad": "Mount Vernon",
+  "scale": 24000,
+  "date_on_map": 1995,
+  "bbox": {
+   "minX": -73.875,
+   "maxX": -73.75,
+   "minY": 40.875,
+   "maxY": 41.0
+  },
+  "imprint_year": 1999,
+  "aerial_photo_year": 1977,
+  "photo_inspection_year": 1995,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Mount%20Vernon_137393_1995_24000_geo.tif"
+ },
+ "NJ_Perth_Amboy_254728_1995_24000_geo.tif": {
+  "edition": "e1995",
+  "quad": "Perth Amboy",
+  "scale": 24000,
+  "date_on_map": 1995,
+  "bbox": {
+   "minX": -74.375,
+   "maxX": -74.25,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 2000,
+  "aerial_photo_year": 1995,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Perth%20Amboy_254728_1995_24000_geo.tif"
+ },
+ "NY_The_Narrows_136951_1998_24000_geo.tif": {
+  "edition": "e1995",
+  "quad": "The Narrows",
+  "scale": 24000,
+  "date_on_map": 1998,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.5,
+   "maxY": 40.625
+  },
+  "imprint_year": 2001,
+  "aerial_photo_year": 1976,
+  "survey_year": 1966,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_The%20Narrows_136951_1998_24000_geo.tif"
+ },
+ "NJ_Weehawken_254975_1995_24000_geo.tif": {
+  "edition": "e1995",
+  "quad": "Weehawken",
+  "scale": 24000,
+  "date_on_map": 1995,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "imprint_year": 1998,
+  "aerial_photo_year": 1995,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Weehawken_254975_1995_24000_geo.tif"
+ },
+ "NY_Yonkers_137051_1998_24000_geo.tif": {
+  "edition": "e1995",
+  "quad": "Yonkers",
+  "scale": 24000,
+  "date_on_map": 1998,
+  "bbox": {
+   "minX": -74.0,
+   "maxX": -73.875,
+   "minY": 40.875,
+   "maxY": 41.0
+  },
+  "imprint_year": 2000,
+  "aerial_photo_year": 1966,
+  "survey_year": 1966,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NY/NY_Yonkers_137051_1998_24000_geo.tif"
+ },
+ "NJ_Weehawken_254971_1935_24000_geo.tif": {
+  "edition": "e1935",
+  "quad": "Weehawken",
+  "scale": 24000,
+  "date_on_map": 1935,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "survey_year": 1935,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Weehawken_254971_1935_24000_geo.tif"
+ },
+ "NJ_Weehawken_255029_1943_25000_geo.tif": {
+  "edition": "e1935",
+  "quad": "Weehawken",
+  "scale": 25000,
+  "date_on_map": 1943,
+  "bbox": {
+   "minX": -74.125,
+   "maxX": -74.0,
+   "minY": 40.75,
+   "maxY": 40.875
+  },
+  "survey_year": 1933,
+  "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/NJ/NJ_Weehawken_255029_1943_25000_geo.tif"
+ }
+}

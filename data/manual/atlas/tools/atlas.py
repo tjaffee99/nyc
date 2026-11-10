@@ -1,0 +1,712 @@
+"""Trace building footprints from the coloured real-estate atlases of the 1880s-1900s (NYPL scans).
+
+Not a pipeline stage: it writes hand-checked data into data/manual/atlas/ (committed).
+
+    python -I atlas.py fetch   <layer> [plate ...]      # NYPL master scans -> data/raw/atlas/nypl_u/<imageId>.jpg
+    python -I atlas.py refine  <layer> [plate ...]      # street match -> data/interim/atlas/<layer>/<plate>_corr.json
+    python -I atlas.py trace   <layer> [plate ...]      # per plate -> data/interim/atlas/<layer>/<plate>.pkl + stats
+    python -I atlas.py export  <layer>                  # -> data/manual/atlas/<layer>.geojson + _coverage.geojson + _stats.json
+    python -I atlas.py overlay <layer> <plate> <x,y> <size_m> <out.png> [--px] [--scale 3]
+                                                        # plate crop with traced outlines (red = frame, magenta = brick)
+                                                        # and today's footprints (cyan), for checking by eye
+    python -I atlas.py colours <layer> <plate> <x0,y0,x1,y1 px> <out.png>   # class picture of a crop (calibration)
+
+<layer> = a key of layers.json (next to this file); <plate> = NYPL Map Warper map id.
+
+Method (details, residuals and what was seen in data/manual/atlas/README.md):
+  * scan and control points: the Map Warper record of each plate in the NYC Space/Time Directory dump (CC0) and
+    NYPL's full-size master scan, as worked out for data/manual/extents (tools/warp.py is reused from there).
+  * registration: the Map Warper control points (affine / 2nd order / thin-plate spline by cross-validation), then
+    `refine`: the plate's street tint is matched to today's street centrelines in windows and the consensus of the
+    window shifts corrects the fit (constant shift, or affine when enough windows agree). The residual reported per
+    plate is measured on buildings that still stand (traced outline against today's footprint).
+  * footprints: pixel classes in CIE Lab relative to the plate's paper colour (frame = the yellow / ochre fill,
+    brick = the pink / carmine fill, ink); property bands of the same pigments are thin and are removed by width;
+    one polygon per connected fill (ink lines separate party walls where the style says so).
+Local coordinates: X = UTM 18N easting - 580000, Y = northing - 4500000 (metres), as in the extents tools.
+"""
+from __future__ import annotations
+
+import json
+import pickle
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+from PIL import Image, ImageDraw
+from scipy import ndimage as ndi
+import shapely
+import shapely.affinity
+import shapely.geometry as sg
+from shapely import wkb
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[3]
+sys.path.insert(0, str(ROOT / "data" / "manual" / "extents" / "tools"))  # warp.py, streets.py (read-only reuse)
+import warp  # noqa: E402
+import streets as S  # noqa: E402
+
+Image.MAX_IMAGE_PIXELS = None
+RAW = ROOT / "data" / "raw" / "atlas" / "nypl_u"
+WORK = ROOT / "data" / "interim" / "atlas"
+OUT = ROOT / "data" / "manual" / "atlas"
+FOOT = ROOT / "data" / "interim" / "nyc_footprints_raw.parquet"
+UA = {"User-Agent": "NYCThroughTime-research/0.1"}
+
+# --------------------------------------------------------------------------------------------- styles
+# Thresholds are offsets from the plate's paper colour (Lab mode of the light pixels), so that a browner or
+# paler copy reads the same. All lengths in source pixels unless they end in _m.
+STYLES = {
+    # E. Robinson, county atlases at 300 ft to the inch (0.48 m per pixel): ochre frame buildings, carmine brick,
+    # property bands in orange / carmine / green 3-5 m wide, streets and laid-out blocks tinted peach or grey.
+    # Measured on plate 22 (paper Lab 87, 0, 9): frame fill L 61-73, a 5-10, b 28-40; orange band a 10-14, b 27-30
+    # (redder: a / b over paper 0.5-0.6 against 0.2-0.33); peach tint L 77-81, b 18-21; carmine L 66, a 21, b 13.
+    "robinson_300ft": dict(
+        frame=dict(db_min=15.0, hue=0.42, L_min=36, L_max=75.5),
+        band=dict(db_min=12.0),                      # the orange property band (warm, redder than the frame fill)
+        brick=dict(da_min=12.0, db_max=9.0, L_min=42),
+        ink=dict(L_max=47, db_max=9.0),
+        ink_grow=2, hole_px=150,
+        core_frame=9, core_brick=11, outline=0.62, outline_low=0.3, compact=14.0, outline_brick=0.72, line_depth=8.0,                # a building is wider than a band: opening by this many pixels
+        small_open=5, small_r=2.6, band_grow=2,      # narrower frame buildings (sheds): by colour, away from bands
+        split_by_ink=False, min_m2=15.0, max_m2=5000.0,
+    ),
+    # G. W. Bromley, city atlases at about 160 ft to the inch (0.24 m per pixel): rows of houses in rose (brick)
+    # with a grey strip along the street front (stone front), grey (stone) and yellow (frame) buildings; party
+    # walls are the lot lines drawn through the fill; streets and empty lots are left paper.
+    # Measured on plate 40 of 1897 (paper Lab 83, -1, 10): rose L 64-67, a 12-17, b 3-6; grey L 60-65, a 2, b 6.5;
+    # yellow L 75, a -5, b 24-27; party-wall lines dip to L 52-58 on the rose.
+    "bromley_city": dict(
+        frame=dict(db_min=9.0, hue=0.42, L_min=50, L_max=84),
+        band=None,
+        brick=dict(da_min=7.5, db_max=4.0, L_min=45),
+        stone=dict(da_abs=5.5, db_min=-9.0, db_max=0.5, dL_min=-28.0, dL_max=-11.0),
+        ink=dict(L_max=47, db_max=9.0),
+        line_depth=5.0, wall_px=120, hole_px=150, core=7, outline=0.55, front_px=900,
+        split_by_ink=True, min_m2=15.0, max_m2=5000.0,
+    ),
+}
+
+
+def layers() -> dict:
+    return json.loads((HERE / "layers.json").read_text())
+
+
+# --------------------------------------------------------------------------------------------- pixels
+def rgb2lab(rgb):
+    c = rgb.astype(np.float32) / 255
+    c = np.where(c > 0.04045, ((c + 0.055) / 1.055) ** 2.4, c / 12.92)
+    M = np.array([[0.4124564, 0.3575761, 0.1804375], [0.2126729, 0.7151522, 0.0721750], [0.0193339, 0.1191920, 0.9503041]], np.float32)
+    xyz = c @ M.T / np.array([0.95047, 1.0, 1.08883], np.float32)
+    f = np.where(xyz > 0.008856, np.cbrt(xyz), 7.787 * xyz + 16 / 116)
+    return np.stack([116 * f[..., 1] - 16, 500 * (f[..., 0] - f[..., 1]), 200 * (f[..., 1] - f[..., 2])], -1)
+
+
+def paper_colour(img, inside=None):
+    """Lab mode of the plate's light pixels (the paper), from a 1-in-7 subsample."""
+    sub = img[::7, ::7]
+    lab = rgb2lab(sub)
+    ok = lab[..., 0] > 60
+    if inside is not None:
+        ok &= inside[::7, ::7]
+    q = np.round(lab[ok]).astype(int)
+    key = q[:, 0] * 1000000 + (q[:, 1] + 500) * 1000 + (q[:, 2] + 500)
+    u, n = np.unique(key, return_counts=True)
+    k = u[np.argmax(n)]
+    return np.array([k // 1000000, (k // 1000) % 1000 - 500, k % 1000 - 500], float)
+
+
+def classes(img, paper, st):
+    """uint8 per pixel: 0 other, 1 ink, 2 frame fill, 3 brick fill, 4 stone (grey) fill, 5 orange band."""
+    H = img.shape[0]
+    out = np.zeros(img.shape[:2], np.uint8)
+    for r0 in range(0, H, 1024):
+        lab = rgb2lab(img[r0:r0 + 1024])
+        L, da, db = lab[..., 0], lab[..., 1] - paper[1], lab[..., 2] - paper[2]
+        c = np.zeros(L.shape, np.uint8)
+        k = st["ink"]
+        c[(L < k["L_max"]) & (db < k["db_max"])] = 1
+        k = st["frame"]
+        warm = (L > k["L_min"]) & (L < k["L_max"])
+        c[warm & (db > k["db_min"]) & (da < k["hue"] * db)] = 2
+        if st.get("band"):
+            c[warm & (db > st["band"]["db_min"]) & (da >= k["hue"] * db)] = 5
+        if st.get("stone"):
+            k = st["stone"]
+            dL = L - paper[0]
+            c[(np.abs(da) < k["da_abs"]) & (db > k["db_min"]) & (db < k["db_max"]) & (dL > k["dL_min"]) & (dL < k["dL_max"])] = 4
+        k = st["brick"]
+        c[(da > k["da_min"]) & (db < k["db_max"]) & (L > k["L_min"])] = 3
+        out[r0:r0 + 1024] = c
+    return out
+
+
+def thin_lines(img, depth=8.0):
+    """Drawn lines 1-3 pixels wide, whatever they are drawn on: darker than their surroundings by `depth` in L
+    (black top-hat over 5 x 5). The outline of a building on its own fill is found this way; the ink class alone
+    (dark and neutral) misses it."""
+    H = img.shape[0]
+    out = np.zeros(img.shape[:2], bool)
+    for r0 in range(0, H, 1024):
+        a, b = max(0, r0 - 4), min(H, r0 + 1024 + 4)
+        L = rgb2lab(img[a:b])[..., 0]
+        t = ndi.grey_closing(L, size=(5, 5)) - L > depth
+        out[r0:min(H, r0 + 1024)] = t[r0 - a:r0 - a + min(H, r0 + 1024) - r0]
+    return out
+
+
+SQ3 = np.ones((3, 3), bool)
+CROSS = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], bool)
+
+
+def _open(m, n):
+    return ndi.maximum_filter(ndi.minimum_filter(m.view(np.uint8), size=n), size=n).view(bool)
+
+
+def _close(m, n):
+    return ndi.minimum_filter(ndi.maximum_filter(m.view(np.uint8), size=n), size=n).view(bool)
+
+
+def _dil(m, k):
+    return ndi.maximum_filter(m.view(np.uint8), size=2 * k + 1).view(bool)
+
+
+def _grow(f, ink, st):
+    """A fill with the ink lying on it (the X of a stable, lettering, hatching) filled in: ink pixels between fill
+    on both sides (closing by 5 x 5). The outline is not taken in - that would widen property bands past the
+    width test - so a traced building is about one line width smaller all round; `fills` adds it back."""
+    g = f | (_close(f, 5) & ink)
+    g = _close(g, 3)
+    holes = ndi.binary_fill_holes(g) & ~g
+    lab, n = ndi.label(holes)
+    if n:
+        small = np.zeros(n + 1, bool)
+        small[1:] = ndi.sum(holes, lab, np.arange(1, n + 1)) <= st["hole_px"]
+        g |= small[lab]
+    return g
+
+
+def _wide(g, n_core):
+    """The parts of a mask wider than n_core pixels, with their corners back (bands and lettering drop out)."""
+    return _dil(_open(g, n_core), n_core // 2) & g
+
+
+def select(mask, ink, hi, lo=None, compact=14.0):
+    """Components of a fill mask that are buildings.
+    A building has an ink outline all round; a property band of the same pigment has the lot line along one side
+    only. Kept: outline share >= hi; or >= lo when the shape is compact (area / inscribed radius^2 <= compact,
+    about 3.5 : 1 - a piece of band is long)."""
+    lab, n = ndi.label(mask, structure=CROSS)
+    if n == 0:
+        return mask
+    idx = np.arange(1, n + 1)
+    edge = mask & ~ndi.binary_erosion(mask, CROSS)
+    near = _dil(ink, 2)
+    share = ndi.sum(edge & near, lab, idx) / np.maximum(ndi.sum(edge, lab, idx), 1)
+    good = share >= hi
+    if lo is not None:
+        area = ndi.sum(mask, lab, idx)
+        r = ndi.maximum(ndi.distance_transform_edt(mask), lab, idx)
+        good |= (share >= lo) & (area / np.maximum(r, 1) ** 2 <= compact)
+    ok = np.zeros(n + 1, bool)
+    ok[1:] = good
+    return ok[lab]
+
+
+def fills(c, line, st, inside):
+    """Binary masks of frame and brick buildings from the class raster and the thin-line raster."""
+    ink = (c == 1) | line
+    res = {}
+    # frame: the frame hue only (a building standing on an orange band is cut from it by hue), wide ...
+    g = _grow((c == 2) & inside, ink, st)
+    wide = _wide(g, st["core_frame"])
+    # ... plus narrower fills that do not hug a band (the band's fringe has the frame hue)
+    band = _open(c == 5, 3)
+    strict = g & ~_dil(band, st["band_grow"])
+    small = _open(strict, st["small_open"])
+    lab, n = ndi.label(small, structure=CROSS)
+    if n:
+        idx = np.arange(1, n + 1)
+        r = ndi.maximum(ndi.distance_transform_edt(small), lab, idx)
+        touch = ndi.sum(wide, lab, idx)
+        ok = np.zeros(n + 1, bool)
+        ok[1:] = (r >= st["small_r"]) & (touch == 0)
+        small = ok[lab]
+    res["frame"] = select(wide | small, ink, st["outline"], st["outline_low"], st["compact"])
+    res["brick"] = select(_wide(_grow((c == 3) & inside, ink, st), st["core_brick"]), ink, st["outline_brick"])
+    for k in res:  # the outline belongs to the building
+        res[k] = ndi.binary_dilation(res[k], CROSS, mask=res[k] | ink)
+    return res
+
+
+def fills_rows(c, line, st, inside):
+    """Buildings of a city atlas: label raster (one label per building) and the material of each label.
+    The fill of a row runs through from house to house; the party walls are the lot lines drawn across it. Walls =
+    the thin drawn lines that hang together (the lot-line network: connected components of st['wall_px'] pixels or
+    more, without strokes 3 pixels thick or more, which are figures); figures and ditto marks on the fill are
+    filled in. Each connected piece of fill between walls is a building; its material is the pigment that prevails;
+    a small grey piece against a rose one is that house's stone front and is joined to it."""
+    ink = (c == 1) | line
+    fill = ((c == 2) | (c == 3) | (c == 4)) & inside
+    thin = ink & ~_dil(_open(c == 1, 3), 1)
+    lab, n = ndi.label(thin, structure=SQ3)
+    if n:
+        big = np.zeros(n + 1, bool)
+        big[1:] = np.bincount(lab.ravel(), minlength=n + 1)[1:] >= st["wall_px"]
+        walls = big[lab]
+    else:
+        walls = thin
+    g = (fill | (_close(fill, 5) & ink)) & ~walls
+    g = _open(g, 3)
+    # buildings are wider than st['core'] pixels (pencil lines, tinted strips and specks are not)
+    g = _dil(_open(g, st["core"]), st["core"] // 2) & g
+    lab, n = ndi.label(g, structure=CROSS)
+    if n == 0:
+        return lab, np.array([], object)
+    idx = np.arange(1, n + 1)
+    edge = g & ~ndi.binary_erosion(g, CROSS)
+    share = ndi.sum(edge & _dil(ink, 2), lab, idx) / np.maximum(ndi.sum(edge, lab, idx), 1)
+    counts = np.stack([ndi.sum(c == k, lab, idx) for k in (2, 3, 4)], 1)
+    kind = np.argmax(counts, 1)                      # 0 frame, 1 brick, 2 stone
+    area = counts.sum(1)
+    ok = np.zeros(n + 1, bool)
+    ok[1:] = share >= st["outline"]
+    lab = np.where(ok[lab], lab, 0)
+    # stone fronts: a small grey piece joins the rose piece it lies against
+    isbrick = np.zeros(n + 1, bool)
+    isbrick[1:] = kind == 1
+    near = ndi.grey_dilation(np.where(isbrick[lab], lab, 0), size=(9, 9))
+    sl = ndi.find_objects(lab)
+    target = {}
+    for i in np.flatnonzero((kind == 2) & (area <= st["front_px"]) & ok[1:]):
+        s_ = sl[i]
+        if s_ is None:
+            continue
+        m = lab[s_] == i + 1
+        v = near[s_][m]
+        v = v[v > 0]
+        if len(v) >= max(6, 0.04 * m.sum()):
+            target[i + 1] = int(np.bincount(v).argmax())
+    for src, dst in target.items():
+        lab[sl[src - 1]][lab[sl[src - 1]] == src] = dst
+    for dst in set(target.values()):                 # close the line between the two parts
+        y, x = sl[dst - 1]
+        y = slice(max(0, y.start - 12), y.stop + 12)
+        x = slice(max(0, x.start - 12), x.stop + 12)
+        m = lab[y, x] == dst
+        m2 = ndi.binary_closing(m, np.ones((7, 7), bool)) & (lab[y, x] == 0)
+        lab[y, x][m2] = dst
+    return lab, np.array(["frame", "brick", "stone"], object)[kind]
+
+
+def label_polygons(lab, min_px, max_px):
+    """(polygon in pixel coordinates, label) for each label of a label raster within the size limits."""
+    from rasterio import features
+    n = int(lab.max())
+    if n == 0:
+        return []
+    area = np.bincount(lab.ravel(), minlength=n + 1)
+    keep = (area >= min_px) & (area <= max_px)
+    keep[0] = False
+    lab2 = np.where(keep[lab], lab, 0).astype(np.int32)
+    out = []
+    for geom, v in features.shapes(lab2, mask=lab2 > 0, connectivity=4):
+        p = sg.shape(geom)
+        if not p.is_valid:
+            p = p.buffer(0)
+        if p.is_empty:
+            continue
+        p = sg.Polygon(p.exterior) if p.geom_type == "Polygon" else sg.Polygon(max(p.geoms, key=lambda g: g.area).exterior)
+        out.append((p, int(v)))
+    return out
+
+
+def polygons(mask, min_r, min_px, max_px):
+    """Vector outlines (pixel coordinates, y down) of the components of a mask: (polygon, area_px)."""
+    from rasterio import features
+    lab, n = ndi.label(mask, structure=np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]]))
+    if n == 0:
+        return []
+    idx = np.arange(1, n + 1)
+    area = ndi.sum(mask, lab, idx)
+    dist = ndi.distance_transform_edt(mask)
+    rmax = ndi.maximum(dist, lab, idx)
+    good = (area >= min_px) & (area <= max_px) & (rmax >= min_r)
+    keep = np.zeros(n + 1, bool)
+    keep[1:] = good
+    lab2 = np.where(keep[lab], lab, 0).astype(np.int32)
+    out = []
+    for geom, v in features.shapes(lab2, mask=lab2 > 0, connectivity=4):
+        p = sg.shape(geom)
+        if not p.is_valid:
+            p = p.buffer(0)
+        if p.is_empty:
+            continue
+        p = sg.Polygon(p.exterior) if p.geom_type == "Polygon" else max(p.geoms, key=lambda g: g.area)
+        out.append((p, float(area[int(v) - 1])))
+    return out
+
+
+def tidy(p, tol=1.1, rect_iou=0.84):
+    """Outline simplified; a plain rectangle where the shape is one."""
+    q = p.simplify(tol)
+    if not q.is_valid or q.is_empty:
+        q = p
+    r = q.minimum_rotated_rectangle
+    if r.geom_type == "Polygon" and r.area > 0 and q.area / r.area >= rect_iou:
+        # the rectangle of the same area as the traced fill, on the fill's axes
+        k = (q.area / r.area) ** 0.5
+        c = r.centroid
+        return shapely.affinity.scale(r, k, k, origin=c)
+    return q
+
+
+# --------------------------------------------------------------------------------------------- plates
+class Plate:
+    def __init__(self, layer, pid, verbose=True):
+        self.layer, self.id = layer, str(pid)
+        self.spec = layers()[layer]
+        self.style = dict(STYLES[self.spec["style"]], **self.spec.get("style_override", {}))
+        self.m = warp.MapWarp(int(pid), verbose=verbose)
+        self.m.rec["image_path"] = str(RAW / f"{self.m.rec['imageId']}.jpg")
+        self.corr = None  # (A 2x2, t 2) correction applied after the control-point fit, local metres
+        cf = WORK / layer / f"{self.id}_corr.json"
+        if cf.exists():
+            d = json.loads(cf.read_text())
+            self.corr = (np.array(d["A"]), np.array(d["t"]))
+
+    def fetch(self):
+        jpg = Path(self.m.rec["image_path"])
+        if jpg.exists():
+            return jpg
+        RAW.mkdir(parents=True, exist_ok=True)
+        tif = warp.fetch(f"https://images.nypl.org/index.php?id={self.m.rec['imageId']}&t=u", RAW / f"{self.m.rec['imageId']}.tif")
+        im = Image.open(tif).convert("RGB")
+        im.save(jpg, quality=95, subsampling=0)
+        tif.unlink()
+        print("fetched", self.id, self.m.rec["imageId"], im.size, flush=True)
+        return jpg
+
+    def img(self):
+        return self.m.image(1)
+
+    # pixel <-> local metres, with the correction
+    def fwd(self, px):
+        xy = self.m.fwd(px)
+        if self.corr is not None:
+            xy = xy @ self.corr[0].T + self.corr[1]
+        return xy
+
+    def inv(self, xy):
+        xy = np.atleast_2d(xy)
+        if self.corr is not None:
+            xy = (xy - self.corr[1]) @ np.linalg.inv(self.corr[0]).T
+        return self.m.inv(xy)
+
+    def mask_local(self):
+        g = self.m.rec.get("mask")
+        if not g:
+            return None
+        p = sg.shape(g)
+        p = shapely.transform(p, lambda c: np.column_stack(S.local(c[:, 0], c[:, 1])))
+        return p.buffer(0)
+
+    def inside(self, shape, inset_m=6.0):
+        """Pixel mask of the plate's map area: the Map Warper mask (drawn on the uncorrected fit), set in."""
+        from rasterio import features
+        ml = self.mask_local()
+        if ml is None:
+            return np.ones(shape, bool)
+        ml = ml.buffer(-inset_m)
+        parts = [sg.Polygon(self.m.inv(np.asarray(g.exterior.coords)[:-1])) for g in getattr(ml, "geoms", [ml]) if not g.is_empty]
+        return features.rasterize([(g, 1) for g in parts], out_shape=shape, dtype="uint8").astype(bool)
+
+
+# --------------------------------------------------------------------------------------------- registration
+def street_raster(P, shape, f, half_m=8.0):
+    """Today's street centrelines (Overture, as the extents tools load them), drawn into the plate's pixel grid
+    reduced by f, half_m either side."""
+    from rasterio import features
+    H, W = shape
+    c = P.fwd(np.array([[0, 0], [W * f, 0], [W * f, H * f], [0, H * f]], float))
+    box = (c[:, 0].min(), c[:, 1].min(), c[:, 0].max(), c[:, 1].max())
+    names, g = S.roads()
+    b = shapely.bounds(g)
+    g = g[(b[:, 2] > box[0]) & (b[:, 0] < box[2]) & (b[:, 3] > box[1]) & (b[:, 1] < box[3])]
+    if len(g) == 0:
+        return np.zeros(shape, np.float32)
+    g = shapely.segmentize(g, 25.0)
+    px = [shapely.LineString(P.inv(shapely.get_coordinates(x)) / f) for x in g]
+    r = half_m / (P.m.src_mpp * f)
+    return features.rasterize([(x.buffer(r), 1) for x in px], out_shape=shape, dtype="uint8").astype(np.float32)
+
+
+def wash_raster(img, paper, f):
+    """Share of 'wash' per reduced pixel: lightly tinted, not ink, not a strong fill - on these atlases the streets
+    (peach, grey or lilac tint; blocks are left paper)."""
+    H, W = img.shape[:2]
+    out = np.zeros((H // f, W // f), np.float32)
+    for r0 in range(0, H - H % f, 1024):
+        r1 = min(H - H % f, r0 + 1024)
+        lab = rgb2lab(img[r0:r1, :W - W % f])
+        dL, da, db = lab[..., 0] - paper[0], lab[..., 1] - paper[1], lab[..., 2] - paper[2]
+        w = (dL < -3.5) & (dL > -14) & (np.abs(da) < 7) & (db < 14)
+        out[r0 // f:r1 // f] = w.reshape((r1 - r0) // f, f, W // f, f).mean((1, 3))
+    return out
+
+
+def window_shifts(P, f=4, win_m=400.0, search_m=30.0, min_q=0.4):
+    """Where the plate's street wash sits best on today's streets, window by window:
+    rows (u, v, du, dv, q) in full-resolution pixels (the map content at u, v belongs at u + du, v + dv)."""
+    from scipy import signal
+    img = P.img()
+    inside = P.inside(img.shape[:2])
+    paper = paper_colour(img, inside)
+    F = wash_raster(img, paper, f)
+    F = ndi.gaussian_filter(F, 1.0)  # the whole sheet: what lies outside the Map Warper mask is map all the same
+    R = street_raster(P, F.shape, f)
+    k = P.m.src_mpp * f
+    w, sr = int(win_m / k) // 2 * 2, int(round(search_m / k))
+    h = w // 2
+    out = []
+    for cy in range(h + sr, F.shape[0] - h - sr, h):
+        for cx in range(h + sr, F.shape[1] - h - sr, h):
+            A = F[cy - h:cy + h, cx - h:cx + h]
+            B = R[cy - h - sr:cy + h + sr, cx - h - sr:cx + h + sr]
+            if A.std() < 0.05 or B.mean() < 0.04:
+                continue
+            c = signal.correlate(B - B.mean(), (A - A.mean()) / A.std(), mode="valid", method="fft")
+            j = np.unravel_index(np.argmax(c), c.shape)
+            dy, dx = j[0] - sr, j[1] - sr
+            Bs = B[j[0]:j[0] + w, j[1]:j[1] + w]
+            q = c[j] / (A.size * max(Bs.std(), 1e-6))   # correlation coefficient at the peak
+            if q >= min_q and abs(dy) < sr - 1 and abs(dx) < sr - 1:
+                # sub-pixel peak (parabola through the neighbours)
+                def sub(m1, m0, p1):
+                    d = m1 - 2 * m0 + p1
+                    return 0.0 if d >= 0 else 0.5 * (m1 - p1) / d
+                dy += sub(c[j[0] - 1, j[1]], c[j], c[j[0] + 1, j[1]])
+                dx += sub(c[j[0], j[1] - 1], c[j], c[j[0], j[1] + 1])
+                out.append((cx * f, cy * f, dx * f, dy * f, q))
+    return np.array(out).reshape(-1, 5)
+
+
+def refine(layer, pid, verbose=True):
+    """Correct a plate's control-point fit with the street match: an affine correction when at least 10 windows
+    agree, a constant shift when at least 4 do, nothing otherwise. Writes <plate>_corr.json; returns a report."""
+    cf = WORK / layer / f"{pid}_corr.json"
+    if cf.exists():
+        cf.unlink()
+    P = Plate(layer, pid, verbose=False)
+    rep = dict(plate=str(pid), gcps=int(P.m.keep.sum()), model=P.m.model, cv_rms=round(P.m.cv_rms, 1), mpp=round(P.m.src_mpp, 3))
+    sh = window_shifts(P)
+    rep["windows"] = len(sh)
+    if len(sh) >= 4:
+        old = P.fwd(sh[:, :2])
+        new = P.fwd(sh[:, :2] + sh[:, 2:4])
+        d = new - old
+        rep["shift_median"] = [round(float(v), 1) for v in np.median(d, 0)]
+        rep["shift_abs_median"] = round(float(np.median(np.hypot(d[:, 0], d[:, 1]))), 1)
+        keep = np.hypot(*(d - np.median(d, 0)).T) < 15.0
+        A, t = np.eye(2), np.zeros(2)
+        kind = "none"
+        if keep.sum() >= 10:
+            for _ in range(3):
+                X = np.column_stack([old[keep], np.ones(keep.sum())])
+                C = np.linalg.lstsq(X, new[keep], rcond=None)[0]
+                e = np.hypot(*(np.column_stack([old, np.ones(len(old))]) @ C - new).T)
+                keep2 = e < max(6.0, 2.5 * np.median(e[keep]))
+                if keep2.sum() < 10 or (keep2 == keep).all():
+                    break
+                keep = keep2
+            A, t, kind = C[:2].T, C[2], "affine"
+            rep["fit_residual_m"] = round(float(np.median(e[keep])), 1)
+        elif keep.sum() >= 4:
+            t, kind = d[keep].mean(0), "shift"
+            rep["fit_residual_m"] = round(float(np.median(np.hypot(*(d[keep] - t).T))), 1)
+        rep["agree"], rep["kind"] = int(keep.sum()), kind
+        if kind != "none":
+            (WORK / layer).mkdir(parents=True, exist_ok=True)
+            cf.write_text(json.dumps(dict(A=A.tolist(), t=t.tolist(), report=rep)))
+            # what is left after the correction
+            P2 = Plate(layer, pid, verbose=False)
+            sh2 = window_shifts(P2, search_m=20.0)
+            if len(sh2):
+                d2 = P2.fwd(sh2[:, :2] + sh2[:, 2:4]) - P2.fwd(sh2[:, :2])
+                rep["after_windows"] = len(sh2)
+                rep["after_abs_median"] = round(float(np.median(np.hypot(d2[:, 0], d2[:, 1]))), 1)
+            cf.write_text(json.dumps(dict(A=A.tolist(), t=t.tolist(), report=rep)))
+    else:
+        rep["kind"] = "none"
+    if verbose:
+        print(json.dumps(rep), flush=True)
+    return rep
+
+
+def footprints(box_local, pad=30.0):
+    """Today's footprints in a local box: (polygons in local metres, year_raw, bin)."""
+    import duckdb
+    x0, y0, x1, y1 = box_local
+    lo, la = S.lonlat(np.array([x0 - pad, x1 + pad, x0 - pad, x1 + pad]), np.array([y0 - pad, y0 - pad, y1 + pad, y1 + pad]))
+    q = (f"select bin, year_raw, geometry from read_parquet('{FOOT}') where lon between {lo.min()} and {lo.max()} "
+         f"and lat between {la.min()} and {la.max()}")
+    rows = duckdb.sql(q).fetchall()
+    if not rows:
+        return np.array([], object), np.array([]), np.array([])
+    g = shapely.from_wkb([bytes(r[2]) for r in rows])
+    g = shapely.transform(g, lambda c: np.column_stack(S.local(c[:, 0], c[:, 1])))
+    g = shapely.make_valid(g)
+    return g, np.array([r[1] or 0 for r in rows]), np.array([r[0] or 0 for r in rows])
+
+
+def match(polys, box):
+    """Each traced polygon against today's footprints: best IoU, centroid offset to that footprint, its year."""
+    fp, yr, _ = footprints(box)
+    n = len(polys)
+    iou = np.zeros(n)
+    off = np.full((n, 2), np.nan)
+    fyear = np.zeros(n, int)
+    if len(fp) == 0 or n == 0:
+        return iou, off, fyear
+    tree = shapely.STRtree(fp)
+    a, b = tree.query(polys, predicate="intersects")
+    inter = shapely.area(shapely.intersection(np.asarray(polys, object)[a], fp[b]))
+    union = shapely.area(np.asarray(polys, object)[a]) + shapely.area(fp[b]) - inter
+    v = inter / np.maximum(union, 1e-9)
+    for i, j, w in zip(a, b, v):
+        if w > iou[i]:
+            iou[i] = w
+            ci, cj = polys[i].centroid, fp[j].centroid
+            off[i] = (cj.x - ci.x, cj.y - ci.y)
+            fyear[i] = yr[j]
+    return iou, off, fyear
+
+
+def trace(layer, pid, save=True, verbose=True, window=None):
+    """Trace one plate (or, for checking, a pixel window x0, y0, x1, y1 of it)."""
+    t0 = time.time()
+    P = Plate(layer, pid, verbose=verbose)
+    st = P.style
+    full = P.img()
+    inside = P.inside(full.shape[:2])
+    paper = paper_colour(full, inside)
+    x0, y0 = 0, 0
+    img = full
+    if window is not None:
+        x0, y0, x1, y1 = [int(v) for v in window]
+        x0, y0 = max(0, x0), max(0, y0)
+        img, inside = full[y0:y1, x0:x1], inside[y0:y1, x0:x1]
+    c = classes(img, paper, st)
+    line = thin_lines(img, st["line_depth"])
+    mpp = P.m.src_mpp
+    lo, hi = 0.6 * st["min_m2"] / mpp ** 2, 1.5 * st["max_m2"] / mpp ** 2
+    found = []
+    if st.get("split_by_ink"):
+        lab, mat = fills_rows(c, line, st, inside)
+        found = [(p, mat[v - 1]) for p, v in label_polygons(lab, lo, hi)]
+    else:
+        f = fills(c, line, st, inside)
+        for name in ("frame", "brick"):
+            found += [(p, name) for p, apx in polygons(f[name], 0.0, lo, hi)]
+    out = []
+    for p, name in found:
+        q = shapely.affinity.translate(tidy(p), x0, y0)
+        xy = P.fwd(np.asarray(q.exterior.coords))
+        g = sg.Polygon(xy)
+        if not g.is_valid:
+            g = g.buffer(0)
+        if g.is_empty or g.geom_type != "Polygon" or not (st["min_m2"] <= g.area <= st["max_m2"]):
+            continue
+        out.append(dict(material=name, px=wkb.dumps(q), geom=wkb.dumps(g), area=g.area))
+    polys = [wkb.loads(o["geom"]) for o in out]
+    ml = P.mask_local()
+    box = ml.bounds if (ml is not None and window is None) else (shapely.MultiPolygon(polys).bounds if polys else (0, 0, 1, 1))
+    iou, off, fy = match(polys, box)
+    for o, i, d, y in zip(out, iou, off, fy):
+        o["iou"], o["off"], o["fyear"] = float(i), (float(d[0]), float(d[1])), int(y)
+    hit = iou > 0.5
+    stats = dict(plate=P.id, image=P.m.rec["imageId"], name=P.m.rec["name"][:90], gcps=int(P.m.keep.sum()), model=P.m.model,
+                 cv_rms=round(P.m.cv_rms, 1), mpp=round(mpp, 3), paper=[float(v) for v in paper], n=len(out),
+                 frame=sum(o["material"] == "frame" for o in out), brick=sum(o["material"] == "brick" for o in out),
+                 stone=sum(o["material"] == "stone" for o in out),
+                 coincide=int(hit.sum()), share=round(float(hit.mean()), 3) if len(out) else 0.0,
+                 corrected=P.corr is not None)
+    if hit.sum():
+        d = off[hit]
+        stats["off_median_vec"] = [round(float(v), 2) for v in np.median(d, 0)]
+        stats["off_median_m"] = round(float(np.median(np.hypot(d[:, 0], d[:, 1]))), 2)
+    if verbose:
+        print(json.dumps(stats), "%.0fs" % (time.time() - t0), flush=True)
+    if save and window is None:
+        (WORK / layer).mkdir(parents=True, exist_ok=True)
+        pickle.dump(dict(stats=stats, items=out, mask=wkb.dumps(ml) if ml is not None else None), open(WORK / layer / f"{P.id}.pkl", "wb"))
+    return P, out, stats, c
+
+
+# --------------------------------------------------------------------------------------------- pictures
+def overlay(layer, pid, cx, cy, size_m, out_png, px=False, scale=3):
+    P = Plate(layer, pid, verbose=False)
+    img = P.img()
+    if not px:
+        u, v = P.inv(np.array([[cx, cy]]))[0]
+    else:
+        u, v = cx, cy
+    h = size_m / P.m.src_mpp / 2
+    x0, y0, x1, y1 = int(max(0, u - h)), int(max(0, v - h)), int(min(img.shape[1], u + h)), int(min(img.shape[0], v + h))
+    P, items, stats, c = trace(layer, pid, save=False, verbose=False, window=(x0 - 60, y0 - 60, x1 + 60, y1 + 60))
+    print(json.dumps(stats))
+    im = Image.fromarray(img[y0:y1, x0:x1]).resize(((x1 - x0) * scale, (y1 - y0) * scale), Image.LANCZOS)
+    d = ImageDraw.Draw(im, "RGBA")
+    corners = P.fwd(np.array([[x0, y0], [x1, y0], [x1, y1], [x0, y1]], float))
+    box = (corners[:, 0].min(), corners[:, 1].min(), corners[:, 0].max(), corners[:, 1].max())
+    fp, yr, _ = footprints(box, pad=10)
+    for g in fp:
+        for poly in getattr(g, "geoms", [g]):
+            if poly.geom_type != "Polygon":
+                continue
+            q = P.inv(np.asarray(poly.exterior.coords))
+            d.line([((a - x0) * scale, (b - y0) * scale) for a, b in q], fill=(0, 170, 255, 255), width=1)
+    for o in items:
+        q = np.asarray(wkb.loads(o["px"]).exterior.coords)
+        col = {"frame": (255, 0, 0, 255), "brick": (200, 0, 200, 255), "stone": (0, 0, 160, 255)}[o["material"]]
+        if o["iou"] > 0.5:
+            col = (0, 150, 0, 255)
+        d.line([((a - x0) * scale, (b - y0) * scale) for a, b in q], fill=col, width=2)
+    im.save(out_png)
+    print(out_png, im.size, "box local %.0f,%.0f,%.0f,%.0f" % box)
+
+
+def colours(layer, pid, box, out_png, scale=2):
+    P = Plate(layer, pid)
+    img = P.img()
+    x0, y0, x1, y1 = box
+    crop = img[y0:y1, x0:x1]
+    paper = paper_colour(img, P.inside(img.shape[:2]))
+    c = classes(crop, paper, P.style)
+    o = crop.copy()
+    o[c == 2] = (0, 0, 255); o[c == 3] = (0, 200, 0); o[c == 5] = (255, 0, 255); o[c == 1] = (0, 0, 0)
+    Image.fromarray(o).resize(((x1 - x0) * scale, (y1 - y0) * scale), Image.NEAREST).save(out_png)
+    print("paper", paper, out_png)
+
+
+if __name__ == "__main__":
+    a = sys.argv[1:]
+    if a[0] == "fetch":
+        for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
+            Plate(a[1], pid, verbose=False).fetch()
+    elif a[0] == "refine":
+        for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
+            try:
+                refine(a[1], pid)
+            except Exception as e:  # noqa
+                print(json.dumps(dict(plate=str(pid), error=str(e))), flush=True)
+    elif a[0] == "trace":
+        for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
+            trace(a[1], pid)
+    elif a[0] == "overlay":
+        cx, cy = [float(v) for v in a[3].split(",")]
+        sc = int(a[a.index("--scale") + 1]) if "--scale" in a else 3
+        overlay(a[1], a[2], cx, cy, float(a[4]), a[5], px="--px" in a, scale=sc)
+    elif a[0] == "colours":
+        colours(a[1], a[2], [int(v) for v in a[3].split(",")], a[4])

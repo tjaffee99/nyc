@@ -1,12 +1,17 @@
-"""Stage: streets, roads and highways with lifespans, draped on the terrain (New York City).
+"""Stage: streets, roads and highways with lifespans, draped on the terrain (New York City
+and the counties around it that are on the map: extent.map_counties).
 
-  * Streets and roads — Overture / OpenStreetMap segments of the five boroughs
-    (roads_region.parquet: tertiary and up; roads_local.parquet: residential streets, living
-    streets, unclassified lanes, alleys). A street is cut a year before the second-earliest
-    building within 45 m of it goes up (today's buildings and the vanished ones traced from
-    the atlases: nyc_building_points.parquet), never before its ground (land-year grids).
-    Without buildings along it: the year of the nearest building-dated street (<= 300 m), else
-    a default (1900 local streets, 1870 main roads) — both `estimated`, both counted.
+  * Streets and roads — Overture / OpenStreetMap segments of the five boroughs and the map's
+    counties (roads_region.parquet: tertiary and up; roads_local.parquet: residential streets,
+    living streets, unclassified lanes, alleys). A street is cut a year before the
+    second-earliest building within 45 m of it goes up (today's buildings and the vanished
+    ones traced from the atlases: nyc_building_points.parquet; the counties' buildings:
+    county_building_points.parquet), never before its ground (land-year grids: the fine grid
+    over the city box, the region grid beyond it). In the counties houses stand back from the
+    road: a street without a building within 45 m takes the buildings within 90 m
+    (COUNTY_RADIUS). Without buildings along it: the year of the nearest building-dated
+    street (<= 300 m), else a default (1900 local streets, 1870 main roads) — both
+    `estimated`, both counted.
     Researched streets: data/tables/street_dates.csv (a street cut through older blocks: not
     before its year; a road older than its buildings, or a parkway without any: rule = set).
   * Routes — data/manual/routes.csv (researched, every row with its source): the highways and
@@ -24,14 +29,16 @@
 
 Outputs (BAYT; the file names are the viewer's, kept from the Bay Area map):
   roads-sf.bin.gz       every street of Manhattan (always loaded)
-  roads-region.bin.gz   main roads (tertiary and up) of the Bronx, Brooklyn, Queens, Staten Island
-  region-streets/       their residential streets: z12 tiles + simplified z10 tiles + index.json
+  roads-region.bin.gz   main roads (always loaded): tertiary and up in the Bronx, Brooklyn, Queens
+                        and Staten Island; primary and secondary roads in the counties
+  region-streets/       residential streets of those boroughs and the counties, and the counties'
+                        tertiary roads: z12 tiles + simplified z10 tiles + index.json
   freeways.bin.gz       motorways, trunks and ramps (3D)
   routes.bin.gz         researched routes that are gone or are not roads
     start_indices u32 (path vertex starts), positions f32[3] (lon/lat offsets from ORIGIN,
     z metres), kind u8, width u8 (m), years f32[2], elevated u8
   data/interim/roads/report.json           counts, dating shares, highway segments left on the default
-  data/interim/roads/street_years.parquet  every street segment: name, borough, year, how it was dated
+  data/interim/roads/street_years.parquet  every street segment: name, borough / county, year, how it was dated
   data/interim/roads/highway_years.csv     every motorway / trunk mainline segment likewise
   data/interim/roads/bridge_model_ends.csv where the landmark bridge decks end: ground, generic deck, pin
   data/interim/roads/ground_conflicts.csv  researched roads on ground the land-year grid dates later
@@ -39,7 +46,7 @@ Outputs (BAYT; the file names are the viewer's, kept from the Bay Area map):
 The researched tables are written by the scripts in data/manual/roads_tools/ (README:
 data/manual/routes_README.md).
 
-Usage:  ../.venv/bin/python roads.py          everything (about 20 seconds, about 1 GB)
+Usage:  ../.venv/bin/python roads.py          everything (about 2 minutes, under 3 GB)
         ../.venv/bin/python roads.py check    invariants of the built files
 """
 from __future__ import annotations
@@ -60,10 +67,11 @@ from scipy.spatial import cKDTree
 from shapely.geometry import LineString, MultiLineString
 from shapely.ops import linemerge, substring
 
-from common import CURRENT_YEAR, INTERIM, MANUAL, NYC_BBOX, NYC_CRS, RAW, TABLES, VIEWER_DATA, YEAR_MIN, log
+from common import (CURRENT_YEAR, INTERIM, MANUAL, NYC_BBOX, NYC_CRS, RAW, REGION_BBOX, TABLES, VIEWER_DATA, YEAR_MIN,
+                    log)
 from download_overture import RELEASE
 from export_columnar import read_bayt, write_columnar
-from extent import in_extent
+from extent import in_extent, map_counties
 from terrain_grid import grid_def
 
 ORIGIN = (-73.97, 40.74)
@@ -83,7 +91,7 @@ TRANSIT_TAKES_OVER = True
 TRANSIT_MODES = {"elevated", "subway", "railroad", "steam_railroad", "rail", "streetcar", "horsecar", "cable_car",
                  "interurban", "light_rail"}
 # edge of the Overture extracts (download_overture.REGION_BBOX): highway ends there are cuts
-REGION_BBOX_ROADS = NYC_BBOX
+REGION_BBOX_ROADS = REGION_BBOX
 # routes drawn by a landmark model instead of a line (none so far)
 LANDMARK_ROUTES: set[str] = set()
 ELEV = {"ground": 0, "embankment": 1, "viaduct": 2, "bridge": 3, "tunnel": 4}
@@ -91,8 +99,18 @@ WIDTH = {K_STREET: 9, K_MAJOR: 14, K_FREEWAY: 24, K_HIGHWAY: 16, K_FERRY: 6}
 ROAD_WIDTH = 7  # mode `road`: a colonial road
 DEFAULT_LOCAL, DEFAULT_MAIN, DEFAULT_FREEWAY = 1900.0, 1870.0, 1960.0
 COUNTY_BORO = {"061": "1", "005": "2", "047": "3", "081": "4", "085": "5"}
+BORO_NAME = {"1": "Manhattan", "2": "Bronx", "3": "Brooklyn", "4": "Queens", "5": "Staten Island"}
+# the counties around the city: houses stand back from the road, so a street without a
+# building within 45 m is dated by the buildings within COUNTY_RADIUS
+COUNTY_RADIUS = 90.0
+# vertex spacing (m) of a draped road: the terrain is the ~29 m grid inside the city box and
+# the ~58 m grid beyond it; outlines are simplified to 1 m in the city, 2.5 m in the counties
+STEP_CITY, STEP_OUTER = 30.0, 60.0
+SIMPLIFY_CITY, SIMPLIFY_COUNTY = 1.0, 2.5
 # how a year was found (report)
-SRC_BUILDINGS, SRC_NEIGHBOUR, SRC_DEFAULT, SRC_RESEARCHED = 0, 1, 2, 3
+SRC_BUILDINGS, SRC_NEIGHBOUR, SRC_DEFAULT, SRC_RESEARCHED, SRC_BUILDINGS_WIDE = 0, 1, 2, 3, 4
+SRC_NAMES = (("buildings", SRC_BUILDINGS), ("buildings_90m", SRC_BUILDINGS_WIDE), ("neighbour", SRC_NEIGHBOUR),
+             ("default", SRC_DEFAULT), ("researched", SRC_RESEARCHED))
 SCRATCH = INTERIM / "roads"
 
 
@@ -117,24 +135,42 @@ def land_year(lon, lat):
     lon = np.asarray(lon, float)
     lat = np.asarray(lat, float)
     out = np.full(lon.shape, np.nan)
+    done = np.zeros(lon.shape, bool)
     X = np.radians(lon) * 6378137.0
     Y = 6378137.0 * np.log(np.tan(np.pi / 4 + np.radians(lat) / 2))
+    # the fine grid where it covers the point (the city box), else the region grid (the
+    # counties beyond it: the Meadowlands north of the box, the Hudson shore, the Sound)
     for g, ly in _LANDYEAR:
         c = np.rint((X - g["X0"]) / g["res"]).astype(int)
         r = np.rint((g["Y0"] - Y) / g["res"]).astype(int)
-        ok = np.isnan(out) & (c >= 0) & (r >= 0) & (c < g["cols"]) & (r < g["rows"])
+        ok = ~done & (c >= 0) & (r >= 0) & (c < g["cols"]) & (r < g["rows"])
         out[ok] = ly[r[ok], c[ok]]
+        done |= ok
     return out
 
 
 def boroughs():
-    """Borough code ("1".."5") -> county polygon (TIGER 2024; includes each county's water)."""
-    co = gpd.read_file(f"zip://{RAW / 'tiger' / 'tl_2024_us_county.zip'}", where="STATEFP = '36'")
-    co = co[co.COUNTYFP.isin(list(COUNTY_BORO))].to_crs(4326)
-    return {COUNTY_BORO[c]: g for c, g in zip(co.COUNTYFP, co.geometry)}
+    """Area code -> county polygon (TIGER 2024; includes each county's water): "1".."5" for
+    the five boroughs, the five-digit FIPS code ("34017" Hudson ...) for the counties on the
+    map (extent.map_counties). The counties are outside the boroughs: everything keyed on a
+    borough (the researched street rows without a county, the Manhattan file) skips them."""
+    co = gpd.read_file(f"zip://{RAW / 'tiger' / 'tl_2024_us_county.zip'}", where="STATEFP IN ('36', '34')")
+    fips = (co.STATEFP + co.COUNTYFP).values
+    out = {}
+    co = co.to_crs(4326)
+    for f, c, st, g in zip(fips, co.COUNTYFP, co.STATEFP, co.geometry):
+        if st == "36" and c in COUNTY_BORO:
+            out[COUNTY_BORO[c]] = g
+        elif f in AREA_NAME:
+            out[f] = g
+    return out
+
+
+AREA_NAME = {**BORO_NAME, **map_counties()}
 
 
 def boro_of(points, boros):
+    """area code of each point ("" outside the boroughs and the map's counties)"""
     out = np.full(len(points), "", dtype=object)
     for code, poly in boros.items():
         shapely.prepare(poly)
@@ -142,32 +178,71 @@ def boro_of(points, boros):
     return out
 
 
+def in_city_box(lon, lat):
+    """inside the box of the fine terrain grid (common.NYC_BBOX)"""
+    return (lon > NYC_BBOX[0]) & (lon < NYC_BBOX[2]) & (lat > NYC_BBOX[1]) & (lat < NYC_BBOX[3])
+
+
 # ---------------------------------------------------------------- dating
 def building_tree():
-    """Every building of the city, standing or vanished (nyc_building_points.parquet): a
-    KD-tree of the centroids (UTM) and their start years. The file is rewritten by the
-    buildings stage: a failed read is retried."""
-    p = INTERIM / "nyc_building_points.parquet"
-    b = None
-    for attempt in range(30):
-        try:
-            b = pd.read_parquet(p, columns=["lon", "lat", "start_year"])
-            break
-        except Exception as e:  # noqa: BLE001
-            log(f"roads: {p.name} not readable ({type(e).__name__}); retry in 30 s")
-            time.sleep(30)
-    if b is None:
-        raise RuntimeError(f"{p} could not be read")
-    b = b[np.isfinite(b.start_year.values) & (b.start_year.values >= YEAR_MIN)]
+    """Every building of the city, standing or vanished (nyc_building_points.parquet), and of
+    the counties (county_building_points.parquet, same columns): a KD-tree of the centroids
+    (UTM) and their start years. The files are rewritten by the buildings stages: a failed
+    read is retried."""
+    parts = []
+    for name in ("nyc_building_points.parquet", "county_building_points.parquet"):
+        p = INTERIM / name
+        if not p.exists():
+            log(f"roads: no {name}: its streets go undated")
+            continue
+        b = None
+        for attempt in range(30):
+            try:
+                b = pd.read_parquet(p, columns=["lon", "lat", "start_year"])
+                break
+            except Exception as e:  # noqa: BLE001
+                log(f"roads: {p.name} not readable ({type(e).__name__}); retry in 30 s")
+                time.sleep(30)
+        if b is None:
+            raise RuntimeError(f"{p} could not be read")
+        b = b[np.isfinite(b.start_year.values) & (b.start_year.values >= YEAR_MIN)]
+        log(f"roads: {len(b)} buildings of {name} date the streets")
+        parts.append(b)
+    b = pd.concat(parts, ignore_index=True)
     x, y = _TO_UTM.transform(b.lon.values, b.lat.values)
-    log(f"roads: {len(b)} buildings date the streets")
-    return cKDTree(np.column_stack([x, y])), b.start_year.values.astype(float)
+    xy = np.column_stack([x, y]).astype(np.float64)
+    return cKDTree(xy), b.start_year.values.astype(np.float32)
 
 
-def date_lines(lines, default, bld, neighbours=None):
+def _second_earliest(seg, px, py, bld, radius, n, chunk=30_000):
+    """Year of the 2nd-earliest building within `radius` of each line (the earliest where
+    there is only one; NaN without any). seg: line index of each sample point, ascending.
+    Worked through in chunks of lines: the pair table of the whole region is large."""
+    tree, byear = bld
+    year = np.full(n, np.nan)
+    for a in range(0, n, chunk):
+        lo, hi = np.searchsorted(seg, [a, min(a + chunk, n)])
+        if hi <= lo:
+            continue
+        d, idx = tree.query(np.column_stack([px[lo:hi], py[lo:hi]]), k=8, distance_upper_bound=radius, workers=2)
+        ok = np.isfinite(d)
+        pairs = pd.DataFrame({"s": np.broadcast_to(seg[lo:hi, None], d.shape)[ok], "b": idx[ok]}).drop_duplicates()
+        pairs["y"] = byear[pairs.b.values]
+        pairs = pairs.sort_values(["s", "y"])
+        pairs["r"] = pairs.groupby("s").cumcount()
+        first = pairs[pairs.r == 0]
+        second = pairs[pairs.r == 1]
+        year[first.s.values] = first.y.values
+        year[second.s.values] = second.y.values
+    return year
+
+
+def date_lines(lines, default, bld, neighbours=None, wide=None):
     """A street is cut a year before the 2nd-earliest building within 45 m of it goes up
-    (today's footprints and the vanished ones); with one building, a year before it; without
-    any, the year of the nearest building-dated street within 300 m (`neighbours` = (tree of
+    (today's footprints and the vanished ones); with one building, a year before it. `wide`
+    (mask: the lines in the counties, where houses stand back from the road): without a
+    building within 45 m, the same rule on the buildings within COUNTY_RADIUS. Without any,
+    the year of the nearest building-dated street within 300 m (`neighbours` = (tree of
     their middles, years); by default the building-dated lines of this call), else `default`
     (scalar or array). Returns (year, source code per line, land year of the ground under it
     — NaN where it always was land —, the (tree, years) of the building-dated lines).
@@ -180,20 +255,17 @@ def date_lines(lines, default, bld, neighbours=None):
     k = np.arange(len(seg)) - np.repeat(np.cumsum(m) - m, m)
     pts = shapely.line_interpolate_point(lines[seg], k / np.repeat(m - 1, m), normalized=True)
     px, py = shapely.get_x(pts), shapely.get_y(pts)
-    tree, byear = bld
-    d, idx = tree.query(np.column_stack([px, py]), k=8, distance_upper_bound=45, workers=4)
-    ok = np.isfinite(d)
-    pairs = pd.DataFrame({"s": np.broadcast_to(seg[:, None], d.shape)[ok], "b": idx[ok]}).drop_duplicates()
-    pairs["y"] = byear[pairs.b.values]
-    pairs = pairs.sort_values(["s", "y"])
-    pairs["r"] = pairs.groupby("s").cumcount()
-    year = np.full(n, np.nan)
-    first = pairs[pairs.r == 0]
-    second = pairs[pairs.r == 1]
-    year[first.s.values] = first.y.values
-    year[second.s.values] = second.y.values
-    year -= 1.0
+    del pts
+    year = _second_earliest(seg, px, py, bld, 45.0, n) - 1.0
     src = np.where(np.isfinite(year), SRC_BUILDINGS, SRC_DEFAULT)
+    if wide is not None:
+        todo = np.asarray(wide, bool) & ~np.isfinite(year)
+        if todo.any():
+            sel = todo[seg]
+            y2 = _second_earliest(seg[sel], px[sel], py[sel], bld, COUNTY_RADIUS, n) - 1.0
+            got = todo & np.isfinite(y2)
+            year[got] = y2[got]
+            src[got] = SRC_BUILDINGS_WIDE
     mid = shapely.line_interpolate_point(lines, 0.5, normalized=True)
     mxy = np.column_stack([shapely.get_x(mid), shapely.get_y(mid)])
     dated = np.isfinite(year)
@@ -239,8 +311,10 @@ def after_ground(year, ly, fixed=None, label=None):
 def street_overrides(names, boro, lon, lat, year, src, quiet=False):
     """data/tables/street_dates.csv (researched): `street` is the Overture name upper-cased
     ("re:<regex>" = every name the expression matches: the numbered streets of the 1811 grid);
-    optional `boro` (1-5) and `bbox` ("lon0 lat0 lon1 lat1": the stretch concerned, by the
-    segment's middle) narrow a row. rule blank = not before that year (a street cut through
+    `boro` = the boroughs (1-5) and / or counties (five-digit FIPS: 36119 Westchester ...)
+    a row is about, separated by spaces — blank = the five boroughs, never the counties (a
+    Broadway or a Kings Highway there is another road); `bbox` ("lon0 lat0 lon1 lat1": the
+    stretch concerned, by the segment's middle) narrows a row. rule blank = not before that year (a street cut through
     older blocks); `set` = the researched year replaces the estimate (a road older than the
     buildings along it, a parkway or park drive without any). Later rows win.
     Returns (year, source, mask of the segments whose year a `set` row fixed)."""
@@ -250,6 +324,7 @@ def street_overrides(names, boro, lon, lat, year, src, quiet=False):
         return year, src, fixed
     t = pd.read_csv(sd, dtype=str).fillna("")
     hit = np.zeros(len(year), bool)
+    city = np.isin(boro, list(BORO_NAME))
     for r in t.itertuples():
         key = str(r.street).strip()
         if key.startswith("re:"):
@@ -258,8 +333,7 @@ def street_overrides(names, boro, lon, lat, year, src, quiet=False):
         else:
             m = names == key.upper()
         b = str(getattr(r, "boro", "")).strip()
-        if b:
-            m &= boro == b
+        m &= np.isin(boro, b.split()) if b else city
         box = str(getattr(r, "bbox", "")).split()
         if len(box) == 4:
             x0, y0, x1, y1 = map(float, box)
@@ -555,16 +629,23 @@ def dense_coords(lines, step):
     return xy, np.bincount(li[rep], minlength=len(lines))
 
 
-def write_paths(path, items, ground, z_offset_fn, step=25.0):
+def write_paths(path, items, ground, z_offset_fn, step=25.0, step_outer=None):
     """items: (utm LineString, kind, width, start, end, elevated), draped on the ground, or
     (lon[], lat[], z[], kind, width, start, end, elevated) with its own heights.
-    step: vertex spacing (m) so paths follow the terrain grid they drape on."""
+    step: vertex spacing (m) so paths follow the terrain grid they drape on; step_outer:
+    the spacing of the paths outside the city box (the ~58 m region grid), if different."""
     flat = [it for it in items if len(it) == 6 and it[0] is not None and it[0].length >= 1]
     deep = [it for it in items if len(it) == 8]
     pos, counts, meta = [], [], []
     if flat:
         ferry = np.array([it[1] == K_FERRY for it in flat])
-        xy, n = dense_coords([it[0] for it in flat], np.where(ferry, 400.0, step))
+        lines = np.array([it[0] for it in flat], dtype=object)
+        steps = np.full(len(flat), float(step))
+        if step_outer is not None:
+            mid = shapely.line_interpolate_point(lines, 0.5, normalized=True)
+            mlon, mlat = to_ll(shapely.get_x(mid), shapely.get_y(mid))
+            steps = np.where(in_city_box(mlon, mlat), steps, float(step_outer))
+        xy, n = dense_coords(lines, np.where(ferry, 400.0, steps))
         lon, lat = to_ll(xy[:, 0], xy[:, 1])
         off = np.array([z_offset_fn(it[1], it[5]) for it in flat])
         z = np.where(np.repeat(ferry, n), 1.2, ground(lon, lat) + np.repeat(off, n))
@@ -641,7 +722,7 @@ def read_routes():
 
 
 # ---------------------------------------------------------------- freeways in 3D
-def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None):
+def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None, areas=None):
     """Motorways, trunks and ramps (Overture) with a height profile per vertex.
 
     Height above ground: level 1 viaducts ~12.5 m, level 2 ~22 m (+5.5 m for each level
@@ -694,8 +775,12 @@ def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None):
     # network, but only roads inside the map's extent (+ margin) are written
     inside = in_extent(shapely.points([(sg["bounds"][0] + sg["bounds"][2]) / 2 for sg in segs],
                                       [(sg["bounds"][1] + sg["bounds"][3]) / 2 for sg in segs]))
-    for sg, ok in zip(segs, inside):
+    area = (boro_of(shapely.points([(sg["bounds"][0] + sg["bounds"][2]) / 2 for sg in segs],
+                                   [(sg["bounds"][1] + sg["bounds"][3]) / 2 for sg in segs]), areas)
+            if areas else [""] * len(segs))
+    for sg, ok, ar in zip(segs, inside, area):
         sg["in"] = bool(ok)
+        sg["area"] = AREA_NAME.get(ar, "(edge band)")
 
     def dilate(seg):
         h, s_ = seg["h"], seg["s"]
@@ -900,14 +985,14 @@ def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None):
         # named road takes the early quartile of its building-dated stretches
         by_name = {}
         for q, y, s in zip(undated, yrs, src):
-            if segs[q]["in"] and s == SRC_BUILDINGS:
+            if segs[q]["in"] and s in (SRC_BUILDINGS, SRC_BUILDINGS_WIDE):
                 by_name.setdefault(segs[q]["name"], []).append(float(y))
         for q, y, s in zip(undated, yrs, src):
             ys = by_name.get(segs[q]["name"]) if segs[q]["name"] else None
             segs[q]["year"] = float(np.quantile(ys, 0.25)) if ys and len(ys) >= 4 and s != SRC_RESEARCHED else float(y)
             segs[q]["src"] = int(s)
         log(f"roads: {len(undated)} trunk road segments without a researched route dated like main roads "
-            f"({int((np.asarray(src) == SRC_BUILDINGS).sum())} by the buildings along them)")
+            f"({int(np.isin(src, (SRC_BUILDINGS, SRC_BUILDINGS_WIDE)).sum())} by the buildings along them)")
     # nothing before its ground (the river drives stand on fill)
     mids = [sg["g"].interpolate(fr, normalized=True) for sg in segs for fr in (0.1, 0.5, 0.9)]
     lon_, lat_ = to_ll([p.x for p in mids], [p.y for p in mids])
@@ -917,16 +1002,22 @@ def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None):
                       np.array([segs[q]["src"] == SRC_RESEARCHED for q in main]),
                       ("highway", [segs[q]["name"] for q in main], lon_[1::3][main], lat_[1::3][main],
                        [segs[q]["g"].length for q in main]))
+    n_ground = 0
     for q, y in zip(main, yy):
+        n_ground += y > segs[q]["year"] + 0.01
         segs[q]["year"] = float(y)
+    for q, sg in enumerate(segs):
+        sg["ly"] = float(ly[q]) if np.isfinite(ly[q]) else None
     missing = {}
     for sg in segs:
         if sg["sub"] != "link" and sg["in"] and sg["src"] == SRC_DEFAULT:
             k = f"{sg['cls']}: {sg['name'] or '(unnamed)'}"
-            e = missing.setdefault(k, [0, 0.0])
+            e = missing.setdefault(k, [0, 0.0, set()])
             e[0] += 1
             e[1] += sg["g"].length
-    pd.DataFrame([{"name": sg["name"], "class": sg["cls"], "year": round(sg["year"], 2), "src": sg["src"],
+            e[2].add(sg["area"])
+    pd.DataFrame([{"id": sg["id"], "name": sg["name"], "class": sg["cls"], "area": sg["area"], "year": round(sg["year"], 2),
+                   "src": sg["src"], "land_year": sg["ly"], "bridge": sg["br"],
                    "m": round(sg["g"].length, 1), "lon": round((sg["bounds"][0] + sg["bounds"][2]) / 2, 5),
                    "lat": round((sg["bounds"][1] + sg["bounds"][3]) / 2, 5)}
                   for sg in segs if sg["sub"] != "link" and sg["in"]]).to_csv(SCRATCH / "highway_years.csv", index=False)
@@ -935,12 +1026,19 @@ def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None):
         f"({sum(e[1] for e in missing.values()) / 1000:.1f} km): missing rows in routes.csv")
     if report is not None:
         main_in = [sg for sg in segs if sg["sub"] != "link" and sg["in"]]
+        km = {}
+        for sg in main_in:
+            e = km.setdefault(sg["area"], {}).setdefault(sg["cls"], {name: 0.0 for name, _ in SRC_NAMES})
+            e[next(name for name, code in SRC_NAMES if code == sg["src"])] += sg["g"].length / 1000
         report["freeways"] = {
             "mainline_segments_in_map": len(main_in),
-            "by_source": {name: int(sum(sg["src"] == code for sg in main_in)) for name, code in
-                          (("researched", SRC_RESEARCHED), ("buildings", SRC_BUILDINGS), ("neighbour", SRC_NEIGHBOUR),
-                           ("default", SRC_DEFAULT))},
-            "on_default": {k: {"segments": e[0], "km": round(e[1] / 1000, 2)} for k, e in
+            "by_source": {name: int(sum(sg["src"] == code for sg in main_in)) for name, code in SRC_NAMES},
+            # motorway / trunk mainline km by area and by how they were dated (researched = a row of
+            # routes.csv; buildings / neighbour = a trunk road dated like a main road; default = no row)
+            "km_by_area": {a: {c: {k: round(v, 1) for k, v in e.items()} for c, e in sorted(d.items())}
+                           for a, d in sorted(km.items())},
+            "moved_later_by_ground": int(n_ground),
+            "on_default": {k: {"segments": e[0], "km": round(e[1] / 1000, 2), "areas": sorted(e[2])} for k, e in
                            sorted(missing.items(), key=lambda kv: -kv[1][1])},
         }
     # ramps: connected components of link segments
@@ -1129,29 +1227,32 @@ def main():
     lm = LandmarkBridges()
     bld = building_tree()
 
-    # ---- every ordinary road of the five boroughs
+    # ---- every ordinary road of the five boroughs and the map's counties (the extracts cover
+    # the whole region box: each is cut down to the map before the next is read)
     base = RAW / "overture" / RELEASE
     cols = ["id", "class", "name", "road_flags", "geometry"]
-    a = gpd.read_parquet(base / "roads_region.parquet", columns=cols)
-    a = a[~a["class"].isin(["motorway", "trunk"])]  # drawn in 3D from freeways.bin.gz
-    a["local"] = False
-    b = gpd.read_parquet(base / "roads_local.parquet", columns=cols + ["subclass"])
-    b["local"] = True
-    r = gpd.GeoDataFrame(pd.concat([a, b], ignore_index=True), geometry="geometry", crs=a.crs or 4326)
+    parts = []
+    for fname, is_local in (("roads_region", False), ("roads_local", True)):
+        a = gpd.read_parquet(base / f"{fname}.parquet", columns=cols)
+        if not is_local:
+            a = a[~a["class"].isin(["motorway", "trunk"])]  # drawn in 3D from freeways.bin.gz
+        a = a[(a.geometry.geom_type == "LineString") & (shapely.length(a.geometry.values) > 0)]
+        mid = shapely.line_interpolate_point(a.geometry.values, 0.5, normalized=True)
+        a = a.assign(local=is_local, boro=boro_of(mid, boros), lon=shapely.get_x(mid), lat=shapely.get_y(mid))
+        parts.append(a[a.boro != ""])
+        del a, mid
+    r = gpd.GeoDataFrame(pd.concat(parts, ignore_index=True), geometry="geometry", crs=parts[0].crs or 4326)
+    del parts
     if r.crs is None:
         r = r.set_crs(4326)
-    r = r[(r.geometry.geom_type == "LineString") & (shapely.length(r.geometry.values) > 0)]
-    mid = shapely.line_interpolate_point(r.geometry.values, 0.5, normalized=True)
-    r["boro"] = boro_of(mid, boros)
-    r["lon"], r["lat"] = shapely.get_x(mid), shapely.get_y(mid)
-    r = r[r.boro != ""].reset_index(drop=True)
     r["name_u"] = r["name"].fillna("").str.upper().str.strip()
     ru = r.to_crs(UTM)
+    county = ~np.isin(r.boro.values, list(BORO_NAME))  # outside the five boroughs
     main_road = r["class"].isin(["primary", "secondary"]).values
     kind = np.where(main_road, K_MAJOR, K_STREET)
     width = np.where(main_road, WIDTH[K_MAJOR], WIDTH[K_STREET]) - np.where(r["class"].values == "service", 2, 0)
     default = np.where(r.local.values, DEFAULT_LOCAL, DEFAULT_MAIN)
-    year, src, ly, dated_tree = date_lines(ru.geometry.values, default, bld)
+    year, src, ly, dated_tree = date_lines(ru.geometry.values, default, bld, wide=county)
     year, src, fixed = street_overrides(r.name_u.values, r.boro.values, r.lon.values, r.lat.values, year, src)
     n_res = int((src == SRC_RESEARCHED).sum())
     bridge_share = np.array([sum(hi - lo for lo, hi, _ in _flag_ranges(fl, "is_bridge")) if fl is not None else 0.0
@@ -1159,20 +1260,27 @@ def main():
     year0 = year.copy()
     year = after_ground(year, np.where(bridge_share >= 0.5, np.nan, ly), fixed,  # a bridge needs no ground
                         ("street", r.name_u.values, r.lon.values, r.lat.values, shapely.length(ru.geometry.values)))
-    log(f"roads: {len(r)} street segments in the five boroughs; {n_res} take a researched year")
+    log(f"roads: {len(r)} street segments ({int((~county).sum())} in the five boroughs, {int(county.sum())} in the counties); "
+        f"{n_res} take a researched year")
+    seg_m = shapely.length(ru.geometry.values)
 
     # every segment with its year, for checks and for researching data/tables/street_dates.csv
+    # (boro: "1".."5", or the county's FIPS code; src: SRC_NAMES)
     pd.DataFrame({"id": r["id"].values, "name": r.name_u.values, "boro": r.boro.values, "class": r["class"].values,
                   "year": np.round(year, 2), "src": src, "land_year": np.round(ly, 1), "by_ground": year0 < year - 0.01,
+                  "fixed": fixed, "bridge": bridge_share >= 0.5,
                   "lon": r.lon.values.round(5), "lat": r.lat.values.round(5),
-                  "m": np.round(shapely.length(ru.geometry.values), 1)}).to_parquet(SCRATCH / "street_years.parquet")
+                  "m": np.round(seg_m, 1)}).to_parquet(SCRATCH / "street_years.parquet")
 
     whole, pieces = cut_roads(r, ru, lm)
     decks, used = bridge_decks(pieces, year, kind, width, ground)
     log(f"roads: {len(decks)} plain bridge decks over water / valleys ({len(used)} stretches)")
     manh = r.boro.values == "1"
-    local = r.local.values
-    geoms = ru.geometry.values
+    # the tile set: residential streets everywhere outside Manhattan, and the counties'
+    # tertiary roads (the always-loaded file keeps their primary and secondary roads only)
+    local = r.local.values | (county & ~main_road)
+    geoms = ru.geometry.values.copy()
+    geoms[county] = shapely.simplify(geoms[county], SIMPLIFY_COUNTY)
 
     def item(i, line):
         return (line, int(kind[i]), float(width[i]), float(year[i]), 9999.0, 0)
@@ -1202,24 +1310,44 @@ def main():
 
     n = write_paths(VIEWER_DATA / "roads-sf.bin.gz", sets["manhattan"], ground, z_offset, step=25.0)
     log(f"roads: wrote roads-sf.bin.gz: {n} paths (Manhattan)")
-    n = write_paths(VIEWER_DATA / "roads-region.bin.gz", sets["region"], ground, z_offset, step=30.0)
-    log(f"roads: wrote roads-region.bin.gz: {n} paths (main roads of the other boroughs)")
+    n = write_paths(VIEWER_DATA / "roads-region.bin.gz", sets["region"], ground, z_offset, step=STEP_CITY, step_outer=STEP_OUTER)
+    log(f"roads: wrote roads-region.bin.gz: {n} paths (main roads of the other boroughs and the counties)")
     n_tiles = local_tiles(sets["local"], local_decks, ground)
 
     def shares(mask):
         tot = int(mask.sum())
-        return {"segments": tot, **{name: int((src[mask] == code).sum()) for name, code in
-                                    (("buildings", SRC_BUILDINGS), ("neighbour", SRC_NEIGHBOUR), ("default", SRC_DEFAULT),
-                                     ("researched", SRC_RESEARCHED))}}
+        return {"segments": tot, **{name: int((src[mask] == code).sum()) for name, code in SRC_NAMES}}
+
+    def km_shares(mask):
+        """street length (km) by how it was dated, and the share of each (%)"""
+        tot = float(seg_m[mask].sum())
+        out = {"km": round(tot / 1000, 1)}
+        for name, code in SRC_NAMES:
+            out[name + "_pct"] = round(100 * float(seg_m[mask & (src == code)].sum()) / max(tot, 1e-9), 2)
+        return out
     report["streets"] = {"manhattan": shares(drawn & manh), "region_main": shares(drawn & ~manh & ~local),
                          "region_local": shares(drawn & ~manh & local), "all": shares(drawn),
                          "paths": {k: len(v) for k, v in sets.items()}, "bridge_decks": len(decks), "tiles": n_tiles}
     for k, v in report["streets"].items():
         if isinstance(v, dict) and "segments" in v:
-            log(f"roads: {k}: {v['segments']} segments — {100 * v['buildings'] / max(v['segments'], 1):.1f} % dated by buildings, "
-                f"{100 * v['researched'] / max(v['segments'], 1):.1f} % researched, "
+            log(f"roads: {k}: {v['segments']} segments — {100 * (v['buildings'] + v['buildings_90m']) / max(v['segments'], 1):.1f} % "
+                f"dated by buildings, {100 * v['researched'] / max(v['segments'], 1):.1f} % researched, "
                 f"{100 * v['neighbour'] / max(v['segments'], 1):.1f} % by the nearest street, "
                 f"{100 * v['default'] / max(v['segments'], 1):.1f} % default")
+    by_area = {"five boroughs": km_shares(drawn & ~county), "counties": km_shares(drawn & county)}
+    for code, name in AREA_NAME.items():
+        by_area[name] = km_shares(drawn & (r.boro.values == code))
+    report["streets"]["length_by_area"] = by_area
+    for name, v in by_area.items():
+        log(f"roads: {name}: {v['km']} km — buildings {v['buildings_pct']} % (+ {v['buildings_90m_pct']} % within 90 m), "
+            f"nearest street {v['neighbour_pct']} %, default {v['default_pct']} %, researched {v['researched_pct']} %")
+    # nothing estimated before its ground (researched rows stand: ground_conflicts.csv; a bridge needs none)
+    held = ~fixed & (bridge_share < 0.5) & np.isfinite(ly)
+    report["streets"]["ground"] = {"segments_on_made_land": int(np.isfinite(ly).sum()),
+                                   "moved_later_by_ground": int((year0 < year - 0.01).sum()),
+                                   "moved_later_in_counties": int(((year0 < year - 0.01) & county).sum()),
+                                   "estimated_before_ground": int((held & (year < ly + 0.5 - 0.01) & (year < CURRENT_YEAR + 1.0)).sum())}
+    log(f"roads: ground rule: {report['streets']['ground']}")
 
     # ---- researched routes
     routes = read_routes()
@@ -1251,16 +1379,16 @@ def main():
     def date_trunk(lines, names):
         """arterial streets classed trunk: the building rule, the researched street dates,
         the ground rule — as for the main roads"""
-        y, s, ly_, _ = date_lines(lines, DEFAULT_MAIN, bld, neighbours=dated_tree)
         m = shapely.line_interpolate_point(np.asarray(lines, dtype=object), 0.5, normalized=True)
         lo, la = to_ll(shapely.get_x(m), shapely.get_y(m))
-        pts = shapely.points(lo, la)
+        area = boro_of(shapely.points(lo, la), boros)
+        y, s, ly_, _ = date_lines(lines, DEFAULT_MAIN, bld, neighbours=dated_tree, wide=~np.isin(area, list(BORO_NAME)))
         nm_ = np.array([str(n_).upper().strip() for n_ in names], dtype=object)
-        y, s, fx = street_overrides(nm_, boro_of(pts, boros), lo, la, y, s, quiet=True)
+        y, s, fx = street_overrides(nm_, area, lo, la, y, s, quiet=True)
         return after_ground(y, ly_, fx, ("trunk road", nm_, lo, la, shapely.length(np.asarray(lines, dtype=object)))), s
 
     street_lines = [it[0] for k in ("manhattan", "region", "local") for it in sets[k] if len(it) == 6]
-    write_paths3d(VIEWER_DATA / "freeways.bin.gz", freeway_items(ground, fw_routes, lm, date_trunk, street_lines, report))
+    write_paths3d(VIEWER_DATA / "freeways.bin.gz", freeway_items(ground, fw_routes, lm, date_trunk, street_lines, report, boros))
     gc = pd.DataFrame(GROUND_CONFLICTS, columns=["kind", "name", "year", "land_year", "lon", "lat", "m"])
     gc.to_csv(SCRATCH / "ground_conflicts.csv", index=False)
     report["ground_conflicts"] = {"segments": len(gc), "km": round(float(gc.m.sum()) / 1000, 1),
@@ -1273,9 +1401,9 @@ def main():
 
 
 def local_tiles(items, decks, ground):
-    """Residential streets, lanes and alleys of the Bronx, Brooklyn, Queens and Staten Island
-    in z12 tiles (viewer/public/data/region-streets/), and the same streets simplified to 8 m
-    in z10 tiles for city scale."""
+    """Residential streets, lanes and alleys of the Bronx, Brooklyn, Queens, Staten Island and
+    the counties (and the counties' tertiary roads) in z12 tiles (viewer/public/data/
+    region-streets/), and the same streets simplified to 8 m in z10 tiles for city scale."""
     out = VIEWER_DATA / "region-streets"
     if out.exists():
         shutil.rmtree(out)
@@ -1296,7 +1424,7 @@ def local_tiles(items, decks, ground):
             its += [decks[j] for j in np.nonzero((dt[0] == x) & (dt[1] == y))[0]]
             p = out / str(z) / str(x) / f"{y}.bin.gz"
             p.parent.mkdir(parents=True, exist_ok=True)
-            write_paths(p, its, ground, z_offset, step=step)
+            write_paths(p, its, ground, z_offset, step=step, step_outer=None if simp else STEP_OUTER)
             index.append({"x": int(x), "y": int(y), "n": len(its)})
         result[z] = index
     (out / "index.json").write_text(json.dumps({"z": LOCAL_Z, "tiles": result[LOCAL_Z],
@@ -1339,6 +1467,25 @@ def check():
               f"start {y[:, 0].min():.1f}..{y[:, 0].max():.1f}; start >= end or outside {YEAR_MIN}..{CURRENT_YEAR + 1}: {n_bad}")
         print("   by decade: " + " ".join(f"{d}:{c_}" for d, c_ in dec.items()))
     print(f"total {total / 1e6:.2f} MB; violations: {bad}")
+    # nothing estimated before its ground (the tables of the last run: data/interim/roads/)
+    sy = SCRATCH / "street_years.parquet"
+    if sy.exists():
+        t = pd.read_parquet(sy)
+        if {"fixed", "bridge"} <= set(t.columns):
+            held = ~t.fixed.values & ~t.bridge.values & np.isfinite(t.land_year.values) & (t.year.values < CURRENT_YEAR + 1.0)
+            early = held & (t.year.values < t.land_year.values + 0.5 - 0.02)
+            outside = ~np.isin(t.boro.values, list(BORO_NAME))
+            print(f"streets on made land: {int(np.isfinite(t.land_year.values).sum())} ({int((np.isfinite(t.land_year.values) & outside).sum())} "
+                  f"in the counties); estimated year before its ground: {int(early.sum())}; researched years before the grid's "
+                  f"land year (kept, ground_conflicts.csv): {int((t.fixed.values & (t.year.values < t.land_year.values - 1.0)).sum())}")
+            bad += int(early.sum())
+    hy = SCRATCH / "highway_years.csv"
+    if hy.exists():
+        t = pd.read_csv(hy)
+        if "land_year" in t.columns:
+            early = (t.src.values != SRC_RESEARCHED) & ~t.bridge.values & (t.year.values < t.land_year.values + 0.5 - 0.02)
+            print(f"highway mainline segments on made land: {int(t.land_year.notna().sum())}; estimated year before its ground: {int(early.sum())}")
+            bad += int(early.sum())
     return bad
 
 
