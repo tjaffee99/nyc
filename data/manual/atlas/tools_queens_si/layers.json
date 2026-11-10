@@ -426,7 +426,8 @@
    {
     "id": 15732,
     "sheet": "3",
-    "name": "Queens, Vol. 2, Double Page Plate No. 3; Part of Long Island City Ward One (Part of Old Wa"
+    "name": "Queens, Vol. 2, Double Page Plate No. 3; Part of Long Island City Ward One (Part of Old Wa",
+    "skip": "control points 38.7 m (cross-validation) and the street match found only 2 windows: unplaced"
    },
    {
     "id": 15733,
@@ -471,7 +472,8 @@
    {
     "id": 15707,
     "sheet": "12",
-    "name": "Queens, Vol. 2, Double Page Plate No. 12; Part of Ward Two North Wood Side; [Map bounded b"
+    "name": "Queens, Vol. 2, Double Page Plate No. 12; Part of Ward Two North Wood Side; [Map bounded b",
+    "skip": "no street match (2 windows) and 19 outlines: unplaced"
    },
    {
     "id": 15708,
@@ -501,7 +503,8 @@
    {
     "id": 15714,
     "sheet": "19",
-    "name": "Queens, Vol. 2, Double Page Plate No. 19; Part of Ward Two Nassau Heights and Newtown Heig"
+    "name": "Queens, Vol. 2, Double Page Plate No. 19; Part of Ward Two Nassau Heights and Newtown Heig",
+    "skip": "control points 55 m out, no street match: unplaced"
    },
    {
     "id": 15715,
@@ -511,7 +514,8 @@
    {
     "id": 15716,
     "sheet": "21",
-    "name": "Queens, Vol. 2, Double Page Plate No. 21; Part od Ward Two Laurel Hill; [Map bounded by Ne"
+    "name": "Queens, Vol. 2, Double Page Plate No. 21; Part od Ward Two Laurel Hill; [Map bounded by Ne",
+    "skip": "no street match, 16 m control points: unplaced"
    },
    {
     "id": 15717,
@@ -526,7 +530,8 @@
    {
     "id": 15719,
     "sheet": "24",
-    "name": "Queens, Vol. 2, Double Page Plate No. 24; Part of Ward Two East Williamsburgh (Evergreen, "
+    "name": "Queens, Vol. 2, Double Page Plate No. 24; Part of Ward Two East Williamsburgh (Evergreen, ",
+    "skip": "no street match, control points 13 m out: unplaced"
    },
    {
     "id": 15720,
@@ -541,22 +546,26 @@
    {
     "id": 15722,
     "sheet": "27",
-    "name": "Queens, Vol. 2, Double Page Plate No. 27; Part of Ward Two St. Williamburgh; [Map bounded "
+    "name": "Queens, Vol. 2, Double Page Plate No. 27; Part of Ward Two St. Williamburgh; [Map bounded ",
+    "skip": "no street match, control points 16 m out: unplaced"
    },
    {
     "id": 15723,
     "sheet": "28",
-    "name": "Queens, Vol. 2, Double Page Plate No. 28; Part of Ward Two Newtown, Corona, Hopedale and R"
+    "name": "Queens, Vol. 2, Double Page Plate No. 28; Part of Ward Two Newtown, Corona, Hopedale and R",
+    "skip": "control points 93 m out, no street match: unplaced"
    },
    {
     "id": 15724,
     "sheet": "29",
-    "name": "Queens, Vol.2, Double Page Plate No. 29; Part of Ward Two Newtown (East Williamsburgh, Mel"
+    "name": "Queens, Vol.2, Double Page Plate No. 29; Part of Ward Two Newtown (East Williamsburgh, Mel",
+    "skip": "control points 52 m out, no street match: unplaced"
    },
    {
     "id": 15725,
     "sheet": "30",
-    "name": "Queens, Vol. 2, Double Page Plate No. 30; Part of Ward Two Newtown, Trains Meadow, Wood Si"
+    "name": "Queens, Vol. 2, Double Page Plate No. 30; Part of Ward Two Newtown, Trains Meadow, Wood Si",
+    "skip": "no street match, control points 14.5 m out: unplaced"
    },
    {
     "id": 15713,
@@ -709,7 +718,8 @@
    {
     "id": 17260,
     "sheet": "1",
-    "name": "Queens, V. 1, Double Page Plate No. 1; Part of Jamaica, Ward 4; [Map bounded by Forest Par"
+    "name": "Queens, V. 1, Double Page Plate No. 1; Part of Jamaica, Ward 4; [Map bounded by Forest Par",
+    "skip": "control points 100 m out and no street match: unplaced"
    },
    {
     "id": 17261,
@@ -744,7 +754,8 @@
    {
     "id": 17279,
     "sheet": "20",
-    "name": "Queens, V. 1, Double Page Plate No. 20; Part of Jamaica, Ward 4; [Map bounded by Plaza, Oc"
+    "name": "Queens, V. 1, Double Page Plate No. 20; Part of Jamaica, Ward 4; [Map bounded by Plaza, Oc",
+    "skip": "control points 25 m out, no street match, no outline on a standing building: unplaced"
    },
    {
     "id": 17282,
@@ -2111,5 +2122,59 @@
     "name": "Part of Wards 3, 4, & 5. [Map bound by Cannon Ave, Burying Hill Road, Richmond Turnpike, U"
    }
   ]
+ },
+ "queens_rockaway_1907": {
+  "map_year": 1907,
+  "atlas": "Atlas of the borough of Queens, vol. 1, Fourth and fifth wards: Rockaway and Far Rockaway plates (1907)",
+  "source": "queens_wards45_1907",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Queens vol. 1 1907; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 15620,
+    "sheet": "32",
+    "name": "Queens, Vol. 1, Double Page Plate No. 32; Part of Ward 5; Farrockaway; [Map bounded by Cen"
+   },
+   {
+    "id": 15622,
+    "sheet": "34",
+    "name": "Queens, Vol. 1, Double Page Plate No. 34; Part of Ward 5; Farrockaway; [Map bounded by The"
+   },
+   {
+    "id": 15623,
+    "sheet": "35",
+    "name": "Queens, Vol. 1, Double Page Plate No. 35; Part of Ward 5; Rockaway; [Map bounded by Jamaic"
+   },
+   {
+    "id": 15625,
+    "sheet": "37",
+    "name": "Queens, Vol. 1, Double Page Plate No. 37; Part of Ward 5; Farrockaway; [Remsen Ave., Henry"
+   },
+   {
+    "id": 15626,
+    "sheet": "38",
+    "name": "Queens, Vol. 1, Double Page Plate No. 38; Part of Ward 5; Farrockaway; [Map bounded by bay"
+   },
+   {
+    "id": 15627,
+    "sheet": "39",
+    "name": "Queens, Vol. 1, Double Page Plate No. 39; Part of Ward 5; Farrockaway; [Map bounded by Par"
+   },
+   {
+    "id": 15628,
+    "sheet": "40",
+    "name": "Queens, Vol. 1, Double Page Plate No. 40; Part of Ward 5; Farrockaway; [map bounded by Jam"
+   }
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 5.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 84
+   },
+   "outline": 0.4,
+   "stone": null
+  }
  }
 }

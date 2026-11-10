@@ -371,9 +371,11 @@ def atlas_layers():
                 continue
             geom = max(getattr(geom, "geoms", [geom]), key=lambda q: q.area)
             st = _num(getattr(r, "storeys", np.nan))
+            holder = str(getattr(r, "kind", "") or "") == "gasholder"   # (height estimated: the atlases give none)
             rows.append({"id": f"atlas:{p.stem}:{i}", "map_year": int(_num(getattr(r, "map_year", year), year)), "boro": "",
-                         "colors": colour.get(str(getattr(r, "material", "") or "").lower(), ""), "name": None,
-                         "start_doc": np.nan, "end_doc": np.nan, "h_doc": st * 3.3 + 1.0 if np.isfinite(st) and st > 0 else np.nan,
+                         "colors": colour.get(str(getattr(r, "material", "") or "").lower(), ""), "name": "Gasholder" if holder else None,
+                         "start_doc": np.nan, "end_doc": np.nan,
+                         "h_doc": 25.0 if holder else (st * 3.3 + 1.0 if np.isfinite(st) and st > 0 else np.nan),
                          "cls": "traced", "conf_doc": None, "mat_doc": "", "geometry": geom})
         log(f"extras: {len(rows) - n0} outlines from the atlas layer {p.name}")
     return rows

@@ -289,9 +289,10 @@ def fills_rows(c, line, st, inside):
     if (c == 6).any():
         # pale blue counts as fill only where it is 25 pixels wide (a gasholder is 70 or more): the blue-crayon
         # strokes on the NYPL copy are the same colour and would hang tails on the houses they cross
-        # (the width is taken on blue and grey together: a pale holder is a speckle of the two classes)
-        b6, b46 = c == 6, (c == 6) | (c == 4)
-        c = np.where(b6 & ~(_dil(_open(b46, 25), 13) & b46), 0, c).astype(c.dtype)
+        # (the width is taken on blue and grey together - a pale holder is a speckle of the two classes,
+        # with unread pixels between them: the union is closed over 7 pixels first)
+        b6, b46 = c == 6, _close((c == 6) | (c == 4), 7)
+        c = np.where(b6 & ~_dil(_open(b46, 25), 13), 0, c).astype(c.dtype)
     fill = ((c == 2) | (c == 3) | (c == 4) | (c == 6)) & inside
     thin = ink & ~_dil(_open(c == 1, 3), 1)
     lab, n = ndi.label(thin, structure=SQ3)

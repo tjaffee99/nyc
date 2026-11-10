@@ -572,9 +572,8 @@
    "street_min_q": 0.2,
    "street_win_m": 300.0,
    "street_search": [
-    60.0,
-    25.0,
-    12.0
+    30.0,
+    15.0
    ]
   },
   "require_match": 8.0
@@ -750,9 +749,8 @@
    "street_min_q": 0.2,
    "street_win_m": 300.0,
    "street_search": [
-    60.0,
-    25.0,
-    12.0
+    30.0,
+    15.0
    ]
   },
   "require_match": 8.0
@@ -918,9 +916,8 @@
    "street_min_q": 0.2,
    "street_win_m": 300.0,
    "street_search": [
-    60.0,
-    25.0,
-    12.0
+    30.0,
+    15.0
    ]
   },
   "require_match": 8.0
@@ -976,9 +973,8 @@
    "street_min_q": 0.2,
    "street_win_m": 300.0,
    "street_search": [
-    60.0,
-    25.0,
-    12.0
+    30.0,
+    15.0
    ]
   },
   "require_match": 8.0
@@ -1139,9 +1135,8 @@
    "street_min_q": 0.2,
    "street_win_m": 300.0,
    "street_search": [
-    60.0,
-    25.0,
-    12.0
+    30.0,
+    15.0
    ]
   },
   "require_match": 8.0
@@ -1247,9 +1242,8 @@
    "street_min_q": 0.2,
    "street_win_m": 300.0,
    "street_search": [
-    60.0,
-    25.0,
-    12.0
+    30.0,
+    15.0
    ]
   },
   "require_match": 8.0
@@ -1430,9 +1424,8 @@
    "street_min_q": 0.2,
    "street_win_m": 300.0,
    "street_search": [
-    60.0,
-    25.0,
-    12.0
+    30.0,
+    15.0
    ]
   },
   "require_match": 8.0
@@ -1608,9 +1601,8 @@
    "street_min_q": 0.2,
    "street_win_m": 300.0,
    "street_search": [
-    60.0,
-    25.0,
-    12.0
+    30.0,
+    15.0
    ]
   },
   "require_match": 8.0
@@ -1701,9 +1693,8 @@
    "street_min_q": 0.2,
    "street_win_m": 300.0,
    "street_search": [
-    60.0,
-    25.0,
-    12.0
+    30.0,
+    15.0
    ]
   },
   "require_match": 8.0

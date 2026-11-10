@@ -1128,6 +1128,19 @@ def export(layer, max_off=8.0):
                 keep[k] = False
                 water += 1
         st["lettering_dropped"], st["water_dropped"] = lettering, water
+        # slivers (Queens / Staten Island): a long thin outline (under 3 m wide, over 4 times as long, or under
+        # 4 m wide and over 14 m long) lying along a street or a lot line is the street tint or a band, not a house
+        slivers = 0
+        for k, g in enumerate(polys):
+            if not keep[k]:
+                continue
+            xy_ = np.asarray(g.minimum_rotated_rectangle.exterior.coords)
+            e1_, e2_ = np.hypot(*(xy_[1] - xy_[0])), np.hypot(*(xy_[2] - xy_[1]))
+            w_, l_ = min(e1_, e2_), max(e1_, e2_)
+            if (w_ < 3.0 and l_ > 4 * w_) or (w_ < 4.0 and l_ > 14.0):
+                keep[k] = False
+                slivers += 1
+        st["sliver_dropped"] = slivers
         # county plates: pieces of carmine property band read as brick are ragged or long; a brick building is
         # kept only if it is 50 m2 or more and fills 75 % of its rectangle
         # ... and pieces of orange band read as frame are long and narrow or hook-shaped: a frame outline under

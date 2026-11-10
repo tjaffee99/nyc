@@ -158,7 +158,10 @@ def load_structures():
     t["geometry"] = t.geometry.buffer(0)
     t = t[t.geometry.geom_type == "Polygon"]
     t["area"] = t.geometry.area
-    t = t[(t["area"] > 14) & ((t["area"] < 8000) | (t.cls == "documented"))].reset_index(drop=True)
+    # (the atlas layers traced for this map were checked at their upper end: armouries, depots,
+    # breweries, gas works are single outlines up to 20,000 m2)
+    big_ok = (t.cls == "documented") | (t.id.str.startswith("atlas:") & (t["area"] < 25000))
+    t = t[(t["area"] > 14) & ((t["area"] < 8000) | big_ok)].reset_index(drop=True)
     # within one map layer, overlapping outlines are one building drawn twice: keep the larger
     drop = np.zeros(len(t), bool)
     tr = t[t.cls == "traced"]

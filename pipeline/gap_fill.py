@@ -58,7 +58,8 @@ from common import INTERIM, MANUAL, RAW, TABLES, log
 
 WORK = INTERIM / "gapfill"
 DOC = MANUAL / "gapfill"
-LOTS = WORK / "lots"
+LAYOUT = 2                # version of the lot layout: a change of the cutting rules needs new lots (and new scores)
+LOTS = WORK / f"lots_v{LAYOUT}"
 ROWS = WORK / "rows"
 EXISTING = WORK / "existing.parquet"
 OUT = WORK / "gapfill.parquet"
@@ -75,27 +76,36 @@ INSET_DEFAULT = 9.2      # centre line to building line: half a 60 ft street
 INSET_RANGE = (6.5, 14.0)
 STREET_GAP = 18.3        # a closed street inside a superblock: 60 ft between building lines
 BLOCK_PERIOD = 79.2      # 200 ft block + 60 ft street
-# lot width, building width, depths to choose from, setback, storeys to choose from, material
+# The size of a lot's outline is measured, not assumed: the median width and depth of the old
+# buildings (standing, built by 1935) of the same city block - of the nearest block that has five,
+# where it has none - within the bounds of the building types of the time. `bw`, `d` are the fallback
+# where nothing old stands anywhere near; `gap` is the space between detached houses; storeys and
+# material go with the type.
 TYPES = {
-    "tenement": dict(w=7.62, bw=7.62, d=(18.5, 21.5, 24.5, 27.0), sb=0.0, st=(4, 5, 5, 5, 6), mat="brick"),
-    "rowhouse": dict(w=5.8, bw=5.8, d=(12.2,), sb=2.0, st=(2, 3, 3, 3, 4), mat="brick"),
-    "frame": dict(w=7.62, bw=6.1, d=(10.0,), sb=3.0, st=(2, 2, 2, 3), mat="frame"),
+    "tenement": dict(bw=7.62, d=22.0, gap=0.0, st=(4, 5, 5, 5, 6), mat="brick"),     # 25 ft lots, 60-90 ft deep
+    "rowhouse": dict(bw=5.8, d=12.2, gap=0.0, st=(2, 3, 3, 3, 4), mat="brick"),      # 19-20 ft x 40 ft
+    "frame": dict(bw=6.1, d=10.0, gap=1.5, st=(2, 2, 2, 3), mat="frame"),            # 20 x 33 ft on a 25 ft lot
 }
+WIDTH_RANGE = (4.8, 8.5)
+DEPTH_RANGE = (9.5, 27.0)
 TYPE_H = (9.0, 13.5)     # median roof height of the block's old buildings: below = frame, between = row house, above = tenement
 HALF_STREET = {"residential": 7.0, "unclassified": 7.0, "living_street": 6.0, "tertiary": 9.0, "secondary": 11.0,
                "primary": 13.0, "trunk": 14.0}   # no lot within this distance of a street centre line
 P_STOOD = {1924: 0.8, 1951: 0.7}     # data/manual/aerial/README.md "How to use it"
 P_OPEN = {1924: 0.2, 1951: 0.1}
-P_ALONE = 0.95           # a lot with fewer than two built neighbours needs this
+PRIOR_RANGE = (0.2, 0.85)  # odds beforehand from the neighbouring lots (see assemble_block): 0.2 alone, 0.85 in a built row
 PHOTO_T = {1924: 1924.5, 1951: 1951.5}
 AFTER_GAP = 3.0          # a map building that starts within this of the photograph may be what the photograph shows
 LEAD = (1.0, 2.5)        # a predecessor ends this long before the building that replaced it was finished
 NEAR_M = 30.0            # "neighbours" for the isolation rule
 YEAR_POOL_M = 300.0      # recorded years are taken from this far around
-EXTENT_KEEP = {"usgs": 0.5, "map": 0.75}
-SMALL_SHARE = 0.35       # a map building smaller than this share of a lot notches the lot instead of blocking it
+# share of the eligible lots kept under a generalised built-up extent: measured against the traced
+# atlases at every run (calibrate_extents); these values only where too little can be measured
+EXTENT_KEEP = {"usgs": 0.5, "map": 0.5}
+SMALL_SHARE = 0.35       # a map building smaller than this share of a lot (and than SMALL_M2) notches the lot instead of blocking it
+SMALL_M2 = 30.0
 NOTCH_MIN = 0.55         # ... if this share of the lot is left
-RECORD_FROM = 1995.5     # the city's removed footprints begin in 1996: a fill row cannot end later   # share of the eligible lots kept under a generalised built-up extent
+RECORD_FROM = 1995.5     # the city's removed footprints begin in 1996: a fill row of the boroughs cannot end later
 OPEN_END = (1956.0, 1984.0)   # seen in 1951, nothing on the spot today, not in the city's removals (1996-): ended in between
 
 
@@ -254,6 +264,19 @@ def water_window(bx, by):
     return water, cem
 
 
+def rail_window(bx, by):
+    """STRtree of today's surface railways around the block, 6 m to each side (no subways: they run
+    under the streets). Rail yards and cuts are not building lots, and wagons look like roofs."""
+    w = _window_sql(bx, by, 80)
+    rows = con().execute(f"""select ST_AsWKB(geometry) from '{OVERTURE}/rail.parquet'
+        where class in ('standard_gauge', 'unknown', 'light_rail', 'narrow_gauge') and {w}
+          and coalesce(cast(rail_flags as varchar), '') not like '%is_tunnel%'""").fetchall()
+    if not rows:
+        return None
+    g = to_px(shapely.from_wkb([bytes(r[0]) for r in rows]))
+    return shapely.STRtree(shapely.buffer(g, 6.0 / MPP, cap_style="flat"))
+
+
 def city_blocks(lines, bx, by):
     """Polygons between the street centre lines that touch the z14 block."""
     if len(lines) < 3:
@@ -272,13 +295,15 @@ MPP = ap.metres_per_pixel(40.72)
 MPP2 = MPP * MPP
 
 
-def lots_of_block(poly, kind, inset_m, key):
+def lots_of_block(poly, kind, inset_m, key, bw, d):
     """Lot-sized building outlines of one city block: rectangles in rows along the long frontages.
 
     The block's frame is its minimum rotated rectangle (u along the long side). The building line is
-    the centre-line polygon shrunk by `inset_m`. Rows of lots face the two long frontages; a block
-    deeper than one city block (BLOCK_PERIOD) is cut as k blocks with closed streets (STREET_GAP)
-    between them, k = round((depth + gap) / period). Returns (rectangles, row index, type)."""
+    the centre-line polygon shrunk by `inset_m` (measured from the block's old buildings). Rows of
+    lots face the two long frontages, each outline `bw` wide and about `d` deep (0.88-1.12 d, by
+    hash), `gap` apart; a block deeper than one city block (BLOCK_PERIOD) is cut as k blocks with
+    closed streets (STREET_GAP) between them, k = round((depth + gap) / period). Outlines that leave
+    the building line polygon by more than 0.6 m are dropped. Returns [(rectangle, row index)]."""
     t = TYPES[kind]
     inner = shapely.buffer(poly, -inset_m / MPP, join_style="mitre")
     if inner.is_empty or shapely.area(inner) * MPP2 < 150:
@@ -291,8 +316,8 @@ def lots_of_block(poly, kind, inset_m, key):
     o = r[0]
 
     def fwd(c):          # pixels -> the block's frame, metres
-        d = (c - o) * MPP
-        return np.column_stack([d[:, 0] * ca + d[:, 1] * sa, -d[:, 0] * sa + d[:, 1] * ca])
+        q = (c - o) * MPP
+        return np.column_stack([q[:, 0] * ca + q[:, 1] * sa, -q[:, 0] * sa + q[:, 1] * ca])
 
     def back(c):
         return np.column_stack([c[:, 0] * ca - c[:, 1] * sa, c[:, 0] * sa + c[:, 1] * ca]) / MPP + o
@@ -300,39 +325,36 @@ def lots_of_block(poly, kind, inset_m, key):
     inner_f = shapely.transform(inner, fwd)
     umin, vmin, umax, vmax = shapely.bounds(inner_f)
     L, H = umax - umin, vmax - vmin
-    w = t["w"]
+    w = bw + t["gap"]
     n = int(L // w)
-    if n < 1 or H < 6:
+    dmin = 0.88 * d
+    if n < 1 or H < dmin:
         return []
-    u0 = umin + (L - n * w) / 2 + (w - t["bw"]) / 2
-    dmax = max(t["d"])
+    u0 = umin + (L - n * w) / 2 + t["gap"] / 2
     rows = []                                     # (front v, direction +1 / -1, depth available)
-    if H < t["sb"] + min(t["d"]):
-        return []
     k = max(1, int(round((H + STREET_GAP) / BLOCK_PERIOD)))
     P = (H + STREET_GAP) / k
     for j in range(k):
         v0 = vmin + j * P
         v1 = v0 + P - STREET_GAP
         depth = v1 - v0
-        if depth >= 2 * (t["sb"] + min(t["d"])) + 1.0:
-            avail = depth / 2 - t["sb"] - 0.5
-            rows.append((v0 + t["sb"], 1.0, avail))
-            rows.append((v1 - t["sb"], -1.0, avail))
+        if depth >= 2 * dmin + 1.0:
+            rows.append((v0, 1.0, depth / 2 - 0.5))
+            rows.append((v1, -1.0, depth / 2 - 0.5))
         else:
-            rows.append((v0 + t["sb"], 1.0, depth - t["sb"]))
+            rows.append((v0, 1.0, depth))
     rects, rown = [], []
     us = u0 + w * np.arange(n)
     for ri, (vf, sgn, avail) in enumerate(rows):
-        dd = np.array([t["d"][int(h01(f"{key}:{ri}:{i}") * len(t["d"])) % len(t["d"])] for i in range(n)])
-        dd = np.minimum(dd, max(avail, min(t["d"]) * 0.8))
+        dd = d * (0.88 + 0.24 * np.array([h01(f"{key}:{ri}:{i}") for i in range(n)]))
+        dd = np.minimum(dd, max(avail, dmin * 0.8))
         va = np.full(n, vf)
         vb = vf + sgn * dd
         lo, hi = np.minimum(va, vb), np.maximum(va, vb)
         c = np.empty((n, 5, 2))
         c[:, 0] = np.column_stack([us, lo])
-        c[:, 1] = np.column_stack([us + t["bw"], lo])
-        c[:, 2] = np.column_stack([us + t["bw"], hi])
+        c[:, 1] = np.column_stack([us + bw, lo])
+        c[:, 2] = np.column_stack([us + bw, hi])
         c[:, 3] = np.column_stack([us, hi])
         c[:, 4] = c[:, 0]
         rects.append(c)
@@ -362,9 +384,19 @@ def make_lots(bx, by):
     old = standing & (ex.start_year.values <= 1935) & (ex.area.values >= 35)
     tree = shapely.STRtree(cen)
     pi, bi = tree.query(polys, predicate="contains")
-    # per city block: building line and type from its own buildings
+    # per city block: building line, type and outline size from its own old buildings
     med_h = np.full(len(polys), np.nan)
+    med_w = np.full(len(polys), np.nan)
+    med_d = np.full(len(polys), np.nan)
     inset = np.full(len(polys), INSET_DEFAULT)
+    rc = shapely.get_coordinates(shapely.get_exterior_ring(shapely.minimum_rotated_rectangle(ex.g.values[old])))
+    side_s = np.full(len(ex), np.nan)
+    side_l = np.full(len(ex), np.nan)
+    if old.any() and len(rc) == 5 * int(old.sum()):
+        rc = rc.reshape(-1, 5, 2)
+        l1 = np.hypot(*(rc[:, 1] - rc[:, 0]).T) * MPP
+        l2 = np.hypot(*(rc[:, 2] - rc[:, 1]).T) * MPP
+        side_s[old], side_l[old] = np.minimum(l1, l2), np.maximum(l1, l2)
     order = np.argsort(pi, kind="stable")
     pi, bi = pi[order], bi[order]
     starts = np.searchsorted(pi, np.arange(len(polys) + 1))
@@ -375,6 +407,9 @@ def make_lots(bx, by):
         bo = b[old[b]]
         if len(bo) >= 3:
             med_h[k] = np.nanmedian(ex.height_m.values[bo])
+        if len(bo) >= 5 and np.isfinite(side_s[bo]).sum() >= 5:
+            med_w[k] = np.nanmedian(side_s[bo])
+            med_d[k] = np.nanmedian(side_l[bo])
         bs = bo                                   # the old buildings keep the old building line (towers stand back from it)
         if len(bs) >= 5:
             d = shapely.distance(ex.g.values[bs], shapely.boundary(polys[k])) * MPP
@@ -391,13 +426,24 @@ def make_lots(bx, by):
     else:
         med_h[:] = 7.0
     kind = np.where(med_h >= TYPE_H[1], "tenement", np.where(med_h >= TYPE_H[0], "rowhouse", "frame"))
+    known = np.isfinite(med_w)
+    if known.any():
+        from scipy.spatial import cKDTree
+        pc = shapely.get_coordinates(shapely.centroid(polys))
+        _, j = cKDTree(pc[known]).query(pc)
+        med_w, med_d = np.where(known, med_w, med_w[known][j]), np.where(known, med_d, med_d[known][j])
+    else:
+        med_w = np.array([TYPES[q]["bw"] for q in kind])
+        med_d = np.array([TYPES[q]["d"] for q in kind])
+    med_w = np.clip(med_w, *WIDTH_RANGE)
+    med_d = np.clip(med_d, *DEPTH_RANGE)
     x0, y0, x1, y1 = block_px(bx, by)
     out = []
     for k, poly in enumerate(polys):
         pc = shapely.centroid(poly)
         lon, lat = px_to_lonlat(pc.x, pc.y)
         cb = hashlib.sha1(f"{lon:.5f},{lat:.5f},{shapely.area(poly) * MPP2:.0f}".encode()).hexdigest()[:10]
-        for g, ri in lots_of_block(poly, kind[k], inset[k], cb):
+        for g, ri in lots_of_block(poly, kind[k], inset[k], cb, float(med_w[k]), float(med_d[k])):
             out.append((cb, kind[k], int(ri), g))
     if not out:
         return pd.DataFrame(columns=cols), ex, lines, cls
@@ -554,11 +600,11 @@ def step_lots(workers=3, only=None, reverse=False):
 # The 1:24,000 / 1:25,000 sheets of 1947 (compiled from aerial photographs of 1940) draw every built
 # block front as a heavy black band and large buildings as black blocks. Per lot: the share of its
 # outline that is heavy black ink. (The 1955 editions replace the bands by a flat urban tint.)
-SHEETS_1947 = {"NJ_Jersey_City_254499_1947_24000_geo.tif": (-74.125, 40.625, -74.0, 40.75),
-               "NJ_Weehawken_255030_1947_25000_geo.tif": (-74.125, 40.75, -74.0, 40.875),
-               "NJ_Elizabeth_254343_1947_24000_geo.tif": (-74.25, 40.625, -74.125, 40.75)}
+SHEETS_1947 = {"NJ_Jersey_City_254499_1947_24000_geo.tif": (-74.125, 40.625, -74.0, 40.75),      # edition of 1947
+               "NJ_Weehawken_255029_1943_25000_geo.tif": (-74.125, 40.75, -74.0, 40.875)}        # edition of 1943 (the 1947 one is tinted)
+SHEET_YEAR = {"NJ_Jersey_City_254499_1947_24000_geo.tif": 1947, "NJ_Weehawken_255029_1943_25000_geo.tif": 1943}
 SHEET_DIR = RAW / "piers" / "usgs"          # downloaded by the piers part (data/manual/piers/tools/sheets.json has the URLs)
-INK = WORK / "ink"
+INK = WORK / f"sheet_ink_v{LAYOUT}"
 INK_T, INK_GAP, INK_MIN = 1941.0, 7.0, 0.5   # the photographs behind the sheets are of 1940; printed 1947
 
 
@@ -585,6 +631,11 @@ def ink_block(bx, by):
     out = np.full(len(lots), np.nan, "float32")
     g = shapely.transform(to_px(shapely.from_wkb(lots.wkb.values)), lambda c: (c - np.array([x0 - mrg * k, y0 - mrg * k])) / k)
     lines, _ = streets_window(bx, by)
+    ex = existing_window(bx, by)
+    shifts = {}
+    year_of = np.zeros(len(lots), "int16")
+    sh_e = np.zeros(len(lots), "float32")
+    sh_s = np.zeros(len(lots), "float32")
     for fn, (lo0, la0, lo1, la1) in SHEETS_1947.items():
         sel = np.flatnonzero((lots.lon.values >= lo0) & (lots.lon.values < lo1) & (lots.lat.values >= la0) & (lots.lat.values < la1))
         p = SHEET_DIR / fn
@@ -598,21 +649,33 @@ def ink_block(bx, by):
         lum = a[0] * 0.299 + a[1] * 0.587 + a[2] * 0.114
         black = (lum < 115) & ((a.max(0) - a.min(0)) < 70)
         heavy = ndi.binary_opening(black, iterations=2)           # letters, hachures and rails are thinner than a block front
-        # shift of the sheet against today's streets: the heavy ink must lie beside the street lines, not on them
-        dx = dy = 0
-        if len(lines) > 50:
-            ln = shapely.transform(lines, lambda c: (c - np.array([x0 - mrg * k, y0 - mrg * k])) / k)
-            sr = features.rasterize([(q, 1) for q in ln], out_shape=heavy.shape, fill=0, dtype="uint8").astype(bool)
-            idx = np.flatnonzero(sr.ravel())
-            hf = heavy.ravel().astype("float32")
-            R_ = 8
-            sc = np.zeros((2 * R_ + 1, 2 * R_ + 1))
-            for sy in range(-R_, R_ + 1):
-                for sx in range(-R_, R_ + 1):
-                    sc[sy + R_, sx + R_] = hf[np.clip(idx + sy * Wd + sx, 0, hf.size - 1)].mean()
-            kk = np.unravel_index(sc.argmin(), sc.shape)
-            if sc.min() < 0.6 * np.median(sc) and 0 < kk[0] < 2 * R_ and 0 < kk[1] < 2 * R_:
-                dy, dx = kk[0] - R_, kk[1] - R_
+        # where the sheet sits against today's map. The scans are georeferenced on the datum of 1927
+        # (PROJ moves them to within about 10 m) and their drawing is off by up to 35 m in places (the
+        # piers part measured it). Per block: the shift within 40 m that puts most heavy ink under the
+        # buildings of the map that stood then and least on today's street lines. No clear answer: no reading.
+        org_ = np.array([x0 - mrg * k, y0 - mrg * k])
+        old = ex[(ex.start_year.values <= 1935) & (ex.end_year.values > INK_T) & (ex.area.values > 40)]
+        if len(lines) < 80 or len(old) < 150:
+            continue
+        sr = features.rasterize([(q, 1) for q in shapely.transform(lines, lambda c: (c - org_) / k)], out_shape=heavy.shape, fill=0,
+                                dtype="uint8").astype("float32")
+        br = features.rasterize([(q, 1) for q in shapely.transform(old.g.values, lambda c: (c - org_) / k)], out_shape=heavy.shape,
+                                fill=0, dtype="uint8").astype("float32")
+        Fh = np.fft.rfft2(heavy.astype("float32"))
+        R_ = 22
+        sc = (np.fft.irfft2(Fh * np.conj(np.fft.rfft2(br)), s=heavy.shape) / max(br.sum(), 1.0)
+              - np.fft.irfft2(Fh * np.conj(np.fft.rfft2(sr)), s=heavy.shape) / max(sr.sum(), 1.0))
+        sc = np.roll(np.roll(sc, R_, 0), R_, 1)[:2 * R_ + 1, :2 * R_ + 1]            # sc[dy + R_, dx + R_]
+        kk = np.unravel_index(sc.argmax(), sc.shape)
+        if not (sc.max() - np.median(sc) >= 0.12 and 0 < kk[0] < 2 * R_ and 0 < kk[1] < 2 * R_):
+            continue
+        dx, dy = int(kk[1] - R_), int(kk[0] - R_)
+        shifts[fn] = [round(dx * k * MPP, 1), round(dy * k * MPP, 1), round(float(sc.max()), 2), round(float(np.median(sc)), 2)]
+        year_of[sel] = SHEET_YEAR[fn]
+        sh_e[sel], sh_s[sel] = shifts[fn][0], shifts[fn][1]
+        # the sheets draw the streets wider than they are (and the block fronts pushed back by as much):
+        # the ink is grown by 5 m before it is read on the lots
+        heavy = ndi.binary_dilation(heavy, iterations=3)
         L = features.rasterize([(q, int(j) + 1) for j, q in zip(sel, shapely.transform(g[sel], lambda c: c + np.array([dx, dy])))],
                                out_shape=heavy.shape, fill=0, dtype="int32")
         cnt = np.bincount(L.ravel(), minlength=len(lots) + 1)[1:]
@@ -622,12 +685,13 @@ def ink_block(bx, by):
         out[sel] = v[sel]
     if not np.isfinite(out).any():
         return None
-    return pd.DataFrame({"cid": lots.cid.values, "ink1947": out})[np.isfinite(out)]
+    log(f"ink: block {bx}_{by}: sheet shifts (m east, m south, ink under old buildings minus on streets, median of the search) {shifts}")
+    return pd.DataFrame({"cid": lots.cid.values, "ink1947": out, "sheet_year": year_of, "shift_e": sh_e, "shift_s": sh_s})[np.isfinite(out)]
 
 
-def _ink_job(job):
+def _ink_job(job, force=False):
     out = INK / f"{job[0]}_{job[1]}.parquet"
-    if out.exists():
+    if out.exists() and not force:
         return
     try:
         df = ink_block(*job)
@@ -635,7 +699,7 @@ def _ink_job(job):
         log(f"ink: block {job} failed: {type(e).__name__}: {str(e)[:200]}")
         return
     if df is None:
-        df = pd.DataFrame({"cid": [], "ink1947": []})
+        df = pd.DataFrame({"cid": [], "ink1947": [], "sheet_year": []})
     tmp = out.with_suffix(f".part{os.getpid()}")
     df.to_parquet(tmp, index=False)
     tmp.rename(out)
@@ -644,8 +708,8 @@ def _ink_job(job):
 def step_ink():
     """The 1947 sheets on the lots of the blocks that hold Hudson County buildings (cached)."""
     INK.mkdir(parents=True, exist_ok=True)
-    r = con().execute(f"select distinct bkx, bky from '{EXISTING}' where boro = 'Hudson'").fetchall()
-    jobs = [(int(a), int(b)) for a, b in r if lots_path(int(a), int(b)).exists() and not (INK / f"{int(a)}_{int(b)}.parquet").exists()]
+    r = con().execute(f"select bkx, bky, count(*) n from '{EXISTING}' where boro = 'Hudson' group by 1, 2 order by n desc").fetchall()
+    jobs = [(int(a), int(b)) for a, b, _ in r if lots_path(int(a), int(b)).exists() and not (INK / f"{int(a)}_{int(b)}.parquet").exists()]
     log(f"ink: {len(jobs)} blocks")
     for j in jobs:
         _ink_job(j)
@@ -756,6 +820,102 @@ def pick_years(Yk, lo, hi, u):
     return y
 
 
+# ----------------------------------------------------------------------------- how much a built-up extent says about one lot
+def coverages():
+    """[(map year, prepared polygon, layer)] of the traced atlas layers (data/manual/atlas/*_coverage.geojson)."""
+    if "cov" not in _cache:
+        out = []
+        for f in sorted((MANUAL / "atlas").glob("*_coverage.geojson")):
+            layer = f.stem[:-len("_coverage")]
+            if not layer[-4:].isdigit():
+                continue
+            polys = [shapely.make_valid(shapely.from_geojson(json.dumps(ft["geometry"])))
+                     for ft in json.load(open(f))["features"] if ft.get("geometry")]
+            if polys:
+                poly = shapely.union_all(polys)
+                shapely.prepare(poly)
+                out.append((int(layer[-4:]), poly, layer))
+        _cache["cov"] = out
+    return _cache["cov"]
+
+
+def calibrate_block(job):
+    """Where a traced atlas shows what really stood: of the lots inside a built-up extent (a snapshot
+    within 10 years of the atlas) on which the map's building dates from 5 years or more after the
+    atlas (and before 1927), how many carried a building in the atlas? {layer: [lots, with a building]}."""
+    from scipy.spatial import cKDTree
+    bx, by = job
+    res = {}
+    lp = lots_path(bx, by)
+    if not lp.exists():
+        return res
+    x0, y0, x1, y1 = block_px(bx, by)
+    lo0, la1 = px_to_lonlat(x0, y0)
+    lo1, la0 = px_to_lonlat(x1, y1)
+    box = shapely.box(lo0, la0, lo1, la1)
+    covs = [c for c in coverages() if shapely.intersects(c[1], box)]
+    if not covs:
+        return res
+    lots = pd.read_parquet(lp, columns=["cid", "lon", "lat", "wkb"])
+    ex = existing_window(bx, by)
+    if not len(lots) or not len(ex):
+        return res
+    n = len(lots)
+    g = to_px(shapely.from_wkb(lots.wkb.values))
+    cen = shapely.get_coordinates(shapely.centroid(g))
+    exc = shapely.get_coordinates(shapely.centroid(ex.g.values))
+    area = ex.boro.values[cKDTree(exc).query(cen)[1]].astype(object)
+    li, ei = shapely.STRtree(ex.g.values).query(g, predicate="intersects")
+    ia = shapely.area(shapely.intersection(g[li], ex.g.values[ei])) * MPP2
+    ba = shapely.area(ex.g.values[ei]) * MPP2
+    k = (ia > 0.5) & ~((ba <= SMALL_SHARE * (shapely.area(g) * MPP2)[li]) & (ba <= SMALL_M2))
+    li, ei = li[k], ei[k]
+    ps, pe = ex.start_year.values[ei], ex.end_year.values[ei]
+    src = ex.year_src.values[ei].astype(str)
+    traced = np.array([s_.split("_")[0] in ("traced", "atlas", "map") and s_[-4:].isdigit() for s_ in src])
+    snaps = snapshots()
+    lon, lat = lots.lon.values, lots.lat.values
+    for ya, poly, layer in covs:
+        ins = shapely.contains_xy(poly, lon, lat)
+        T = ya + 0.5
+        alive = (ps <= T) & (pe > T)
+        if not ins.any() or (alive & traced & np.array([s_.endswith(str(ya)) for s_ in src])).sum() < 20:
+            continue                                 # the layer is not in the map (yet)
+        inext = np.zeros(n, bool)
+        for ar in np.unique(area[ins]):
+            for year, epoly, _ in snaps.get(ar, []):
+                if abs(year - ya) <= 10:
+                    inext |= (area == ar) & shapely.contains_xy(epoly, lon, lat)
+        other = np.zeros(n, bool)
+        other[li[alive & ~traced]] = True
+        pred = np.zeros(n, bool)
+        pred[li[alive & traced]] = True
+        nxt = np.zeros(n, bool)
+        nxt[li[(ps > T + 5) & (ps <= PHOTO_T[1924] + AFTER_GAP)]] = True
+        elig = ins & inext & ~other & nxt
+        res[layer] = [int(elig.sum()), int((elig & pred).sum())]
+    return res
+
+
+def calibrate_extents(jobs, workers=3):
+    """EXTENT_KEEP from the traced atlases (see calibrate_block); kept as it is where fewer than 300 lots can be judged."""
+    from multiprocessing import Pool
+    tot = {}
+    _fresh_connection()
+    with Pool(workers, initializer=_fresh_connection, maxtasksperchild=20) as pool:
+        for r in pool.imap_unordered(calibrate_block, jobs):
+            for layer, (a, b) in r.items():
+                t = tot.setdefault(layer, [0, 0])
+                t[0] += a
+                t[1] += b
+    n_, p_ = sum(v[0] for v in tot.values()), sum(v[1] for v in tot.values())
+    if n_ >= 300:
+        EXTENT_KEEP["usgs"] = EXTENT_KEEP["map"] = round(p_ / n_, 3)
+    (WORK / "extent_keep.json").write_text(json.dumps({"layers": tot, "lots": n_, "with_a_building_in_the_atlas": p_,
+                                                       "share_used": EXTENT_KEEP}, indent=1))
+    log(f"assemble: built-up extents against the traced atlases: {tot}; share of the lots kept under an extent: {EXTENT_KEEP}")
+
+
 # ----------------------------------------------------------------------------- evidence -> rows
 ROW_COLS = ["id", "start_year", "end_year", "height_m", "storeys", "material", "evidence", "end_basis", "area",
             "cid", "kind", "p1924", "p1951", "lon", "lat", "wkb"]
@@ -799,7 +959,8 @@ def assemble_block(job):
     la = shapely.area(g) * MPP2
     # a building much smaller than the lot (a shed, a shanty of an early atlas) does not take the lot:
     # the row is cut around it. Anything larger blocks the lot while it stands.
-    minor = shapely.area(ex.g.values[ei]) * MPP2 <= SMALL_SHARE * la[li]
+    ba = shapely.area(ex.g.values[ei]) * MPP2
+    minor = (ba <= SMALL_SHARE * la[li]) & (ba <= SMALL_M2)
 
     def window(T, gap):
         """Per lot at time T: free (no building of the map on it, none starting within `gap` after),
@@ -824,12 +985,25 @@ def assemble_block(job):
         W[Y] = window(T, AFTER_GAP)
         p = lots[f"p{Y}"].values.astype(float)
         nyc = area != "Hudson"
-        s = W[Y][0] & (p >= P_STOOD[Y]) & nyc
+        # The model's p is calibrated for even odds beforehand. What stands around a lot says more: the
+        # odds beforehand are taken from the lots within NEAR_M whose state is clear (a map building on
+        # them, or a clear call of the photograph either way), and the lot is kept when the odds after
+        # its own score reach the model's own threshold. In a row the photograph shows built, a lot with
+        # an inconclusive score is taken as built; a lot alone among open ground needs p >= 0.94.
         alive = (es <= T + AFTER_GAP) & (ee > T)
-        na = cKDTree(exc[alive]).query_ball_point(cen, r_near, return_length=True) if alive.any() else np.zeros(n, int)
-        nl = cKDTree(cen[s]).query_ball_point(cen, r_near, return_length=True) - s.astype(int) if s.any() else np.zeros(n, int)
-        lonely = s & ((na + nl) < 2) & ~(p >= P_ALONE)
-        stood[Y] = s & ~lonely
+        occ = np.zeros(n, bool)
+        occ[li[(ps <= T + AFTER_GAP) & (pe > T) & ~minor]] = True
+        clear_b = occ | (W[Y][0] & (p >= P_STOOD[Y]))
+        clear_o = W[Y][0] & (p <= P_OPEN[Y])
+        tb = cKDTree(cen[clear_b]).query_ball_point(cen, r_near, return_length=True) - clear_b.astype(int) if clear_b.any() else np.zeros(n, int)
+        to = cKDTree(cen[clear_o]).query_ball_point(cen, r_near, return_length=True) - clear_o.astype(int) if clear_o.any() else np.zeros(n, int)
+        prior = np.clip((tb + 0.5) / (tb + to + 2.5), PRIOR_RANGE[0], PRIOR_RANGE[1])
+        with np.errstate(invalid="ignore", divide="ignore"):
+            post = prior * p / (prior * p + (1 - prior) * (1 - p))
+        s = W[Y][0] & (post >= P_STOOD[Y]) & nyc
+        lonely = W[Y][0] & (p >= P_STOOD[Y]) & nyc & ~s
+        st[f"by_row{Y}"] = int((s & ~(p >= P_STOOD[Y])).sum())
+        stood[Y] = s
         openg[Y] = (p <= P_OPEN[Y]) & nyc
         cov = W[Y][0] & np.isfinite(p) & nyc
         st[f"free{Y}"] = int(W[Y][0].sum())
@@ -837,8 +1011,29 @@ def assemble_block(job):
         st[f"stood{Y}"] = int(stood[Y].sum())
         st[f"alone{Y}"] = int(lonely.sum())
         st[f"open{Y}"] = int((cov & openg[Y]).sum())
-        st[f"nocall{Y}"] = int((cov & ~openg[Y] & ~(p >= P_STOOD[Y])).sum())
+        st[f"nocall{Y}"] = int((cov & ~openg[Y] & ~stood[Y]).sum())
         st[f"nophoto{Y}"] = int((W[Y][0] & ~np.isfinite(p) & nyc).sum())
+        # the model on lots where the answer is known (reported, not used)
+        kn = np.zeros(n, bool)
+        mk = ~minor & (ps <= Y - 3) & (pe > T) & (ex.year_confidence.values[ei] == "exact") & (ia[k] >= 0.5 * la[li])
+        kn[li[mk]] = True
+        kn &= np.isfinite(p) & nyc
+        st[f"known{Y}_n"] = int(kn.sum())
+        st[f"known{Y}_built"] = int((kn & (post >= P_STOOD[Y])).sum())
+        st[f"known{Y}_built_raw"] = int((kn & (p >= P_STOOD[Y])).sum())
+        st[f"known{Y}_open"] = int((kn & (p <= P_OPEN[Y])).sum())
+        ptree_, pyrs_, _ = parks()
+        if ptree_ is not None:
+            a_, b_ = ptree_.query(shapely.points(lots.lon.values, lots.lat.values), predicate="within")
+            inp = np.zeros(n, bool)
+            inp[a_[pyrs_[b_] <= Y - 5]] = True
+            touched = np.zeros(n, bool)
+            touched[li[(ps <= T + 30) & (pe > T - 30)]] = True
+            inp &= ~touched & np.isfinite(p) & nyc
+            st[f"park{Y}_n"] = int(inp.sum())
+            st[f"park{Y}_built"] = int((inp & (post >= P_STOOD[Y])).sum())
+            st[f"park{Y}_built_raw"] = int((inp & (p >= P_STOOD[Y])).sum())
+            st[f"park{Y}_open"] = int((inp & (p <= P_OPEN[Y])).sum())
     f24, a24, b24, bst24 = W[1924]
     f51, a51, b51, bst51 = W[1951]
     T51 = PHOTO_T[1951]
@@ -874,14 +1069,17 @@ def assemble_block(job):
     add(s24 & same & ~s51 & ~openg[1951], "24", "aerial1924", lo24, 1923.5, b51, bst51, "after51")
     add(s24 & ~same, "24", "aerial1924", lo24, 1923.5, b24, bst24, "replaced")
     only51 = s51 & ~(s24 & same)
+    after24 = np.where(s24 & ~same, b24, -np.inf)         # the lot's 1924 row ended when that building went up
     add(only51 & same & openg[1924], "51", "aerial1951", np.maximum(a51, PHOTO_T[1924] + 0.5), 1950.5, b51, bst51, "after51")
-    add(only51 & ~(same & openg[1924]), "51", "aerial1951", np.maximum(a51, ext_lo), 1950.5, b51, bst51, "after51")
+    add(only51 & ~(same & openg[1924]), "51", "aerial1951", np.maximum(np.maximum(a51, ext_lo), after24), 1950.5, b51, bst51, "after51")
 
     # Hudson County: the block fronts of the 1947 sheets
     ip = INK / f"{bx}_{by}.parquet"
     hud = area == "Hudson"
     if hud.any() and ip.exists():
-        ink = pd.read_parquet(ip).set_index("cid").ink1947.reindex(cid).values.astype(float)
+        inkdf = pd.read_parquet(ip).set_index("cid")
+        ink = inkdf.ink1947.reindex(cid).values.astype(float)
+        sheet_year = inkdf.sheet_year.reindex(cid).fillna(0).values.astype(int)
         fH, aH, bH, bstH = window(INK_T, INK_GAP)
         sH = hud & fH & (ink >= INK_MIN)
         alive = (es <= INK_T + INK_GAP) & (ee > INK_T)
@@ -893,7 +1091,8 @@ def assemble_block(job):
         st["hudson_ink_built"] = int(sH.sum())
         st["hudson_ink_alone"] = int(lonelyH.sum())
         st["hudson_ink_open"] = int((hud & fH & (ink < INK_MIN)).sum())
-        add(sH, "47", "usgs1947_blocks", np.maximum(aH, ext_lo), 1939.5, bH, bstH, "snap")
+        for sy in np.unique(sheet_year[sH]):
+            add(sH & (sheet_year == sy), "47", f"usgs{sy}_blocks", np.maximum(aH, ext_lo), 1939.5, bH, bstH, "snap")
         covered47 = sH
     else:
         covered47 = np.zeros(n, bool)
@@ -912,7 +1111,7 @@ def assemble_block(job):
         if ar != "Hudson":
             m &= bE <= PHOTO_T[1924] + AFTER_GAP
         else:
-            m &= ~(covered47 & (bE > INK_T))        # the 1947 row of the lot covers this gap
+            m &= bE <= INK_T + INK_GAP              # as in the boroughs: only gaps that close before the lot-level evidence
         m &= hvec(cid, "keep") < EXTENT_KEEP[cls] if m.any() else m
         for i in np.flatnonzero(m):                 # one row per gap: the first snapshot that shows it
             if seen_b.get(int(i)) == bE[i]:
@@ -1013,7 +1212,9 @@ def assemble_block(job):
             rec_end[near] = comp - 2.5 - 2.0 * u3[near]
             rec_basis[near] = ["nycha:" + nb[int(v)][1] for v in ex.bin.values[src]]
     # a record counts when it falls after the evidence and before the map's next building
-    rec_ok = np.isfinite(rec_end) & (rec_end > T_ev + 0.5) & ~(rec_end >= np.where(np.isfinite(end), end, np.inf))
+    seen51 = np.array(["1951" in e_ for e_ in R.evidence.values])
+    T_min = np.where(seen51, T51, T_ev)                    # the last evidence that shows the row standing
+    rec_ok = np.isfinite(rec_end) & (rec_end > T_min + 0.5) & ~(rec_end >= np.where(np.isfinite(end), end, np.inf))
     between = mode == "between"
     rec_ok &= ~between | (rec_end < T51 - 0.5)
     end = np.where(rec_ok, rec_end, end)
@@ -1024,7 +1225,7 @@ def assemble_block(job):
     basis = np.where(m, "photo1951_open", basis)
     # the map's next building on the spot dates from after the city's record of removals began: the
     # fill row would be in that record had it stood until then - it went earlier, when is not known
-    late = np.isfinite(end) & (end > RECORD_FROM) & (T_ev < RECORD_FROM - 12)
+    late = np.isfinite(end) & (end > RECORD_FROM) & (T_ev < RECORD_FROM - 12) & (area[i] != "Hudson")
     end = np.where(late, np.nan, end)
     # nothing on the spot today and no record: when the big building beside it went up, else spread
     m = np.isnan(end)
@@ -1035,12 +1236,12 @@ def assemble_block(job):
             d, jj = cKDTree(exc[big]).query(cen[i], k=min(6, int(big.sum())), distance_upper_bound=60.0 / MPP)
             d, jj = d.reshape(len(i), -1), jj.reshape(len(i), -1)
             ys = np.where(np.isfinite(d), es[big][np.minimum(jj, big.sum() - 1)], np.nan)
-            ys = np.where((ys > T_ev[:, None] + 1.5) & (ys < RECORD_FROM), ys, np.nan)
+            ys = np.where((ys > T_min[:, None] + 3.0) & (ys < RECORD_FROM), ys, np.nan)
             has = np.isfinite(ys).any(1)
             first = np.where(has, np.nanargmin(np.where(np.isfinite(ys), d, np.inf), axis=1), 0)
             e2 = np.where(has, ys[np.arange(len(i)), first] - 1.5 - 1.5 * u3, np.nan)
-        lo_e = np.maximum(OPEN_END[0], T_ev + 4.0)
-        e3 = lo_e + u3 * np.maximum(OPEN_END[1] + np.maximum(T_ev - T51, 0) - lo_e, 5.0)
+        lo_e = np.where(T_min >= T51 - 12, OPEN_END[0], T_min + 2.0)      # a row not seen in 1951 may have gone before it
+        e3 = lo_e + u3 * np.maximum(OPEN_END[1] - lo_e, 5.0)
         end = np.where(m, np.where(np.isfinite(e2), e2, e3), end)
         basis = np.where(m, "estimated", basis)
     # a park (or a motorway) older than the fill: no row
@@ -1051,6 +1252,17 @@ def assemble_block(job):
         on[a_] = myrs[b_] <= T_ev[a_]
         drop |= on
     st["in_older_park_or_motorway"] = int(drop.sum())
+    rail = rail_window(bx, by)
+    if rail is not None:
+        on_rail = np.zeros(len(R), bool)
+        on_rail[np.unique(rail.query(g[i], predicate="intersects")[0])] = True
+        st["on_rail"] = int((on_rail & ~drop).sum())
+        drop |= on_rail
+    # two rows of one lot never stand at once: the later one starts when the earlier has gone
+    o = np.lexsort((start, i))
+    for q in range(1, len(o)):
+        if i[o[q]] == i[o[q - 1]] and start[o[q]] < end[o[q - 1]] + 0.3:
+            start[o[q]] = end[o[q - 1]] + 0.3
     short = ~(end - start >= 1.0)
     st["no_time_left"] = int((short & ~drop).sum())
     keep = ~drop & ~short
@@ -1098,17 +1310,18 @@ def _assemble_job(job):
     return job, len(out), st
 
 
-def step_assemble(workers=3):
+def step_assemble(workers=3, only=None):
     """Evidence -> rows for every block, then one file. Rows are recomputed every time (they depend
     on the snapshot of the map); the lots and their photograph scores are reused."""
     import geopandas as gpd
     from multiprocessing import Pool
     ROWS.mkdir(parents=True, exist_ok=True)
-    jobs = [(int(p.stem.split("_")[0]), int(p.stem.split("_")[1])) for p in sorted(LOTS.glob("*.parquet"))]
-    for p in ROWS.glob("*.parquet"):
+    jobs = only or [(int(p.stem.split("_")[0]), int(p.stem.split("_")[1])) for p in sorted(LOTS.glob("*.parquet"))]
+    for p in ROWS.glob("*.parquet"):            # rows of an earlier run (another snapshot, other blocks) must not survive
         p.unlink()
     t0 = time.time()
     total = {}
+    calibrate_extents(jobs, workers)
     _fresh_connection()
     with Pool(workers, initializer=_fresh_connection, maxtasksperchild=12) as pool:
         for k, (job, nrows, st) in enumerate(pool.imap_unordered(_assemble_job, jobs)):
@@ -1127,6 +1340,175 @@ def step_assemble(workers=3):
     gdf.to_parquet(tmp, compression="zstd", index=False)
     tmp.rename(OUT)
     log(f"assemble: {len(gdf)} rows -> {OUT} ({OUT.stat().st_size / 1e6:.1f} MB), {time.time() - t0:.0f} s; {total}")
+
+
+# ----------------------------------------------------------------------------- checks
+def _box(lo0, la0, lo1, la1):
+    return [(lo0, la0), (lo1, la0), (lo1, la1), (lo0, la1)]
+
+
+# the test districts of the brief (lon / lat rings, approximate)
+DISTRICTS = {
+    "Hell's Kitchen (W 34-59, 8 Av - Hudson)": [(-73.9934, 40.7524), (-73.9820, 40.7682), (-73.9940, 40.7737), (-74.0058, 40.7577)],
+    "Lincoln Square (W 59-72, west of Broadway)": [(-73.9819, 40.7681), (-73.9815, 40.7788), (-73.9895, 40.7818), (-73.9950, 40.7738)],
+    "East Harlem (E 96-125, east of Park Av)": [(-73.9519, 40.7874), (-73.9390, 40.8052), (-73.9290, 40.8010), (-73.9415, 40.7820)],
+    "Lower East Side east of Essex St": [(-73.9872, 40.7222), (-73.9898, 40.7150), (-73.9905, 40.7100), (-73.9770, 40.7100), (-73.9740, 40.7195)],
+    "South Bronx (Mott Haven, Melrose, Morrisania)": _box(-73.935, 40.800, -73.895, 40.840),
+    "Brownsville": _box(-73.925, 40.655, -73.900, 40.675),
+    "Williamsburg": _box(-73.970, 40.700, -73.940, 40.722),
+    "Downtown Brooklyn / Cadman Plaza": _box(-73.995, 40.688, -73.980, 40.702),
+    "Long Island City": _box(-73.960, 40.740, -73.930, 40.758),
+    "Stapleton": _box(-74.085, 40.620, -74.070, 40.635),
+    "Downtown Jersey City": _box(-74.055, 40.712, -74.030, 40.728),
+    "Hoboken": _box(-74.045, 40.735, -74.022, 40.760),
+}
+CHECK_YEARS = (1880, 1900, 1925, 1950, 1975)
+
+
+def _check_job(job):
+    """Independent re-check of one block's rows against the map: overlaps in time, streets, water."""
+    bx, by = job
+    rp = rows_path(bx, by)
+    res = {"overlap_pairs": 0, "overlap_m2": 0.0, "on_street": 0, "in_water": 0, "self_overlap": 0}
+    if not rp.exists():
+        return res
+    r = pd.read_parquet(rp, columns=["id", "start_year", "end_year", "wkb"])
+    if not len(r):
+        return res
+    g = to_px(shapely.from_wkb(r.wkb.values))
+    ex = existing_window(bx, by, cols="start_year, end_year, wkb")
+    a, b = shapely.STRtree(ex.g.values).query(g, predicate="intersects")
+    t = (r.start_year.values[a] < ex.end_year.values[b]) & (ex.start_year.values[b] < r.end_year.values[a])
+    a, b = a[t], b[t]
+    if len(a):
+        ia = shapely.area(shapely.intersection(g[a], ex.g.values[b])) * MPP2
+        res["overlap_pairs"] = int((ia > 0.5).sum())
+        res["overlap_m2"] = float(ia[ia > 0.5].sum())
+    lines, cls = streets_window(bx, by)
+    if len(lines):
+        st = shapely.STRtree(shapely.buffer(lines, 5.5 / MPP, cap_style="flat"))
+        res["on_street"] = int(len(np.unique(st.query(g, predicate="intersects")[0])))
+    water, _ = water_window(bx, by)
+    if water is not None and not water.is_empty:
+        shapely.prepare(water)
+        res["in_water"] = int(shapely.intersects(water, g).sum())
+    a, b = shapely.STRtree(g).query(g, predicate="intersects")
+    t = (a < b) & (r.start_year.values[a] < r.end_year.values[b]) & (r.start_year.values[b] < r.end_year.values[a])
+    if t.any():
+        ia = shapely.area(shapely.intersection(g[a[t]], g[b[t]])) * MPP2
+        res["self_overlap"] = int((ia > 0.5).sum())
+    return res
+
+
+def step_report(workers=3):
+    import geopandas as gpd
+    from multiprocessing import Pool
+    f = gpd.read_parquet(OUT)
+    c = shapely.get_coordinates(shapely.centroid(f.geometry.values))
+    f["lon"], f["lat"] = c[:, 0], c[:, 1]
+    L = ["# gap_fill.py: checks", "", f"Rows: {len(f)}. Made {time.strftime('%Y-%m-%d %H:%M')} from the snapshot of the map taken "
+         f"{time.strftime('%Y-%m-%d %H:%M', time.localtime(EXISTING.stat().st_mtime))}.", ""]
+    st = json.loads((WORK / "stats.json").read_text()) if (WORK / "stats.json").exists() else {}
+
+    L += ["## Rows by area and evidence", "", "| area | evidence | rows | median start | median end |", "|---|---|---|---|---|"]
+    for (ar, ev), d in f.groupby(["area", "evidence"]):
+        L.append(f"| {ar} | {ev} | {len(d)} | {d.start_year.median():.0f} | {d.end_year.median():.0f} |")
+    L += ["", "| area | rows |", "|---|---|"] + [f"| {a} | {n} |" for a, n in f.groupby("area").size().items()]
+    L += ["", "## What dates the end", "", "| end basis | rows |", "|---|---|"]
+    L += [f"| {a} | {n} |" for a, n in f.end_basis.str.split(":").str[0].value_counts().items()]
+
+    L += ["", "## The photographs: lots the map leaves free at the photograph", "",
+          "| | 1924 | 1951 |", "|---|---|---|"]
+    for lab, key in (("lots free of any map building at the photograph", "free"), ("... with a photograph", "scored"),
+                     ("called built (kept)", "stood"), ("called built but alone (dropped)", "alone"),
+                     ("called open ground (rejected)", "open"), ("no call (not filled)", "nocall"), ("no photograph there", "nophoto")):
+        L.append(f"| {lab} | {st.get(key + '1924', '')} | {st.get(key + '1951', '')} |")
+    L += ["", "The model on lot outlines, against what is known (not used for anything, a check of the transfer from footprints to lots):", "",
+          "| lots | n | called built % | called open % |", "|---|---|---|---|"]
+    for lab, key in (("under a map building with a recorded year 3+ years before the 1924 photograph", "known1924"),
+                     ("in a park older than the 1924 photograph, free of buildings", "park1924"),
+                     ("under a map building with a recorded year 3+ years before the 1951 photograph", "known1951"),
+                     ("in a park older than the 1951 photograph, free of buildings", "park1951")):
+        n_ = st.get(key + "_n", 0)
+        if n_:
+            L.append(f"| {lab} | {n_} | {100 * st.get(key + '_built', 0) / n_:.1f} | {100 * st.get(key + '_open', 0) / n_:.1f} |")
+    L += ["", f"Hudson County, the 1940s sheets: lots free in 1941 with a reading {st.get('hudson_free1941', 0)}, heavy ink (kept) "
+          f"{st.get('hudson_ink_built', 0)}, heavy ink but alone (dropped) {st.get('hudson_ink_alone', 0)}, no ink {st.get('hudson_ink_open', 0)}.", "",
+          f"Dropped rows: in a park or on a motorway older than the evidence {st.get('in_older_park_or_motorway', 0)}, on a railway "
+          f"{st.get('on_rail', 0)}, no time left between start and end {st.get('no_time_left', 0)}. Rows that wait for their ground "
+          f"(start moved later by ground_rule): {st.get('waits_for_ground', 0)}. Cuts around small map buildings: {st.get('notched', 0)}.", ""]
+
+    # districts
+    L += ["## Test districts: buildings standing on the map, before -> after the fill", "",
+          "| district | " + " | ".join(str(y) for y in CHECK_YEARS) + " | fill rows by evidence |", "|---|" + "---|" * (len(CHECK_YEARS) + 1)]
+    for name, ring in DISTRICTS.items():
+        poly = shapely.Polygon(ring)
+        lo0, la0, lo1, la1 = poly.bounds
+        e = con().execute(f"""select lon, lat, start_year, end_year from '{EXISTING}'
+            where lon >= {lo0} and lon <= {lo1} and lat >= {la0} and lat <= {la1}""").fetchdf()
+        e = e[shapely.contains_xy(poly, e.lon.values, e.lat.values)]
+        d = f[(f.lon >= lo0) & (f.lon <= lo1) & (f.lat >= la0) & (f.lat <= la1)]
+        d = d[shapely.contains_xy(poly, d.lon.values, d.lat.values)]
+        cells = []
+        for y in CHECK_YEARS:
+            b_ = int(((e.start_year <= y) & (e.end_year > y)).sum())
+            a_ = int(((d.start_year <= y) & (d.end_year > y)).sum())
+            cells.append(f"{b_} -> {b_ + a_}")
+        ev = ", ".join(f"{k} {v}" for k, v in d.evidence.value_counts().items())
+        L.append(f"| {name} | " + " | ".join(cells) + f" | {ev} |")
+
+    # counts against the census
+    L += ["", "## Against the census (an upper check)", "", "Buildings standing (map + fill) and persons per building.", "",
+          "| area | year | population | map | fill | persons per building before -> after |", "|---|---|---|---|---|---|"]
+    pops = {}
+    for p in (TABLES / "population.csv", TABLES / "population_counties.csv"):
+        if p.exists():
+            t = pd.read_csv(p)
+            for ar, d in t.groupby(t.area.astype(str).str.lower().str.strip()):
+                pops[ar] = (pd.to_numeric(d.year, errors="coerce").values, pd.to_numeric(d.population.astype(str).str.replace(",", ""), errors="coerce").values)
+    names = {"1": "manhattan", "2": "bronx", "3": "brooklyn", "4": "queens", "5": "staten_island", "Hudson": "hudson"}
+    ex_counts = {}
+    for ar in names:
+        for y in (1880, 1900, 1920, 1950):
+            ex_counts[(ar, y)] = con().execute(f"select count(*) from '{EXISTING}' where boro = '{ar}' and start_year <= {y} and end_year > {y}").fetchone()[0]
+    for ar, nm in names.items():
+        if nm not in pops:
+            continue
+        py, pv = pops[nm]
+        ok = np.isfinite(py) & np.isfinite(pv)
+        for y in (1880, 1900, 1920, 1950):
+            if ok.sum() < 2 or y < py[ok].min():
+                continue
+            pop = float(np.interp(y, py[ok][np.argsort(py[ok])], pv[ok][np.argsort(py[ok])]))
+            m_ = ex_counts[(ar, y)]
+            a_ = int(((f["area"] == ar) & (f.start_year <= y) & (f.end_year > y)).sum())     # f.area is geopandas' own
+            L.append(f"| {nm} | {y} | {pop:,.0f} | {m_} | {a_} | {pop / max(m_, 1):.1f} -> {pop / max(m_ + a_, 1):.1f} |")
+
+    # invariants
+    jobs = [(int(p.stem.split("_")[0]), int(p.stem.split("_")[1])) for p in sorted(ROWS.glob("*.parquet"))]
+    tot = {}
+    _fresh_connection()
+    with Pool(workers, initializer=_fresh_connection, maxtasksperchild=20) as pool:
+        for r in pool.imap_unordered(_check_job, jobs):
+            for k, v in r.items():
+                tot[k] = tot.get(k, 0) + v
+    sy = np.floor(f.start_year.values).astype(int)
+    ey = np.floor(f.end_year.values).astype(int)
+    sc, ec = pd.Series(sy).value_counts(), pd.Series(ey).value_counts()
+    L += ["", "## Invariants (recomputed from the written rows, block by block)", "",
+          f"- rows that share ground (> 0.5 m2) with a building of the map while both stand: **{tot.get('overlap_pairs', 0)}** pairs ({tot.get('overlap_m2', 0):.0f} m2)",
+          f"- rows that share ground with another row while both stand: **{tot.get('self_overlap', 0)}** pairs",
+          f"- rows within 5.5 m of a street centre line of today: **{tot.get('on_street', 0)}**",
+          f"- rows on today's water: **{tot.get('in_water', 0)}**",
+          f"- rows with start >= end: **{int((f.start_year >= f.end_year).sum())}**; shorter than a year: {int((f.end_year - f.start_year < 1).sum())}",
+          f"- duplicate ids: **{int(f.id.duplicated().sum())}**",
+          f"- most rows starting in one year: {int(sc.iloc[0])} ({int(sc.index[0])}); next: " + ", ".join(f"{int(v)} ({int(k)})" for k, v in sc.iloc[1:5].items()),
+          f"- most rows ending in one year: {int(ec.iloc[0])} ({int(ec.index[0])}); next: " + ", ".join(f"{int(v)} ({int(k)})" for k, v in ec.iloc[1:5].items()),
+          f"- start years: 5 % {np.percentile(f.start_year, 5):.0f}, median {f.start_year.median():.0f}, 95 % {np.percentile(f.start_year, 95):.0f}; "
+          f"end years: 5 % {np.percentile(f.end_year, 5):.0f}, median {f.end_year.median():.0f}, 95 % {np.percentile(f.end_year, 95):.0f}",
+          f"- standing rows by year: " + ", ".join(f"{y}: {int(((f.start_year <= y) & (f.end_year > y)).sum())}" for y in (1850, 1880, 1900, 1925, 1950, 1975, 2000)), ""]
+    (WORK / "report.md").write_text("\n".join(L))
+    print("\n".join(L))
 
 
 # ----------------------------------------------------------------------------- looking at it
@@ -1192,6 +1574,61 @@ def step_look(lon, lat, name="look", half_m=170.0, rows=None):
     print("\n".join(outs))
 
 
+def step_look_sheet(lon, lat, name="look", half_m=200.0):
+    """The same for Hudson County on the 1947 sheet: green = heavy ink on the lot (>= INK_MIN), red = none;
+    blue = the map's buildings alive in 1941; white = the kept rows alive in 1941."""
+    import rasterio
+    from affine import Affine
+    from PIL import Image, ImageDraw
+    from rasterio.enums import Resampling
+    from rasterio.warp import reproject
+    x, y = ap.lonlat_to_pixel(lon, lat)
+    bx, by = int(x // (NB * TILE)), int(y // (NB * TILE))
+    fn = [f for f, (a, b, c, d) in SHEETS_1947.items() if a <= lon < c and b <= lat < d]
+    if not fn or not (SHEET_DIR / fn[0]).exists() or not lots_path(bx, by).exists():
+        return
+    h = int(half_m / MPP)
+    S = 3
+    res = 156543.03392804097 / 2 ** Z
+    ip = INK / f"{bx}_{by}.parquet"
+    inkdf = pd.read_parquet(ip) if ip.exists() else None
+    se, ss = (float(inkdf.shift_e.median()), float(inkdf.shift_s.median())) if inkdf is not None and len(inkdf) else (0.0, 0.0)
+    # the sheet is drawn where the block's registration puts it
+    tr = Affine(res / S, 0, (x - h + se / MPP) * res - 20037508.342789244, 0, -res / S, 20037508.342789244 - (y - h + ss / MPP) * res)
+    a = np.zeros((3, 2 * h * S, 2 * h * S), "uint8")
+    with rasterio.open(SHEET_DIR / fn[0]) as src:
+        for b in range(3):
+            reproject(rasterio.band(src, b + 1), a[b], dst_transform=tr, dst_crs="EPSG:3857", resampling=Resampling.bilinear)
+    im = Image.fromarray(np.moveaxis(a, 0, -1))
+    dr = ImageDraw.Draw(im)
+    org = np.array([x - h, y - h])
+    box = shapely.box(x - h, y - h, x + h, y + h)
+
+    def draw(geom, col, width=1):
+        for part in shapely.get_parts(geom):
+            if part.geom_type == "Polygon":
+                dr.line([tuple(q) for q in (np.asarray(part.exterior.coords) - org) * S], fill=col, width=width)
+    ex = existing_window(bx, by)
+    alive = ex[(ex.start_year.values <= INK_T + INK_GAP) & (ex.end_year.values > INK_T)]
+    for gm in alive.g.values[shapely.intersects(alive.g.values, box)]:
+        draw(gm, (40, 110, 255))
+    lots = pd.read_parquet(lots_path(bx, by))
+    g = to_px(shapely.from_wkb(lots.wkb.values))
+    ink = inkdf.set_index("cid").ink1947.reindex(lots.cid.values).values if inkdf is not None else np.full(len(lots), np.nan)
+    for i in np.flatnonzero(shapely.intersects(g, box)):
+        draw(g[i], (0, 200, 0) if ink[i] >= INK_MIN else (255, 60, 60))
+    rp = rows_path(bx, by)
+    if rp.exists():
+        kk = pd.read_parquet(rp)
+        kk = kk[(kk.start_year.values <= INK_T) & (kk.end_year.values > INK_T)]
+        kg = to_px(shapely.from_wkb(kk.wkb.values))
+        for gm in kg[shapely.intersects(kg, box)]:
+            draw(gm, (255, 0, 255), 3)
+    out = WORK / "look" / f"{name}_1947sheet.png"
+    im.save(out)
+    print(out)
+
+
 if __name__ == "__main__":
     args = sys.argv[1:] or ["snapshot", "lots", "ink", "assemble", "report"]
     if args[0] == "block":                      # one block, for a smoke test: gap_fill.py block <lon> <lat>
@@ -1209,6 +1646,7 @@ if __name__ == "__main__":
     if args[0] == "look":
         step_snapshot()
         step_look(float(args[1]), float(args[2]), args[3] if len(args) > 3 else "look")
+        step_look_sheet(float(args[1]), float(args[2]), args[3] if len(args) > 3 else "look")
         sys.exit(0)
     for a in args:
         if a == "snapshot":
@@ -1226,6 +1664,8 @@ if __name__ == "__main__":
             step_snapshot()
             step_ink()
             step_assemble()
+        elif a == "report":
+            step_report()
         elif a == "fresh":
             EXISTING.unlink(missing_ok=True)
         else:
