@@ -11,6 +11,9 @@ const VIEWS = [
   ['1975 WTC', 'year=1975&c=-74.0125,40.7115&z=14.5&p=60&b=29'],
   ['2026 Brooklyn', 'year=2026&c=-73.975,40.69&z=13.2&p=50&b=10'],
   ['2026 city', 'year=2026&c=-73.95,40.72&z=10.2&p=30&b=0'],
+  ['1900 Jersey City', 'year=1900&c=-74.045,40.722&z=13.6&p=55&b=20'],
+  ['1960 Yonkers', 'year=1960&c=-73.88,40.94&z=13.2&p=50&b=0'],
+  ['2026 region', 'year=2026&c=-74.0,40.9&z=9.2&p=20&b=0'],
 ];
 (async () => {
   const base = process.argv[2];
@@ -33,6 +36,29 @@ const VIEWS = [
       area: document.getElementById('population-area').textContent, layers: (window.__overlay._deck?.layerManager?.getLayers() || []).length}));
     console.log(`${name}: ${JSON.stringify(info)}`);
   }
+  // story mode: starts, shows a caption, steps on, ends
+  const story = await page.evaluate(async () => {
+    const wait = ms => new Promise(r => setTimeout(r, ms));
+    const btn = document.getElementById('story');
+    const panel = document.getElementById('story-panel');
+    if (!btn || btn.hidden) return {present: false};
+    btn.click();
+    await wait(9000);
+    const read = () => ({shown: !panel.hidden, year: panel.querySelector('.story-year')?.textContent, title: panel.querySelector('.story-title')?.textContent,
+      text: (panel.querySelector('.story-text')?.textContent || '').length, count: panel.querySelector('.story-count')?.textContent,
+      slider: document.getElementById('year-label').textContent});
+    const first = read();
+    panel.querySelector('.story-next').click();
+    await wait(9000);
+    const second = read();
+    panel.querySelector('.story-pp').click();
+    await wait(300);
+    const paused = panel.querySelector('.story-pp').textContent;
+    panel.querySelector('.story-x').click();
+    await wait(300);
+    return {present: true, first, second, paused, closed: panel.hidden};
+  });
+  console.log(`story: ${JSON.stringify(story)}`);
   const uniq = [...new Set(msgs)].filter(m => !/404|503|bad magic|Failed to load resource/.test(m));
   console.log(`${uniq.length} messages other than missing optional files`);
   for (const m of uniq.slice(0, 25)) console.log('  ' + m);
