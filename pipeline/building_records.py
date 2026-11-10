@@ -1,23 +1,37 @@
 """Stage: recorded construction and demolition dates from official datasets.
 
 Not estimates: every date written here is a field of a city record, joined to the city's
-footprints by Building Identification Number (BIN). Sources, fields, licences, row counts
-and the rules for choosing between records: data/research/building_records.md.
+footprints by Building Identification Number (BIN). Sources, fields, licences, row counts,
+the rules for choosing between records and what the numbers say about the assessor's years:
+data/research/building_records.md.
 
   python building_records.py download     # fetch the raw tables into data/raw/records/ (cached)
-  python building_records.py              # download + normalise + write the outputs
+  python building_records.py              # download (cached) + normalise + write the outputs (~4 min)
+
+Idempotent: the downloads are cached and never modified; every output is rewritten from them.
+Run it after nyc_buildings (it compares with data/interim/nyc_buildings.parquet to leave out
+what the pipeline already has; without that file every record is written).
 
 Inputs
-  data/raw/records/*.csv                   NYC Open Data extracts (see SOURCES below)
+  data/raw/records/*.csv                   NYC Open Data extracts (SOURCES below)
+  data/raw/nyc/pluto_lots.csv              PLUTO year built, to corroborate replaced buildings
   data/interim/nyc_footprints_raw.parquet  today's footprints (BIN, assessor year, outline)
-  data/interim/nyc_buildings.parquet       the built buildings (what year the pipeline has now)
+  data/interim/nyc_buildings.parquet       the built buildings (the year the pipeline has now)
 
-Outputs
+Outputs (the two hand-overs first)
   data/tables/known_building_dates.records.csv          standing buildings: recorded year by BIN
   data/manual/demolished/demolished_footprints.geojson  vanished buildings with their real outlines
   data/manual/demolished/flagged.csv                    historic outlines NOT written, and why
-  data/interim/records/*.parquet, report.json           normalised records and the numbers quoted
-                                                        in data/research/building_records.md
+  data/interim/records/report.json                      every number quoted in building_records.md
+  data/interim/records/records_by_bin.parquet           every candidate record per BIN with the decision taken
+  data/interim/records/year_bounds.csv                  HPD legal class -> not-before / not-after per BIN
+  data/interim/records/dof_flagged_estimates.csv        years Finance flags as estimates, exact in the pipeline
+  data/interim/records/standing_after_demolition.csv    standing buildings the pipeline starts before a
+                                                        demolition on their ground
+  data/interim/records/standing_marked_for_demolition.csv  footprints still drawn whose demolition is signed off
+  data/interim/records/dob_demolitions_without_outline.csv signed-off demolitions with no outline anywhere
+  data/interim/records/big_unconfirmed_demolitions.csv  large outlines whose demolition year no DOB job confirms
+  data/interim/records/flagged_outlines.geojson         the outlines behind flagged.csv
 """
 from __future__ import annotations
 
@@ -745,6 +759,7 @@ def demolished(c, heaps, rep):
     f10 = storeys.isna() & (w.dyear >= 2010) & (d10.bldgs.values == 1) & (s10 > 0) & y10.between(1800, 2008) & (y10 <= w.dyear - 2)
     storeys[f10] = s10[f10]
     height = (w.hr * 0.3048).where((w.hr > 0) & (w.hr < 2000)).round(1)
+    storeys[(storeys > 40) & height.isna()] = np.nan   # typing errors in the job filings (105 storeys on 210 m2)
     per = height / storeys
     rep["demolished_height_storeys_inconsistent"] = int(((per > 8) | (per < 2)).sum())
     storeys[(per < 2)] = np.nan            # more storeys than the measured height allows: another structure's

@@ -47,7 +47,7 @@ OUT_DIR = MANUAL / "farmsteads"
 HTMC = "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/PDF/"
 UA = "NYCThroughTime-research/0.1"
 DPI = 600                       # render resolution (the scans are 599-600 ppi)
-DETECTOR_VERSION = 4
+DETECTOR_VERSION = 5
 
 # id: (file under HTMC, quadrangle, scale, print year, survey year the sheet shows, collar text, period)
 # Survey years were read off the collars (data/manual/farmsteads/README.md); the catalogue's
@@ -257,7 +257,7 @@ def _through_line(ink_d, cy, cx, R):
     return best
 
 
-def detect_tile(rgb, thr, thr_loose):
+def detect_tile(rgb, thr, thr_loose, sat_max=None):
     """Building marks in one tile. Returns dicts in tile pixels: col, row, area, L, W, fill, cls
     ('mark' | 'bar'), ctx ('isolated' | 'local' | 'network'), keep, why.
 
@@ -377,8 +377,8 @@ def detect_tile(rgb, thr, thr_loose):
             ctx = "network"
         iy, ix = int(round(c["row"])), int(round(c["col"]))
         body = int(body_area[lab_body[iy, ix]]) if lab_body[iy, ix] else c["area"]
-        if c["sat"] > 38:
-            keep, why = False, "colour"
+        if sat_max is not None and c["sat"] > sat_max:
+            keep, why = False, "colour"                # dark brown index contour, dark blue stream: not black ink
         ys_, xs_ = np.clip(iy + np.array([0, -20, 20, 0, 0]), 0, H - 1), np.clip(ix + np.array([0, 0, 0, -20, 20]), 0, W - 1)
         b5 = blue[ys_, xs_]
         if keep and b5[0] >= 0.25 and b5[1:].min() >= 0.15:
@@ -480,6 +480,9 @@ def detect_sheet(sh: "Sheet", tile=2600, margin=80):
     x1, y1 = np.ceil(sh.neat_px.max(0)).astype(int)
     probe = sh.render((x0 + x1) // 2 - 1500, (y0 + y1) // 2 - 1500, 3000, 3000)
     thr, thr_loose, paper, inkv = ink_threshold(probe)
+    # how grey this scan's black ink is (max - min channel of the solid blobs): 15 on the 1898 prints, 38 on the 1889 one
+    sats = [m["sat"] for m in detect_tile(probe, thr, thr_loose) if "sat" in m]
+    sat_max = (float(np.median(sats)) if len(sats) >= 30 else 30.0) + 25.0
     marks = []
     lines = np.zeros((sh.H // 4 + 1, sh.W // 4 + 1), np.uint8)
     thick = np.zeros_like(lines)            # any solid ink (marks, bars, block fronts, heavy strokes), 1/4 resolution
@@ -490,7 +493,7 @@ def detect_sheet(sh: "Sheet", tile=2600, margin=80):
             w, h = min(tx + tile + margin, sh.W) - ax0, min(ty + tile + margin, sh.H) - ay0
             w, h = w - w % 4, h - h % 4
             rgb = sh.render(ax0, ay0, w, h)
-            for m in detect_tile(rgb, thr, thr_loose):
+            for m in detect_tile(rgb, thr, thr_loose, sat_max):
                 c, r = m["col"] + ax0, m["row"] + ay0
                 if tx <= c < tx + tile and ty <= r < ty + tile:
                     m["col"], m["row"] = round(c, 1), round(r, 1)
@@ -506,7 +509,7 @@ def detect_sheet(sh: "Sheet", tile=2600, margin=80):
         ins = _inside(sh.neat_px, [m["col"] for m in marks], [m["row"] for m in marks])
         marks = [m for m, i in zip(marks, ins) if i]
     marks = text_pass(marks)
-    return {"thr": round(thr, 1), "thr_loose": round(thr_loose, 1), "paper": paper, "ink": inkv, "marks": marks}, lines, thick
+    return {"thr": round(thr, 1), "thr_loose": round(thr_loose, 1), "paper": paper, "ink": inkv, "sat_max": round(sat_max), "marks": marks}, lines, thick
 
 
 # ----------------------------------------------------------------------------- alignment

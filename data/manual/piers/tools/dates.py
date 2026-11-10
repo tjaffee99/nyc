@@ -250,12 +250,16 @@ def main():
     con.execute("INSTALL spatial; LOAD spatial;")
 
     def land_years(g):
-        pts = [g.representative_point()] + [g.exterior.interpolate(f, normalized=True) for f in np.linspace(0, 1, 12, endpoint=False)]
-        inner = [p for p in [shapely.Point(*c) for c in np.array(g.buffer(-3).exterior.coords)[::3]]] if not g.buffer(-3).is_empty and g.buffer(-3).geom_type == "Polygon" else []
-        X, Y = wm.transform([p.x for p in pts + inner], [p.y for p in pts + inner])
+        x0, y0, x1, y1 = g.bounds
+        xs, ys = np.meshgrid(np.arange(x0 + 4, x1, 8.0), np.arange(y0 + 4, y1, 8.0))
+        xs, ys = xs.ravel(), ys.ravel()
+        inside = shapely.contains_xy(g, xs, ys)
+        if not inside.any():
+            rp = g.representative_point()
+            xs, ys, inside = np.array([rp.x]), np.array([rp.y]), np.array([True])
+        X, Y = wm.transform(xs[inside], ys[inside])
         c, r = ~gtr * (np.array(X), np.array(Y))
-        v = ly[np.clip(r.astype(int), 0, ly.shape[0] - 1), np.clip(c.astype(int), 0, ly.shape[1] - 1)]
-        return v
+        return ly[np.clip(r.astype(int), 0, ly.shape[0] - 1), np.clip(c.astype(int), 0, ly.shape[1] - 1)]
 
     research = load_research()
     rpts = [(shapely.Point(*UTM.transform(float(r["lon"]), float(r["lat"]))), r) for r in research]

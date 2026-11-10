@@ -76,3 +76,48 @@ Holmes Airport (Jackson Heights, 16 March 1929 - 1940, two gravel runways of 3,0
 1:24,000 edition exists for its years (the series starts 1947). North Beach Airport (1929-1939,
 under LaGuardia). Seaplane bases (points in OSM, no pavement): New York Skyports (E 23rd St),
 Evers (Bronx), Edo (College Point), Jamaica Bay.
+
+# The counties around the city (2026-11-10)
+
+`airports.py` reads the same extract for the wider map (`common.REGION_BBOX`); an airfield is drawn if
+it lies inside the map outline and `data/tables/airports.csv` dates it. `airports.csv` has an optional
+column `runway_width_m` (the cited width; without it 45 m at international airports, 23 m elsewhere).
+Made land: pieces wait for their ground as in the city; a researched opening year is never moved —
+`data/interim/airports/ground_conflicts.csv` (written by the stage) lists every airfield with the latest
+land year under its outline.
+
+## Newark Liberty International Airport (`tools/ewr.py`, 199 rows of `pavement_dates.csv`, 3 zones)
+Wikipedia: opened 1 October 1928 on 68 acres of reclaimed meadow with a 1,600 ft runway; "In 1952, Runways
+1/19 and 6/24 were closed and a new Runway 4/22 (now 4R/22L) opened at a length of 7000 ft"; "Runway 4L/22R
+opened in 1970 at a length of 8200 ft"; "takeoff from runway 28" on 16 December 1951 (today's 11/29);
+North Terminal 1953-1997; "Former Terminal A and present Terminal B opened in 1973"; Terminal C June 1988;
+new Terminal A 8 December 2022.
+* Documented: runway 4R/22L 1952.85 (November 1952), runway 4L/22R 1970.
+* ESTIMATED (each row says so): runway 11/29 from 1951 ("by then": the year it was built was not found);
+  the lengthenings of both 4/22 runways are not separated; every taxiway takes the year of the nearest
+  runway; the single apron polygon of the central terminal area (Overture `45291dcc`, 89.5 ha) is cut by
+  latitude between the terminal buildings into Terminal C (1988.45), A / B (1973) and new A (2022.9, within
+  ~500 m of the new building), taxiways west of 4L/22R follow those bands; north cargo apron 1953 (the
+  North Terminal's site). The two aprons by Building One keep the opening year 1928.
+* NOT done: the airport of 1928-1952 (the first runway, 1/19, 6/24, the 1935 terminal apron as it was).
+  Between 1928 and 1951 only the two aprons by Building One are drawn; the airfield outline (terrain grass)
+  is today's 807 ha from 1928 — far larger than the 68 acres of 1928.
+
+## Teterboro, Westchester County, Essex County (Caldwell), Linden
+Whole airports from their opening year (`airports.csv`: 1919, 1942, 1929 ESTIMATED, 1942); no runway of
+theirs is dated on its own (ESTIMATED: Teterboro's paved runways are certainly later than 1919). Linden's
+"original airport with its intersecting runways" (to 1998) is not traced.
+
+## Not drawn
+* Greenwood Lake Airport (West Milford), Hill Top Airport, the heliports of the counties (Haverstraw,
+  Meadowlands): no opening year found — `airports.py` leaves undated airfields out and logs them.
+* Lincoln Park Airport (Morris County) and Hadley Field (South Plainfield, Middlesex County; 40.556, -74.43)
+  lie outside the map outline. Little Ferry / Ridgefield Park seaplane base: no pavement, no year found.
+* Vanished airfields of the counties (airfields-freeman.com, facts only): 13 rows of `airports.csv` marked
+  "label only" and 13 label points in `data/tables/park_names.csv` (Rockland, Miller, Christie, Spring
+  Valley, Orangeburg, Ramapo Valley (Mahwah), Totowa-Wayne, Westfield (Clark), Reynolds Field, Armonk,
+  Croton Airpark, Somers, La Roe, Peekskill Seaplane Base). Positions are the source's, to 2-3 decimals; no
+  outline was traced, nothing is drawn on the ground. Arcola Airport (Paramus, closed 1932-33) and Murchio
+  Airport (Wayne) are left out: no opening year in the source. Candidates for tracing from the 1940s-50s USGS
+  sheets (as Flushing Airport, `tools/vanished.py`): Totowa-Wayne, Spring Valley, Croton Airpark (paved).
+* `tools/counties_tables.py` wrote the counties' rows of `airports.csv`, `golf_courses.csv`, `park_names.csv`.

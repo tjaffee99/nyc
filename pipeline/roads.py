@@ -1297,7 +1297,7 @@ def main():
     # every segment with its year, for checks and for researching data/tables/street_dates.csv
     # (boro: "1".."5", or the county's FIPS code; src: SRC_NAMES)
     pd.DataFrame({"id": r["id"].values, "name": r.name_u.values, "boro": r.boro.values, "class": r["class"].values,
-                  "year": np.round(year, 2), "src": src, "land_year": np.round(ly, 1), "by_ground": year0 < year - 0.01,
+                  "year": np.round(year, 2), "src": src, "land_year": np.round(ly, 2), "by_ground": year0 < year - 0.01,
                   "fixed": fixed, "bridge": bridge_share >= 0.5,
                   "lon": r.lon.values.round(5), "lat": r.lat.values.round(5),
                   "m": np.round(seg_m, 1)}).to_parquet(SCRATCH / "street_years.parquet")
