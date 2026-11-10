@@ -1,0 +1,1002 @@
+{
+ "total": {
+  "layer": "brooklyn_crownheights_1888",
+  "plates": 10,
+  "buildings": 2710,
+  "frame": 1780,
+  "brick": 930,
+  "stone": 0,
+  "gasholders": 0,
+  "on_today": 512,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 2.24
+ },
+ "plates": [
+  {
+   "plate": "19734",
+   "image": "1810445",
+   "name": "Brooklyn, V. 7, Double Page Plate No. G [Map bounded by Martense St., Bedford Ave., Clarks",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 6.3,
+   "mpp": 0.105,
+   "n": 68,
+   "frame": 66,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "sheet": "V7-G",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 6.3 m)"
+  },
+  {
+   "plate": "19735",
+   "image": "1810446",
+   "name": "Brooklyn, V. 7, Double Page Plate No. H [Map bounded by Clarkson Ave., Bedford Ave., Rulip",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 8.8,
+   "mpp": 0.104,
+   "n": 107,
+   "frame": 106,
+   "brick": 1,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    9.0
+   ],
+   "sheet": "V7-H",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 8.8 m)"
+  },
+  {
+   "plate": "19733",
+   "image": "1810444",
+   "name": "Brooklyn, V. 7, Double Page Plate No. F [Map bounded by Butler St., Locust St. Or Bedford ",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 8.0,
+   "mpp": 0.102,
+   "n": 249,
+   "frame": 242,
+   "brick": 7,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.004,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    1.33,
+    0.69
+   ],
+   "off_median_m": 1.5,
+   "sheet": "V7-F",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.5 m; control points CV rms 8.0 m)"
+  },
+  {
+   "plate": "19732",
+   "image": "1810443",
+   "name": "Brooklyn, V. 7, Double Page Plate No. E [Map bounded by Butler St., Rogers Ave.]",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 5.9,
+   "mpp": 0.104,
+   "n": 159,
+   "frame": 148,
+   "brick": 11,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.013,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.42,
+    1.73
+   ],
+   "off_median_m": 1.79,
+   "sheet": "V7-E",
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 1.79 m; control points CV rms 5.9 m)"
+  },
+  {
+   "plate": "19728",
+   "image": "1810439",
+   "name": "Brooklyn, V. 7, Double Page Plate No. A [Map bounded by Malbone St., Flatbush Ave., Crown ",
+   "gcps": 11,
+   "model": "poly2",
+   "cv_rms": 8.7,
+   "mpp": 0.105,
+   "n": 110,
+   "frame": 109,
+   "brick": 1,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "sheet": "V7-A",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 8.7 m)"
+  },
+  {
+   "plate": "19726",
+   "image": "1810437",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 191 [Map bounded by Schenectady Ave., Malbone St., A",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 5.0,
+   "mpp": 0.106,
+   "n": 25,
+   "frame": 25,
+   "brick": 0,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "sheet": "V7-191",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 5.0 m)"
+  },
+  {
+   "plate": "19724",
+   "image": "1810435",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 189 [Map bounded by Brooklyn Ave., Malbone St., Nost",
+   "gcps": 10,
+   "model": "affine",
+   "cv_rms": 9.4,
+   "mpp": 0.108,
+   "n": 62,
+   "frame": 59,
+   "brick": 3,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "sheet": "V7-189",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 9.4 m)"
+  },
+  {
+   "plate": "19722",
+   "image": "1810433",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 187 [Map bounded by Crown St., Classon Ave., Parkway",
+   "gcps": 10,
+   "model": "affine",
+   "cv_rms": 8.7,
+   "mpp": 0.107,
+   "n": 97,
+   "frame": 94,
+   "brick": 3,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "sheet": "V7-187",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 8.7 m)"
+  },
+  {
+   "plate": "19720",
+   "image": "1810431",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 185 [Map bounded by Hopkinson Ave., Belmont Ave., Ho",
+   "gcps": 12,
+   "model": "affine",
+   "cv_rms": 6.6,
+   "mpp": 0.105,
+   "n": 19,
+   "frame": 19,
+   "brick": 0,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    90.0,
+    -1.0,
+    5.0
+   ],
+   "sheet": "V7-185",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 6.6 m)"
+  },
+  {
+   "plate": "19715",
+   "image": "1810426",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 180 [Map bounded by Kingston Ave., Parkway, New York",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 5.7,
+   "mpp": 0.105,
+   "n": 74,
+   "frame": 27,
+   "brick": 47,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.014,
+   "corrected": false,
+   "paper": [
+    91.0,
+    -1.0,
+    5.0
+   ],
+   "off_median_vec": [
+    -1.46,
+    -1.03
+   ],
+   "off_median_m": 1.79,
+   "sheet": "V7-180",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.79 m; control points CV rms 5.7 m)"
+  },
+  {
+   "plate": "19711",
+   "image": "1810422",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 176 [Map bounded by Park Place, Classon Ave., Dean S",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 8.3,
+   "mpp": 0.103,
+   "n": 240,
+   "frame": 159,
+   "brick": 78,
+   "stone": 0,
+   "coincide": 40,
+   "share": 0.169,
+   "corrected": true,
+   "paper": [
+    91.0,
+    -1.0,
+    5.0
+   ],
+   "off_median_vec": [
+    -0.73,
+    0.22
+   ],
+   "off_median_m": 1.2,
+   "street": null,
+   "bld": {
+    "plate": "19711",
+    "n": 240,
+    "windows": 3,
+    "shift_median": [
+     2.23,
+     5.35
+    ],
+    "fit_residual_m": 1.07,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "V7-176",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 237,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "19710",
+   "image": "1810421",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 175 [Map bounded by Broadway, East New York Ave., Sa",
+   "gcps": 11,
+   "model": "affine",
+   "cv_rms": 7.9,
+   "mpp": 0.104,
+   "n": 173,
+   "frame": 164,
+   "brick": 9,
+   "stone": 0,
+   "coincide": 4,
+   "share": 0.023,
+   "corrected": false,
+   "paper": [
+    90.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -0.44,
+    0.18
+   ],
+   "off_median_m": 1.52,
+   "sheet": "V7-175",
+   "status": "left out: not placed reliably (no street or building match; 4 outlines on standing footprints, median offset 1.52 m; control points CV rms 7.9 m)"
+  },
+  {
+   "plate": "19704",
+   "image": "1810415",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 169 [Map bounded by Troy Ave., St. Marks Ave., Kings",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 7.2,
+   "mpp": 0.104,
+   "n": 448,
+   "frame": 289,
+   "brick": 155,
+   "stone": 0,
+   "coincide": 85,
+   "share": 0.191,
+   "corrected": true,
+   "paper": [
+    90.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -0.17,
+    0.11
+   ],
+   "off_median_m": 1.19,
+   "street": {
+    "plate": "19704",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 7,
+    "model": "affine",
+    "cv_rms": 7.2,
+    "mpp": 0.104,
+    "windows": 6,
+    "shift_median": [
+     -3.4,
+     6.1
+    ],
+    "shift_abs_median": 7.2,
+    "kind": "shift",
+    "agree": 5,
+    "fit_residual_m": 0.8,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 1.7,
+    "after_windows": 6,
+    "after_abs_median": 1.7
+   },
+   "bld": {
+    "plate": "19704",
+    "n": 448,
+    "windows": 3,
+    "shift_median": [
+     -1.03,
+     0.56
+    ],
+    "fit_residual_m": 0.77,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "V7-169",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 444,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "19706",
+   "image": "1810417",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 171 [Map bounded by Buffalo Ave., St. Marks Ave., Ut",
+   "gcps": 15,
+   "model": "poly2",
+   "cv_rms": 1.7,
+   "mpp": 0.105,
+   "n": 459,
+   "frame": 412,
+   "brick": 46,
+   "stone": 0,
+   "coincide": 55,
+   "share": 0.12,
+   "corrected": true,
+   "paper": [
+    87.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.31,
+    0.05
+   ],
+   "off_median_m": 1.43,
+   "street": {
+    "plate": "19706",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 15,
+    "model": "poly2",
+    "cv_rms": 1.7,
+    "mpp": 0.105,
+    "windows": 4,
+    "shift_median": [
+     -0.1,
+     0.7
+    ],
+    "shift_abs_median": 0.7,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 0.3,
+    "kind2": "shift",
+    "agree2": 4,
+    "fit_residual2_m": 0.4,
+    "after_windows": 4,
+    "after_abs_median": 0.4
+   },
+   "bld": {
+    "plate": "19706",
+    "n": 459,
+    "windows": 4,
+    "shift_median": [
+     0.23,
+     0.92
+    ],
+    "fit_residual_m": 0.32,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "V7-171",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 458,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19725",
+   "image": "1810436",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 190 [Map bounded by Albany Ave., Malbone St., Brookl",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 5.9,
+   "mpp": 0.105,
+   "n": 14,
+   "frame": 14,
+   "brick": 0,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "sheet": "V7-190",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 5.9 m)"
+  },
+  {
+   "plate": "19721",
+   "image": "1810432",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 186 [Map bounded by East New York Ave., Hopkinson Av",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 2.6,
+   "mpp": 0.105,
+   "n": 71,
+   "frame": 70,
+   "brick": 1,
+   "stone": 0,
+   "coincide": 3,
+   "share": 0.042,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.75,
+    -1.6
+   ],
+   "off_median_m": 1.6,
+   "sheet": "V7-186",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 71,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19716",
+   "image": "1810427",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 181 [Map bounded by Troy Ave., Parkway, Kingston Ave",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 9.6,
+   "mpp": 0.105,
+   "n": 55,
+   "frame": 45,
+   "brick": 10,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.036,
+   "corrected": false,
+   "paper": [
+    91.0,
+    -1.0,
+    5.0
+   ],
+   "off_median_vec": [
+    0.51,
+    0.18
+   ],
+   "off_median_m": 0.59,
+   "sheet": "V7-181",
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 0.59 m; control points CV rms 9.6 m)"
+  },
+  {
+   "plate": "19712",
+   "image": "1810423",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 177 [Map bounded by Park Place, Bedford Ave., Dean S",
+   "gcps": 10,
+   "model": "poly2",
+   "cv_rms": 2.0,
+   "mpp": 0.104,
+   "n": 227,
+   "frame": 108,
+   "brick": 116,
+   "stone": 0,
+   "coincide": 78,
+   "share": 0.348,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.1,
+    -0.12
+   ],
+   "off_median_m": 1.13,
+   "street": null,
+   "bld": {
+    "plate": "19712",
+    "n": 227,
+    "windows": 5,
+    "shift_median": [
+     -1.03,
+     1.26
+    ],
+    "fit_residual_m": 0.38,
+    "agree": 5,
+    "kind": "shift"
+   },
+   "sheet": "V7-177",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 224,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19718",
+   "image": "1810429",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 183 [Map bounded by Buffalo Ave., Parkway, Utica Ave",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 3.1,
+   "mpp": 0.105,
+   "n": 104,
+   "frame": 100,
+   "brick": 4,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.01,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.65,
+    -1.19
+   ],
+   "off_median_m": 1.35,
+   "sheet": "V7-183",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.35 m; control points CV rms 3.1 m)"
+  },
+  {
+   "plate": "19713",
+   "image": "1810424",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 178 [Map bounded by Parkway, Classon Ave., Park Plac",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 4.9,
+   "mpp": 0.105,
+   "n": 108,
+   "frame": 61,
+   "brick": 47,
+   "stone": 0,
+   "coincide": 32,
+   "share": 0.296,
+   "corrected": false,
+   "paper": [
+    91.0,
+    -1.0,
+    5.0
+   ],
+   "off_median_vec": [
+    0.18,
+    -0.88
+   ],
+   "off_median_m": 1.47,
+   "sheet": "V7-178",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 108,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19708",
+   "image": "1810419",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 173 [Map bounded by Hopkinson Ave., St. Marks Ave., ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 9.4,
+   "mpp": 0.105,
+   "n": 239,
+   "frame": 117,
+   "brick": 122,
+   "stone": 0,
+   "coincide": 57,
+   "share": 0.238,
+   "corrected": true,
+   "paper": [
+    90.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    0.53,
+    0.05
+   ],
+   "off_median_m": 1.05,
+   "street": null,
+   "bld": {
+    "plate": "19708",
+    "n": 239,
+    "windows": 4,
+    "shift_median": [
+     4.44,
+     3.39
+    ],
+    "fit_residual_m": 0.98,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "V7-173",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 239,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19714",
+   "image": "1810425",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 179 [Map bounded by Parkway, Bedford Ave., Park Plac",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 2.6,
+   "mpp": 0.104,
+   "n": 121,
+   "frame": 86,
+   "brick": 35,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.017,
+   "corrected": false,
+   "paper": [
+    90.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    1.22,
+    -0.46
+   ],
+   "off_median_m": 1.35,
+   "sheet": "V7-179",
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 1.35 m; control points CV rms 2.6 m)"
+  },
+  {
+   "plate": "19719",
+   "image": "1810430",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 184 [Map bounded by Howard Ave., Parkway, Buffalo Av",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 17.4,
+   "mpp": 0.105,
+   "n": 78,
+   "frame": 78,
+   "brick": 0,
+   "stone": 0,
+   "coincide": 4,
+   "share": 0.051,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    0.11,
+    -0.86
+   ],
+   "off_median_m": 1.94,
+   "sheet": "V7-184",
+   "status": "left out: not placed reliably (no street or building match; 4 outlines on standing footprints, median offset 1.94 m; control points CV rms 17.4 m)"
+  },
+  {
+   "plate": "19707",
+   "image": "1810418",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 172 [Map bounded by Howard Ave., St. Marks Ave., Buf",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 7.3,
+   "mpp": 0.104,
+   "n": 332,
+   "frame": 314,
+   "brick": 16,
+   "stone": 0,
+   "coincide": 22,
+   "share": 0.067,
+   "corrected": false,
+   "paper": [
+    90.0,
+    -1.0,
+    5.0
+   ],
+   "off_median_vec": [
+    -0.04,
+    1.57
+   ],
+   "off_median_m": 2.61,
+   "sheet": "V7-172",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 330,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "19723",
+   "image": "1810434",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 188 [Map bounded by Nostrand Ave., Montgomery St., B",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 3.3,
+   "mpp": 0.106,
+   "n": 8,
+   "frame": 4,
+   "brick": 4,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "sheet": "V7-188",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 3.3 m)"
+  },
+  {
+   "plate": "19730",
+   "image": "1810441",
+   "name": "Brooklyn, V. 7, Double Page Plate No. C [Map bounded by Bedford Ave., Ridgewood St., Caton",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 6.0,
+   "mpp": 0.106,
+   "n": 141,
+   "frame": 132,
+   "brick": 9,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.014,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.37,
+    1.92
+   ],
+   "off_median_m": 1.99,
+   "sheet": "V7-C",
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 1.99 m; control points CV rms 6.0 m)"
+  },
+  {
+   "plate": "19709",
+   "image": "1810420",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 174 [Map bounded by Dean St., Hopkinson Ave., Fulton",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 5.0,
+   "mpp": 0.104,
+   "n": 284,
+   "frame": 137,
+   "brick": 147,
+   "stone": 0,
+   "coincide": 103,
+   "share": 0.363,
+   "corrected": true,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.11,
+    -0.05
+   ],
+   "off_median_m": 1.2,
+   "street": null,
+   "bld": {
+    "plate": "19709",
+    "n": 284,
+    "windows": 7,
+    "shift_median": [
+     1.29,
+     1.92
+    ],
+    "fit_residual_m": 0.96,
+    "agree": 7,
+    "kind": "shift"
+   },
+   "sheet": "V7-174",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 284,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19731",
+   "image": "1810442",
+   "name": "Brooklyn, V. 7, Double Page Plate No. D [Map bounded by Bedford Ave., Looust St., Burler S",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 5.5,
+   "mpp": 0.105,
+   "n": 190,
+   "frame": 182,
+   "brick": 8,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.005,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -0.18,
+    1.78
+   ],
+   "off_median_m": 1.79,
+   "sheet": "V7-D",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.79 m; control points CV rms 5.5 m)"
+  },
+  {
+   "plate": "19701",
+   "image": "1810412",
+   "name": "Brooklyn, V. 7, Double Page Plate No. 166 [Map bounded by Dean St., Classon Ave., Fulton S",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 4.6,
+   "mpp": 0.104,
+   "n": 316,
+   "frame": 113,
+   "brick": 202,
+   "stone": 0,
+   "coincide": 37,
+   "share": 0.117,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -0.31,
+    -0.88
+   ],
+   "off_median_m": 1.31,
+   "street": {
+    "plate": "19701",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 9,
+    "model": "affine",
+    "cv_rms": 4.6,
+    "mpp": 0.104,
+    "windows": 4,
+    "shift_median": [
+     3.0,
+     1.6
+    ],
+    "shift_abs_median": 3.3,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 2.4,
+    "kind2": "shift",
+    "agree2": 4,
+    "fit_residual2_m": 2.5,
+    "after_windows": 4,
+    "after_abs_median": 2.5
+   },
+   "bld": {
+    "plate": "19701",
+    "n": 316,
+    "windows": 6,
+    "shift_median": [
+     -3.76,
+     0.82
+    ],
+    "fit_residual_m": 2.04,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V7-166",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 315,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  }
+ ]
+}

@@ -1,0 +1,558 @@
+{
+ "total": {
+  "layer": "brooklyn_parkslope_1888",
+  "plates": 8,
+  "buildings": 2789,
+  "frame": 935,
+  "brick": 1854,
+  "stone": 0,
+  "gasholders": 0,
+  "on_today": 537,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 2.14
+ },
+ "plates": [
+  {
+   "plate": "19684",
+   "image": "1810400",
+   "name": "Brooklyn, V. 6, Double Page Plate No. 152 [Map bounded by 9th Ave., 10th St., 7th Ave., 2n",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 14.7,
+   "mpp": 0.106,
+   "n": 80,
+   "frame": 15,
+   "brick": 63,
+   "stone": 0,
+   "coincide": 14,
+   "share": 0.179,
+   "corrected": true,
+   "paper": [
+    90.0,
+    -1.0,
+    5.0
+   ],
+   "off_median_vec": [
+    0.23,
+    -0.05
+   ],
+   "off_median_m": 1.05,
+   "street": null,
+   "bld": {
+    "plate": "19684",
+    "n": 80,
+    "windows": 4,
+    "shift_median": [
+     3.81,
+     2.29
+    ],
+    "fit_residual_m": 0.94,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "V6-152",
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 78,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19683",
+   "image": "1810399",
+   "name": "Brooklyn, V. 6, Double Page Plate No. 151 [Map bounded by 9th Ave., 2nd St., 7th Ave., Lin",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 12.9,
+   "mpp": 0.106,
+   "n": 190,
+   "frame": 9,
+   "brick": 181,
+   "stone": 0,
+   "coincide": 31,
+   "share": 0.163,
+   "corrected": true,
+   "paper": [
+    90.0,
+    -1.0,
+    5.0
+   ],
+   "off_median_vec": [
+    0.55,
+    -0.16
+   ],
+   "off_median_m": 2.25,
+   "street": null,
+   "bld": {
+    "plate": "19683",
+    "n": 190,
+    "windows": 6,
+    "shift_median": [
+     -0.28,
+     3.92
+    ],
+    "fit_residual_m": 0.77,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V6-151",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 190,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19681",
+   "image": "1810397",
+   "name": "Brooklyn, V. 6, Double Page Plate No. 149 [Map bounded by Prospect Place, Carlton Ave., At",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 20.5,
+   "mpp": 0.106,
+   "n": 503,
+   "frame": 256,
+   "brick": 246,
+   "stone": 0,
+   "coincide": 45,
+   "share": 0.09,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -1.0,
+    5.0
+   ],
+   "off_median_vec": [
+    0.26,
+    1.16
+   ],
+   "off_median_m": 1.93,
+   "street": {
+    "plate": "19681",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 20.5,
+    "mpp": 0.106,
+    "windows": 5,
+    "shift_median": [
+     0.6,
+     5.9
+    ],
+    "shift_abs_median": 6.0,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 3.3,
+    "kind2": "shift",
+    "agree2": 4,
+    "fit_residual2_m": 3.3,
+    "after_windows": 4,
+    "after_abs_median": 3.3
+   },
+   "bld": {
+    "plate": "19681",
+    "n": 503,
+    "windows": 9,
+    "shift_median": [
+     -1.59,
+     1.87
+    ],
+    "fit_residual_m": 2.01,
+    "agree": 9,
+    "kind": "shift"
+   },
+   "sheet": "V6-149",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 502,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19676",
+   "image": "1810392",
+   "name": "Brooklyn, V. 6, Double Page Plate No. 146 [Map bounded by 7th Ave., 11th St., 5th Ave., 5t",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 6.4,
+   "mpp": 0.105,
+   "n": 545,
+   "frame": 66,
+   "brick": 479,
+   "stone": 0,
+   "coincide": 110,
+   "share": 0.202,
+   "corrected": true,
+   "paper": [
+    90.0,
+    0.0,
+    4.0
+   ],
+   "off_median_vec": [
+    -0.49,
+    -0.12
+   ],
+   "off_median_m": 1.46,
+   "street": {
+    "plate": "19676",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 6.4,
+    "mpp": 0.105,
+    "windows": 5,
+    "shift_median": [
+     -0.7,
+     4.8
+    ],
+    "shift_abs_median": 4.8,
+    "kind": "shift",
+    "agree": 5,
+    "fit_residual_m": 1.7,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 1.0,
+    "after_windows": 6,
+    "after_abs_median": 1.0
+   },
+   "bld": {
+    "plate": "19676",
+    "n": 545,
+    "windows": 16,
+    "shift_median": [
+     1.25,
+     1.43
+    ],
+    "fit_residual_m": 1.77,
+    "agree": 9,
+    "kind": "shift"
+   },
+   "sheet": "V6-146",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 545,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19675",
+   "image": "1810391",
+   "name": "Brooklyn, V. 6, Double Page Plate No. 145 [Map bounded by 7th Ave., 5th St., 5th Ave., Car",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 4.2,
+   "mpp": 0.105,
+   "n": 266,
+   "frame": 18,
+   "brick": 248,
+   "stone": 0,
+   "coincide": 79,
+   "share": 0.297,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -1.0,
+    5.0
+   ],
+   "off_median_vec": [
+    -0.02,
+    0.48
+   ],
+   "off_median_m": 1.49,
+   "street": null,
+   "bld": {
+    "plate": "19675",
+    "n": 266,
+    "windows": 6,
+    "shift_median": [
+     -0.96,
+     4.53
+    ],
+    "fit_residual_m": 2.24,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "V6-145",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 266,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19673",
+   "image": "1810389",
+   "name": "Brooklyn, V. 6, Double Page Plate No. 143 [Map bounded by Prospect Place, 5th Ave., Atlant",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 9.8,
+   "mpp": 0.105,
+   "n": 430,
+   "frame": 131,
+   "brick": 299,
+   "stone": 0,
+   "coincide": 83,
+   "share": 0.193,
+   "corrected": true,
+   "paper": [
+    90.0,
+    0.0,
+    4.0
+   ],
+   "off_median_vec": [
+    0.66,
+    0.38
+   ],
+   "off_median_m": 1.68,
+   "street": {
+    "plate": "19673",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 8,
+    "model": "affine",
+    "cv_rms": 9.8,
+    "mpp": 0.105,
+    "windows": 5,
+    "shift_median": [
+     -2.0,
+     5.6
+    ],
+    "shift_abs_median": 6.2,
+    "kind": "shift",
+    "agree": 5,
+    "fit_residual_m": 1.5,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 3.3,
+    "after_windows": 6,
+    "after_abs_median": 3.3
+   },
+   "bld": {
+    "plate": "19673",
+    "n": 430,
+    "windows": 7,
+    "shift_median": [
+     2.4,
+     1.04
+    ],
+    "fit_residual_m": 1.08,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V6-143",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 430,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19671",
+   "image": "1810387",
+   "name": "Brooklyn, V. 6, Double Page Plate No. 142A [Map bounded by 5th Ave., 48th St., 3rd Ave., 4",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 15.1,
+   "mpp": 0.104,
+   "n": 202,
+   "frame": 185,
+   "brick": 17,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    90.0,
+    0.0,
+    4.0
+   ],
+   "sheet": "V6-142A",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 15.1 m)"
+  },
+  {
+   "plate": "19698",
+   "image": "1945293",
+   "name": "Brooklyn, V. 6, Double Page Plate No. 165 [Map bounded by 59th St., New York Bay, 54th St.",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 7.4,
+   "mpp": 0.104,
+   "n": 127,
+   "frame": 124,
+   "brick": 3,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.016,
+   "corrected": false,
+   "paper": [
+    89.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    1.05,
+    0.82
+   ],
+   "off_median_m": 1.35,
+   "sheet": "V6-165",
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 1.35 m; control points CV rms 7.4 m)"
+  },
+  {
+   "plate": "19688",
+   "image": "1810404",
+   "name": "Brooklyn, V. 6, Double Page Plate No. 155 [Map bounded by Prospect Place, Underhill Ave., ",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 3.6,
+   "mpp": 0.104,
+   "n": 554,
+   "frame": 416,
+   "brick": 136,
+   "stone": 0,
+   "coincide": 67,
+   "share": 0.121,
+   "corrected": true,
+   "paper": [
+    90.0,
+    0.0,
+    4.0
+   ],
+   "off_median_vec": [
+    0.04,
+    -0.06
+   ],
+   "off_median_m": 1.32,
+   "street": {
+    "plate": "19688",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 9,
+    "model": "affine",
+    "cv_rms": 3.6,
+    "mpp": 0.104,
+    "windows": 5,
+    "shift_median": [
+     -0.1,
+     2.7
+    ],
+    "shift_abs_median": 2.7,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 0.4,
+    "after_windows": 3,
+    "after_abs_median": 0.3
+   },
+   "bld": {
+    "plate": "19688",
+    "n": 554,
+    "windows": 6,
+    "shift_median": [
+     0.03,
+     1.29
+    ],
+    "fit_residual_m": 0.59,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V6-155",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 552,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19682",
+   "image": "1810398",
+   "name": "Brooklyn, V. 6, Double Page Plate No. 150 [Map bounded by Lincoln Place, 7th Ave., Prospec",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 2.9,
+   "mpp": 0.104,
+   "n": 229,
+   "frame": 24,
+   "brick": 202,
+   "stone": 0,
+   "coincide": 108,
+   "share": 0.478,
+   "corrected": true,
+   "paper": [
+    90.0,
+    0.0,
+    4.0
+   ],
+   "off_median_vec": [
+    0.26,
+    -0.31
+   ],
+   "off_median_m": 0.84,
+   "street": null,
+   "bld": {
+    "plate": "19682",
+    "n": 229,
+    "windows": 8,
+    "shift_median": [
+     -0.18,
+     0.99
+    ],
+    "fit_residual_m": 0.57,
+    "agree": 8,
+    "kind": "shift"
+   },
+   "sheet": "V6-150",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 226,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19689",
+   "image": "1810405",
+   "name": "Brooklyn, V. 6, Double Page Plate No. 156 [Map bounded by Eastern Parkway, Underhill Ave.,",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 1.6,
+   "mpp": 0.109,
+   "n": 145,
+   "frame": 127,
+   "brick": 18,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.007,
+   "corrected": false,
+   "paper": [
+    90.0,
+    0.0,
+    4.0
+   ],
+   "off_median_vec": [
+    -2.27,
+    1.47
+   ],
+   "off_median_m": 2.71,
+   "sheet": "V6-156",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 2.71 m; control points CV rms 1.6 m)"
+  }
+ ]
+}

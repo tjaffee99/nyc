@@ -849,11 +849,13 @@
    },
    {
     "id": 9455,
-    "sheet": "18"
+    "sheet": "18",
+    "skip": "no street or building match found, control points only; sheet is marsh / water at Hunts Point shore, almost nothing traced"
    },
    {
     "id": 9456,
-    "sheet": "19"
+    "sheet": "19",
+    "skip": "no street or building match found, control points only; sheet is marsh / water at Hunts Point shore, almost nothing traced"
    }
   ]
  }

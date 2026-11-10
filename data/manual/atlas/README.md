@@ -834,3 +834,197 @@ in the Map Warper dump at all. The 1919 file is 34 MB (coordinates to 6 decimals
   is 2-3 calls per plate; the pier plates 1-6 have no streets and need a corner of the grid on the plate. Rows merged: tune `wall_px`, `line_depth` for the thin Sanborn lot lines.
 * Downtown Jersey City before 1919 (Paulus Hook, Exchange Place, Pavonia / Erie terminals): Sanborn 1885 / 1896 / 1906 (vols. 1-2, 3-4) the same way; the 1866 NYPL plates are hand-drawn and not traceable by colour.
 * Hopkins 1919 plates 2, 7, 14, 33-35 (and the plates left out) need hand control points (street intersections) as above.
+
+## The Bronx, later states
+
+Two layers traced with a copy of the tool (`tools_bronx/`, same `atlas.py` with the work folder moved to
+`data/interim/atlas_bronx/`, and a layer-specific colour setting; the original `tools/` was not touched).
+Both are Bromley plates at 150 ft to the inch (0.16 m per pixel, the scale is printed on the plate), pale
+yellow = frame, dusty rose = brick, grey = stone, and the storeys are printed in each house (`2B`, `5B`; not read).
+
+| layer | atlas | area | buildings |
+|---|---|---|---|
+| `bronx_south_1921.geojson` | *Atlas of the borough of the Bronx, Sections 9-13* (G. W. Bromley & Co., NYPL catalogue date 1921), 74 of 83 plates | Mott Haven, Port Morris, Melrose, Morrisania, Hunts Point / Longwood, Crotona Park East, the Hub, High Bridge, Concourse, Tremont, East Tremont, Belmont, West Farms, Fordham, Bedford Park, Norwood, Kingsbridge, Riverdale, Spuyten Duyvil (the northern plates are mostly open ground: few buildings) | 23,673 (16,348 frame, 7,290 brick, 35 stone), 41.9 km2 |
+| `bronx_south_1904.geojson` | *Atlas and owners names, borough of the Bronx, sections 9 & 10* (G. W. Bromley & Co., catalogue date 1904), 16 of 18 plates | Port Morris, Mott Haven, Melrose, Morrisania, Hunts Point, Longwood, Crotona Park East: the same ground 17 years earlier, when the tenements were going up | 8,387 (6,635 frame, 1,695 brick, 57 stone), 14.3 km2 |
+
+Files, properties and coverage as the layers above (`source` = `bromley_bronx_1921` / `bromley_bronx_1904`). `map_year`
+is the NYPL catalogue date of the volume; the collars were not read, and a Bromley volume is corrected to the
+year of the edition, so a plate's survey can be a few years earlier or later (not checked). `storeys` not given.
+Not complete (see recall below); absence is not evidence of an empty lot. Do not add these years to `COMPLETE`.
+
+**Settings** (`tools_bronx/layers.json`, `style_override`): brick `da_min` 4.5 (the rose wash is faint: the first
+run, with the 1897 value 7.5, traced almost no brick); `outline` 0.3 (at 0.55 half of the pale frame houses
+were missed on plate 9498; the first full run was redone). The streets are tinted tan: the street match works
+with `street_min_q` 0.2, `street_win_m` 300 (as the 1887 Bronx layer).
+
+**Registration.** Street match on 69 of the 74 plates of 1921 (0.5-5.0 m left by its own measure, median 1.3 m), then
+the building match where today's pre-war buildings allow (windows 3-24, residual 0.2-1.9 m); control-point fits
+alone were 1-14 m out (cross-validated). Outlines that coincide with a standing footprint (IoU > 0.5; 1,559 of
+23,673 = 7 %) sit a median 1.96 m (plates 0.5-5.3) from it, which includes shape differences. Above 4 m: plate 9466
+(5.3 m, but 17 street and 18 building windows agree to 0.4-1.5 m: kept), 9506 (5.0 m, 7 coincident outlines: kept,
+unverified), 9470 (3.7 m), 9508, 9543. **Left out** (nine plates of 1921): 9492 and 9509 (standing buildings 8.5 /
+8.1 m off), 9588 (9 m), 9493-9497 and 9542 (no street or building match, cross-validated 12-490 m, mostly water (not looked at)
+and marsh sheets of the Hunts Point and Clason Point shore, judged from their near-empty traces and street names, not looked at on screen). 1904: 9455, 9456 left out (no match); plate 9449
+keeps a street match residual of 5.3 m but its building match (31 coincident outlines, 0.4 m) agrees.
+Plates of 1904 are street matched with 12-35 windows (left 1.3-3.4 m), building match on 7 of 16.
+After export, overlapping pairs (cross-plate duplicates and slight overlaps, 10 dropped, 25 trimmed in 1921) were
+removed in place: no two outlines of a layer overlap by more than 0.5 m2.
+
+**Looked at** (`tools_bronx/` overlay crops, final layer unless said):
+* 1921 plate 9465 (Port Morris, E 138th-141st St by the Harlem River, 230 m): about 45 drawn, 41 traced; the yards
+  of coal and wood dealers and sheds traced as one big frame piece with lettering holes (ragged); no false outline.
+* 1921 plate 9482 (Home St / Longwood Av, 210 m): about 80 drawn, 76 traced; rows of attached frame houses
+  cut at the party walls, brick tenements with an area fill; a few houses in two pieces.
+* 1921 plate 9507 (E 175th St / Third Av, Tremont, 215 m): about 40 drawn, 36 traced; gasholder circle read as a
+  brick building (false); a pale frame outline ragged under lettering.
+* 1921 plate 9526 (Bedford Park, E 199th St, 240 m): villas of frame traced, two brick villas and the large
+  institutional building (5B, about 120 x 40 m) **missed**: roughly 60 % traced here.
+* 1921 plate 9469 (E 145th-146th St / Third Av, 225 m): about 60 drawn, 50 traced but 10 of them ragged or in pieces
+  on a dirty sheet area (brownish stains read as frame); one X-crossed shed traced as two triangles.
+* 1921 plate 9519 (Kingsbridge Rd / Grote St, 235 m): the Home for the Aged and the Little Sisters' building
+  (large brick complex, over 5,000 m2 or grey-pink faint) **not traced**; St Martin's academy as a ragged frame ring;
+  about 50 % of drawn buildings traced in this window (institutions); houses fine.
+* 1921 plate 9498 (Longwood, Hunter St / Longfellow Av, 225 m): with `outline` 0.55 about 25 of 40 frame houses
+  were missed; with 0.3 (final) about 37 of 40 traced (checked in tracing mode, not on the exported file);
+  brick rows as one outline per block face.
+* 1921 plate 9511 (Catharine / Chestnut St, Hunts Point, 235 m, first setting): brick tenements with a ragged edge,
+  small dirty parts missing; about 80 % traced. Plate 9484 (Morrisania, 190 m) and 9474 (Hub, Third Av, 195 m),
+  final layer: about 95 % and 90 % traced; one false stain outline in 9484; attached tenements merged into one
+  outline (5-6 houses), small sheds missed in 9474.
+* 1904 plate 9444 (Rose St / Westchester Av, 195 m): about 45 drawn, 41 traced, ragged frame outlines, some brick
+  rows as one outline; plate 9450 (E 169th-Intervale, 185 m): the lots are mostly open ground; 12 attached houses of
+  a row as one outline.
+Plates never looked at: 62 of the 74 of 1921 (all of Sections 12 and 13 except 9526, and all of the north) and 14 of
+16 of 1904. The windows were chosen on the South Bronx (priority 1) and on mixed ground, not at random.
+
+**Numeric** (read back independently): all polygons valid; areas 15.0-4,994 m2 (1921) and 15.0-4,450 m2 (1904); ids
+unique; centres inside the plate masks; no overlapping pairs within a layer (after the clean-up above).
+
+**Known failures.** Large institutions (Home for the Aged, hospitals, schools, factories) with a faint fill or over
+5,000 m2 are often missing; pale frame houses are still missed at the edge of the colour threshold; frame
+fills are ragged under lettering and on stained sheets; a row of attached brick houses is one outline (5-6
+houses) and a block face of tenements can be one outline; gasholders (circles) come out as brick buildings; X-crossed
+sheds are triangles; sheets that are mostly water or marsh trace little. The 1921 atlas is the state after many
+buildings of the 1890s-1900s had been replaced: it is a later state of the *same* streets than the 1887 layer
+but the three Bronx layers overlap one another, and where they overlap the same building appears in each.
+
+**Not traced.** The 1901 Ullitz atlas (60 double-page plates, Ward 24, sections 9-12: small scale, a different
+colour scheme, not opened), the Sanborn volumes 1938-1957 (NYPL copies are not marked public domain: not used),
+Bromley's 1914-18 Bronx atlases listed in the dump (36 plates "Atlas 55 Vol. 18, 1918", probably Brooklyn/Queens: not
+opened), and every Bronx plate east of the Bronx River beyond Hunts Point (Westchester Square, Throgs Neck,
+Williamsbridge, Wakefield, City Island: no later-state plates of the borough east of Section 10 were found in the
+dump except the "Topographical survey sheets of the borough of the Bronx easterly of the Bronx River" (1905, 24 + 14
+plates, contour sheets, not opened) — priority 4 is untraced.
+
+### Per-plate tables (generated)
+
+<!-- TABLE bronx_south_1921 -->
+| sheet | Map Warper id | registration | street match left m | building match residual m | buildings (frame / brick / stone) | coincide share | their median offset m | status |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 9462 | street match + building match | 1.2 | 0.66 | 150 (113 / 37 / 0) | 0.073 | 0.93 | ok |
+| 2 | 9463 | street match + building match | 2.8 | 1.6 | 86 (40 / 46 / 0) | 0.035 | 3.12 | ok |
+| 3 | 9464 | street match + building match | 2.7 | 0.88 | 128 (92 / 36 / 0) | 0.023 | 2.36 | ok |
+| 4 | 9465 | street match + building match | 2.1 | 0.57 | 432 (295 / 136 / 1) | 0.039 | 2.5 | ok |
+| 5 | 9466 | street match + building match | 1.5 | 0.38 | 191 (56 / 135 / 0) | 0.047 | 5.33 | ok |
+| 6 | 9467 | street match + building match | 1.4 | 0.43 | 177 (80 / 97 / 0) | 0.062 | 3.44 | ok |
+| 7 | 9468 | street match + building match | 0.7 | 0.69 | 230 (168 / 61 / 1) | 0.07 | 2.18 | ok |
+| 8 | 9469 | street match + building match | 2.3 | 0.46 | 713 (502 / 211 / 0) | 0.028 | 2.82 | ok |
+| 9 | 9470 | street match + building match | 0.8 | 0.99 | 287 (192 / 94 / 1) | 0.01 | 3.69 | ok |
+| 10 | 9471 | street match | 2.8 | None | 76 (55 / 21 / 0) | 0.0 | None | ok |
+| 11 | 9472 | street match | 2.2 | None | 194 (135 / 59 / 0) | 0.01 | 2.23 | ok |
+| 12 | 9473 | street match + building match | 1.1 | 0.32 | 788 (571 / 217 / 0) | 0.084 | 2.03 | ok |
+| 13 | 9474 | street match + building match | 0.8 | 0.51 | 708 (513 / 195 / 0) | 0.048 | 1.97 | ok |
+| 14 | 9475 | street match | 1.0 | None | 159 (117 / 42 / 0) | 0.038 | 1.25 | ok |
+| 15 | 9476 | street match + building match | 0.5 | 0.76 | 314 (251 / 63 / 0) | 0.108 | 1.42 | ok |
+| 16 | 9477 | street match | 0.8 | None | 238 (193 / 45 / 0) | 0.042 | 1.92 | ok |
+| 17 | 9478 | street match + building match | 1.2 | 1.75 | 127 (81 / 46 / 0) | 0.079 | 2.8 | ok |
+| 18 | 9479 | street match | 1.4 | None | 58 (49 / 9 / 0) | 0.034 | 2.8 | ok |
+| 19 | 9480 | street match + building match | 1.8 | 1.0 | 481 (354 / 127 / 0) | 0.062 | 3.0 | ok |
+| 20 | 9481 | street match + building match | 1.0 | 0.28 | 340 (265 / 75 / 0) | 0.041 | 1.48 | ok |
+| 21 | 9482 | street match + building match | 1.2 | 0.37 | 632 (499 / 133 / 0) | 0.106 | 1.44 | ok |
+| 22 | 9483 | street match + building match | 1.5 | 1.13 | 762 (626 / 136 / 0) | 0.028 | 2.23 | ok |
+| 23 | 9484 | street match + building match | 0.9 | 0.85 | 736 (550 / 186 / 0) | 0.046 | 1.75 | ok |
+| 24 | 9485 | street match + building match | 0.8 | 0.33 | 400 (300 / 100 / 0) | 0.052 | 1.16 | ok |
+| 25 | 9486 | building match | None | 0.7 | 34 (20 / 11 / 3) | 0.029 | 3.22 | ok |
+| 26 | 9487 | street match + building match | 0.9 | 1.66 | 104 (7 / 97 / 0) | 0.133 | 2.9 | ok |
+| 27 | 9488 | street match + building match | 2.1 | 0.51 | 86 (3 / 83 / 0) | 0.116 | 3.33 | ok |
+| 28 | 9489 | street match + building match | 4.7 | 1.1 | 361 (207 / 154 / 0) | 0.105 | 2.24 | ok |
+| 29 | 9490 | street match + building match | 1.8 | 0.5 | 168 (40 / 128 / 0) | 0.083 | 1.97 | ok |
+| 30 | 9491 | street match + building match | 1.3 | 0.45 | 114 (44 / 70 / 0) | 0.281 | 1.44 | ok |
+| 31 | 9492 | | | | 0 | | | left out: standing buildings sit 8.5 m from their footprints after the street match; mostly lettering over water/marsh |
+| 33 | 9493 | | | | 0 | | | left out: no street or building match found; control points only; almost nothing traced (marsh / water sheet) |
+| 34 | 9494 | | | | 0 | | | left out: no registration found (cross-validated 11.9 m); sheet is water / marsh, nothing traced |
+| 35 | 9495 | | | | 0 | | | left out: no reliable registration (street match 5 windows, 7.9 m shift); almost nothing traced |
+| 36 | 9496 | | | | 0 | | | left out: no registration found; nothing traced |
+| 37 | 9497 | | | | 0 | | | left out: control points inconsistent (cross-validated 490 m), no street or building match |
+| 38 | 9498 | street match + building match | 0.6 | 0.54 | 437 (264 / 171 / 2) | 0.107 | 1.71 | ok |
+| 39 | 9499 | street match + building match | 1.4 | 0.44 | 490 (362 / 128 / 0) | 0.167 | 1.34 | ok |
+| 40 | 9500 | street match + building match | 0.9 | 0.39 | 531 (357 / 174 / 0) | 0.038 | 2.01 | ok |
+| 41 | 9501 | street match | 0.9 | None | 222 (191 / 31 / 0) | 0.036 | 1.47 | ok |
+| 42 | 9502 | street match | 2.2 | None | 140 (127 / 13 / 0) | 0.014 | 0.63 | ok |
+| 43 | 9503 | street match | 0.8 | None | 156 (117 / 38 / 1) | 0.032 | 2.16 | ok |
+| 44 | 9504 | street match | 1.1 | None | 123 (42 / 81 / 0) | 0.024 | 1.51 | ok |
+| 45 | 9505 | street match | 0.9 | None | 261 (223 / 38 / 0) | 0.061 | 2.15 | ok |
+| 46 | 9506 | street match + building match | 1.5 | 1.47 | 204 (124 / 80 / 0) | 0.034 | 5.01 | ok |
+| 47 | 9507 | street match + building match | 0.8 | 0.36 | 635 (469 / 166 / 0) | 0.061 | 1.61 | ok |
+| 49 | 9508 | street match | 2.7 | None | 244 (168 / 76 / 0) | 0.012 | 3.65 | ok |
+| 48 | 9509 | | | | 0 | | | left out: standing buildings sit 8.1 m off (1 coincident outline); not reliable |
+| 50 | 9510 | street match + building match | 1.2 | 0.44 | 665 (327 / 337 / 1) | 0.015 | 0.89 | ok |
+| 51 | 9511 | street match | 0.9 | None | 532 (278 / 254 / 0) | 0.056 | 2.05 | ok |
+| 52 | 9512 | street match + building match | 0.9 | 0.38 | 729 (471 / 258 / 0) | 0.075 | 1.51 | ok |
+| 53 | 9513 | street match | 0.5 | None | 627 (407 / 220 / 0) | 0.059 | 1.8 | ok |
+| 54 | 9514 | street match + building match | 1.5 | 0.84 | 278 (181 / 95 / 2) | 0.076 | 2.09 | ok |
+| 55 | 9515 | street match | 2.0 | None | 180 (110 / 70 / 0) | 0.017 | 2.48 | ok |
+| 56 | 9516 | street match + building match | 3.4 | 0.9 | 165 (105 / 60 / 0) | 0.042 | 2.9 | ok |
+| 57 | 9517 | street match + building match | 0.8 | 0.38 | 504 (359 / 145 / 0) | 0.139 | 1.52 | ok |
+| 58 | 9518 | street match + building match | 0.8 | 0.69 | 487 (336 / 150 / 1) | 0.07 | 1.94 | ok |
+| 59 | 9519 | street match + building match | 0.7 | 0.34 | 693 (472 / 221 / 0) | 0.17 | 1.4 | ok |
+| 60 | 9520 | street match + building match | 1.3 | 0.66 | 530 (313 / 216 / 1) | 0.094 | 1.48 | ok |
+| 61 | 9521 | street match + building match | 1.0 | 0.45 | 389 (206 / 183 / 0) | 0.095 | 1.14 | ok |
+| 62 | 9522 | street match + building match | 1.0 | 1.38 | 207 (121 / 86 / 0) | 0.043 | 1.62 | ok |
+| 63 | 9523 | street match | 3.0 | None | 148 (111 / 37 / 0) | 0.047 | 1.71 | ok |
+| 64 | 9524 | street match + building match | 2.4 | 1.33 | 211 (113 / 98 / 0) | 0.076 | 2.62 | ok |
+| 65 | 9525 | street match + building match | 0.5 | 0.58 | 566 (412 / 154 / 0) | 0.102 | 1.39 | ok |
+| 66 | 9526 | street match + building match | 1.0 | 0.75 | 492 (424 / 68 / 0) | 0.083 | 1.38 | ok |
+| 67 | 9527 | street match + building match | 1.1 | 0.84 | 397 (332 / 65 / 0) | 0.126 | 1.53 | ok |
+| 68 | 9528 | street match + building match | 0.9 | 1.46 | 350 (293 / 56 / 1) | 0.074 | 1.85 | ok |
+| 69 | 9529 | street match | 1.1 | None | 250 (219 / 31 / 0) | 0.008 | 2.64 | ok |
+| 70 | 9530 | street match | 1.7 | None | 127 (104 / 23 / 0) | 0.024 | 2.95 | ok |
+| 71 | 9531 | street match | 3.0 | None | 80 (49 / 31 / 0) | 0.0 | None | ok |
+| 72 | 9532 | street match + building match | 1.3 | 0.95 | 147 (120 / 27 / 0) | 0.034 | 2.15 | ok |
+| 73 | 9533 | street match + building match | 1.3 | 1.09 | 236 (175 / 61 / 0) | 0.085 | 1.64 | ok |
+| 74 | 9534 | street match + building match | 1.3 | 0.22 | 24 (17 / 7 / 0) | 0.0 | None | ok |
+| 75 | 9535 | street match + building match | 2.1 | 0.35 | 279 (251 / 26 / 2) | 0.032 | 2.34 | ok |
+| 76 | 9536 | street match | 1.9 | None | 167 (110 / 57 / 0) | 0.018 | 1.03 | ok |
+| 77 | 9537 | street match + building match | 2.0 | 1.25 | 147 (93 / 51 / 3) | 0.054 | 1.54 | ok |
+| 78 | 9538 | street match | 3.0 | None | 184 (140 / 39 / 5) | 0.005 | 1.2 | ok |
+| 79 | 9539 | street match + building match | 2.6 | 1.72 | 191 (150 / 40 / 1) | 0.021 | 1.72 | ok |
+| 80 | 9540 | street match + building match | 3.9 | 1.74 | 235 (181 / 53 / 1) | 0.013 | 1.96 | ok |
+| 81 | 9541 | street match + building match | 2.2 | 0.37 | 560 (500 / 59 / 1) | 0.055 | 1.29 | ok |
+| 82 | 9542 | | | | 0 | | | left out: control points inconsistent (cross-validated 55 m), no street or building match |
+| 83 | 9543 | building match | None | 1.96 | 179 (6 / 166 / 7) | 0.034 | 3.68 | ok |
+| 32 | 9588 | | | | 0 | | | left out: standing building 9 m off; street match residual 5.7 m (8 windows) |
+<!-- /TABLE bronx_south_1921 -->
+
+<!-- TABLE bronx_south_1904 -->
+| sheet | Map Warper id | registration | street match left m | building match residual m | buildings (frame / brick / stone) | coincide share | their median offset m | status |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 9438 | street match | 1.8 | None | 368 (230 / 133 / 5) | 0.049 | 2.4 | ok |
+| 2 | 9439 | street match + building match | 3.4 | 0.74 | 568 (273 / 291 / 4) | 0.005 | 2.41 | ok |
+| 3 | 9440 | street match + building match | 3.0 | 0.36 | 863 (640 / 223 / 0) | 0.025 | 3.45 | ok |
+| 5 | 9442 | street match | 2.9 | None | 126 (101 / 23 / 2) | 0.0 | None | ok |
+| 6 | 9443 | street match + building match | 1.3 | 0.95 | 553 (422 / 125 / 6) | 0.018 | 1.53 | ok |
+| 7 | 9444 | building match | None | 0.72 | 1334 (1055 / 279 / 0) | 0.038 | 2.04 | ok |
+| 8 | 9445 | street match | 2.1 | None | 211 (155 / 54 / 2) | 0.009 | 1.93 | ok |
+| 9 | 9446 | street match | 2.5 | None | 239 (222 / 14 / 3) | 0.042 | 1.09 | ok |
+| 10 | 9447 | street match | 2.0 | None | 373 (353 / 13 / 7) | 0.011 | 1.86 | ok |
+| 11 | 9448 | street match | 1.4 | None | 194 (151 / 35 / 8) | 0.005 | 1.84 | ok |
+| 12 | 9449 | street match + building match | 5.3 | 0.41 | 1065 (881 / 182 / 2) | 0.029 | 1.58 | ok |
+| 13 | 9450 | street match + building match | 1.7 | 0.44 | 1312 (1145 / 165 / 2) | 0.043 | 1.36 | ok |
+| 14 | 9451 | street match + building match | 3.2 | 0.65 | 809 (681 / 122 / 6) | 0.042 | 1.87 | ok |
+| 15 | 9452 | street match | 2.1 | None | 251 (219 / 29 / 3) | 0.016 | 1.89 | ok |
+| 16 | 9453 | street match | 3.0 | None | 89 (84 / 3 / 2) | 0.0 | None | ok |
+| 17 | 9454 | street match | 1.3 | None | 32 (23 / 4 / 5) | 0.0 | None | ok |
+| 18 | 9455 | | | | 0 | | | left out: no street or building match found, control points only; sheet is marsh / water at Hunts Point shore, almost nothing traced |
+| 19 | 9456 | | | | 0 | | | left out: no street or building match found, control points only; sheet is marsh / water at Hunts Point shore, almost nothing traced |
+<!-- /TABLE bronx_south_1904 -->
