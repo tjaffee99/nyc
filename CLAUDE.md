@@ -221,13 +221,19 @@ Not yet ported from the Bay copy (kept as reference, they do not run): `sf_prede
     left out and their ends pinned to the model's height. Vanished roads, ferries and the
     West Side Elevated Highway are drawn from `routes.csv`. Researched openings are not
     pushed later by the land-year grid (`data/interim/roads/ground_conflicts.csv` lists them).
-20. **The published site must stay small.** GitHub Pages cancelled a 152 MB deployment at its
-    ten-minute limit here (149 MB went through in 8.5 minutes): this repository syncs at
-    about 17 MB a minute, half the Bay's rate. Hence: tree records to a metre and whole
-    years, overview tiles with 15 % of the trees (the share the viewer draws below zoom
-    12.5), building coordinates in 1e-6 degrees, outlines simplified to 0.4 m. Budget:
-    about 110 MB. `pipeline/deploy.py` prints the size; check the "pages build and
-    deployment" run afterwards and compare a checksum with the live site.
+20. **The published site must stay small.** Deployment times here varied wildly on one day:
+    149 MB went through in 8.5 minutes (the first deployment, certificate included), 152 MB
+    was cancelled at GitHub Pages' ten-minute limit, 104 MB was live within a minute. Hence:
+    tree records to a metre and whole years, overview tiles with 15 % of the trees (the share
+    the viewer draws below zoom 12.5), building coordinates in 1e-6 degrees, outlines
+    simplified to 0.4 m. Budget: about 110 MB. `pipeline/deploy.py` prints the size; check
+    the "pages build and deployment" run afterwards and compare a checksum with the live
+    site — a pushed deploy is not a published one (a failed run leaves the old site up).
+21. **City ground** (terrain): the second-earliest building within ~45 m, counting vanished
+    ones; the extent snapshots fill gaps (built-up ground is city no later than the maps show
+    it — above 86th St and in the old towns no traced buildings exist); a park made where the
+    city already stood is city ground first; undated greens take the year of the buildings
+    standing around them today.
 
 ## What is not done (as of 2026-11)
 

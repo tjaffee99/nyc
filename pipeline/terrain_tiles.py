@@ -335,9 +335,10 @@ def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet, known):
     return land_year, N, events, reservoirs
 
 
-def building_evidence(g):
+def building_evidence(g, standing_only=False):
     """City ground from the buildings themselves: the year of the second-earliest building
-    within one cell of each cell (incl. vanished ones), and the share of the ground they cover."""
+    within one cell of each cell (incl. vanished ones, unless standing_only), and the share
+    of the ground they cover."""
     rows, cols = g["rows"], g["cols"]
     p = INTERIM / "nyc_building_points.parquet"
     urban_y = np.full((rows, cols), np.nan, np.float32)
@@ -346,6 +347,8 @@ def building_evidence(g):
         log("terrain: no building points yet (nyc_buildings.py) - no city ground")
         return urban_y, cover
     b = pd.read_parquet(p)
+    if standing_only:
+        b = b[b.end_year >= 9000]
     X = np.radians(b.lon.values) * 6378137.0
     Y = 6378137.0 * np.log(np.tan(np.pi / 4 + np.radians(b.lat.values) / 2))
     c = np.rint((X - g["X0"]) / g["res"]).astype(np.int64)
@@ -367,6 +370,35 @@ def building_evidence(g):
     flat[idx[second]] = yy[second]        # else the second earliest
     cover = ndimage.uniform_filter(cover, 3, mode="constant")
     return urban_y, cover
+
+
+def extent_years(g):
+    """Year each cell was built up according to the extent snapshots (data/manual/extents):
+    between the snapshot of its borough that first shows it built and the one before
+    (NaN: in no snapshot). They only fill gaps: where no building, standing or traced, dates
+    the ground — above 86th St, in the old towns — the city still appears when the maps say."""
+    from pyproj import Transformer
+
+    from common import NYC_CRS
+    from nyc_predecessors import extent_snapshots
+    rows, cols = g["rows"], g["cols"]
+    out = np.full((rows, cols), np.nan, np.float32)
+    try:
+        snaps, _ = extent_snapshots()
+    except Exception as e:  # noqa: BLE001
+        log(f"terrain: extent snapshots not used ({e})")
+        return out
+    tr = Transformer.from_crs(NYC_CRS, 3857, always_xy=True)
+    h = h01_grid(rows, cols, salt=11, block=4).astype(np.float32)
+    for series in snaps.values():
+        prev = None
+        for year, poly in series:
+            pm = shapely.transform(poly, lambda c: np.column_stack(tr.transform(c[:, 0], c[:, 1])))
+            m = rasterize_on(g, [(pm, 1)], fill=0, dtype="uint8").astype(bool) & np.isnan(out)
+            lo = prev if prev is not None else year - 20.0
+            out[m] = lo + (year - lo) * h[m]
+            prev = year
+    return out
 
 
 def park_layers(g, urban_fill):
@@ -452,7 +484,14 @@ def histories(name, g, d, land_only=False):
     land_year, N, extra, reservoirs = fill_layers(name, g, N, land_now, lake_now, urban_y, (land_now & (wc == 90)) | stream, known)
     if land_only:
         return land_year
-    park_y, is_park, big_green = park_layers(g, urban_fill)
+    # undated greens take the year of the buildings standing around them today (a housing
+    # estate's lawns are as old as the estate, not as the tenements it replaced)
+    urban_now_y, _ = building_evidence(g, standing_only=True)
+    now_ok = np.isfinite(urban_now_y)
+    urban_now_fill = nearest_fill(np.where(now_ok, urban_now_y, 0).astype(np.float32), now_ok) if now_ok.any() else urban_fill
+    del urban_now_y, now_ok
+    park_y, is_park, big_green = park_layers(g, urban_now_fill)
+    ext_y = extent_years(g)
     # slope (rise over run) for "too steep to plough"
     cell_m = g["res"] * 0.758
     gy, gx = np.gradient(elev, cell_m)
@@ -464,6 +503,8 @@ def histories(name, g, d, land_only=False):
     is_city = land_now & ~is_park & (built | ((wc == 50) & near_built) | (wc == 50))
     suburb = is_city & (bcover < 0.22) & (ndimage.uniform_filter(np.isin(wc, [10, 30]).astype(np.float32), 5) > 0.35)
     city_y = np.where(built, urban_y, urban_fill).astype(np.float32)
+    # the extent snapshots fill gaps: built-up ground is city no later than the maps show it
+    city_y = np.fmin(city_y, ext_y).astype(np.float32)
     open_grass = land_now & ~is_park & ~is_city & np.isin(wc, [30, 40, 60])
     wooded_now = land_now & (wc == 10) & ~is_city
     # woods that were never cleared: today's tree cover in big greens and on steep ground
@@ -518,6 +559,11 @@ def histories(name, g, d, land_only=False):
             else:
                 is_city &= ~m      # the field is still a field: pavement and terminals are drawn on it
                 open_grass &= ~m
+    # a park made where the city already stood (a cleared tenement block, an estate's grounds):
+    # city ground first — buildings stood there well before, or the maps show it built up
+    # a generation earlier
+    was_y = np.fmin(np.where(urban_y < park_y - 5.0, urban_y, np.nan), np.where(ext_y < park_y - 25.0, ext_y, np.nan))
+    event(is_park & land_now & np.isfinite(was_y), URBAN, np.fmax(was_y, ground_y + 0.5))
     # city ground
     event(is_city & ~suburb, URBAN, np.fmax(city_y, ground_y + 0.5))
     event(is_city & suburb, SUBURB, np.fmax(city_y, ground_y + 0.5))
