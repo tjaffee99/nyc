@@ -37,10 +37,14 @@ def read_set(path):
     polys = []
     for f in range(n):
         a, b = st[f], st[f + 1]
-        # outer ring: up to the first ring-end marker
-        e = a + int(np.argmax(valid[a:b] == 0)) + 1
-        xy = np.cumsum(pos[a:e], axis=0) * 1e-7 + (ox, oy)
-        polys.append(shapely.Polygon(xy) if len(xy) >= 4 else None)
+        xy = np.cumsum(pos[a:b], axis=0) * 1e-7 + (ox, oy)
+        # rings end at the ring-end markers: the first is the outline, the rest are courtyards
+        ends = np.nonzero(valid[a:b] == 0)[0] + 1
+        rings = [xy[s0:e0] for s0, e0 in zip(np.r_[0, ends[:-1]], ends) if e0 - s0 >= 4]
+        try:
+            polys.append(shapely.Polygon(rings[0], rings[1:]) if rings else None)
+        except Exception:  # noqa: BLE001
+            polys.append(None)
     return {"start": c["start_year"].astype(float), "end": c["end_year"].astype(float), "height": c["height"].astype(float),
             "base": c["base"].astype(float), "conf": c["confidence"], "fid": c["fid"], "poly": np.array(polys, dtype=object)}
 
@@ -50,6 +54,7 @@ def main():
     files = [f for f in files if f.exists()]
     start, end, conf = [], [], []
     overlaps = 0
+    standing_pairs = 0
     checked = 0
     worst = []
     for f in files:
@@ -67,6 +72,11 @@ def main():
         both = (np.maximum(st[i], st[j]) + 0.5 < np.minimum(en[i], en[j]))
         stacked = (base[i] >= base[j] + h[j] - 1.0) | (base[j] >= base[i] + h[i] - 1.0)
         bad = both & ~stacked
+        # (two footprints of today's data, one inside the other, are the city's own outlines:
+        # a shed inside a yard outline, a penthouse traced apart — counted separately)
+        standing = bad & (en[i] > 9000) & (en[j] > 9000)
+        standing_pairs += int(standing.sum())
+        bad &= ~standing
         overlaps += int(bad.sum())
         checked += len(polys)
         if bad.any() and len(worst) < 12:
@@ -91,6 +101,7 @@ def main():
         "vanished": int((end < 9000).sum()),
         "spike_years": spikes,
         "overlapping_pairs": overlaps, "overlap_examples": worst, "checked_for_overlap": checked,
+        "nested_standing_pairs": standing_pairs,
         "standing_by_year": {str(t): int(((start <= t) & (end > t)).sum()) for t in (1650, 1700, 1750, 1800, 1850, 1875, 1900, 1925, 1950, 1975, 2000, 2026)},
     }
     p = INTERIM / "reports" / "audit.json"
@@ -98,7 +109,7 @@ def main():
     p.write_text(json.dumps(out, indent=1))
     log(f"audit: {out['buildings']} buildings in {out['files']} files; confidence {out['confidence']}; "
         f"start>=end {out['start_ge_end']}; out of range {out['out_of_range']}; spike years {[s['year'] for s in spikes]}; "
-        f"overlapping pairs {overlaps} of {checked} checked; standing {out['standing_by_year']}")
+        f"overlapping pairs {overlaps} of {checked} checked (+ {standing_pairs} nested pairs in today's footprints); standing {out['standing_by_year']}")
     if out["start_ge_end"] or out["out_of_range"]:
         sys.exit(1)
 

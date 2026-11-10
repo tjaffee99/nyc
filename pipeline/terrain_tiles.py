@@ -195,12 +195,23 @@ def natural_cover(name, g, d, land_now, lake_now):
             f"({ {c: int((N[known] == NATURAL[c]).sum()) for c in NATURAL_ORDER} })")
     else:
         log(f"terrain {name}: no data/manual/natural/natural_1609.geojson yet - today's shoreline, forest on dry land")
+    # streams that are gone or buried (data/manual/natural/streams_1609.geojson): one cell wide
+    # on dry land, until the city or a park takes the ground
+    stream = np.zeros((rows, cols), bool)
+    sp = MANUAL / "natural" / "streams_1609.geojson"
+    if sp.exists():
+        st = gpd.read_file(sp).to_crs(3857)
+        st = st[st.geometry.notna() & ~st.geometry.is_empty]
+        stream = rasterize_on(g, [(geom, 1) for geom in st.geometry], fill=0, dtype="uint8").astype(bool)
+        stream &= land_now & ~np.isin(N, list(WET | {WETLAND}))
+        N[stream] = RESERVOIR
+        log(f"terrain {name}: {int(stream.sum())} stream cells from {len(st)} lines")
     # open water far from the 1609 shore, or deep today, is deep water
     wet = np.isin(N, [SHALLOW, DEEP])
     dist = ndimage.distance_transform_edt(wet) * g["res"] * 0.758
     shallow_dem = np.isfinite(d["elev"]) & (d["elev"] > -3.0)
     N[wet & (dist > 350) & ~shallow_dem] = DEEP
-    return N, known
+    return N, known, stream
 
 
 # precise rings whose inland edge only approximates the old shore: the 1609 layer wins there
@@ -434,10 +445,11 @@ def histories(name, g, d, land_only=False):
     land_now, lake_now = land_now_mask(g)
     boro = borough_raster(g)
     urban_y, bcover = building_evidence(g)
-    N, known = natural_cover(name, g, d, land_now, lake_now)
+    N, known, stream = natural_cover(name, g, d, land_now, lake_now)
     built = np.isfinite(urban_y)
     urban_fill = nearest_fill(np.where(built, urban_y, 0).astype(np.float32), built) if built.any() else np.full((rows, cols), 1900.0, np.float32)
-    land_year, N, extra, reservoirs = fill_layers(name, g, N, land_now, lake_now, urban_y, land_now & (wc == 90), known)
+    # (streams are not made land: nothing waits for them, the city simply covers them)
+    land_year, N, extra, reservoirs = fill_layers(name, g, N, land_now, lake_now, urban_y, (land_now & (wc == 90)) | stream, known)
     if land_only:
         return land_year
     park_y, is_park, big_green = park_layers(g, urban_fill)
@@ -498,7 +510,7 @@ def histories(name, g, d, land_only=False):
     N[made_lake] = FOREST
     event(made_lake, RESERVOIR, park_y)
     # woods that grew back on cleared or made ground (not parks: their trees are decorations)
-    regrow = wooded_now & ~is_park & (made | ~np.isin(N, [FOREST]))
+    regrow = wooded_now & ~is_park & ~stream & (made | ~np.isin(N, [FOREST]))
     event(regrow, FOREST, np.fmax(ground_y + 25.0, 1900.0 + 60.0 * h))
     # today's marsh on ground that was open water in 1609 (accretion, restored marsh)
     event(land_now & (wc == 90) & np.isin(N, [SHALLOW, DEEP]) & ~made, MARSH, 1900.0 + 60.0 * h)

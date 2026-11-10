@@ -166,36 +166,50 @@ def overlaps(a_geoms, b_gdf):
     return ii[keep], jj[keep], inter[keep]
 
 
+PLACE_BORO = {"manhattan": "1", "bronx": "2", "brooklyn": "3", "williamsburgh": "3", "queens": "4", "staten_island": "5"}
+# the fires' days (the outlines in data/manual/extents/fire_<year>.geojson are estimated from text)
+FIRE_DATES = {1776: 1776.72, 1835: 1835.96, 1845: 1845.55}
+
+
 def extent_snapshots():
-    """[(year, polygon)] of the built-up extent snapshots and [(year, polygon)] of the fires."""
+    """({borough code: [(year, polygon)]}, [(decimal year, polygon)] of the fires). The
+    snapshots of one borough and year (Brooklyn and Williamsburgh 1836) are one polygon."""
     d = MANUAL / "extents"
-    snaps, fires = [], []
+    per, fires = {}, []
     for f in sorted(d.glob("*_[0-9][0-9][0-9][0-9].geojson")) if d.exists() else []:
         try:
             g = gpd.read_file(f).to_crs(UTM)
             poly = shapely.union_all(list(g.geometry.buffer(0)))
-            year = int(f.stem.split("_")[-1])
-            if f.name.startswith("fire_"):
-                # a fire carries its date in the properties when known (decimal year), else mid-year
-                when = float(g["date"].iloc[0]) if "date" in g and pd.notna(g["date"].iloc[0]) else year + 0.5
-                fires.append((when, poly))
-            else:
-                snaps.append((year, poly))
+            place, year = f.stem.rsplit("_", 1)
+            year = int(year)
+            if place == "fire":
+                fires.append((FIRE_DATES.get(year, year + 0.5), poly))
+            elif place in PLACE_BORO:
+                per.setdefault(PLACE_BORO[place], {}).setdefault(year, []).append(poly)
         except Exception as e:  # noqa: BLE001
             log(f"predecessors: skip {f.name} ({e})")
-    return sorted(snaps, key=lambda s: s[0]), sorted(fires, key=lambda s: s[0])
+    snaps = {b: sorted((y, shapely.union_all(ps)) for y, ps in ys.items()) for b, ys in per.items()}
+    return snaps, sorted(fires, key=lambda s: s[0])
 
 
-def extent_bounds(xy, snaps):
-    """Per site: the last snapshot year that leaves it out (lo) and the first that has it (hi)."""
+def extent_bounds(xy, boro, snaps):
+    """Per site, from its own borough's snapshots: the last year that leaves it out (lo) and
+    the first that has it (hi). NaN where the borough has no snapshot (or none before / after)."""
     lo = np.full(len(xy), np.nan)
     hi = np.full(len(xy), np.nan)
     pts = shapely.points(xy)
-    for year, poly in snaps:
-        shapely.prepare(poly)
-        inside = shapely.contains(poly, pts)
-        hi[inside & np.isnan(hi)] = year
-        lo[~inside & np.isnan(hi)] = year
+    for b, series in snaps.items():
+        sel = np.asarray(boro) == b
+        if not sel.any():
+            continue
+        lo_b = np.full(int(sel.sum()), np.nan)
+        hi_b = np.full(int(sel.sum()), np.nan)
+        for year, poly in series:
+            shapely.prepare(poly)
+            inside = shapely.contains(poly, pts[sel])
+            hi_b[inside & np.isnan(hi_b)] = year
+            lo_b[~inside & np.isnan(hi_b)] = year
+        lo[sel], hi[sel] = lo_b, hi_b
     return lo, hi
 
 
@@ -303,13 +317,14 @@ def add_predecessors(g):
         # (not from a map of the same survey years: tracing differences are not new buildings)
         prev_map = np.where(np.isfinite(d[:, 3]) & (y <= my - SAME_SURVEY), y, prev_map)
     snaps, fires = extent_snapshots()
-    lo, hi = extent_bounds(xy, snaps)
+    lo, hi = extent_bounds(xy, v.boro.values, snaps)
     start = np.where(np.isfinite(prev_map), prev_map + 0.5 + (my - prev_map - 1.0) * hk, np.nan)
     # (a snapshot only a few years older than the map is no lower bound: the outlines are
     # generalised and leave scattered houses out — keep at least a 15-year window)
     a = np.maximum(np.maximum(np.where(np.isfinite(lo), np.minimum(lo, my - 15.0), my - 30.0), my - 60.0), SETTLED)
     b = np.maximum(my - 1.0, a + 0.5)
-    has_hi = np.isfinite(hi) & (hi < b) & (hi > a)
+    # (a snapshot within 5 years of the map cannot separate a first building from a rebuild)
+    has_hi = np.isfinite(hi) & (hi < b - 5.0) & (hi > a)
     first_gen = has_hi & (h3 < 0.55)
     est = np.where(first_gen, a + (hi - a) * hk, np.where(has_hi, hi + (b - hi) * hk, a + (b - a) * np.sqrt(hk)))
     start = np.where(np.isnan(start), est, start)
@@ -319,8 +334,10 @@ def add_predecessors(g):
 
     # ---- end
     i3, j3, it3 = overlaps(v.geometry.values, gu)
-    ov = pd.DataFrame({"i": i3, "j": j3, "f": it3 / v["area"].values[i3], "tstart": gu.start.values[j3]})
-    t_today = ov[ov.f >= 0.3].groupby("i").tstart.min().reindex(range(n)).values.astype(float)
+    ov = pd.DataFrame({"i": i3, "j": j3, "f": it3 / v["area"].values[i3], "fb": it3 / gu["area"].values[j3],
+                       "tstart": gu.start.values[j3]})
+    # today's building took the spot: it covers a good part of the old outline, or lies mostly inside it
+    t_today = ov[(ov.f >= 0.3) | (ov.fb >= 0.5)].groupby("i").tstart.min().reindex(range(n)).values.astype(float)
     end = t_today - 0.8 - 1.2 * hsh2
     rb = v.repl_by.values.astype(float)
     by_map = v.last_seen.values + 1.0 + (rb - v.last_seen.values - 1.5) * hsh2
@@ -356,6 +373,11 @@ def add_predecessors(g):
     end = np.maximum(end, v.last_seen.values + 0.5 + 3.0 * hsh2)
     edoc = v.end_doc.values.astype(float)
     end = np.where(np.isfinite(edoc), edoc, end)
+    # a documented building never outlasts the start of the building standing on its spot today;
+    # one that starts no earlier than today's building is that building under an old name
+    is_doc_ = v.cls.values == "documented"
+    clash = is_doc_ & np.isfinite(t_today) & (end > t_today - 0.5)
+    end = np.where(clash, t_today - 0.5, end)
     # today's building there is recorded as older than the last map: the outline is that building drawn differently
     conflict = np.isfinite(t_today) & (t_today <= v.last_seen.values + 0.5) & (v.cls.values == "traced")
     start = np.where(documented_start, start, np.minimum(start, end - 1.0))
@@ -392,7 +414,7 @@ def add_predecessors(g):
     out = out.assign(height=out.height_m.values + (gmean - gmin) + 1.0, base=gmin - 1.0).drop(columns=["rank"])
     log(f"predecessors: + {len(out)} vanished structures ({int((out.year_src == 'ohm_documented').sum())} documented, "
         f"{int((out.year_src == 'generated').sum())} generated; "
-        f"{int(conflict.sum())} dropped as redrawn standing buildings; snapshots {len(snaps)}, fires {len(fires)}); "
+        f"{int(conflict.sum())} dropped as redrawn standing buildings; snapshots {sum(len(v_) for v_ in snaps.values())}, fires {len(fires)}); "
         f"start {np.percentile(out.start_year, [5, 50, 95]).round(0).tolist()}, end {np.percentile(out.end_year, [5, 50, 95]).round(0).tolist()}; "
         f"standing 1660 {int(((out.start_year <= 1660) & (out.end_year > 1660)).sum())}, 1750 {int(((out.start_year <= 1750) & (out.end_year > 1750)).sum())}, "
         f"1850 {int(((out.start_year <= 1850) & (out.end_year > 1850)).sum())}")
@@ -480,8 +502,9 @@ def generate_earlier(out, snaps, fires):
         return out.iloc[0:0]
     cen = lots.geometry.representative_point()
     xy = np.column_stack([cen.x.values, cen.y.values])
-    lo, hi = extent_bounds(xy, snaps)
-    first_snap = snaps[0][0]
+    lo, hi = extent_bounds(xy, lots.boro.values, snaps)
+    first_of = {b: series[0][0] for b, series in snaps.items()}
+    first_snap_arr = np.array([first_of.get(b, np.nan) for b in lots.boro.values])
     pts = shapely.points(xy)
     fire_at = []
     for when, poly in fires:
@@ -494,7 +517,7 @@ def generate_earlier(out, snaps, fires):
         hk, hr = h01(f"g{ids[k]}"), h01(f"r{ids[k]}")
         # first built on between the snapshot without the block and the first with it; before
         # the earliest snapshot, during the 35 years before it (and never before the settlement)
-        a = lo[k] if np.isfinite(lo[k]) else max(first_snap - 35.0, SETTLED)
+        a = lo[k] if np.isfinite(lo[k]) else max(first_snap_arr[k] - 35.0, SETTLED)
         first_built = max(a + (hi[k] - a) * h01(f"f{ids[k]}"), SETTLED)
         cur, gen_i = s1[k], 0
         while cur > first_built + 4.0 and gen_i < 6:

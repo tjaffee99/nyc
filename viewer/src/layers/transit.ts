@@ -69,6 +69,8 @@ let texData: Float32Array | null = null;
 let texH = 0;
 let instances: {n: number; attrs: Record<string, {value: Float32Array; size: number}>; rand: Float32Array; train: Int32Array; veh: string[]; lineColor: Uint8Array} | null = null;
 let stationMesh: MergedLandmarks | null = null;
+/** first year any line runs (no trains are drawn before it) */
+let firstYear = 1860;
 export let stations: Station[] = [];
 
 export async function loadTransit() {
@@ -95,6 +97,7 @@ function hex(c: string): [number, number, number] {
 }
 
 function build(lines: Line[], vehicles: Record<string, Vehicle>) {
+  firstYear = lines.reduce((m, l) => Math.min(m, l.year.reduce((a, b) => Math.min(a, b), 9999)), 9999);
   // texture: per vertex 2 texels [x, y, z, cum] [year, tunnel, half, 0]; per knot 1 texel
   let texels = 0;
   for (const l of lines) texels += l.lon.length * 2 + l.knots.length;
@@ -192,9 +195,17 @@ const PCC = [
 function livery(veh: string, r: number, year: number, train: number): [number[], number[]] {
   const f = (a: number, b: number) => Math.min(1, Math.max(0, (year - a) / (b - a)));
   switch (veh) {
+    // New York subway cars (keys from pipeline/transit.py: 'bart' = B Division, 'ebart' = A
+    // Division, 'el' = the elevated lines' wooden cars). Approximate fleet colours by era
+    // (procedural): dark olive painted steel; stainless steel from 1964, the whole fleet by
+    // about 1990; the IRT's deep-red "Redbirds" 1984-2003.
     case 'bart':
-      return r < f(2018.0, 2024.7) ? [[230, 232, 235], [38, 96, 172]] : [[192, 196, 200], [56, 62, 74]];
+      return r < f(1964, 1990) ? [[196, 199, 202], [52, 56, 64]] : [[70, 74, 62], [36, 38, 36]];
     case 'ebart':
+      if (year >= 1984 && year < 2003.9 && r < 0.55 * (1 - f(1999, 2003.9))) return [[128, 38, 36], [32, 30, 30]];
+      return r < f(1964, 1990) ? [[196, 199, 202], [52, 56, 64]] : [[70, 74, 62], [36, 38, 36]];
+    case 'el':
+      return [[84, 70, 50], [196, 180, 140]];
     case 'cable_liner':
       return [[234, 236, 238], [38, 96, 172]];
     case 'lrv':
@@ -283,7 +294,8 @@ function buildStations(lines: Line[]): MergedLandmarks | null {
     }
     const half = l.half[best];
     const zt = l.z[best];
-    const len = s.veh === 'bart' ? 213 : s.veh === 'ebart' ? 110 : 40;
+    // platform length from the data (subway B Division 183 m, A Division 160 m, elevated 61 m …)
+    const len = (s as any).platform ?? (s.veh === 'bart' ? 183 : s.veh === 'ebart' ? 160 : 60);
     const b = new MeshBuilder();
     b.frame(0, 0, 0, s.heading, () => {
       const island = half > 3.4;
@@ -344,7 +356,7 @@ export function transitLayers(year: number, zoom: number): Layer[] {
       }) as any
     );
   live = [];
-  if (!instances?.n || !texData || year < 1972) {
+  if (!instances?.n || !texData || year < firstYear) {
     return out;
   }
   const visible = zoom >= 11.5;

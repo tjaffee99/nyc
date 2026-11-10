@@ -153,12 +153,41 @@ Not yet ported from the Bay copy (kept as reference, they do not run): `sf_prede
    wooded big parks stay forest. `estimated`; no farmsteads are generated.
 7. **The forest of 1609 is drawn** (procedural tree positions in real forest cells, each tree
    gone when its cell is cleared); today's trees stand on real WorldCover canopy pixels.
-8. **What stood before** (`nyc_predecessors.py`): NYPL Building Inspector footprints (Perris
-   1857 Manhattan to ~86th St, 1855 Brooklyn, 1890 / 1894 atlases). Outline and wall material
-   are real; start, end and storeys are estimated by the rules in the docstring. A traced
-   outline that coincides with a standing building is that building (re-dated to before its
-   atlas if its own year was only an estimate).
+8. **What stood before** (`nyc_predecessors.py`, rules in its docstring). Evidence order:
+   documented lost buildings (OpenHistoricalMap rows with their own end date) > traced map
+   layers > generated. Traced layers: NYPL Building Inspector (Perris 1857 Manhattan to
+   ~86th St, 1855 Brooklyn, 1890 / 1894 atlases), NYPL's 1854 footprints to 42nd St and
+   volunteers' tracings via OHM (Castello Plan 1660, the 1728 survey, Grim 1742, Maerschalck
+   1755, Dripps 1852, Sanborn, Bromley). Outline and wall material are real; start, end and
+   storeys are estimated. A traced outline that coincides with a standing building is that
+   building (re-dated to before its map if its own year was only an estimate). The traced
+   layers are incomplete, so absence from a later map is never evidence of demolition; only
+   1660 and 1854 count as complete. OHM's dates are used only where its importer
+   (`ohm_nyc.py`) found them specific to the building — most are stamps.
+   **Before the first atlases** the town is generated (`procedural`): on the outlines of the
+   1852-57 atlases (standing in for the lots), inside the built-up extent snapshots
+   (`data/manual/extents`), backwards in generations of 45-105 years, thinned so the number
+   standing follows the census counts (persons per building 4.5 in 1660 to 13.5 in 1850).
+   Above 86th St and outside downtown Brooklyn nothing vanished is drawn yet.
 9. **Built data is not committed.** `make data` rebuilds it (about 20 minutes after the
    downloads); `make deploy` ships it. Only `data/manual`, `data/tables`, `data/research` are
    precious.
 10. **First view:** Manhattan from the harbour at bearing 29° (the avenues run up the screen).
+11. **Made land** (`data/manual/fill_zones.csv`, rules in `fill_README.md`, applied by
+    `terrain_tiles.fill_layers`): made land = today's land that the 1609 layer says was
+    water, marsh or pond. Coarse zones only date it; precise zones (Lower Manhattan's bands
+    along Pearl / Water / Front / South and Greenwich / Washington / West streets, Battery
+    Park City …) are painted as drawn. Precise beats coarse, then the earliest end wins;
+    land grows outward across a zone's years; made land without a zone appears four years
+    before the buildings around it. Reservoirs have lifespans; Thirteenth Avenue is filled
+    and cut back. Buildings on made land never predate it (LPC and researched dates stand).
+12. **The 1609 layer** (`data/manual/natural/`): tidal marsh, flats, ponds, wetlands, old
+    shoreline and 428 km of vanished streams from the NRCS soil survey, the 1891-98 USGS
+    sheets and Viele's 1865 map. Dry land without evidence is forest. Streams are one terrain
+    cell wide (29 m: a stylisation) and last until the city or a park takes the ground.
+13. **Click popups say where a year comes from** (`Evidence`: LPC, city record, assessor's
+    rounded year, atlas, OpenHistoricalMap, generated) and name named buildings.
+14. **Population counter**: the borough under the map centre when zoomed in, else the five
+    boroughs' area; before the first census of the area (1698) the town on Manhattan
+    ("New Amsterdam" until September 1664), before 1626 the Lenape estimate.
+

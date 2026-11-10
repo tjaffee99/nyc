@@ -1,7 +1,7 @@
 # Skyscraper landmarks — dimensions, sources, estimates and checks
 
 Research notes for `viewer/src/landmarks/nyc-towers.ts` (`TOWERS`) and `data/tables/landmarks_towers.csv`:
-38 landmark models of the towers that stand today. Written by the towers agent; regenerate with
+46 landmark models of the towers that stand today. Written by the towers agent; regenerate with
 `data/interim/landmarks_towers/make_docs.py` after `check.py` (both scratch tools, not part of the pipeline).
 
 ## How the models are made
@@ -47,7 +47,7 @@ Quotations in the notes are from the cached texts. LPC text is OCR; numbers quot
    OSM parts at that level. Differences come from cited dimensions overriding OSM, clipping to the official
    outline, sloped OSM roofs (which the area test treats as flat) and cantilevers above.
 
-All 38 models pass 1 and 2. Results below were produced on 2026-11-10.
+All 46 models pass 1 and 2. Results below were produced on 2026-11-10.
 
 ## Summary
 
@@ -60,9 +60,17 @@ All 38 models pass 1 and 2. Results below were produced on 2026-11-10.
 | woolworth_building | 241.4 | 241.4 | 2224 | 2226 | +0.1 % | 0.0 | 1910.84–1913.31 |
 | flatiron_building | 93.6 | 93.6 | 1019 | 1014 | -0.6 % | 0.0 | 1901.45–1902.75 |
 | rockefeller_30 | 259.1 | 259.1 | 9137 | 9140 | +0.0 % | 0.0 | 1931.6–1933.35 |
+| rockefeller_international_building | 156.1 | 156.1 | 5075 | 5076 | +0.0 % | 0.0 | 1933.5–1935.33 |
+| rockefeller_plaza_1 | 149.0 | 149.0 | 1625 | 1624 | -0.1 % | 0.0 | 1936.5–1937.9 |
+| rockefeller_1270_sixth | 124.7 | 124.7 | 2297 | 2295 | -0.1 % | 0.0 | 1931.7–1932.9 |
+| rockefeller_plaza_10 | 69.5 | 69.5 | 5447 | 5448 | +0.0 % | 0.0 | 1939.5–1940.9 |
+| rockefeller_plaza_50 | 69.5 | 69.5 | 3324 | 3325 | +0.0 % | 0.0 | 1937.5–1938.9 |
+| rockefeller_british_empire_building | 38.4 | 38.4 | 1261 | 1260 | -0.1 % | 0.0 | 1932.3–1933.5 |
+| rockefeller_maison_francaise | 38.4 | 38.4 | 1255 | 1257 | +0.2 % | 0.0 | 1932.3–1933.5 |
+| radio_city_music_hall | 35.0 | 35.0 | 4270 | 4270 | +0.0 % | 0.0 | 1931.9–1932.99 |
 | wtc_7 | 226.5 | 226.5 | 3002 | 3002 | +0.0 % | 0.0 | 2002.35–2006.39 |
 | wtc_3 | 328.9 | 328.9 | 5262 | 5288 | +0.5 % | 0.2 | 2008.05–2018.44 |
-| wtc_4 | 298.1 | 297.7 | 4547 | 4545 | -0.0 % | 0.0 | 2008.05–2013.87 |
+| wtc_4 | 297.7 | 297.7 | 4547 | 4545 | -0.0 % | 0.0 | 2008.05–2013.87 |
 | metlife_tower | 213.4 | 213.4 | 564 | 563 | -0.1 % | 0.0 | 1907–1909.5 |
 | wall_40 | 282.5 | 282.5 | 3011 | 3007 | -0.1 % | 0.0 | 1929.35–1930.33 |
 | pine_70 | 290.2 | 290.2 | 2910 | 2909 | -0.1 % | 0.0 | 1930.37–1932.37 |
@@ -84,7 +92,7 @@ All 38 models pass 1 and 2. Results below were produced on 2026-11-10.
 | un_secretariat | 153.9 | 153.9 | 1805 | 1810 | +0.3 % | 0.0 | 1948.7–1951.45 |
 | un_general_assembly | 32.0 | 32.0 | 18841 | 19091 | +1.3 % | 0.5 | 1950.1–1952.78 |
 | lever_house | 93.6 | 93.6 | 2835 | 2857 | +0.8 % | 0.0 | 1950.5–1952.33 |
-| seagram_building | 157.3 | 157.0 | 2892 | 2894 | +0.1 % | 0.0 | 1955.7–1958.39 |
+| seagram_building | 157.0 | 157.0 | 2892 | 2894 | +0.1 % | 0.0 | 1955.7–1958.39 |
 | metlife_building | 246.3 | 246.3 | 10016 | 10011 | -0.0 % | 0.0 | 1960.9–1963.18 |
 | municipal_building | 176.8 | 176.8 | 4335 | 4333 | -0.1 % | 0.0 | 1909.54–1914.5 |
 | park_row_building | 119.2 | 119.2 | 1246 | 1245 | -0.0 % | 0.0 | 1896.8–1899.55 |
@@ -230,6 +238,126 @@ All 38 models pass 1 and 2. Results below were produced on 2026-11-10.
 - **Check:** top 259.1 m vs cited 259.1 m (+0.0); wall outline at 0.6 m 9140 m² vs official 9137 m² (+0.0 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 254.4 m; hides BIN 1076262.
 - **Set-back check** (plan area in m² above the middle of each OSM level, OSM / model): 0-10 m: 9016 / 9151; 10-20 m: 7443 / 7470; 20-40 m: 7026 / 7041; 40-43 m: 6593 / 6606; 43-45 m: 4038 / 6606; 45-70 m: 3983 / 3987; 70-125 m: 2796 / 2799; 125-133 m: 2728 / 2734; 133-175 m: 2680 / 2734; 175-190 m: 2596 / 2606; 190-220 m: 2553 / 2606; 220-235 m: 2455 / 2465; 235-245 m: 2367 / 2377; 245-260 m: 1347 / 1378.
 
+### International Building (Rockefeller Center) (`rockefeller_international_building`)
+
+- **Anchor** [-73.977617, 40.75914]; **built** 1933.5 – 1935.33; **kind** building.
+- **Sources:** https://en.wikipedia.org/wiki/International_Building_(Rockefeller_Center); city footprint BIN 1083860; OSM parts; https://www.skyscrapercenter.com/city/new-york-city (CTBUH, embedded building table).
+- **Cited dimensions and dates:**
+  - roof 512 ft (156.1 m), 41 floors, completed 1 May 1935 — Wikipedia infobox
+  - CTBUH Skyscraper Center ("International Building", id 3602): architectural 156.06 m, tip 156.06 m, roof 156.06 m, highest occupied floor —, observatory —; floors 41; start 1933, completed 1935
+- **Measured (footprint / OSM parts):**
+  - official footprint 5,075 m²: the tower and the two six-storey wings on Fifth Avenue
+  - OSM part tops 8, 17, 20, 25, 28, 35, 60, 110, 145, 156 m with their outlines
+- **Estimated or simplified:**
+  - `built` starts at 1933.5 (year from CTBUH)
+- **Check:** top 156.1 m vs cited 156.1 m (+0.0); wall outline at 0.6 m 5076 m² vs official 5075 m² (+0.0 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 155.9 m; hides BIN 1083860.
+- **Set-back check** (plan area in m² above the middle of each OSM level, OSM / model): 0-8 m: 5075 / 5288; 8-17 m: 4877 / 4881; 17-20 m: 4694 / 4702; 20-25 m: 4245 / 4253; 25-28 m: 2915 / 2940; 28-35 m: 2569 / 2573; 35-60 m: 2357 / 2362; 60-110 m: 2285 / 2290; 110-145 m: 2212 / 2217; 145-156 m: 1687 / 1686.
+
+### 1 Rockefeller Plaza (Time & Life Building of 1937) (`rockefeller_plaza_1`)
+
+- **Anchor** [-73.978904, 40.757989]; **built** 1936.5 – 1937.9; **kind** building.
+- **Sources:** https://en.wikipedia.org/wiki/1_Rockefeller_Plaza; city footprint BIN 1077286; OSM parts; https://www.skyscrapercenter.com/city/new-york-city (CTBUH, embedded building table).
+- **Cited dimensions and dates:**
+  - "Completed in 1937" — Wikipedia
+  - CTBUH Skyscraper Center ("One Rockefeller Plaza", id 9810): architectural 149 m, tip 149 m, roof 149 m, highest occupied floor —, observatory —; floors 34; start 1936, completed 1937
+- **Measured (footprint / OSM parts):**
+  - official footprint 1,625 m² (the city records 128.9 m for it)
+  - OSM part tops 25, 29, 138, 149 m with their outlines
+- **Estimated or simplified:**
+  - `built` 1936.5–1937.9: years only
+- **Check:** top 149.0 m vs cited 149.0 m (+0.0); wall outline at 0.6 m 1624 m² vs official 1625 m² (-0.1 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 128.8 m; hides BIN 1077286.
+- **Set-back check** (plan area in m² above the middle of each OSM level, OSM / model): 0-25 m: 1285 / 1641; 25-29 m: 1106 / 1110; 29-138 m: 935 / 934; 138-149 m: 602 / 601.
+
+### 1270 Avenue of the Americas (RKO Building) (`rockefeller_1270_sixth`)
+
+- **Anchor** [-73.979837, 40.760062]; **built** 1931.7 – 1932.9; **kind** building.
+- **Sources:** https://en.wikipedia.org/wiki/Rockefeller_Center; city footprint BIN 1083861; OSM parts; https://www.skyscrapercenter.com/city/new-york-city (CTBUH, embedded building table).
+- **Cited dimensions and dates:**
+  - the RKO Building has no article of its own (Wikipedia redirects to Rockefeller Center); height and year are CTBUH's
+  - CTBUH Skyscraper Center ("1270 Avenue of the Americas", id 11606): architectural 124.66 m, tip 124.66 m, roof —, highest occupied floor —, observatory —; floors 31; start —, completed 1932
+- **Measured (footprint / OSM parts):**
+  - official footprint 2,297 m²; city roof 123.7 m
+  - OSM part tops 26, 30, 110, 117, 125 m with their outlines
+- **Estimated or simplified:**
+  - `built` starts at 1931.7: no start date found
+- **Check:** top 124.7 m vs cited 124.7 m (+0.0); wall outline at 0.6 m 2295 m² vs official 2297 m² (-0.1 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 123.7 m; hides BIN 1083861.
+- **Set-back check** (plan area in m² above the middle of each OSM level, OSM / model): 0-26 m: 2297 / 2339; 26-30 m: 2009 / 2009; 30-110 m: 1480 / 1481; 110-117 m: 1216 / 1216; 117-125 m: 523 / 525.
+
+### 10 Rockefeller Plaza (Eastern Air Lines Building) (`rockefeller_plaza_10`)
+
+- **Anchor** [-73.979707, 40.758363]; **built** 1939.5 – 1940.9; **kind** building.
+- **Sources:** https://en.wikipedia.org/wiki/10_Rockefeller_Plaza; city footprint BIN 1077284; OSM parts; https://www.skyscrapercenter.com/city/new-york-city (CTBUH, embedded building table).
+- **Cited dimensions and dates:**
+  - "Completed in 1940" — Wikipedia
+  - CTBUH Skyscraper Center ("10 Rockefeller Plaza", id 17518): architectural 69.5 m, tip 69.5 m, roof —, highest occupied floor —, observatory —; floors 17; start 1939, completed 1940
+- **Measured (footprint / OSM parts):**
+  - official footprint 5,447 m² (slab and the garage block); city roof 67.0 m
+  - OSM part tops 13, 20, 24, 61, 67 m with their outlines; top drawn at the cited 69.5 m
+- **Estimated or simplified:**
+  - `built` 1939.5–1940.9: years only
+- **Check:** top 69.5 m vs cited 69.5 m (+0.0); wall outline at 0.6 m 5448 m² vs official 5447 m² (+0.0 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 67.0 m; hides BIN 1077284.
+- **Set-back check** (plan area in m² above the middle of each OSM level, OSM / model): 0-12 m: 5516 / 5522; 13-18 m: 4050 / 4055; 18-20 m: 3229 / 4055; 20-24 m: 2229 / 2233; 24-61 m: 1296 / 1298; 61-67 m: 927 / 930.
+
+### 50 Rockefeller Plaza (Associated Press Building) (`rockefeller_plaza_50`)
+
+- **Anchor** [-73.978626, 40.759553]; **built** 1937.5 – 1938.9; **kind** building.
+- **Sources:** https://en.wikipedia.org/wiki/50_Rockefeller_Plaza; city footprint BIN 1083859; OSM parts; https://www.skyscrapercenter.com/city/new-york-city (CTBUH, embedded building table).
+- **Cited dimensions and dates:**
+  - "Completed in 1938" — Wikipedia
+  - CTBUH Skyscraper Center ("Bank of America Building", id 11618): architectural 69.49 m, tip —, roof —, highest occupied floor —, observatory —; floors 17; start —, completed 1938
+- **Measured (footprint / OSM parts):**
+  - official footprint 3,324 m²; city roof 73.7 m
+  - OSM part tops 20, 55, 60, 70, 74 m with their outlines; the stack is cut at the cited 69.5 m, which leaves out the 185 m² bulkhead
+- **Estimated or simplified:**
+  - `built` starts at 1937.5: no start date found
+- **Check:** top 69.5 m vs cited 69.5 m (+0.0); wall outline at 0.6 m 3325 m² vs official 3324 m² (+0.0 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 73.7 m; hides BIN 1083859.
+- **Set-back check** (plan area in m² above the middle of each OSM level, OSM / model): 0-20 m: 3324 / 3341; 20-55 m: 1937 / 1941; 55-60 m: 1426 / 1428; 60-70 m: 1104 / 1102; 70-74 m: 185 / 0.
+
+### British Empire Building (`rockefeller_british_empire_building`)
+
+- **Anchor** [-73.977797, 40.758586]; **built** 1932.3 – 1933.5; **kind** building.
+- **Sources:** https://en.wikipedia.org/wiki/British_Empire_Building; city footprint BIN 1075692; OSM parts.
+- **Cited dimensions and dates:**
+  - completed 1933; roof 90 ft (27.4 m) excluding the penthouse; six storeys and a 1½-storey penthouse — Wikipedia infobox
+- **Measured (footprint / OSM parts):**
+  - official footprint about 1,260 m²; the city measures the top at 38.9 / 39.6 m
+  - OSM part tops 20, 25 (main roof), 30, 35 m with their outlines
+- **Estimated or simplified:**
+  - the OSM heights are multiplied by 27.4 / 25 so that the main roof meets the cited 90 ft; the penthouse top then comes to 38.4 m, close to the city's measurement
+  - `built` starts at 1932.3: no start date found
+- **Check:** top 38.4 m vs cited 38.4 m (+0.0); wall outline at 0.6 m 1260 m² vs official 1261 m² (-0.1 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 38.9 m; hides BIN 1075692.
+- **Set-back check** (plan area in m² above the middle of each OSM level, OSM / model): 0-20 m: 1295 / 1260; 20-25 m: 888 / 889; 25-30 m: 424 / 425; 30-35 m: 263 / 425.
+
+### La Maison Française (`rockefeller_maison_francaise`)
+
+- **Anchor** [-73.978023, 40.758277]; **built** 1932.3 – 1933.5; **kind** building.
+- **Sources:** https://en.wikipedia.org/wiki/La_Maison_Francaise_(Rockefeller_Center); city footprint BIN 1082656; OSM parts.
+- **Cited dimensions and dates:**
+  - completed 1933; roof 90 ft (27.4 m) excluding the penthouse; six storeys and a 1½-storey penthouse — Wikipedia infobox
+- **Measured (footprint / OSM parts):**
+  - official footprint about 1,260 m²; the city measures the top at 38.9 / 39.6 m
+  - OSM part tops 20, 25 (main roof), 30, 35 m with their outlines
+- **Estimated or simplified:**
+  - the OSM heights are multiplied by 27.4 / 25 so that the main roof meets the cited 90 ft; the penthouse top then comes to 38.4 m, close to the city's measurement
+  - `built` starts at 1932.3: no start date found
+- **Check:** top 38.4 m vs cited 38.4 m (+0.0); wall outline at 0.6 m 1257 m² vs official 1255 m² (+0.2 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 39.6 m; hides BIN 1082656.
+- **Set-back check** (plan area in m² above the middle of each OSM level, OSM / model): 0-20 m: 1305 / 1257; 20-25 m: 888 / 890; 25-30 m: 425 / 425; 30-35 m: 263 / 425.
+
+### Radio City Music Hall (`radio_city_music_hall`)
+
+- **Anchor** [-73.979276, 40.759826]; **built** 1931.9 – 1932.99; **kind** building.
+- **Sources:** https://en.wikipedia.org/wiki/Radio_City_Music_Hall; city footprint BIN 1083862; OSM parts.
+- **Cited dimensions and dates:**
+  - opened 27 Dec 1932 — Wikipedia
+- **Measured (footprint / OSM parts):**
+  - official footprint 4,270 m²; city roof 35.1 m
+  - OSM part tops 30 and 35 m
+- **Estimated or simplified:**
+  - `built` starts at 1931.9: no start date found
+  - no cited height: the model is the OSM massing; marquee not modelled
+- **Check:** top 35.0 m vs cited 35.0 m (+0.0); wall outline at 0.6 m 4270 m² vs official 4270 m² (+0.0 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 35.1 m; hides BIN 1083862.
+- **Set-back check** (plan area in m² above the middle of each OSM level, OSM / model): 0-30 m: 4692 / 4300; 30-35 m: 3517 / 3518.
+
 ### 7 World Trade Center (`wtc_7`)
 
 - **Anchor** [-74.012075, 40.713414]; **built** 2002.35 – 2006.39; **kind** tower.
@@ -277,7 +405,7 @@ All 38 models pass 1 and 2. Results below were produced on 2026-11-10.
 - **Estimated or simplified:**
   - weak spot: the OSM plans (3,281 and 2,547 m²) are about 20 % smaller than the cited floor areas; the OSM outlines are kept
   - the 220 m break is OSM; CTBUH lists a deck at 218.0 m, which supports it (the floor numbers at a uniform storey would give about 190 m)
-- **Check:** top 297.7 m vs cited 298.1 m (-0.4); wall outline at 0.6 m 4545 m² vs official 4547 m² (-0.0 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 298.2 m; hides BIN 1088795.
+- **Check:** top 297.7 m vs cited 297.7 m (+0.0); wall outline at 0.6 m 4545 m² vs official 4547 m² (-0.0 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 298.2 m; hides BIN 1088795.
 - **Set-back check** (plan area in m² above the middle of each OSM level, OSM / model): 0-25 m: 4702 / 4546; 25-220 m: 3281 / 3285; 220-310 m: 2547 / 2512.
 
 ### Metropolitan Life Insurance Company Tower (`metlife_tower`)
@@ -643,7 +771,7 @@ All 38 models pass 1 and 2. Results below were produced on 2026-11-10.
   - wings 20 m, bustle 40 m, slab with its spine (34.7 × 43 m) — OSM parts; top drawn at the cited 157.0 m (OSM 162, city 161.9 m)
 - **Estimated or simplified:**
   - nothing but the colour
-- **Check:** top 157.0 m vs cited 157.3 m (-0.3); wall outline at 0.6 m 2894 m² vs official 2892 m² (+0.1 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 161.8 m; hides BIN 1036465.
+- **Check:** top 157.0 m vs cited 157.0 m (+0.0); wall outline at 0.6 m 2894 m² vs official 2892 m² (+0.1 %), centroid offset 0.0 m, IoU 1.0; city-measured roof 161.8 m; hides BIN 1036465.
 - **Set-back check** (plan area in m² above the middle of each OSM level, OSM / model): 0-20 m: 2915 / 2980; 20-40 m: 2038 / 2043; 40-120 m: 1353 / 1341; 120-162 m: 1338 / 1341.
 
 ### MetLife Building (Pan Am Building) (`metlife_building`)
@@ -759,7 +887,8 @@ All 38 models pass 1 and 2. Results below were produced on 2026-11-10.
 - **Dates.** `built` uses the cited construction start (or ground-breaking) and opening; where only years are
   cited the decimal part is a guess and is listed under "Estimated". 30 Rockefeller Plaza's 1931 start
   year is CTBUH's (steel: March 1932, Wikipedia).
-- **Not modelled:** Rockefeller Center's lower buildings (the generic layer has them), the Chrysler's
+- **Not modelled:** 1230 Avenue of the Americas at Rockefeller Center (its footprint includes the 1955 wing on
+  the Center Theatre's site, so one model would be wrong before 1955; the generic layer has it), the Chrysler's
   triangular crown windows and 24th-floor pineapples, Hearst Tower's chamfered corners, 8 Spruce Street's
   rippled skin, the Municipal Building's central arch.
 - **Not consulted:** architects' drawings; the LPC Rockefeller Center report was downloaded but not mined.

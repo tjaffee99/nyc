@@ -215,7 +215,7 @@ def assign_years(g, pluto, lpc):
         lo = np.maximum(floor[early], YEAR_MIN)
         med = neighbours(early, 12, 150.0, lo, up)
         spread = raw[early] - 25.0 * (1 - np.sqrt(0.7 * hb[early] + 0.3 * hl[early]))
-        year[early] = np.maximum(np.where(np.isfinite(med), med + (hl[early] - 0.5) * 2.0, spread), lo)
+        year[early] = np.maximum(np.where(np.isfinite(med), med + (hl[early] - 0.5) * 5.0, spread), lo)
         year[early] = np.minimum(year[early], up)
         src[early] = np.where(np.isfinite(med), "heap_by+neighbours", "heap_by+spread")
     # later heaps: "about then"
@@ -229,7 +229,8 @@ def assign_years(g, pluto, lpc):
         w0 = np.where(v == 1945, 1945.6, w0)
         w1 = np.where(v == 1945, 1948.5, w1)
         spread = w0 + (w1 - w0) * (0.7 * hb[late] + 0.3 * hl[late])
-        year[late] = np.where(np.isfinite(med), med + (hl[late] - 0.5) * 2.0, spread)
+        # (around the local median, +/- 2.5 years: the median alone stacks a district on one year)
+        year[late] = np.where(np.isfinite(med), np.clip(med + (hl[late] - 0.5) * 5.0, v - 5.0, v + 5.0), spread)
         year[late] = np.maximum(year[late], floor[late])
         src[late] = np.where(np.isfinite(med), "heap_about+neighbours", "heap_about+spread")
     # no year at all: recorded neighbours of a comparable size (a tower is not dated from the houses around it)

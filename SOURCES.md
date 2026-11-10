@@ -49,7 +49,15 @@ layers; each has a README with its own sources.
 | `osm_rail`, `osm_roads` | Rail and road segments | OpenStreetMap via Overture Maps transportation theme, release 2026-10-21.0 | ODbL | Tracks, streets, bridges |
 | `mta_gtfs` | Subway GTFS (stations, shapes) | Metropolitan Transportation Authority — https://www.mta.info/developers | MTA developer terms | Stations and service lines |
 
-Opening and closing dates of lines and stations: `data/tables/transit_*.csv`, each row with its source.
+| `mta_stations` | Subway Stations table | MTA Open Data, data.ny.gov `39hk-dx4f` | MTA / New York State open data terms | Station identifiers and structure |
+| `wikidata` | Opening dates of stations | Wikidata — https://www.wikidata.org | CC0 | Cross-check of station dates |
+| `ohm_rail` | Dated railway ways (subway segments, the demolished elevated lines) | OpenHistoricalMap | CC0 | Geometry of the Ninth, Sixth, Third and Second Avenue and Brooklyn elevated lines; cross-check of opening dates |
+
+Opening and closing dates of lines and stations: `data/tables/transit_*.csv`, each row with its
+source (the Wikipedia station and line articles first, checked against Wikidata and
+OpenHistoricalMap). Demolished elevated lines and closed railroads: `data/manual/transit/`
+(README there). Where no traced line exists an elevated route follows the centre line of the
+street it ran above.
 
 ## Tables and research
 
@@ -66,3 +74,6 @@ A source URL on every row. Readmes: `data/tables/places_README.md`, `data/manual
 | Events, eras, place names, park openings | English Wikipedia articles (URL per row) | CC BY-SA 4.0 (facts and coordinates) |
 | Made-land dates (`data/manual/fill_zones.csv`) | Wikipedia articles; Battery Park City Authority Phase 1A archaeological study; East Side Coastal Resiliency FEIS ch. 5.4 (URL per row); ring coordinates from OpenStreetMap street lines via Overture | Facts; ODbL for the geometry |
 | Landmark dimensions | Wikipedia articles, NIST NCSTAR 1 (World Trade Center), Carstensen & Gildemeister *New York Crystal Palace* (1854), LPC designation data, OpenHistoricalMap outlines (CC0), OpenStreetMap parts (ODbL) — per model in `data/research/landmarks_*.md` | Facts; CC0 / ODbL for outlines |
+| Skyscraper heights and years | CTBUH Skyscraper Center — https://www.skyscrapercenter.com/city/new-york-city ; LPC designation reports https://s-media.nyc.gov/agencies/lpc/lp/NNNN.pdf (2000, 0992, 1273, 0219, 1446, 1530, 1936, 2441, 2582, 1625, 1277, 1664, 0079, 2024, 2067, 0971, 2100) | Facts |
+| Bridge dimensions, tower and pier positions | Wikipedia bridge articles; NYC DOT bridge fact pages; OpenStreetMap `bridge:support` outlines (ODbL) | Facts; ODbL |
+
