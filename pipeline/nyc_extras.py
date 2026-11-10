@@ -383,8 +383,10 @@ def piers():
         return None
     gdf = gpd.GeoDataFrame(out, geometry="geometry", crs=UTM).to_crs(4326)
     gdf["boro"] = boro_of(gdf.geometry.representative_point().values)
-    # piers of the city only (Manhattan's go into the core file with boro "1")
-    gdf = gdf[gdf.boro != ""]
+    # piers inside the map (Manhattan's go into the core file with boro "1"; the New Jersey
+    # shore's, boro "", into the tiles)
+    from extent import in_extent
+    gdf = gdf[in_extent(gdf.geometry.representative_point().values)]
     gdf["area"] = gdf.geometry.to_crs(UTM).area.values
     gdf["height_m"] = gdf.height.values
     gdf["part_base"] = 0.0
