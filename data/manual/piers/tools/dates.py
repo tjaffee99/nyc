@@ -262,7 +262,28 @@ def main():
         return ly[np.clip(r.astype(int), 0, ly.shape[0] - 1), np.clip(c.astype(int), 0, ly.shape[1] - 1)]
 
     research = load_research()
-    rpts = [(shapely.Point(*UTM.transform(float(r["lon"]), float(r["lat"]))), r) for r in research]
+
+    def research_for(t, seg, last):
+        """the research row for this lifespan: by OpenStreetMap name (+ borough, + box if given) for the standing pier,
+        by box alone (match_name '*') for every pier in it whose first map sighting does not precede the cited year."""
+        c = t["gw"].centroid
+        for r in research:
+            if r["borough"] != t["borough"]:
+                continue
+            inbox = True
+            if r["bbox"]:
+                x0, y0, x1, y1 = (float(v) for v in r["bbox"].split(";"))
+                inbox = x0 <= c.x <= x1 and y0 <= c.y <= y1
+            if r["match_name"] == "*":
+                y = float(r["start_year"])
+                firsts = [o["lo"] for o in seg["obs"]]
+                if inbox and firsts and min(firsts) >= y - 1 and not seg["start_bound"] or (inbox and firsts and min(firsts) >= y - 1 and seg["start_bound"]):
+                    if t["osm"] is None or not any(q["match_name"] == t["osm"]["name"] and q["borough"] == t["borough"] for q in research):
+                        return r
+            elif last and t["osm"] is not None and t["osm"]["name"] == r["match_name"] and inbox:
+                return r
+        return None
+
     names = street_names(tracks)
     feats, review = [], []
     for t, street in zip(tracks, names):
@@ -272,7 +293,6 @@ def main():
             continue
         L, Wd = dims(t["g"])
         lyv = land_years(t["g"])
-        hits = [r for p, r in rpts if t["g"].distance(p) <= float(r.get("radius_m") or 25)]
         for k, seg in enumerate(segs):
             standing = seg["end"] == 9999
             # single unconfirmed sighting: drop when another source of the same years shows water
@@ -315,29 +335,41 @@ def main():
             # ground: share of the outline on cells that are land while the pier stands
             if seg["start"] is not None:
                 p["land_share"] = round(float(np.mean(lyv <= (seg["end"] if seg["end"] != 9999 else TODAY) - 1)), 2)
-            for r in hits:
-                if (r.get("applies") or "last") == "last" and k != len(segs) - 1:
-                    continue
-                if (r.get("applies") or "last") == "first" and k != 0:
-                    continue
-                for f in ("name", "shed"):
-                    if r.get(f):
-                        p[f] = r[f]
-                for f in ("start_year", "end_year", "shed_start", "shed_end", "shed_m", "deck_m"):
-                    if r.get(f):
-                        p[f] = float(r[f]) if "." in r[f] else int(r[f])
-                        if f == "start_year":
-                            p["start_quality"], p["start_is_upper_bound"] = r.get("start_quality") or "recorded", False
-                        if f == "end_year":
-                            p["end_quality"] = r.get("end_quality") or "recorded"
-                note.insert(0, f"researched: {r['note']} [{r['source_url']}]")
+            r = research_for(t, seg, k == len(segs) - 1)
+            extra = None
+            if r is not None:
+                if r.get("name"):
+                    p["name"] = r["name"]
+                if r.get("shed"):
+                    p["shed"], p["shed_m"] = r["shed"], float(r.get("shed_m") or 10.0)
+                    if "shed height 10 m is an estimate (one-storey transit shed)" not in note:
+                        note.append("shed height 10 m is an estimate (one-storey transit shed)")
+                if r.get("shed_end"):
+                    p["shed_end"] = float(r["shed_end"])
+                old_start = seg["start"]
+                p["start_year"], p["start_quality"], p["start_is_upper_bound"] = float(r["start_year"]), r.get("start_quality") or "recorded", False
+                note[0] = f"researched: {r['note']} [{r['source_url']}]"
                 p["research_url"] = r["source_url"]
+                if r.get("old_end"):
+                    # the pier that stood here before the present one
+                    extra = dict(p)
+                    extra.update(end_year=float(r["old_end"]), end_quality="recorded", shed_end=None, name=(p.get("name") or "Pier") + " (earlier pier)")
+                    if r.get("old_start"):
+                        extra.update(start_year=float(r["old_start"]), start_quality="recorded", start_is_upper_bound=False)
+                    else:
+                        extra.update(start_year=old_start, start_quality=seg["start_quality"], start_is_upper_bound=seg["start_bound"])
+                        extra["note_start"] = seg["start_note"]
             if noise:
                 note.append(f"{noise} source(s) in between do not show it (taken as misreadings)")
             p["note"] = "; ".join(n for n in note if n)
             p["evidence"] = " ".join(f"{o['lo']}{'s' if o.get('stroke') else ('c' if o['chart'] else 'u')}:{o['state'][0]}" for o in
                                      sorted([o for o in t["obs"] if o["state"] != "unknown"], key=lambda o: (o["lo"], o["hi"])))
             feats.append(dict(type="Feature", geometry=mapping(geom), properties=p))
+            if extra is not None and (extra["start_year"] is None or extra["start_year"] < extra["end_year"]):
+                extra["note"] = "; ".join(n for n in [f"the pier before the present one: {r['note']} [{r['source_url']}]", extra.pop("note_start", "")] if n)
+                extra["evidence"] = p["evidence"]
+                extra = {k_: v for k_, v in extra.items() if v is not None or k_ == "start_year"}
+                feats.append(dict(type="Feature", geometry=mapping(shape(t["map_geom"]) if t.get("map_geom") else geom), properties=extra))
     # no two piers on one spot at once: of two outlines that overlap by 40 % of the smaller while both stand, keep the
     # standing one, else the one seen on more sources
     def rank(f):
@@ -358,7 +390,7 @@ def main():
             pj = feats[j]["properties"]
             if gs[i].intersection(gs[j]).area < 0.4 * min(gs[i].area, gs[j].area):
                 continue
-            if min(pi["end_year"], pj["end_year"]) - max(pi["start_year"] or 0, pj["start_year"] or 0) <= 1:
+            if min(pi["end_year"], pj["end_year"]) - max(pi["start_year"] or 0, pj["start_year"] or 0) <= 1 or "research_url" in pj:
                 continue                                    # one after the other on the same spot: both stay
             dead.add(j)
             review.append(dict(reason="same spot and years as a better outline", borough=pj["borough"], lon=round(gs[j].centroid.x), lat=round(gs[j].centroid.y)))

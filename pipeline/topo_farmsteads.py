@@ -48,6 +48,7 @@ HTMC = "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/PDF/
 UA = "NYCThroughTime-research/0.1"
 DPI = 600                       # render resolution (the scans are 599-600 ppi)
 DETECTOR_VERSION = 6
+ALIGN_VERSION = 2
 
 # id: (file under HTMC, quadrangle, scale, print year, survey year the sheet shows, collar text, period)
 # Survey years were read off the collars (data/manual/farmsteads/README.md); the catalogue's
@@ -165,12 +166,23 @@ class Sheet:
         self._dat = TransformerGroup(geo, "EPSG:4326", always_xy=True,
                                      area_of_interest=pyproj.aoi.AreaOfInterest(-74.3, 40.45, -73.4, 41.05)).transformers[0]
         self._utm = pyproj.Transformer.from_crs("EPSG:4326", "EPSG:32618", always_xy=True)
-        self.shift = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]         # metres added in UTM: east = e0 + e1 u + e2 v, north likewise (u, v = page position in -1..1)
+        # metres added in UTM (east, north): a field of local shifts measured against today's streets
+        # ([page x, page y, east, north] per 2.5 km window), smoothed over 1.5 km, and the sheet's
+        # overall shift where no window is near
+        self.shift = {"global": [0.0, 0.0], "field": []}
 
     def _shift_at(self, col, row):
-        u, v = np.asarray(col, float) / self.W * 2 - 1, np.asarray(row, float) / self.H * 2 - 1
-        (e0, e1, e2), (n0, n1, n2) = self.shift
-        return e0 + e1 * u + e2 * v, n0 + n1 * u + n2 * v
+        col, row = np.atleast_1d(np.asarray(col, float)), np.atleast_1d(np.asarray(row, float))
+        g = self.shift["global"]
+        f = np.array(self.shift["field"], float).reshape(-1, 4)
+        if not len(f):
+            return np.full(col.shape, g[0]), np.full(col.shape, g[1])
+        sig = 1500.0 / self.m_per_px * (DPI / self.dpi) ** 0          # 1.5 km in this sheet's pixels
+        d2 = (col[:, None] - f[None, :, 0]) ** 2 + (row[:, None] - f[None, :, 1]) ** 2
+        w = np.exp(-d2 / (2 * sig * sig))
+        w0 = 0.02                                                     # weight of the overall shift: takes over beyond ~4 km from any window
+        tot = w.sum(1) + w0
+        return (w @ f[:, 2] + w0 * g[0]) / tot, (w @ f[:, 3] + w0 * g[1]) / tot
 
     # pixel <-> ground
     def px_to_utm(self, col, row):
@@ -181,12 +193,14 @@ class Sheet:
         lon, lat = self._dat.transform(lon, lat)
         E, N = self._utm.transform(lon, lat)
         dE, dN = self._shift_at(col, row)
-        return np.asarray(E) + dE, np.asarray(N) + dN
+        E, N = np.atleast_1d(E) + dE, np.atleast_1d(N) + dN
+        return (E, N) if np.ndim(col) else (float(E[0]), float(N[0]))
 
     def utm_to_px(self, E, N):
         a, b, c, d, e, f = self.ctm
-        E, N = np.asarray(E, float), np.asarray(N, float)
-        dE, dN = self.shift[0][0], self.shift[1][0]
+        scalar = not np.ndim(E)
+        E, N = np.atleast_1d(np.asarray(E, float)), np.atleast_1d(np.asarray(N, float))
+        dE, dN = self.shift["global"]
         for _ in range(3):                                      # the shift varies slowly over the page
             lon, lat = self._utm.transform(E - dE, N - dN, direction="INVERSE")
             lon, lat = self._dat.transform(lon, lat, direction="INVERSE")
@@ -196,7 +210,7 @@ class Sheet:
             y = (-b * (X - e) + a * (Y - f)) / det
             col, row = x * self.s, (self.page_h - y) * self.s
             dE, dN = self._shift_at(col, row)
-        return col, row
+        return (float(col[0]), float(row[0])) if scalar else (col, row)
 
     def lonlat_to_px(self, lon, lat):
         E, N = self._utm.transform(lon, lat)
@@ -551,7 +565,7 @@ def align(sh: "Sheet", lines, win=240, search=12):
     from scipy import ndimage as ndi
     from scipy.signal import correlate
     import shapely
-    sh.shift = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+    sh.shift = {"global": [0.0, 0.0], "field": []}
     polys = modern_roads_px(sh)
     geoms = [shapely.LineString(p / 4.0) for p in polys if len(p) >= 2]
     road = features.rasterize(geoms, out_shape=lines.shape, fill=0, default_value=1, dtype="uint8").astype(np.float32)
@@ -581,52 +595,61 @@ def align(sh: "Sheet", lines, win=240, search=12):
     cell = 4 * sh.m_per_px
     info = {"windows": int(len(wins))}
     if len(wins) < 6:
-        return [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], info
+        return {"global": [0.0, 0.0], "field": []}, info
     good = wins[wins[:, 4] > 1.15] if (wins[:, 4] > 1.15).sum() >= 6 else wins
     med = np.median(good[:, 2:4], 0)
-    inl = good[np.hypot(good[:, 2] - med[0], good[:, 3] - med[1]) <= 4.0]           # within 42 m of the consensus
+    # a window counts where at least two windows around it (within 1.6 steps) found the same shift within 21 m:
+    # a lone peak is noise, and a regular street grid (Manhattan) gives peaks one block off
+    step = win // 2
+    keep = []
+    for i, w in enumerate(good):
+        near = (np.hypot(good[:, 0] - w[0], good[:, 1] - w[1]) <= 1.6 * step) & (np.arange(len(good)) != i)
+        agree = near & (np.hypot(good[:, 2] - w[2], good[:, 3] - w[3]) <= 2.0)
+        keep.append(agree.sum() >= 2)
+    fld = good[np.array(keep)]
+    field = [[round(float(w[0] * 4)), round(float(w[1] * 4)), round(float(w[2] * cell), 1), round(float(-w[3] * cell), 1)] for w in fld]
+    inl = good[np.hypot(good[:, 2] - med[0], good[:, 3] - med[1]) <= 4.0]
+    model = {"global": [round(float(inl[:, 2].mean() * cell), 1), round(float(-inl[:, 3].mean() * cell), 1)], "field": field}
+    # how well the field predicts a window it has not seen (leave one out)
+    res = []
+    for i in range(len(field)):
+        sh.shift = {"global": model["global"], "field": field[:i] + field[i + 1:]}
+        dE, dN = sh._shift_at(field[i][0], field[i][1])
+        res.append(np.hypot(dE[0] - field[i][2], dN[0] - field[i][3]))
+    sh.shift = model
     E, N = inl[:, 2] * cell, -inl[:, 3] * cell
-    rms0 = float(np.sqrt(((E - E.mean()) ** 2 + (N - N.mean()) ** 2).mean()))
-    # shift as a plane over the page (u, v in -1..1): the paper's stretch and the survey's drift
-    u, v = inl[:, 0] * 4 / sh.W * 2 - 1, inl[:, 1] * 4 / sh.H * 2 - 1
-    A = np.column_stack([np.ones(len(u)), u, v])
-    keep = np.ones(len(u), bool)
-    for _ in range(3):
-        ce, *_ = np.linalg.lstsq(A[keep], E[keep], rcond=None)
-        cn, *_ = np.linalg.lstsq(A[keep], N[keep], rcond=None)
-        res = np.hypot(A @ ce - E, A @ cn - N)
-        keep = res <= max(2.0 * np.sqrt((res[keep] ** 2).mean()), 12.0)
-    rms1 = float(np.sqrt((res[keep] ** 2).mean()))
-    if len(inl) >= 12 and rms1 < 0.85 * rms0 and np.abs(ce[1:]).max() < 60 and np.abs(cn[1:]).max() < 60:
-        model = [[round(float(x), 2) for x in ce], [round(float(x), 2) for x in cn]]
-        info["model"], info["rms_m"] = "plane", round(rms1, 1)
-    else:
-        model = [[round(float(E.mean()), 2), 0.0, 0.0], [round(float(N.mean()), 2), 0.0, 0.0]]
-        info["model"], info["rms_m"] = "constant", round(rms0, 1)
-    info.update({"used": int(keep.sum()), "sharp": int(len(good)), "rms_constant_m": round(rms0, 1),
-                 "mean_shift_m": [round(float(E.mean()), 1), round(float(N.mean()), 1)],
+    info.update({"model": "field", "used": len(field), "sharp": int(len(good)),
+                 "rms_m": round(float(np.sqrt(np.mean(np.square(res)))), 1) if res else None,
+                 "rms_constant_m": round(float(np.sqrt(((E - E.mean()) ** 2 + (N - N.mean()) ** 2).mean())), 1),
+                 "field_range_m": [[round(float(min(f[2] for f in field)), 1), round(float(max(f[2] for f in field)), 1)],
+                                   [round(float(min(f[3] for f in field)), 1), round(float(max(f[3] for f in field)), 1)]] if field else None,
                  # per window: page x, page y (px), shift east, north (m), peak sharpness
                  "window_shifts_m": [[round(float(w[0] * 4)), round(float(w[1] * 4)), round(float(w[2] * cell), 1), round(float(-w[3] * cell), 1), round(float(w[4]), 2)] for w in wins]})
     return model, info
 
 
 def process(sid: str, force=False) -> dict:
-    """Detect + align one sheet (cached)."""
+    """Detect + align one sheet (cached; a change of the alignment alone re-aligns from the saved line raster)."""
     SHEET_CACHE.mkdir(parents=True, exist_ok=True)
     path = SHEET_CACHE / f"{sid}.json"
-    if path.exists() and not force:
-        res = json.loads(path.read_text())
-        if res.get("version") == DETECTOR_VERSION:
-            return res
+    lpath = FARM_INTERIM / f"lines_{sid}.npy"
+    res = json.loads(path.read_text()) if path.exists() and not force else None
+    if res and res.get("version") == DETECTOR_VERSION and res.get("align_version") == ALIGN_VERSION:
+        return res
     sh = Sheet(sid)
-    res, lines, thick = detect_sheet(sh)
-    np.save(FARM_INTERIM / f"thick_{sid}.npy", thick)
+    if res and res.get("version") == DETECTOR_VERSION and lpath.exists():
+        lines = np.load(lpath)
+    else:
+        res, lines, thick = detect_sheet(sh)
+        np.save(FARM_INTERIM / f"thick_{sid}.npy", thick)
+        np.save(lpath, lines)
     shift, info = align(sh, lines)
     f, quad, scale, printed, survey, collar, period = SHEETS[sid]
-    res.update({"version": DETECTOR_VERSION, "sid": sid, "quad": quad, "scale": scale, "print_year": printed, "survey_year": survey,
-                "collar": collar, "shift": shift, "align": info, "neat_px": sh.neat_px.round(1).tolist()})
+    res.update({"version": DETECTOR_VERSION, "align_version": ALIGN_VERSION, "sid": sid, "quad": quad, "scale": scale, "print_year": printed,
+                "survey_year": survey, "collar": collar, "shift": shift, "align": info, "neat_px": sh.neat_px.round(1).tolist()})
     path.write_text(json.dumps(res))
-    log(sid, "marks kept", sum(m["keep"] for m in res["marks"]), "of", len(res["marks"]), "shift", shift, info.get("model"), "rms", info.get("rms_m"), "constant", info.get("rms_constant_m"), "windows", info.get("used"))
+    log(sid, "marks kept", sum(m["keep"] for m in res["marks"]), "of", len(res["marks"]), "shift", shift["global"], "field windows", info.get("used"),
+        "rms", info.get("rms_m"), "constant", info.get("rms_constant_m"), "range", info.get("field_range_m"))
     return res
 
 
@@ -995,7 +1018,8 @@ def export():
         ring = [[round(float(x), 6), round(float(y), 6)] for x, y in zip(lo, la)]
         cov["features"].append({"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [ring + [ring[0]]]},
                                 "properties": {"sheet": sid, "quadrangle": quad, "scale": scale, "print_year": printed, "survey_year": survey, "collar": collar,
-                                               "source_url": HTMC + f, "shift_model": res[sid]["shift"], "shift_rms_m": res[sid]["align"].get("rms_m"),
+                                               "source_url": HTMC + f, "shift_m": res[sid]["shift"]["global"], "shift_windows": len(res[sid]["shift"]["field"]),
+                                               "shift_range_m": res[sid]["align"].get("field_range_m"), "shift_rms_m": res[sid]["align"].get("rms_m"),
                                                "marks_kept": int(sum(m["keep"] for m in res[sid]["marks"])),
                                                "marks_in_city": int((F["sheets"].str.contains(sid)).sum())}})
     (OUT_DIR / "coverage.geojson").write_text(json.dumps(cov, indent=1))
