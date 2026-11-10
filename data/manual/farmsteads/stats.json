@@ -1,320 +1,331 @@
 {
- "features": 8467,
- "outside_five_boroughs": 9043,
- "dropped_in_water": 253,
+ "features": 8864,
+ "outside_five_boroughs": 9337,
+ "dropped_in_water": 263,
  "by_borough": {
-  "Bronx": 1544,
-  "Brooklyn": 1887,
-  "Manhattan": 251,
-  "Queens": 3349,
-  "Staten Island": 1436
+  "Bronx": 1633,
+  "Brooklyn": 2010,
+  "Manhattan": 262,
+  "Queens": 3455,
+  "Staten Island": 1504
  },
  "by_borough_first_last": {
-  "Bronx|1889|1889": 614,
-  "Bronx|1889|1897": 297,
-  "Bronx|1897|1897": 633,
-  "Brooklyn|1889|1889": 650,
-  "Brooklyn|1889|1897": 230,
-  "Brooklyn|1897|1897": 1007,
-  "Manhattan|1889|1889": 103,
+  "Bronx|1889|1889": 624,
+  "Bronx|1889|1897": 311,
+  "Bronx|1897|1897": 698,
+  "Brooklyn|1889|1889": 669,
+  "Brooklyn|1889|1897": 249,
+  "Brooklyn|1897|1897": 1092,
+  "Manhattan|1889|1889": 107,
   "Manhattan|1889|1897": 27,
-  "Manhattan|1897|1897": 121,
-  "Queens|1889|1889": 918,
-  "Queens|1889|1897": 664,
-  "Queens|1897|1897": 1767,
-  "Staten Island|1897|1897": 1436
+  "Manhattan|1897|1897": 128,
+  "Queens|1889|1889": 932,
+  "Queens|1889|1897": 686,
+  "Queens|1897|1897": 1837,
+  "Staten Island|1897|1897": 1504
  },
  "by_confidence": {
-  "high": 1307,
-  "low": 1149,
-  "medium": 6011
+  "high": 1369,
+  "low": 1529,
+  "medium": 5966
  },
  "by_kind": {
-  "house": 8163,
+  "house": 8560,
   "large": 304
  },
  "gone_by": {
-  "1897": 239,
-  "1947": 817,
-  "1955": 273,
-  "1956": 139,
-  "1957": 59
+  "1897": 243,
+  "1947": 847,
+  "1955": 277,
+  "1956": 144,
+  "1957": 60
  },
- "new_since_1889": 1868,
- "builtup": 849,
+ "new_since_1889": 1933,
+ "builtup": 1046,
+ "in_row": 397,
+ "in_row_by_borough": {
+  "Bronx": 89,
+  "Brooklyn": 123,
+  "Manhattan": 11,
+  "Queens": 106,
+  "Staten Island": 68
+ },
  "ground": {
-  "": 8104,
-  "shore": 99,
+  "": 8489,
+  "shore": 103,
   "tidal_flat": 2,
-  "tidal_marsh": 238,
+  "tidal_marsh": 246,
   "wetland": 24
  },
  "late_sheets": {
   "arthur_kill_1947": {
-   "inside": 847,
-   "blank": 117,
-   "symbol": 216,
-   "unclear": 514,
-   "gone_set": 117
+   "inside": 874,
+   "blank": 119,
+   "symbol": 224,
+   "unclear": 531,
+   "gone_set": 119
   },
   "the_narrows_1947": {
-   "inside": 462,
+   "inside": 478,
    "blank": 52,
    "symbol": 79,
-   "unclear": 331,
+   "unclear": 347,
    "gone_set": 52
   },
   "elizabeth_1947": {
-   "inside": 116,
-   "blank": 14,
-   "symbol": 40,
-   "unclear": 62,
-   "gone_set": 14
+   "inside": 132,
+   "blank": 15,
+   "symbol": 43,
+   "unclear": 74,
+   "gone_set": 15
   },
   "jersey_city_1947": {
-   "inside": 237,
-   "blank": 11,
-   "symbol": 47,
-   "unclear": 179,
-   "gone_set": 11
+   "inside": 260,
+   "blank": 14,
+   "symbol": 51,
+   "unclear": 195,
+   "gone_set": 14
   },
   "coney_island_1947": {
-   "inside": 569,
-   "blank": 34,
-   "symbol": 28,
-   "unclear": 507,
-   "gone_set": 34
+   "inside": 598,
+   "blank": 38,
+   "symbol": 29,
+   "unclear": 531,
+   "gone_set": 38
   },
   "brooklyn_1947": {
-   "inside": 1672,
-   "blank": 222,
-   "symbol": 265,
-   "unclear": 1185,
-   "gone_set": 209
+   "inside": 1785,
+   "blank": 233,
+   "symbol": 280,
+   "unclear": 1272,
+   "gone_set": 219
   },
   "jamaica_1947": {
-   "inside": 1448,
-   "blank": 159,
-   "symbol": 225,
-   "unclear": 1064,
-   "gone_set": 150
+   "inside": 1487,
+   "blank": 163,
+   "symbol": 230,
+   "unclear": 1094,
+   "gone_set": 154
   },
   "far_rockaway_1947": {
-   "inside": 187,
-   "blank": 11,
-   "symbol": 46,
-   "unclear": 130,
-   "gone_set": 11
+   "inside": 203,
+   "blank": 12,
+   "symbol": 51,
+   "unclear": 140,
+   "gone_set": 12
   },
   "flushing_1947": {
-   "inside": 1155,
-   "blank": 67,
-   "symbol": 202,
-   "unclear": 886,
-   "gone_set": 64
+   "inside": 1190,
+   "blank": 70,
+   "symbol": 204,
+   "unclear": 916,
+   "gone_set": 67
   },
   "central_park_1947": {
-   "inside": 978,
+   "inside": 1022,
    "blank": 88,
-   "symbol": 81,
-   "unclear": 809,
+   "symbol": 82,
+   "unclear": 852,
    "gone_set": 78
   },
   "mount_vernon_1947": {
-   "inside": 266,
+   "inside": 287,
    "blank": 14,
-   "symbol": 30,
-   "unclear": 222,
+   "symbol": 31,
+   "unclear": 242,
    "gone_set": 14
   },
   "yonkers_1947": {
-   "inside": 267,
-   "blank": 49,
-   "symbol": 75,
-   "unclear": 143,
-   "gone_set": 47
+   "inside": 278,
+   "blank": 51,
+   "symbol": 80,
+   "unclear": 147,
+   "gone_set": 49
   },
   "lynbrook_1947": {
-   "inside": 193,
+   "inside": 196,
    "blank": 11,
-   "symbol": 55,
-   "unclear": 127,
+   "symbol": 56,
+   "unclear": 129,
    "gone_set": 11
   },
   "sea_cliff_1947": {
-   "inside": 41,
+   "inside": 44,
    "blank": 5,
-   "symbol": 9,
-   "unclear": 27,
+   "symbol": 10,
+   "unclear": 29,
    "gone_set": 5
   },
   "lawrence_1947": {
-   "inside": 29,
+   "inside": 30,
    "blank": 0,
-   "symbol": 3,
+   "symbol": 4,
    "unclear": 26,
    "gone_set": 0
   },
   "arthur_kill_1955": {
-   "inside": 847,
-   "blank": 196,
-   "symbol": 484,
-   "unclear": 167,
-   "gone_set": 127
+   "inside": 874,
+   "blank": 199,
+   "symbol": 494,
+   "unclear": 181,
+   "gone_set": 129
   },
   "the_narrows_1955": {
-   "inside": 462,
+   "inside": 478,
    "blank": 43,
    "symbol": 106,
-   "unclear": 313,
+   "unclear": 329,
    "gone_set": 20
   },
   "elizabeth_1955": {
-   "inside": 116,
+   "inside": 132,
    "blank": 16,
-   "symbol": 23,
-   "unclear": 77,
+   "symbol": 25,
+   "unclear": 91,
    "gone_set": 8
   },
   "jersey_city_1955": {
-   "inside": 237,
-   "blank": 23,
-   "symbol": 23,
-   "unclear": 191,
-   "gone_set": 19
+   "inside": 260,
+   "blank": 25,
+   "symbol": 24,
+   "unclear": 211,
+   "gone_set": 21
   },
   "coney_island_1955": {
-   "inside": 569,
-   "blank": 38,
-   "symbol": 36,
-   "unclear": 495,
+   "inside": 598,
+   "blank": 39,
+   "symbol": 38,
+   "unclear": 521,
    "gone_set": 21
   },
   "flushing_1955": {
-   "inside": 1155,
+   "inside": 1190,
    "blank": 128,
-   "symbol": 158,
-   "unclear": 869,
+   "symbol": 162,
+   "unclear": 900,
    "gone_set": 78
   },
   "brooklyn_1956": {
-   "inside": 1672,
-   "blank": 99,
-   "symbol": 63,
-   "unclear": 1510,
-   "gone_set": 31
+   "inside": 1785,
+   "blank": 106,
+   "symbol": 66,
+   "unclear": 1613,
+   "gone_set": 34
   },
   "central_park_1956": {
-   "inside": 978,
+   "inside": 1022,
    "blank": 108,
-   "symbol": 136,
-   "unclear": 734,
+   "symbol": 142,
+   "unclear": 772,
    "gone_set": 69
   },
   "mount_vernon_1956": {
-   "inside": 266,
+   "inside": 287,
    "blank": 34,
    "symbol": 11,
-   "unclear": 221,
+   "unclear": 242,
    "gone_set": 24
   },
   "yonkers_1956": {
-   "inside": 267,
-   "blank": 40,
+   "inside": 278,
+   "blank": 43,
    "symbol": 12,
-   "unclear": 215,
-   "gone_set": 15
+   "unclear": 223,
+   "gone_set": 17
   },
   "jamaica_1957": {
-   "inside": 1448,
-   "blank": 121,
-   "symbol": 84,
-   "unclear": 1243,
-   "gone_set": 59
+   "inside": 1487,
+   "blank": 124,
+   "symbol": 87,
+   "unclear": 1276,
+   "gone_set": 60
   }
  },
  "standing": {
   "Bronx|by_then|strong": 1,
-  "Bronx|by_then|weak": 131,
-  "Bronx|later_estimate|weak": 667,
-  "Bronx|recorded|strong": 21,
-  "Brooklyn|by_then|weak": 217,
-  "Brooklyn|later_estimate|weak": 1151,
-  "Brooklyn|recorded|strong": 26,
-  "Manhattan|by_then|weak": 15,
-  "Manhattan|later_estimate|weak": 53,
+  "Bronx|by_then|weak": 146,
+  "Bronx|later_estimate|weak": 699,
+  "Bronx|recorded|strong": 24,
+  "Brooklyn|by_then|strong": 1,
+  "Brooklyn|by_then|weak": 232,
+  "Brooklyn|later_estimate|weak": 1217,
+  "Brooklyn|recorded|strong": 27,
+  "Manhattan|by_then|weak": 16,
+  "Manhattan|later_estimate|weak": 55,
   "Manhattan|recorded|strong": 18,
-  "Queens|by_then|weak": 145,
-  "Queens|later_estimate|weak": 2085,
+  "Queens|by_then|weak": 150,
+  "Queens|later_estimate|weak": 2144,
   "Queens|recorded|strong": 14,
   "Staten Island|by_then|strong": 3,
-  "Staten Island|by_then|weak": 104,
-  "Staten Island|later_estimate|weak": 593,
-  "Staten Island|recorded|strong": 20
+  "Staten Island|by_then|weak": 114,
+  "Staten Island|later_estimate|weak": 622,
+  "Staten Island|recorded|strong": 23
  },
  "standing_by_src": {
   "Bronx|by_then|strong|heap_by+spread": 1,
-  "Bronx|by_then|weak|heap_by+neighbours": 12,
-  "Bronx|by_then|weak|heap_by+spread": 119,
+  "Bronx|by_then|weak|heap_by+neighbours": 14,
+  "Bronx|by_then|weak|heap_by+spread": 132,
   "Bronx|later_estimate|weak|assessor": 1,
-  "Bronx|later_estimate|weak|heap_about+neighbours": 147,
-  "Bronx|later_estimate|weak|heap_about+spread": 509,
+  "Bronx|later_estimate|weak|heap_about+neighbours": 159,
+  "Bronx|later_estimate|weak|heap_about+spread": 529,
   "Bronx|later_estimate|weak|neighbours": 10,
   "Bronx|recorded|strong|assessor": 5,
-  "Bronx|recorded|strong|lpc": 16,
+  "Bronx|recorded|strong|lpc": 19,
+  "Brooklyn|by_then|strong|heap_by+spread": 1,
   "Brooklyn|by_then|weak|heap_by+neighbours": 11,
-  "Brooklyn|by_then|weak|heap_by+spread": 205,
+  "Brooklyn|by_then|weak|heap_by+spread": 220,
   "Brooklyn|by_then|weak|on_map": 1,
-  "Brooklyn|later_estimate|weak|heap_about+neighbours": 204,
-  "Brooklyn|later_estimate|weak|heap_about+spread": 930,
+  "Brooklyn|later_estimate|weak|heap_about+neighbours": 217,
+  "Brooklyn|later_estimate|weak|heap_about+spread": 983,
   "Brooklyn|later_estimate|weak|neighbours": 17,
-  "Brooklyn|recorded|strong|assessor": 2,
+  "Brooklyn|recorded|strong|assessor": 3,
   "Brooklyn|recorded|strong|lpc": 24,
   "Manhattan|by_then|weak|heap_by+neighbours": 1,
   "Manhattan|by_then|weak|heap_by+spread": 14,
+  "Manhattan|by_then|weak|on_map": 1,
   "Manhattan|later_estimate|weak|heap_about+neighbours": 13,
-  "Manhattan|later_estimate|weak|heap_about+spread": 34,
+  "Manhattan|later_estimate|weak|heap_about+spread": 36,
   "Manhattan|later_estimate|weak|neighbours": 6,
   "Manhattan|recorded|strong|assessor": 1,
   "Manhattan|recorded|strong|lpc": 17,
   "Queens|by_then|weak|heap_by+neighbours": 10,
-  "Queens|by_then|weak|heap_by+spread": 135,
-  "Queens|later_estimate|weak|heap_about+neighbours": 226,
-  "Queens|later_estimate|weak|heap_about+spread": 1812,
-  "Queens|later_estimate|weak|neighbours": 47,
+  "Queens|by_then|weak|heap_by+spread": 140,
+  "Queens|later_estimate|weak|heap_about+neighbours": 232,
+  "Queens|later_estimate|weak|heap_about+spread": 1863,
+  "Queens|later_estimate|weak|neighbours": 49,
   "Queens|recorded|strong|assessor": 4,
   "Queens|recorded|strong|lpc": 10,
   "Staten Island|by_then|strong|heap_by+spread": 3,
-  "Staten Island|by_then|weak|heap_by+spread": 104,
-  "Staten Island|later_estimate|weak|heap_about+neighbours": 60,
-  "Staten Island|later_estimate|weak|heap_about+spread": 528,
+  "Staten Island|by_then|weak|heap_by+spread": 114,
+  "Staten Island|later_estimate|weak|heap_about+neighbours": 61,
+  "Staten Island|later_estimate|weak|heap_about+spread": 556,
   "Staten Island|later_estimate|weak|neighbours": 5,
   "Staten Island|recorded|strong|assessor": 2,
-  "Staten Island|recorded|strong|lpc": 18
+  "Staten Island|recorded|strong|lpc": 21
  },
  "standing_real_vs_moved": {
   "real": {
-   "later_estimate": 4549,
-   "by_then_weak": 612,
-   "recorded": 99,
-   "by_then_strong": 4
+   "later_estimate": 4737,
+   "by_then_weak": 658,
+   "recorded": 106,
+   "by_then_strong": 5
   },
   "moved_150_100": {
-   "later_estimate": 4581,
-   "by_then_weak": 563,
-   "recorded": 65,
-   "by_then_strong": 1
+   "later_estimate": 4788,
+   "by_then_weak": 601,
+   "recorded": 67,
+   "by_then_strong": 2
   },
   "moved_-120_160": {
-   "later_estimate": 4390,
-   "by_then_weak": 575,
-   "recorded": 66,
+   "later_estimate": 4595,
+   "by_then_weak": 617,
+   "recorded": 70,
    "by_then_strong": 3
   },
   "moved_90_-170": {
-   "later_estimate": 4578,
-   "by_then_weak": 553,
-   "recorded": 62,
+   "later_estimate": 4779,
+   "by_then_weak": 602,
+   "recorded": 67,
    "by_then_strong": 3
   }
  },

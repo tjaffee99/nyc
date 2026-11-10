@@ -1146,19 +1146,23 @@ def step_predict():
     import pandas as pd
     out = None
     for year in YEARS:
-        real = load_features(year)
+        real = load_features(year).drop_duplicates("doitt_id")      # a handful of ids occur twice in the city's file
         m, xs, ps = load_model(year)
         p = np.interp(m.decision(real[MODEL_FEATS].values.astype("float64")), xs, ps)
         cov = real.cover.values >= COVER_MIN
         p[~cov] = np.nan
         mpp = 156543.03392804097 * np.cos(np.radians(real.lat.values)) / 2 ** Z
         part = pd.DataFrame({"doitt_id": real.doitt_id.values, "bin": real.bin.values,
+                             "built_share_50m": np.round(real.cov100.values, 2).astype("float32"),
                              f"p{year}": np.round(p, 3).astype("float32"), f"cover{year}": cov,
                              f"offset_m_{year}": np.round(np.hypot(real.offx.values, real.offy.values) * mpp, 1).astype("float32")})
-        out = part if out is None else out.merge(part.drop(columns="bin"), on="doitt_id", how="outer")
+        if out is None:
+            out = part
+        else:
+            out = out.merge(part.drop(columns=["bin", "built_share_50m"]), on="doitt_id", how="outer")
     for year in YEARS:
         out[f"cover{year}"] = out[f"cover{year}"].fillna(False).astype(bool)
-    out = out[["doitt_id", "bin"] + [f"p{y}" for y in YEARS] + [f"cover{y}" for y in YEARS] + [f"offset_m_{y}" for y in YEARS]]
+    out = out[["doitt_id", "bin"] + [f"p{y}" for y in YEARS] + [f"cover{y}" for y in YEARS] + [f"offset_m_{y}" for y in YEARS] + ["built_share_50m"]]
     out = out.sort_values("doitt_id").reset_index(drop=True)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out.to_parquet(OUT_DIR / "presence.parquet", compression="zstd", index=False)
@@ -1222,7 +1226,7 @@ def step_report():
                    f"vs open ground {auc(*[o[o.kind != 'street outline'][c].values.astype(float) for c in ('lab', 'score')]):.3f})\n")
         rows = []
         for key, grp in [("all", o)] + list(o.groupby("bname")) + list(o.groupby("dens")):
-            r = {"group": key}
+            r = {"group": key, "AUC": auc(grp.lab.values.astype(float), grp.score.values) if grp.lab.nunique() == 2 else np.nan}
             for kind, nm in (("recorded before", "stood"), ("street outline", "street"), ("open ground", "open")):
                 k = grp[grp.kind == kind]
                 r[f"n {nm}"] = len(k)
@@ -1255,6 +1259,18 @@ def step_report():
                              "buildings found %": 100 * (P.p >= T_HI).mean() if len(P) else np.nan,
                              "open found %": 100 * (A.p <= T_LO).mean() if len(A) else np.nan})
             out.append("\n" + _md(pd.DataFrame(rows), "{:.0f}"))
+            rows = []
+            for t_ in (0.95, 0.9, 0.8, 0.7, 0.6):
+                k = hh[hh.p >= t_]
+                rows.append({"call": f"p >= {t_}", "n": len(k), "right %": 100 * (k.hand == "P").mean() if len(k) else np.nan,
+                             "share of its side found %": 100 * (hh.p[hh.hand == "P"] >= t_).mean()})
+            for t_ in (0.05, 0.1, 0.2, 0.3, 0.4):
+                k = hh[hh.p <= t_]
+                rows.append({"call": f"p <= {t_}", "n": len(k), "right %": 100 * (k.hand == "A").mean() if len(k) else np.nan,
+                             "share of its side found %": 100 * (hh.p[hh.hand == "A"] <= t_).mean()})
+            out.append("\nHand check by threshold\n\n" + _md(pd.DataFrame(rows), "{:.0f}"))
+            tpr = (hh.p[hh.hand == "P"] >= T_HI).mean()
+            tnr = (hh.p[hh.hand == "A"] <= T_LO).mean()
             u = h[h.hand == "U"]
             out.append(f"\nUnclear by eye ({len(u)}): mean p {u.p.mean():.2f}")
         # recorded years just after the photograph: what does the photograph show?
@@ -1279,10 +1295,15 @@ def step_report():
             for b in ("3", "4", "2", "5", "1"):
                 m = heap & (hy == yv) & (real.boro.values == b)
                 r[f"{BORO_NAME[b]} n"] = int(m.sum())
-                r[f"{BORO_NAME[b]} stood %"] = 100 * (pcol[m] >= T_HI).mean() if m.sum() >= 200 else np.nan
-                r[f"{BORO_NAME[b]} open %"] = 100 * (pcol[m] <= T_LO).mean() if m.sum() >= 200 else np.nan
+                st_ = (pcol[m] >= T_HI).mean() if m.sum() >= 200 else np.nan
+                op_ = (pcol[m] <= T_LO).mean() if m.sum() >= 200 else np.nan
+                r[f"{BORO_NAME[b]} stood %"] = 100 * st_
+                r[f"{BORO_NAME[b]} open %"] = 100 * op_
+                # both calls miss about a third of their side: scale each by the share the hand check found
+                r[f"{BORO_NAME[b]} est. standing %"] = 100 * (st_ / tpr) / (st_ / tpr + op_ / tnr) if m.sum() >= 200 and (st_ + op_) > 0 else np.nan
             rows.append(r)
-        out.append(f"\nPlaceholder years: share the {year} photograph shows standing (p>={T_HI}) / on open ground (p<={T_LO})\n\n" + _md(pd.DataFrame(rows), "{:.0f}"))
+        out.append(f"\nPlaceholder years: share the {year} photograph shows standing (p>={T_HI}) / on open ground (p<={T_LO}); "
+                   f"est. standing = (stood / {tpr:.2f}) / (stood / {tpr:.2f} + open / {tnr:.2f}), the two calls scaled by the share of their side the hand check found\n\n" + _md(pd.DataFrame(rows), "{:.0f}"))
     (WORK / "report.md").write_text("\n".join(out) + "\n")
     log(f"report: {WORK / 'report.md'}")
 

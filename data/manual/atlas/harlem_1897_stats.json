@@ -2,11 +2,11 @@
  "total": {
   "layer": "harlem_1897",
   "plates": 14,
-  "buildings": 18658,
+  "buildings": 18402,
   "frame": 3062,
   "brick": 15334,
-  "stone": 262,
-  "on_today": 2107,
+  "stone": 6,
+  "on_today": 2106,
   "invalid": 0,
   "area_out_of_range": 0,
   "outside_coverage": 0,
@@ -24,7 +24,7 @@
    "n": 2279,
    "frame": 268,
    "brick": 2003,
-   "stone": 8,
+   "stone": 0,
    "coincide": 210,
    "share": 0.092,
    "corrected": true,
@@ -52,7 +52,8 @@
     "kind": "affine"
    },
    "sheet": "image 1516793",
-   "exported": 2279,
+   "lettering_dropped": 8,
+   "exported": 2271,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -67,9 +68,9 @@
    "n": 852,
    "frame": 126,
    "brick": 715,
-   "stone": 11,
+   "stone": 0,
    "coincide": 144,
-   "share": 0.169,
+   "share": 0.171,
    "corrected": true,
    "paper": [
     84.0,
@@ -95,7 +96,8 @@
     "kind": "affine"
    },
    "sheet": "31",
-   "exported": 852,
+   "lettering_dropped": 11,
+   "exported": 841,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -138,6 +140,7 @@
     "kind": "affine"
    },
    "sheet": "32",
+   "lettering_dropped": 0,
    "exported": 1561,
    "duplicates_dropped": 0,
    "status": "ok"
@@ -153,9 +156,9 @@
    "n": 1532,
    "frame": 55,
    "brick": 1471,
-   "stone": 6,
+   "stone": 0,
    "coincide": 239,
-   "share": 0.156,
+   "share": 0.157,
    "corrected": true,
    "paper": [
     81.0,
@@ -181,7 +184,8 @@
     "kind": "affine"
    },
    "sheet": "36",
-   "exported": 1532,
+   "lettering_dropped": 6,
+   "exported": 1526,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -196,7 +200,7 @@
    "n": 2604,
    "frame": 506,
    "brick": 2095,
-   "stone": 3,
+   "stone": 0,
    "coincide": 229,
    "share": 0.088,
    "corrected": true,
@@ -224,7 +228,8 @@
     "kind": "affine"
    },
    "sheet": "image 1516796",
-   "exported": 2604,
+   "lettering_dropped": 3,
+   "exported": 2601,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -239,9 +244,9 @@
    "n": 973,
    "frame": 113,
    "brick": 835,
-   "stone": 25,
+   "stone": 0,
    "coincide": 87,
-   "share": 0.089,
+   "share": 0.092,
    "corrected": true,
    "paper": [
     81.0,
@@ -267,7 +272,8 @@
     "kind": "affine"
    },
    "sheet": "37",
-   "exported": 973,
+   "lettering_dropped": 25,
+   "exported": 948,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -282,9 +288,9 @@
    "n": 2295,
    "frame": 294,
    "brick": 1988,
-   "stone": 13,
+   "stone": 0,
    "coincide": 193,
-   "share": 0.084,
+   "share": 0.085,
    "corrected": true,
    "paper": [
     83.0,
@@ -310,7 +316,8 @@
     "kind": "affine"
    },
    "sheet": "34",
-   "exported": 2295,
+   "lettering_dropped": 13,
+   "exported": 2282,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -325,7 +332,7 @@
    "n": 291,
    "frame": 115,
    "brick": 171,
-   "stone": 5,
+   "stone": 0,
    "coincide": 9,
    "share": 0.031,
    "corrected": false,
@@ -340,7 +347,8 @@
    ],
    "off_median_m": 1.86,
    "sheet": "38",
-   "exported": 291,
+   "lettering_dropped": 5,
+   "exported": 286,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -355,9 +363,9 @@
    "n": 1148,
    "frame": 269,
    "brick": 863,
-   "stone": 16,
+   "stone": 0,
    "coincide": 113,
-   "share": 0.098,
+   "share": 0.1,
    "corrected": true,
    "paper": [
     84.0,
@@ -383,7 +391,8 @@
     "kind": "affine"
    },
    "sheet": "image 1516771",
-   "exported": 1148,
+   "lettering_dropped": 16,
+   "exported": 1132,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -398,9 +407,9 @@
    "n": 2252,
    "frame": 145,
    "brick": 2080,
-   "stone": 27,
-   "coincide": 481,
-   "share": 0.214,
+   "stone": 0,
+   "coincide": 480,
+   "share": 0.216,
    "corrected": true,
    "paper": [
     83.0,
@@ -426,7 +435,8 @@
     "kind": "affine"
    },
    "sheet": "40",
-   "exported": 2252,
+   "lettering_dropped": 27,
+   "exported": 2225,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -441,9 +451,9 @@
    "n": 701,
    "frame": 259,
    "brick": 416,
-   "stone": 26,
+   "stone": 0,
    "coincide": 27,
-   "share": 0.039,
+   "share": 0.04,
    "corrected": true,
    "paper": [
     81.0,
@@ -469,7 +479,8 @@
     "kind": "shift"
    },
    "sheet": "image 1516756",
-   "exported": 701,
+   "lettering_dropped": 26,
+   "exported": 675,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -484,9 +495,9 @@
    "n": 669,
    "frame": 124,
    "brick": 538,
-   "stone": 7,
+   "stone": 1,
    "coincide": 118,
-   "share": 0.176,
+   "share": 0.178,
    "corrected": true,
    "paper": [
     81.0,
@@ -512,7 +523,8 @@
     "kind": "affine"
    },
    "sheet": "42",
-   "exported": 669,
+   "lettering_dropped": 6,
+   "exported": 663,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -527,9 +539,9 @@
    "n": 926,
    "frame": 300,
    "brick": 604,
-   "stone": 22,
+   "stone": 1,
    "coincide": 109,
-   "share": 0.118,
+   "share": 0.12,
    "corrected": true,
    "paper": [
     84.0,
@@ -555,7 +567,8 @@
     "kind": "affine"
    },
    "sheet": "image 1516773",
-   "exported": 925,
+   "lettering_dropped": 20,
+   "exported": 905,
    "duplicates_dropped": 1,
    "status": "ok"
   },
@@ -570,9 +583,9 @@
    "n": 576,
    "frame": 280,
    "brick": 202,
-   "stone": 94,
+   "stone": 4,
    "coincide": 14,
-   "share": 0.024,
+   "share": 0.029,
    "corrected": false,
    "paper": [
     85.0,
@@ -585,7 +598,8 @@
    ],
    "off_median_m": 1.61,
    "sheet": "image 1516774",
-   "exported": 576,
+   "lettering_dropped": 90,
+   "exported": 486,
    "duplicates_dropped": 0,
    "status": "ok"
   }

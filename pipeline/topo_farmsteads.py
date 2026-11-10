@@ -2,25 +2,30 @@
 
 Outside the dense city the 15-minute sheets of the 1888-89 survey and of its 1897 revision
 (1:62,500) draw every building as a small black square: farmhouses, village houses, hotels,
-churches. This stage reads those marks off the scans, matches the editions with each other
-and with today's footprints, and writes
+churches. This stage reads those marks off the scans, matches the two surveys with each other,
+asks the 1:24,000 sheets of 1947 and 1955-57 where a building was gone, looks for today's
+footprint under each mark, and writes
 
-  data/manual/farmsteads/farmsteads.geojson    one point per mapped building (see README.md)
-  data/manual/farmsteads/coverage.geojson      per sheet: the ground it was read on
-  data/interim/farmsteads/sheets/<id>.json     per-sheet detections (cache)
+  data/manual/farmsteads/farmsteads.geojson    one point per mapped building (README.md there)
+  data/manual/farmsteads/coverage.geojson      per 15-minute sheet: neat line, years, shift
+  data/manual/farmsteads/stats.json            the counts quoted in the README
+  data/interim/farmsteads/sheets/<id>.json     per-sheet candidates, kept and rejected, with the reason (cache)
+  data/interim/farmsteads/{thick,lines}_<id>.npy, late_<id>.npz   reduced rasters (cache)
 
 Sheets: USGS Historical Topographic Map Collection (public domain). The GeoPDFs carry the
-600 ppi scan (the GeoTIFFs are a 300 ppi resample in which a mark is 5 px across) and their
-own registration (LGIDict: CTM, neat line, NAD27 polyconic). They are rendered with poppler's
-`pdftoppm` (the only tool outside the Python environment), NAD27 -> WGS84 through the NADCON
-grid, and then shifted onto today's streets (`align`).
+600 ppi scan (the GeoTIFFs are a 300 ppi resample in which a mark is 3 px across) and their
+own registration (LGIDict: CTM, neat line, NAD27 polyconic / transverse Mercator). They are
+rendered with poppler's `pdftoppm` (the only tool outside the Python environment), taken from
+NAD27 to WGS84 through the NADCON grid, and then moved onto today's streets (`align`).
 
-  python topo_farmsteads.py fetch      # GeoPDFs + NADCON grid -> data/raw/farmsteads/ (cached)
-  python topo_farmsteads.py detect     # every sheet -> data/interim/farmsteads/sheets/<id>.json (cached)
-  python topo_farmsteads.py export     # match editions, footprints, land -> data/manual/farmsteads/
+  python topo_farmsteads.py fetch      # GeoPDFs + NADCON grid -> data/raw/farmsteads/ (cached, 560 MB)
+  python topo_farmsteads.py detect     # every sheet -> data/interim/farmsteads/ (cached; ~2 CPU-minutes per 15-minute sheet)
+  python topo_farmsteads.py export     # match editions, later sheets, footprints, land -> data/manual/farmsteads/
   python topo_farmsteads.py all
   options: --sheet ID (one sheet), --force (ignore the caches)
 
+Needs data/interim/nyc_buildings.parquet (footprints under the marks) and grid_detail_covers /
+_years (ground of the survey year); without them those columns stay empty.
 Method, validation and known failures: data/manual/farmsteads/README.md.
 """
 from __future__ import annotations
@@ -232,7 +237,7 @@ def _disc(r):
 
 
 def ink_threshold(rgb):
-    """Black-ink thresholds on the brightest channel (black is dark in all three; brown contours
+    """Black-ink thresholds on the brightest of the three channels (black is dark in all three; brown contours
     keep red, blue water keeps blue). Strict (solid ink: the marks' cores) at 40 % of the way from
     the ink level to the paper, loose (hairlines of lettering, faint casings) at 72 %."""
     mx = rgb[::7, ::7].max(-1).astype(np.float32)
@@ -256,19 +261,14 @@ def _through_line(ink_d, cy, cx, R):
     ties, crossing of heavy lines): share of ink along the best direction, 0..1."""
     H, W = ink_d.shape
     d = np.arange(int(R) + 3, int(R) + 15)
-    best = 0.0
-    for sgn_pair in (1,):
-        xa = np.rint(cx + np.outer(_DX, d)).astype(int)
-        ya = np.rint(cy + np.outer(_DY, d)).astype(int)
-        xb = np.rint(cx - np.outer(_DX, d)).astype(int)
-        yb = np.rint(cy - np.outer(_DY, d)).astype(int)
-        ok = (xa >= 0) & (xa < W) & (ya >= 0) & (ya < H) & (xb >= 0) & (xb < W) & (yb >= 0) & (yb < H)
-        if not ok.all():
-            return 0.0
-        fa = ink_d[ya, xa].mean(1)
-        fb = ink_d[yb, xb].mean(1)
-        best = float(np.minimum(fa, fb).max())
-    return best
+    xa = np.rint(cx + np.outer(_DX, d)).astype(int)
+    ya = np.rint(cy + np.outer(_DY, d)).astype(int)
+    xb = np.rint(cx - np.outer(_DX, d)).astype(int)
+    yb = np.rint(cy - np.outer(_DY, d)).astype(int)
+    ok = (xa >= 0) & (xa < W) & (ya >= 0) & (ya < H) & (xb >= 0) & (xb < W) & (yb >= 0) & (yb < H)
+    if not ok.all():
+        return 0.0
+    return float(np.minimum(ink_d[ya, xa].mean(1), ink_d[yb, xb].mean(1)).max())
 
 
 def detect_tile(rgb, thr, thr_loose, sat_max=None):
@@ -823,6 +823,30 @@ class FootprintMatcher:
         return {k: int(v) for k, v in pd.Series(lab_).value_counts().items()}
 
 
+def rows_of_houses(marks):
+    """Marks the detector turned down only because they touch other building ink: the houses of a
+    village street drawn shoulder to shoulder, or against a longer building. Taken back where
+    nothing speaks for lettering or a railway: a square blob of full size, no line running through
+    it, no piece of lettering within 45 px, and at least four other marks within 60 px."""
+    from scipy.spatial import cKDTree
+    P = np.array([[m["col"], m["row"]] for m in marks], float).reshape(-1, 2)
+    texty = np.array([(m["why"] in ("text", "in_text", "near_text")) or (m["cls"] in ("odd", "hole") and m.get("thin", 0) >= 0.12) for m in marks])
+    house = np.array([m["cls"] == "mark" and (m["keep"] or m["why"] in ("attached", "counter")) for m in marks])
+    cand = np.array([m["cls"] == "mark" and not m["keep"] and m["why"] in ("attached", "counter") and m["area"] >= 34
+                     and m.get("line", 0) < 0.6 and m["L"] <= 11 for m in marks])
+    if not cand.any() or not house.any():
+        return []
+    tt = cKDTree(P[texty]) if texty.any() else None
+    th = cKDTree(P[house])
+    out = []
+    for i in np.nonzero(cand)[0]:
+        if tt is not None and tt.query_ball_point(P[i], 45.0):
+            continue
+        if len(th.query_ball_point(P[i], 60.0)) - 1 >= 4:
+            out.append(marks[i])
+    return out
+
+
 def export():
     import duckdb
     import geopandas as gpd
@@ -845,11 +869,12 @@ def export():
         res[sid] = json.loads(path.read_text())
         sh = sheets[sid] = Sheet(sid)
         sh.shift = res[sid]["shift"]
-        ms = [m for m in res[sid]["marks"] if m["keep"]]
+        rows = rows_of_houses(res[sid]["marks"])
+        ms = [m for m in res[sid]["marks"] if m["keep"]] + rows
         E, N = sh.px_to_utm([m["col"] for m in ms], [m["row"] for m in ms])
         per[sid] = pd.DataFrame({"sid": sid, "E": E, "N": N, "col": [m["col"] for m in ms], "row": [m["row"] for m in ms],
                                  "cls": [m["cls"] for m in ms], "ctx": [m["ctx"] for m in ms], "area": [m["area"] for m in ms],
-                                 "L": [m["L"] for m in ms]})
+                                 "L": [m["L"] for m in ms], "in_row": [not m["keep"] for m in ms]})
     thick = {sid: _near(np.load(FARM_INTERIM / f"thick_{sid}.npy"), int(math.ceil(CLEAR_M / (4 * sheets[sid].m_per_px)))) for sid in sheets}
 
     def shown(sid, E, N):
@@ -881,6 +906,7 @@ def export():
         bm = B.iloc[ia[pair]]
         both["E"], both["N"] = (both["E"].values + bm["E"].values) / 2, (both["N"].values + bm["N"].values) / 2
         both["cls"] = np.where((both["cls"].values == "bar") & (bm["cls"].values == "bar"), "bar", "mark")
+        both["in_row"] = both["in_row"].values & bm["in_row"].values
         feats.append(both.assign(first_year=ya, last_year=yb, gone_by=np.nan, sheets=f"{a_id}+{b_id}", earlier_unclear=False, later_unclear=False, new_since=np.nan))
         only_a = A[~pair].copy()
         still = shown(b_id, only_a["E"].values, only_a["N"].values)
@@ -993,7 +1019,7 @@ def export():
     F["mark_m"] = np.round(F["L"] * sheets[next(iter(sheets))].m_per_px).astype(int)       # length of the mark's solid core on the ground
     two = F["first_year"] != F["last_year"]
     F["confidence"] = np.where(two | (F["standing_basis"] == "recorded"), "high",
-                               np.where((F["cls"] == "bar") | F["ground"].isin(["tidal_marsh", "tidal_flat", "wetland"]) | F["builtup"], "low", "medium"))
+                               np.where((F["cls"] == "bar") | F["in_row"] | F["ground"].isin(["tidal_marsh", "tidal_flat", "wetland"]) | F["builtup"], "low", "medium"))
     abbr = {"Brooklyn": "bk", "Harlem": "ha", "Staten Island": "si", "Hempstead": "he", "Oyster Bay": "ob"}
     first_sid = F["sheets"].str.split("+").str[0]
     F["id"] = [f"{abbr[SHEETS[s][1]]}{SHEETS[s][4] % 100}_{int(c):05d}_{int(r):05d}" for s, c, r in zip(first_sid, F["col"], F["row"])]
@@ -1011,7 +1037,7 @@ def export():
         return v
     props = ["id", "first_year", "last_year", "gone_by", "new_since", "n_marks", "site", "kind", "mark_m", "sheet", "confidence", "borough",
              "standing_bin", "standing_basis", "standing_strength", "standing_year", "standing_year_src", "standing_dist_m", "standing_n", "standing_n60", "standing_area_m2",
-             "late_symbol", "earlier_unclear", "later_unclear", "builtup", "ground"]
+             "late_symbol", "earlier_unclear", "later_unclear", "builtup", "in_row", "ground"]
     F["sheet"] = F["sheets"]
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     fc = {"type": "FeatureCollection", "name": "farmsteads",
@@ -1046,7 +1072,8 @@ def export():
              "by_borough_first_last": {f"{b}|{int(a)}|{int(c)}": int(v) for (b, a, c), v in F.groupby(["borough", "first_year", "last_year"]).size().items()},
              "by_confidence": F.groupby("confidence").size().to_dict(), "by_kind": F.groupby("kind").size().to_dict(),
              "gone_by": {str(int(k)): int(v) for k, v in F["gone_by"].dropna().value_counts().sort_index().items()},
-             "new_since_1889": int(F["new_since"].notna().sum()), "builtup": int(F["builtup"].sum()),
+             "new_since_1889": int(F["new_since"].notna().sum()), "builtup": int(F["builtup"].sum()), "in_row": int(F["in_row"].sum()),
+             "in_row_by_borough": {b: int(v) for b, v in F[F["in_row"]].groupby("borough").size().items()},
              "ground": F.groupby("ground").size().to_dict(), "late_sheets": late_info,
              "standing": {f"{b}|{k}|{w}": int(v) for (b, k, w), v in F[F["standing_basis"] != ""].groupby(["borough", "standing_basis", "standing_strength"]).size().items()},
              "standing_by_src": {f"{b}|{k}|{w}|{s_}": int(v) for (b, k, w, s_), v in F[F["standing_basis"] != ""].groupby(["borough", "standing_basis", "standing_strength", "standing_year_src"]).size().items()},

@@ -932,6 +932,14 @@ def export(layer, max_off=8.0):
                 inter = shapely.area(shapely.intersection(np.asarray(polys, object)[i], np.asarray(acc, object)[j]))
                 small = np.minimum(shapely.area(np.asarray(polys, object)[i]), shapely.area(np.asarray(acc, object)[j]))
                 keep[i[inter > 0.3 * small]] = False
+        # grey ("stone") outlines: bold block numbers and street lettering print in the same grey and come out as
+        # small ragged pieces; a stone building is kept only if it is 80 m2 or more and fills 60 % of its rectangle
+        lettering = 0
+        for k, (o, g) in enumerate(zip(d["items"], polys)):
+            if keep[k] and o["material"] == "stone" and (g.area < 80.0 or g.area < 0.6 * g.minimum_rotated_rectangle.area):
+                keep[k] = False
+                lettering += 1
+        st["lettering_dropped"] = lettering
         n0 = len(feats)
         for k, (o, g) in enumerate(zip(d["items"], polys)):
             if not keep[k]:
@@ -944,7 +952,11 @@ def export(layer, max_off=8.0):
                 id=f"{spec['source']}_{pl['sheet']}_{k}", map_year=spec["map_year"], material=o["material"],
                 source=spec["source"], sheet=pl["sheet"], plate=int(pl["id"]), area_m2=round(g.area, 1),
                 on_today=bool(o.get("iou", 0) > 0.5), today_cover=round(o.get("cover", 0.0), 2)), geometry=sg.mapping(_ll(g))))
-        st["exported"], st["duplicates_dropped"], st["status"] = len(feats) - n0, int((~keep).sum()), "ok"
+        st["exported"], st["duplicates_dropped"], st["status"] = len(feats) - n0, int((~keep).sum()) - lettering, "ok"
+        for m_ in ("frame", "brick", "stone"):
+            st[m_] = sum(f["properties"]["material"] == m_ for f in feats[n0:])
+        st["coincide"] = sum(f["properties"]["on_today"] for f in feats[n0:])
+        st["share"] = round(st["coincide"] / max(len(feats) - n0, 1), 3)
         rep.append(st)
         if d.get("mask"):
             m = wkb.loads(d["mask"]).simplify(0.5)

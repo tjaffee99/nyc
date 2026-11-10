@@ -1,6 +1,6 @@
 """Contact sheet of random exported features of one sheet (the precision check of the published file).
 
-  python -I contact_export.py <sheet id> <out.png> [n=36] [seed=1] [--confidence high|medium|low]
+  python -I contact_export.py <sheet id> <out.png> [n=36] [seed=1] [--confidence high|medium|low] [--rows]
 
 Cells as in contact.py; the label gives the cell number, first/last year and confidence. The cell
 is cut from the sheet named (for a building on two editions: the one asked for)."""
@@ -21,7 +21,8 @@ n = int(a[2]) if len(a) > 2 else 36
 seed = int(a[3]) if len(a) > 3 else 1
 conf = sys.argv[sys.argv.index("--confidence") + 1] if "--confidence" in sys.argv else None
 fc = json.loads((T.OUT_DIR / "farmsteads.geojson").read_text())["features"]
-fc = [f for f in fc if sid in f["properties"]["sheet"].split("+") and (conf is None or f["properties"]["confidence"] == conf)]
+fc = [f for f in fc if sid in f["properties"]["sheet"].split("+") and (conf is None or f["properties"]["confidence"] == conf)
+      and ("--rows" not in sys.argv or f["properties"].get("in_row"))]
 total = len(fc)
 random.Random(seed).shuffle(fc)
 fc = fc[:n]

@@ -258,7 +258,7 @@ def demolished():
     g = gpd.read_file(p).to_crs(UTM)
     sq = g.start_quality.fillna("").astype(str).str.lower().values if "start_quality" in g else np.full(len(g), "")
     sy = pd.to_numeric(g.start_year, errors="coerce").values if "start_year" in g else np.full(len(g), np.nan)
-    ey = pd.to_numeric(g.end_year, errors="coerce").values
+    ey = pd.to_numeric(g.end_year, errors="coerce").values.copy()
     hm = pd.to_numeric(g.height_m, errors="coerce").values if "height_m" in g else np.full(len(g), np.nan)
     st = pd.to_numeric(g.storeys, errors="coerce").values if "storeys" in g else np.full(len(g), np.nan)
     names = g["name"].values if "name" in g else np.full(len(g), None, dtype=object)

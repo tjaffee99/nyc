@@ -120,7 +120,7 @@
     ],
     "shift_rms_m": 12.5,
     "marks_kept": 2021,
-    "marks_in_city": 1951
+    "marks_in_city": 2023
    }
   },
   {
@@ -241,7 +241,7 @@
     ],
     "shift_rms_m": 12.8,
     "marks_kept": 2642,
-    "marks_in_city": 2589
+    "marks_in_city": 2750
    }
   },
   {
@@ -362,7 +362,7 @@
     ],
     "shift_rms_m": 14.2,
     "marks_kept": 3616,
-    "marks_in_city": 1552
+    "marks_in_city": 1582
    }
   },
   {
@@ -483,7 +483,7 @@
     ],
     "shift_rms_m": 16.1,
     "marks_kept": 3935,
-    "marks_in_city": 1668
+    "marks_in_city": 1768
    }
   },
   {
@@ -604,7 +604,7 @@
     ],
     "shift_rms_m": 18.5,
     "marks_kept": 3262,
-    "marks_in_city": 1662
+    "marks_in_city": 1744
    }
   },
   {
@@ -725,7 +725,7 @@
     ],
     "shift_rms_m": 21.7,
     "marks_kept": 2476,
-    "marks_in_city": 222
+    "marks_in_city": 226
    }
   },
   {
@@ -846,7 +846,7 @@
     ],
     "shift_rms_m": 16.4,
     "marks_kept": 1934,
-    "marks_in_city": 41
+    "marks_in_city": 44
    }
   }
  ]
