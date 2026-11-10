@@ -7,9 +7,9 @@ What the atlas does not give (years of construction and demolition, heights) is 
 
 | layer | atlas | area | buildings |
 |---|---|---|---|
-| `kings_towns_1890.geojson` | *Robinson's atlas of Kings County, New York* (E. Robinson, 1890), 29 of its 31 plates | the county towns before they joined Brooklyn: Flatbush, New Utrecht (Bay Ridge, Fort Hamilton, Bath Beach, Bensonhurst), Gravesend (the village, Coney Island, Sheepshead Bay), Flatlands (Canarsie in part) | 6,916 (6,797 frame, 119 brick) |
-| `harlem_1897.geojson` | *Atlas of the city of New York, Manhattan Island* (G. W. & W. S. Bromley, 1897), the 14 plates north of 84th / 86th St | Yorkville north of 84th St, East Harlem, the Upper West Side from 86th St, Morningside Heights, Harlem, Manhattanville, Hamilton Heights, Washington Heights to about 190th St | 18,402 (3,062 frame, 15,334 brick, 6 stone) |
-| `bronx_23rd_ward_1887.geojson` | *Atlas of the city of New York … 23rd Ward* (E. Robinson & R. H. Pidgeon, 1887), 20 of 21 plates (plate 6 is not in the dump) | the Bronx south of about 170th St: Mott Haven, Port Morris, Melrose, Morrisania, Hunts Point, Highbridge, Claremont | 5,626 (4,651 frame, 933 brick, 42 stone) |
+| `kings_towns_1890.geojson` | *Robinson's atlas of Kings County, New York* (E. Robinson, 1890), 29 of its 31 plates | the county towns before they joined Brooklyn: Flatbush, New Utrecht (Bay Ridge, Fort Hamilton, Bath Beach, Bensonhurst), Gravesend (the village, Coney Island, Sheepshead Bay), Flatlands (Canarsie in part) | 6,914 (6,795 frame, 119 brick) |
+| `harlem_1897.geojson` | *Atlas of the city of New York, Manhattan Island* (G. W. & W. S. Bromley, 1897), the 14 plates north of 84th / 86th St | Yorkville north of 84th St, East Harlem, the Upper West Side from 86th St, Morningside Heights, Harlem, Manhattanville, Hamilton Heights, Washington Heights to about 190th St | 18,386 (3,057 frame, 15,323 brick, 6 stone) |
+| `bronx_23rd_ward_1887.geojson` | *Atlas of the city of New York … 23rd Ward* (E. Robinson & R. H. Pidgeon, 1887), 18 of 21 plates (plate 6 is not in the dump; 16 and 20 left out) | the Bronx south of about 170th St: Mott Haven, Port Morris, Melrose, Morrisania, Hunts Point, Highbridge, Claremont | 5,456 (4,498 frame, 924 brick, 34 stone) |
 
 Each layer has a `<layer>_coverage.geojson` (one polygon per plate read) and a `<layer>_stats.json` (the
 numbers of the tables below, written by the export).
@@ -119,12 +119,12 @@ metres over the coverage edge.
      is a piece of carmine band (three of the four brick outlines in Gravesend village were); a frame outline
      under 5 m wide and 4.5 times as long, or hook-shaped, is a piece of orange band. 296 dropped.
    * *lettering* (city plates): the bold block numbers and street names print in the grey of the stone fill; a
-     `stone` outline under 80 m2 or filling less than 60 % of its rectangle is dropped (2,111 in the
+     `stone` outline under 80 m2 or filling less than 60 % of its rectangle is dropped (1,639 in the
      Bronx, 256 in Manhattan). Real stone buildings cut up by their own lettering go with them:
      churches are mostly missing.
    * *washed lots* (Bronx): the atlas washes some lots in a pale olive that passes the pixel test for the
      frame yellow. Each frame outline gets a yellow-strength score from the scan (`score_frames`); the scores
-     of a plate fall in two groups with a gap between; 989 outlines of the weak group dropped.
+     of a plate fall in two groups with a gap between; 859 outlines of the weak group dropped.
    Then: buildings whose centre lies inside the plate's Map Warper mask; where two plates' masks overlap a
    building traced twice is kept once.
 
@@ -132,9 +132,9 @@ metres over the coverage edge.
 
 ### kings_towns_1890
 
-Robinson's *Atlas of Kings County* (1890); "Scale 300 ft to the inch" on the Gravesend plate (0.48 m per
-pixel), "200 ft" on the Flatbush plates (0.32 m). Buildings: ochre (frame), carmine (brick), stables and barns
-crossed.
+Robinson's *Atlas of Kings County* (1890); "Scale 300 ft to the inch" is printed on the Gravesend plate (0.48 m
+per pixel) and "200 ft" on Flatbush plate 3 (0.32 m); the other plates were not read for their scale and run
+from 0.29 to 0.65 m per pixel (table). Buildings: ochre (frame), carmine (brick), stables and barns crossed.
 
 <!-- TABLE kings_towns_1890 -->
 | sheet | Map Warper id | NYPL image | control points (fit, CV rms m) | m / px | street match: windows agreeing, shift found m, left m | building match: windows, residual m | buildings (frame / brick / stone) | on a standing footprint (IoU > 0.5) | their median offset m | status |
@@ -157,9 +157,9 @@ crossed.
 | 16 | 8541 | 1519732 | 6 (affine, 8.7) | 0.322 | affine: 44, 4.4, 1.6 | none | 180 (178 / 2 / 0) | 4 (2 %) | 1.85 | ok |
 | 17 | 8542 | 1519733 | 4 (affine, 19.7) | 0.287 | affine: 12, 12.9, 6.6 | none | 364 (358 / 6 / 0) | 1 (0 %) | 0.53 | ok |
 | 18 | 8543 | 1519734 | 25 (affine, 3.6) | 0.321 | affine: 24, 2.3, 2.9 | none | 244 (238 / 6 / 0) | 10 (4 %) | 1.45 | ok |
-| 19 | 8544 | 1519735 | 4 (affine, 6.4) | 0.321 | affine: 38, 4.0, 2.1 | none | 73 (67 / 6 / 0) | 1 (1 %) | 1.61 | ok |
+| 19 | 8544 | 1519735 | 4 (affine, 6.4) | 0.321 | affine: 38, 4.0, 2.1 | none | 72 (66 / 6 / 0) | 1 (1 %) | 1.61 | ok |
 | 20 | 8545 | 1519736 | 10 (affine, 4.1) | 0.48 | affine: 14, 3.2, 1.2 | none | 131 (131 / 0 / 0) | 0 (0 %) |  | ok |
-| 21 | 8546 | 1519737 | 17 (tps, 7.5) | 0.321 | affine: 19, 7.1, 4.0 | none | 463 (462 / 1 / 0) | 3 (1 %) | 3.22 | ok |
+| 21 | 8546 | 1519737 | 17 (tps, 7.5) | 0.321 | affine: 19, 7.1, 4.0 | none | 462 (461 / 1 / 0) | 3 (1 %) | 3.22 | ok |
 | 22 | 8547 | 1519738 | 39 (tps, 3.2) | 0.484 | affine: 46, 3.2, 2.0 | none | 196 (195 / 1 / 0) | 3 (2 %) | 1.74 | ok |
 | 23 | 8548 | 1519739 | 5 (affine, 11.8) | 0.485 | affine: 75, 4.4, 2.9 | none | 235 (232 / 3 / 0) | 1 (0 %) | 1.52 | ok |
 | 24 | 8549 | 1519740 | 4 (affine, 5.4) | 0.482 | affine: 76, 4.8, 2.6 | none | 140 (139 / 1 / 0) | 2 (1 %) | 2.64 | ok |
@@ -170,7 +170,7 @@ crossed.
 | 29 | 8554 | 1519745 | 4 (affine, 3.8) | 0.647 | affine: 126, 5.1, 3.3 | none | 343 (328 / 15 / 0) | 1 (0 %) | 2.26 | ok |
 | 30 | 8555 | 1519746 | 5 (affine, 5.9) | 0.483 | affine: 62, 3.5, 2.7 | none | 396 (386 / 10 / 0) | 6 (2 %) | 1.59 | ok |
 | 31 | 8556 |  |  (, ) |  | none | none | 0 (0 / 0 / 0) | 0 (0 %) |  | left out: 3 control points; the street match finds the fit 15 m out (median) and no consistent correction |
-| **all** | | | | | | | **6916** (6797 / 119 / 0) | 139 (2 %) | | 29 plates, 72.92 km2 |
+| **all** | | | | | | | **6914** (6795 / 119 / 0) | 139 (2 %) | | 29 plates, 72.92 km2 |
 <!-- /TABLE kings_towns_1890 -->
 
 **Left out.** Plate 25 (Flatlands village, Avenue C to Avenue L between Ocean Av and Ralph Av): its Map
@@ -188,9 +188,11 @@ buildings have almost all gone; on the 11 plates with five or more standing buil
 
 **Looked at** (plate crops with the outlines drawn on them):
 * Gravesend village (plate 22, 480 m around Gravesend Neck Rd and McDonald Av), final layer: 88 buildings
-  drawn, 86 traced (98 %); missed: one very small shed and the village's one brick building (dropped by the
-  band-piece filter until its threshold was moved from 80 to 75 %; not looked at again). 95 outlines: 2 are
-  pieces of orange lot band, 4 are extra pieces of the hotel on the main street, which lettering cuts up.
+  drawn, 87 traced (99 %); missed: one very small shed. Of the outlines, 2 are pieces of orange lot band and 4
+  are extra pieces of the hotel on the main street, which lettering cuts up. (In the picture looked at the
+  village's one brick building was missing, dropped by the band-piece filter; its threshold was then moved
+  from 80 to 75 % and the building is in the layer — checked by its position, not by eye. The three pieces of
+  carmine band in the window stay out.)
 * South of the village (plate 22, 330 m): 16 outlines, all buildings; none missed that I could see.
 * Flatbush, the gas works (plate 2, 190 m), traced afresh with the final settings: 31 drawn, 30 traced, no
   false outline.
@@ -201,7 +203,7 @@ buildings have almost all gone; on the 11 plates with five or more standing buil
 Two failures were found this way and repaired, and are the reason to expect others on plates not looked at:
 the Flatbush window first returned 6 of 31 (the frame fill there is as orange as the property bands of other
 sheets) and the Coney Island window about 70 % (the frame fill there is pale; a lightness limit was dropping
-it). The colourists' pigments differ from sheet to sheet; 24 of the 29 plates were not looked at.
+it). The colourists' pigments differ from sheet to sheet; 25 of the 29 plates were not looked at.
 
 **Known failures.** Pieces of wide orange band read as frame buildings (2 in 95 in the village; the shape
 filter removes the long and hooked ones). Buildings standing on a band of their own colour are missed or
@@ -218,21 +220,21 @@ along the front = stone front, grey = stone, yellow = frame.
 <!-- TABLE harlem_1897 -->
 | sheet | Map Warper id | NYPL image | control points (fit, CV rms m) | m / px | street match: windows agreeing, shift found m, left m | building match: windows, residual m | buildings (frame / brick / stone) | on a standing footprint (IoU > 0.5) | their median offset m | status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| image 1516793 | 8224 | 1516793 | 34 (tps, 1.2) | 0.245 | none | affine: 56, 0.81 | 2271 (268 / 2003 / 0) | 210 (9 %) | 2.11 | ok |
-| 31 | 8225 | 1516794 | 5 (affine, 5.4) | 0.244 | none | affine: 24, 0.55 | 841 (126 / 715 / 0) | 144 (17 %) | 2.11 | ok |
+| image 1516793 | 8224 | 1516793 | 34 (tps, 1.2) | 0.245 | none | affine: 56, 0.81 | 2268 (268 / 2000 / 0) | 210 (9 %) | 2.11 | ok |
+| 31 | 8225 | 1516794 | 5 (affine, 5.4) | 0.244 | none | affine: 24, 0.55 | 838 (124 / 714 / 0) | 144 (17 %) | 2.11 | ok |
 | 32 | 8226 | 1516795 | 25 (tps, 1.2) | 0.243 | none | affine: 18, 0.58 | 1561 (208 / 1353 / 0) | 134 (9 %) | 1.33 | ok |
-| 36 | 8230 | 1516799 | 20 (tps, 1.3) | 0.244 | none | affine: 30, 0.72 | 1526 (55 / 1471 / 0) | 239 (16 %) | 1.42 | ok |
+| 36 | 8230 | 1516799 | 20 (tps, 1.3) | 0.244 | none | affine: 30, 0.72 | 1525 (55 / 1470 / 0) | 239 (16 %) | 1.42 | ok |
 | image 1516796 | 8227 | 1516796 | 4 (affine, 9.3) | 0.245 | none | affine: 28, 0.63 | 2601 (506 / 2095 / 0) | 229 (9 %) | 1.37 | ok |
-| 37 | 8231 | 1516800 | 28 (affine, 1.2) | 0.245 | none | affine: 23, 0.69 | 948 (113 / 835 / 0) | 87 (9 %) | 1.75 | ok |
+| 37 | 8231 | 1516800 | 28 (affine, 1.2) | 0.245 | none | affine: 23, 0.69 | 947 (113 / 834 / 0) | 87 (9 %) | 1.75 | ok |
 | 34 | 8228 | 1516797 | 24 (affine, 1.6) | 0.243 | none | affine: 25, 0.75 | 2282 (294 / 1988 / 0) | 193 (8 %) | 1.77 | ok |
 | 38 | 8186 | 1516755 | 17 (affine, 1.5) | 0.245 | none | none | 286 (115 / 171 / 0) | 9 (3 %) | 1.86 | ok |
-| image 1516771 | 8202 | 1516771 | 4 (affine, 8.5) | 0.244 | none | affine: 10, 0.19 | 1132 (269 / 863 / 0) | 113 (10 %) | 1.19 | ok |
-| 40 | 8188 | 1516757 | 23 (affine, 1.2) | 0.243 | none | affine: 41, 0.48 | 2225 (145 / 2080 / 0) | 480 (22 %) | 1.3 | ok |
-| image 1516756 | 8187 | 1516756 | 19 (affine, 1.4) | 0.243 | none | shift: 7, 1.66 | 675 (259 / 416 / 0) | 27 (4 %) | 1.43 | ok |
+| image 1516771 | 8202 | 1516771 | 4 (affine, 8.5) | 0.244 | none | affine: 10, 0.19 | 1131 (269 / 862 / 0) | 113 (10 %) | 1.19 | ok |
+| 40 | 8188 | 1516757 | 23 (affine, 1.2) | 0.243 | none | affine: 41, 0.48 | 2223 (145 / 2078 / 0) | 480 (22 %) | 1.3 | ok |
+| image 1516756 | 8187 | 1516756 | 19 (affine, 1.4) | 0.243 | none | shift: 7, 1.66 | 674 (258 / 416 / 0) | 27 (4 %) | 1.43 | ok |
 | 42 | 8201 | 1516770 | 23 (poly2, 1.3) | 0.243 | none | affine: 18, 0.36 | 663 (124 / 538 / 1) | 118 (18 %) | 1.31 | ok |
-| image 1516773 | 8204 | 1516773 | 70 (tps, 1.1) | 0.324 | none | affine: 21, 0.6 | 905 (300 / 604 / 1) | 109 (12 %) | 1.48 | ok |
+| image 1516773 | 8204 | 1516773 | 70 (tps, 1.1) | 0.324 | none | affine: 21, 0.6 | 901 (298 / 602 / 1) | 109 (12 %) | 1.48 | ok |
 | image 1516774 | 8205 | 1516774 | 25 (tps, 1.9) | 0.49 | none | none | 486 (280 / 202 / 4) | 14 (3 %) | 1.61 | ok |
-| **all** | | | | | | | **18402** (3062 / 15334 / 6) | 2106 (11 %) | | 14 plates, 20.07 km2 |
+| **all** | | | | | | | **18386** (3057 / 15323 / 6) | 2106 (11 %) | | 14 plates, 20.07 km2 |
 <!-- /TABLE harlem_1897 -->
 
 **Registration.** No street tint on this atlas; the plates were fitted on the standing buildings. The first
@@ -263,41 +265,43 @@ are not read (only fills).
 
 ### bronx_23rd_ward_1887
 
-Robinson & Pidgeon's atlas of the 23rd Ward (1887), plates 1-5 and 7-21; 0.17-0.18 m per pixel (the scale
+Robinson & Pidgeon's atlas of the 23rd Ward (1887), plates 1-5, 7-15, 17-19 and 21; 0.17-0.18 m per pixel (the scale
 statement was not read). Pale yellow = frame, rose = brick, grey = stone; the sheets are greyish and the lines
 faint.
 
 <!-- TABLE bronx_23rd_ward_1887 -->
 | sheet | Map Warper id | NYPL image | control points (fit, CV rms m) | m / px | street match: windows agreeing, shift found m, left m | building match: windows, residual m | buildings (frame / brick / stone) | on a standing footprint (IoU > 0.5) | their median offset m | status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | 8625 | 1523107 | 4 (affine, 5.4) | 0.174 | affine: 12, 4.9, 2.1 | shift: 3, 0.45 | 241 (120 / 120 / 1) | 3 (1 %) | 2.17 | ok |
-| 2 | 8626 | 1523108 | 4 (affine, 5.9) | 0.175 | affine: 29, 6.4, 2.6 | shift: 7, 0.53 | 879 (526 / 353 / 0) | 72 (8 %) | 1.44 | ok |
+| 1 | 8625 | 1523107 | 4 (affine, 5.4) | 0.174 | affine: 12, 4.9, 2.1 | shift: 3, 0.45 | 240 (119 / 120 / 1) | 3 (1 %) | 2.17 | ok |
+| 2 | 8626 | 1523108 | 4 (affine, 5.9) | 0.175 | affine: 29, 6.4, 2.6 | shift: 7, 0.53 | 880 (527 / 353 / 0) | 72 (8 %) | 1.44 | ok |
 | 3 | 8627 | 1523109 | 8 (affine, 12.9) | 0.173 | affine: 24, 3.2, 3.9 | none | 285 (238 / 47 / 0) | 5 (2 %) | 2.7 | ok |
 | 4 | 8628 | 1523110 | 4 (affine, 2.3) | 0.174 | affine: 16, 5.7, 0.8 | none | 213 (156 / 56 / 1) | 1 (0 %) | 2.0 | ok |
-| 5 | 8629 | 1523111 | 8 (affine, 10.3) | 0.179 | affine: 27, 16.2, 2.2 | none | 829 (727 / 102 / 0) | 21 (2 %) | 1.39 | ok |
-| 7 | 8631 | 1523113 | 3 (affine, 0.0) | 0.174 | affine: 26, 7.6, 2.1 | none | 288 (263 / 25 / 0) | 5 (2 %) | 0.95 | ok |
+| 5 | 8629 | 1523111 | 8 (affine, 10.3) | 0.179 | affine: 27, 16.2, 2.2 | none | 828 (726 / 102 / 0) | 21 (2 %) | 1.39 | ok |
+| 7 | 8631 | 1523113 | 3 (affine, 0.0) | 0.174 | affine: 26, 7.6, 2.1 | none | 289 (264 / 25 / 0) | 5 (2 %) | 0.95 | ok |
 | 8 | 8632 | 1523114 | 5 (affine, 7.9) | 0.173 | affine: 26, 6.6, 1.7 | none | 504 (466 / 38 / 0) | 8 (2 %) | 1.32 | ok |
 | 9 | 8633 | 1523115 | 5 (affine, 16.1) | 0.174 | affine: 35, 13.3, 1.7 | none | 633 (568 / 64 / 1) | 18 (3 %) | 1.49 | ok |
-| 10 | 8634 | 1523116 | 4 (affine, 5.9) | 0.174 | affine: 30, 4.9, 1.5 | none | 612 (565 / 47 / 0) | 11 (2 %) | 1.59 | ok |
+| 10 | 8634 | 1523116 | 4 (affine, 5.9) | 0.174 | affine: 30, 4.9, 1.5 | none | 610 (563 / 47 / 0) | 11 (2 %) | 1.59 | ok |
 | 11 | 8635 | 1523117 | 3 (affine, 0.0) | 0.174 | shift: 5, 16.9, 2.6 | none | 46 (40 / 6 / 0) | 0 (0 %) |  | ok |
 | 12 | 8636 | 1523118 | 4 (affine, 22.8) | 0.22 | affine: 19, 6.0, 3.0 | none | 89 (72 / 15 / 2) | 0 (0 %) |  | ok |
-| 13 | 8637 | 1523119 | 7 (affine, 6.9) | 0.217 | affine: 27, 3.0, 1.7 | none | 246 (243 / 1 / 2) | 3 (1 %) | 2.71 | ok |
-| 14 | 8638 | 1523120 | 9 (affine, 7.1) | 0.218 | affine: 14, 4.0, 2.8 | none | 102 (95 / 5 / 2) | 1 (1 %) | 1.49 | ok |
+| 13 | 8637 | 1523119 | 7 (affine, 6.9) | 0.217 | affine: 27, 3.0, 1.7 | none | 245 (242 / 1 / 2) | 3 (1 %) | 2.71 | ok |
+| 14 | 8638 | 1523120 | 9 (affine, 7.1) | 0.218 | affine: 14, 4.0, 2.8 | none | 101 (94 / 5 / 2) | 1 (1 %) | 1.49 | ok |
 | 15 | 8639 | 1523121 | 5 (affine, 10.6) | 0.22 | affine: 17, 9.9, 2.7 | none | 72 (70 / 1 / 1) | 0 (0 %) | 1.88 | ok |
-| 16 | 8640 | 1523122 | 5 (affine, 26.7) | 0.223 | none | none | 88 (80 / 4 / 4) | 0 (0 %) |  | ok |
-| 17 | 8641 | 1523123 | 4 (affine, 82.6) | 0.217 | affine: 17, 9.6, 2.3 | none | 159 (135 / 20 / 4) | 3 (2 %) | 1.83 | ok |
+| 16 | 8640 |  |  (, ) |  | none | none | 0 (0 / 0 / 0) | 0 (0 %) |  | left out: control points inconsistent (cross-validated 27 m) and no street match to check or correct the fit |
+| 17 | 8641 | 1523123 | 4 (affine, 82.6) | 0.217 | affine: 17, 9.6, 2.3 | none | 158 (134 / 20 / 4) | 3 (2 %) | 1.83 | ok |
 | 18 | 8642 | 1523124 | 4 (affine, 4.3) | 0.215 | affine: 14, 11.6, 7.2 | none | 90 (69 / 21 / 0) | 0 (0 %) |  | ok |
 | 19 | 8643 | 1523125 | 9 (affine, 25.8) | 0.287 | shift: 5, 5.0, 3.9 | none | 133 (118 / 2 / 13) | 0 (0 %) |  | ok |
-| 20 | 8644 | 1523126 | 5 (affine, 173.4) | 0.325 | none | none | 77 (68 / 5 / 4) | 1 (1 %) | 2.07 | ok |
+| 20 | 8644 |  |  (, ) |  | none | none | 0 (0 / 0 / 0) | 0 (0 %) |  | left out: control points inconsistent (cross-validated 173 m) and no street match to check or correct the fit |
 | 21 | 8645 | 1523127 | 5 (affine, 7.4) | 0.29 | none | none | 40 (32 / 1 / 7) | 0 (0 %) |  | ok |
-| **all** | | | | | | | **5626** (4651 / 933 / 42) | 152 (3 %) | | 20 plates, 17.78 km2 |
+| **all** | | | | | | | **5456** (4498 / 924 / 34) | 151 (3 %) | | 18 plates, 15.76 km2 |
 <!-- /TABLE bronx_23rd_ward_1887 -->
 
 **Registration.** The weakest of the three. The control-point fits (3-9 points) were 3-17 m out (median 6 m).
 The street match (the atlas tints its streets lilac; looser settings than for Kings County) corrects 17
-plates, leaving 0.8-3.9 m by its own measure and 7.2 m on plate 18; where standing buildings exist the
-building match was applied on top (plates 1 and 2). **Plates 16, 20 and 21 (Hunts Point and east) got no
-correction — too few streets of today match — and keep the control-point fit, unchecked.** Almost nothing of
+plates, leaving 0.8-3.9 m by its own measure and 7.2 m on plate 18 (on plate 19 it rests on 5 windows only);
+where standing buildings exist the building match was applied on top (plates 1 and 2). Three plates got no
+street match — too few streets of today match on Hunts Point and east of it. **Plates 16 and 20 are left
+out**: their control points disagree among themselves (27 m and 173 m cross-validated) and nothing checks
+them. **Plate 21 keeps its control-point fit (cross-validated 7 m), unchecked.** Almost nothing of
 1887 stands in Mott Haven and Morrisania; on the 7 plates with five or more standing buildings these sit
 1.0-2.7 m from their footprints.
 
@@ -321,12 +325,15 @@ Rose-washed lots, if the atlas has any, are not filtered — not looked for.
 * Registration: per plate in the tables (street match before / after, building match residual, median offset
   of the outlines that coincide with a standing footprint). A plate whose standing buildings sit more than 8 m
   from their footprints is left out by `export`; none was. Two plates were left out because no trustworthy
-  fit was found (Kings County 25, 31).
+  fit was found (Kings County 25, 31) and two because their control points are inconsistent and nothing
+  checks them (Bronx 16, 20).
+* The export checks and writes the same thing: validity and area are tested on the coordinates as written
+  (6 decimals), in degrees and in metres; two outlines of one plate on one spot are reduced to the larger.
 * By eye: the overlays named under each layer (`tools/atlas.py overlay … [--final]`: plate crop with the
-  traced or exported outlines and today's footprints) — nine windows on six plates of Kings County, two plates
-  of Manhattan and two of the Bronx.
+  traced or exported outlines and today's footprints) — ten windows: six on four plates of Kings County, two
+  on two plates of Manhattan, two on two plates of the Bronx.
 
-Not checked: the layers in the pipeline or the viewer; the other 53 plates by eye; the storeys; the survey
+Not checked: the layers in the pipeline or the viewer; the other 53 of the 61 plates by eye; the storeys; the survey
 dates on the collars of the 1887 and 1897 atlases; whether the brick outlines of the Bronx include rose-washed
 lots.
 
@@ -341,7 +348,7 @@ lots.
 | the Bronx north of 170th St | Robinson 1885 (Ward 24 plates at small scale), Bromley 1893 / 1897 / 1900 volumes | not opened |
 | Manhattan above 86th St in the 1880s | Robinson 1885 (plates 22-33, 5-26 points), Bromley 1879 / 1891 | an earlier state of Harlem; Robinson's style is the county style |
 | Staten Island | Beers 1874 (small scale), Robinson 1898 / 1907 | not opened |
-| plate 6 of the 23rd Ward atlas | not in the dump | a hole in the Bronx coverage |
+| plates 6, 16, 20 of the 23rd Ward atlas | 6 is not in the dump; 16 and 20 need hand control points | holes in the Bronx coverage (around E 149th St / Third Av; Longwood; Hunts Point) |
 | storeys on the Bromley plates | printed in each house | would need a digit reader (the Bay tool has one for Sanborn marks) |
 
 ## Tools
@@ -353,7 +360,7 @@ lots.
 |---|---|
 | `layers.json` | the layers: atlas, map year, style, plates (Map Warper id, sheet, `skip` with the reason), per-layer settings |
 | `atlas.py fetch <layer>` | master scans -> `data/raw/atlas/nypl_u/` |
-| `atlas.py refine <layer> [plate] [--q 0.25 --win 300]` | street match -> `data/interim/atlas/<layer>/<plate>_corr.json` |
+| `atlas.py refine <layer> [plate] [--q 0.25 --win 300]` | street match -> `data/interim/atlas/<layer>/<plate>_corr.json`. `--locate [--hint dx,dy]` first searches +- 8 km for a plate the Map Warper misplaced (tried on Kings County plate 25: ambiguous, not used) |
 | `atlas.py trace <layer> [plate]` | tracing -> `data/interim/atlas/<layer>/<plate>.pkl` (pixel outlines, ground outlines, match against today) |
 | `atlas.py refine_buildings <layer> [plate]` | building match, then the ground outlines again (`regeo` does only the latter) |
 | `atlas.py score_frames <layer>` | yellow strength of the frame outlines (Bronx; run after the last `regeo`) |

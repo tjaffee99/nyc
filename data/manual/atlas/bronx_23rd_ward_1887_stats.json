@@ -1,16 +1,16 @@
 {
  "total": {
   "layer": "bronx_23rd_ward_1887",
-  "plates": 20,
-  "buildings": 5626,
-  "frame": 4651,
-  "brick": 933,
-  "stone": 42,
-  "on_today": 152,
+  "plates": 18,
+  "buildings": 5456,
+  "frame": 4498,
+  "brick": 924,
+  "stone": 34,
+  "on_today": 151,
   "invalid": 0,
   "area_out_of_range": 0,
   "outside_coverage": 0,
-  "coverage_km2": 17.78
+  "coverage_km2": 15.76
  },
  "plates": [
   {
@@ -22,11 +22,11 @@
    "cv_rms": 5.4,
    "mpp": 0.174,
    "n": 342,
-   "frame": 120,
+   "frame": 119,
    "brick": 120,
    "stone": 1,
    "coincide": 3,
-   "share": 0.012,
+   "share": 0.013,
    "corrected": true,
    "paper": [
     76.0,
@@ -76,7 +76,7 @@
    "band_pieces_dropped": 0,
    "yellow_cut": 9.5,
    "washed_dropped": 70,
-   "exported": 241,
+   "exported": 240,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -89,7 +89,7 @@
    "cv_rms": 5.9,
    "mpp": 0.175,
    "n": 944,
-   "frame": 526,
+   "frame": 527,
    "brick": 353,
    "stone": 0,
    "coincide": 72,
@@ -143,7 +143,7 @@
    "band_pieces_dropped": 0,
    "yellow_cut": 8.0,
    "washed_dropped": 27,
-   "exported": 879,
+   "exported": 880,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -266,7 +266,7 @@
    "cv_rms": 10.3,
    "mpp": 0.179,
    "n": 891,
-   "frame": 727,
+   "frame": 726,
    "brick": 102,
    "stone": 0,
    "coincide": 21,
@@ -308,7 +308,7 @@
    "band_pieces_dropped": 0,
    "yellow_cut": 9.5,
    "washed_dropped": 23,
-   "exported": 829,
+   "exported": 828,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -321,7 +321,7 @@
    "cv_rms": 0.0,
    "mpp": 0.174,
    "n": 377,
-   "frame": 263,
+   "frame": 264,
    "brick": 25,
    "stone": 0,
    "coincide": 5,
@@ -363,7 +363,7 @@
    "band_pieces_dropped": 0,
    "yellow_cut": 9.5,
    "washed_dropped": 62,
-   "exported": 288,
+   "exported": 289,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -486,7 +486,7 @@
    "cv_rms": 5.9,
    "mpp": 0.174,
    "n": 748,
-   "frame": 565,
+   "frame": 563,
    "brick": 47,
    "stone": 0,
    "coincide": 11,
@@ -528,7 +528,7 @@
    "band_pieces_dropped": 0,
    "yellow_cut": 9.5,
    "washed_dropped": 71,
-   "exported": 612,
+   "exported": 610,
    "duplicates_dropped": 1,
    "status": "ok"
   },
@@ -641,7 +641,7 @@
    "cv_rms": 6.9,
    "mpp": 0.217,
    "n": 424,
-   "frame": 243,
+   "frame": 242,
    "brick": 1,
    "stone": 2,
    "coincide": 3,
@@ -683,7 +683,7 @@
    "band_pieces_dropped": 0,
    "yellow_cut": 9.5,
    "washed_dropped": 95,
-   "exported": 246,
+   "exported": 245,
    "duplicates_dropped": 1,
    "status": "ok"
   },
@@ -696,7 +696,7 @@
    "cv_rms": 7.1,
    "mpp": 0.218,
    "n": 278,
-   "frame": 95,
+   "frame": 94,
    "brick": 5,
    "stone": 2,
    "coincide": 1,
@@ -738,7 +738,7 @@
    "band_pieces_dropped": 0,
    "yellow_cut": 9.5,
    "washed_dropped": 41,
-   "exported": 102,
+   "exported": 101,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -799,32 +799,8 @@
   },
   {
    "plate": "8640",
-   "image": "1523122",
-   "name": "Plate 16: [Bounded by E. 167th St., Westchester Ave., Longfellow St., Dongan Ave., Stebbin",
-   "gcps": 5,
-   "model": "affine",
-   "cv_rms": 26.7,
-   "mpp": 0.223,
-   "n": 206,
-   "frame": 80,
-   "brick": 4,
-   "stone": 4,
-   "coincide": 0,
-   "share": 0.0,
-   "corrected": false,
-   "paper": [
-    73.0,
-    0.0,
-    9.0
-   ],
    "sheet": "16",
-   "lettering_dropped": 99,
-   "band_pieces_dropped": 0,
-   "yellow_cut": 9.5,
-   "washed_dropped": 18,
-   "exported": 88,
-   "duplicates_dropped": 1,
-   "status": "ok"
+   "status": "left out: control points inconsistent (cross-validated 27 m) and no street match to check or correct the fit"
   },
   {
    "plate": "8641",
@@ -835,7 +811,7 @@
    "cv_rms": 82.6,
    "mpp": 0.217,
    "n": 279,
-   "frame": 135,
+   "frame": 134,
    "brick": 20,
    "stone": 4,
    "coincide": 3,
@@ -877,7 +853,7 @@
    "band_pieces_dropped": 0,
    "yellow_cut": 9.5,
    "washed_dropped": 34,
-   "exported": 159,
+   "exported": 158,
    "duplicates_dropped": 1,
    "status": "ok"
   },
@@ -980,37 +956,8 @@
   },
   {
    "plate": "8644",
-   "image": "1523126",
-   "name": "Plate 20: [Bounded by Dongan Ave., Edgewater Rd., Strain Pl., Sacrahong St., Grinnell Pl.,",
-   "gcps": 5,
-   "model": "affine",
-   "cv_rms": 173.4,
-   "mpp": 0.325,
-   "n": 564,
-   "frame": 68,
-   "brick": 5,
-   "stone": 4,
-   "coincide": 1,
-   "share": 0.013,
-   "corrected": false,
-   "paper": [
-    75.0,
-    0.0,
-    9.0
-   ],
-   "off_median_vec": [
-    0.94,
-    1.85
-   ],
-   "off_median_m": 2.07,
    "sheet": "20",
-   "lettering_dropped": 374,
-   "band_pieces_dropped": 0,
-   "yellow_cut": 9.5,
-   "washed_dropped": 112,
-   "exported": 77,
-   "duplicates_dropped": 1,
-   "status": "ok"
+   "status": "left out: control points inconsistent (cross-validated 173 m) and no street match to check or correct the fit"
   },
   {
    "plate": "8645",
@@ -1033,12 +980,12 @@
     10.0
    ],
    "sheet": "21",
-   "lettering_dropped": 355,
+   "lettering_dropped": 356,
    "band_pieces_dropped": 0,
    "yellow_cut": 9.5,
    "washed_dropped": 46,
    "exported": 40,
-   "duplicates_dropped": 1,
+   "duplicates_dropped": 0,
    "status": "ok"
   }
  ]

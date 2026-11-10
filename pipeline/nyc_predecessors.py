@@ -269,6 +269,14 @@ def add_predecessors(g):
     same = (df.iou >= 0.6) | ((df.fa >= 0.75) & (df.fb >= 0.6))
     # a recorded year after the map says today's building replaced the one on the map
     df["survivor"] = df.traced & same & ~(df.texact & (df.tstart > df.my + 2))
+    # The atlas layers traced for this map (data/manual/atlas) do not cut rows as the lots are
+    # cut: a row can be one outline, a house two. So for them coverage decides: an outline at
+    # least 60 % covered by standing buildings that lie mostly inside it, none recorded later
+    # than the map and none estimated more than 15 years after it, is those buildings.
+    atl = t.id.str.startswith("atlas:").values[df.i]
+    cov = df.traced & atl & (df.fb >= 0.6) & ~(df.texact & (df.tstart > df.my + 2)) & (df.tstart <= df.my + 15)
+    share = df[cov].groupby("i").fa.sum()
+    df["survivor"] |= cov & df.i.isin(share.index[share >= 0.6])
     surv_i = set(df.i[df.survivor])
     redate = df[df.survivor & ~df.texact & (df.tstart > df.my)].sort_values("my").drop_duplicates("j")
     start = g.start_year.values.copy()
@@ -424,7 +432,9 @@ def add_predecessors(g):
     late_map = traced_ & np.isfinite(t_today) & (t_today <= v.last_seen.values + 1.0)
     # the map shows a clearly different building where today's stands, and today's year is only
     # an estimate: today's building is later than the map (estimated)
-    redate2 = late_map & ~t_exact & (iou_today < 0.4) & ~v.id.str.startswith("farm:").values
+    # (not for farmstead marks, whose outline is generated, nor for the atlas layers traced
+    # for this map, whose outlines differ from the lots by the tracing, not by the building)
+    redate2 = late_map & ~t_exact & (iou_today < 0.4) & ~v.id.str.startswith("farm:").values & ~v.id.str.startswith("atlas:").values
     if redate2.any():
         rd = pd.DataFrame({"j": j_today[redate2], "y": v.last_seen.values[redate2] + 1.0 + 5.0 * hsh2[redate2]}).groupby("j").y.max()
         gs = g.start_year.values.copy()

@@ -2,8 +2,8 @@
  "total": {
   "layer": "kings_towns_1890",
   "plates": 29,
-  "buildings": 6916,
-  "frame": 6797,
+  "buildings": 6914,
+  "frame": 6795,
   "brick": 119,
   "stone": 0,
   "on_today": 139,
@@ -941,7 +941,7 @@
    "cv_rms": 6.4,
    "mpp": 0.321,
    "n": 100,
-   "frame": 67,
+   "frame": 66,
    "brick": 6,
    "stone": 0,
    "coincide": 1,
@@ -982,7 +982,7 @@
    "lettering_dropped": 0,
    "band_pieces_dropped": 27,
    "washed_dropped": 0,
-   "exported": 73,
+   "exported": 72,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -1044,7 +1044,7 @@
    "cv_rms": 7.5,
    "mpp": 0.321,
    "n": 472,
-   "frame": 462,
+   "frame": 461,
    "brick": 1,
    "stone": 0,
    "coincide": 3,
@@ -1087,8 +1087,8 @@
    "lettering_dropped": 0,
    "band_pieces_dropped": 9,
    "washed_dropped": 0,
-   "exported": 463,
-   "duplicates_dropped": 0,
+   "exported": 462,
+   "duplicates_dropped": 1,
    "status": "ok"
   },
   {

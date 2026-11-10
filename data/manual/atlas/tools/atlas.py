@@ -6,10 +6,14 @@ Not a pipeline stage: it writes hand-checked data into data/manual/atlas/ (commi
     python -I atlas.py refine  <layer> [plate ...]      # street match -> data/interim/atlas/<layer>/<plate>_corr.json
     python -I atlas.py trace   <layer> [plate ...]      # per plate -> data/interim/atlas/<layer>/<plate>.pkl + stats
     python -I atlas.py refine_buildings <layer> [plate ...]   # city plates: fine registration on standing buildings
+    python -I atlas.py regeo   <layer> [plate ...]      # ground outlines again after a change of registration
+    python -I atlas.py score_frames <layer>             # yellow strength of frame outlines (washed lots, Bronx)
     python -I atlas.py export  <layer>                  # -> data/manual/atlas/<layer>.geojson + _coverage.geojson + _stats.json
-    python -I atlas.py overlay <layer> <plate> <x,y> <size_m> <out.png> [--px] [--scale 3]
-                                                        # plate crop with traced outlines (red = frame, magenta = brick)
-                                                        # and today's footprints (cyan), for checking by eye
+    python -I atlas.py readme                           # the per-plate tables of data/manual/atlas/README.md
+    python -I atlas.py overlay <layer> <plate> <x,y> <size_m> <out.png> [--px] [--scale 3] [--final]
+                                                        # plate crop with traced outlines (red = frame, magenta = brick;
+                                                        # --final: the exported layer) and today's footprints (cyan),
+                                                        # for checking by eye
     python -I atlas.py colours <layer> <plate> <x0,y0,x1,y1 px> <out.png>   # class picture of a crop (calibration)
 
 <layer> = a key of layers.json (next to this file); <plate> = NYPL Map Warper map id.
@@ -19,11 +23,13 @@ Method (details, residuals and what was seen in data/manual/atlas/README.md):
     NYPL's full-size master scan, as worked out for data/manual/extents (tools/warp.py is reused from there).
   * registration: the Map Warper control points (affine / 2nd order / thin-plate spline by cross-validation), then
     `refine`: the plate's street tint is matched to today's street centrelines in windows and the consensus of the
-    window shifts corrects the fit (constant shift, or affine when enough windows agree). The residual reported per
-    plate is measured on buildings that still stand (traced outline against today's footprint).
+    window shifts corrects the fit (constant shift, or affine when enough windows agree); `refine_buildings`: the
+    same on today's footprints of pre-war buildings, for city plates. The residual reported per plate is measured
+    on buildings that still stand (traced outline against today's footprint).
   * footprints: pixel classes in CIE Lab relative to the plate's paper colour (frame = the yellow / ochre fill,
-    brick = the pink / carmine fill, ink); property bands of the same pigments are thin and are removed by width;
-    one polygon per connected fill (ink lines separate party walls where the style says so).
+    brick = the rose / carmine fill, stone = grey, ink). County plates: property bands of the same pigments are
+    removed by width and by the ink outline a building has all round. City plates: the fill of a row is cut at
+    the party walls (the connected thin lines). The export drops band pieces, lettering and washed lots.
 Local coordinates: X = UTM 18N easting - 580000, Y = northing - 4500000 (metres), as in the extents tools.
 """
 from __future__ import annotations
@@ -1020,6 +1026,23 @@ def _ll(geom, nd=6):
     return shapely.transform(geom, lambda c: np.round(np.column_stack(S.lonlat(c[:, 0], c[:, 1])), nd))
 
 
+def _written(g):
+    """A ground polygon as it will be written (WGS84, 6 decimals) and that written shape back in local metres;
+    rounding can make a ragged outline cross itself, so validity and area are checked on what is written."""
+    for _ in range(3):
+        ll = _ll(g)
+        back = shapely.transform(ll, lambda c: np.column_stack(S.local(c[:, 0], c[:, 1])))
+        if back.is_valid and ll.is_valid and back.geom_type == "Polygon" and not back.is_empty:
+            return ll, back
+        g = back.buffer(0)
+        if g.geom_type == "MultiPolygon":
+            g = max(g.geoms, key=lambda q: q.area)
+        if g.is_empty or g.geom_type != "Polygon":
+            return None, None
+        g = sg.Polygon(g.exterior)
+    return None, None
+
+
 def export(layer, max_off=8.0):
     """Merge the traced plates of a layer -> data/manual/atlas/<layer>.geojson, <layer>_coverage.geojson (one
     feature per plate read) and <layer>_stats.json. A plate whose standing buildings sit more than max_off metres
@@ -1092,20 +1115,28 @@ def export(layer, max_off=8.0):
                 washed += 1
             st["yellow_cut"] = cut
         st["washed_dropped"] = washed
+        # two outlines of one plate on one spot (a rectangle fitted over its neighbour): the larger stays
+        kk = np.flatnonzero(keep)
+        if len(kk) > 1:
+            pk = np.asarray(polys, object)[kk]
+            i, j = shapely.STRtree(pk).query(pk, predicate="intersects")
+            m = i < j
+            i, j = i[m], j[m]
+            ai, aj = shapely.area(pk[i]), shapely.area(pk[j])
+            hit = shapely.area(shapely.intersection(pk[i], pk[j])) > 0.3 * np.minimum(ai, aj)
+            keep[kk[np.where(ai[hit] < aj[hit], i[hit], j[hit])]] = False
         n0 = len(feats)
         for k, (o, g) in enumerate(zip(d["items"], polys)):
             if not keep[k]:
                 continue
-            g = g.simplify(0.25)
-            if not g.is_valid:
-                g = g.buffer(0)
-            if g.is_empty or g.geom_type != "Polygon" or not (15.0 <= g.area <= 5000.0):
+            ll, g = _written(g.simplify(0.25))
+            if g is None or not (15.0 <= g.area <= 5000.0):
                 continue
             acc.append(g)
             feats.append(dict(type="Feature", properties=dict(
                 id=f"{spec['source']}_{pl['sheet']}_{k}", map_year=spec["map_year"], material=o["material"],
                 source=spec["source"], sheet=pl["sheet"], plate=int(pl["id"]), area_m2=round(g.area, 1),
-                on_today=bool(o.get("iou", 0) > 0.5), today_cover=round(o.get("cover", 0.0), 2)), geometry=sg.mapping(_ll(g))))
+                on_today=bool(o.get("iou", 0) > 0.5), today_cover=round(o.get("cover", 0.0), 2)), geometry=sg.mapping(ll)))
         st["exported"], st["duplicates_dropped"], st["status"] = len(feats) - n0, int((~keep).sum()) - lettering - washed - bands, "ok"
         for m_ in ("frame", "brick", "stone"):
             st[m_] = sum(f["properties"]["material"] == m_ for f in feats[n0:])
@@ -1119,8 +1150,8 @@ def export(layer, max_off=8.0):
                 buildings=len(feats) - n0, registration_m=st.get("off_median_m"), coincide_share=st.get("share"),
                 street_match_left_m=(st.get("street") or {}).get("after_abs_median"),
                 building_match_residual_m=(st.get("bld") or {}).get("fit_residual_m"),
-                registration=("street match" if (st.get("street") or {}).get("kind", "none") != "none" else "")
-                + (" + building match" if (st.get("bld") or {}).get("kind", "none") != "none" else "")
+                registration=" + ".join(
+                    [n_ for n_, k_ in (("street match", "street"), ("building match", "bld")) if (st.get(k_) or {}).get("kind", "none") != "none"])
                 or "control points only, not checked"),
                 geometry=sg.mapping(_ll(m))))
     crs = {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}}

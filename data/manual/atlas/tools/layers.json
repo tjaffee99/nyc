@@ -277,7 +277,8 @@
    },
    {
     "id": 8640,
-    "sheet": "16"
+    "sheet": "16",
+    "skip": "control points inconsistent (cross-validated 27 m) and no street match to check or correct the fit"
    },
    {
     "id": 8641,
@@ -293,7 +294,8 @@
    },
    {
     "id": 8644,
-    "sheet": "20"
+    "sheet": "20",
+    "skip": "control points inconsistent (cross-validated 173 m) and no street match to check or correct the fit"
    },
    {
     "id": 8645,

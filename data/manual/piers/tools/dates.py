@@ -324,6 +324,15 @@ def main():
         if not segs:
             review.append(dict(reason="in OpenStreetMap but on no dated source used here" if t["osm"] else "never a pier on any source", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))
             continue
+        if t["osm"] is None:
+            # a place the maps draw as solid ground at least as often as a pier, before its last sighting as a pier:
+            # a structure on the bulkhead, not a pier
+            lastp = max((o["lo"] for o in t["obs"] if o["state"] == "pier"), default=None)
+            n_land = sum(o["state"] == "land" and not o.get("stroke") and o["lo"] < lastp for o in t["obs"]) if lastp else 0
+            n_pier = sum(o["state"] == "pier" and not o.get("stroke") for o in t["obs"])
+            if n_land >= 2 and n_land >= n_pier:
+                review.append(dict(reason="solid ground on most maps before its last sighting (a bulkhead structure)", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))
+                continue
         L, Wd = dims(t["g"])
         lyv = land_years(t["g"])
         for k, seg in enumerate(segs):
