@@ -225,6 +225,18 @@ def county_researched(lu):
     geom = gu.geometry.values
     tr = to_utm()
     out, missing = {}, []
+    # name periods with a point (park_names.csv): the outline of that name within MATCH_M
+    hist, _ = park_name_periods()
+    named = {}
+    for k, periods in hist.items():
+        cand = rows_of.get(k)
+        pts = [(r, shapely.Point(*tr.transform(r[3], r[4]))) for r in periods if np.isfinite(r[3]) and np.isfinite(r[4])]
+        if not cand or not pts:
+            continue
+        for i in cand:
+            rows = [r for r, pt in pts if geom[i].distance(pt) <= MATCH_M]
+            if rows:
+                named[i] = rows
     p = TABLES / "parks_counties.csv"
     if p.exists():
         t = pd.read_csv(p)
@@ -243,6 +255,9 @@ def county_researched(lu):
             elif len(cand) and c.strip() and c != "nan":
                 cc = norm(c).replace(" county", "")
                 cand = cand[np.array([norm(v) == cc for v in g.county.values[cand]])]
+            elif len(cand) and any(i in named for i in cand):
+                # names repeat between towns: the point rows of park_names.csv say which outline
+                cand = np.array([i for i in cand if i in named], dtype=int)
             elif len(cand):
                 big = cand[np.argmax(area[cand])]
                 cand = cand[shapely.distance(geom[cand], geom[big]) <= 3000.0]
@@ -250,23 +265,14 @@ def county_researched(lu):
                 missing.append(str(nm))
                 continue
             for i in cand:
-                out[g.index[i]] = {"year": float(a), "end": float(b), "rows": [], "src": "parks_counties"}
-    hist, _ = park_name_periods()
-    for k, periods in hist.items():
-        cand = rows_of.get(k)
-        pts = [(r, shapely.Point(*tr.transform(r[3], r[4]))) for r in periods if np.isfinite(r[3]) and np.isfinite(r[4])]
-        if not cand or not pts:
-            continue
-        for i in cand:
-            rows = [r for r, pt in pts if geom[i].distance(pt) <= MATCH_M]
-            if not rows:
-                continue
-            end = max(r[2] for r in rows)
-            prev = out.get(g.index[i])
-            if prev is not None:
-                prev["rows"] = rows
-            elif end >= 9999:
-                out[g.index[i]] = {"year": min(r[1] for r in rows), "end": 9999.0, "rows": rows, "src": "park_names"}
+                rows = list(named.get(i, []))
+                if rows and rows[0][1] > a:
+                    # the park is older than its first listed name: that name from the park's year
+                    rows[0] = (rows[0][0], float(a)) + tuple(rows[0][2:])
+                out[g.index[i]] = {"year": float(a), "end": float(b), "rows": rows, "src": "parks_counties"}
+    for i, rows in named.items():
+        if g.index[i] not in out and max(r[2] for r in rows) >= 9999:
+            out[g.index[i]] = {"year": min(r[1] for r in rows), "end": 9999.0, "rows": rows, "src": "park_names"}
     return out, missing
 
 

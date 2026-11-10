@@ -298,7 +298,8 @@ def load_footprints(key):
     poly = county_outline(fips)
     w, s, e, n = poly.bounds
     con = duckdb.connect()
-    con.execute("SET memory_limit='1500MB'")
+    con.execute("SET memory_limit='1000MB'")
+    con.execute("SET enable_progress_bar=false")
     df = con.execute(
         f"SELECT id, name, height, num_floors, source_dataset, ST_AsWKB(geometry) AS wkb FROM read_parquet('{REGION_FOOTPRINTS}') "
         f"WHERE lon BETWEEN {w - 0.01} AND {e + 0.01} AND lat BETWEEN {s - 0.01} AND {n + 0.01}").df()
@@ -796,7 +797,7 @@ KNOWN = {
         ("Pig Knoll School, Pomona", r"PIG KNOLL", 1915, "wp-list"),
         ("English Church, New City", r"ENGLISH CHURCH", 1827, "wp-list"),
         ("John Green House, Nyack", r"JOHN GREEN HOUSE", 1819, "wp-list"),
-        ("The Homestead, Haverstraw (c. 1800)", r"^(THE )?HOMESTEAD\b", 1800, "wp-list"),
+        ("The Homestead, Haverstraw (c. 1800)", r"^(?:THE )?HOMESTEAD\b", 1800, "wp-list"),
         ("Edward Salyer House, Pearl River", r"EDWARD SALYER", 1765, "wp-list"),
         ("Michael Salyer Stone House, Orangetown", r"MICHAEL SALYER", 1790, "wp-list"),
         ("McCready House, Sloatsburg", r"MCCREADY", 1889, "wp-list"),

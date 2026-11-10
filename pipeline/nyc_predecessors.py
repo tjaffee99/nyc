@@ -144,7 +144,8 @@ def load_structures():
     # record of removed buildings, atlas layers traced for this map
     import nyc_extras
     extra = []
-    for fn in (nyc_extras.early_sites, nyc_extras.notable, nyc_extras.demolished, nyc_extras.atlas_layers):
+    for fn in (nyc_extras.early_sites, nyc_extras.notable, nyc_extras.demolished, nyc_extras.atlas_layers,
+               nyc_extras.farmsteads):
         try:
             extra += fn()
         except Exception as e:  # noqa: BLE001
@@ -262,7 +263,9 @@ def add_predecessors(g):
     df["tstart"] = gu.start.values[df.j]
     df["texact"] = np.isin(gu.src.values[df.j], ["lpc", "assessor", "known"])
     df["my"] = t.map_year.values[df.i]
-    df["traced"] = t.cls.values[df.i] == "traced"
+    # (a farmstead mark has a generated outline: it cannot coincide with, or differ from, a real one)
+    farm_t = t.id.str.startswith("farm:").values
+    df["traced"] = (t.cls.values[df.i] == "traced") & ~farm_t[df.i]
     same = (df.iou >= 0.6) | ((df.fa >= 0.75) & (df.fb >= 0.6))
     # a recorded year after the map says today's building replaced the one on the map
     df["survivor"] = df.traced & same & ~(df.texact & (df.tstart > df.my + 2))
@@ -419,7 +422,7 @@ def add_predecessors(g):
     late_map = traced_ & np.isfinite(t_today) & (t_today <= v.last_seen.values + 1.0)
     # the map shows a clearly different building where today's stands, and today's year is only
     # an estimate: today's building is later than the map (estimated)
-    redate2 = late_map & ~t_exact & (iou_today < 0.4)
+    redate2 = late_map & ~t_exact & (iou_today < 0.4) & ~v.id.str.startswith("farm:").values
     if redate2.any():
         rd = pd.DataFrame({"j": j_today[redate2], "y": v.last_seen.values[redate2] + 1.0 + 5.0 * hsh2[redate2]}).groupby("j").y.max()
         gs = g.start_year.values.copy()
@@ -488,7 +491,8 @@ def add_predecessors(g):
     lenape = early_site & (v.mat_doc.values == "bark")
     srcs = np.where(lenape, "lenape_site", np.where(pre == "early", "early_site", np.where(pre == "notable", "lost_researched",
             np.where(pre == "demo", "city_demolition", np.where(is_doc, "ohm_documented",
-            np.where(pre == "ohm", "map_", np.where(pre == "atlas", "traced_", "atlas_")).astype(object) + v.map_year.astype(str).values)))))
+            np.where(pre == "farm", "farmstead",
+            np.where(pre == "ohm", "map_", np.where(pre == "atlas", "traced_", "atlas_")).astype(object) + v.map_year.astype(str).values))))))
     conf_out = np.where(is_doc & documented_start, "exact", "estimated").astype(object)
     cd = v.conf_doc.values
     has_cd = np.array([isinstance(c, str) and c != "" for c in cd])

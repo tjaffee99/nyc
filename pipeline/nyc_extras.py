@@ -268,6 +268,42 @@ def demolished():
     return rows
 
 
+def farmsteads():
+    """Rows (UTM) for the building marks of the 1889 / 1897 USGS sheets (topo_farmsteads.py ->
+    data/manual/farmsteads/farmsteads.geojson) that are not a building standing today: the
+    position is the map's (to about 40 m), the outline is generated (`procedural`): a house
+    9 x 7 m, a large building 20 x 12 m. A mark missing from a later sheet ended in between;
+    one that appears between the two surveys was built in between. Left out: marks the tool
+    rates low, marks in the sheets' built-up tint, marks on marsh, and marks whose standing
+    building is recorded as old as the map (that building is the one on the map)."""
+    p = MANUAL / "farmsteads" / "farmsteads.geojson"
+    rows = []
+    if not p.exists():
+        return rows
+    g = gpd.read_file(p).to_crs(UTM)
+    basis = g.standing_basis.fillna("").astype(str).values if "standing_basis" in g else np.full(len(g), "")
+    keep = (g.confidence.astype(str).values != "low") & ~g.builtup.fillna(False).astype(bool).values \
+        & ~np.isin(g.ground.fillna("").astype(str).values, ["tidal_flat", "tidal_marsh", "wetland"]) \
+        & ~np.isin(basis, ["recorded", "by_then"])
+    fy = pd.to_numeric(g.first_year, errors="coerce").values
+    ly = pd.to_numeric(g.last_year, errors="coerce").values
+    gb = pd.to_numeric(g.gone_by, errors="coerce").values
+    ns = pd.to_numeric(g.new_since, errors="coerce").values
+    for k in np.nonzero(keep & np.isfinite(fy))[0]:
+        pt = g.geometry.values[k]
+        big = str(g.kind.values[k]) == "large"
+        w, d = (20.0, 12.0) if big else (9.0, 7.0)
+        h1, h2 = h01(f"fa{g.id.values[k]}"), h01(f"fb{g.id.values[k]}")
+        poly = shapely.affinity.translate(_rect(w, d, 180.0 * h1), pt.x, pt.y)
+        rows.append({"id": f"farm:{g.id.values[k]}", "map_year": int(fy[k]), "boro": "", "colors": "yellow", "name": None,
+                     "start_doc": ns[k] + 0.5 + (fy[k] - ns[k] - 1.0) * h2 if np.isfinite(ns[k]) and fy[k] > ns[k] else np.nan,
+                     "end_doc": ly[k] + 1.0 + (gb[k] - ly[k] - 1.5) * (0.15 + 0.8 * h2) if np.isfinite(gb[k]) and gb[k] > ly[k] + 2 else np.nan,
+                     "h_doc": 8.0 if big else np.nan, "cls": "traced", "conf_doc": "procedural", "mat_doc": "frame",
+                     "geometry": poly})
+    log(f"extras: {len(rows)} building marks of the 1889 / 1897 USGS sheets drawn as farmsteads ({len(g) - len(rows)} left out)")
+    return rows
+
+
 def atlas_layers():
     """Rows (UTM) from data/manual/atlas/<area>_<year>.geojson (not the *_coverage files)."""
     d = MANUAL / "atlas"

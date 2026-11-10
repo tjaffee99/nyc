@@ -673,18 +673,20 @@ def process_block_synthetic(year: int, bx: int, by: int):
 
 
 def _syn_job(job):
+    import pandas as pd
     year, bx, by = job
     out = synthetic_path(year, bx, by)
-    if out.exists():
-        return job, 0
-    res = process_block_synthetic(year, bx, by)
-    out.parent.mkdir(parents=True, exist_ok=True)
-    if res is None:
-        import pandas as pd
-        res = pd.DataFrame({"doitt_id": []})
-    tmp = out.with_suffix(".part")
-    res.to_parquet(tmp)
-    tmp.rename(out)
+    if not _claim(out):
+        return job, -1
+    try:
+        res = process_block_synthetic(year, bx, by)
+        if res is None:
+            res = pd.DataFrame({"doitt_id": []})
+        tmp = out.with_suffix(".part%d" % os.getpid())
+        res.to_parquet(tmp)
+        tmp.rename(out)
+    finally:
+        out.with_suffix(".lock").unlink(missing_ok=True)
     return job, len(res)
 
 
@@ -728,19 +730,41 @@ def feature_path(year: int, bx: int, by: int) -> Path:
     return WORK / "features" / str(year) / f"{bx}_{by}.parquet"
 
 
+def _claim(out: Path):
+    """True when this process may compute `out`: nobody finished it and nobody else is on it
+    (a lock file; several single-worker runs can share the work)."""
+    if out.exists():
+        return False
+    out.parent.mkdir(parents=True, exist_ok=True)
+    lock = out.with_suffix(".lock")
+    try:
+        os.close(os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY))
+        return True
+    except FileExistsError:
+        try:
+            if time.time() - lock.stat().st_mtime < 1500:
+                return False
+            lock.touch()        # a stale lock (its run was stopped): take the block over
+            return True
+        except FileNotFoundError:
+            return False
+
+
 def _block_job(job):
+    import pandas as pd
     year, bx, by = job
     out = feature_path(year, bx, by)
-    if out.exists():
-        return job, 0
-    res = process_block_year(year, bx, by)
-    out.parent.mkdir(parents=True, exist_ok=True)
-    tmp = out.with_suffix(".part")
-    if res is None:
-        import pandas as pd
-        res = pd.DataFrame({"doitt_id": []})
-    res.to_parquet(tmp)
-    tmp.rename(out)
+    if not _claim(out):
+        return job, -1
+    try:
+        res = process_block_year(year, bx, by)
+        if res is None:
+            res = pd.DataFrame({"doitt_id": []})
+        tmp = out.with_suffix(".part%d" % os.getpid())
+        res.to_parquet(tmp)
+        tmp.rename(out)
+    finally:
+        out.with_suffix(".lock").unlink(missing_ok=True)
     return job, len(res)
 
 
@@ -764,10 +788,16 @@ def step_features(workers: int = 3, follow: bool = False):
                     waiting += 1
         if todo:
             log(f"features: {len(todo)} block-years ready, {waiting} waiting for tiles")
-            with Pool(workers) as pool:
-                for k, (job, n) in enumerate(pool.imap_unordered(_block_job, todo)):
-                    if k % 20 == 0:
+            if workers == 1:
+                for k, job in enumerate(todo):
+                    _, n = _block_job(job)
+                    if n >= 0 and k % 10 == 0:
                         log(f"  {k}/{len(todo)} {job} {n} footprints")
+            else:
+                with Pool(workers) as pool:
+                    for k, (job, n) in enumerate(pool.imap_unordered(_block_job, todo)):
+                        if k % 20 == 0:
+                            log(f"  {k}/{len(todo)} {job} {n} footprints")
         if not waiting:
             break
         if not follow:
@@ -1128,4 +1158,4 @@ if __name__ == "__main__":
         elif st == "synthetic-follow":
             step_synthetic(workers=1, follow=True)
         elif st == "features-follow":
-            step_features(workers=3, follow=True)
+            step_features(workers=1, follow=True)

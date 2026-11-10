@@ -344,6 +344,13 @@ def evidence_bounds(g):
         f = gpd.read_file(p, ignore_geometry=True)
         if "standing_bin" in f:
             f = f[pd.to_numeric(f.standing_bin, errors="coerce").notna()]
+            if "standing_basis" in f:
+                # the standing building is the one on the map only where its own year agrees
+                # (recorded, or a "by 1900" placeholder), or it stands alone right on the mark;
+                # elsewhere a later house may have replaced the farmhouse
+                alone = (pd.to_numeric(f.standing_n, errors="coerce") == 1) & (pd.to_numeric(f.standing_dist_m, errors="coerce") <= 12)
+                f = f[f.standing_basis.isin(["recorded", "by_then"]) | ((f.standing_basis == "later_estimate") & alone
+                                                                        & (f.confidence != "low") & ~f.builtup.fillna(False).astype(bool))]
             by = dict(zip(pd.to_numeric(f.standing_bin).astype("int64"), pd.to_numeric(f.first_year, errors="coerce")))
             fy = np.array([by.get(int(b), np.nan) if np.isfinite(b) else np.nan for b in g.bin.astype("float64").values])
             better = np.isfinite(fy) & (fy < hi)
@@ -793,6 +800,8 @@ def evidence():
     try:
         from nyc_predecessors import load_structures
         t = load_structures()
+        # (not the dwellings and farmsteads whose position or outline is generated)
+        t = t[~t.conf_doc.isin(["procedural"])]
         ty = np.where(t.cls.values == "traced", t.map_year.values.astype(float), t.start_doc.values.astype(float))
         geoms.append(t.geometry.to_crs(4326).values)
         years.append(ty)

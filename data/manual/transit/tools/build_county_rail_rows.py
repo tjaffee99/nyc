@@ -45,13 +45,13 @@ ROWS = [
      "Morristown Line", (W, 40.68, -74.36, 40.80)),
     ("dlw_boonton_main", "1870-09-12", "Lackawanna's Boonton Branch (completed 1870; the Lyndhurst, Delawanna, Passaic and Clifton station "
      "infoboxes give 12 Sep 1870), the Main Line's route south of Paterson Junction since 1963", WP + "Boonton_Branch", "Main Line",
-     (-74.20, 40.75, -74.062, 40.893)),
+     (-74.20, 40.75, -74.062, 40.890)),
     ("erie_phrr_paterson", "1832-05-28", "Paterson & Hudson River Railroad: the stretch in Paterson still in use (the Paterson and Passaic "
      "(Erie) station infoboxes give 28 May 1832, the day horse-drawn service began)", WP + "Paterson_station_(NJ_Transit)", "Main Line",
-     (-74.20, 40.893, -74.12, 40.9175)),
+     (-74.20, 40.890, -74.12, 40.9155)),
     ("erie_paterson_ramapo", "1848-10-19", "Paterson & Ramapo Railroad, Paterson - Suffern (the Glen Rock, Ramsey and Mahwah station infoboxes give "
      "19 Oct 1848; OpenHistoricalMap 17 Oct 1848; the railroad's own article says fall 1849)", WP + "Mahwah_station", "Main Line",
-     (-74.20, 40.9175, -74.08, 41.112)),
+     (-74.20, 40.9155, -74.08, 41.112)),
     ("erie_suffern_west", "1841-09-23", "New York & Erie Railroad, Piermont - Goshen, opened 23 Sep 1841", WP + "New_York_and_Erie_Railroad",
      "Main Line|Southern Tier Line", (W, 41.112, -74.14, N)),
     ("erie_piermont_suffern", "1841-06-30", "New York & Erie Railroad's first stretch from Piermont (the Suffern, Spring Valley and Nanuet station "
@@ -79,9 +79,9 @@ ROWS = [
     ("pvl_hillsdale", "1870-03-04", "Hackensack & New York Extension Railroad: service to Hillsdale opened 4 Mar 1870",
      WP + "Hackensack_and_New_York_Railroad", "Pascack Valley Line", (-74.12, 40.8945, NJ_E, 41.0025)),
     ("pvl_nanuet", "1871-05-27", "New Jersey & New York Railroad from Hillsdale to the Erie at Nanuet, 27 May 1871 (station table of the line article; "
-     "Pearl River station infobox)", WP + "Pascack_Valley_Line", "Pascack Valley Line", (-74.12, 41.0025, NJ_E, 41.086)),
+     "Pearl River station infobox)", WP + "Pascack_Valley_Line", "Pascack Valley Line", (-74.12, 41.0025, NJ_E, 41.0926)),
     ("pvl_erie_piermont", "1841-06-30", "Nanuet - Spring Valley: the New York & Erie's first main line from Piermont (station infoboxes: 30 Jun 1841)",
-     WP + "Spring_Valley_station_(New_York)", "Pascack Valley Line|Woodbine Yard", (-74.12, 41.086, NJ_E, 41.14)),
+     WP + "Spring_Valley_station_(New_York)", "Pascack Valley Line|Woodbine Yard", (-74.12, 41.0926, NJ_E, 41.14)),
     ("northern_rr", "1859-05-28", "Northern Railroad of New Jersey, opened 28 May 1859", WP + "Northern_Branch",
      "Northern Running Track", (-74.06, 40.79, -73.90, 41.07)),
     # ---- West Shore, Susquehanna
@@ -141,11 +141,11 @@ ROWS = [
     ("nlr_penn_station", "1937-06-20", "City Subway completed to Penn Station in 1937 (year in the article; the day is OpenHistoricalMap's)",
      WP + "Newark_Light_Rail", "Newark Light Rail", (-74.1705, 40.730, -74.155, 40.7385)),
     ("nlr_city_subway", "1935-05-26", "Newark City Subway, Broad Street (Military Park) - Heller Parkway, opened 26 May 1935 in the bed of the Morris Canal",
-     WP + "Newark_Light_Rail", "Newark Light Rail", (-74.195, 40.730, -74.1705, 40.776)),
+     WP + "Newark_Light_Rail", "Newark Light Rail", (-74.195, 40.730, -74.1705, 40.7787)),
     ("nlr_franklin_avenue", "1940-11-22", "City Subway extended to Franklin Avenue (Branch Brook Park) in 1940 (year in the article; the day is "
-     "OpenHistoricalMap's)", WP + "Newark_Light_Rail", "Newark Light Rail", (-74.1765, 40.776, -74.16, 40.79)),
+     "OpenHistoricalMap's)", WP + "Newark_Light_Rail", "Newark Light Rail", (-74.1765, 40.7787, -74.16, 40.7797)),
     ("nlr_grove_street", "2002-06-22", "Newark Light Rail extended to Grove Street, 22 Jun 2002 (Silver Lake and Grove Street station infoboxes)",
-     WP + "Grove_Street_station_(Newark_Light_Rail)", "Newark Light Rail", (-74.20, 40.776, -74.1765, 40.80)),
+     WP + "Grove_Street_station_(Newark_Light_Rail)", "Newark Light Rail", (-74.20, 40.7787, -74.16, 40.80)),
     # ---- others
     ("airtrain_newark", "1996-05-31", "AirTrain Newark monorail opened 31 May 1996 (the extension to the Northeast Corridor station opened 21 Oct 2001 "
      "and is not separated here: estimated there)", WP + "AirTrain_Newark", "AirTrain Newark", None),

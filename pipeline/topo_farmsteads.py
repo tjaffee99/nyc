@@ -871,8 +871,9 @@ def export():
     con.execute("install spatial; load spatial;")
     bp = INTERIM / "nyc_buildings.parquet"
     F["standing_bin"] = np.nan
-    for col in ("standing_basis", "standing_year_src"):
+    for col in ("standing_basis", "standing_strength", "standing_year_src"):
         F[col] = ""
+    F["under_mark_later"] = False
     for col in ("standing_year", "standing_dist_m", "standing_n", "standing_area_m2"):
         F[col] = np.nan
     control = {}
@@ -882,46 +883,59 @@ def export():
         bE, bN = to_utm.transform(Bd["lon"].values, Bd["lat"].values)
         tree = cKDTree(np.column_stack([bE, bN]))
 
-        def match(E, N, first_year, cls, want_geom=True):
+        def match(E, N, first_year, cls):
+            """Per mark: the best footprint within BIN_M that could be the mapped building, and how
+            many footprints stand within 60 m (all / dated no later than the survey)."""
             cand = tree.query_ball_point(np.column_stack([E, N]), BIN_M + 45.0)
             ii = np.repeat(np.arange(len(E)), [len(x) for x in cand])
             jj = np.fromiter((v for x in cand for v in x), int, count=len(ii))
             ids = Bd["doitt_id"].values[np.unique(jj)]
             con.register("ids", pd.DataFrame({"doitt_id": ids}))
             gdf = con.execute(f"select b.doitt_id, ST_AsWKB(b.geometry) wkb from '{bp}' b join ids using (doitt_id) where b.end_year = 9999").df()
+            con.unregister("ids")
             geom = dict(zip(gdf["doitt_id"], shapely.from_wkb([bytes(w) for w in gdf["wkb"]])))
             polys = shapely.transform(np.array([geom[i] for i in Bd["doitt_id"].values[jj]]),
                                       lambda xy: np.column_stack(to_utm.transform(xy[:, 0], xy[:, 1])))
             dist = shapely.distance(polys, shapely.points(E[ii], N[ii]))
             b = Bd.iloc[jj]
             fy = first_year[ii]
-            exact = b["year_confidence"].values == "exact"
-            sy = b["start_year"].values
-            lpc = b["year_src"].values == "lpc"
-            ok = (dist <= BIN_M) & ~(exact & (sy > fy)) & ~(lpc & (sy > fy)) & ((b["height_m"].fillna(0).values <= 22) | ((exact | lpc) & (sy <= fy)))
-            ok &= (b["area"].values <= 1500) | (cls[ii] == "bar") | ((exact | lpc) & (sy <= fy))
-            rank = np.where((exact | lpc) & (sy <= fy), 0, np.where(b["year_src"].str.startswith("heap_by").values | (sy <= fy), 1, 2))
-            t = pd.DataFrame({"i": ii, "j": jj, "dist": dist, "rank": rank})[ok].sort_values(["i", "rank", "dist"])
-            best = t.groupby("i").first()
-            n_same = t.merge(best[["rank"]].rename(columns={"rank": "r0"}), left_on="i", right_index=True)
-            n_same = n_same[n_same["rank"] == n_same["r0"]].groupby("i").size()
-            return best.assign(n=n_same)
+            exact = (b["year_confidence"].values == "exact") | (b["year_src"].values == "lpc")
+            sy = np.floor(b["start_year"].values)
+            # 0 = a recorded year no later than the survey, 1 = an estimate no later than it or a "by then" placeholder,
+            # 2 = an estimate later than the survey, 3 = a recorded year later than the survey (cannot be the building)
+            rank = np.where(exact, np.where(sy <= fy, 0, 3), np.where(b["year_src"].str.startswith("heap_by").values | (sy <= fy), 1, 2))
+            small = (b["height_m"].fillna(0).values <= 22) & ((b["area"].values <= 1500) | (cls[ii] == "bar"))
+            t = pd.DataFrame({"i": ii, "j": jj, "dist": dist, "rank": rank, "ok": (dist <= BIN_M) & ((rank == 0) | ((rank < 3) & small))})
+            near = t[t["dist"] <= 60.0].groupby("i")["rank"].agg(n60="size", old60=lambda r: int((r <= 1).sum()))
+            best = t[t["ok"]].sort_values(["i", "rank", "dist"]).groupby("i").first().join(near)
+            same = t[t["ok"]].merge(best[["rank"]].rename(columns={"rank": "r0"}), left_on="i", right_index=True)
+            best["n"] = same[same["rank"] == same["r0"]].groupby("i").size()
+            # strong: under the mark (12 m) and one of the few old-dated buildings around (at most a third of those within 60 m)
+            best["strong"] = (best["rank"] == 0) | ((best["rank"] == 1) & (best["dist"] <= 12.0) & (best["old60"] <= np.maximum(1, best["n60"] / 3.0)))
+            return best
+
+        def tally(best):
+            lab_ = np.where(best["rank"] == 0, "recorded", np.where(best["rank"] == 1, np.where(best["strong"], "by_then_strong", "by_then_weak"), "later_estimate"))
+            return {k: int(v) for k, v in pd.Series(lab_).value_counts().items()}
 
         best = match(F["E"].values, F["N"].values, F["first_year"].values, F["cls"].values)
-        names = np.array(["recorded", "by_then", "later_estimate"])
+        tallies = {"real": tally(best)}
+        for dx, dy in ((150.0, 100.0), (-120.0, 160.0), (90.0, -170.0)):       # chance: the same marks moved off their spots
+            tallies[f"moved_{int(dx)}_{int(dy)}"] = tally(match(F["E"].values + dx, F["N"].values + dy, F["first_year"].values, F["cls"].values))
+        control = tallies
+        F["under_mark_later"] = False
+        F.loc[best.index[best["rank"] == 2], "under_mark_later"] = True
+        best = best[best["rank"] <= 1]
         bb = Bd.iloc[best["j"].values]
         ix = best.index.values
         F.loc[ix, "standing_bin"] = bb["bin"].values
-        F.loc[ix, "standing_basis"] = names[best["rank"].values]
+        F.loc[ix, "standing_basis"] = np.where(best["rank"].values == 0, "recorded", "by_then")
+        F.loc[ix, "standing_strength"] = np.where(best["strong"].values, "strong", "weak")
         F.loc[ix, "standing_year"] = np.floor(bb["start_year"].values)
         F.loc[ix, "standing_year_src"] = bb["year_src"].values
         F.loc[ix, "standing_dist_m"] = best["dist"].round(1).values
         F.loc[ix, "standing_n"] = best["n"].values
         F.loc[ix, "standing_area_m2"] = bb["area"].round().values
-        # chance: the same marks moved 150 m east and 100 m north
-        ctl = match(F["E"].values + 150.0, F["N"].values + 100.0, F["first_year"].values, F["cls"].values)
-        control = {names[k]: int(v) for k, v in ctl["rank"].value_counts().items()}
-        control["marks"] = int(len(F))
 
     # --- sites, kind, confidence, id
     xy = F[["E", "N"]].values
@@ -950,7 +964,7 @@ def export():
             return bool(v)
         return v
     props = ["id", "first_year", "last_year", "gone_by", "new_since", "n_marks", "site", "kind", "sheet", "confidence", "borough",
-             "standing_bin", "standing_basis", "standing_year", "standing_year_src", "standing_dist_m", "standing_n", "standing_area_m2",
+             "standing_bin", "standing_basis", "standing_strength", "standing_year", "standing_year_src", "standing_dist_m", "standing_n", "standing_area_m2",
              "late_symbol", "earlier_unclear", "later_unclear", "builtup", "ground"]
     F["sheet"] = F["sheets"]
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -960,7 +974,7 @@ def export():
     for row in F.itertuples(index=False):
         d = row._asdict()
         p = {k: val(d[k]) for k in props}
-        for k in ("standing_basis", "standing_year_src", "late_symbol", "ground"):
+        for k in ("standing_basis", "standing_strength", "standing_year_src", "late_symbol", "ground"):
             p[k] = p[k] or None
         if p["standing_dist_m"] is not None:
             p["standing_dist_m"] = float(d["standing_dist_m"])
@@ -987,9 +1001,10 @@ def export():
              "gone_by": {str(int(k)): int(v) for k, v in F["gone_by"].dropna().value_counts().sort_index().items()},
              "new_since_1889": int(F["new_since"].notna().sum()), "builtup": int(F["builtup"].sum()),
              "ground": F.groupby("ground").size().to_dict(), "late_sheets": late_info,
-             "standing": {f"{b}|{k}": int(v) for (b, k), v in F[F["standing_basis"] != ""].groupby(["borough", "standing_basis"]).size().items()},
-             "standing_by_src": {f"{b}|{k}|{s_}": int(v) for (b, k, s_), v in F[F["standing_basis"] != ""].groupby(["borough", "standing_basis", "standing_year_src"]).size().items()},
-             "standing_control_shifted_150m": control,
+             "standing": {f"{b}|{k}|{w}": int(v) for (b, k, w), v in F[F["standing_basis"] != ""].groupby(["borough", "standing_basis", "standing_strength"]).size().items()},
+             "standing_by_src": {f"{b}|{k}|{w}|{s_}": int(v) for (b, k, w, s_), v in F[F["standing_basis"] != ""].groupby(["borough", "standing_basis", "standing_strength", "standing_year_src"]).size().items()},
+             "under_mark_later_estimate": {b: int(v) for b, v in F[F["under_mark_later"]].groupby("borough").size().items()},
+             "standing_real_vs_moved": control,
              "sheets": {sid: {"kept": int(sum(m["keep"] for m in res[sid]["marks"])), "shift": res[sid]["shift"], "align": {k: v for k, v in res[sid]["align"].items() if k != "window_shifts_m"},
                               "thr": res[sid]["thr"]} for sid in res}}
     (OUT_DIR / "stats.json").write_text(json.dumps(stats, indent=1))

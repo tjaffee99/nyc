@@ -124,7 +124,8 @@ def dates(wdrow, title):
             notes.append(f"{key}: estimated, Wikidata gives only the year {wd[:4]}")
         else:
             out[key] = ""
-    return out["opened"], out["closed"], "; ".join(notes), ib.get("lines", "")
+    lines = re.sub(r"\{\{[^{}]*\}\}|<[^>]*>|\s+", " ", ib.get("lines", "")).strip(" ;")
+    return out["opened"], out["closed"], "; ".join(notes), lines
 
 
 def main():
