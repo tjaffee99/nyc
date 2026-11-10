@@ -1,0 +1,1362 @@
+{
+ "total": {
+  "layer": "brooklyn_bedstuy_1888",
+  "plates": 21,
+  "buildings": 6686,
+  "frame": 3876,
+  "brick": 2810,
+  "stone": 0,
+  "gasholders": 0,
+  "on_today": 1398,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 4.46
+ },
+ "plates": [
+  {
+   "plate": "19587",
+   "image": "1810304",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 122 [Map bounded by Broadway, Chauncey St., Saratoga",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 101.3,
+   "mpp": 0.111,
+   "n": 57,
+   "frame": 33,
+   "brick": 24,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.018,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.12,
+    -1.9
+   ],
+   "off_median_m": 1.9,
+   "sheet": "V5-122",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.9 m; control points CV rms 101.3 m)"
+  },
+  {
+   "plate": "19586",
+   "image": "1810303",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 121 [Map bounded by Saratoga Ave., Fulton St., Ralph",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 16.1,
+   "mpp": 0.102,
+   "n": 274,
+   "frame": 246,
+   "brick": 28,
+   "stone": 0,
+   "coincide": 5,
+   "share": 0.018,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.19,
+    0.8
+   ],
+   "off_median_m": 1.51,
+   "sheet": "V5-121",
+   "status": "left out: not placed reliably (no street or building match; 5 outlines on standing footprints, median offset 1.51 m; control points CV rms 16.1 m)"
+  },
+  {
+   "plate": "19585",
+   "image": "1810302",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 120 [Map bounded by Broadway, Saratoga Ave., Halsey ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 13.4,
+   "mpp": 0.101,
+   "n": 195,
+   "frame": 158,
+   "brick": 36,
+   "stone": 0,
+   "coincide": 16,
+   "share": 0.082,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.25,
+    0.98
+   ],
+   "off_median_m": 1.55,
+   "sheet": "V5-120",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 194,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "19580",
+   "image": "1810297",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 115 [Map bounded by McDonough St., Throop Ave., Putn",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 3.8,
+   "mpp": 0.101,
+   "n": 146,
+   "frame": 41,
+   "brick": 103,
+   "stone": 0,
+   "coincide": 48,
+   "share": 0.333,
+   "corrected": true,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.25,
+    -0.13
+   ],
+   "off_median_m": 0.98,
+   "street": null,
+   "bld": {
+    "plate": "19580",
+    "n": 146,
+    "windows": 6,
+    "shift_median": [
+     1.47,
+     2.01
+    ],
+    "fit_residual_m": 0.76,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V5-115",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 144,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "19599",
+   "image": "1810316",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 134 [Map bounded by Lexington Ave., Lewis Ave., De K",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 9.7,
+   "mpp": 0.099,
+   "n": 339,
+   "frame": 161,
+   "brick": 177,
+   "stone": 0,
+   "coincide": 32,
+   "share": 0.095,
+   "corrected": true,
+   "paper": [
+    84.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.04,
+    0.17
+   ],
+   "off_median_m": 1.58,
+   "street": {
+    "plate": "19599",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 9.7,
+    "mpp": 0.099,
+    "windows": 4,
+    "shift_median": [
+     -1.2,
+     2.2
+    ],
+    "shift_abs_median": 2.9,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 1.2,
+    "kind2": "shift",
+    "agree2": 4,
+    "fit_residual2_m": 1.3,
+    "after_windows": 4,
+    "after_abs_median": 1.3
+   },
+   "sheet": "V5-134",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 338,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19596",
+   "image": "1810313",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 131 [Map bounded by Lexington Ave., Bedford Ave., De",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 21.1,
+   "mpp": 0.1,
+   "n": 661,
+   "frame": 395,
+   "brick": 266,
+   "stone": 0,
+   "coincide": 140,
+   "share": 0.212,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.25,
+    -0.2
+   ],
+   "off_median_m": 1.32,
+   "street": {
+    "plate": "19596",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 21.1,
+    "mpp": 0.1,
+    "windows": 6,
+    "shift_median": [
+     -5.7,
+     -2.2
+    ],
+    "shift_abs_median": 5.9,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 3.0,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 4.4,
+    "after_windows": 6,
+    "after_abs_median": 4.4
+   },
+   "bld": {
+    "plate": "19596",
+    "n": 661,
+    "windows": 9,
+    "shift_median": [
+     2.06,
+     2.9
+    ],
+    "fit_residual_m": 1.09,
+    "agree": 8,
+    "kind": "shift"
+   },
+   "sheet": "V5-131",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 661,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19594",
+   "image": "1810311",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 129 [Map bounded by Jefferson Ave., Reid Ave., Quinc",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 1.1,
+   "mpp": 0.101,
+   "n": 341,
+   "frame": 266,
+   "brick": 74,
+   "stone": 0,
+   "coincide": 59,
+   "share": 0.174,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.1,
+    0.69
+   ],
+   "off_median_m": 1.3,
+   "street": {
+    "plate": "19594",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 1.1,
+    "mpp": 0.101,
+    "windows": 4,
+    "shift_median": [
+     -5.1,
+     -1.1
+    ],
+    "shift_abs_median": 5.5,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 1.1,
+    "kind2": "shift",
+    "agree2": 5,
+    "fit_residual2_m": 2.6,
+    "after_windows": 5,
+    "after_abs_median": 2.6
+   },
+   "bld": {
+    "plate": "19594",
+    "n": 341,
+    "windows": 6,
+    "shift_median": [
+     1.57,
+     1.07
+    ],
+    "fit_residual_m": 1.0,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V5-129",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 340,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19578",
+   "image": "1810295",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 113 [Map bounded by Fulton St., Marcy Ave., McDonoug",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 9.7,
+   "mpp": 0.1,
+   "n": 133,
+   "frame": 73,
+   "brick": 60,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    9.0
+   ],
+   "sheet": "V5-113",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 9.7 m)"
+  },
+  {
+   "plate": "19597",
+   "image": "1810314",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 132 [Map bounded by Lexington Ave., Marcy Ave., De K",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 3.7,
+   "mpp": 0.101,
+   "n": 379,
+   "frame": 284,
+   "brick": 93,
+   "stone": 0,
+   "coincide": 85,
+   "share": 0.225,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.64,
+    -0.21
+   ],
+   "off_median_m": 1.31,
+   "street": null,
+   "bld": {
+    "plate": "19597",
+    "n": 379,
+    "windows": 6,
+    "shift_median": [
+     -0.29,
+     1.52
+    ],
+    "fit_residual_m": 0.6,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V5-132",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 377,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "19583",
+   "image": "1810300",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 118 [Map bounded by Fulton St., Reid Ave., Decatur S",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 12.8,
+   "mpp": 0.1,
+   "n": 396,
+   "frame": 329,
+   "brick": 67,
+   "stone": 0,
+   "coincide": 21,
+   "share": 0.053,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.21,
+    0.52
+   ],
+   "off_median_m": 1.09,
+   "sheet": "V5-118",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 396,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19577",
+   "image": "1810294",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 112 [Map bounded by Fulton Ave., Bedford Ave., Putna",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 6.0,
+   "mpp": 0.1,
+   "n": 274,
+   "frame": 46,
+   "brick": 226,
+   "stone": 0,
+   "coincide": 38,
+   "share": 0.14,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.15,
+    -0.04
+   ],
+   "off_median_m": 1.19,
+   "street": {
+    "plate": "19577",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 6.0,
+    "mpp": 0.1,
+    "windows": 6,
+    "shift_median": [
+     6.9,
+     -1.4
+    ],
+    "shift_abs_median": 7.2,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 3.2,
+    "kind2": "shift",
+    "agree2": 5,
+    "fit_residual2_m": 3.8,
+    "after_windows": 5,
+    "after_abs_median": 3.8
+   },
+   "bld": {
+    "plate": "19577",
+    "n": 274,
+    "windows": 8,
+    "shift_median": [
+     0.48,
+     1.39
+    ],
+    "fit_residual_m": 1.35,
+    "agree": 7,
+    "kind": "shift"
+   },
+   "sheet": "V5-112",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 272,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "19579",
+   "image": "1810296",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 114 [Map bounded by McDonough St., Marcy Ave., Putna",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 5.7,
+   "mpp": 0.101,
+   "n": 329,
+   "frame": 169,
+   "brick": 157,
+   "stone": 0,
+   "coincide": 80,
+   "share": 0.245,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.34,
+    0.82
+   ],
+   "off_median_m": 1.54,
+   "street": {
+    "plate": "19579",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 5.7,
+    "mpp": 0.101,
+    "windows": 4,
+    "shift_median": [
+     1.0,
+     2.7
+    ],
+    "shift_abs_median": 2.8,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 0.5,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 1.9,
+    "after_windows": 6,
+    "after_abs_median": 2.0
+   },
+   "bld": {
+    "plate": "19579",
+    "n": 329,
+    "windows": 6,
+    "shift_median": [
+     1.37,
+     1.23
+    ],
+    "fit_residual_m": 0.9,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V5-114",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 326,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "19600",
+   "image": "1810317",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 135 [Map bounded by Quincy St., Reid Ave., Kosciusko",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 15.1,
+   "mpp": 0.1,
+   "n": 270,
+   "frame": 156,
+   "brick": 112,
+   "stone": 0,
+   "coincide": 58,
+   "share": 0.216,
+   "corrected": true,
+   "paper": [
+    83.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.25,
+    -0.35
+   ],
+   "off_median_m": 1.27,
+   "street": null,
+   "bld": {
+    "plate": "19600",
+    "n": 270,
+    "windows": 5,
+    "shift_median": [
+     -4.42,
+     4.74
+    ],
+    "fit_residual_m": 0.59,
+    "agree": 5,
+    "kind": "shift"
+   },
+   "sheet": "V5-135",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 268,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "19588",
+   "image": "1810305",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 123 [Map bounded by Rackaway Ave., Fulton St., Sarat",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 8.4,
+   "mpp": 0.1,
+   "n": 230,
+   "frame": 156,
+   "brick": 73,
+   "stone": 0,
+   "coincide": 38,
+   "share": 0.166,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.45,
+    0.26
+   ],
+   "off_median_m": 1.22,
+   "street": {
+    "plate": "19588",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 8.4,
+    "mpp": 0.1,
+    "windows": 4,
+    "shift_median": [
+     -3.4,
+     -1.8
+    ],
+    "shift_abs_median": 3.9,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 0.9,
+    "after_windows": 3,
+    "after_abs_median": 1.2
+   },
+   "sheet": "V5-123",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 229,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19589",
+   "image": "1810306",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 124 [Map bounded by Broadway, Sackman St., Fulton St",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 32.0,
+   "mpp": 0.1,
+   "n": 131,
+   "frame": 74,
+   "brick": 56,
+   "stone": 0,
+   "coincide": 29,
+   "share": 0.223,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.37,
+    0.06
+   ],
+   "off_median_m": 0.83,
+   "street": null,
+   "bld": {
+    "plate": "19589",
+    "n": 131,
+    "windows": 3,
+    "shift_median": [
+     2.36,
+     3.0
+    ],
+    "fit_residual_m": 0.45,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "V5-124",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 130,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19592",
+   "image": "1810309",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 127 [Map bounded by Putnam Ave., Throop Ave., Lexing",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 7.1,
+   "mpp": 0.102,
+   "n": 381,
+   "frame": 162,
+   "brick": 217,
+   "stone": 0,
+   "coincide": 93,
+   "share": 0.245,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.1,
+    0.29
+   ],
+   "off_median_m": 1.36,
+   "street": {
+    "plate": "19592",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 7.1,
+    "mpp": 0.102,
+    "windows": 4,
+    "shift_median": [
+     -1.4,
+     -1.6
+    ],
+    "shift_abs_median": 2.4,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 1.3,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 4.2,
+    "after_windows": 4,
+    "after_abs_median": 4.0
+   },
+   "bld": {
+    "plate": "19592",
+    "n": 381,
+    "windows": 6,
+    "shift_median": [
+     3.67,
+     1.56
+    ],
+    "fit_residual_m": 1.29,
+    "agree": 5,
+    "kind": "shift"
+   },
+   "sheet": "V5-127",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 379,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "19591",
+   "image": "1810308",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 126 [Map bounded by Putnam Ave., Marcy Ave., Lexingt",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 13.4,
+   "mpp": 0.101,
+   "n": 340,
+   "frame": 183,
+   "brick": 152,
+   "stone": 0,
+   "coincide": 92,
+   "share": 0.275,
+   "corrected": true,
+   "paper": [
+    87.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -0.25,
+    0.11
+   ],
+   "off_median_m": 1.23,
+   "street": {
+    "plate": "19591",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 13.4,
+    "mpp": 0.101,
+    "windows": 5,
+    "shift_median": [
+     -5.0,
+     3.4
+    ],
+    "shift_abs_median": 6.1,
+    "kind": "shift",
+    "agree": 5,
+    "fit_residual_m": 3.1,
+    "kind2": "shift",
+    "agree2": 5,
+    "fit_residual2_m": 3.1,
+    "after_windows": 5,
+    "after_abs_median": 3.1
+   },
+   "bld": {
+    "plate": "19591",
+    "n": 340,
+    "windows": 6,
+    "shift_median": [
+     2.76,
+     1.03
+    ],
+    "fit_residual_m": 0.39,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V5-126",
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 335,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "19582",
+   "image": "1810299",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 117 [Map bounded by Fulton St., Lewis Ave., McDonoug",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 10.9,
+   "mpp": 0.096,
+   "n": 157,
+   "frame": 93,
+   "brick": 64,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    8.0
+   ],
+   "sheet": "V5-117",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 10.9 m)"
+  },
+  {
+   "plate": "19595",
+   "image": "1810312",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 130 [Map bounded by Bedford Ave., Gates Ave., Classo",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 7.3,
+   "mpp": 0.101,
+   "n": 500,
+   "frame": 339,
+   "brick": 159,
+   "stone": 0,
+   "coincide": 89,
+   "share": 0.179,
+   "corrected": true,
+   "paper": [
+    84.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.24,
+    -0.35
+   ],
+   "off_median_m": 1.06,
+   "street": {
+    "plate": "19595",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 7.3,
+    "mpp": 0.101,
+    "windows": 6,
+    "shift_median": [
+     -3.2,
+     1.4
+    ],
+    "shift_abs_median": 3.6,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 0.8,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 0.9,
+    "after_windows": 6,
+    "after_abs_median": 0.9
+   },
+   "bld": {
+    "plate": "19595",
+    "n": 500,
+    "windows": 11,
+    "shift_median": [
+     0.07,
+     0.6
+    ],
+    "fit_residual_m": 0.45,
+    "agree": 11,
+    "kind": "affine"
+   },
+   "sheet": "V5-130",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 498,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19598",
+   "image": "1810315",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 133 [Map bounded by Lexington Ave., Throop Ave., De ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 11.1,
+   "mpp": 0.101,
+   "n": 243,
+   "frame": 158,
+   "brick": 84,
+   "stone": 0,
+   "coincide": 16,
+   "share": 0.066,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.34,
+    0.37
+   ],
+   "off_median_m": 1.85,
+   "street": {
+    "plate": "19598",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 11.1,
+    "mpp": 0.101,
+    "windows": 4,
+    "shift_median": [
+     -1.2,
+     5.7
+    ],
+    "shift_abs_median": 6.0,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 1.3,
+    "kind2": "shift",
+    "agree2": 4,
+    "fit_residual2_m": 1.3,
+    "after_windows": 4,
+    "after_abs_median": 1.4
+   },
+   "bld": {
+    "plate": "19598",
+    "n": 243,
+    "windows": 7,
+    "shift_median": [
+     0.44,
+     0.92
+    ],
+    "fit_residual_m": 0.7,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V5-133",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 242,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "19593",
+   "image": "1810310",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 128 [Map bounded by Putnam Ave., Lewis Ave., Lexingt",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 0.1,
+   "mpp": 0.101,
+   "n": 287,
+   "frame": 168,
+   "brick": 119,
+   "stone": 0,
+   "coincide": 73,
+   "share": 0.254,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    0.1,
+    0.01
+   ],
+   "off_median_m": 1.14,
+   "street": {
+    "plate": "19593",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 0.1,
+    "mpp": 0.101,
+    "windows": 4,
+    "shift_median": [
+     -1.1,
+     0.2
+    ],
+    "shift_abs_median": 1.1,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 0.5,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 3.6,
+    "after_windows": 4,
+    "after_abs_median": 3.2
+   },
+   "bld": {
+    "plate": "19593",
+    "n": 287,
+    "windows": 3,
+    "shift_median": [
+     3.14,
+     1.26
+    ],
+    "fit_residual_m": 0.63,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "V5-128",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 287,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19581",
+   "image": "1810298",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 116 [Map bounded by McDonough St., Lewis Ave., Putna",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 7.5,
+   "mpp": 0.1,
+   "n": 219,
+   "frame": 82,
+   "brick": 135,
+   "stone": 0,
+   "coincide": 56,
+   "share": 0.258,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.31,
+    -0.28
+   ],
+   "off_median_m": 1.01,
+   "street": {
+    "plate": "19581",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 7.5,
+    "mpp": 0.1,
+    "windows": 4,
+    "shift_median": [
+     1.5,
+     -0.3
+    ],
+    "shift_abs_median": 1.6,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 0.5,
+    "kind2": "shift",
+    "agree2": 5,
+    "fit_residual2_m": 3.1,
+    "after_windows": 5,
+    "after_abs_median": 3.1
+   },
+   "bld": {
+    "plate": "19581",
+    "n": 219,
+    "windows": 9,
+    "shift_median": [
+     3.08,
+     0.52
+    ],
+    "fit_residual_m": 0.99,
+    "agree": 8,
+    "kind": "shift"
+   },
+   "sheet": "V5-116",
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 217,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19590",
+   "image": "1810307",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 125 [Map bounded by Putnam Ave., Bedford Ave., Lexin",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 3.5,
+   "mpp": 0.101,
+   "n": 482,
+   "frame": 311,
+   "brick": 168,
+   "stone": 0,
+   "coincide": 166,
+   "share": 0.347,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.18,
+    -0.18
+   ],
+   "off_median_m": 1.11,
+   "street": {
+    "plate": "19590",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 5,
+    "model": "affine",
+    "cv_rms": 3.5,
+    "mpp": 0.101,
+    "windows": 6,
+    "shift_median": [
+     1.8,
+     -0.3
+    ],
+    "shift_abs_median": 2.2,
+    "kind": "shift",
+    "agree": 5,
+    "fit_residual_m": 2.7,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 2.5,
+    "after_windows": 6,
+    "after_abs_median": 2.6
+   },
+   "bld": {
+    "plate": "19590",
+    "n": 483,
+    "windows": 12,
+    "shift_median": [
+     1.74,
+     0.78
+    ],
+    "fit_residual_m": 0.4,
+    "agree": 12,
+    "kind": "affine"
+   },
+   "sheet": "V5-125",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 479,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "19576",
+   "image": "1810293",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 111 [Map bounded by Bedford Ave., Fulton St., Classo",
+   "gcps": 11,
+   "model": "affine",
+   "cv_rms": 2.1,
+   "mpp": 0.101,
+   "n": 450,
+   "frame": 171,
+   "brick": 278,
+   "stone": 0,
+   "coincide": 139,
+   "share": 0.31,
+   "corrected": true,
+   "paper": [
+    84.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.1,
+    0.27
+   ],
+   "off_median_m": 1.35,
+   "street": {
+    "plate": "19576",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 11,
+    "model": "affine",
+    "cv_rms": 2.1,
+    "mpp": 0.101,
+    "windows": 6,
+    "shift_median": [
+     -0.7,
+     1.5
+    ],
+    "shift_abs_median": 1.9,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 0.8,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 1.1,
+    "after_windows": 6,
+    "after_abs_median": 1.1
+   },
+   "bld": {
+    "plate": "19576",
+    "n": 450,
+    "windows": 9,
+    "shift_median": [
+     0.35,
+     0.14
+    ],
+    "fit_residual_m": 1.01,
+    "agree": 9,
+    "kind": "shift"
+   },
+   "sheet": "V5-111",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 449,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19584",
+   "image": "1810301",
+   "name": "Brooklyn, V. 5, Double Page Plate No. 119 [Map bounded by Decatur St., Reid Ave., Jefferso",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 8.7,
+   "mpp": 0.101,
+   "n": 126,
+   "frame": 67,
+   "brick": 58,
+   "stone": 0,
+   "coincide": 30,
+   "share": 0.24,
+   "corrected": true,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.43,
+    -0.25
+   ],
+   "off_median_m": 1.49,
+   "street": null,
+   "bld": {
+    "plate": "19584",
+    "n": 126,
+    "windows": 3,
+    "shift_median": [
+     -0.51,
+     3.55
+    ],
+    "fit_residual_m": 1.36,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "V5-119",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 125,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  }
+ ]
+}

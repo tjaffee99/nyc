@@ -535,27 +535,33 @@
    },
    {
     "id": 9492,
-    "sheet": "31"
+    "sheet": "31",
+    "skip": "standing buildings sit 8.5 m from their footprints after the street match; mostly lettering over water/marsh"
    },
    {
     "id": 9493,
-    "sheet": "33"
+    "sheet": "33",
+    "skip": "no street or building match found; control points only; almost nothing traced (marsh / water sheet)"
    },
    {
     "id": 9494,
-    "sheet": "34"
+    "sheet": "34",
+    "skip": "no registration found (cross-validated 11.9 m); sheet is water / marsh, nothing traced"
    },
    {
     "id": 9495,
-    "sheet": "35"
+    "sheet": "35",
+    "skip": "no reliable registration (street match 5 windows, 7.9 m shift); almost nothing traced"
    },
    {
     "id": 9496,
-    "sheet": "36"
+    "sheet": "36",
+    "skip": "no registration found; nothing traced"
    },
    {
     "id": 9497,
-    "sheet": "37"
+    "sheet": "37",
+    "skip": "control points inconsistent (cross-validated 490 m), no street or building match"
    },
    {
     "id": 9498,
@@ -603,7 +609,8 @@
    },
    {
     "id": 9509,
-    "sheet": "48"
+    "sheet": "48",
+    "skip": "standing buildings sit 8.1 m off (1 coincident outline); not reliable"
    },
    {
     "id": 9510,
@@ -735,7 +742,8 @@
    },
    {
     "id": 9542,
-    "sheet": "82"
+    "sheet": "82",
+    "skip": "control points inconsistent (cross-validated 55 m), no street or building match"
    },
    {
     "id": 9543,
@@ -743,7 +751,8 @@
    },
    {
     "id": 9588,
-    "sheet": "32"
+    "sheet": "32",
+    "skip": "standing building 9 m off; street match residual 5.7 m (8 windows)"
    }
   ],
   "style_override": {
@@ -753,7 +762,8 @@
     "L_min": 45
    },
    "street_min_q": 0.2,
-   "street_win_m": 300.0
+   "street_win_m": 300.0,
+   "outline": 0.3
   }
  },
  "bronx_south_1904": {

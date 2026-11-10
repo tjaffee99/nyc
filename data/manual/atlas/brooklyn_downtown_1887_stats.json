@@ -1,17 +1,17 @@
 {
  "total": {
   "layer": "brooklyn_downtown_1887",
-  "plates": 21,
-  "buildings": 11295,
-  "frame": 4327,
-  "brick": 6905,
+  "plates": 22,
+  "buildings": 11979,
+  "frame": 4770,
+  "brick": 7146,
   "stone": 63,
   "gasholders": 0,
   "on_today": 1303,
   "invalid": 0,
   "area_out_of_range": 0,
   "outside_coverage": 0,
-  "coverage_km2": 4.34
+  "coverage_km2": 4.53
  },
  "plates": [
   {
@@ -237,16 +237,16 @@
    "plate": "19237",
    "image": "1809054",
    "name": "Brooklyn V. 2, Double Page Plate No. 55 [Map bounded by Classon Ave., Myrtle Ave., Ryerson",
-   "gcps": 5,
+   "gcps": 3,
    "model": "affine",
-   "cv_rms": 5.4,
-   "mpp": 0.101,
-   "n": 376,
-   "frame": 321,
-   "brick": 55,
+   "cv_rms": 0.0,
+   "mpp": 0.099,
+   "n": 373,
+   "frame": 319,
+   "brick": 54,
    "stone": 0,
-   "coincide": 2,
-   "share": 0.005,
+   "coincide": 3,
+   "share": 0.008,
    "corrected": false,
    "paper": [
     90.0,
@@ -254,12 +254,12 @@
     6.0
    ],
    "off_median_vec": [
-    -3.13,
-    -0.99
+    -0.83,
+    -2.01
    ],
-   "off_median_m": 3.37,
+   "off_median_m": 2.4,
    "sheet": "V2-55",
-   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 3.37 m; control points CV rms 5.4 m)"
+   "status": "left out: not placed reliably (no street or building match; 3 outlines on standing footprints, median offset 2.4 m; control points CV rms 0.0 m)"
   },
   {
    "plate": "19232",
@@ -519,29 +519,24 @@
    "plate": "19228",
    "image": "1809045",
    "name": "Brooklyn V. 2, Double Page Plate No. 46 [Map bounded by N. Oxford St., Myrtle Ave., Navy S",
-   "gcps": 8,
+   "gcps": 4,
    "model": "affine",
-   "cv_rms": 15.0,
-   "mpp": 0.104,
-   "n": 655,
-   "frame": 306,
-   "brick": 349,
+   "cv_rms": 4.7,
+   "mpp": 0.1,
+   "n": 647,
+   "frame": 300,
+   "brick": 347,
    "stone": 0,
-   "coincide": 7,
-   "share": 0.011,
+   "coincide": 0,
+   "share": 0.0,
    "corrected": false,
    "paper": [
     88.0,
     -1.0,
     6.0
    ],
-   "off_median_vec": [
-    0.76,
-    0.33
-   ],
-   "off_median_m": 1.76,
    "sheet": "V2-46",
-   "status": "left out: not placed reliably (no street or building match; 7 outlines on standing footprints, median offset 1.76 m; control points CV rms 15.0 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 4.7 m)"
   },
   {
    "plate": "19227",
@@ -720,16 +715,16 @@
    "plate": "19217",
    "image": "1809034",
    "name": "Brooklyn V. 2, Double Page Plate No. 35 [Map bounded by Water St., Bridge St., East River,",
-   "gcps": 8,
+   "gcps": 5,
    "model": "affine",
-   "cv_rms": 18.8,
-   "mpp": 0.104,
+   "cv_rms": 5.9,
+   "mpp": 0.101,
    "n": 350,
-   "frame": 131,
+   "frame": 130,
    "brick": 219,
-   "stone": 0,
-   "coincide": 9,
-   "share": 0.026,
+   "stone": 1,
+   "coincide": 4,
+   "share": 0.011,
    "corrected": false,
    "paper": [
     88.0,
@@ -737,40 +732,35 @@
     8.0
    ],
    "off_median_vec": [
-    -0.45,
-    0.12
+    2.5,
+    1.86
    ],
-   "off_median_m": 2.35,
+   "off_median_m": 3.71,
    "sheet": "V2-35",
-   "status": "left out: not placed reliably (no street or building match; 9 outlines on standing footprints, median offset 2.35 m; control points CV rms 18.8 m)"
+   "status": "left out: not placed reliably (no street or building match; 4 outlines on standing footprints, median offset 3.71 m; control points CV rms 5.9 m)"
   },
   {
    "plate": "19216",
    "image": "1809033",
    "name": "Brooklyn V. 2, Double Page Plate No. 34 [Map bounded by Water St., Main St., East River, B",
-   "gcps": 8,
+   "gcps": 3,
    "model": "affine",
-   "cv_rms": 33.2,
-   "mpp": 0.109,
+   "cv_rms": 0.0,
+   "mpp": 0.107,
    "n": 268,
    "frame": 156,
    "brick": 109,
    "stone": 3,
-   "coincide": 1,
-   "share": 0.004,
+   "coincide": 0,
+   "share": 0.0,
    "corrected": false,
    "paper": [
     86.0,
     -2.0,
     10.0
    ],
-   "off_median_vec": [
-    -0.23,
-    1.14
-   ],
-   "off_median_m": 1.16,
    "sheet": "V2-34",
-   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.16 m; control points CV rms 33.2 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 0.0 m)"
   },
   {
    "plate": "19215",
@@ -845,29 +835,30 @@
    "plate": "19223",
    "image": "1809040",
    "name": "Brooklyn V. 2, Double Page Plate No. 41 [Map bounded by Bridge St., Myrtle Ave., Washingto",
-   "gcps": 10,
+   "gcps": 6,
    "model": "affine",
-   "cv_rms": 6.4,
-   "mpp": 0.103,
-   "n": 687,
-   "frame": 446,
+   "cv_rms": 3.4,
+   "mpp": 0.102,
+   "n": 688,
+   "frame": 443,
    "brick": 241,
    "stone": 0,
-   "coincide": 1,
-   "share": 0.001,
+   "coincide": 0,
+   "share": 0.0,
    "corrected": false,
    "paper": [
     88.0,
     -2.0,
     8.0
    ],
-   "off_median_vec": [
-    6.51,
-    -0.58
-   ],
-   "off_median_m": 6.53,
    "sheet": "V2-41",
-   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 6.53 m; control points CV rms 6.4 m)"
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 684,
+   "duplicates_dropped": 1,
+   "status": "ok"
   },
   {
    "plate": "19224",
@@ -1149,24 +1140,29 @@
    "plate": "19218",
    "image": "1809035",
    "name": "Brooklyn V. 2, Double Page Plate No. 36 [Map bounded by Navy St., Nassau St., Bridge St., ",
-   "gcps": 7,
+   "gcps": 5,
    "model": "affine",
-   "cv_rms": 5.3,
+   "cv_rms": 7.4,
    "mpp": 0.102,
-   "n": 732,
-   "frame": 497,
-   "brick": 235,
+   "n": 776,
+   "frame": 540,
+   "brick": 236,
    "stone": 0,
-   "coincide": 0,
-   "share": 0.0,
+   "coincide": 1,
+   "share": 0.001,
    "corrected": false,
    "paper": [
     84.0,
     -2.0,
-    11.0
+    10.0
    ],
+   "off_median_vec": [
+    -1.87,
+    1.12
+   ],
+   "off_median_m": 2.18,
    "sheet": "V2-36",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 5.3 m)"
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 2.18 m; control points CV rms 7.4 m)"
   },
   {
    "plate": "19236",

@@ -1112,7 +1112,7 @@ def export(layer, max_off=8.0):
             st["status"] = "rejected: standing buildings %.1f m from their footprints" % st["off_median_m"]
             rep.append(st)
             continue
-        if spec.get("require_match") and not st.get("corrected") and not (st.get("coincide", 0) >= 10 and st.get("off_median_m", 99) <= 4.0):
+        if spec.get("require_match") and not st.get("corrected") and not (st.get("coincide", 0) >= 10 and st.get("off_median_m", 99) <= 4.0) and not (st.get("gcps", 0) >= 5 and st.get("cv_rms", 99) <= 4.0):
             st["status"] = "left out: not placed reliably (no street or building match; %d outlines on standing footprints, median offset %s m; control points CV rms %.1f m)" % (st.get("coincide", 0), st.get("off_median_m"), st.get("cv_rms", 99))
             rep.append(st)
             continue
@@ -1201,7 +1201,7 @@ def export(layer, max_off=8.0):
                 continue
             acc.append(g)
             feats.append(dict(type="Feature", properties=dict(
-                id=f"{spec['source']}_{pl['sheet']}_{k}", map_year=spec["map_year"],
+                id=f"{spec['source']}_{pl['sheet']}{'-' + str(pl['id']) if sum(q['sheet'] == pl['sheet'] for q in spec['plates']) > 1 else ''}_{k}", map_year=spec["map_year"],
                 material="" if o["material"] == "iron" else o["material"], kind="gasholder" if o["material"] == "iron" else "building",
                 source=spec["source"], sheet=pl["sheet"], plate=int(pl["id"]), area_m2=round(g.area, 1),
                 on_today=bool(o.get("iou", 0) > 0.5), today_cover=round(o.get("cover", 0.0), 2)), geometry=sg.mapping(ll)))

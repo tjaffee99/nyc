@@ -1,0 +1,248 @@
+{
+ "total": {
+  "layer": "brooklyn_greenpoint_1887",
+  "plates": 3,
+  "buildings": 2107,
+  "frame": 1338,
+  "brick": 768,
+  "stone": 1,
+  "gasholders": 0,
+  "on_today": 270,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 0.78
+ },
+ "plates": [
+  {
+   "plate": "19486",
+   "image": "1810203",
+   "name": "Brooklyn V. 4, Double Page Plate No.92 [Map bounded by Newtown Creek, Calyer St., Whale Cr",
+   "gcps": 13,
+   "model": "affine",
+   "cv_rms": 34.3,
+   "mpp": 0.1,
+   "n": 40,
+   "frame": 25,
+   "brick": 12,
+   "stone": 3,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    83.0,
+    -2.0,
+    13.0
+   ],
+   "sheet": "V4-92",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 34.3 m)"
+  },
+  {
+   "plate": "19497",
+   "image": "1810214",
+   "name": "Brooklyn V. 4, Double Page Plate No.103 [Map bounded by Driggs St., S. 3rd St., Wythe Ave.",
+   "gcps": 39,
+   "model": "poly2",
+   "cv_rms": 0.4,
+   "mpp": 0.105,
+   "n": 791,
+   "frame": 510,
+   "brick": 278,
+   "stone": 0,
+   "coincide": 130,
+   "share": 0.165,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.02,
+    -0.15
+   ],
+   "off_median_m": 1.18,
+   "street": {
+    "plate": "19497",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 39,
+    "model": "poly2",
+    "cv_rms": 0.4,
+    "mpp": 0.105,
+    "windows": 6,
+    "shift_median": [
+     -0.5,
+     0.2
+    ],
+    "shift_abs_median": 0.5,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 0.2,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 0.3,
+    "after_windows": 6,
+    "after_abs_median": 0.3
+   },
+   "bld": {
+    "plate": "19497",
+    "n": 791,
+    "windows": 12,
+    "shift_median": [
+     -0.12,
+     0.23
+    ],
+    "fit_residual_m": 0.2,
+    "agree": 12,
+    "kind": "affine"
+   },
+   "sheet": "V4-103",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 788,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "19484",
+   "image": "1810201",
+   "name": "Brooklyn V. 4, Double Page Plate No.90 [Map bounded by Eagle St., Franklin St., Pink St., ",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 6.3,
+   "mpp": 0.102,
+   "n": 469,
+   "frame": 389,
+   "brick": 75,
+   "stone": 0,
+   "coincide": 51,
+   "share": 0.11,
+   "corrected": true,
+   "paper": [
+    82.0,
+    -2.0,
+    13.0
+   ],
+   "off_median_vec": [
+    0.84,
+    0.12
+   ],
+   "off_median_m": 1.7,
+   "street": {
+    "plate": "19484",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 8,
+    "model": "affine",
+    "cv_rms": 6.3,
+    "mpp": 0.102,
+    "windows": 4,
+    "shift_median": [
+     1.7,
+     0.9
+    ],
+    "shift_abs_median": 3.4,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 3.2,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 3.4,
+    "after_windows": 6,
+    "after_abs_median": 3.4
+   },
+   "bld": {
+    "plate": "19484",
+    "n": 469,
+    "windows": 3,
+    "shift_median": [
+     1.68,
+     0.1
+    ],
+    "fit_residual_m": 0.43,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "V4-90",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 464,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "19498",
+   "image": "1810215",
+   "name": "Brooklyn V. 4, Double Page Plate No.104 [Map bounded by S. 3rd St., Driggs St., N. 4th St.",
+   "gcps": 10,
+   "model": "affine",
+   "cv_rms": 1.5,
+   "mpp": 0.104,
+   "n": 862,
+   "frame": 439,
+   "brick": 415,
+   "stone": 1,
+   "coincide": 89,
+   "share": 0.104,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.15,
+    -0.04
+   ],
+   "off_median_m": 1.03,
+   "street": {
+    "plate": "19498",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 10,
+    "model": "affine",
+    "cv_rms": 1.5,
+    "mpp": 0.104,
+    "windows": 6,
+    "shift_median": [
+     1.5,
+     -0.3
+    ],
+    "shift_abs_median": 1.5,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 0.7,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 0.7,
+    "after_windows": 6,
+    "after_abs_median": 0.7
+   },
+   "bld": {
+    "plate": "19498",
+    "n": 862,
+    "windows": 12,
+    "shift_median": [
+     -0.63,
+     0.32
+    ],
+    "fit_residual_m": 0.27,
+    "agree": 12,
+    "kind": "affine"
+   },
+   "sheet": "V4-104",
+   "lettering_dropped": 3,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 855,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  }
+ ]
+}

@@ -93,15 +93,19 @@ HALF_STREET = {"residential": 7.0, "unclassified": 7.0, "living_street": 6.0, "t
                "primary": 13.0, "trunk": 14.0}   # no lot within this distance of a street centre line
 P_STOOD = {1924: 0.8, 1951: 0.7}     # data/manual/aerial/README.md "How to use it"
 P_OPEN = {1924: 0.2, 1951: 0.1}
+P_STATEN = 0.9           # Staten Island: the model's "stood" is unproven there (its README): odds of 9 to 1 are asked
 PRIOR_RANGE = (0.2, 0.85)  # odds beforehand from the neighbouring lots (see assemble_block): 0.2 alone, 0.85 in a built row
 PHOTO_T = {1924: 1924.5, 1951: 1951.5}
 AFTER_GAP = 3.0          # a map building that starts within this of the photograph may be what the photograph shows
+BEFORE_GAP = 2.0         # ... and so may one that the map ends within this before it (most ends are estimates)
+CONTEXT_M = 75.0         # a photographed lot needs built-up ground of a snapshot, or CONTEXT_N map buildings this near
+CONTEXT_N = 3
 LEAD = (1.0, 2.5)        # a predecessor ends this long before the building that replaced it was finished
 NEAR_M = 30.0            # "neighbours" for the isolation rule
 YEAR_POOL_M = 300.0      # recorded years are taken from this far around
 # share of the eligible lots kept under a generalised built-up extent: measured against the traced
 # atlases at every run (calibrate_extents); these values only where too little can be measured
-EXTENT_KEEP = {"usgs": 0.5, "map": 0.5}
+EXTENT_KEEP = {"all": 0.5}
 SMALL_SHARE = 0.35       # a map building smaller than this share of a lot (and than SMALL_M2) notches the lot instead of blocking it
 SMALL_M2 = 30.0
 NOTCH_MIN = 0.55         # ... if this share of the lot is left
@@ -611,10 +615,11 @@ SHEETS_1947 = {"NJ_Jersey_City_254499_1947_24000_geo.tif": (-74.125, 40.625, -74
 SHEET_YEAR = {"NJ_Jersey_City_254499_1947_24000_geo.tif": 1947, "NJ_Weehawken_255029_1943_25000_geo.tif": 1943}
 SHEET_DIR = RAW / "piers" / "usgs"          # downloaded by the piers part (data/manual/piers/tools/sheets.json has the URLs)
 INK = WORK / f"sheet_ink_v{LAYOUT}"
-INK_T, INK_GAP, INK_MIN = 1941.0, 7.0, 0.5   # the photographs behind the sheets are of 1940; printed 1947
+INK_T, INK_GAP, INK_MIN = 1941.0, 7.0, 0.7   # the photographs behind the sheets are of 1940; printed 1947
+SHIFT_TOL = 20.0                             # metres a block's shift may lie from its sheet's median
 
 
-def ink_block(bx, by):
+def ink_block(bx, by, forced=None):
     """cid -> share of heavy black ink on the 1947 sheet, for the lots of a block that a sheet covers."""
     import rasterio
     from affine import Affine
@@ -625,7 +630,7 @@ def ink_block(bx, by):
     lp = lots_path(bx, by)
     if not lp.exists():
         return None
-    lots = pd.read_parquet(lp, columns=["cid", "lon", "lat", "wkb"])
+    lots = pd.read_parquet(lp)
     if not len(lots):
         return None
     x0, y0, x1, y1 = block_px(bx, by)
@@ -673,10 +678,12 @@ def ink_block(bx, by):
               - np.fft.irfft2(Fh * np.conj(np.fft.rfft2(sr)), s=heavy.shape) / max(sr.sum(), 1.0))
         sc = np.roll(np.roll(sc, R_, 0), R_, 1)[:2 * R_ + 1, :2 * R_ + 1]            # sc[dy + R_, dx + R_]
         kk = np.unravel_index(sc.argmax(), sc.shape)
-        if not (sc.max() - np.median(sc) >= 0.12 and 0 < kk[0] < 2 * R_ and 0 < kk[1] < 2 * R_):
+        if forced and SHEET_YEAR[fn] in forced:          # the sheet's own median shift (step_ink, second pass)
+            kk = (int(round(forced[SHEET_YEAR[fn]][1] / (k * MPP))) + R_, int(round(forced[SHEET_YEAR[fn]][0] / (k * MPP))) + R_)
+        elif not (sc.max() - np.median(sc) >= 0.12 and 0 < kk[0] < 2 * R_ and 0 < kk[1] < 2 * R_):
             continue
         dx, dy = int(kk[1] - R_), int(kk[0] - R_)
-        shifts[fn] = [round(dx * k * MPP, 1), round(dy * k * MPP, 1), round(float(sc.max()), 2), round(float(np.median(sc)), 2)]
+        shifts[fn] = [round(dx * k * MPP, 1), round(dy * k * MPP, 1), round(float(sc[dy + R_, dx + R_]), 2), round(float(np.median(sc)), 2)]
         year_of[sel] = SHEET_YEAR[fn]
         sh_e[sel], sh_s[sel] = shifts[fn][0], shifts[fn][1]
         # the sheets draw the streets wider than they are (and the block fronts pushed back by as much):
@@ -695,12 +702,12 @@ def ink_block(bx, by):
     return pd.DataFrame({"cid": lots.cid.values, "ink1947": out, "sheet_year": year_of, "shift_e": sh_e, "shift_s": sh_s})[np.isfinite(out)]
 
 
-def _ink_job(job, force=False):
+def _ink_job(job, force=False, forced=None):
     out = INK / f"{job[0]}_{job[1]}.parquet"
     if out.exists() and not force:
         return
     try:
-        df = ink_block(*job)
+        df = ink_block(*job, forced=forced)
     except Exception as e:  # noqa: BLE001
         log(f"ink: block {job} failed: {type(e).__name__}: {str(e)[:200]}")
         return
@@ -719,6 +726,26 @@ def step_ink():
     log(f"ink: {len(jobs)} blocks")
     for j in jobs:
         _ink_job(j)
+    # second pass: a block whose shift lies more than SHIFT_TOL from its sheet's median is read again
+    # with the median (a wrong peak on a regular street grid is likelier than a local jump of the drawing)
+    rows = []
+    for p in sorted(INK.glob("*.parquet")):
+        d = pd.read_parquet(p)
+        for sy, q in d.groupby("sheet_year") if len(d) else ():
+            rows.append((p.stem, int(sy), float(q.shift_e.median()), float(q.shift_s.median())))
+    if not rows:
+        return
+    t = pd.DataFrame(rows, columns=["block", "sheet", "e", "s"])
+    med = t.groupby("sheet")[["e", "s"]].median()
+    t["off"] = np.hypot(t.e - t.sheet.map(med.e), t.s - t.sheet.map(med.s))
+    (INK / "shifts.json").write_text(json.dumps({"median_shift_m_east_south": {int(k_): [round(v.e, 1), round(v.s, 1)] for k_, v in med.iterrows()},
+                                                 "blocks": t.round(1).to_dict("records")}, indent=1))
+    redo = sorted(set(t.block[t.off > SHIFT_TOL]))
+    log(f"ink: sheet medians (m east, m south) {med.round(1).to_dict('index')}; {len(redo)} blocks read again with the median: {redo}")
+    forced = {int(k_): (float(v.e), float(v.s)) for k_, v in med.iterrows()}
+    for b in redo:
+        bx_, by_ = (int(v) for v in b.split("_"))
+        _ink_job((bx_, by_), force=True, forced=forced)
 
 
 # ----------------------------------------------------------------------------- evidence other than the photographs
@@ -862,7 +889,7 @@ def calibrate_block(job):
     covs = [c for c in coverages() if shapely.intersects(c[1], box)]
     if not covs:
         return res
-    lots = pd.read_parquet(lp, columns=["cid", "lon", "lat", "wkb"])
+    lots = pd.read_parquet(lp)
     ex = existing_window(bx, by)
     if not len(lots) or not len(ex):
         return res
@@ -899,7 +926,8 @@ def calibrate_block(job):
         nxt = np.zeros(n, bool)
         nxt[li[(ps > T + 5) & (ps <= PHOTO_T[1924] + AFTER_GAP)]] = True
         elig = ins & inext & ~other & nxt
-        res[layer] = [int(elig.sum()), int((elig & pred).sum())]
+        for ar in np.unique(area[elig]):
+            res[f"{layer}|{ar}"] = [int((elig & (area == ar)).sum()), int((elig & pred & (area == ar)).sum())]
     return res
 
 
@@ -916,7 +944,15 @@ def calibrate_extents(jobs, workers=3):
                 t[1] += b
     n_, p_ = sum(v[0] for v in tot.values()), sum(v[1] for v in tot.values())
     if n_ >= 300:
-        EXTENT_KEEP["usgs"] = EXTENT_KEEP["map"] = round(p_ / n_, 3)
+        EXTENT_KEEP["all"] = round(p_ / n_, 3)             # areas without a traced atlas: all atlases together
+    per = {}
+    for key_, (a, b) in tot.items():
+        t = per.setdefault(key_.split("|")[1], [0, 0])
+        t[0] += a
+        t[1] += b
+    for ar, (a, b) in per.items():
+        if a >= 300:
+            EXTENT_KEEP[ar] = round(b / a, 3)
     (WORK / "extent_keep.json").write_text(json.dumps({"layers": tot, "lots": n_, "with_a_building_in_the_atlas": p_,
                                                        "share_used": EXTENT_KEEP}, indent=1))
     log(f"assemble: built-up extents against the traced atlases: {tot}; share of the lots kept under an extent: {EXTENT_KEEP}")
@@ -924,7 +960,7 @@ def calibrate_extents(jobs, workers=3):
 
 # ----------------------------------------------------------------------------- evidence -> rows
 ROW_COLS = ["id", "start_year", "end_year", "height_m", "storeys", "material", "evidence", "end_basis", "area",
-            "cid", "kind", "p1924", "p1951", "lon", "lat", "wkb"]
+            "cid", "kind", "next_exact", "next_start", "t_ev", "p1924", "p1951", "lon", "lat", "wkb"]
 
 
 def rows_path(bx, by):
@@ -985,7 +1021,7 @@ def assemble_block(job):
         return free, a, b, bst
 
     r_near = NEAR_M / MPP
-    W, stood, openg = {}, {}, {}
+    W, stood, openg, ctx = {}, {}, {}, {}
     for Y in ap.YEARS:
         T = PHOTO_T[Y]
         W[Y] = window(T, AFTER_GAP)
@@ -1003,11 +1039,17 @@ def assemble_block(job):
         clear_o = W[Y][0] & (p <= P_OPEN[Y])
         tb = cKDTree(cen[clear_b]).query_ball_point(cen, r_near, return_length=True) - clear_b.astype(int) if clear_b.any() else np.zeros(n, int)
         to = cKDTree(cen[clear_o]).query_ball_point(cen, r_near, return_length=True) - clear_o.astype(int) if clear_o.any() else np.zeros(n, int)
-        prior = np.clip((tb + 0.5) / (tb + to + 2.5), PRIOR_RANGE[0], PRIOR_RANGE[1])
+        scored = W[Y][0] & np.isfinite(p) & ~clear_b & ~clear_o
+        tn = cKDTree(cen[scored]).query_ball_point(cen, r_near, return_length=True) - scored.astype(int) if scored.any() else np.zeros(n, int)
+        prior = np.clip((tb + 0.5) / (tb + to + 0.5 * tn + 2.5), PRIOR_RANGE[0], PRIOR_RANGE[1])
         with np.errstate(invalid="ignore", divide="ignore"):
             post = prior * p / (prior * p + (1 - prior) * (1 - p))
-        s = W[Y][0] & (post >= P_STOOD[Y]) & nyc
+        s = W[Y][0] & (post >= np.where(area == "5", P_STATEN, P_STOOD[Y])) & nyc & (W[Y][1] <= T - BEFORE_GAP)
         lonely = W[Y][0] & (p >= P_STOOD[Y]) & nyc & ~s
+        # open country: where neither a built-up snapshot nor the map's own buildings say that anything
+        # stood around, the photograph alone is not believed (trees and gardens read as roofs)
+        near_map = cKDTree(exc[alive]).query_ball_point(cen, CONTEXT_M / MPP, return_length=True) if alive.any() else np.zeros(n, int)
+        ctx[Y] = near_map >= CONTEXT_N
         st[f"by_row{Y}"] = int((s & ~(p >= P_STOOD[Y])).sum())
         stood[Y] = s
         openg[Y] = (p <= P_OPEN[Y]) & nyc
@@ -1060,6 +1102,12 @@ def assemble_block(job):
             out_before = ~ins & np.isnan(ext_hi[sel])
             ext_lo[sel[out_before]] = year
 
+    for Y in ap.YEARS:
+        no_ctx = stood[Y] & ~ctx[Y] & ~np.isfinite(ext_hi)
+        st[f"no_context{Y}"] = int(no_ctx.sum())
+        stood[Y] &= ~no_ctx
+        st[f"stood{Y}"] = int(stood[Y].sum())
+
     parts = []          # (lot index, anchor, evidence, start lo, start hi, hard end, next stands, mode)
 
     def add(m, anchor, ev, lo, hi, b, bst, mode):
@@ -1087,13 +1135,19 @@ def assemble_block(job):
         ink = inkdf.ink1947.reindex(cid).values.astype(float)
         sheet_year = inkdf.sheet_year.reindex(cid).fillna(0).values.astype(int)
         fH, aH, bH, bstH = window(INK_T, INK_GAP)
-        sH = hud & fH & (ink >= INK_MIN)
+        sH = hud & fH & (ink >= INK_MIN) & (aH <= INK_T - BEFORE_GAP)
         alive = (es <= INK_T + INK_GAP) & (ee > INK_T)
         na = cKDTree(exc[alive]).query_ball_point(cen, r_near, return_length=True) if alive.any() else np.zeros(n, int)
         nl = cKDTree(cen[sH]).query_ball_point(cen, r_near, return_length=True) - sH.astype(int) if sH.any() else np.zeros(n, int)
         lonelyH = sH & ((na + nl) < 2)
         sH &= ~lonelyH
         st["hudson_free1941"] = int((hud & fH & np.isfinite(ink)).sum())
+        knH = np.zeros(n, bool)                     # lots under a map building recorded by 1935: does the sheet show them?
+        mk = ~minor & (ps <= 1935) & (pe > INK_T) & (ex.year_confidence.values[ei] == "exact") & (ia[k] >= 0.5 * la[li])
+        knH[li[mk]] = True
+        knH &= hud & np.isfinite(ink)
+        st["hudson_known_n"] = int(knH.sum())
+        st["hudson_known_ink"] = int((knH & (ink >= INK_MIN)).sum())
         st["hudson_ink_built"] = int(sH.sum())
         st["hudson_ink_alone"] = int(lonelyH.sum())
         st["hudson_ink_open"] = int((hud & fH & (ink < INK_MIN)).sum())
@@ -1118,7 +1172,8 @@ def assemble_block(job):
             m &= bE <= PHOTO_T[1924] + AFTER_GAP
         else:
             m &= bE <= INK_T + INK_GAP              # as in the boroughs: only gaps that close before the lot-level evidence
-        m &= hvec(cid, "keep") < EXTENT_KEEP[cls] if m.any() else m
+        m &= aE <= year - 1.0
+        m &= hvec(cid, "keep") < EXTENT_KEEP.get(ar, EXTENT_KEEP["all"]) if m.any() else m
         for i in np.flatnonzero(m):                 # one row per gap: the first snapshot that shows it
             if seen_b.get(int(i)) == bE[i]:
                 m[i] = False
@@ -1136,8 +1191,7 @@ def assemble_block(job):
     # photograph (or one before it on the lot) is taken to stand by that snapshot - for the same share
     # of the lots as under the extent alone, because the snapshots are generalised
     hi_i = ext_hi[i]
-    cls_i = np.where(np.isin(hi_i, (1889, 1897)), "usgs", "map")
-    keep_x = hvec(cid[i], "keep") < np.where(cls_i == "usgs", EXTENT_KEEP["usgs"], EXTENT_KEEP["map"])
+    keep_x = hvec(cid[i], "keep") < np.array([EXTENT_KEEP.get(a_, EXTENT_KEEP["all"]) for a_ in area[i]])
     capped = (np.isin(R.anchor.values, ("24", "51", "47")) & np.isfinite(hi_i) & keep_x & (hi_i < R.s_hi.values)
               & (R.s_lo.values < hi_i - 1.0))
     R.loc[capped, "s_hi"] = hi_i[capped]
@@ -1163,7 +1217,10 @@ def assemble_block(job):
         start = np.where(np.isnan(start), y, start)
     fb = hi - u1 * np.minimum(30.0, hi - lo)                    # nothing recorded around: the 30 years before the evidence
     start = np.where(np.isnan(start), fb, start)
-    start = np.clip(start + (u2 - 0.5), np.maximum(lo + 0.2, 1626.0), hi)
+    start = start + 3.0 * (u2 - 0.5)                              # recorded years leave out the placeholder years: +-1.5
+    start = np.where(start > hi, 2 * hi - start, start)           # never after the evidence
+    start = np.maximum(start, np.maximum(lo + 0.2, 1626.0))        # never before the lot is free
+    start = np.minimum(start, np.maximum(hi, lo + 0.2))
 
     # ---- height (needed by the ground rule), then nothing before its ground
     storeys = np.array([TYPES[kd]["st"][int(h * len(TYPES[kd]["st"])) % len(TYPES[kd]["st"])] for kd, h in zip(kind, u4)], float)
@@ -1272,6 +1329,10 @@ def assemble_block(job):
     short = ~(end - start >= 1.0)
     st["no_time_left"] = int((short & ~drop).sum())
     keep = ~drop & ~short
+    nx = {}
+    for l_, s_, c_ in zip(li, ps, ex.year_confidence.values[ei] == "exact"):
+        nx[(int(l_), round(float(s_), 3))] = nx.get((int(l_), round(float(s_), 3)), False) or bool(c_)
+    next_exact = np.array([nx.get((int(l_), round(float(b_), 3)), False) if np.isfinite(b_) else False for l_, b_ in zip(i, b)])
     # cut the rows around the small buildings that stand on their lots during their time
     gout = g[i].copy()
     row_of = {}
@@ -1298,7 +1359,7 @@ def assemble_block(job):
         "id": ["gf" + hashlib.sha1(k_.encode()).hexdigest()[:14] for k_ in key],
         "start_year": np.round(start, 2), "end_year": np.round(end, 2), "height_m": np.round(height, 1), "storeys": storeys,
         "material": material, "evidence": R.evidence.values, "end_basis": basis, "area": area[i],
-        "cid": cid[i], "kind": kind, "p1924": lots.p1924.values[i], "p1951": lots.p1951.values[i],
+        "cid": cid[i], "kind": kind, "next_exact": next_exact, "next_start": b, "t_ev": T_ev, "p1924": lots.p1924.values[i], "p1951": lots.p1951.values[i],
         "lon": lots.lon.values[i], "lat": lots.lat.values[i], "wkb": wkb_out})[keep].reset_index(drop=True)
     return out[ROW_COLS], st
 
@@ -1426,7 +1487,9 @@ def step_report(workers=3):
     L += ["", "## The photographs: lots the map leaves free at the photograph", "",
           "| | 1924 | 1951 |", "|---|---|---|"]
     for lab, key in (("lots free of any map building at the photograph", "free"), ("... with a photograph", "scored"),
-                     ("called built (kept)", "stood"), ("called built but alone (dropped)", "alone"),
+                     ("called built (kept)", "stood"), ("... of them on the strength of the row (own score inconclusive)", "by_row"),
+                     ("called built by its own score, not kept: alone, or the map's building ended just before", "alone"),
+                     ("called built, not kept: open country (no built-up snapshot, no map buildings around)", "no_context"),
                      ("called open ground (rejected)", "open"), ("no call (not filled)", "nocall"), ("no photograph there", "nophoto")):
         L.append(f"| {lab} | {st.get(key + '1924', '')} | {st.get(key + '1951', '')} |")
     L += ["", "The model on lot outlines, against what is known (not used for anything, a check of the transfer from footprints to lots):", "",
@@ -1438,8 +1501,14 @@ def step_report(workers=3):
         n_ = st.get(key + "_n", 0)
         if n_:
             L.append(f"| {lab} | {n_} | {100 * st.get(key + '_built', 0) / n_:.1f} | {100 * st.get(key + '_open', 0) / n_:.1f} |")
-    L += ["", f"Hudson County, the 1940s sheets: lots free in 1941 with a reading {st.get('hudson_free1941', 0)}, heavy ink (kept) "
-          f"{st.get('hudson_ink_built', 0)}, heavy ink but alone (dropped) {st.get('hudson_ink_alone', 0)}, no ink {st.get('hudson_ink_open', 0)}.", "",
+    rws = pd.concat([pd.read_parquet(p_, columns=["end_basis", "next_exact", "next_start", "t_ev", "evidence"]) for p_ in sorted(ROWS.glob("*.parquet"))], ignore_index=True)
+    same = (rws.end_basis == "replaced_by_standing") & ~rws.next_exact & (rws.next_start - rws.t_ev <= 15) & rws.evidence.str.contains("aerial")
+    L += ["", f"Rows of the photographs that end under a standing building whose own year is an estimate within 15 years after the "
+          f"photograph (the photograph may show that very building): {int(same.sum())} of {int(rws.evidence.str.contains('aerial').sum())}.",
+          "", f"Hudson County, the 1940s sheets: lots free in 1941 with a reading {st.get('hudson_free1941', 0)}, heavy ink (kept) "
+          f"{st.get('hudson_ink_built', 0)}, heavy ink but alone (dropped) {st.get('hudson_ink_alone', 0)}, no ink {st.get('hudson_ink_open', 0)}. "
+          f"Lots under a map building recorded by 1935: {st.get('hudson_known_n', 0)}, of them with heavy ink "
+          f"{st.get('hudson_known_ink', 0)}.", "",
           f"Dropped rows: in a park or on a motorway older than the evidence {st.get('in_older_park_or_motorway', 0)}, on a railway "
           f"{st.get('on_rail', 0)}, no time left between start and end {st.get('no_time_left', 0)}. Rows that wait for their ground "
           f"(start moved later by ground_rule): {st.get('waits_for_ground', 0)}. Cuts around small map buildings: {st.get('notched', 0)}.", ""]

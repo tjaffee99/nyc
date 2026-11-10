@@ -1,0 +1,552 @@
+{
+ "total": {
+  "layer": "brooklyn_bushwick_1888",
+  "plates": 9,
+  "buildings": 2372,
+  "frame": 2050,
+  "brick": 322,
+  "stone": 0,
+  "gasholders": 0,
+  "on_today": 389,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 2.29
+ },
+ "plates": [
+  {
+   "plate": "19999",
+   "image": "1810709",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 259 [Map bounded by Palmetto St., Central Ave., Gree",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 6.4,
+   "mpp": 0.104,
+   "n": 195,
+   "frame": 178,
+   "brick": 17,
+   "stone": 0,
+   "coincide": 12,
+   "share": 0.062,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.69,
+    1.14
+   ],
+   "off_median_m": 1.32,
+   "sheet": "V9-259",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 195,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19996",
+   "image": "1810706",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 256 [Map bounded by Harman St., Broadway, Cedar St.,",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 8.4,
+   "mpp": 0.103,
+   "n": 609,
+   "frame": 483,
+   "brick": 122,
+   "stone": 0,
+   "coincide": 108,
+   "share": 0.179,
+   "corrected": true,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.31,
+    0.24
+   ],
+   "off_median_m": 1.16,
+   "street": {
+    "plate": "19996",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 8,
+    "model": "affine",
+    "cv_rms": 8.4,
+    "mpp": 0.103,
+    "windows": 6,
+    "shift_median": [
+     -0.0,
+     7.0
+    ],
+    "shift_abs_median": 7.1,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 3.0,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 2.9,
+    "after_windows": 6,
+    "after_abs_median": 2.9
+   },
+   "bld": {
+    "plate": "19996",
+    "n": 609,
+    "windows": 8,
+    "shift_median": [
+     1.78,
+     1.21
+    ],
+    "fit_residual_m": 1.1,
+    "agree": 8,
+    "kind": "shift"
+   },
+   "sheet": "V9-256",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 605,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "19987",
+   "image": "1810697",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 247 [Map bounded by Randolph St., Varick Ave., Meado",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 10.6,
+   "mpp": 0.103,
+   "n": 9,
+   "frame": 6,
+   "brick": 0,
+   "stone": 3,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    89.0,
+    -1.0,
+    6.0
+   ],
+   "sheet": "V9-247",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 10.6 m)"
+  },
+  {
+   "plate": "19995",
+   "image": "1810705",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 255 [Map bounded by De Kalb Ave., Central Ave., Jeff",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 15.1,
+   "mpp": 0.106,
+   "n": 271,
+   "frame": 249,
+   "brick": 21,
+   "stone": 0,
+   "coincide": 57,
+   "share": 0.211,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.62,
+    0.16
+   ],
+   "off_median_m": 1.91,
+   "street": null,
+   "bld": {
+    "plate": "19995",
+    "n": 271,
+    "windows": 3,
+    "shift_median": [
+     -2.21,
+     3.73
+    ],
+    "fit_residual_m": 0.65,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "V9-255",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 270,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "20000",
+   "image": "1810710",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 260 [Map bounded by St. Nicholas Ave., Jacob St., Ir",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 5.3,
+   "mpp": 0.104,
+   "n": 195,
+   "frame": 161,
+   "brick": 28,
+   "stone": 0,
+   "coincide": 17,
+   "share": 0.09,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.83,
+    0.61
+   ],
+   "off_median_m": 2.05,
+   "sheet": "V9-260",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 189,
+   "duplicates_dropped": 6,
+   "status": "ok"
+  },
+  {
+   "plate": "20007",
+   "image": "1810717",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 267 [Map bounded by Covert Ave., Bleecker St., Irvin",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 18.0,
+   "mpp": 0.206,
+   "n": 103,
+   "frame": 98,
+   "brick": 5,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "sheet": "V9-267",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 18.0 m)"
+  },
+  {
+   "plate": "27645",
+   "image": "1810715",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 265 [Map bounded by Cementery of the Evergreens, Bro",
+   "gcps": 3,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.102,
+   "n": 185,
+   "frame": 178,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 38,
+   "share": 0.207,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -0.7,
+    0.04
+   ],
+   "off_median_m": 1.06,
+   "sheet": "V9-265",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 184,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "19991",
+   "image": "1810701",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 251 [Map bounded by Bogart St., Melrose St., Bushwic",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 13.3,
+   "mpp": 0.104,
+   "n": 327,
+   "frame": 279,
+   "brick": 42,
+   "stone": 0,
+   "coincide": 5,
+   "share": 0.016,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    0.77,
+    -0.74
+   ],
+   "off_median_m": 1.99,
+   "street": {
+    "plate": "19991",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 13.3,
+    "mpp": 0.104,
+    "windows": 5,
+    "shift_median": [
+     -4.4,
+     1.8
+    ],
+    "shift_abs_median": 7.8,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 4.3,
+    "after_windows": 4,
+    "after_abs_median": 6.5
+   },
+   "sheet": "V9-251",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 321,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "19998",
+   "image": "1810708",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 258 [Map bounded by Linden St., Broadway, Harman St.",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 7.4,
+   "mpp": 0.103,
+   "n": 486,
+   "frame": 414,
+   "brick": 71,
+   "stone": 0,
+   "coincide": 131,
+   "share": 0.27,
+   "corrected": true,
+   "paper": [
+    90.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    0.42,
+    -0.28
+   ],
+   "off_median_m": 1.43,
+   "street": {
+    "plate": "19998",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 5,
+    "model": "affine",
+    "cv_rms": 7.4,
+    "mpp": 0.103,
+    "windows": 4,
+    "shift_median": [
+     2.8,
+     1.2
+    ],
+    "shift_abs_median": 3.3,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 1.0,
+    "kind2": "shift",
+    "agree2": 5,
+    "fit_residual2_m": 1.5,
+    "after_windows": 5,
+    "after_abs_median": 1.5
+   },
+   "bld": {
+    "plate": "19998",
+    "n": 486,
+    "windows": 9,
+    "shift_median": [
+     0.61,
+     0.08
+    ],
+    "fit_residual_m": 0.88,
+    "agree": 9,
+    "kind": "shift"
+   },
+   "sheet": "V9-258",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 485,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "20006",
+   "image": "1810716",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 266 [Map bounded by Irving Ave., Pilling St., Centra",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 1.8,
+   "mpp": 0.203,
+   "n": 134,
+   "frame": 123,
+   "brick": 11,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.007,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -3.63,
+    1.61
+   ],
+   "off_median_m": 3.97,
+   "sheet": "V9-266",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 3.97 m; control points CV rms 1.8 m)"
+  },
+  {
+   "plate": "19984",
+   "image": "1810694",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 244 [Map bounded by Newtown Creek, Meadow St., Stewa",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 11.8,
+   "mpp": 0.103,
+   "n": 41,
+   "frame": 24,
+   "brick": 1,
+   "stone": 16,
+   "coincide": 1,
+   "share": 0.024,
+   "corrected": false,
+   "paper": [
+    89.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -3.98,
+    -1.81
+   ],
+   "off_median_m": 4.37,
+   "sheet": "V9-244",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 4.37 m; control points CV rms 11.8 m)"
+  },
+  {
+   "plate": "20005",
+   "image": "1810715",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 265 [Map bounded by Cementery of the Evergreens, Bro",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 2.2,
+   "mpp": 0.103,
+   "n": 182,
+   "frame": 22,
+   "brick": 0,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -1.97,
+    0.68
+   ],
+   "off_median_m": 2.08,
+   "sheet": "V9-265",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 22,
+   "duplicates_dropped": 159,
+   "status": "ok"
+  },
+  {
+   "plate": "19973",
+   "image": "1810683",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 233 [Map bounded by New Town Creek, Nassau Ave., Sut",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 154.9,
+   "mpp": 0.106,
+   "n": 81,
+   "frame": 34,
+   "brick": 35,
+   "stone": 12,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "sheet": "V9-233",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 154.9 m)"
+  },
+  {
+   "plate": "20004",
+   "image": "1810714",
+   "name": "Brooklyn, V. 9, Double Page Plate No. 264 [Map bounded by Furman Ave., Broadway, Cooper Av",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 4.7,
+   "mpp": 0.102,
+   "n": 102,
+   "frame": 86,
+   "brick": 15,
+   "stone": 0,
+   "coincide": 21,
+   "share": 0.208,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -1.03,
+    0.47
+   ],
+   "off_median_m": 1.31,
+   "sheet": "V9-264",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 101,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  }
+ ]
+}
