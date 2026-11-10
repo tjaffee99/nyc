@@ -398,7 +398,8 @@ def standing_records(c, rep):
     n["src"] = "nycha"
     n["source_url"] = url("nycha_book")
     n["what"] = ("NYCHA Development Data Book: " + n.dev.str.title() + " (TDS " + n.tds.astype(str)
-                 + ") completed " + n.cd.dt.strftime("%Y-%m-%d") + " (date of the whole development)")
+                 + ") initial occupancy completed " + n.cd.dt.strftime("%Y-%m-%d")
+                 + " (the whole development 95 % occupied; its buildings were finished up to about two years earlier)")
     n["rid"] = "nycha-" + n.tds.astype(str) + "-" + n.bin.astype("int64").astype(str)
     n["rname"] = "NYCHA " + n.dev.str.title()
 
@@ -470,13 +471,16 @@ def standing_records(c, rep):
     dec[repl & confirmed] = "write:replaced_building"
     dec[repl & ~confirmed] = "skip:unconfirmed_new_building"
     dec[strong & dob & (diff <= -2)] = "skip:assessor_later"
-    dec[strong & (allr.src == "nycha") & (diff.abs() >= 2)] = "write:nycha_differs"
+    dec[strong & (allr.src == "nycha") & (diff <= -2)] = "write:nycha_earlier"   # the assessor's year is impossible
+    dec[strong & (allr.src == "nycha") & (diff >= 2)] = "write:nycha_later"
     dec[strong & (allr.src == "ll84") & (diff.abs() >= 2)] = "skip:ll84_vs_assessor"
     # Local Law 84: only where it says something the placeholder year does not, and not a post-1988
     # year without a new-building job (those are mostly renovation years)
     ll = allr.src == "ll84"
     dec[ll & dec.str.startswith("write") & (allr.ry == allr.p_raw)] = "skip:ll84_repeats_placeholder"
     dec[ll & dec.str.startswith("write") & (allr.ry >= 1989)] = "skip:ll84_recent_without_job"
+    # ... nor a year far from the placeholder (the filing may give the year of a gut renovation)
+    dec[ll & dec.str.startswith("write") & (allr.p_raw > 0) & ((allr.ry - allr.p_raw).abs() > 15)] = "skip:ll84_far_from_placeholder"
     allr["decision"] = dec
     # one row per BIN: NYCHA, then DOB, then LL84 (a DOB job more than 3 years after NYCHA's date wins:
     # the public-housing building was replaced)
@@ -913,9 +917,10 @@ def demolitions_without_outline(c, rep):
     rep["standing_marked_for_demolition_with_signed_off_job"] = int(len(m))
 
 
-# legal class of a multiple dwelling -> (not before, not after). Multiple Dwelling Law s. 4: an old-law
-# tenement existed before 12 April 1901; a new-law tenement was erected between then and 18 April 1929;
-# "heretofore" erected or converted = before 18 April 1929. The "hereafter erected", "converted ... law"
+# legal class of a multiple dwelling -> (not before, not after). Multiple Dwelling Law s. 4 (10, 11):
+# a "tenement" was erected before 18 April 1929; an "old-law tenement" existed before 12 April 1901; a
+# new-law tenement is the tenement that is not old-law (built under the Tenement House Act of 1901);
+# "heretofore" erected / converted = before 18 April 1929. The "hereafter erected", "converted ... law"
 # and single-room-occupancy classes are left out: where the Landmarks Commission has an exact date they
 # fail it too often (31-68 %; buildings reclassified after an alteration).
 HPD_CLASS = {
@@ -924,7 +929,7 @@ HPD_CLASS = {
     "HERETOFORE ERECTED EXISTING CLASS A": (None, 1929.3), "HERETOFORE ERECTED EXISTING CLASS B": (None, 1929.3),
     "HERETOFORE CONVERTED CLASS A": (None, 1929.3), "HERETOFORE CONVERTED CLASS B": (None, 1929.3),
 }
-MDL_URL = "https://www.nysenate.gov/legislation/laws/MDW/4"
+MDL_URL = "https://newyork.public.law/laws/n.y._multiple_dwelling_law_section_4"  # official: nysenate.gov/legislation/laws/MDW/4
 
 
 def bounds(c, rep):
@@ -942,7 +947,7 @@ def bounds(c, rep):
     p = _f(c.execute("select bin, p_year, p_src, p_conf, p_raw from pipe").df())
     h = h.merge(p, on="bin", how="inner")
     h["violates"] = (h.p_year < h.not_before.fillna(-1e9) - 1) | (h.p_year > h.not_after.fillna(1e9) + 1)
-    h["source_url"] = url("hpd_buildings")
+    h["source_url"] = url("hpd_buildings") + " ; " + MDL_URL.split("  #")[0]
     h[["bin", "not_before", "not_after", "cls", "p_year", "p_src", "p_conf", "violates", "source_url"]].round(2).to_csv(
         WORK / "year_bounds.csv", index=False)
     exact = h.p_conf == "exact"

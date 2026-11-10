@@ -645,7 +645,7 @@ def trace_window(P, full, inside, paper, win, core=None):
     return out
 
 
-def trace(layer, pid, save=True, verbose=True, window=None, tile=2000, margin=220):
+def trace(layer, pid, save=True, verbose=True, window=None, tile=2400, margin=180):
     """Trace one plate (or, for checking, a pixel window x0, y0, x1, y1 of it)."""
     t0 = time.time()
     P = Plate(layer, pid, verbose=verbose)

@@ -1,37 +1,44 @@
-"""Stage: transit — New York's rail transit through time: the subway and the Staten Island
-Railway (real tracks, every station, the service lines the viewer runs its trains on), the
-elevated lines that are gone, and the railroads.
+"""Stage: transit — rail transit through time: the subway and the Staten Island Railway (real tracks,
+every station, the service lines the viewer runs its trains on), the elevated lines that are gone, the
+railroads of the city and of the counties around it, PATH and New Jersey's two light rail systems.
 
 Sources
   * Track geometry of what exists: Overture transportation `rail` segments (OpenStreetMap,
-    ODbL) — each track is its own line, with is_bridge / is_tunnel flags, level_rules and
-    connectors (the track graph the height profile is smoothed over).
+    ODbL) of the region box — each track is its own line, with is_bridge / is_tunnel flags,
+    level_rules and connectors (the track graph the height profile is smoothed over).
   * Service lines: MTA subway GTFS (shapes + stop order), one line per route, re-centred
-    between its tracks.
+    between its tracks; PATH, the Hudson-Bergen Light Rail and the Newark Light Rail on
+    OpenStreetMap's route relations (RAPID; headways of PATH from the Port Authority's GTFS).
   * Dates: data/tables/transit_openings.csv — every stretch between two stations with its
     opening day (and closing day for what is gone), located by GTFS stop ids along a GTFS
-    shape, or by stations along a line of data/manual/transit/elevated_lines.geojson;
+    shape, or by stations along a line of data/manual/transit/elevated_lines.geojson; railroad,
+    PATH and light rail rows (system `rail`) by line name inside a box;
     data/tables/transit_stations.csv — every station with opening / closing day.
     How the tables were assembled: data/manual/transit/README.md.
   * Demolished elevated lines: data/manual/transit/elevated_lines.geojson (OpenHistoricalMap
     geometry, CC0, or the centre line of the street the structure stood over).
-  * Railroads: Overture standard-gauge tracks inside the map, dated from OpenHistoricalMap's
-    dated railway ways (CC0) by position; closed railroads from
-    data/manual/transit/former_railroads.geojson (OpenHistoricalMap ways with an end date).
+  * Railroads: Overture standard-gauge tracks inside the map outline (extent.py), dated by the
+    `rail` rows, else from OpenHistoricalMap's dated railway ways (CC0) by position, else from
+    the nearest dated track; closed railroads from data/manual/transit/former_railroads.geojson
+    (OpenHistoricalMap ways with an end date; OpenStreetMap's abandoned roadbeds with cited dates).
 
 Outputs (formats unchanged from the Bay stage; the viewer reads them as they are)
-  viewer/public/data/transit.bin.gz       tracks (BAYT columns: kind, width, years [start, end],
-                                          elevated: 0 ground, 2 aerial, 4 tunnel)
+  viewer/public/data/transit.bin.gz       tracks (BAYT columns: kind 6 railroad, 8 subway / el / PATH,
+                                          10 light rail; width; years [start, end]; elevated: 0 ground,
+                                          2 aerial, 4 tunnel)
   viewer/public/data/transit-lines.json   service lines: centreline (lon/lat offsets, z,
                                           cumulative m, opening year, tunnel flag, half track
                                           spacing), stop knots, vehicle, headway, closed gap
   viewer/public/data/transit-stations.json
+  data/interim/transit/county_rail_*.csv  how the counties' track was dated, the rows against
+                                          OpenHistoricalMap, track older than its ground
 
 Viewer names: the viewer treats system 'bart' as heavy rail (platforms, label tier `station`)
 and everything else as 'muni' (label only). Until the viewer learns New York's names the subway,
-the Staten Island Railway and the elevated lines are written as 'bart', railroad stations as
-'muni'; vehicle keys 'bart' (B Division car), 'ebart' (A Division car) and 'el' are used
-because the viewer keys platform length and livery on them.
+the Staten Island Railway, the elevated lines and PATH are written as 'bart', railroad and light
+rail stations as 'muni'; vehicle keys 'bart' (B Division car), 'ebart' (A Division car; PATH's
+cars are the same size), 'el' and 'lrv' (light rail) are used because the viewer keys platform
+length and livery on them.
 """
 from __future__ import annotations
 
@@ -1058,7 +1065,7 @@ def station_rows(stations, out_lines, geo, ground, poly, groups, track_year):
             n_line_year += 1
         p = to_utm([lon], [lat])[0]
         heavy = r.system in ("subway", "sir", "el", "path")
-        reach = 80 if r.system == "path" else 45
+        reach = 200 if r.system == "path" else 45  # PATH's station points are entrances and halls, far from the track
         d, li, k = np.inf, 0, 0
         if heavy:
             # a closed station sits on a line that is gone when one passes; else on today's line

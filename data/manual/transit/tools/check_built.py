@@ -8,7 +8,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[4]
 V = ROOT / "viewer" / "public" / "data"
-BOX = (-74.29, 40.47, -73.67, 40.94)
+BOX = (-74.52, 40.47, -73.40, 41.38)  # common.REGION_BBOX (the outline itself: check_counties.py)
 ok = True
 
 def fail(msg):

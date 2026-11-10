@@ -46,9 +46,12 @@ ROWS = [
     ("dlw_boonton_main", "1870-09-12", "Lackawanna's Boonton Branch (completed 1870; the Lyndhurst, Delawanna, Passaic and Clifton station "
      "infoboxes give 12 Sep 1870), the Main Line's route south of Paterson Junction since 1963", WP + "Boonton_Branch", "Main Line",
      (-74.20, 40.75, -74.062, 40.890)),
+    ("erie_paterson_connection", "1963", "Connection from the Boonton Branch to the Erie's main line at Paterson Junction: Main Line trains "
+     "moved to the Boonton Branch south of Paterson in 1963 (year only: estimated day; the ends of the connection are where "
+     "OpenHistoricalMap's ways end)", WP + "Main_Line_(NJ_Transit)", "Main Line", (-74.20, 40.890, -74.12, 40.8971)),
     ("erie_phrr_paterson", "1832-05-28", "Paterson & Hudson River Railroad: the stretch in Paterson still in use (the Paterson and Passaic "
      "(Erie) station infoboxes give 28 May 1832, the day horse-drawn service began)", WP + "Paterson_station_(NJ_Transit)", "Main Line",
-     (-74.20, 40.890, -74.12, 40.9155)),
+     (-74.20, 40.8971, -74.12, 40.9155)),
     ("erie_paterson_ramapo", "1848-10-19", "Paterson & Ramapo Railroad, Paterson - Suffern (the Glen Rock, Ramsey and Mahwah station infoboxes give "
      "19 Oct 1848; OpenHistoricalMap 17 Oct 1848; the railroad's own article says fall 1849)", WP + "Mahwah_station", "Main Line",
      (-74.20, 40.9155, -74.08, 41.112)),

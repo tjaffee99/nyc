@@ -172,6 +172,8 @@ DEFS = [
   "The last piece of the parkway opened 1980-10-28.", W + "Sprain_Brook_Parkway"),
  ("taconic_westchester", "Taconic State Parkway (Bronx Parkway Extension): Kensico Dam - Putnam County line", "highway", {"Taconic State Parkway"}, "all", None, 1932, S, G,
   "The Bronx Parkway Extension from the Kensico Dam Plaza to the Bear Mountain Parkway and the spur north to the Westchester - Putnam line were completed in 1932 (Wikipedia has the ribbon cut at the Croton Reservoir bridge in December 1931).", NR + "taconic/"),
+ ("briarcliff_peekskill", "Briarcliff-Peekskill Parkway (NY 9A)", "highway", {"Briarcliff-Peekskill Parkway"}, "all", None, 1933.68, S, G,
+  "Opened 1933-09-04, as NY 404 (NY 9A since 1949).", W + "Briarcliff–Peekskill_Parkway"),
  ("bear_mountain_parkway", "Bear Mountain State Parkway", "highway", {"Bear Mountain Parkway"}, "all", None, 1932, S, G,
   "Built between 1929 and 1932 by the Westchester County Parks Commission; opened in 1932.", NR + "bear-mountain/"),
  ("bear_mountain_bridge", "Bear Mountain Bridge", "bridge", {"Bear Mountain Bridge"}, "all", None, 1924.91, S, G,
