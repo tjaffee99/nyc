@@ -497,6 +497,27 @@ def farm_years(g, lon, lat, boro):
     return F + 6.0 * h01_grid(*lon.shape, salt=3, block=6).astype(np.float32)
 
 
+def lenape_fields(lon, lat):
+    """Cells within the planting grounds of the Lenape settlements of data/tables/early_nyc.csv
+    (kind lenape_settlement): maize, beans and squash were grown beside the villages, and the
+    colonists took those "old fields" over first. The sites are researched; the size of the
+    fields is not (60 m + 12 m per dwelling, at most 350 m around the site: `estimated`)."""
+    m = np.zeros(lon.shape, bool)
+    p = TABLES / "early_nyc.csv"
+    if not p.exists():
+        return m
+    t = pd.read_csv(p)
+    t = t[t.kind.astype(str) == "lenape_settlement"]
+    kx = 111_320 * math.cos(math.radians(40.7))
+    for slon, slat, n in zip(t.lon.astype(float), t.lat.astype(float), pd.to_numeric(t["count"], errors="coerce").fillna(4)):
+        r = min(350.0, 60.0 + 12.0 * float(n))
+        dlon, dlat = r / kx, r / 110_574
+        box = (np.abs(lon - slon) < dlon) & (np.abs(lat - slat) < dlat)
+        if box.any():
+            m |= box & (np.hypot((lon - slon) * kx, (lat - slat) * 110_574) < r)
+    return m
+
+
 def histories(name, g, d, land_only=False):
     rows, cols = g["rows"], g["cols"]
     lon, lat = lonlat_of(g)
@@ -538,8 +559,18 @@ def histories(name, g, d, land_only=False):
     city_y = np.fmin(city_y, ext_y).astype(np.float32)
     open_grass = land_now & ~is_park & ~is_city & np.isin(wc, [30, 40, 60])
     wooded_now = land_now & (wc == 10) & ~is_city
-    # woods that were never cleared: today's tree cover in big greens and on steep ground
-    kept_woods = wooded_now & ((is_park & big_green) | (slope > 0.2) | ~is_park)
+    # Woods that were never cleared. Farming took nearly all the workable ground around the
+    # city by the middle of the 19th century (three quarters of Kings, Queens, Richmond and
+    # Westchester counties was improved farmland in the censuses of 1850-80); what stayed
+    # wooded was the steep and rocky ground and each farm's woodlot. Today's woods are mostly
+    # second growth on fields given up between the 1880s and the 1930s, and the big parks and
+    # cemeteries were farms and rough pasture before they were laid out — they are not islands
+    # of the forest of 1609. So: steep ground stays forest; a fifth of the rest stays as
+    # woodlots (a third where woods stand today: the poorer ground); everything else is cleared
+    # with its neighbours, and where woods stand today they grow back (below).
+    lot_h = h01_grid(rows, cols, salt=11, block=5)
+    woodlot = lot_h < np.where(wooded_now, 0.33, 0.18)
+    kept_woods = (wooded_now & (slope > 0.2)) | woodlot
     # ---- events
     events = []
 
@@ -587,13 +618,24 @@ def histories(name, g, d, land_only=False):
     F = farm_years(g, lon, lat, boro)
     farmable = land_now & ~made & np.isin(N, [FOREST, GRASS, SCRUB]) & ~kept_woods & (slope < 0.16)
     target_y = np.where(is_park, np.fmin(park_y, city_y), city_y)
+    # (steeper ground was cleared later, and as pasture; the Lenape's planting grounds are
+    # fields from the start)
+    F = (F + 220.0 * np.clip(slope - 0.03, 0.0, 0.13)).astype(np.float32)
+    fields_1609 = lenape_fields(lon, lat) & land_now & ~made & np.isin(N, [FOREST, GRASS, SCRUB]) & (slope < 0.12)
+    F = np.where(fields_1609, float(YEAR_MIN), F).astype(np.float32)
+    farmable |= fields_1609
+    # woods of today on ground that was farmed: no city or park follows, the woods come back
+    second_growth = wooded_now & ~is_park & ~is_city & farmable
+    target_y = np.where(second_growth, np.inf, target_y)
     farm_ok = farmable & (F < target_y - 8.0) & ~(F > open_y)
     # (the open ground of a site: only where it comes before what is there today)
     later = np.nan_to_num(np.where(is_park, park_y, np.where(is_city, city_y, np.inf)), nan=np.inf)
     event(np.isfinite(open_y) & (open_y < later - 2.0), GRASS, np.fmax(open_y, ground_y + 0.5))
-    pasture = h01_grid(rows, cols, salt=7, block=10) < 0.4
+    pasture = (h01_grid(rows, cols, salt=7, block=10) < np.clip(0.25 + 3.5 * slope, 0.25, 0.8)) & ~fields_1609
     event(farm_ok & ~pasture, FARM, F)
     event(farm_ok & pasture, PASTURE, F)
+    # old fields given up: second growth from the 1880s to the 1930s (never sooner than 40 years after the clearing)
+    event(farm_ok & second_growth, FOREST, np.fmax(F + 40.0, 1882.0 + 55.0 * h))
     # airfields (airports.py -> data/interim/airports.parquet): mown grass from the opening year;
     # one that closed hands the ground on to today's use when it closed
     ap = INTERIM / "airports.parquet"

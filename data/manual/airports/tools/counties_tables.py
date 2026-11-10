@@ -146,6 +146,8 @@ GOLF = [
  ("Bayonne Golf Club", "Hudson", 2006, WD + "Q141791189", "Wikidata inception (P571) 2006; not checked against a second source."),
  ("The Ridgewood Country Club", "Bergen", 1929, W + "Ridgewood_Country_Club", "'founded in 1890 in neighboring Ho-Ho-Kus, but has been at its current location since 1926'; course by A. W. Tillinghast, 1929 (infobox: established 1929)."),
  ("White Beeches Golf and Country Club", "Bergen", 1918, W + "White_Beeches_Country_Club", "'The course was built in 1918 and designed by Walter Travis.'"),
+ ("Knickerbocker Country Club", "Bergen", 1914, W + "List_of_golf_courses_designed_by_Donald_Ross", "Donald Ross's list of courses: 'Knickerbocker Country Club (1914), Tenafly'."),
+ ("Montclair Golf Club", "Essex", 1920, W + "List_of_golf_courses_designed_by_Donald_Ross", "ESTIMATED lower bound: Donald Ross's list of courses gives 'Montclair Golf Club (1920), West Orange'; the club is older and may have played on this ground before (not checked)."),
  ("Preakness Valley Golf Course", "Passaic", 1931, W + "Preakness_Valley", "ESTIMATED lower bound: 'Made public in 1931, this full service course is considered the first public golf course in Passaic County' — the private course the county took over is older (year not found)."),
  ("Dellwood Country Club", "Rockland", 1920, W + "Paramount_Country_Club", "Adolph Zukor's Mountain View Farm: A. W. Tillinghast's 'eighteen-hole golf course on the property, which opened in 1920'; a club since 1936 (Dellwood from 1948, Paramount Country Club today)."),
  ("Rockland Country Club", "Rockland", 1907, W + "Rockland_Country_Club", "'The club was incorporated in 1906 and commissioned Henry Stark to design a 9-hole course that was ready the following year'; 'an entirely new golf course that opened in 1930' (not separated)."),
@@ -163,6 +165,7 @@ GOLF = [
  ("Harrison Meadows Country Club", "Westchester", 1917, W + "Devereux_Emmet", "'Green Meadow Club, Rye, New York, 1917 - known today as Harrison Meadows Country Club ... formed in 1917 directly adjacent to Apawamis'."),
  ("Hampshire Country Club", "Westchester", 1927, W + "Devereux_Emmet", "Devereux Emmet's list of courses: 'Hampshire Country Club, Mamaroneck, New York, 1927'."),
  ("Leewood Golf Club", "Westchester", 1922, W + "Devereux_Emmet", "Devereux Emmet's list of courses: 'Leewood Golf Club (Eastchester (town), New York) 1922'."),
+ ("Lake Isle Country Club", "Westchester", 1926, W + "Devereux_Emmet", "Devereux Emmet's list of courses: 'Lake Isle Country Club, Eastchester, 1926'."),
  ("Apawamis Golf Club", "Westchester", 1899, W + "Tom_Bendelow", "Tom Bendelow's list of designs: 'The Apawamis Club ... 1899 ... Rye, New York' (the club's present course)."),
 ]
 # name (OpenStreetMap), opened, closed, source, notes, runway width m

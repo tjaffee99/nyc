@@ -278,6 +278,9 @@ def main():
             # single unconfirmed sighting: drop when another source of the same years shows water
             if not standing and len(seg["obs"]) == 1 and t["osm"] is None:
                 o = seg["obs"][0]
+                if not o["chart"] and not o.get("stroke") and (t.get("best_rect") or 0) < 0.7:
+                    review.append(dict(reason="one sighting, ragged outline", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))
+                    continue
                 contra = [x for x in t["obs"] if x["state"] in ("water", "land") and x["src"] != o["src"] and abs((x["lo"] + x["hi"]) / 2 - (o["lo"] + o["hi"]) / 2) <= 4]
                 if contra:
                     review.append(dict(reason=f"one sighting ({o['label']}) against {contra[0]['label']}", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))
@@ -335,6 +338,31 @@ def main():
             p["evidence"] = " ".join(f"{o['lo']}{'s' if o.get('stroke') else ('c' if o['chart'] else 'u')}:{o['state'][0]}" for o in
                                      sorted([o for o in t["obs"] if o["state"] != "unknown"], key=lambda o: (o["lo"], o["hi"])))
             feats.append(dict(type="Feature", geometry=mapping(geom), properties=p))
+    # no two piers on one spot at once: of two outlines that overlap by 40 % of the smaller while both stand, keep the
+    # standing one, else the one seen on more sources
+    def rank(f):
+        p = f["properties"]
+        return (p["end_year"] == 9999, p["source"].startswith("noaa"), len(p["evidence"]))
+    gs = [to_utm(shape(f["geometry"])).buffer(0) for f in feats]
+    tree = STRtree(gs)
+    dead = set()
+    order = sorted(range(len(feats)), key=lambda i: rank(feats[i]), reverse=True)
+    for i in order:
+        if i in dead:
+            continue
+        pi = feats[i]["properties"]
+        for j in tree.query(gs[i]):
+            j = int(j)
+            if j == i or j in dead:
+                continue
+            pj = feats[j]["properties"]
+            if gs[i].intersection(gs[j]).area < 0.4 * min(gs[i].area, gs[j].area):
+                continue
+            if min(pi["end_year"], pj["end_year"]) - max(pi["start_year"] or 0, pj["start_year"] or 0) <= 1:
+                continue                                    # one after the other on the same spot: both stay
+            dead.add(j)
+            review.append(dict(reason="same spot and years as a better outline", borough=pj["borough"], lon=round(gs[j].centroid.x), lat=round(gs[j].centroid.y)))
+    feats = [f for k, f in enumerate(feats) if k not in dead]
     # ids, order
     code = {"Manhattan": "mn", "Brooklyn": "bk", "Queens": "qn", "Bronx": "bx", "Staten Island": "si"}
     feats.sort(key=lambda f: (f["properties"]["borough"], round(shape(f["geometry"]).centroid.y, 4), round(shape(f["geometry"]).centroid.x, 4), f["properties"]["start_year"] or 0))

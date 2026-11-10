@@ -570,7 +570,7 @@ LPC_MATERIALS = [("brownstone", M_BROWNSTONE), ("brick", M_BRICK), ("wood", M_FR
                  ("metal", M_CONTEMP), ("aluminum", M_CONTEMP), ("vinyl", M_STUCCO)]
 
 
-def materials(year, H, area, use, boro, cls, prox, code, lpc_mat):
+def materials(year, H, area, use, boro, cls, prox, code, lpc_mat, group=None):
     """Facade material and roof by era, class, attachment and borough. Rules of thumb:
     Manhattan's fire limits required masonry south of 14th St from 1815 and island-wide by
     the 1880s, so its row houses and tenements are brick or (c.1845-1900) brownstone-fronted;
@@ -582,7 +582,13 @@ def materials(year, H, area, use, boro, cls, prox, code, lpc_mat):
     mat = np.zeros(n, np.uint8)
     roof = np.full(n, R_FLAT, np.uint8)
     a = np.array([c[:1] if isinstance(c, str) and c else "" for c in cls])
-    hsh = np.array([h01(f"m{i}") for i in range(n)])
+    # the choice between two likely materials is made once per group (a tax lot's buildings, a
+    # block's row of one kind and decade), not per building: a housing project is one colour
+    if group is None:
+        hsh = np.array([h01(f"m{i}") for i in range(n)])
+    else:
+        codes, uniq = pd.factorize(pd.Series(group).astype(str), sort=False)
+        hsh = np.array([h01(f"m{u}") for u in uniq])[codes]
     attached = np.isin(prox, [2, 3]) | (np.isin(boro, ["1"]) & ~np.isin(prox, [1]))
     small_res = np.isin(a, ["A", "B", "S"]) | ((use <= 2) & (area < 260) & (H < 16))
     walkup = np.isin(a, ["C"]) | ((use == 2) & (H < 24))
@@ -617,7 +623,7 @@ def materials(year, H, area, use, boro, cls, prox, code, lpc_mat):
     put(walkup & (year < 1945), M_BRICK, R_FLAT)
     put((use == 2) & (year < 1945) & (H >= 30) & (hsh < 0.6), M_MASONRY, R_FLAT)
     put((use == 2) & (year < 1945), M_BRICK, R_FLAT)
-    put((use == 2) & (year < 1975) & (hsh < 0.45), M_WHITEBRICK, R_FLAT)
+    put((use == 2) & (year >= 1950) & (year < 1975) & (hsh < 0.45), M_WHITEBRICK, R_FLAT)   # glazed white brick: 1950s-60s
     put((use == 2) & (year < 1975), M_BRICK, R_FLAT)
     # lofts, stores, offices
     put((use >= 3) & (year < 1890), M_BRICK, R_FLAT)
@@ -702,8 +708,19 @@ def build():
     stories = np.where(np.isfinite(g.floors.values.astype(float)) & (g.part_base.values == 0), g.floors.values.astype(float),
                        np.maximum(1, np.round((H + g.part_base.values) / 3.4)))
     use = use_codes(g.bldgclass.values, g.feature_code.values, area)
+    # one material per tax block, class and decade (a row built together); the buildings of a
+    # lot with several (a project, a campus) go by a 600 m cell so that a complex across
+    # several blocks stays one colour
+    gx = g.geometry.to_crs(UTM).representative_point()
+    dec = (np.floor(g.start_year.values / 10) * 10).astype(int).astype(str)
+    cl1 = pd.Series(g.bldgclass.values).fillna("").astype(str).str[:1].values
+    cell = (np.floor(gx.x.values / 600).astype(int).astype(str) + "_" + np.floor(gx.y.values / 600).astype(int).astype(str))
+    bbl2 = g.pluto_bbl.fillna("").astype(str).values          # (after apply_parts: one row per part)
+    nb2 = pluto.numbldgs.reindex(bbl2).values.astype(float)
+    grp = np.where(nb2 >= 3, "c" + cell, "b" + pd.Series(bbl2).str[:6].values) + "|" + cl1 + "|" + dec
+    grp = np.where(bbl2 == "", "x" + cell + "|" + dec, grp)
     mat, roof = materials(g.start_year.values, H + g.part_base.values, area, use, g.boro.values, g.bldgclass.values,
-                          g.prox.values.astype(float), g.feature_code.values, g.lpc_mat.fillna("").values)
+                          g.prox.values.astype(float), g.feature_code.values, g.lpc_mat.fillna("").values, group=grp)
     ground = Ground()
     gmin, gmean = ring_ground(ground, g.geometry.values)
     pb = g.part_base.values.astype(float)

@@ -296,12 +296,14 @@ def natural_ok(c):
         return False                                   # not over the harbour's water (a pond, a lake, dry land)
     if chart:
         return True
-    if p["rect_fill"] < 0.62 or p["length_m"] > 520:
+    x, y = c["lonlat"]
+    core = -74.10 <= x <= -73.93 and 40.60 <= y <= 40.79      # the working port: Manhattan, Brooklyn, north-east Staten Island
+    if p["rect_fill"] < (0.55 if core else 0.62) or p["length_m"] > 520:
         return False
     if f["wetland"] and p["ink"] < 0.3:
         return False                                   # an open, unroofed finger at a marsh: marsh
-    if f["ocean"] >= 0.5 and (p["length_m"] < 4 * p["width_m"] or p["length_m"] < 60):
-        return False                                   # beach groynes and bars
+    if y < 40.60 and (p["length_m"] < 4 * p["width_m"] or p["length_m"] < 60):
+        return False                                   # the ocean beaches: groynes and bars
     return True
 
 
@@ -343,6 +345,7 @@ def main():
             if b is not None:
                 c = dict(kind="map", src=s.name, geom=g.buffer(0), borough=b, p=p)
                 c["f"] = flags(c["geom"], ctx)
+                c["lonlat"] = UTM.transform(c["geom"].centroid.x, c["geom"].centroid.y, direction="INVERSE")
                 if natural_ok(c):
                     out.append(c)
                 else:

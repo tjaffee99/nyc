@@ -127,8 +127,11 @@ def main():
     start = np.minimum(start, 2029.9)
     stories = np.where(floors > 0, floors, np.maximum(1, np.round(H / 3.4)))
     cls = np.array([USE_CLASS.get(int(u), "") for u in use], dtype=object)
+    # (one material per 250 m cell, use and decade: a subdivision is one colour)
+    grp = (np.floor(xy[:, 0] / 250).astype(int).astype(str) + "_" + np.floor(xy[:, 1] / 250).astype(int).astype(str)
+           + "|" + use.astype(str) + "|" + (np.floor(start / 10) * 10).astype(int).astype(str))
     mat, roof = materials(start, H, area, use, np.full(n, "9", dtype=object), cls, np.full(n, np.nan),
-                          np.zeros(n, int), np.full(n, "", dtype=object))
+                          np.zeros(n, int), np.full(n, "", dtype=object), group=grp)
     ground = Ground()
     gmin, gmean = ring_ground(ground, g.geometry.values)
     names = g["name"].values if "name" in g else np.full(n, None, dtype=object)

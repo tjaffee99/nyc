@@ -54,7 +54,7 @@ EXTRA = [
     ("path", "path_newport", "Newport", -74.03383, 40.72699, "Newport station (PATH)", None),
     ("path", "path_newark", "Newark Penn Station", -74.16375, 40.73454, "",
      ("1937-06-20", "H&M trains moved from Park Place to Newark Penn Station on 20 Jun 1937, the day the realigned line and the new Harrison "
-      "station opened (Harrison station article; the H&M article says mid-1937)", "https://en.wikipedia.org/wiki/Harrison_station_(PATH)")),
+      "station opened (Wikidata's day for the Harrison station; its article and the H&M article give 1937 / mid-1937)", "https://en.wikipedia.org/wiki/Harrison_station_(PATH)")),
 ]
 
 

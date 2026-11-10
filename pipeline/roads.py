@@ -21,7 +21,7 @@ and the counties around it that are on the map: extent.map_counties).
     roads) is drawn from the row's line.
   * Motorways, trunks and ramps in 3D (freeway_items): viaduct decks from Overture's level /
     bridge / tunnel flags, ramps coming down to the streets they join; a bridge between high
-    banks keeps the level of its abutments (BRIDGE_SAG).
+    banks is drawn level between its abutments (BRIDGE_LEVEL).
   * The decks of the bridges modelled as landmarks (data/tables/landmarks_bridges.csv: road
     names and segment ids in each model's notes) are left out of every file; where a model
     ends high above the terrain grid the generic highway takes over at its deck height
@@ -99,7 +99,8 @@ ELEV = {"ground": 0, "embankment": 1, "viaduct": 2, "bridge": 3, "tunnel": 4}
 WIDTH = {K_STREET: 9, K_MAJOR: 14, K_FREEWAY: 24, K_HIGHWAY: 16, K_FERRY: 6}
 ROAD_WIDTH = 7  # mode `road`: a colonial road
 DEFAULT_LOCAL, DEFAULT_MAIN, DEFAULT_FREEWAY = 1900.0, 1870.0, 1960.0
-BRIDGE_SAG = 0.03  # a motorway / trunk bridge deck falls at most 3 % below its abutments' level
+BRIDGE_LEVEL = True     # motorway / trunk bridges that dip below their abutments are drawn level (freeway_items)
+BRIDGE_MAX_ABUT = 8     # ... unless the structure has more abutments than this (an interchange)
 COUNTY_BORO = {"061": "1", "005": "2", "047": "3", "081": "4", "085": "5"}
 BORO_NAME = {"1": "Manhattan", "2": "Bronx", "3": "Brooklyn", "4": "Queens", "5": "Staten Island"}
 # the counties around the city: houses stand back from the road, so a street without a
@@ -940,28 +941,56 @@ def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None, 
             for k in range(n_ - 2, -1, -1):
                 hs[k] = min(hs[k], hs[k + 1] + DOWN * (s_[k + 1] - s_[k]))
     # A bridge is level between its abutments. The heights so far are above the ground under
-    # each vertex: over a gorge or a river between high banks (the Bear Mountain Bridge, the
-    # east end of the Tappan Zee Bridge) the deck would follow the ground down to the water.
-    # Every bridge vertex is at least as high as each abutment less BRIDGE_SAG of the way to
-    # it — one shortest-path pass over the bridge vertices, the abutments (the vertices next
-    # to a bridge stretch) as sources; done last, on the settled heights of the abutments (the
-    # slope limits above work on heights above ground). Clearances are not recorded: `estimated`.
-    brm = np.concatenate([sg["brv"] for sg in segs])
-    zabs = vground + H
-    eb = brm[a_] | brm[b_]
-    ea, eb2 = a_[eb], b_[eb]
-    abut = np.unique(np.concatenate([ea[~brm[ea]], eb2[~brm[eb2]]]))
-    abut = abut[~lm_mask[abut] & ~real_tn[abut]]
-    n_lift = 0
-    if len(abut):
-        ztop = float(zabs[abut].max()) + 1.0
-        gb = csr_matrix((np.concatenate([np.maximum(BRIDGE_SAG * wts[eb], 1e-6), ztop - zabs[abut]]),
-                         (np.concatenate([ea, np.full(len(abut), N)]), np.concatenate([eb2, abut]))), shape=(N + 1, N + 1))
-        level = ztop - dijkstra(gb, directed=False, indices=N)[:N]
-        up = brm & np.isfinite(level) & (level - vground > H + 0.5)
-        H[up] = (level - vground)[up]
-        n_lift = int(up.sum())
-    log(f"roads: {n_lift} bridge vertices raised to the level of their abutments")
+    # each vertex: over a gorge or a river between high banks (the Bear Mountain Bridge) the
+    # deck would follow the ground down to the water. Where the deck of a bridge stretch dips
+    # below its lowest abutment, it is drawn on the chord between its abutments instead (the
+    # vertices next to the stretch; with ramps joining on the structure, their heights
+    # weighted by the inverse of the distance along the deck). A viaduct coming down a slope
+    # (the Lincoln Tunnel Helix) has no such dip and keeps following the ground; interchanges
+    # with more than BRIDGE_MAX_ABUT abutments are left alone. Done last, on the settled
+    # heights of the abutments. Clearances are not recorded: `estimated`.
+    n_lift = n_span = 0
+    if BRIDGE_LEVEL:
+        from scipy.sparse.csgraph import connected_components
+        brm = np.concatenate([sg["brv"] for sg in segs])
+        zabs = vground + H
+        inner = brm[a_] & brm[b_]
+        _, lab = connected_components(csr_matrix((np.ones(int(inner.sum())), (a_[inner], b_[inner])), shape=(N, N)), directed=False)
+        edge = brm[a_] != brm[b_]
+        eu = np.where(brm[a_[edge]], a_[edge], b_[edge])   # the bridge vertex
+        ev = np.where(brm[a_[edge]], b_[edge], a_[edge])   # its abutment (not a model's end, not a portal)
+        ew = wts[edge]
+        ok = ~lm_mask[ev] & ~real_tn[ev]
+        eu, ev, ew = eu[ok], ev[ok], ew[ok]
+        ab = pd.DataFrame({"c": lab[eu], "u": eu, "v": ev, "w": ew})
+        bv = np.nonzero(brm)[0]
+        mem = pd.DataFrame({"c": lab[bv], "i": bv, "z": zabs[bv]})
+        low = mem.groupby("c").z.min()
+        g_ab = ab.assign(z=zabs[ab.v.values]).groupby("c").agg(z=("z", "min"), n=("v", "nunique"))
+        cand = g_ab[(g_ab.n >= 2) & (g_ab.n <= BRIDGE_MAX_ABUT) & (low.reindex(g_ab.index) < g_ab.z - 2.0)].index
+        ie = pd.DataFrame({"c": lab[a_[inner]], "a": a_[inner], "b": b_[inner], "w": wts[inner]})
+        ie = ie[ie.c.isin(cand)].groupby("c")
+        mem = mem[mem.c.isin(cand)].groupby("c")
+        ab = ab[ab.c.isin(cand)].groupby("c")
+        for cid in cand:
+            m_ = mem.get_group(cid).i.values
+            a2 = ab.get_group(cid)
+            abuts = np.unique(a2.v.values)
+            nodes = np.concatenate([m_, abuts])
+            loc = {int(g_): k_ for k_, g_ in enumerate(nodes)}
+            e2 = ie.get_group(cid) if cid in ie.groups else None
+            ra = [loc[int(q_)] for q_ in a2.u.values] + ([loc[int(q_)] for q_ in e2.a.values] if e2 is not None else [])
+            rb = [loc[int(q_)] for q_ in a2.v.values] + ([loc[int(q_)] for q_ in e2.b.values] if e2 is not None else [])
+            ww = np.concatenate([a2.w.values, e2.w.values if e2 is not None else []])
+            sp = csr_matrix((np.maximum(ww, 1e-3), (ra, rb)), shape=(len(nodes), len(nodes)))
+            D = dijkstra(sp, directed=False, indices=[loc[int(q_)] for q_ in abuts])[:, :len(m_)]
+            wg = 1.0 / np.maximum(D, 1.0)
+            chord = (wg * zabs[abuts][:, None]).sum(axis=0) / wg.sum(axis=0)
+            up = np.isfinite(chord) & (chord - vground[m_] > H[m_] + 0.5)
+            H[m_[up]] = chord[up] - vground[m_[up]]
+            n_lift += int(up.sum())
+            n_span += bool(up.any())
+    log(f"roads: {n_span} bridge stretches dipping below their abutments drawn level ({n_lift} vertices raised)")
     for q, sg in enumerate(segs):
         sg["h"] = H[int(offs[q]):int(offs[q + 1])]
     log(f"roads: freeway grade pins: {len(street_main)} mainline ends, {len(street_link)} ramp ends, "

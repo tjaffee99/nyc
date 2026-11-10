@@ -16,6 +16,16 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[4]
 WP = "https://en.wikipedia.org/wiki/"
+_ST = pd.read_csv(ROOT / "data" / "tables" / "transit_stations.csv", dtype=str, keep_default_na=False)
+
+
+def SRC(name, *systems):
+    """The article of a station of the table (its `source`): the infobox the row's day comes from."""
+    r = _ST[(_ST.name == name) & _ST.system.isin(systems) & _ST.source.str.contains("wikipedia.org")]
+    assert len(r) == 1, (name, systems, len(r))
+    return r.source.iloc[0]
+
+
 W, E, S, N = -74.60, -73.30, 40.40, 41.45  # "anywhere" bounds
 NJ_E = -74.00  # east edge of New Jersey / Rockland boxes (keeps the Long Island Rail Road's "Main Line" out)
 HBLR = "Hudson-Bergen Light Rail|Hudson–Bergen Light Rail"
@@ -40,7 +50,7 @@ ROWS = [
     ("me_newark_orange", "1836-11-19", "Morris & Essex, Newark - Orange, opened 19 Nov 1836", WP + "Morris_and_Essex_Railroad",
      "Morristown Line", (-74.2335, 40.72, -74.172, 40.80)),
     ("me_orange_summit", "1837", "Morris & Essex beyond Orange: the stations to Summit opened in 1837 (station infoboxes give the year only: "
-     "estimated day)", WP + "Summit_station_(NJ_Transit)", "Morristown Line", (-74.36, 40.70, -74.2335, 40.80)),
+     "estimated day)", SRC("Summit", "njt"), "Morristown Line", (-74.36, 40.70, -74.2335, 40.80)),
     ("me_summit_west", "1838-01-01", "Morris & Essex extended to Morristown on 1 Jan 1838", WP + "Morris_and_Essex_Railroad",
      "Morristown Line", (W, 40.68, -74.36, 40.80)),
     ("dlw_boonton_main", "1870-09-12", "Lackawanna's Boonton Branch (completed 1870; the Lyndhurst, Delawanna, Passaic and Clifton station "
@@ -50,15 +60,15 @@ ROWS = [
      "moved to the Boonton Branch south of Paterson in 1963 (year only: estimated day; the ends of the connection are where "
      "OpenHistoricalMap's ways end)", WP + "Main_Line_(NJ_Transit)", "Main Line", (-74.20, 40.890, -74.12, 40.8971)),
     ("erie_phrr_paterson", "1832-05-28", "Paterson & Hudson River Railroad: the stretch in Paterson still in use (the Paterson and Passaic "
-     "(Erie) station infoboxes give 28 May 1832, the day horse-drawn service began)", WP + "Paterson_station_(NJ_Transit)", "Main Line",
+     "(Erie) station infoboxes give 28 May 1832, the day horse-drawn service began)", SRC("Paterson", "njt"), "Main Line",
      (-74.20, 40.8971, -74.12, 40.9155)),
     ("erie_paterson_ramapo", "1848-10-19", "Paterson & Ramapo Railroad, Paterson - Suffern (the Glen Rock, Ramsey and Mahwah station infoboxes give "
-     "19 Oct 1848; OpenHistoricalMap 17 Oct 1848; the railroad's own article says fall 1849)", WP + "Mahwah_station", "Main Line",
+     "19 Oct 1848; OpenHistoricalMap 17 Oct 1848; the railroad's own article says fall 1849)", SRC("Mahwah", "njt"), "Main Line",
      (-74.20, 40.9155, -74.08, 41.112)),
     ("erie_suffern_west", "1841-09-23", "New York & Erie Railroad, Piermont - Goshen, opened 23 Sep 1841", WP + "New_York_and_Erie_Railroad",
      "Main Line|Southern Tier Line", (W, 41.112, -74.14, N)),
     ("erie_piermont_suffern", "1841-06-30", "New York & Erie Railroad's first stretch from Piermont (the Suffern, Spring Valley and Nanuet station "
-     "infoboxes give 30 Jun 1841): the remnant at Suffern", WP + "Suffern_station", "Suffern Industrial Track", None),
+     "infoboxes give 30 Jun 1841): the remnant at Suffern", SRC("Suffern", "njt", "mnr"), "Suffern Industrial Track", None),
     ("erie_bergen_county_south", "1833", "Paterson & Hudson River Railroad across the Meadows, opened in 1833 (year only: estimated day)",
      WP + "Bergen_County_Line", "Bergen County Line", (-74.20, 40.75, NJ_E, 40.829)),
     ("erie_bergen_county_rr", "1881-10-01", "Bergen County Railroad, Rutherford - Glen Rock, opened in 1881 (year in the article; the day is "
@@ -68,12 +78,12 @@ ROWS = [
     ("montclair_connection", "2002-09-30", "Montclair Connection between the Montclair Branch and the Boonton Line, opened 30 Sep 2002",
      WP + "Montclair-Boonton_Line", "Montclair Line", (-74.215, 40.812, -74.20, 40.8165)),
     ("nygl_montclair", "1873-01-01", "Montclair Railway / New York & Greenwood Lake (completed in 1872 per the line article; the Walnut Street, "
-     "Upper Montclair, Little Falls and Mountain View station infoboxes give 1 Jan 1873)", WP + "Upper_Montclair_station", "Montclair Line",
+     "Upper Montclair, Little Falls and Mountain View station infoboxes give 1 Jan 1873)", SRC("Upper Montclair", "njt"), "Montclair Line",
      (-74.27, 40.8165, -74.18, 40.93)),
     ("dlw_boonton_west", "1870-09-12", "Lackawanna's Boonton Branch west of Mountain View (Lincoln Park station infobox: 12 Sep 1870)",
      WP + "Boonton_Branch", "Montclair Line|Montclair Line (Lincoln Park Controlled Siding)|Totowa Industrial Track", (W, 40.85, -74.27, 40.95)),
     ("pd_gladstone", "1872-01-29", "Passaic & Delaware Railroad from Summit (the New Providence, Murray Hill, Berkeley Heights and Gillette station "
-     "infoboxes give 29 Jan 1872)", WP + "New_Providence_station", "Gladstone Branch", None),
+     "infoboxes give 29 Jan 1872)", SRC("New Providence", "njt"), "Gladstone Branch", None),
     # ---- Erie: Pascack Valley, Northern Branch
     ("pvl_hackensack", "1861-01-21", "Hackensack & New York Railroad to Hackensack, 21 Jan 1861 (station table of the line article)",
      WP + "Pascack_Valley_Line", "Pascack Valley Line", (-74.12, 40.75, NJ_E, 40.880)),
@@ -84,7 +94,7 @@ ROWS = [
     ("pvl_nanuet", "1871-05-27", "New Jersey & New York Railroad from Hillsdale to the Erie at Nanuet, 27 May 1871 (station table of the line article; "
      "Pearl River station infobox)", WP + "Pascack_Valley_Line", "Pascack Valley Line", (-74.12, 41.0025, NJ_E, 41.0926)),
     ("pvl_erie_piermont", "1841-06-30", "Nanuet - Spring Valley: the New York & Erie's first main line from Piermont (station infoboxes: 30 Jun 1841)",
-     WP + "Spring_Valley_station_(New_York)", "Pascack Valley Line|Woodbine Yard", (-74.12, 41.0926, NJ_E, 41.14)),
+     SRC("Spring Valley", "njt", "mnr"), "Pascack Valley Line|Woodbine Yard", (-74.12, 41.0926, NJ_E, 41.14)),
     ("northern_rr", "1859-05-28", "Northern Railroad of New Jersey, opened 28 May 1859", WP + "Northern_Branch",
      "Northern Running Track", (-74.06, 40.79, -73.90, 41.07)),
     # ---- West Shore, Susquehanna
@@ -98,7 +108,7 @@ ROWS = [
      WP + "New_Jersey_Midland_Railway", "Southern Division Main Line|New York, Susquehanna and Western Railway", None),
     # ---- Central of New Jersey, Lehigh Valley, coast line
     ("cnj_raritan_valley", "1839", "Elizabethtown & Somerville Railroad: the Cranford, Westfield, Fanwood and Plainfield station infoboxes give 1839 "
-     "(year only: estimated day)", WP + "Westfield_station_(NJ_Transit)", "Raritan Valley Line", (-74.425, 40.55, -74.25, 40.70)),
+     "(year only: estimated day)", SRC("Westfield", "njt"), "Raritan Valley Line", (-74.425, 40.55, -74.25, 40.70)),
     ("cnj_raritan_valley_west", "1842-01", "Elizabethtown & Somerville Railroad reached Somerville at the beginning of 1842 (estimated day)",
      WP + "Elizabethtown_and_Somerville_Railroad", "Raritan Valley Line", (W, 40.50, -74.425, 40.70)),
     ("cnj_bayonne", "1864", "Central Railroad of New Jersey's extension from Elizabethport across Newark Bay to Jersey City, 1864 (year only: "
@@ -106,7 +116,7 @@ ROWS = [
     ("cnj_elizabethport", "1836", "Elizabethtown & Somerville Railroad, Elizabethport - Elizabeth, opened 1836 (year only: estimated day)",
      WP + "Elizabethtown_and_Somerville_Railroad", "Elizabeth Industrial Track", (-74.22, 40.63, -74.15, 40.69)),
     ("cnj_elizabeth_west", "1839", "Elizabethtown & Somerville Railroad west of Elizabeth: the Cranford and Westfield station infoboxes give 1839 "
-     "(year only: estimated day)", WP + "Westfield_station_(NJ_Transit)", "Elizabeth Industrial Track|Garwood Industrial Track", None),
+     "(year only: estimated day)", SRC("Westfield", "njt"), "Elizabeth Industrial Track|Garwood Industrial Track", None),
     ("lv_lehigh_line", "1891", "Lehigh Valley Railroad's own route from South Plainfield towards Jersey City, established 1891 (year only: estimated day)",
      WP + "Lehigh_Valley_Railroad", "Lehigh Line", None),
     ("lv_oak_island", "1903", "Oak Island Yard, built by the Lehigh Valley Railroad, opened 1903 (year only: estimated day)", WP + "Oak_Island_Yard",
@@ -129,8 +139,8 @@ ROWS = [
     ("harlem_croton_falls", "1847-06-01", "New York & Harlem Railroad to Croton Falls, 1 Jun 1847", WP + "New_York_and_Harlem_Railroad",
      "Harlem Line", (-73.90, 41.209, -73.60, N)),
     # ---- PATH (Hudson & Manhattan Railroad) west of Grove Street; the tubes and Jersey City keep OpenHistoricalMap's days
-    ("path_newark_penn", "1937-06-20", "Hudson & Manhattan realigned into Newark Penn Station with a new Harrison station, 20 Jun 1937 (Harrison "
-     "station infobox; the H&M article says mid-1937)", WP + "Harrison_station_(PATH)", PATH, (-74.20, 40.72, -74.150, 40.76)),
+    ("path_newark_penn", "1937-06-20", "Hudson & Manhattan realigned into Newark Penn Station with a new Harrison station, 20 Jun 1937 (Wikidata's day "
+     "for the Harrison station, its infobox and the H&M article give 1937 / mid-1937)", SRC("Harrison", "path"), PATH, (-74.20, 40.72, -74.150, 40.76)),
     ("path_manhattan_transfer", "1911-10-01", "Hudson & Manhattan extended from Grove Street to Manhattan Transfer in October 1911 (the day is "
      "OpenHistoricalMap's)", WP + "Hudson_and_Manhattan_Railroad", PATH, (-74.150, 40.70, -74.0445, 40.76)),
     # ---- Hudson-Bergen Light Rail, by section (line article; Newport from the station infoboxes)
@@ -139,7 +149,7 @@ ROWS = [
     ("hblr_first", "2000-04-15", "Hudson-Bergen Light Rail, 34th Street - Exchange Place and the West Side Avenue branch, opened 15 Apr 2000",
      WP + "Hudson–Bergen_Light_Rail", HBLR, (-74.20, 40.6718, -74.00, 40.7178)),
     ("hblr_newport", "2000-11-18", "Hudson-Bergen Light Rail, Exchange Place - Newport, 18 Nov 2000 (Harborside, Harsimus Cove and Newport station infoboxes)",
-     WP + "Newport_station_(Hudson–Bergen_Light_Rail)", HBLR, (-74.20, 40.7178, -74.00, 40.7285)),
+     SRC("Newport", "hblr"), HBLR, (-74.20, 40.7178, -74.00, 40.7285)),
     ("hblr_hoboken", "2002-09-29", "Hudson-Bergen Light Rail to Hoboken Terminal, 29 Sep 2002", WP + "Hudson–Bergen_Light_Rail", HBLR, (-74.20, 40.7285, -74.00, 40.7385)),
     ("hblr_lincoln_harbor", "2004-09-07", "Hudson-Bergen Light Rail to Lincoln Harbor, 7 Sep 2004", WP + "Hudson–Bergen_Light_Rail", HBLR, (-74.20, 40.7385, -74.00, 40.7625)),
     ("hblr_port_imperial", "2005-10-29", "Hudson-Bergen Light Rail to Port Imperial, 29 Oct 2005", WP + "Hudson–Bergen_Light_Rail", HBLR, (-74.20, 40.7625, -74.00, 40.7765)),
@@ -154,7 +164,7 @@ ROWS = [
     ("nlr_franklin_avenue", "1940-11-22", "City Subway extended to Franklin Avenue (Branch Brook Park) in 1940 (year in the article; the day is "
      "OpenHistoricalMap's)", WP + "Newark_Light_Rail", "Newark Light Rail", (-74.1765, 40.7787, -74.16, 40.7797)),
     ("nlr_grove_street", "2002-06-22", "Newark Light Rail extended to Grove Street, 22 Jun 2002 (Silver Lake and Grove Street station infoboxes)",
-     WP + "Grove_Street_station_(Newark_Light_Rail)", "Newark Light Rail", (-74.20, 40.7787, -74.16, 40.80)),
+     SRC("Grove Street", "nlr"), "Newark Light Rail", (-74.20, 40.7787, -74.16, 40.80)),
     # ---- others
     ("airtrain_newark", "1996-05-31", "AirTrain Newark monorail opened 31 May 1996 (the extension to the Northeast Corridor station opened 21 Oct 2001 "
      "and is not separated here: estimated there)", WP + "AirTrain_Newark", "AirTrain Newark", None),
