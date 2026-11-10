@@ -922,6 +922,12 @@ def main():
     ip = shapely.get_coordinates(shapely.point_on_surface(polys))
     lon, lat = to_ll().transform(np.r_[xy[:, 0], ip[:, 0]], np.r_[xy[:, 1], ip[:, 1]])
     ly = np.nan_to_num(land_year(lon, lat), nan=-np.inf)
+    # the counties: the ground rule's own reading too (ground_rule.land_year_at: the latest of
+    # the 2 x 2 cells around a point), so nothing there starts before its ground by that rule
+    from ground_rule import land_year_at
+    cpt = ~feats.city.values[src][np.r_[idx, np.arange(len(polys))]]
+    if cpt.any():
+        ly[cpt] = np.fmax(ly[cpt], np.nan_to_num(land_year_at(lon[cpt], lat[cpt]), nan=-np.inf))
     ly_piece = np.full(len(polys), -np.inf)
     np.maximum.at(ly_piece, np.r_[idx, np.arange(len(polys))], ly)
     wait = ly_piece + 0.5 > pyear

@@ -3,24 +3,40 @@
     python counties_ny.py download [westchester|rockland|nassau ...]   cached downloads only
     python counties_ny.py build    [westchester|rockland|nassau ...]   -> data/interim/counties/ny_<county>.parquet
     python counties_ny.py check    [westchester|rockland ...]          well-known buildings against their known dates
-    python counties_ny.py                                              both, every county that has a source
+    python counties_ny.py                                              all three, every county
 
-Sources, licences and what was found per county: data/research/counties_ny.md.
+Sources, licences, what was found per county and the verdicts: data/research/counties_ny.md.
+Westchester and Rockland are in the State's public parcel layer; Nassau is not and has no
+public year built anywhere: it is reported and not built.
 
 Rules (the owner's: real years only, nothing generated):
-  * footprint (Overture, clipped to the TIGER county outline, >= 12 m2) -> the tax parcel that
-    contains its centre (a point inside the outline) -> that parcel's year built (`YR_BLT`).
+  * Footprints: Overture's (the lead's region extract), inner point in the TIGER county
+    outline, >= 12 m2; where Overture has no building, the State's footprint (county
+    planimetrics of 2007 / 2013) fills the gap. `footprint_src` says which.
+  * footprint -> the tax parcel that contains its centre -> that parcel's year built
+    (`YR_BLT` of the 2025 assessment roll). Stacked parcels (condominium units) count as one
+    parcel with their most frequent year.
   * On a parcel with several footprints the year belongs to the main building (the largest
     outline); the others get the same year and `secondary` = True.
-  * Nothing is spread, imputed or refined here. `year_raw` is the assessor's year as recorded,
-    `heap` flags the placeholder years (nyc_buildings.find_heaps, per municipality), and a
-    footprint whose parcel carries no year has `year_raw` = NaN.
+  * Nothing is spread, imputed or refined here. `year_raw` is the assessor's year as recorded
+    (NaN where the parcel carries none), `heap` flags the placeholder years
+    (nyc_buildings.find_heaps, per assessing town or city, residential records and the rest
+    separately; a year that is one development is not a heap).
   * `year_hist` is the year the State Historic Preservation Office's building inventory (CRIS)
-    gives in the surveyed building's name ("Glenview Mansion (1876)", "Queen Anne house ca 1890"),
-    where the inventory point falls inside the footprint. The public CRIS layer has no date field.
+    gives at the end of the surveyed building's name ("Glenview Mansion (1876)"), where the
+    inventory point falls inside the footprint; "ca." years go to `year_hist_ca`. The public
+    CRIS layer has no date field.
+  * `muni_year_share` = share of the municipality's main residential buildings that carry a
+    year: 1.0 where the assessor's inventory is published, 0.0 where it is not (22 of
+    Westchester's 43 municipalities). Use it to leave undated ground off the map.
+
+Outputs (data/interim/counties/): ny_<county>.parquet (one row per footprint, EPSG:4326),
+ny_<county>_report.json / .txt (coverage per municipality, heap years with their evidence,
+decades), ny_<county>_munis.geojson (municipal outlines with `dated` = yes / partly / no),
+ny_<county>_checks.txt; caches parcels_<county>.parquet, state_fp_<county>.parquet.
 
 Every download is cached under data/raw/counties_ny/ and never modified; a rerun only fetches
-what is missing.
+what is missing. The build peaks at about 1.3 GB (Westchester).
 """
 from __future__ import annotations
 
@@ -492,7 +508,10 @@ def heap_evidence(heaps, year, unit, x, y, kind, tracts=True, cell=400.0):
             spread = np.nan
             if len(era) >= len(h):
                 spread = len(np.unique(h)) / float(np.mean([len(np.unique(rng.choice(era, len(h), replace=False))) for _ in range(7)]))
-            tract = bool(tracts and v > 1945 and len(h) >= 30 and spread < 0.5)
+            # (no era to compare with: a year with more buildings than its whole era is one development
+            # if they stand ten or more to a cell)
+            close = spread < 0.5 if not np.isnan(spread) else 10 * len(np.unique(h)) <= len(h)
+            tract = bool(tracts and v > 1945 and len(h) >= 30 and close)
             rows.append({"town": b, "kind": kind, "year": int(v), "n": int(len(h)), "median_neighbours": med,
                          "strength": round(len(h) / max(med, 1.0), 1), "spread": None if np.isnan(spread) else round(spread, 2),
                          "heap": not tract})

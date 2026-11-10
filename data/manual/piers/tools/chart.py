@@ -183,7 +183,9 @@ def run(cid):
     if refp.exists():
         ref = json.load(open(refp))
         k0 = ref["k"] * ref["frame_w"] / (x1 - x0)
-        best = search(np.arange(ref["angle"] - 1.5, ref["angle"] + 1.51, 0.5), k0 * 1.015 ** np.arange(-5, 6))
+        best = search(np.arange(ref["angle"] - 1.0, ref["angle"] + 1.01, 0.5), k0 * 1.015 ** np.arange(-3, 4))
+        if best[0] < 0.2:                         # another scan size or frame: look wider
+            best = search(np.arange(ref["angle"] - 2.0, ref["angle"] + 2.01, 1.0), k0 * 1.03 ** np.arange(-8, 9))
     else:
         ks = 10.0 * 1.04 ** np.arange(0, 16)          # 1:10,000 scanned at 300-500 dpi
         best = search([-4, -2, 0, 2, 4], ks)

@@ -309,6 +309,7 @@ def main():
                      "latest_land_year_under_outline": g_y, "outline_predates_ground": bool(np.isfinite(g_y) and g_y > op),
                      "pieces": int(m.sum()), "pieces_waiting": int(w.sum()),
                      "latest_piece_start": float(start[m].max()) if m.any() else np.nan,
+                     "max_delay_years": float((start[w] - f.opened.values[w]).max()) if w.any() else 0.0,
                      "in_city": bool(_in_city(shapely.points([(shapely.centroid(pg).x, shapely.centroid(pg).y)]))[0])
                      if (pg := pu.to_crs(4326).geometry.values[list(pu["name"]).index(nm)]) is not None else False})
     (INTERIM / "airports").mkdir(parents=True, exist_ok=True)

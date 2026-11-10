@@ -30,7 +30,7 @@ def panel(fn, box, max_px, final=None):
     im = Image.fromarray(np.moveaxis(a[:3], 0, -1)).convert("RGB")
     dr = ImageDraw.Draw(im)
     if final:
-        feats = [(f, (0, 90, 255)) for f in json.load(open(final))["features"]]
+        feats = [(f, (0, 90, 255) if f["properties"]["end_year"] == 9999 else (230, 0, 200)) for f in json.load(open(final))["features"]]     # standing blue, vanished magenta
     else:
         feats = [(f, (0, 170, 0) if keep(f["properties"]) else (255, 140, 0)) for f in
                  json.load(open(E.OUT / "cand" / fn.replace(".tif", ".geojson")))["features"]]

@@ -53,7 +53,7 @@ type PathSet = {
   bbox?: [number, number, number, number];
 };
 
-/** Whole sets (traffic) and what is drawn: the region's 124k roads are split into
+/** Whole sets (traffic) and what is drawn: the main roads and highways of the region are split into
  *  map squares so that only the squares in view go through the GPU. */
 const sets: PathSet[] = [];
 // suburban streets at city scale: thin and translucent, a texture rather than lines
@@ -115,7 +115,8 @@ function decodeSet(id: string, f: any): PathSet {
 }
 
 // ------------------------------------------------------------------ suburban streets
-// Residential streets, lanes and alleys outside SF (roads.py local_streets): z12 tiles
+// Residential streets, lanes and alleys outside Manhattan and the counties' tertiary roads
+// (roads.py local_tiles): z12 tiles
 // loaded on demand from zoom 12.5, like the region buildings.
 let localIndex: Set<string> | null = null;
 let localLow: Set<string> | null = null;
@@ -624,6 +625,8 @@ function buildFleet(items: {s: PathSet; p: number; v: number; speed: number; dir
   return f;
 }
 
+const PER_CAR: Record<string, number> = {'roads-region': 690, freeways: 1320};
+
 function setupTraffic() {
   const r = rand(1906);
   const weightOf = (s: PathSet, p: number) => {
@@ -642,7 +645,9 @@ function setupTraffic() {
     const w = new Float64Array(s.n);
     let tot = 0;
     for (let p = 0; p < s.n; p++) w[p] = tot += weightOf(s, p);
-    const count = s.id === 'roads-sf' ? 7000 : 5000;
+    // Manhattan 7,000 cars; the other sets one car per PER_CAR weighted metres — the density the
+    // city had with 5,000 cars per set before the counties' roads were added to the same files
+    const count = s.id === 'roads-sf' ? 7000 : Math.min(18000, Math.round(tot / (PER_CAR[s.id] ?? tot / 5000)));
     for (let i = 0; i < count; i++) {
       const x = r() * tot;
       let lo = 0;

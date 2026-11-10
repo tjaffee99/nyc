@@ -1,0 +1,69 @@
+{
+ "features": 1397,
+ "standing": 225,
+ "vanished": 1172,
+ "by_borough": {
+  "Bronx": 156,
+  "Brooklyn": 267,
+  "Manhattan": 436,
+  "Queens": 246,
+  "Staten Island": 292
+ },
+ "by_borough_vanished": {
+  "Bronx": 141,
+  "Brooklyn": 229,
+  "Manhattan": 321,
+  "Queens": 217,
+  "Staten Island": 264
+ },
+ "start_decade": {
+  "1880s": 7,
+  "1890s": 432,
+  "1910s": 149,
+  "1920s": 218,
+  "1930s": 15,
+  "1940s": 337,
+  "1950s": 80,
+  "1960s": 68,
+  "1970s": 2,
+  "1980s": 7,
+  "1990s": 49,
+  "2010s": 24,
+  "unknown": 9
+ },
+ "end_decade": {
+  "1910s": 7,
+  "1920s": 27,
+  "1930s": 1,
+  "1940s": 178,
+  "1950s": 64,
+  "1960s": 148,
+  "1970s": 4,
+  "1980s": 75,
+  "1990s": 504,
+  "2010s": 164,
+  "standing": 225
+ },
+ "start_quality": {
+  "bracket": 194,
+  "estimated": 1203
+ },
+ "end_quality": {
+  "bracket": 323,
+  "estimated": 849,
+  "recorded": 225
+ },
+ "start_upper_bound_only": 717,
+ "shed": {
+  "shed": 1084,
+  "none": 313
+ },
+ "dropped": {
+  "one sighting": 18
+ },
+ "outline_source": {
+  "usgs": 1045,
+  "osm": 271,
+  "noaa": 81
+ }
+}

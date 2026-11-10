@@ -1087,6 +1087,128 @@ def step_predict():
     log(f"predict: {len(out)} rows -> {OUT_DIR / 'presence.parquet'} ({(OUT_DIR / 'presence.parquet').stat().st_size / 1e6:.1f} MB)")
 
 
+# ----------------------------------------------------------------------------- report
+BORO_NAME = {"1": "Manhattan", "2": "Bronx", "3": "Brooklyn", "4": "Queens", "5": "Staten Island"}
+T_HI, T_LO = 0.8, 0.2       # "stood" / "open ground" thresholds used in the tables
+
+
+def _md(df, floatfmt="{:.2f}"):
+    cols = list(df.columns)
+    lines = ["| " + " | ".join(str(c) for c in cols) + " |", "|" + "|".join("---" for _ in cols) + "|"]
+    for row in df.itertuples(index=False):
+        lines.append("| " + " | ".join(floatfmt.format(v) if isinstance(v, (float, np.floating)) else str(v) for v in row) + " |")
+    return "\n".join(lines)
+
+
+def hand_labels(year: int):
+    """The hand-checked sample (data/manual/aerial/hand_check.csv): doitt_id -> P / A / U / X."""
+    import pandas as pd
+    f = OUT_DIR / "hand_check.csv"
+    if not f.exists():
+        return None
+    h = pd.read_csv(f, dtype={"doitt_id": str, "boro": str})
+    return h[["doitt_id", "boro", f"seen{year}"]].rename(columns={f"seen{year}": "hand"})
+
+
+def step_report():
+    """Validation and research tables -> data/interim/aerial/report.md (copied into the README
+    and the research note by hand)."""
+    import pandas as pd
+    out = []
+    pres = pd.read_parquet(OUT_DIR / "presence.parquet")
+    for year in YEARS:
+        real = load_features(year)
+        real = real.merge(pres[["doitt_id", f"p{year}"]], on="doitt_id", how="left")
+        pcol = real[f"p{year}"].values
+        real["bname"] = real.boro.map(BORO_NAME)
+        out.append(f"\n## {year}\n")
+        # coverage and registration
+        g = real.groupby("bname")
+        mpp = metres_per_pixel(40.7)
+        off = np.hypot(real.offx.values, real.offy.values) * mpp
+        t = pd.DataFrame({"footprints": g.size(), "covered %": g.cover.apply(lambda c: 100 * (c >= COVER_MIN).mean()),
+                          "shifted %": g.reg_level.apply(lambda c: 100 * (c > 0).mean())})
+        real["off_m"] = off
+        sh = real[real.reg_level > 0].groupby("bname").off_m
+        t["median shift m"] = sh.median()
+        t["90% shift m"] = sh.quantile(0.9)
+        t.loc["all"] = [len(real), 100 * (real.cover >= COVER_MIN).mean(), 100 * (real.reg_level > 0).mean(),
+                        real.off_m[real.reg_level > 0].median(), real.off_m[real.reg_level > 0].quantile(0.9)]
+        out.append("Coverage and registration\n\n" + _md(t.reset_index().rename(columns={"bname": "borough"}), "{:.1f}"))
+        # district hold-out
+        o = pd.read_parquet(WORK / f"oof_{year}.parquet")
+        o["bname"] = o.boro.map(BORO_NAME)
+        o["dens"] = density_class(o.cov100.values)
+        out.append(f"\nDistrict hold-out, {len(o)} labelled outlines: AUC {auc(o.lab.values.astype(float), o.score.values, o.w.values):.3f} "
+                   f"(recorded-before vs street outlines {auc(*[o[o.kind != 'open ground'][c].values.astype(float) for c in ('lab', 'score')]):.3f}, "
+                   f"vs open ground {auc(*[o[o.kind != 'street outline'][c].values.astype(float) for c in ('lab', 'score')]):.3f})\n")
+        rows = []
+        for key, grp in [("all", o)] + list(o.groupby("bname")) + list(o.groupby("dens")):
+            r = {"group": key}
+            for kind, nm in (("recorded before", "stood"), ("street outline", "street"), ("open ground", "open")):
+                k = grp[grp.kind == kind]
+                r[f"n {nm}"] = len(k)
+                r[f"{nm}: p>={T_HI} %"] = 100 * (k.p >= T_HI).mean() if len(k) else np.nan
+                r[f"{nm}: p<={T_LO} %"] = 100 * (k.p <= T_LO).mean() if len(k) else np.nan
+            rows.append(r)
+        out.append(_md(pd.DataFrame(rows), "{:.1f}"))
+        # calibration on the hold-out (weights: both sides equal)
+        bins = [0, 0.1, 0.2, 0.35, 0.5, 0.65, 0.8, 0.9, 1.0]
+        o["bin"] = pd.cut(o.p, bins, include_lowest=True)
+        cal = o.groupby("bin", observed=True).apply(lambda k: pd.Series({"n": len(k), "mean p": np.average(k.p, weights=k.w), "share that stood": np.average(k.lab, weights=k.w)}), include_groups=False)
+        out.append("\nCalibration (hold-out, both sides weighted equally)\n\n" + _md(cal.reset_index().astype({"bin": str}), "{:.2f}"))
+        # hand check
+        h = hand_labels(year)
+        if h is not None:
+            h = h.merge(real[["doitt_id", f"p{year}", "cov100", "year_src", "year_confidence"]], on="doitt_id", how="left").rename(columns={f"p{year}": "p"})
+            h["bname"] = h.boro.map(BORO_NAME)
+            hh = h[h.hand.isin(["P", "A"]) & h.p.notna()]
+            out.append(f"\nHand check: {len(h)} sampled, seen: {h.hand.value_counts().to_dict()}; with a probability and a clear call: {len(hh)}; "
+                       f"AUC {auc((hh.hand == 'P').values.astype(float), hh.p.values):.3f}\n")
+            hh = hh.assign(call=np.where(hh.p >= T_HI, f"p>={T_HI}", np.where(hh.p <= T_LO, f"p<={T_LO}", "between")))
+            out.append(_md(pd.crosstab(hh.hand.map({"P": "building seen", "A": "open ground seen"}), hh.call).reset_index()))
+            rows = []
+            for key, grp in [("all", hh)] + list(hh.groupby("bname")):
+                P, A = grp[grp.hand == "P"], grp[grp.hand == "A"]
+                hi, lo = grp[grp.p >= T_HI], grp[grp.p <= T_LO]
+                rows.append({"group": key, "seen building": len(P), "seen open": len(A),
+                             f"p>={T_HI}: n": len(hi), f"p>={T_HI}: building %": 100 * (hi.hand == "P").mean() if len(hi) else np.nan,
+                             f"p<={T_LO}: n": len(lo), f"p<={T_LO}: open %": 100 * (lo.hand == "A").mean() if len(lo) else np.nan,
+                             "buildings found %": 100 * (P.p >= T_HI).mean() if len(P) else np.nan,
+                             "open found %": 100 * (A.p <= T_LO).mean() if len(A) else np.nan})
+            out.append("\n" + _md(pd.DataFrame(rows), "{:.0f}"))
+            u = h[h.hand == "U"]
+            out.append(f"\nUnclear by eye ({len(u)}): mean p {u.p.mean():.2f}")
+        # recorded years just after the photograph: what does the photograph show?
+        rec = recorded(real)
+        y = np.floor(real.start_year.values)
+        rows = []
+        for a, b in ((year - 40, year - 3), (year + 3, year + 8), (year + 9, year + 15), (year + 16, year + 30), (year + 31, 2030)):
+            for src in ("lpc", "assessor"):
+                m = rec & (real.year_src.values == src) & (y >= a) & (y <= b) & ~np.isnan(pcol)
+                if m.sum() >= 30:
+                    rows.append({"recorded year": f"{a}-{b}", "source": src, "n": int(m.sum()),
+                                 f"p>={T_HI} %": 100 * (pcol[m] >= T_HI).mean(), f"p<={T_LO} %": 100 * (pcol[m] <= T_LO).mean()})
+        out.append("\nRecorded years against the photograph (all boroughs)\n\n" + _md(pd.DataFrame(rows), "{:.1f}"))
+        # placeholder years
+        heap = real.year_src.str.startswith("heap").values & ~np.isnan(pcol)
+        hy = real.raw_year.values
+        top = pd.Series(hy[heap]).value_counts()
+        years_ = sorted(int(v) for v in top[top >= 3000].index)
+        rows = []
+        for yv in years_:
+            r = {"placeholder": yv}
+            for b in ("3", "4", "2", "5", "1"):
+                m = heap & (hy == yv) & (real.boro.values == b)
+                r[f"{BORO_NAME[b]} n"] = int(m.sum())
+                r[f"{BORO_NAME[b]} stood %"] = 100 * (pcol[m] >= T_HI).mean() if m.sum() >= 200 else np.nan
+                r[f"{BORO_NAME[b]} open %"] = 100 * (pcol[m] <= T_LO).mean() if m.sum() >= 200 else np.nan
+            rows.append(r)
+        out.append(f"\nPlaceholder years: share the {year} photograph shows standing (p>={T_HI}) / on open ground (p<={T_LO})\n\n" + _md(pd.DataFrame(rows), "{:.0f}"))
+    (WORK / "report.md").write_text("\n".join(out) + "\n")
+    log(f"report: {WORK / 'report.md'}")
+
+
 # ----------------------------------------------------------------------------- step 1: tiles
 BORO_ORDER = ("3", "4", "5", "2", "1")     # Manhattan last: its blocks give the weakest evidence
 MARGIN_M = 25.0                            # tiles within this distance of a footprint centre are fetched
@@ -1155,6 +1277,8 @@ if __name__ == "__main__":
             step_model()
         elif st == "predict":
             step_predict()
+        elif st == "report":
+            step_report()
         elif st == "synthetic-follow":
             step_synthetic(workers=1, follow=True)
         elif st == "features-follow":

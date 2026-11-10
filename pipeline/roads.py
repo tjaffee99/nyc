@@ -925,12 +925,26 @@ def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None, 
         H[up] = lift[up]
         n_pin += len(pins[z])
     log(f"roads: {len(ends)} ends of landmark bridge decks, {n_pin} pinned at the model's deck height")
+    # keep junctions continuous after lowering: the lowest member wins, and a road may
+    # climb away from a lowered junction at no more than 8 %
+    for _ in range(4):
+        for mem in members.values():
+            idx = [a for a, _ in mem]
+            H[idx] = H[idx].min()
+        for q, sg in enumerate(segs):
+            o, n_ = int(offs[q]), len(sg["f"])
+            hs, s_ = H[o:o + n_], sg["s"]
+            for k in range(1, n_):
+                hs[k] = min(hs[k], hs[k - 1] + DOWN * (s_[k] - s_[k - 1]))
+            for k in range(n_ - 2, -1, -1):
+                hs[k] = min(hs[k], hs[k + 1] + DOWN * (s_[k + 1] - s_[k]))
     # A bridge is level between its abutments. The heights so far are above the ground under
     # each vertex: over a gorge or a river between high banks (the Bear Mountain Bridge, the
     # east end of the Tappan Zee Bridge) the deck would follow the ground down to the water.
     # Every bridge vertex is at least as high as each abutment less BRIDGE_SAG of the way to
     # it — one shortest-path pass over the bridge vertices, the abutments (the vertices next
-    # to a bridge stretch) as sources. Clearances are not recorded: `estimated`.
+    # to a bridge stretch) as sources; done last, on the settled heights of the abutments (the
+    # slope limits above work on heights above ground). Clearances are not recorded: `estimated`.
     brm = np.concatenate([sg["brv"] for sg in segs])
     zabs = vground + H
     eb = brm[a_] | brm[b_]
@@ -947,19 +961,6 @@ def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None, 
         H[up] = (level - vground)[up]
         n_lift = int(up.sum())
     log(f"roads: {n_lift} bridge vertices raised to the level of their abutments")
-    # keep junctions continuous after lowering: the lowest member wins, and a road may
-    # climb away from a lowered junction at no more than 8 %
-    for _ in range(4):
-        for mem in members.values():
-            idx = [a for a, _ in mem]
-            H[idx] = H[idx].min()
-        for q, sg in enumerate(segs):
-            o, n_ = int(offs[q]), len(sg["f"])
-            hs, s_ = H[o:o + n_], sg["s"]
-            for k in range(1, n_):
-                hs[k] = min(hs[k], hs[k - 1] + DOWN * (s_[k] - s_[k - 1]))
-            for k in range(n_ - 2, -1, -1):
-                hs[k] = min(hs[k], hs[k + 1] + DOWN * (s_[k + 1] - s_[k]))
     for q, sg in enumerate(segs):
         sg["h"] = H[int(offs[q]):int(offs[q + 1])]
     log(f"roads: freeway grade pins: {len(street_main)} mainline ends, {len(street_link)} ramp ends, "

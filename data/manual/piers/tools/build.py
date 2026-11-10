@@ -8,6 +8,7 @@
     over today's water or over land made after the sheet.  Today's piers: OpenStreetMap man_made=pier polygons.
  2. one pier across sources = one track: two outlines match when half of the smaller lies in the larger, or each
     one's centre lies in the other (10 m slack), and their areas are within a factor 3.
+ 2b. registration: see step 1b in main() (control piers per sheet, local offsets).
  3. every track is then looked up on every source that covers it (the classified rasters of extract.py / chart.py):
     'pier' (60 % or more of the outline is solid and it is not plain land), 'water' (30 % or less solid), 'land'
     (the outline lies in land wider than 90 m: filled), else unknown.  The lookup tolerates 6 m of misregistration.
@@ -111,19 +112,81 @@ class Source:
                 return np.column_stack([inv.a * np.asarray(x) + inv.b * np.asarray(y) + inv.c, inv.d * np.asarray(x) + inv.e * np.asarray(y) + inv.f])
         return shapely.transform(g_utm, f)
 
-    def look(self, g_utm):
-        """(state, solid share, core share, ink share of the interior) of an outline on this source."""
+    def _window(self, g_utm, pad_m):
         if self.ds is None:
             self.ds = rasterio.open(E.OUT / "cls" / self.name)
             self.pxm = self.m.get("px_m") or abs(self.ds.transform.a)
         gp = self.px(g_utm)
+        pad = int(pad_m / self.pxm) + 5
         x0, y0, x1, y1 = gp.bounds
-        c0, r0, c1, r1 = int(math.floor(x0)) - 5, int(math.floor(y0)) - 5, int(math.ceil(x1)) + 5, int(math.ceil(y1)) + 5
+        c0, r0, c1, r1 = int(math.floor(x0)) - pad, int(math.floor(y0)) - pad, int(math.ceil(x1)) + pad, int(math.ceil(y1)) + pad
         if c0 < 0 or r0 < 0 or c1 > self.ds.width or r1 > self.ds.height:
             return None
         win = Window(c0, r0, c1 - c0, r1 - r0)
+        return gp, win, shapely.affinity.translate(gp, -c0, -r0)
+
+    def ground(self, dx_px, dy_px):
+        """a pixel offset as ground metres (east, north)."""
+        if self.chart:
+            c = math.cos(math.radians(40.71))
+            return (self.A.a * dx_px + self.A.b * dy_px) * c, (self.A.d * dx_px + self.A.e * dy_px) * c
+        return self.tr.a * dx_px, self.tr.e * dy_px
+
+    def best_shift(self, g_utm, reach_m=36.0):
+        """where a trusted outline sits on this source: the offset (ground metres) that puts it on solid with water
+        around it (score = solid share inside - solid share in a 12 m ring), and that score."""
+        w = self._window(g_utm, reach_m + 14)
+        if w is None:
+            return None
+        gp, win, gl = w
         cls = self.ds.read(1, window=win)
-        m = features.rasterize([(shapely.affinity.translate(gp, -c0, -r0), 1)], out_shape=cls.shape, fill=0, dtype="uint8").astype(bool)
+        if (cls == 255).mean() > 0.02:
+            return None
+        solid = ((cls == 1) | (cls == 2)).astype("float32")
+        inside = features.rasterize([(gl, 1)], out_shape=cls.shape, fill=0, dtype="uint8").astype(bool)
+        ring = features.rasterize([(gl.buffer(12 / self.pxm), 1)], out_shape=cls.shape, fill=0, dtype="uint8").astype(bool) & ~inside
+        if inside.sum() < 12 or ring.sum() < 12:
+            return None
+        yi, xi = np.nonzero(inside)
+        yr, xr = np.nonzero(ring)
+        step = max(1, int(round(3.0 / self.pxm)))
+        n = int(reach_m / self.pxm / step)
+        best = (-9, 0, 0)
+        zero = None
+        for a in range(-n, n + 1):
+            for b in range(-n, n + 1):
+                dy, dx = a * step, b * step
+                sc = float(solid[yi + dy, xi + dx].mean() - solid[yr + dy, xr + dx].mean())
+                if a == 0 and b == 0:
+                    zero = sc
+                if sc > best[0]:
+                    best = (sc, dx, dy)
+        e, nth = self.ground(best[1], best[2])
+        return e, nth, best[0], zero
+
+    def local(self, pt):
+        """offset of this source's drawing from the truth around a point (median of the 8 nearest control piers
+        within 2 km; nothing without 3 of them)."""
+        c = getattr(self, "ctrl", None)
+        if c is None or len(c) < 3:
+            return 0.0, 0.0
+        d = np.hypot(c[:, 0] - pt.x, c[:, 1] - pt.y)
+        idx = np.argsort(d)[:8]
+        idx = idx[d[idx] <= 2000]
+        if len(idx) < 3:
+            return 0.0, 0.0
+        return float(np.median(c[idx, 2])), float(np.median(c[idx, 3]))
+
+    def look(self, g_utm):
+        """(state, solid share, core share, ink share of the interior) of an outline on this source."""
+        g_utm = shapely.affinity.translate(g_utm, *self.local(g_utm.centroid))
+        w = self._window(g_utm, 0)
+        if w is None:
+            return None
+        gp, win, gl = w
+        c0, r0 = win.col_off, win.row_off
+        cls = self.ds.read(1, window=win)
+        m = features.rasterize([(gl, 1)], out_shape=cls.shape, fill=0, dtype="uint8").astype(bool)
         if m.sum() < 8 or (cls[m] == 255).mean() > 0.1:
             return None
         k = max(1, int(round(6.0 / self.pxm)))
@@ -136,7 +199,7 @@ class Source:
                 best = (solid, core, dy, dx)
         solid, core, dy, dx = best
         ink = self.ds.read(2, window=win)
-        inner = shapely.affinity.translate(gp, -c0 + dx, -r0 + dy).buffer(-4.0 / self.pxm)
+        inner = shapely.affinity.translate(gl, dx, dy).buffer(-4.0 / self.pxm)
         inkshare = None
         if not inner.is_empty:
             mi = features.rasterize([(inner, 1)], out_shape=cls.shape, fill=0, dtype="uint8").astype(bool)
@@ -200,12 +263,13 @@ def main():
     by_name = {s.name: s for s in sources}
     print(len(sources), "sources:", Counter("chart" if s.chart else E.SHEETS[s.name]["edition"] for s in sources))
     # 1. candidates
-    items = []
+    osm = osm_piers(boros)
+    cands = {}
     for s in sources:
         if s.positive_only:
             continue
-        fc = json.load(open(E.OUT / "cand" / s.name.replace(".tif", ".geojson")))
-        for f in fc["features"]:
+        out = []
+        for f in json.load(open(E.OUT / "cand" / s.name.replace(".tif", ".geojson")))["features"]:
             p = f["properties"]
             if not keep(p):
                 continue
@@ -213,11 +277,36 @@ def main():
             if not s.chart and s.shift != (0.0, 0.0):
                 g = shapely.affinity.translate(g, *s.shift)
             b = next((n for n, poly in boros if poly.contains(g.centroid)), None)
-            if b is None:
+            if b is not None:
+                out.append(dict(kind="map", src=s.name, geom=g.buffer(0), borough=b, p=p))
+        cands[s.name] = out
+    # 1b. the USGS scans sit up to 30 m off in places: where each sheet draws the piers whose position is known
+    # (OpenStreetMap's and the charts', fitted to 2-3 m) gives its local offset; its own outlines are moved back by it
+    trusted = [o["geom"] for o in osm if o["geom"].area >= 400] + [c["geom"] for s in sources if s.chart for c in cands.get(s.name, [])]
+    tw = [to_wgs(g).centroid for g in trusted]
+    rep = {}
+    for s in sources:
+        if s.chart:
+            continue
+        ctrl = []
+        for g, c in zip(trusted, tw):
+            if not s.box.contains(c):
                 continue
-            items.append(dict(kind="map", src=s.name, geom=g.buffer(0), borough=b, p=p))
+            r = s.best_shift(g)
+            if r is not None and r[2] >= 0.55:
+                ctrl.append((g.centroid.x, g.centroid.y, r[0], r[1]))
+        s.ctrl = np.array(ctrl) if ctrl else None
+        if s.ctrl is not None and len(s.ctrl) >= 3:
+            rep[s.name] = dict(n=len(ctrl), median_east=round(float(np.median(s.ctrl[:, 2])), 1), median_north=round(float(np.median(s.ctrl[:, 3])), 1),
+                               p90_abs=round(float(np.percentile(np.hypot(s.ctrl[:, 2], s.ctrl[:, 3]), 90)), 1))
+        for c in cands.get(s.name, []):
+            e, n = s.local(c["geom"].centroid)
+            if e or n:
+                c["geom"] = shapely.affinity.translate(c["geom"], -e, -n)
+    json.dump(rep, open(E.OUT / "sheet_offsets.json", "w"), indent=1)
+    print("sheet offsets (m):", {k.split("_24000")[0].split("_25000")[0]: (v["n"], v["median_east"], v["median_north"], v["p90_abs"]) for k, v in rep.items()})
+    items = [c for s in sources for c in cands.get(s.name, [])]
     n_map = len(items)
-    osm = osm_piers(boros)
     items += osm
     print(n_map, "map candidates,", len(osm), "OpenStreetMap piers")
 
@@ -263,10 +352,10 @@ def main():
             for k, o in enumerate(sorted(osm_m, key=lambda m: -m["geom"].area)):
                 tracks.append(dict(geom=o["geom"], osm=o, maps=maps if k == 0 else [], borough=o["borough"]))
                 if k == 0 and maps:
-                    bm = max(maps, key=lambda m: m["p"]["rect_fill"] + (0.1 if m["src"].startswith("chart_") else 0.0))
+                    bm = max(maps, key=lambda m: m["p"]["rect_fill"] + (1.0 if m["src"].startswith("chart_") else 0.0))
                     tracks[-1]["map_geom"], tracks[-1]["outline_src"] = rectish(bm["geom"]), bm["src"]
         else:
-            best = max(maps, key=lambda m: m["p"]["rect_fill"] + (0.1 if m["src"].startswith("chart_") else 0.0))
+            best = max(maps, key=lambda m: m["p"]["rect_fill"] + (1.0 if m["src"].startswith("chart_") else 0.0))
             tracks.append(dict(geom=rectish(best["geom"]), osm=None, maps=maps, borough=best["borough"], outline_src=best["src"]))
     print(len(tracks), "tracks,", sum(t["osm"] is not None for t in tracks), "standing")
 
