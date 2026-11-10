@@ -2,22 +2,26 @@
 
 Evidence: the city's two historical aerial mosaics (NYC OTI, "NYC Orthos 1924" and "NYC Orthos
 1951", public hosted tile layers of the city's ArcGIS Online account; see
-data/manual/aerial/README.md for the source, the terms and the validation).
+data/manual/aerial/README.md for the source, the terms, the method and the validation).
 
-One idempotent stage in four steps, each cached:
+One idempotent stage in five steps, each cached under data/raw/aerial and data/interim/aerial:
 
-    python aerial_presence.py tiles      # fetch the z17 tiles under the footprints (cached, never re-fetched)
-    python aerial_presence.py features   # per z14 block: registration offset + per-footprint image features
-    python aerial_presence.py model      # train / validate on the recorded-year buildings (district hold-out)
+    python aerial_presence.py tiles      # fetch the z17 tiles under the footprints (never fetched twice)
+    python aerial_presence.py features   # per z14 block and year: registration shift + image features per footprint
+    python aerial_presence.py synthetic  # the same for outlines moved onto streets ("certainly no building")
+    python aerial_presence.py model      # per year: district hold-out, final model, calibration
     python aerial_presence.py predict    # data/manual/aerial/presence.parquet
-    python aerial_presence.py            # all four
+    python aerial_presence.py            # all five
+    python aerial_presence.py report     # validation and placeholder-year tables -> data/interim/aerial/report.md
 
-Memory: one z14 block (8 x 8 tiles of 256 px, plus a one-tile margin) is processed at a time.
+`features-follow` / `synthetic-follow` run one worker that waits for a running `tiles`; several
+of them can run side by side (lock files). `recover` recomputes the coverage of existing feature
+files (see _cover_job).
+
+Memory: one z14 block (8 x 8 tiles of 256 px plus a 64 px margin) at a time, under 1 GB per process.
 """
 from __future__ import annotations
 
-import io
-import json
 import os
 import math
 import sys
@@ -1226,7 +1230,7 @@ def step_report():
                    f"vs open ground {auc(*[o[o.kind != 'street outline'][c].values.astype(float) for c in ('lab', 'score')]):.3f})\n")
         rows = []
         for key, grp in [("all", o)] + list(o.groupby("bname")) + list(o.groupby("dens")):
-            r = {"group": key, "AUC": auc(grp.lab.values.astype(float), grp.score.values) if grp.lab.nunique() == 2 else np.nan}
+            r = {"group": key, "AUC": f"{auc(grp.lab.values.astype(float), grp.score.values, grp.w.values):.3f}" if grp.lab.nunique() == 2 else ""}
             for kind, nm in (("recorded before", "stood"), ("street outline", "street"), ("open ground", "open")):
                 k = grp[grp.kind == kind]
                 r[f"n {nm}"] = len(k)

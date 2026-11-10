@@ -347,6 +347,18 @@ def main():
     sources = load_sources()
     by_name = {s.name: s for s in sources}
     print(len(sources), "sources:", Counter("chart" if s.chart else E.SHEETS[s.name]["edition"] for s in sources))
+    with open(HERE / "sources_used.csv", "w", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["source", "kind", "label", "content_from", "content_to", "role", "registration", "url"])
+        for s in sorted(sources, key=lambda s: (s.chart, s.lo, s.name)):
+            if s.chart:
+                cid = s.name[6:-4]
+                fit = s.m["fit"][-1]
+                w.writerow([cid, "nautical chart 1:10,000", s.label, s.lo, s.hi, "outlines + presence", f"fitted here, {fit['used']} blocks, rms {fit['rms_m']} m" + ("" if s.trusted else "; then control piers"),
+                            f"https://historicalcharts.noaa.gov/includes/downloadsingle.php?filename={cid}&fileExt=.jpg"])
+            else:
+                w.writerow([s.name.replace("_geo.tif", ""), "USGS topographic sheet", s.label, s.lo, s.hi, "additions only (photorevision / office edit)" if s.positive_only else "outlines + presence",
+                            "sheet georeference (NAD27, NADCON) + control piers", E.SHEETS[s.name]["url"]])
     # 1. candidates
     osm = osm_piers(boros)
     ctx = context()

@@ -103,7 +103,8 @@
    },
    {
     "id": 8550,
-    "sheet": "25"
+    "sheet": "25",
+    "skip": "the Map Warper control points place the plate about 6 km east of the streets its title names; no reliable match to today's streets was found (needs hand control points)"
    },
    {
     "id": 8551,
@@ -127,7 +128,8 @@
    },
    {
     "id": 8556,
-    "sheet": "31"
+    "sheet": "31",
+    "skip": "3 control points; the street match finds the fit 15 m out (median) and no consistent correction"
    }
   ],
   "source_url": "https://digitalcollections.nypl.org/ (Robinson's atlas of Kings County, New York, 1890; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)"
@@ -310,6 +312,7 @@
    "wash_cool": -3.0,
    "street_min_q": 0.25,
    "street_win_m": 300.0
-  }
+  },
+  "frame_yellow": true
  }
 }

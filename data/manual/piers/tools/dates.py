@@ -190,16 +190,21 @@ def segments(t):
                        + (" (its place is land there)" if nw["state"] == "land" else ""))
         elif standing:
             seg.update(end=9999, end_quality="recorded", end_note="stands (OpenStreetMap)")
+        elif a_e >= 2012:
+            seg.update(end=9999, end_quality="estimated", end_note=f"on {last['label']} and no later source without it; not in OpenStreetMap {TODAY}: taken as standing")
         else:
-            seg.update(end=round((a_e + TODAY) / 2, 1), end_quality=quality(a_e, TODAY),
-                       end_note=f"last on {last['label']}; not in OpenStreetMap {TODAY}")
+            seg.update(end=round((a_e + TODAY) / 2, 1), end_quality="estimated",
+                       end_note=f"last on {last['label']}; no later map of its place was read; not in OpenStreetMap {TODAY}: the end year is the middle of {a_e}-{TODAY}")
         segs.append(seg)
     if standing and (not runs or runs[-1][0] == "A"):
         # today's pier is on no map: built after the last source that shows water there
         if runs:
             pw = max(runs[-1][1], key=lambda o: o["lo"])
-            segs.append(dict(obs=[], first=None, last=None, start=round((pw["lo"] + TODAY) / 2, 1), start_quality=quality(pw["lo"], TODAY), start_bound=False,
-                             start_note=f"not on {pw['label']}; in OpenStreetMap {TODAY}", end=9999, end_quality="recorded", end_note="stands (OpenStreetMap)"))
+            L, Wd = dims(t["g"])
+            small = Wd < 12 or t["g"].area < 600
+            segs.append(dict(obs=[], first=None, last=None, start=round((pw["lo"] + TODAY) / 2, 1), start_quality="estimated" if small else quality(pw["lo"], TODAY), start_bound=False,
+                             start_note=f"not on {pw['label']}; in OpenStreetMap {TODAY}" + ("; a small pier that the maps may simply not draw: the year is weak" if small else ""),
+                             end=9999, end_quality="recorded", end_note="stands (OpenStreetMap)"))
         else:
             lands = [o for o in t["obs"] if o["state"] == "land"]
             if lands:                      # a platform or wharf that the maps draw as part of the land
@@ -329,7 +334,10 @@ def main():
                     continue
             geom = t["gw"]
             src_sheet = t.get("outline_src")
-            if t["osm"] is not None and not standing and t.get("map_geom"):
+            if t["osm"] is not None and not standing:
+                if not t.get("map_geom"):
+                    review.append(dict(reason="an earlier pier at a standing pier's place, without an outline of its own", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))
+                    continue
                 geom = shape(t["map_geom"])             # an earlier pier on the site of today's: the outline the maps give
             p = dict(name=(t["osm"]["name"] if t["osm"] and standing else "") or (f"Pier, foot of {street}" if street else ""),
                      start_year=seg["start"], end_year=seg["end"], start_quality=seg["start_quality"], end_quality=seg["end_quality"],
@@ -415,7 +423,7 @@ def main():
             if p.get("shed_start") is not None and not ((p["start_year"] or 0) <= p["shed_start"] < end_):
                 p.pop("shed_start")
             L2, W2 = dims(to_utm(geom))
-            if p["source"] != "osm" and not (L2 >= 1.4 * W2 and W2 <= 105):
+            if p["source"] != "osm" and not (L2 >= 1.45 * W2 and W2 <= 100):
                 review.append(dict(reason="outline not long and thin", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))
                 continue
             if noise:
@@ -459,6 +467,13 @@ def main():
             cw = to_wgs(gs[j].centroid)
             review.append(dict(reason="same spot and years as a better outline", borough=pj["borough"], lon=round(cw.x, 5), lat=round(cw.y, 5)))
     feats = [f for k, f in enumerate(feats) if k not in dead]
+
+    def thin(f):
+        if f["properties"]["source"] == "osm":
+            return True
+        a, b = dims(to_utm(shape(f["geometry"])))
+        return a >= 1.4 * b and b <= 105
+    feats = [f for f in feats if thin(f)]
     # ids, order
     code = {"Manhattan": "mn", "Brooklyn": "bk", "Queens": "qn", "Bronx": "bx", "Staten Island": "si"}
     feats.sort(key=lambda f: (f["properties"]["borough"], round(shape(f["geometry"]).centroid.y, 4), round(shape(f["geometry"]).centroid.x, 4), f["properties"]["start_year"] or 0))

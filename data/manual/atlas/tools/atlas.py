@@ -413,11 +413,28 @@ class Plate:
             xy = xy @ self.corr[0].T + self.corr[1]
         return xy
 
+    def _minv(self, g):
+        """Ground -> pixel as the inverse of the forward fit. warp.py fits the two directions separately; with a
+        spline or 2nd-order model they are not each other's inverse (3-4 m apart on plate 21 of Kings County), so
+        the ground -> pixel fit is only the first guess here and the forward fit is inverted by iteration."""
+        g = np.atleast_2d(g)
+        px = self.m.inv(g)
+        if self.m.model != "affine":
+            if getattr(self, "_Jinv", None) is None:
+                c = self.m.px_all[self.m.keep].mean(0)
+                h = 200.0
+                J = np.column_stack([(self.m.fwd(c + [h, 0]) - self.m.fwd(c - [h, 0]))[0] / (2 * h),
+                                     (self.m.fwd(c + [0, h]) - self.m.fwd(c - [0, h]))[0] / (2 * h)])
+                self._Jinv = np.linalg.inv(J)
+            for _ in range(4):
+                px = px + (g - self.m.fwd(px)) @ self._Jinv.T
+        return px
+
     def inv(self, xy):
         xy = np.atleast_2d(xy)
         if self.corr is not None:
             xy = (xy - self.corr[1]) @ np.linalg.inv(self.corr[0]).T
-        return self.m.inv(xy)
+        return self._minv(xy)
 
     def mask_local(self):
         g = self.m.rec.get("mask")
@@ -434,7 +451,7 @@ class Plate:
             return None
         if grow_m:
             ml = ml.buffer(grow_m)
-        parts = [sg.Polygon(self.m.inv(np.asarray(g.exterior.coords)[:-1])) for g in getattr(ml, "geoms", [ml]) if not g.is_empty]
+        parts = [sg.Polygon(self._minv(np.asarray(g.exterior.coords)[:-1])) for g in getattr(ml, "geoms", [ml]) if not g.is_empty]
         return shapely.union_all([q.buffer(0) for q in parts])
 
     def coverage_local(self):
@@ -551,17 +568,23 @@ def _fit_corr(old, new, tol0=15.0):
     return A, t, kind, res, int(keep.sum())
 
 
-def refine(layer, pid, verbose=True):
+def refine(layer, pid, verbose=True, min_q=None, win_m=None, init_t=None):
     """Correct a plate's control-point fit with the street match, in two passes (search 30 m, then 15 m on the
     corrected fit): an affine correction when at least 10 windows agree, a constant shift when at least 4 do,
     nothing otherwise. Writes <plate>_corr.json (replacing any earlier correction); returns a report."""
     cf = WORK / layer / f"{pid}_corr.json"
     if cf.exists():
         cf.unlink()
+    if init_t is not None:   # a plate the Map Warper placed in the wrong part of town: start from `locate`'s shift
+        (WORK / layer).mkdir(parents=True, exist_ok=True)
+        cf.write_text(json.dumps(dict(A=np.eye(2).tolist(), t=[float(init_t[0]), float(init_t[1])])))
     P = Plate(layer, pid, verbose=False)
-    q, win = P.style.get("street_min_q", 0.4), P.style.get("street_win_m", 400.0)
-    rep = dict(plate=str(pid), gcps=int(P.m.keep.sum()), model=P.m.model, cv_rms=round(P.m.cv_rms, 1), mpp=round(P.m.src_mpp, 3))
-    A, t = np.eye(2), np.zeros(2)
+    q = min_q if min_q is not None else P.style.get("street_min_q", 0.4)
+    win = win_m if win_m is not None else P.style.get("street_win_m", 400.0)
+    rep = dict(plate=str(pid), min_q=q, win_m=win, gcps=int(P.m.keep.sum()), model=P.m.model, cv_rms=round(P.m.cv_rms, 1), mpp=round(P.m.src_mpp, 3))
+    A, t = np.eye(2), (np.zeros(2) if init_t is None else np.array(init_t, float))
+    if init_t is not None:
+        rep["located_shift_m"] = [round(float(v)) for v in init_t]
     wash = None
     for k, search in enumerate((30.0, 15.0)):
         sh = window_shifts(P, search_m=search, min_q=q, win_m=win, F=wash)
@@ -595,6 +618,45 @@ def refine(layer, pid, verbose=True):
     if verbose:
         print(json.dumps(rep), flush=True)
     return rep
+
+
+def locate(layer, pid, search_km=8.0, f=12, verbose=True, hint=None, hint_km=1.0):
+    """Where a plate really lies, when its Map Warper control points put it in the wrong part of town (scale and
+    bearing right, place wrong): the plate's street tint, reduced by f, is matched to today's streets over
+    +- search_km. Returns the ground shift (m) of the best match and its lead over the second best."""
+    from rasterio import features
+    from scipy import signal
+    P = Plate(layer, pid, verbose=False)
+    img = P.img()
+    paper = paper_colour(img, P.inside(img.shape[:2]))
+    F = ndi.gaussian_filter(wash_raster(img, paper, f, P.style.get("wash_cool")), 1.0)
+    k = P.m.src_mpp * f
+    Sx = int(search_km * 1000 / k)
+    H, W = F.shape
+    c0 = P.fwd(np.array([[W * f / 2, H * f / 2]]))[0]
+    names, g = S.roads()
+    b = shapely.bounds(g)
+    r = search_km * 1000 + max(W, H) * k
+    g = g[(b[:, 2] > c0[0] - r) & (b[:, 0] < c0[0] + r) & (b[:, 3] > c0[1] - r) & (b[:, 1] < c0[1] + r)]
+    g = shapely.segmentize(g, 50.0)
+    px = [shapely.LineString(P.inv(shapely.get_coordinates(x)) / f + Sx) for x in g]
+    R = features.rasterize([(x.buffer(max(1.0, 8.0 / k)), 1) for x in px], out_shape=(H + 2 * Sx, W + 2 * Sx), dtype="uint8").astype(np.float32)
+    c = signal.correlate(R - R.mean(), (F - F.mean()) / F.std(), mode="valid", method="fft")
+    if hint is not None:   # look only near an expected ground shift (m), e.g. from the plate's title
+        hp = (P.inv(c0[None] + np.array(hint, float)) - P.inv(c0[None]))[0] / f + Sx
+        yy, xx = np.ogrid[:c.shape[0], :c.shape[1]]
+        c = np.where(np.hypot(xx - hp[0], yy - hp[1]) <= hint_km * 1000 / k, c, -np.inf)
+    j = np.unravel_index(np.argmax(c), c.shape)
+    best = c[j]
+    c2 = c.copy()
+    c2[max(0, j[0] - 15):j[0] + 16, max(0, j[1] - 15):j[1] + 16] = -np.inf
+    lead = float(best / c2.max())
+    dpx = np.array([(j[1] - Sx) * f, (j[0] - Sx) * f], float)
+    ctr = np.array([[W * f / 2, H * f / 2]])
+    t = (P.fwd(ctr + dpx) - P.fwd(ctr))[0]
+    if verbose:
+        print(json.dumps(dict(plate=str(pid), shift_m=[round(float(v)) for v in t], lead_over_second=round(lead, 3))), flush=True)
+    return t, lead
 
 
 def footprints(box_local, pad=30.0):
@@ -899,6 +961,42 @@ def refine_buildings(layer, pid, cell=0.5, win_m=240.0, search_m=6.0, min_q=0.25
     return rep
 
 
+def score_frames(layer, pid, verbose=True):
+    """Yellow strength of every traced frame outline, from the scan: median over the outline's pixels of
+    (b - b_paper) - 3 (a - a_paper). The Bronx atlas washes some lots in a pale olive that passes the pixel
+    threshold for the frame yellow; a building's yellow is stronger and greener (measured on plate 5: buildings
+    11-21, washed lots 5.5-9). Stored on the items as `yellow`; `export` applies the layer's `frame_yellow_min`."""
+    from rasterio import features
+    f = WORK / layer / f"{pid}.pkl"
+    d = pickle.load(open(f, "rb"))
+    P = Plate(layer, pid, verbose=False)
+    img = P.img()
+    paper = paper_colour(img, P.inside(img.shape[:2]))
+    vals = []
+    for o in d["items"]:
+        if o["material"] != "frame":
+            continue
+        q = wkb.loads(o["px"])
+        x0, y0, x1, y1 = [int(v) for v in q.bounds]
+        x0, y0 = max(0, x0 - 1), max(0, y0 - 1)
+        crop = img[y0:y1 + 2, x0:x1 + 2]
+        m = features.rasterize([(shapely.affinity.translate(q, -x0, -y0), 1)], out_shape=crop.shape[:2], dtype="uint8").astype(bool)
+        if m.sum() < 10:
+            continue
+        lab = rgb2lab(crop)[m]
+        lab = lab[lab[:, 0] > 55]                      # not the figures written on it
+        if len(lab) < 10:
+            continue
+        o["yellow"] = float(np.median((lab[:, 2] - paper[2]) - 3.0 * (lab[:, 1] - paper[1])))
+        vals.append((o["yellow"], o["area"]))
+    pickle.dump(d, open(f, "wb"))
+    v = np.array(vals).reshape(-1, 2)
+    if verbose and len(v):
+        print(pid, "frame", len(v), "yellow p5/25/50/75", np.round(np.percentile(v[:, 0], [5, 25, 50, 75]), 1),
+              "| < 8:", int((v[:, 0] < 8).sum()), "8-10:", int(((v[:, 0] >= 8) & (v[:, 0] < 10)).sum()), "10-12:", int(((v[:, 0] >= 10) & (v[:, 0] < 12)).sum()),
+              "| area > 600 m2:", int((v[:, 1] > 600).sum()), "of them < 10:", int(((v[:, 1] > 600) & (v[:, 0] < 10)).sum()), flush=True)
+
+
 # --------------------------------------------------------------------------------------------- export
 def _ll(geom, nd=7):
     return shapely.transform(geom, lambda c: np.round(np.column_stack(S.lonlat(c[:, 0], c[:, 1])), nd))
@@ -914,6 +1012,9 @@ def export(layer, max_off=8.0):
     acc = []                                                  # accepted polygons (local metres)
     for pl in spec["plates"]:
         f = WORK / layer / f"{pl['id']}.pkl"
+        if pl.get("skip"):
+            rep.append(dict(plate=str(pl["id"]), sheet=pl["sheet"], status="left out: " + pl["skip"]))
+            continue
         if not f.exists():
             rep.append(dict(plate=str(pl["id"]), sheet=pl["sheet"], status="not traced"))
             continue
@@ -940,6 +1041,27 @@ def export(layer, max_off=8.0):
                 keep[k] = False
                 lettering += 1
         st["lettering_dropped"] = lettering
+        # county plates: pieces of carmine property band read as brick are ragged or long; a brick building is
+        # kept only if it is 50 m2 or more and fills 80 % of its rectangle
+        bands = 0
+        if spec["style"] == "robinson_300ft":
+            for k, (o, g) in enumerate(zip(d["items"], polys)):
+                if keep[k] and o["material"] == "brick" and (g.area < 50.0 or g.area < 0.8 * g.minimum_rotated_rectangle.area):
+                    keep[k] = False
+                    bands += 1
+        st["band_pieces_dropped"] = bands
+        # frame outlines of weak yellow (score_frames): washed lots, stains. The scores of a plate fall in two
+        # groups with a gap at 8-10; the cut is 9.5, or 8 on a plate whose buildings are pale (median under 13).
+        washed = 0
+        ys = np.array([o.get("yellow", np.nan) if o["material"] == "frame" else np.nan for o in d["items"]])
+        if spec.get("frame_yellow") and np.isfinite(ys).any():
+            hi = ys[np.isfinite(ys) & (ys >= 8)]
+            cut = 8.0 if (len(hi) and np.median(hi) < 13) else 9.5
+            for k in np.flatnonzero(np.isfinite(ys) & (ys < cut) & keep):
+                keep[k] = False
+                washed += 1
+            st["yellow_cut"] = cut
+        st["washed_dropped"] = washed
         n0 = len(feats)
         for k, (o, g) in enumerate(zip(d["items"], polys)):
             if not keep[k]:
@@ -952,7 +1074,7 @@ def export(layer, max_off=8.0):
                 id=f"{spec['source']}_{pl['sheet']}_{k}", map_year=spec["map_year"], material=o["material"],
                 source=spec["source"], sheet=pl["sheet"], plate=int(pl["id"]), area_m2=round(g.area, 1),
                 on_today=bool(o.get("iou", 0) > 0.5), today_cover=round(o.get("cover", 0.0), 2)), geometry=sg.mapping(_ll(g))))
-        st["exported"], st["duplicates_dropped"], st["status"] = len(feats) - n0, int((~keep).sum()) - lettering, "ok"
+        st["exported"], st["duplicates_dropped"], st["status"] = len(feats) - n0, int((~keep).sum()) - lettering - washed - bands, "ok"
         for m_ in ("frame", "brick", "stone"):
             st[m_] = sum(f["properties"]["material"] == m_ for f in feats[n0:])
         st["coincide"] = sum(f["properties"]["on_today"] for f in feats[n0:])
@@ -1022,7 +1144,9 @@ def readme_tables():
 
 
 # --------------------------------------------------------------------------------------------- pictures
-def overlay(layer, pid, cx, cy, size_m, out_png, px=False, scale=3):
+def overlay(layer, pid, cx, cy, size_m, out_png, px=False, scale=3, final=False):
+    """Plate crop with outlines and today's footprints. final=True draws the exported layer (what the pipeline
+    gets, after the export's filters) instead of tracing the window afresh."""
     P = Plate(layer, pid, verbose=False)
     img = P.img()
     if not px:
@@ -1031,8 +1155,21 @@ def overlay(layer, pid, cx, cy, size_m, out_png, px=False, scale=3):
         u, v = cx, cy
     h = size_m / P.m.src_mpp / 2
     x0, y0, x1, y1 = int(max(0, u - h)), int(max(0, v - h)), int(min(img.shape[1], u + h)), int(min(img.shape[0], v + h))
-    P, items, stats, c = trace(layer, pid, save=False, verbose=False, window=(x0 - 60, y0 - 60, x1 + 60, y1 + 60))
-    print(json.dumps(stats))
+    if final:
+        fc = json.loads((OUT / f"{layer}.geojson").read_text())
+        items = []
+        for ft in fc["features"]:
+            if ft["properties"]["plate"] != int(pid):
+                continue
+            c_ = np.asarray(ft["geometry"]["coordinates"][0])
+            q = sg.Polygon(P.inv(np.column_stack(S.local(c_[:, 0], c_[:, 1]))))
+            if q.bounds[2] < x0 or q.bounds[0] > x1 or q.bounds[3] < y0 or q.bounds[1] > y1:
+                continue
+            items.append(dict(material=ft["properties"]["material"], px=wkb.dumps(q), iou=1.0 if ft["properties"]["on_today"] else 0.0))
+        print("exported outlines in the window:", len(items))
+    else:
+        P, items, stats, c = trace(layer, pid, save=False, verbose=False, window=(x0 - 60, y0 - 60, x1 + 60, y1 + 60))
+        print(json.dumps(stats))
     im = Image.fromarray(img[y0:y1, x0:x1]).resize(((x1 - x0) * scale, (y1 - y0) * scale), Image.LANCZOS)
     d = ImageDraw.Draw(im, "RGBA")
     corners = P.fwd(np.array([[x0, y0], [x1, y0], [x1, y1], [x0, y1]], float))
@@ -1073,9 +1210,20 @@ if __name__ == "__main__":
         for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
             Plate(a[1], pid, verbose=False).fetch()
     elif a[0] == "refine":
-        for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
+        # optional: --q 0.25 --win 300 (a looser match for plates where the standard one finds too few windows)
+        kw = {}
+        if "--q" in a:
+            kw["min_q"] = float(a[a.index("--q") + 1])
+        if "--win" in a:
+            kw["win_m"] = float(a[a.index("--win") + 1])
+        ids = [v for i, v in enumerate(a[2:], 2) if v.isdigit() and not a[i - 1].startswith("--")]
+        for pid in (ids or [p["id"] for p in layers()[a[1]]["plates"]]):
             try:
-                refine(a[1], pid)
+                if "--locate" in a:   # first find the plate (see locate); --hint dx,dy in metres
+                    hint = [float(v) for v in a[a.index("--hint") + 1].split(",")] if "--hint" in a else None
+                    t0, lead = locate(a[1], pid, hint=hint)
+                    kw["init_t"] = t0
+                refine(a[1], pid, **kw)
             except Exception as e:  # noqa
                 print(json.dumps(dict(plate=str(pid), error=str(e))), flush=True)
     elif a[0] == "refine_buildings":
@@ -1084,6 +1232,9 @@ if __name__ == "__main__":
     elif a[0] == "regeo":
         for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
             regeo(a[1], pid)
+    elif a[0] == "score_frames":
+        for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
+            score_frames(a[1], pid)
     elif a[0] == "export":
         export(a[1])
     elif a[0] == "readme":
@@ -1094,6 +1245,6 @@ if __name__ == "__main__":
     elif a[0] == "overlay":
         cx, cy = [float(v) for v in a[3].split(",")]
         sc = int(a[a.index("--scale") + 1]) if "--scale" in a else 3
-        overlay(a[1], a[2], cx, cy, float(a[4]), a[5], px="--px" in a, scale=sc)
+        overlay(a[1], a[2], cx, cy, float(a[4]), a[5], px="--px" in a, scale=sc, final="--final" in a)
     elif a[0] == "colours":
         colours(a[1], a[2], [int(v) for v in a[3].split(",")], a[4])

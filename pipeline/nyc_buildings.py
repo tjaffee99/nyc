@@ -58,7 +58,10 @@ CORE_BORO = "1"  # Manhattan ships as one file
 NOW = 2026.5
 ROOT_MANUAL = INTERIM.parent / "manual"
 # aerial_presence.py probabilities that count as evidence (its README gives the error rates)
-AERIAL_THERE, AERIAL_ABSENT = 0.85, 0.10
+# (data/manual/aerial/README.md: "stood" is right 94-96 % of the time at these thresholds,
+# "open ground" 94-98 %)
+AERIAL_THERE = {1924: 0.8, 1951: 0.7}
+AERIAL_ABSENT = {1924: 0.1, 1951: 0.1}
 # feature codes kept (metadata: 1003 = placeholder triangle, 1005 = temporary structure)
 KEEP_CODES = {2100, 5110, 5100, 1000, 1001, 1002, 1004, 1006, 2110}
 COLS = ["start_year", "end_year", "height", "base", "year_confidence", "use", "raw_year", "stories", "mat", "roof",
@@ -274,19 +277,25 @@ def fill_estimates(xy, year, raw, is_heap, H, keys, src, lo=None, hi=None, ev=No
             med = np.nanmedian(v, axis=1)
         return np.where(cnt >= 2, med, np.nan)
 
-    # heaps up to 1901: "by then"
-    early = np.nonzero(is_heap & ~recorded & (raw <= 1901))[0]
+    # heaps up to 1901: "by then". So is 1931: on the 1924 photographs the buildings carrying
+    # it are as old as those carrying 1905-1915 (data/research/aerial_years.md)
+    by_heap = (raw <= 1901) | (raw == 1931)
+    early = np.nonzero(is_heap & ~recorded & by_heap)[0]
     if len(early):
         up = np.fmin(raw[early] + 1.0, hi[early])
         lo_e = np.maximum(floor[early], YEAR_MIN)
         med = neighbours(early, 12, 150.0, lo_e, up)
         spread = up - 1.0 - 25.0 * (1 - np.sqrt((hb[early] + 0.3 * hl[early]) % 1.0))
-        year[early] = np.maximum(np.where(np.isfinite(med), med + (hl[early] - 0.5) * 5.0, spread), lo_e)
-        year[early] = np.minimum(year[early], up)
+        y_e = np.where(np.isfinite(med), med + (hl[early] - 0.5) * 5.0, spread)
+        # (evidence that it was not there yet: between that and the bound, not stacked on it)
+        pushed = y_e < lo_e
+        y_e = np.where(pushed, np.where(up > lo_e, lo_e + (up - lo_e) * hl[early], lo_e + 0.2 + 5.0 * hl[early]), y_e)
+        year[early] = np.where(up > lo_e, np.minimum(y_e, up), y_e)
         src_by = np.where(hi[early] < raw[early], "evidence_by:" + ev[early].astype(str), "")
         src[early] = np.where(src_by != "", src_by, np.where(np.isfinite(med), "heap_by+neighbours", "heap_by+spread"))
+        src[early] = np.where(pushed & (ev[early].astype(str) != "") & np.isfinite(lo[early]), "evidence_after:" + ev[early].astype(str), src[early])
     # later heaps: "about then"
-    late = np.nonzero(is_heap & ~recorded & (raw > 1901))[0]
+    late = np.nonzero(is_heap & ~recorded & ~by_heap)[0]
     if len(late):
         v = raw[late]
         med = neighbours(late, 8, 100.0, v - 5.0, v + 5.0)
@@ -299,7 +308,8 @@ def fill_estimates(xy, year, raw, is_heap, H, keys, src, lo=None, hi=None, ev=No
         spread = w0 + (w1 - w0) * ((hb[late] + 0.3 * hl[late]) % 1.0)
         # (around the local median, +/- 2.5 years: the median alone stacks a district on one year)
         year[late] = np.where(np.isfinite(med), np.clip(med + (hl[late] - 0.5) * 5.0, v - 5.0, v + 5.0), spread)
-        year[late] = np.maximum(year[late], floor[late])
+        # (not there yet on a photograph, too tall for its year: over the five years after, not stacked)
+        year[late] = np.where(year[late] < floor[late], floor[late] + 0.2 + 5.0 * ((hb[late] + 0.3 * hl[late]) % 1.0), year[late])
         src[late] = np.where(np.isfinite(med), "heap_about+neighbours", "heap_about+spread")
         # evidence beats the assessor's rounded year: standing before its window (a photograph,
         # a map shows it), or not yet there after it
@@ -332,7 +342,9 @@ def fill_estimates(xy, year, raw, is_heap, H, keys, src, lo=None, hi=None, ev=No
                     est[tall] = np.nanmedian(v, axis=1)
         d1, j1 = tree.query(xy[miss], k=1)
         est = np.where(np.isfinite(est), est, np.clip(ry[j1], lo_m, hi_m))
-        year[miss] = np.clip(est + (hl[miss] - 0.5), lo_m, hi_m)
+        y_m = est + (hl[miss] - 0.5)
+        y_m = np.where(y_m < lo_m, lo_m + 0.2 + 5.0 * hl[miss], y_m)
+        year[miss] = np.clip(y_m, lo_m, hi_m)
         src[miss] = "neighbours"
     return year, src
 
@@ -340,7 +352,8 @@ def fill_estimates(xy, year, raw, is_heap, H, keys, src, lo=None, hi=None, ev=No
 def evidence_bounds(g):
     """Per footprint: (not before, standing by, what says so) from independent evidence.
       * data/manual/aerial/presence.parquet (aerial_presence.py): the 1924 and 1951 aerial
-        mosaics — a building standing on the outline (p >= 0.85) or none (p <= 0.1);
+        mosaics — a building standing on the outline or none (thresholds: AERIAL_THERE /
+        AERIAL_ABSENT; where each call may be used: below);
       * data/manual/farmsteads/farmsteads.geojson (topo_farmsteads.py): a standing building
         under a mark of an 1890s USGS sheet stood when it was surveyed.
     NaN / inf where there is none."""
@@ -353,18 +366,23 @@ def evidence_bounds(g):
     if p.exists():
         a = pd.read_parquet(p)
         a = a.assign(doitt_id=a.doitt_id.astype(str)).drop_duplicates("doitt_id").set_index("doitt_id").reindex(did)
-        for yr in (1951, 1924):   # the earlier photograph last, so it wins "standing by"
-            if f"p{yr}" not in a:
-                continue
-            pv = a[f"p{yr}"].values.astype(float)
-            there = pv >= AERIAL_THERE
+        p24 = a.p1924.values.astype(float) if "p1924" in a else np.full(n, np.nan)
+        p51 = a.p1951.values.astype(float) if "p1951" in a else np.full(n, np.nan)
+        share = a.built_share_50m.values.astype(float) if "built_share_50m" in a else np.full(n, 0.3)
+        boro = g.boro.astype(str).values
+        # a building on the outline in the photograph is today's building only where
+        # replacement is unlikely: outside Manhattan and outside the dense blocks. Open
+        # ground is not called in open country or on Staten Island (isolated houses are
+        # missed there). Contradictory pairs (there in 1924, gone in 1951) say nothing.
+        clash = (p24 >= AERIAL_THERE[1924]) & (p51 <= 0.2)
+        may_there = (boro != "1") & (share <= 0.45) & ~clash
+        may_absent = (share >= 0.15) & (boro != "5") & ~clash
+        for yr, pv in ((1951, p51), (1924, p24)):   # the earlier photograph last, so it wins "standing by"
+            there = (pv >= AERIAL_THERE[yr]) & may_there
             hi = np.where(there, np.minimum(hi, float(yr)), hi)
             ev = np.where(there, f"aerial{yr}", ev)
-        for yr in (1924, 1951):   # the later photograph last, so it wins "not before"
-            if f"p{yr}" not in a:
-                continue
-            pv = a[f"p{yr}"].values.astype(float)
-            absent = (pv <= AERIAL_ABSENT) & ~(hi <= yr)
+        for yr, pv in ((1924, p24), (1951, p51)):   # the later photograph last, so it wins "not before"
+            absent = (pv <= AERIAL_ABSENT[yr]) & may_absent & ~(hi <= yr)
             lo = np.where(absent, np.fmax(lo, yr + 0.3), lo)
             ev = np.where(absent & (ev == ""), f"aerial{yr}", ev)
         log(f"buildings: aerial evidence: standing by 1924 {int((hi <= 1924).sum())}, by 1951 {int((hi <= 1951).sum())}, "

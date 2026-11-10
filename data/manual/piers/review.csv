@@ -1,26 +1,35 @@
 reason,borough,lon,lat
 "one sighting, ragged outline",Staten Island,-74.16554,40.6419
 "one sighting, ragged outline",Staten Island,-74.1255,40.63883
+outline not long and thin,Staten Island,-74.12649,40.63874
+outline not long and thin,Staten Island,-74.17766,40.64312
+outline not long and thin,Staten Island,-74.13325,40.64172
 "one sighting, ragged outline",Staten Island,-74.2005,40.63106
 "one sighting, ragged outline",Staten Island,-74.2005,40.63106
 on land older than itself (terrain grid),Manhattan,-74.01016,40.74447
 on land older than itself (terrain grid),Manhattan,-74.0109,40.74255
 on land older than itself (terrain grid),Manhattan,-74.01079,40.74146
-on land older than itself (terrain grid),Manhattan,-74.01079,40.74146
 on land older than itself (terrain grid),Manhattan,-74.0119,40.73622
 "one sighting (USGS Jersey City 1:24000 1947 (photographs 1940)) against C&GS / NOAA chart 745, 1944 edition",Manhattan,-74.01134,40.73509
 on land older than itself (terrain grid),Manhattan,-74.01134,40.73509
-"one sighting (C&GS / NOAA chart 745, 1967 edition) against USGS Jersey City 1:24000 1967 (photographs 1966)",Manhattan,-74.01527,40.71819
 "one sighting (USGS Jersey City 1:24000 1967 (photographs 1966)) against C&GS / NOAA chart 745, 1967 edition",Manhattan,-74.017,40.71097
 "one sighting, ragged outline",Manhattan,-74.01483,40.6999
 "one sighting (USGS Jersey City 1:24000 1947 (photographs 1940)) against C&GS / NOAA chart 745, 1944 edition",Manhattan,-74.02235,40.68424
-on land older than itself (terrain grid),Brooklyn,-74.01887,40.67134
-on land older than itself (terrain grid),Brooklyn,-74.01887,40.67134
+"one sighting, ragged outline",Brooklyn,-74.01207,40.68332
 "one sighting, ragged outline",Brooklyn,-74.0164,40.66703
-"one sighting (USGS Jersey City 1:24000 1947 (photographs 1940)) against C&GS / NOAA chart 541, 1942 edition",Brooklyn,-74.0256,40.6491
-"one sighting (USGS Jersey City 1:24000 1947 (photographs 1940)) against C&GS / NOAA chart 541, 1942 edition",Staten Island,-74.07751,40.64832
-"one sighting (USGS Jersey City 1:24000 1967 (photographs 1966)) against C&GS / NOAA chart 541, 1966 edition",Brooklyn,-74.03276,40.64481
-"one sighting, ragged outline",Brooklyn,-74.03941,40.63548
+outline not long and thin,Brooklyn,-74.01408,40.66126
+outline not long and thin,Brooklyn,-74.01408,40.66126
+"one sighting (USGS Jersey City 1:24000 1947 (photographs 1940)) against C&GS / NOAA chart 541, 1942 edition",Staten Island,-74.08216,40.6491
+"one sighting (USGS Jersey City 1:24000 1947 (photographs 1940)) against C&GS / NOAA chart 541, 1942 edition",Staten Island,-74.08007,40.64889
+"one sighting (USGS Jersey City 1:24000 1947 (photographs 1940)) against C&GS / NOAA chart 541, 1942 edition",Staten Island,-74.07754,40.64832
+"one sighting (USGS Jersey City 1:24000 1955 (photographs 1954)) against C&GS / NOAA chart 541, 1957 edition",Staten Island,-74.07745,40.64797
+"one sighting (USGS Jersey City 1:24000 1947 (photographs 1940)) against C&GS / NOAA chart 541, 1942 edition",Staten Island,-74.07401,40.64574
+outline not long and thin,Staten Island,-74.09884,40.6455
+outline not long and thin,Staten Island,-74.09884,40.6455
+"one sighting (USGS Jersey City 1:24000 1947 (photographs 1940)) against C&GS / NOAA chart 541, 1942 edition",Brooklyn,-74.03277,40.64481
+"one sighting (USGS Jersey City 1:24000 1967 (photographs 1966)) against C&GS / NOAA chart 541, 1966 edition",Brooklyn,-74.03277,40.64481
+outline not long and thin,Staten Island,-74.11147,40.64503
+"one sighting, ragged outline",Brooklyn,-74.03948,40.6355
 on land older than itself (terrain grid),Manhattan,-74.01166,40.73725
 on land older than itself (terrain grid),Manhattan,-74.01366,40.70065
 on land older than itself (terrain grid),Manhattan,-74.01366,40.70065
@@ -36,44 +45,48 @@ on land older than itself (terrain grid),Manhattan,-74.01366,40.70065
 "one sighting (USGS Jersey City 1:24000 1955 (photographs 1954)) against C&GS / NOAA chart 541, 1957 edition",Brooklyn,-74.02446,40.65762
 "one sighting, ragged outline",Brooklyn,-74.02424,40.6566
 "one sighting (USGS Jersey City 1:24000 1967 (photographs 1966)) against C&GS / NOAA chart 541, 1966 edition",Brooklyn,-74.02591,40.65084
-"one sighting, ragged outline",Staten Island,-74.08523,40.64904
-"one sighting, ragged outline",Staten Island,-74.08032,40.64857
-"one sighting, ragged outline",Staten Island,-74.09696,40.64794
+"one sighting, ragged outline",Staten Island,-74.08524,40.64907
+"one sighting, ragged outline",Staten Island,-74.0803,40.64859
+"one sighting, ragged outline",Staten Island,-74.09696,40.648
 "one sighting, ragged outline",Brooklyn,-74.02929,40.64512
 "one sighting (USGS Jersey City 1:24000 1955 (photographs 1954)) against C&GS / NOAA chart 541, 1957 edition",Brooklyn,-74.03319,40.64423
 "one sighting (USGS Jersey City 1:24000 1967 (photographs 1966)) against C&GS / NOAA chart 541, 1966 edition",Brooklyn,-74.03319,40.64423
 "one sighting, ragged outline",Brooklyn,-74.03691,40.64295
 "one sighting, ragged outline",Brooklyn,-74.03889,40.63938
+outline not long and thin,Staten Island,-74.07199,40.62782
 "one sighting (USGS Jersey City 1:24000 1967 (photographs 1966)) against C&GS / NOAA chart 745, 1967 edition",Manhattan,-74.01631,40.71133
-"one sighting, ragged outline",Manhattan,-74.01598,40.70102
+"one sighting, ragged outline",Manhattan,-74.01601,40.70102
 on land older than itself (terrain grid),Manhattan,-74.01318,40.70014
-"one sighting, ragged outline",Manhattan,-74.01646,40.69368
+"one sighting, ragged outline",Manhattan,-74.01648,40.69368
 "one sighting, ragged outline",Brooklyn,-74.01272,40.68382
 "one sighting, ragged outline",Brooklyn,-74.01311,40.68097
 "one sighting, ragged outline",Brooklyn,-74.03277,40.64462
+"one sighting, ragged outline",Brooklyn,-74.03277,40.64462
 "one sighting, ragged outline",Brooklyn,-74.03611,40.64269
-"one sighting (USGS Jersey City 1:24000 1947 (photographs 1940)) against C&GS / NOAA chart 541, 1942 edition",Brooklyn,-74.03991,40.63323
 "one sighting (USGS Jersey City 1:24000 1967 (photographs 1966)) against C&GS / NOAA chart 541, 1966 edition",Brooklyn,-74.03991,40.63323
-"one sighting (USGS Weehawken 1:24000 1935) against C&GS / NOAA chart 745, 1931 edition",Manhattan,-73.99943,40.76372
+"one sighting (USGS Weehawken 1:24000 1935) against C&GS / NOAA chart 745, 1931 edition",Manhattan,-73.9994,40.7637
+on land older than itself (terrain grid),Manhattan,-73.9994,40.7637
+outline not long and thin,Manhattan,-73.9994,40.7637
 "one sighting (C&GS / NOAA chart 745, 1944 edition) against USGS Weehawken 1:25000 1947",Manhattan,-74.00295,40.76247
 "one sighting (USGS Weehawken 1:24000 1935) against C&GS / NOAA chart 745, 1931 edition",Manhattan,-74.003,40.76292
 "one sighting (USGS Weehawken 1:24000 1955) against C&GS / NOAA chart 745, 1959 edition",Manhattan,-74.00446,40.76014
 "one sighting (USGS Weehawken 1:24000 1995) against C&GS / NOAA chart 12335, 1994 edition",Manhattan,-74.00446,40.76014
 "one sighting (C&GS / NOAA chart 745, 1944 edition) against USGS Weehawken 1:25000 1947",Manhattan,-74.00991,40.75148
+outline not long and thin,Bronx,-73.91808,40.89469
 "one sighting, ragged outline",Staten Island,-74.13833,40.54466
 "one sighting (USGS Brooklyn 1:24000 1947 (photographs 1940)) against C&GS / NOAA chart 745, 1944 edition",Manhattan,-73.97289,40.73772
 on land older than itself (terrain grid),Manhattan,-73.97289,40.73772
-on land older than itself (terrain grid),Manhattan,-73.98541,40.7095
 on land older than itself (terrain grid),Manhattan,-73.98459,40.70949
 "one sighting (C&GS / NOAA chart 12334, 1982 edition) against C&GS / NOAA chart 12335, 1986 edition",Brooklyn,-73.99782,40.7011
 never a pier on any source,Brooklyn,-73.89422,40.64335
 never a pier on any source,Brooklyn,-73.8772,40.634
 "one sighting, ragged outline",Brooklyn,-73.88323,40.62762
 "one sighting, ragged outline",Manhattan,-73.97002,40.74472
-"one sighting (USGS Brooklyn 1:24000 1956) against C&GS / NOAA chart 745, 1959 edition",Queens,-73.9603,40.74367
+"one sighting (USGS Brooklyn 1:24000 1956) against C&GS / NOAA chart 745, 1959 edition",Queens,-73.9603,40.74368
 "one sighting, ragged outline",Manhattan,-73.9706,40.72926
 on land older than itself (terrain grid),Brooklyn,-73.96141,40.72598
-on land older than itself (terrain grid),Brooklyn,-73.96141,40.72598
+outline not long and thin,Brooklyn,-73.96141,40.72598
+outline not long and thin,Brooklyn,-73.96141,40.72598
 "one sighting, ragged outline",Queens,-73.92123,40.72364
 "one sighting, ragged outline",Brooklyn,-73.9699,40.71139
 on land older than itself (terrain grid),Manhattan,-73.98251,40.70985
@@ -84,6 +97,7 @@ outline not long and thin,Manhattan,-73.99849,40.70747
 "one sighting, ragged outline",Manhattan,-73.90969,40.87231
 "one sighting, ragged outline",Manhattan,-73.93266,40.86866
 "one sighting, ragged outline",Bronx,-73.90132,40.80057
+outline not long and thin,Bronx,-73.9004,40.79951
 "one sighting, ragged outline",Bronx,-73.91176,40.7966
 "one sighting, ragged outline",Manhattan,-73.98577,40.78571
 "one sighting, ragged outline",Queens,-73.92658,40.77972
@@ -94,9 +108,12 @@ outline not long and thin,Manhattan,-73.99849,40.70747
 "one sighting (USGS Central Park 1:24000 1995 (photographs 1997)) against C&GS / NOAA chart 12335, 1994 edition",Manhattan,-73.95225,40.75636
 "one sighting, ragged outline",Manhattan,-73.93466,40.83123
 "one sighting, ragged outline",Manhattan,-73.93423,40.82885
+outline not long and thin,Manhattan,-73.93359,40.81945
+outline not long and thin,Bronx,-73.93297,40.80748
 "one sighting, ragged outline",Manhattan,-73.97766,40.79695
 "one sighting, ragged outline",Bronx,-73.8767,40.7939
 "one sighting, ragged outline",Queens,-73.88047,40.78083
+outline not long and thin,Queens,-73.93382,40.77857
 "one sighting, ragged outline",Queens,-73.93736,40.77606
 "one sighting, ragged outline",Queens,-73.93667,40.77211
 "one sighting, ragged outline",Queens,-73.93646,40.76976
@@ -107,7 +124,10 @@ outline not long and thin,Manhattan,-73.99849,40.70747
 "one sighting, ragged outline",Manhattan,-73.95021,40.75704
 "one sighting, ragged outline",Queens,-73.95062,40.75629
 "one sighting (USGS Central Park 1:24000 1995 (photographs 1997)) against C&GS / NOAA chart 12335, 1994 edition",Manhattan,-73.95486,40.75474
+outline not long and thin,Bronx,-73.89638,40.8011
+outline not long and thin,Bronx,-73.88234,40.79551
 "one sighting, ragged outline",Queens,-73.89759,40.78682
+outline not long and thin,Bronx,-73.91295,40.86379
 "one sighting, ragged outline",Bronx,-73.92253,40.85457
 "one sighting, ragged outline",Bronx,-73.92367,40.85302
 "one sighting, ragged outline",Bronx,-73.93151,40.8409
@@ -122,9 +142,12 @@ outline not long and thin,Manhattan,-73.99849,40.70747
 "one sighting, ragged outline",Brooklyn,-73.88878,40.6124
 "one sighting, ragged outline",Brooklyn,-73.91688,40.60885
 "one sighting, ragged outline",Brooklyn,-73.89426,40.60612
+outline not long and thin,Queens,-73.84288,40.62046
 "one sighting, ragged outline",Queens,-73.77842,40.61724
 "one sighting, ragged outline",Queens,-73.83815,40.61734
+outline not long and thin,Brooklyn,-73.86916,40.60992
 never a pier on any source,Queens,-73.80634,40.60794
+outline not long and thin,Queens,-73.7883,40.60465
 "one sighting, ragged outline",Queens,-73.8244,40.57971
 "one sighting, ragged outline",Queens,-73.78696,40.62501
 "one sighting, ragged outline",Queens,-73.81265,40.62245
@@ -133,6 +156,7 @@ never a pier on any source,Queens,-73.80634,40.60794
 "one sighting, ragged outline",Queens,-73.78521,40.60176
 never a pier on any source,Bronx,-73.82873,40.86541
 "one sighting, ragged outline",Bronx,-73.79147,40.86616
+outline not long and thin,Bronx,-73.77253,40.85409
 "one sighting, ragged outline",Bronx,-73.78133,40.84731
 "one sighting, ragged outline",Bronx,-73.78071,40.84111
 "one sighting, ragged outline",Bronx,-73.81592,40.83659
@@ -152,11 +176,14 @@ on land older than itself (terrain grid),Queens,-73.84232,40.79494
 "one sighting, ragged outline",Queens,-73.83159,40.77642
 on land older than itself (terrain grid),Bronx,-73.79177,40.85719
 "one sighting, ragged outline",Bronx,-73.78774,40.85378
+outline not long and thin,Bronx,-73.79721,40.85227
 "one sighting, ragged outline",Bronx,-73.81587,40.83446
 "one sighting, ragged outline",Bronx,-73.81587,40.83317
 "one sighting, ragged outline",Bronx,-73.81356,40.82576
 "one sighting, ragged outline",Bronx,-73.80468,40.81939
 "one sighting, ragged outline",Bronx,-73.8054,40.81527
+outline not long and thin,Bronx,-73.87114,40.81289
+outline not long and thin,Bronx,-73.80319,40.81234
 "one sighting, ragged outline",Bronx,-73.8221,40.81262
 "one sighting, ragged outline",Bronx,-73.84102,40.81207
 "one sighting, ragged outline",Bronx,-73.83859,40.80685
@@ -185,10 +212,13 @@ never a pier on any source,Queens,-73.81856,40.65045
 never a pier on any source,Queens,-73.81785,40.64955
 "one sighting, ragged outline",Brooklyn,-73.86826,40.64849
 "one sighting, ragged outline",Brooklyn,-73.87426,40.64724
+outline not long and thin,Queens,-73.81753,40.66142
 "one sighting, ragged outline",Queens,-73.83688,40.652
 never a pier on any source,Queens,-73.83704,40.6331
+outline not long and thin,Queens,-73.83626,40.6329
 "one sighting, ragged outline",Queens,-73.75407,40.6329
 "one sighting, ragged outline",Queens,-73.81694,40.62537
+outline not long and thin,Brooklyn,-73.8741,40.6474
 "one sighting, ragged outline",Queens,-73.80561,40.64122
 "one sighting, ragged outline",Queens,-73.82769,40.63599
 "one sighting, ragged outline",Bronx,-73.79123,40.88079
@@ -197,6 +227,7 @@ never a pier on any source,Bronx,-73.82633,40.88206
 never a pier on any source,Bronx,-73.82828,40.87891
 never a pier on any source,Bronx,-73.83065,40.87648
 "one sighting, ragged outline",Brooklyn,-74.03704,40.60727
+on land older than itself (terrain grid),Staten Island,-74.06607,40.61818
 "one sighting, ragged outline",Brooklyn,-74.03471,40.60714
 "one sighting, ragged outline",Staten Island,-74.05297,40.60292
 "one sighting, ragged outline",Brooklyn,-74.02353,40.60341
@@ -205,39 +236,36 @@ never a pier on any source,Bronx,-73.83065,40.87648
 "one sighting, ragged outline",Brooklyn,-74.04185,40.6169
 "one sighting, ragged outline",Brooklyn,-74.0418,40.61639
 "one sighting, ragged outline",Staten Island,-74.05038,40.60385
+"one sighting, ragged outline",Staten Island,-74.05613,40.60726
 "one sighting, ragged outline",Brooklyn,-74.0342,40.6065
 "one sighting, ragged outline",Brooklyn,-74.02156,40.60315
 "one sighting, ragged outline",Staten Island,-74.05198,40.57889
-"one sighting, ragged outline",Staten Island,-74.0733,40.64508
-on land older than itself (terrain grid),Manhattan,-74.01273,40.70039
+"one sighting, ragged outline",Staten Island,-74.07331,40.64508
 on land older than itself (terrain grid),Manhattan,-74.01273,40.70039
 "one sighting (C&GS / NOAA chart 745, 1944 edition) against USGS Jersey City 1:24000 1947 (photographs 1940)",Manhattan,-74.02046,40.68501
-on land older than itself (terrain grid),Manhattan,-74.01014,40.74134
-on land older than itself (terrain grid),Manhattan,-74.01014,40.74134
-on land older than itself (terrain grid),Manhattan,-74.01014,40.74134
-on land older than itself (terrain grid),Brooklyn,-73.96487,40.72025
 on land older than itself (terrain grid),Manhattan,-74.01078,40.73824
-on land older than itself (terrain grid),Manhattan,-74.01078,40.73824
+on land older than itself (terrain grid),Manhattan,-74.01014,40.74134
+on land older than itself (terrain grid),Manhattan,-74.01014,40.74134
+"one sighting, ragged outline",Manhattan,-73.99642,40.76976
 "one sighting (C&GS / NOAA chart 745, 1959 edition) against USGS Central Park 1:24000 1956",Manhattan,-73.96427,40.75226
 on land older than itself (terrain grid),Manhattan,-73.96427,40.75226
-on land older than itself (terrain grid),Manhattan,-73.97042,40.74501
-on land older than itself (terrain grid),Manhattan,-73.97042,40.74501
-"one sighting (C&GS / NOAA chart 745, 1959 edition) against USGS Brooklyn 1:24000 1956",Manhattan,-73.97224,40.74244
+on land older than itself (terrain grid),Manhattan,-73.96938,40.74608
+on land older than itself (terrain grid),Manhattan,-73.96938,40.74608
+on land older than itself (terrain grid),Manhattan,-73.97042,40.74495
+"one sighting (C&GS / NOAA chart 745, 1959 edition) against USGS Brooklyn 1:24000 1956",Manhattan,-73.97224,40.74238
 "one sighting (C&GS / NOAA chart 745, 1959 edition) against USGS Brooklyn 1:24000 1956",Manhattan,-73.9737,40.73733
+outline not long and thin,Manhattan,-73.97365,40.72213
 "one sighting (USGS Brooklyn 1:24000 1967 (photographs 1966)) against C&GS / NOAA chart 745, 1967 edition",Brooklyn,-73.96971,40.71117
 outline not long and thin,Brooklyn,-73.97916,40.70576
 "one sighting (C&GS / NOAA chart 745, 1959 edition) against USGS Brooklyn 1:24000 1956",Brooklyn,-73.97916,40.70576
 outline not long and thin,Brooklyn,-73.97916,40.70576
 "one sighting (C&GS / NOAA chart 745, 1967 edition) against USGS Brooklyn 1:24000 1967 (photographs 1966)",Manhattan,-73.99787,40.70819
-"one sighting (C&GS / NOAA chart 745, 1959 edition) against C&GS / NOAA chart 541, 1957 edition",Manhattan,-74.01277,40.69152
-"one sighting (C&GS / NOAA chart 12334, 1997 edition) against C&GS / NOAA chart 12335, 2001 edition",Manhattan,-74.01277,40.69152
-"one sighting (USGS Jersey City 1:24000 1967 (photographs 1966)) against C&GS / NOAA chart 541, 1966 edition",Manhattan,-74.01881,40.69357
+"one sighting (C&GS / NOAA chart 745, 1931 edition) against C&GS / NOAA chart 541, 1927 edition",Manhattan,-74.0188,40.69355
+"one sighting (USGS Jersey City 1:24000 1967 (photographs 1966)) against C&GS / NOAA chart 541, 1966 edition",Manhattan,-74.0188,40.69355
+"one sighting (USGS Brooklyn 1:24000 1967 (photographs 1966)) against C&GS / NOAA chart 745, 1967 edition",Queens,-73.96042,40.74391
 on land older than itself (terrain grid),Manhattan,-74.00428,40.75879
-never a pier on any source,Manhattan,-74.00911,40.75137
-on land older than itself (terrain grid),Brooklyn,-73.96143,40.72524
 on land older than itself (terrain grid),Brooklyn,-73.96143,40.72524
 on land older than itself (terrain grid),Manhattan,-73.98195,40.70985
-on land older than itself (terrain grid),Brooklyn,-73.98632,40.70529
 on land older than itself (terrain grid),Brooklyn,-73.98632,40.70529
 "one sighting (C&GS / NOAA chart 12334, 2004 edition) against C&GS / NOAA chart 12335, 2001 edition",Brooklyn,-74.00451,40.68919
 on land older than itself (terrain grid),Brooklyn,-74.0118,40.68137
@@ -248,77 +276,147 @@ on land older than itself (terrain grid),Brooklyn,-74.01743,40.68065
 on land older than itself (terrain grid),Brooklyn,-74.01743,40.68065
 "one sighting, ragged outline",Brooklyn,-74.0271,40.64994
 on land older than itself (terrain grid),Staten Island,-74.0734,40.64208
-on land older than itself (terrain grid),Brooklyn,-73.96115,40.7358
 "one sighting (C&GS / NOAA chart 745, 1959 edition) against USGS Brooklyn 1:24000 1956",Brooklyn,-73.96115,40.7358
+outline not long and thin,Manhattan,-74.00818,40.75324
+"one sighting (USGS Weehawken 1:24000 1955) against C&GS / NOAA chart 745, 1959 edition",Manhattan,-74.00818,40.75324
+outline not long and thin,Manhattan,-74.00818,40.75324
 on land older than itself (terrain grid),Manhattan,-74.00935,40.74327
 on land older than itself (terrain grid),Manhattan,-74.00935,40.74327
 "one sighting, ragged outline",Manhattan,-74.01101,40.7361
 on land older than itself (terrain grid),Manhattan,-74.01101,40.7361
 on land older than itself (terrain grid),Manhattan,-74.01189,40.72478
-on land older than itself (terrain grid),Manhattan,-74.01189,40.72478
-on land older than itself (terrain grid),Staten Island,-74.07307,40.63781
-on land older than itself (terrain grid),Staten Island,-74.07307,40.63781
-on land older than itself (terrain grid),Staten Island,-74.07307,40.63781
-on land older than itself (terrain grid),Staten Island,-74.07295,40.63837
-on land older than itself (terrain grid),Staten Island,-74.07252,40.64452
-on land older than itself (terrain grid),Staten Island,-74.07496,40.64551
-on land older than itself (terrain grid),Staten Island,-74.07496,40.64551
-on land older than itself (terrain grid),Brooklyn,-74.01681,40.6735
-on land older than itself (terrain grid),Brooklyn,-74.01002,40.68508
-on land older than itself (terrain grid),Manhattan,-74.01812,40.70435
-on land older than itself (terrain grid),Manhattan,-74.01812,40.70435
-on land older than itself (terrain grid),Manhattan,-74.01789,40.70441
-on land older than itself (terrain grid),Manhattan,-74.01789,40.70441
-on land older than itself (terrain grid),Brooklyn,-74.00262,40.69325
-on land older than itself (terrain grid),Brooklyn,-73.99513,40.70333
-on land older than itself (terrain grid),Brooklyn,-73.99513,40.70333
-on land older than itself (terrain grid),Manhattan,-74.01061,40.74201
-on land older than itself (terrain grid),Manhattan,-73.9985,40.76523
-on land older than itself (terrain grid),Manhattan,-73.9985,40.76523
-on land older than itself (terrain grid),Manhattan,-73.9985,40.76523
+outline not long and thin,Manhattan,-74.01189,40.72478
+outline not long and thin,Manhattan,-74.01189,40.72478
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07876,40.6485
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07876,40.6485
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.0525,40.60406
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.0525,40.60406
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.06478,40.61787
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.03838,40.60861
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.03838,40.60861
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.98365,40.57103
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07307,40.63781
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07307,40.63781
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07307,40.63781
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.0725,40.63819
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.0725,40.63819
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07205,40.63912
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07295,40.63837
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07147,40.64345
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.03218,40.64395
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.03218,40.64395
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.03235,40.64379
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.02644,40.64627
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.02644,40.64627
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07252,40.64452
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07252,40.64452
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07326,40.64496
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07326,40.64496
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07496,40.64551
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07496,40.64551
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07496,40.64551
+"an earlier pier at a standing pier's place, without an outline of its own",Staten Island,-74.07423,40.64606
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.02173,40.68442
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01616,40.68647
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.01857,40.67532
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.01681,40.6735
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.01005,40.66214
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.01025,40.6619
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.01291,40.67018
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.01291,40.67018
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.01002,40.68508
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.01002,40.68508
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01203,40.69104
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01203,40.69104
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01881,40.70707
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01881,40.70707
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01812,40.70435
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01812,40.70435
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01789,40.70441
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01789,40.70441
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01308,40.69176
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01308,40.69176
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01292,40.69216
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01292,40.69216
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01212,40.69233
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.00621,40.70385
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.00203,40.69231
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-74.00262,40.69325
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.98943,40.70511
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.98943,40.70511
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.99513,40.70333
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.99513,40.70333
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.99149,40.70881
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.01061,40.74201
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.97439,40.73572
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.97326,40.73535
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.96187,40.73
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.96187,40.73
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.96357,40.73137
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.9649,40.72085
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.9649,40.72085
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.96536,40.72053
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.96421,40.72095
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.97304,40.70685
+"an earlier pier at a standing pier's place, without an outline of its own",Brooklyn,-73.97021,40.70873
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.00728,40.75487
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.00461,40.75982
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.00461,40.75982
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.00336,40.76047
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-74.00251,40.76203
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.9985,40.76523
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.9985,40.76523
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.9985,40.76523
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.99562,40.77124
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.99589,40.77051
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.98533,40.78657
+"an earlier pier at a standing pier's place, without an outline of its own",Queens,-73.95771,40.74842
+"an earlier pier at a standing pier's place, without an outline of its own",Queens,-73.95771,40.74842
+"an earlier pier at a standing pier's place, without an outline of its own",Queens,-73.92706,40.7263
+"an earlier pier at a standing pier's place, without an outline of its own",Queens,-73.8161,40.66078
 in OpenStreetMap but on no dated source used here,Queens,-73.74284,40.59296
+"an earlier pier at a standing pier's place, without an outline of its own",Queens,-73.93568,40.77176
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.93384,40.8281
+"an earlier pier at a standing pier's place, without an outline of its own",Bronx,-73.92789,40.80398
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.92763,40.80026
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.92748,40.79732
+"an earlier pier at a standing pier's place, without an outline of its own",Queens,-73.8962,40.78588
+"an earlier pier at a standing pier's place, without an outline of its own",Queens,-73.88571,40.77423
+"an earlier pier at a standing pier's place, without an outline of its own",Manhattan,-73.93276,40.86733
 in OpenStreetMap but on no dated source used here,Manhattan,-73.92551,40.87836
+same spot and years as a better outline,Staten Island,-74.07326,40.64496
+same spot and years as a better outline,Brooklyn,-73.98943,40.70511
+same spot and years as a better outline,Manhattan,-74.01079,40.74146
+same spot and years as a better outline,Manhattan,-73.99149,40.70881
+same spot and years as a better outline,Manhattan,-74.01314,40.72851
+same spot and years as a better outline,Manhattan,-74.01314,40.72851
 same spot and years as a better outline,Manhattan,-73.99672,40.77165
 same spot and years as a better outline,Manhattan,-73.99415,40.773
 same spot and years as a better outline,Manhattan,-73.99834,40.7691
-same spot and years as a better outline,Staten Island,-74.0733,40.64508
-same spot and years as a better outline,Brooklyn,-73.98952,40.7052
 same spot and years as a better outline,Manhattan,-73.99642,40.76976
 same spot and years as a better outline,Manhattan,-73.99642,40.76976
-same spot and years as a better outline,Manhattan,-73.99152,40.70881
 same spot and years as a better outline,Manhattan,-73.99694,40.77096
+same spot and years as a better outline,Manhattan,-74.01168,40.73815
+same spot and years as a better outline,Brooklyn,-73.96626,40.71906
 same spot and years as a better outline,Manhattan,-74.01449,40.72857
-same spot and years as a better outline,Staten Island,-74.05979,40.61209
+same spot and years as a better outline,Staten Island,-74.06017,40.61207
 same spot and years as a better outline,Bronx,-73.88865,40.79849
 same spot and years as a better outline,Bronx,-73.93223,40.8078
-same spot and years as a better outline,Brooklyn,-74.01857,40.67532
-same spot and years as a better outline,Manhattan,-74.01203,40.69104
 same spot and years as a better outline,Brooklyn,-74.01893,40.67401
-same spot and years as a better outline,Staten Island,-74.07205,40.63912
-same spot and years as a better outline,Manhattan,-74.0143,40.70044
-same spot and years as a better outline,Staten Island,-74.0725,40.63819
+same spot and years as a better outline,Staten Island,-74.07775,40.648
 same spot and years as a better outline,Brooklyn,-73.96443,40.72086
-same spot and years as a better outline,Brooklyn,-73.97776,40.70592
-same spot and years as a better outline,Staten Island,-74.07326,40.64496
-same spot and years as a better outline,Manhattan,-74.0104,40.74989
-same spot and years as a better outline,Brooklyn,-74.01025,40.6619
-same spot and years as a better outline,Brooklyn,-74.01005,40.66214
-same spot and years as a better outline,Brooklyn,-73.96421,40.72095
-same spot and years as a better outline,Brooklyn,-74.0051,40.66723
 same spot and years as a better outline,Brooklyn,-74.01298,40.66811
+same spot and years as a better outline,Manhattan,-74.0104,40.74989
+same spot and years as a better outline,Brooklyn,-74.01376,40.67019
+same spot and years as a better outline,Manhattan,-74.0143,40.70044
+same spot and years as a better outline,Brooklyn,-73.97776,40.70592
+same spot and years as a better outline,Brooklyn,-74.0051,40.66723
 same spot and years as a better outline,Manhattan,-74.01564,40.71539
+same spot and years as a better outline,Staten Island,-74.0803,40.64859
 same spot and years as a better outline,Manhattan,-74.01276,40.73996
 same spot and years as a better outline,Manhattan,-74.01276,40.73996
-same spot and years as a better outline,Brooklyn,-74.01408,40.66126
-same spot and years as a better outline,Brooklyn,-73.96648,40.71917
-same spot and years as a better outline,Staten Island,-74.08032,40.64857
-same spot and years as a better outline,Staten Island,-74.0752,40.64626
 same spot and years as a better outline,Brooklyn,-73.99941,40.69728
-same spot and years as a better outline,Brooklyn,-74.00203,40.69231
 same spot and years as a better outline,Brooklyn,-74.03277,40.64462
-same spot and years as a better outline,Manhattan,-74.00776,40.75454
+same spot and years as a better outline,Manhattan,-74.00832,40.75471
 same spot and years as a better outline,Manhattan,-73.95486,40.75474
-same spot and years as a better outline,Staten Island,-74.06478,40.61787
 same spot and years as a better outline,Staten Island,-74.16326,40.6406
-same spot and years as a better outline,Manhattan,-73.98533,40.78657
-same spot and years as a better outline,Brooklyn,-73.98365,40.57103

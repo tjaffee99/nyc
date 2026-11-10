@@ -54,6 +54,7 @@ UA = "NYCThroughTime-research/0.1"
 DPI = 600                       # render resolution (the scans are 599-600 ppi)
 DETECTOR_VERSION = 6
 ALIGN_VERSION = 2
+LATE_VERSION = 2
 
 # id: (file under HTMC, quadrangle, scale, print year, survey year the sheet shows, collar text, period)
 # Survey years were read off the collars (data/manual/farmsteads/README.md); the catalogue's
@@ -236,12 +237,12 @@ def _disc(r):
     return (x * x + y * y) <= r * r + 1
 
 
-def ink_threshold(rgb):
+def ink_threshold(rgb, paper_pct=50):
     """Black-ink thresholds on the brightest of the three channels (black is dark in all three; brown contours
     keep red, blue water keeps blue). Strict (solid ink: the marks' cores) at 40 % of the way from
     the ink level to the paper, loose (hairlines of lettering, faint casings) at 72 %."""
     mx = rgb[::7, ::7].max(-1).astype(np.float32)
-    paper = float(np.median(mx))
+    paper = float(np.percentile(mx, paper_pct))     # the median is the paper on the 15-minute sheets; the black city blocks of 1947 need a higher percentile
     dark = mx[mx < 0.6 * paper]
     ink = float(np.percentile(dark, 10)) if dark.size > 100 else 30.0
     return ink + 0.40 * (paper - ink), ink + 0.72 * (paper - ink), paper, ink
@@ -659,17 +660,19 @@ def process_late(sid: str, force=False):
     compact = solid black blobs up to 28 m across (building squares; also pieces of lettering),
     large   = solid black longer than that (heavy road lines and the black blocks of the 1947
               editions, big buildings, large lettering),
-    tint    = the pink built-up tint of the 1955-57 editions (inside it only landmark buildings are drawn)."""
+    tint    = the pink built-up tint of the 1955-57 editions (inside it only landmark buildings are drawn),
+    and its shift onto today's streets (late_<id>.json), found like that of the early sheets."""
     from scipy import ndimage as ndi
-    path = FARM_INTERIM / f"late_{sid}.npz"
-    if path.exists() and not force:
+    path, jpath = FARM_INTERIM / f"late_{sid}.npz", FARM_INTERIM / f"late_{sid}.json"
+    if path.exists() and jpath.exists() and not force and json.loads(jpath.read_text()).get("version") == LATE_VERSION:
         return path
     sh = Sheet(sid, LATE_DPI)
     x0, y0 = np.floor(sh.neat_px.min(0)).astype(int)
     x1, y1 = np.ceil(sh.neat_px.max(0)).astype(int)
-    thr = ink_threshold(sh.render((x0 + x1) // 2 - 1200, (y0 + y1) // 2 - 1200, 2400, 2400))[0]
+    thr, thr_loose, paper, inkv = ink_threshold(sh.render((x0 + x1) // 2 - 1200, (y0 + y1) // 2 - 1200, 2400, 2400), 90)
     shape = (sh.H // 4 + 2, sh.W // 4 + 2)
     compact, large, tint = np.zeros(shape, bool), np.zeros(shape, bool), np.zeros(shape, bool)
+    lines = np.zeros((sh.H // 4 + 1, sh.W // 4 + 1), np.uint8)
     tile, margin, s8 = 2400, 40, np.ones((3, 3), bool)
     for ty in range(y0 - y0 % 4, y1, tile):
         for tx in range(x0 - x0 % 4, x1, tile):
@@ -680,21 +683,27 @@ def process_late(sid: str, force=False):
                 continue
             rgb = sh.render(ax0, ay0, w, h)
             a = rgb.astype(np.int16)
-            core = ndi.binary_opening(rgb.max(-1) < thr, np.ones((4, 4), bool))
+            mx = rgb.max(-1)
+            core = ndi.binary_opening(mx < thr, np.ones((4, 4), bool))
             lab, n = ndi.label(core, s8)
             small = np.zeros(n + 1, bool)
             for k, sl in enumerate(ndi.find_objects(lab), 1):
                 small[k] = max(sl[0].stop - sl[0].start, sl[1].stop - sl[1].start) <= 14
             # salmon to pink: the scans range from (250, 210, 170) to (240, 190, 180); paper is (245, 246, 210), brown contours darker
             pink = (a[..., 0] >= 195) & (a[..., 0] - a[..., 1] >= 14) & (a[..., 0] - a[..., 2] >= 45) & (a[..., 1] >= 150)
-            for arr, dst, f in ((small[lab], compact, "max"), (core & ~small[lab], large, "max"), (pink, tint, "half")):
+            thin = (mx < thr_loose) & ~ndi.binary_dilation(core, iterations=2)
+            my, mx_ = (ty - ay0) // 4, (tx - ax0) // 4              # write the tile itself, not its margin
+            for arr, dst, f in ((small[lab], compact, "max"), (core & ~small[lab], large, "max"), (pink, tint, "half"), (thin, lines, "mean")):
                 b = arr.reshape(h // 4, 4, w // 4, 4)
-                b = b.max((1, 3)) if f == "max" else b.mean((1, 3)) >= 0.5
-                my, mx_ = (ty - ay0) // 4, (tx - ax0) // 4          # write the tile itself, not its margin
+                b = b.max((1, 3)) if f == "max" else (b.mean((1, 3)) >= 0.5 if f == "half" else (b.mean((1, 3)) * 255).astype(np.uint8))
                 b = b[my:my + tile // 4, mx_:mx_ + tile // 4]
-                dst[ty // 4:ty // 4 + b.shape[0], tx // 4:tx // 4 + b.shape[1]] = b
+                hh, ww = min(b.shape[0], dst.shape[0] - ty // 4), min(b.shape[1], dst.shape[1] - tx // 4)
+                dst[ty // 4:ty // 4 + hh, tx // 4:tx // 4 + ww] = b[:hh, :ww]
+    shift, info = align(sh, lines)
     np.savez_compressed(path, compact=compact, large=large, tint=tint, neat_px=sh.neat_px)
-    log(sid, "compact", int(compact.sum()), "large", int(large.sum()), "tint", int(tint.sum()))
+    jpath.write_text(json.dumps({"version": LATE_VERSION, "sid": sid, "thr": round(thr, 1), "paper": paper, "shift": shift, "align": info}))
+    log(sid, "compact", int(compact.sum()), "large", int(large.sum()), "tint", int(tint.sum()), "thr", round(thr), "shift", shift["global"],
+        "windows", info.get("used"), "rms", info.get("rms_m"), "range", info.get("field_range_m"))
     return path
 
 
@@ -804,7 +813,7 @@ class FootprintMatcher:
         sy = np.floor(b["start_year"].values)
         # 0 = a recorded year no later than the survey, 1 = an estimate no later than it or a "by then" placeholder,
         # 2 = an estimate later than the survey, 3 = a recorded year later than the survey (cannot be the building)
-        rank = np.where(exact, np.where(sy <= fy, 0, 3), np.where(b["year_src"].str.startswith("heap_by").values | (sy <= fy), 1, 2))
+        rank = np.where(exact, np.where(sy <= fy, 0, 3), np.where((b["year_src"].str.startswith("heap_by").values & (sy <= 1901)) | (sy <= fy), 1, 2))
         small = (b["height_m"].fillna(0).values <= 22) & ((b["area"].values <= 1500) | (cls[ii] == "bar"))
         t = pd.DataFrame({"i": ii, "j": jj, "dist": dist, "rank": rank, "ok": (dist <= BIN_M) & ((rank == 0) | ((rank < 3) & small))})
         near = t[t["dist"] <= 60.0].groupby("i")["rank"].agg(n60="size", old60=lambda r: int((r <= 1).sum()))
@@ -960,6 +969,8 @@ def export():
             continue
         z = np.load(path)
         sh = Sheet(sid, LATE_DPI)
+        late_meta = json.loads((FARM_INTERIM / f"late_{sid}.json").read_text())
+        sh.shift = late_meta["shift"]
         poly = _poly_utm(sh)
         shapely.prepare(poly)
         inside = shapely.contains_xy(poly, F["E"].values, F["N"].values)
@@ -979,7 +990,8 @@ def export():
         F.loc[gone, "gone_by"] = year
         seen = idx[symbol & ~mass & ~tinted & F.loc[idx, "gone_by"].isna().values]
         F.loc[seen, "late_symbol"] = F.loc[seen, "late_symbol"].where(F.loc[seen, "late_symbol"] == "", F.loc[seen, "late_symbol"] + "+") + str(year)
-        late_info[sid] = {"inside": int(inside.sum()), "blank": int(blank.sum()), "symbol": int((symbol & ~mass & ~tinted).sum()),
+        late_info[sid] = {"shift_m": late_meta["shift"]["global"], "shift_windows": len(late_meta["shift"]["field"]), "shift_rms_m": late_meta["align"].get("rms_m"),
+                          "shift_range_m": late_meta["align"].get("field_range_m"), "inside": int(inside.sum()), "blank": int(blank.sum()), "symbol": int((symbol & ~mass & ~tinted).sum()),
                           "unclear": int((mass | tinted).sum()), "gone_set": int(len(gone))}
 
     # --- today's footprint under the mark
@@ -1007,6 +1019,11 @@ def export():
         F.loc[ix, "standing_n"] = best["n"].values
         F.loc[ix, "standing_n60"] = best["n60"].values
         F.loc[ix, "standing_area_m2"] = bb["area"].round().values
+
+    # a building the records date before the survey and that stands under the mark is not gone, whatever a later sheet shows
+    rec = (F["standing_basis"] == "recorded") & (F["standing_dist_m"] <= 12.0)
+    contradicted = {"recorded_within_12m": int(rec.sum()), "of_them_blank_on_a_later_sheet": int((rec & F["gone_by"].notna()).sum())}
+    F.loc[rec, "gone_by"] = np.nan
 
     # --- sites, kind, confidence, id
     xy = F[["E", "N"]].values
@@ -1072,6 +1089,7 @@ def export():
              "by_borough_first_last": {f"{b}|{int(a)}|{int(c)}": int(v) for (b, a, c), v in F.groupby(["borough", "first_year", "last_year"]).size().items()},
              "by_confidence": F.groupby("confidence").size().to_dict(), "by_kind": F.groupby("kind").size().to_dict(),
              "gone_by": {str(int(k)): int(v) for k, v in F["gone_by"].dropna().value_counts().sort_index().items()},
+             "gone_by_check": contradicted,
              "new_since_1889": int(F["new_since"].notna().sum()), "builtup": int(F["builtup"].sum()), "in_row": int(F["in_row"].sum()),
              "in_row_by_borough": {b: int(v) for b, v in F[F["in_row"]].groupby("borough").size().items()},
              "ground": F.groupby("ground").size().to_dict(), "late_sheets": late_info,

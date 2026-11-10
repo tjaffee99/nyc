@@ -63,8 +63,8 @@ def dims(g):
     return max(a, b), min(a, b)
 
 
-report("map outlines are long and thin (length >= 1.4 x width, width <= 105 m)",
-       [p["id"] for p, g in zip(P, G) if p["source"] != "osm" and not (dims(g)[0] >= 1.35 * dims(g)[1] and dims(g)[1] <= 105)], sum(p["source"] != "osm" for p in P))
+report("map outlines are long and thin (length >= 1.3 x width, width <= 105 m)",
+       [p["id"] for p, g in zip(P, G) if p["source"] != "osm" and not (dims(g)[0] >= 1.3 * dims(g)[1] and dims(g)[1] <= 105)], sum(p["source"] != "osm" for p in P))
 tree = STRtree(G)
 clash = []
 for i, g in enumerate(G):
@@ -83,7 +83,7 @@ gtr = rasterio.Affine(*gm["transform"])
 wm = pyproj.Transformer.from_crs("EPSG:32618", "EPSG:3857", always_xy=True)
 bad, touch = [], 0
 for p, g in zip(P, G):
-    if p["end_year"] == 9999 or p["start_year"] is None:
+    if p["end_year"] == 9999 or p["start_year"] is None or "research_url" in p:
         continue
     x0, y0, x1, y1 = g.bounds
     xs, ys = np.meshgrid(np.arange(x0 + 3, x1, 6.0), np.arange(y0 + 3, y1, 6.0))

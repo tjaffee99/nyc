@@ -6,7 +6,9 @@ find the piers.
 The scans (data/raw/piers/noaa/<id>.jpg) carry no georeference.  The charts are Mercator; chart 745 / 12335 is turned
 so that Manhattan's avenues run up the sheet (about 29 degrees), chart 541 / 12334 is north up.  A pixel therefore maps to
 web-Mercator coordinates through an affine transform, found here from the picture itself:
- 1. land = the chart's land tint (buff / yellow): Otsu threshold of (R+G)/2-B, dark ink decided by its neighbours;
+ 1. land = the chart's land tint (buff / yellow, olive on roofed piers): Otsu threshold of ((R+G)/2-B) / max(R,G,B),
+    dark ink decided by its neighbours.  (The editions listed in README.md were read with the plain (R+G)/2-B of the
+    first pass, PIERS_TINT=plain, which misses the olive sheds: their piers are found through the hatching only.)
  2. coarse fit: the shoreline of the land mask at 1/8 size (piers opened away) is compared with today's shoreline
     (Overture water polygons) over a set of rotations and scales by FFT cross-correlation; the first chart of a series
     is searched widely, the others around the series' rotation and scale (frame width); best rotation, scale, offset win;
@@ -19,6 +21,7 @@ affine, the fit's block residuals in metres).
 """
 import json
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -124,7 +127,10 @@ def run(cid):
     H, W = a.shape[:2]
     r, g, b = (a[..., i].astype("int16") for i in range(3))
     lum = ((r + g + b) // 3).astype("uint8")
-    yel = ndimage.uniform_filter(((r + g) // 2 - b).astype("float32"), 3)
+    if os.environ.get("PIERS_TINT", "ratio") == "plain":       # (R+G)/2-B: yellow and buff, but not the olive of the pier sheds
+        yel = ndimage.uniform_filter(((r + g) // 2 - b).astype("float32"), 3)
+    else:                                                        # the same over the brightest channel: yellow, buff and olive alike
+        yel = ndimage.uniform_filter(200.0 * ((r + g) // 2 - b).astype("float32") / np.maximum(np.maximum(r, g), np.maximum(b, 40)).astype("float32"), 3)
     del r, g, b
     dark = lum < 95
     x0, x1, y0, y1 = frame(lum < 110)
@@ -139,7 +145,7 @@ def run(cid):
                 water_rgb=[int(v) for v in np.median(a[y0:y1:9, x0:x1:9][~land[y0:y1:9, x0:x1:9]], axis=0)],
                 paper_rgb=[int(v) for v in np.median(a[:max(y0 - 40, 5):3, ::3].reshape(-1, 3), axis=0)],
                 land_rgb=[int(v) for v in np.median(a[y0:y1:9, x0:x1:9][land[y0:y1:9, x0:x1:9]], axis=0)],
-                tint_threshold=round(thr, 1), tint_means=[round(m_lo, 1), round(m_hi, 1)], land_share=round(1 - w_lo, 3),
+                tint=os.environ.get("PIERS_TINT", "ratio"), tint_threshold=round(thr, 1), tint_means=[round(m_lo, 1), round(m_hi, 1)], land_share=round(1 - w_lo, 3),
                 full_size=list(full), half_size=[W, H], frame=[x0, x1, y0, y1])
     land_lum = float(np.median(lum[y0:y1:9, x0:x1:9][land[y0:y1:9, x0:x1:9]]))
     ink = lum < 0.72 * land_lum
