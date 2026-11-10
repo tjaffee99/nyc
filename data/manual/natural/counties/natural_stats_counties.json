@@ -1,0 +1,84 @@
+{
+ "Hudson": {
+  "county": "Hudson",
+  "area": "NJ017",
+  "bands": 1,
+  "land_today_ha": 11507.5,
+  "water_today_ha": 4645.0,
+  "no_sheet_land_ha": 0.0,
+  "blank_paper_taken_as_water_ha": 1687.3,
+  "cover_ha": {
+   "water": 3106.9,
+   "tidal_marsh": 2377.2,
+   "tidal_flat": 0.0,
+   "beach": 0.0,
+   "dunes": 0.0,
+   "pond": 34.1,
+   "freshwater_wetland": 30.7,
+   "dry_valley": 3.3
+  },
+  "by_kind_ha": {
+   "water | water on the USGS sheet, land today": 446.9,
+   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture), land t": 153.1,
+   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water, land today": 6.5,
+   "pond | inland water on the USGS sheet, land today (may be a mill pond or rese": 26.2,
+   "tidal_marsh | marsh on the USGS sheet; soil survey: fill over wet substratum": 464.1,
+   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water; soil survey: fil": 0.5,
+   "water | soil survey: fill over wet substratum; land already on the USGS sheet,": 77.5,
+   "tidal_marsh | soil survey: fill over wet substratum; land already on the USGS sheet,": 980.5,
+   "freshwater_wetland | soil survey: fill over wet substratum, not connected to tidewater; tak": 16.9,
+   "tidal_marsh | soil survey: tidal-marsh soil, still marsh today": 779.5,
+   "freshwater_wetland | soil survey: hydric natural soil (muck, or poorly drained mineral soil": 6.8,
+   "water | water on the USGS sheet, land today; soil survey maps upland here": 8.6,
+   "pond | inland water on the USGS sheet, land today; soil survey maps upland he": 8.0,
+   "water | water on the USGS sheet, land today; soil survey: fill over wet substr": 1060.9,
+   "water | blank on the USGS sheet seaward of its water lining (open water is not": 567.5,
+   "water | blank on the USGS sheet seaward of its water lining, land today: taken": 945.6
+  },
+  "made_land_ha": {
+   "was_water": 3106.9,
+   "was_tidal_marsh": 1597.8,
+   "tidal_marsh_still_marsh": 779.5
+  },
+  "reservoirs": [
+   {
+    "name": "Jersey City Reservoir No. 3",
+    "county": "Hudson",
+    "year": 1874,
+    "ha": 3.3,
+    "sheet_wet_share": 0.479,
+    "sheets": [
+     "usgs_staten_island_1898"
+    ]
+   }
+  ],
+  "lining_share": {
+   "usgs_staten_island_1898": [
+    [
+     35549,
+     0.513
+    ]
+   ],
+   "usgs_brooklyn_1897": [
+    [
+     0,
+     0.0
+    ]
+   ],
+   "usgs_harlem_1891": [
+    [
+     1193,
+     0.0
+    ]
+   ],
+   "usgs_paterson_1888": [
+    [
+     29052,
+     0.848
+    ]
+   ]
+  },
+  "cells_in_both_this_county_and_city_survey": 0,
+  "polygons": 887
+ }
+}

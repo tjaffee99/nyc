@@ -474,15 +474,88 @@ def block_features(g, valid, P, geoms):
     return out
 
 
-def blank_mask(g, valid):
-    """The mosaics pad missing photographs with a flat fill (and the 1924 tiles are JPEG without
-    transparency): a pixel is blank when its 9 x 9 surroundings are flat and extreme."""
+def blank_mask(g, valid, year=1924):
+    """Where the mosaic has no photograph although the tile is opaque. The 1924 mosaic is the
+    city's sectional aerial map: between its sheets run pure-white gutters (3 to 10 m wide), and
+    its tiles are JPEG without transparency. Blank = pure white in a connected patch of 25
+    pixels or more (1924 only: the 1951 photographs have overexposed grounds, and their tiles
+    carry transparency), or flat pure black; grown by 3 pixels."""
     from scipy import ndimage as ndi
-    m = ndi.uniform_filter(g, 9)
-    sd = np.sqrt(np.maximum(ndi.uniform_filter(g * g, 9) - m * m, 0))
-    blank = (sd < 1.0) & ((m < 4) | (m > 251))
-    blank = ndi.binary_dilation(ndi.binary_opening(blank, iterations=2), iterations=3)
+    m = ndi.uniform_filter(g, 5)
+    sd = np.sqrt(np.maximum(ndi.uniform_filter(g * g, 5) - m * m, 0))
+    blank = (sd < 1.0) & (m <= 1.0)
+    if year == 1924:
+        lab, n = ndi.label(g >= 253.0)
+        if n:
+            size = np.bincount(lab.ravel())
+            size[0] = 0
+            blank |= size[lab] >= 25
+    blank = ndi.binary_dilation(blank, iterations=3)
     return valid & ~blank
+
+
+def cover_path(year: int, bx: int, by: int) -> Path:
+    return WORK / "cover" / str(year) / f"{bx}_{by}.parquet"
+
+
+def _cover_job(job):
+    """Coverage of the footprints of a block again, from the photograph alone (used once, after
+    the blank test was tightened: the feature files written before it miss the white gutters;
+    a fresh `features` run has the right coverage and does not need this)."""
+    import pandas as pd
+    import shapely
+    from rasterio import features
+    from scipy import ndimage as ndi
+    year, bx, by = job
+    out = cover_path(year, bx, by)
+    if not feature_path(year, bx, by).exists() or not _claim(out):
+        return job, -1
+    try:
+        f = pd.read_parquet(feature_path(year, bx, by))
+        res = pd.DataFrame({"doitt_id": [], "cover2": []})
+        blk = load_block(year, bx, by) if len(f) else None
+        if blk is not None:
+            g, valid, x0, y0 = blk
+            cut = PAD * TILE - MARGIN
+            g, valid = g[cut:-cut, cut:-cut], valid[cut:-cut, cut:-cut]
+            x0, y0 = x0 + cut, y0 + cut
+            inv = ndi.uniform_filter((~blank_mask(g, valid, year)).astype("float32"), 7)
+            df = block_footprints(bx, by).set_index("doitt_id").reindex(f.doitt_id.values)
+            ok = df.geom_px.notna().values
+            geoms = shapely.transform(df.geom_px.values[ok], lambda c: c - np.array([x0, y0], "float64"))
+            xy = shapely.get_coordinates(geoms)
+            rep = shapely.get_num_coordinates(geoms)
+            geoms = shapely.set_coordinates(geoms.copy(), xy + np.column_stack([np.repeat(f.offx.values[ok], rep), np.repeat(f.offy.values[ok], rep)]))
+            n = len(geoms)
+            L = features.rasterize([(gm, i + 1) for i, gm in enumerate(geoms)], out_shape=g.shape, fill=0, dtype="int32")
+            cnt = np.bincount(L.ravel(), minlength=n + 1)[1:n + 1]
+            bad = np.bincount(L.ravel(), weights=inv.ravel(), minlength=n + 1)[1:n + 1]
+            cen = shapely.centroid(geoms)
+            cx = np.clip(shapely.get_x(cen).astype(int), 0, g.shape[1] - 1)
+            cy = np.clip(shapely.get_y(cen).astype(int), 0, g.shape[0] - 1)
+            cov = np.where(cnt > 0, 1 - bad / np.maximum(cnt, 1), 1 - inv[cy, cx])
+            c2 = np.zeros(len(f), "float32")
+            c2[ok] = cov
+            res = pd.DataFrame({"doitt_id": f.doitt_id.values, "cover2": c2})
+        tmp = out.with_suffix(".part%d" % os.getpid())
+        res.to_parquet(tmp)
+        tmp.rename(out)
+    finally:
+        out.with_suffix(".lock").unlink(missing_ok=True)
+    return job, len(res)
+
+
+def step_recover():
+    t = tile_list()
+    jobs = [(year, int(bx), int(by)) for year in YEARS for bx, by in sorted(set(zip(t.bx, t.by)))]
+    k = 0
+    for job in jobs:
+        _, n = _cover_job(job)
+        if n >= 0:
+            k += 1
+            if k % 25 == 0:
+                log(f"recover: {k} blocks, at {job}")
+    log("recover: done")
 
 
 META = ["doitt_id", "bin", "boro", "lon", "lat", "start_year", "year_src", "year_confidence", "raw_year", "height_m", "area"]
@@ -513,7 +586,7 @@ def process_block_year(year: int, bx: int, by: int, apply_offset: bool = True):
         cut = PAD * TILE - MARGIN
         g, valid = g[cut:-cut, cut:-cut], valid[cut:-cut, cut:-cut]
         x0, y0 = x0 + cut, y0 + cut
-        valid = blank_mask(g, valid)
+        valid = blank_mask(g, valid, year)
         P = pixel_layers(g, valid)
         geoms = shapely.transform(df.geom_px.values, lambda c: c - np.array([x0, y0], "float64"))
         dx = np.zeros(len(df))
@@ -641,7 +714,7 @@ def process_block_synthetic(year: int, bx: int, by: int):
     cut = PAD * TILE - MARGIN
     g, valid = g[cut:-cut, cut:-cut], valid[cut:-cut, cut:-cut]
     x0, y0 = x0 + cut, y0 + cut
-    valid = blank_mask(g, valid)
+    valid = blank_mask(g, valid, year)
     P = pixel_layers(g, valid)
     gpx = df.geom_px.values
     syn, src = street_outlines(gpx[inblock], df.area.values[inblock], seed=bx * 100003 + by)
@@ -956,8 +1029,13 @@ def load_features(year: int, kind: str = "features"):
     import pandas as pd
     files = sorted((WORK / kind / str(year)).glob("*.parquet"))
     parts = [pd.read_parquet(f) for f in files]
-    parts = [p for p in parts if len(p)]
-    return pd.concat(parts, ignore_index=True)
+    df = pd.concat([p for p in parts if len(p)], ignore_index=True)
+    cfiles = sorted((WORK / "cover" / str(year)).glob("*.parquet")) if kind == "features" else []
+    if cfiles:      # coverage recomputed with the tightened blank test (step `recover`)
+        c = pd.concat([pd.read_parquet(f) for f in cfiles], ignore_index=True)
+        c2 = df.doitt_id.map(dict(zip(c.doitt_id, c.cover2)))
+        df["cover"] = np.where(c2.notna(), c2.fillna(0).values, df.cover.values).astype("float32")
+    return df
 
 
 def recorded(df):
@@ -1279,6 +1357,8 @@ if __name__ == "__main__":
             step_predict()
         elif st == "report":
             step_report()
+        elif st == "recover":
+            step_recover()
         elif st == "synthetic-follow":
             step_synthetic(workers=1, follow=True)
         elif st == "features-follow":

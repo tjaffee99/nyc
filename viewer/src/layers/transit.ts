@@ -206,6 +206,12 @@ function livery(veh: string, r: number, year: number, train: number): [number[],
       return r < f(1964, 1990) ? [[196, 199, 202], [52, 56, 64]] : [[70, 74, 62], [36, 38, 36]];
     case 'el':
       return [[84, 70, 50], [196, 180, 140]];
+    // PATH: the Hudson & Manhattan's black steel cars, then the Port Authority's stainless
+    // cars with a blue band (from 1965); New Jersey's light rail cars (approximate colours)
+    case 'path':
+      return year < 1965 ? [[46, 46, 44], [30, 30, 30]] : [[196, 199, 202], [30, 60, 120]];
+    case 'njlrv':
+      return [[214, 216, 220], [40, 60, 130]];
     case 'cable_liner':
       return [[234, 236, 238], [38, 96, 172]];
     case 'lrv':

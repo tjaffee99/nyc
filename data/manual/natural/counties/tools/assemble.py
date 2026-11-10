@@ -29,7 +29,7 @@ fronts spread through the blank cells, one from natural upland and dune soils, o
 that the sheet leaves blank; a blank cell belongs to the front that reaches it first.  Blank patches neither front
 reaches (enclosed by lining or marsh): water if >= 60 % of the patch is water today, holes under 3 ha take what
 surrounds them (marsh or water), the rest is land (islands, barrier beaches).  This is used only where the sheet
-does line its water (>= 40 % of today's near-shore water is wet on it); on a sheet without usable lining, and
+does line its water (>= 40 % of today's tidal water within 120 m of natural upland soil is wet on it); on a sheet without usable lining, and
 where there is no sheet, blank paper says nothing and only the soil survey decides.
 A county larger than 26 million cells is worked in horizontal bands with a 1200 m margin (memory).
 """
@@ -176,6 +176,7 @@ def band(area, name, soilwin, rings, c0, c1, r0, r1, k0, k1, acc):
     own = ras(win[win.AREASYMBOL == area].geometry)
     acc["cells_in_both_this_county_and_city_survey"] += int((own & city).sum())
     own &= ~city
+    natural_up = (sc == UPLAND) & ~city          # the boroughs' polygons carry no class here
     cityp = gpd.read_file(f"{ROOT}/data/manual/natural/natural_1609.geojson", bbox=tuple(gpd.GeoSeries([Polygon([(X0, Y1), (X0 + w * PX, Y1), (X0 + w * PX, Y1 - h * PX), (X0, Y1 - h * PX)])], crs=32618).to_crs(4326).total_bounds)).to_crs(32618)
     if len(cityp):                                   # e.g. the New Jersey side of Ellis Island, already in the city file
         own &= ~features.rasterize(((g, 1) for g in cityp.geometry), out_shape=(h, w), transform=tr, fill=0, dtype="uint8", all_touched=True).astype(bool)
@@ -206,7 +207,8 @@ def band(area, name, soilwin, rings, c0, c1, r0, r1, k0, k1, acc):
     del dem
     u_water, u_marsh = us == 1, us == 2
     # does the sheet line its water?  share of today's near-shore tidal water that is wet on it
-    shore = sea & dilate((sc != 0) & ~water_today, 20)
+    shore = sea & dilate(natural_up, 20)          # tidal water within 120 m of natural upland soil: shores that have not moved
+    del natural_up
     lined = np.zeros((h, w), bool)
     for k in np.unique(usid[usid > 0]):
         m = shore & (usid == k)

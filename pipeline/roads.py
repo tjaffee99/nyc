@@ -953,6 +953,14 @@ def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None, 
     if BRIDGE_LEVEL:
         from scipy.sparse.csgraph import connected_components
         brm = np.concatenate([sg["brv"] for sg in segs])
+        # the end of a ramp or road that no other segment continues (it meets a street there, at
+        # grade) is an abutment too, not a deck vertex to be raised
+        for q, sg in enumerate(segs):
+            joined = {at for cid, at in sg["conns"] if conn_count.get(cid, 0) > 1}
+            if 0.0 not in joined:
+                brm[int(offs[q])] = False
+            if 1.0 not in joined:
+                brm[int(offs[q + 1]) - 1] = False
         zabs = vground + H
         inner = brm[a_] & brm[b_]
         _, lab = connected_components(csr_matrix((np.ones(int(inner.sum())), (a_[inner], b_[inner])), shape=(N, N)), directed=False)

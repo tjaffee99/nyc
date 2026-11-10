@@ -95,16 +95,18 @@ VEHICLES = {
 # 'muni' with 'lrv'. Headways: PATH from the Port Authority's GTFS (weekday trips), light rail 10 minutes
 # (estimated: NJ Transit's GTFS is behind a login and is not used). Cars per train: PATH 8 on the Newark
 # line (Wikipedia, PATH), 7 elsewhere (estimated); light rail 2 / 1 (estimated).
+VEHICLES["path"] = VEHICLES["ebart"]    # PATH cars are of the A Division's size; own livery in the viewer
+VEHICLES["njlrv"] = VEHICLES["lrv"]
 RAPID = [
     # id, name, system, vehicle, cars, headway s (None: GTFS), colour, track set, relations (out, back), GTFS route
-    ("PATH-NWK", "PATH Newark - World Trade Center", "bart", "ebart", 8, None, "d93a30", "path", (1468867, 7943864), "862"),
-    ("PATH-HOB-WTC", "PATH Hoboken - World Trade Center", "bart", "ebart", 7, None, "65c100", "path", (1468847, 7943872), "860"),
-    ("PATH-JSQ-33", "PATH Journal Square - 33rd Street", "bart", "ebart", 7, None, "ff9900", "path", (1468832, 7943925), "861"),
-    ("PATH-HOB-33", "PATH Hoboken - 33rd Street", "bart", "ebart", 7, None, "4d92fb", "path", (1468831, 7943884), "859"),
-    ("HBLR-WS", "Hudson-Bergen Light Rail Tonnelle Avenue - West Side Avenue", "muni", "lrv", 2, 600, "0f6cb7", "lr", (1468928, 9997056), None),
-    ("HBLR-8", "Hudson-Bergen Light Rail Hoboken Terminal - 8th Street", "muni", "lrv", 2, 600, "0f6cb7", "lr", (1378219, 9997058), None),
-    ("NLR-GS", "Newark Light Rail Newark Penn Station - Grove Street", "muni", "lrv", 1, 600, "7b2b83", "lr", (1380716, 9821042), None),
-    ("NLR-BS", "Newark Light Rail Newark Penn Station - Broad Street Station", "muni", "lrv", 1, 600, "7b2b83", "lr", (2634557, 9821064), None),
+    ("PATH-NWK", "PATH Newark - World Trade Center", "bart", "path", 8, None, "d93a30", "path", (1468867, 7943864), "862"),
+    ("PATH-HOB-WTC", "PATH Hoboken - World Trade Center", "bart", "path", 7, None, "65c100", "path", (1468847, 7943872), "860"),
+    ("PATH-JSQ-33", "PATH Journal Square - 33rd Street", "bart", "path", 7, None, "ff9900", "path", (1468832, 7943925), "861"),
+    ("PATH-HOB-33", "PATH Hoboken - 33rd Street", "bart", "path", 7, None, "4d92fb", "path", (1468831, 7943884), "859"),
+    ("HBLR-WS", "Hudson-Bergen Light Rail Tonnelle Avenue - West Side Avenue", "muni", "njlrv", 2, 600, "0f6cb7", "lr", (1468928, 9997056), None),
+    ("HBLR-8", "Hudson-Bergen Light Rail Hoboken Terminal - 8th Street", "muni", "njlrv", 2, 600, "0f6cb7", "lr", (1378219, 9997058), None),
+    ("NLR-GS", "Newark Light Rail Newark Penn Station - Grove Street", "muni", "njlrv", 1, 600, "7b2b83", "lr", (1380716, 9821042), None),
+    ("NLR-BS", "Newark Light Rail Newark Penn Station - Broad Street Station", "muni", "njlrv", 1, 600, "7b2b83", "lr", (2634557, 9821064), None),
 ]
 RAPID_ROUTES = TRANSIT / "osm" / "osm_routes_region.json"   # data/manual/transit/tools/fetch_region.py
 PATH_GTFS = TRANSIT / "gtfs_path"

@@ -1,0 +1,339 @@
+{
+ "usgs_babylon_1901": {
+  "source": "usgs_babylon_1901",
+  "shift_px": [
+   -5,
+   -6
+  ],
+  "shift_m": [
+   -26.5,
+   31.8
+  ],
+  "registration": {
+   "found_px": [
+    -5,
+    -6
+   ],
+   "found_m": [
+    -26,
+    32
+   ],
+   "disagree_best": 60172,
+   "disagree_unshifted": 62074,
+   "depth_10px": 0.0613,
+   "domain_cells": 251917,
+   "boundary_cells": 5797,
+   "used": "area agreement"
+  },
+  "paper_chroma": -0.049,
+  "ink_range": 0.139,
+  "ruling_angle": -0.0,
+  "n_water": 783685,
+  "n_marsh": 176019,
+  "discriminant": "own",
+  "lda_acc_water": 0.767,
+  "lda_acc_marsh": 0.898,
+  "wet_ha": 10223,
+  "marsh_ha": 3398
+ },
+ "usgs_brooklyn_1897": {
+  "source": "usgs_brooklyn_1897",
+  "shift_px": [
+   0,
+   0
+  ],
+  "shift_m": [
+   0.0,
+   0.0
+  ],
+  "registration": {
+   "found_px": [
+    7,
+    1
+   ],
+   "found_m": [
+    37,
+    -5
+   ],
+   "disagree_best": 1568206,
+   "disagree_unshifted": 1573461,
+   "depth_10px": 0.0095,
+   "domain_cells": 4013519,
+   "boundary_cells": 130220,
+   "used": "unshifted (minimum too far or too shallow)"
+  },
+  "paper_chroma": -0.009,
+  "ink_range": 0.203,
+  "ruling_angle": 3.5,
+  "n_water": 2345172,
+  "n_marsh": 269001,
+  "discriminant": "own",
+  "lda_acc_water": 0.704,
+  "lda_acc_marsh": 0.837,
+  "wet_ha": 12889,
+  "marsh_ha": 6235
+ },
+ "usgs_harlem_1891": {
+  "source": "usgs_harlem_1891",
+  "shift_px": [
+   -1,
+   5
+  ],
+  "shift_m": [
+   -5.3,
+   -26.5
+  ],
+  "registration": {
+   "found_px": [
+    -1,
+    5
+   ],
+   "found_m": [
+    -5,
+    -26
+   ],
+   "disagree_best": 1487358,
+   "disagree_unshifted": 1500169,
+   "depth_10px": 0.0473,
+   "domain_cells": 5960972,
+   "boundary_cells": 184698,
+   "used": "area agreement"
+  },
+  "paper_chroma": -0.071,
+  "ink_range": 0.081,
+  "ruling_angle": 0.1,
+  "n_water": 2984463,
+  "n_marsh": 271504,
+  "discriminant": "own",
+  "lda_acc_water": 0.864,
+  "lda_acc_marsh": 0.871,
+  "wet_ha": 15920,
+  "marsh_ha": 5840
+ },
+ "usgs_hempstead_1897": {
+  "source": "usgs_hempstead_1897",
+  "shift_px": [
+   2,
+   -6
+  ],
+  "shift_m": [
+   10.6,
+   31.7
+  ],
+  "registration": {
+   "found_px": [
+    2,
+    -6
+   ],
+   "found_m": [
+    11,
+    32
+   ],
+   "disagree_best": 450204,
+   "disagree_unshifted": 450798,
+   "depth_10px": 0.0128,
+   "domain_cells": 1254367,
+   "boundary_cells": 34396,
+   "used": "area agreement"
+  },
+  "paper_chroma": -0.031,
+  "ink_range": 0.148,
+  "ruling_angle": 0.0,
+  "n_water": 1506227,
+  "n_marsh": 272428,
+  "discriminant": "own",
+  "lda_acc_water": 0.656,
+  "lda_acc_marsh": 0.878,
+  "wet_ha": 8961,
+  "marsh_ha": 4508
+ },
+ "usgs_northport_1901": {
+  "source": "usgs_northport_1901",
+  "shift_px": [
+   0,
+   0
+  ],
+  "shift_m": [
+   0.0,
+   0.0
+  ],
+  "registration": {
+   "found_px": [
+    0,
+    -4
+   ],
+   "found_m": [
+    0,
+    21
+   ],
+   "disagree_best": 12328,
+   "disagree_unshifted": 12946,
+   "depth_10px": 0.3262,
+   "domain_cells": 171443,
+   "boundary_cells": 4098,
+   "used": "unshifted (minimum too far or too shallow)"
+  },
+  "paper_chroma": -0.009,
+  "ink_range": 0.089,
+  "ruling_angle": -0.0,
+  "n_water": 136835,
+  "n_marsh": 22,
+  "discriminant": "pooled from usgs_babylon_1901, usgs_brooklyn_1897, usgs_harlem_1891, usgs_hempstead_1897, usgs_paterson_1888, usgs_staten_island_1898",
+  "pooled_acc_water": 0.681,
+  "pooled_acc_marsh": 0.683,
+  "wet_ha": 19676,
+  "marsh_ha": 2718
+ },
+ "usgs_oyster_bay_1897": {
+  "source": "usgs_oyster_bay_1897",
+  "shift_px": [
+   0,
+   0
+  ],
+  "shift_m": [
+   0.0,
+   0.0
+  ],
+  "registration": {
+   "found_px": [
+    -32,
+    24
+   ],
+   "found_m": [
+    -170,
+    -127
+   ],
+   "disagree_best": 641036,
+   "disagree_unshifted": 698964,
+   "depth_10px": 0.0071,
+   "domain_cells": 2218950,
+   "boundary_cells": 56567,
+   "used": "unshifted (minimum too far or too shallow)"
+  },
+  "paper_chroma": -0.009,
+  "ink_range": 0.108,
+  "ruling_angle": 5.0,
+  "n_water": 3312831,
+  "n_marsh": 4250,
+  "discriminant": "pooled from usgs_brooklyn_1897, usgs_harlem_1891, usgs_hempstead_1897, usgs_paterson_1888, usgs_staten_island_1898",
+  "pooled_acc_water": 0.695,
+  "pooled_acc_marsh": 0.65,
+  "acc_water_on_this_sheet": 0.727,
+  "acc_marsh_on_this_sheet": 0.748,
+  "wet_ha": 12506,
+  "marsh_ha": 3250
+ },
+ "usgs_paterson_1888": {
+  "source": "usgs_paterson_1888",
+  "shift_px": [
+   3,
+   4
+  ],
+  "shift_m": [
+   15.9,
+   -21.2
+  ],
+  "registration": {
+   "found_px": [
+    3,
+    4
+   ],
+   "found_m": [
+    16,
+    -21
+   ],
+   "disagree_best": 1180787,
+   "disagree_unshifted": 1192955,
+   "depth_10px": 0.0345,
+   "domain_cells": 4341432,
+   "boundary_cells": 140201,
+   "used": "area agreement"
+  },
+  "paper_chroma": -0.096,
+  "ink_range": 0.109,
+  "ruling_angle": 0.0,
+  "n_water": 455962,
+  "n_marsh": 592270,
+  "discriminant": "own",
+  "lda_acc_water": 0.59,
+  "lda_acc_marsh": 0.71,
+  "wet_ha": 9653,
+  "marsh_ha": 3674
+ },
+ "usgs_staten_island_1898": {
+  "source": "usgs_staten_island_1898",
+  "shift_px": [
+   -2,
+   -3
+  ],
+  "shift_m": [
+   -10.6,
+   15.9
+  ],
+  "registration": {
+   "found_px": [
+    -2,
+    -3
+   ],
+   "found_m": [
+    -11,
+    16
+   ],
+   "disagree_best": 1141536,
+   "disagree_unshifted": 1145129,
+   "depth_10px": 0.0244,
+   "domain_cells": 3132582,
+   "boundary_cells": 93121,
+   "used": "area agreement"
+  },
+  "paper_chroma": -0.131,
+  "ink_range": 0.131,
+  "ruling_angle": 0.1,
+  "n_water": 445059,
+  "n_marsh": 347739,
+  "discriminant": "own",
+  "lda_acc_water": 0.782,
+  "lda_acc_marsh": 0.849,
+  "wet_ha": 8073,
+  "marsh_ha": 4617
+ },
+ "usgs_tarrytown_1892": {
+  "source": "usgs_tarrytown_1892",
+  "shift_px": [
+   0,
+   0
+  ],
+  "shift_m": [
+   0.0,
+   0.0
+  ],
+  "registration": {
+   "found_px": [
+    3,
+    -1
+   ],
+   "found_m": [
+    16,
+    5
+   ],
+   "disagree_best": 1221418,
+   "disagree_unshifted": 1223318,
+   "depth_10px": 0.0084,
+   "domain_cells": 4291965,
+   "boundary_cells": 108054,
+   "used": "unshifted (minimum too far or too shallow)"
+  },
+  "paper_chroma": 0.001,
+  "ink_range": 0.007,
+  "ruling_angle": 88.9,
+  "n_water": 14184,
+  "n_marsh": 3199,
+  "discriminant": "pooled from usgs_babylon_1901, usgs_brooklyn_1897, usgs_harlem_1891, usgs_hempstead_1897, usgs_paterson_1888, usgs_staten_island_1898",
+  "pooled_acc_water": 0.681,
+  "pooled_acc_marsh": 0.683,
+  "acc_water_on_this_sheet": 0.0,
+  "acc_marsh_on_this_sheet": 1.0,
+  "wet_ha": 374,
+  "marsh_ha": 374
+ }
+}
