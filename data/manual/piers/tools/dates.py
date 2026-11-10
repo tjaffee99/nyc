@@ -230,7 +230,8 @@ def shed_of(seg):
     flags = [e[2] for e in ev]
     if not any(flags):
         return dict(shed="none", shed_note="drawn as an open deck")
-    out = dict(shed="shed", shed_note="drawn roofed (hatched / black) on " + "; ".join(e[3] for e in ev if e[2])[:160])
+    out = dict(shed="shed", shed_note="drawn roofed (hatched / black) on " + "; ".join(e[3] for e in ev if e[2])[:160],
+               last_roofed=max(e[0] for e in ev if e[2]))
     if not all(flags):
         k = max(i for i, f in enumerate(flags) if f)
         if k + 1 < len(flags) and all(flags[:k + 1]):                 # roofed, then open
@@ -278,32 +279,28 @@ def main():
         c, r = ~gtr * (np.array(X), np.array(Y))
         return ly[np.clip(r.astype(int), 0, ly.shape[0] - 1), np.clip(c.astype(int), 0, ly.shape[1] - 1)]
 
-    # today's buildings of the city's footprints that stand on a pier.  The footprints hold many pier DECKS as low
-    # "buildings" (3-7 m), besides the sheds and terminals: both are told apart by height.
-    bp = con.execute(f"SELECT lon, lat, start_year, area_m2, height FROM '{E.ROOT}/data/interim/nyc_building_points.parquet' WHERE end_year = 9999 AND area_m2 >= 150").fetchnumpy()
-    bx, by = UTM.transform(np.asarray(bp["lon"], float), np.asarray(bp["lat"], float))
+    # today's buildings on a pier, from the city's own footprints (nyc_footprints_raw.parquet).  NOT from the built
+    # building files: the pipeline adds these very piers to them (pipeline/nyc_extras.piers), which would be circular.
+    rawb = con.execute(f"""SELECT lon, lat, bin, height_m, year_raw, ST_Area(ST_GeomFromWKB(geometry)) * 111320.0 * 111320.0 * cos(radians(lat)) AS area_m2
+                           FROM '{E.ROOT}/data/interim/nyc_footprints_raw.parquet' WHERE lat < 40.93""").df()
+    rawb = rawb[rawb.area_m2 >= 150].reset_index(drop=True)
     from scipy.spatial import cKDTree
-    btree = cKDTree(np.column_stack([bx, by]))
-    rawb = con.execute(f"SELECT lon, lat, bin FROM '{E.ROOT}/data/interim/nyc_footprints_raw.parquet' WHERE lat < 40.93").fetchnumpy()
-    rtree = cKDTree(np.column_stack([np.asarray(rawb["lon"], float), np.asarray(rawb["lat"], float)]))
+    rx_, ry_ = UTM.transform(rawb.lon.to_numpy(float), rawb.lat.to_numpy(float))
+    rtree = cKDTree(np.column_stack([rx_, ry_]))
+    r_area, r_h, r_year, r_bin = rawb.area_m2.to_numpy(float), rawb.height_m.to_numpy(float), rawb.year_raw.to_numpy(float), rawb.bin.to_numpy(float)
 
     def buildings_on(g):
-        """today's buildings whose centre lies on the outline: (share of the outline under buildings taller than 6.5 m,
-        their earliest start year, is the deck itself a footprint, BINs)."""
+        """the city's footprints whose centre lies on the outline: (share of the outline under footprints taller than
+        6.5 m, their earliest recorded year, is the deck itself a low footprint, BINs)."""
         c = g.centroid
-        r = max(dims(g)[0], 30.0) / 2 + 20
-        idx = [i for i in btree.query_ball_point([c.x, c.y], r) if g.contains(shapely.Point(bx[i], by[i]))]
+        idx = [i for i in rtree.query_ball_point([c.x, c.y], max(dims(g)[0], 30.0) / 2 + 20) if g.contains(shapely.Point(rx_[i], ry_[i]))]
         if not idx:
             return 0.0, None, False, []
-        tall = [i for i in idx if bp["height"][i] is not None and bp["height"][i] > 6.5]
-        deck = any(bp["area_m2"][i] >= 0.6 * g.area and not (bp["height"][i] is not None and bp["height"][i] > 6.5) for i in idx)
-        bins = []
-        for i in sorted(idx, key=lambda i: -bp["area_m2"][i])[:6]:
-            d, j = rtree.query([bp["lon"][i], bp["lat"][i]])
-            if d < 2e-5 and rawb["bin"][j] is not None:
-                bins.append(int(rawb["bin"][j]))
-        share = float(sum(bp["area_m2"][i] for i in tall) / g.area)
-        return share, (float(min(bp["start_year"][i] for i in tall)) if tall else None), deck, bins
+        tall = [i for i in idx if r_h[i] > 6.5]
+        deck = any(r_area[i] >= 0.6 * g.area and not r_h[i] > 6.5 for i in idx)
+        years = [r_year[i] for i in tall if np.isfinite(r_year[i]) and r_year[i] > 1700]
+        bins = sorted({int(r_bin[i]) for i in idx if np.isfinite(r_bin[i])})[:8]
+        return float(sum(r_area[i] for i in tall) / g.area), (float(min(years)) if years else None), deck, bins
 
     research = load_research()
 
@@ -371,6 +368,7 @@ def main():
                      start_year=seg["start"], end_year=seg["end"], start_quality=seg["start_quality"], end_quality=seg["end_quality"],
                      start_is_upper_bound=seg["start_bound"], deck_m=2.5, borough=t["borough"], length_m=round(L), width_m=round(Wd))
             p.update(shed_of(seg))
+            last_roofed = p.pop("last_roofed", None)
             if p["shed"] != "none":
                 p["shed_m"] = 10.0
             note = [seg["start_note"], seg["end_note"], p.pop("shed_note")]
@@ -455,6 +453,16 @@ def main():
                 p.pop("shed_end")
             if p.get("shed_start") is not None and not ((p["start_year"] or 0) <= p["shed_start"] < end_):
                 p.pop("shed_start")
+            if p.get("shed_building_share") and p["shed"] != "none" and "shed_end" not in p:
+                # the roof standing on it today is a building of the city's footprints from the pier's start on
+                p["shed"] = "none"
+                p.pop("shed_m", None); p.pop("shed_start", None)
+                note = [n for n in note if not n.startswith("shed height") and not n.startswith("from ")]
+                note.append("the building on it is in the city's footprints: no shed to draw")
+            if standing and p["shed"] != "none" and "shed_end" not in p and last_roofed is not None:
+                # a roof that stood would be a building in the city's footprints: it is gone, some time after its last sighting
+                p["shed_end"] = round((last_roofed + TODAY) / 2, 1)
+                note.append(f"no building on it in the city's footprints today: the shed went between {last_roofed} and {TODAY} (the middle is written, estimated)")
             L2, W2 = dims(to_utm(geom))
             if p["source"] != "osm" and not (L2 >= 1.45 * W2 and W2 <= 100):
                 review.append(dict(reason="outline not long and thin", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))

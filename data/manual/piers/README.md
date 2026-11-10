@@ -46,7 +46,7 @@ The 1890s column is mostly "by 1897" (438 piers have `start_is_upper_bound`). 20
 
 For `end_year`, `recorded` means "stands, it is in OpenStreetMap", plus the cited ends of the piers that were rebuilt.
 
-Outlines: 315 from the charts, 337 from the USGS 1:24,000 sheets, 218 from OpenStreetMap. Sheds: 493 piers drawn roofed, 377 open or not drawn.
+Outlines: 315 from the charts, 337 from the USGS 1:24,000 sheets, 218 from OpenStreetMap. Sheds: 531 piers drawn roofed, 339 open or not drawn.
 
 Sources read: 42 USGS 1:24,000 sheets as full editions, 9 more for additions only, 24 chart editions, 4 sheets of 1888-98. Listed in `sources_used.csv`.
 
@@ -82,7 +82,9 @@ Set aside: 39 vanished piers in `piers_terrain_conflict.geojson`. Thrown out (`r
 | `evidence` | every reading in time order: year, source type (`s` 1890s sheet, `c` chart, `u` USGS 1:24,000), state (`p` pier, `w` water, `l` land) |
 | `borough`, `length_m`, `width_m` | borough of the nearest building (the county lines put the whole East River in Manhattan); size of the outline's bounding rectangle |
 | `made_land_share` | vanished piers: share of the outline on terrain cells that become land before the pier's end |
-| `shed_building_share` | standing piers: share of the outline under buildings of the city's footprints (see "Sheds") |
+| `footprint_bins` | standing piers: BINs of the city's own footprints (150 m2 or more) whose centre lies on the outline (at most 8) |
+| `deck_in_footprints` | true on the one standing pier whose deck is itself a low footprint (6.5 m or lower, over 60 % of the outline) in the city's file |
+| `shed_building_share` | standing piers: share of the outline under footprints taller than 6.5 m (see "Sheds") |
 | `research_url` | present when `research.csv` set a date |
 
 ## Sources and licences
@@ -126,7 +128,9 @@ Not used, and why:
 
 `shed` comes from how the sheets draw the pier: hatched (1955-69 sheets), solid black (1947 sheets) or olive (charts from 1959) means roofed; a white or plain outline means an open deck. The roof test is the share of ink inside the outline (30 % or more).
 
-For a standing pier with buildings of the city's footprints on a quarter or more of it, the roof belongs to the buildings data: `shed` is `none`, or `shed_end` is the year the earliest of those buildings starts in `nyc_building_points.parquet`. The note says which.
+For a standing pier with footprints taller than 6.5 m on a quarter or more of it, the roof belongs to the buildings data: `shed` is `none`, or `shed_end` is the earliest recorded year (`year_raw`) of those footprints, when it lies inside the pier's life and before 2000. The note says which.
+
+A standing pier that the maps draw roofed but that carries no such footprint today has lost its shed: `shed_end` is then the middle of the years from its last roofed sighting to 2026, an estimate, said in the note.
 
 `shed_m` is 10 m everywhere and is an estimate. No shed height was researched. The two-storey liner piers were taller.
 
@@ -185,6 +189,8 @@ Downloads go to `data/raw/piers/` (about 2.4 GB), intermediates to `data/interim
 ## For the lead
 
 - **Drawing.** Extrude each outline from the water to `deck_m` (2.5 m) between `start_year` and `end_year`. Where `shed` is `shed`, add a box of `shed_m` (10 m, estimated) on the outline inset by about 2 m, between `shed_start` (default: the pier's start) and `shed_end` (default: the pier's end).
+- **The pipeline already reads this file** (`pipeline/nyc_extras.piers()`, found while checking). The built building files therefore contain these piers as low buildings; nothing here reads them back. The tests on buildings use the city's own footprints (`nyc_footprints_raw.parquet`) only.
+- **Sheds that are already buildings.** 44 standing piers carry footprints of the city's file (`footprint_bins`); on 27 of them footprints taller than 6.5 m cover a quarter or more (`shed_building_share`): Pier A, Pier 40, Pier 57, the Chelsea Piers, Piers 88-94 and the like. There `shed` is `none` (or ends at the building's recorded year), so that the terminal is not drawn twice. The deck under it is still to be drawn.
 - **Do not land-check the piers against the terrain grid.** A pier root always overlaps the bulkhead cell, and 189 outlines touch a cell that the terrain makes land before the pier's end. `made_land_share` says how much.
 - **`piers_terrain_conflict.geojson`** holds the vanished piers where the terrain has the ground as land before the pier's start (`terrain_land_year`, `terrain_conflict_share`). Most are short pieces at the bulkhead. The ones along the Chelsea shore sit on the Thirteenth Avenue fill of 1837 that was dug out again for the Chelsea Piers: the terrain keeps that ground as land. Either fix the terrain year from the pier's dates or leave these out.
 - **`start_is_upper_bound`** piers appear on the slider in the year of their first map. If the waterfront should not spring up in 1897, the honest alternatives are to fade them in, or to trace an older source (see "Not used").

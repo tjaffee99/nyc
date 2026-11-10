@@ -417,6 +417,13 @@ def piers():
     log(f"extras: piers: {int(drop.sum())} overlapping decks dropped, {int((e_ != d.end_year.values).sum())} ended when their successor starts")
     gdf = gdf.to_crs(4326)
     gdf["boro"] = boro_of(gdf.geometry.representative_point().values)
+    # (the file's own borough — that of the nearest buildings — where it has one: the county
+    # lines put the whole East River in Manhattan)
+    if "borough" in g:
+        code = {"Manhattan": "1", "Bronx": "2", "The Bronx": "2", "Brooklyn": "3", "Queens": "4", "Staten Island": "5"}
+        by_id = dict(zip("pier:" + g.id.astype(str), g.borough.map(code)))
+        own = gdf.fid_key.str.replace(":shed", "", regex=False).map(by_id)
+        gdf["boro"] = np.where(own.notna().values, own.values, gdf.boro.values)
     # piers inside the map (Manhattan's go into the core file with boro "1"; the New Jersey
     # shore's, boro "", into the tiles)
     from extent import in_extent
