@@ -136,11 +136,11 @@ def one(stem, soil):
     v = np.where(valid, (v - paper) / rng, 0).astype("float32")              # 0 = paper, 1 = strong blue ink
     ink = v > 0.35
     # wet = dense blue line work (water lining, marsh ruling) or a blue tint (the pale marsh tint of the meadows):
-    # ink on more than 18 % of the usable cells of a 48 m box, or a mean tint above 12 % of the ink range over 80 m
+    # ink on more than 18 % of the usable cells of a 48 m box, or a mean tint above 20 % of the ink range over 80 m (upland soils: 90 % of cells below 12 %; marsh: median 27-45 %)
     n9 = ndimage.uniform_filter(valid.astype("float32"), 9)
     wet = (ndimage.uniform_filter(ink.astype("float32"), 9) > 0.18 * np.maximum(n9, 0.25)) & (n9 > 0.25)
     n15 = ndimage.uniform_filter(valid.astype("float32"), 15)
-    wet |= (ndimage.uniform_filter(v, 15) > 0.12 * np.maximum(n15, 0.25)) & (n15 > 0.25)
+    wet |= (ndimage.uniform_filter(v, 15) > 0.20 * np.maximum(n15, 0.25)) & (n15 > 0.25)
     del n9, n15, valid
     vn = v.astype("float16")
     del v

@@ -275,8 +275,8 @@ def crossings(names):
     route_u = shapely.union_all(fw.geometry.values[idx])
     b = route_u.bounds
     along_y = (b[3] - b[1]) > (b[2] - b[0])
-    main = gpd.read_parquet(f"{OV}/roads_region.parquet", columns=["name", "geometry"])
-    main = main[main.name.notna()].to_crs(UTM)
+    main = gpd.read_parquet(f"{OV}/roads_region.parquet", columns=["name", "class", "geometry"])
+    main = main[main.name.notna() & main["class"].isin(["primary", "secondary"])].to_crs(UTM)
     tree = shapely.STRtree(main.geometry.values)
     hit = tree.query(route_u, predicate="dwithin", distance=20.0)
     rows = {}

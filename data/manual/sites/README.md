@@ -7,7 +7,7 @@ Forts, navy yards, bases, rail yards, gasworks, power plants, refineries, shipya
 | file | what |
 |---|---|
 | `sites.geojson` | 121 site features (one per site and name period), WGS84 |
-| `../../tables/known_building_dates.sites.csv` | 80 rows: 13 researched years of standing buildings (text), 28 years from USGS map editions (`site_map:` ids, estimated), 39 site floors (`site_floor:` ids) |
+| `../../tables/known_building_dates.sites.csv` | 130 rows: 13 researched years of standing buildings (text), 28 years from USGS map editions (`site_map:` ids, estimated), 50 lot-stamp fixes (`site_stamp:` ids, estimated), 39 site floors (`site_floor:` ids, not dates) |
 | `../../tables/notable_demolished.sites.csv` | 24 structures that are gone (11 with an outline, the rest as `footprint_m` + `rotation_deg`) |
 | `edition_brackets.csv` | every footprint read on the USGS editions (1645 rows, 52 sites): EVIDENCE ONLY - do not apply it beyond the rows already in the building table |
 | `tools/` | `sites_def.py`, `sites_def2.py` (the sites), `buildings_def.py`, `demolished_def.py`, `build.py`, `build_buildings.py`, `build_demolished.py`, `readme.py`; `geom.py` (outlines), `fetch_wp.py` + `wp_titles.txt` + `wp_facts.py` (source text), `topo.py`, `date_editions.py`, `run_editions.py` (USGS editions), `audit.py` |
@@ -39,7 +39,7 @@ Features overlap on purpose where a site was renamed (Fort Columbus / Fort Jay, 
 
 **Standing buildings** (`buildings_def.py`): the footprint is found from the name OpenStreetMap gives a building inside the site, or from the article's coordinates, and its BIN read from `nyc_footprints_raw.parquet`. A row is not written where the built file already has an LPC year within five years (20 of the 33 buildings checked: most armories, the IRT powerhouse, Castle Williams, Liggett Hall ...).
 
-**Site floors**: one `site_floor:<site id>` row per site whose outline is a mapped one and whose founding is from text: no building inside the outline predates the founding. Meant for estimated years only (LPC and recorded years stand: Governors Island, Fort Totten and Welfare Island keep buildings older than a later name). Fort Tilden's row asks for assessor years too.
+**Site floors**: one `site_floor:<site id>` row per site whose outline is a mapped one and whose founding is from text: no building inside the outline predates the founding. Meant for estimated years only (LPC and recorded years stand: Governors Island, Fort Totten and Welfare Island keep buildings older than a later name). Where the assessor's year is the lot's year stamped on the site's buildings and older than the site, the floor is written out as rows (50 `site_stamp:` rows, all in fort_tilden), because the pipeline's floor does not reach recorded years.
 
 **Structures that are gone** (`demolished_def.py`): outlines of Fort Lafayette, the two Elmhurst gas holders, five holders of the Gas House District, Goldwater Memorial Hospital and City Hospital were read on USGS 1:24,000 sheets in a metre grid (`topo.py render`; NAD27 by PROJ's three-parameter shift, +-10 m); Waterside is its two street blocks; the rest are rectangles from cited or estimated dimensions.
 
@@ -60,47 +60,47 @@ So the brackets are **not** used as the Bay project used them. `build_buildings.
 
 | id | name | kind | years | estimated | outline | source (en.wikipedia.org/wiki/...) |
 |---|---|---|---|---|---|---|
-| `governors_island_fort_jay_1794` | Fort Jay (Governors Island) | fort | 1794-1809 | end | LPC district | Governors_Island |
-| `governors_island_fort_columbus` | Fort Columbus (Governors Island) | fort | 1809-1904 | start | LPC district | Governors_Island |
-| `governors_island_army_1904` | Fort Jay (Governors Island Army post) | military_base | 1904-1966 | - | OpenStreetMap | Governors_Island |
+| `governors_island_fort_jay_1794` | Fort Jay | fort | 1794-1809 | end | LPC district | Governors_Island |
+| `governors_island_fort_columbus` | Fort Columbus | fort | 1809-1904 | start | LPC district | Governors_Island |
+| `governors_island_army_1904` | Fort Jay | military_base | 1904-1966 | - | OpenStreetMap | Governors_Island |
 | `governors_island_coast_guard` | Coast Guard Support Center Governors Island | military_base | 1966-1996 | - | OpenStreetMap | Governors_Island |
-| `fort_wood` | Fort Wood (Bedloe's Island) | fort | 1806-1937 | - | OpenStreetMap | Liberty_Island |
-| `fort_gibson` | Fort Gibson (Ellis Island) | fort | 1808-1890 | outline | estimated | Ellis_Island |
+| `fort_wood` | Fort Wood | fort | 1806-1937 | - | OpenStreetMap | Liberty_Island |
+| `fort_gibson` | Fort Gibson | fort | 1808-1890 | outline | estimated | Ellis_Island |
 | `ellis_island_station` | Ellis Island immigration station | other | 1892-1954 | - | OpenStreetMap | Ellis_Island |
 | `fort_hamilton` | Fort Hamilton | fort | 1825- | - | OpenStreetMap | Fort_Hamilton |
-| `fort_wadsworth_1806` | Fort Tompkins and Fort Richmond (New York State works) | fort | 1806-1865 | - | OpenStreetMap | Fort_Wadsworth |
+| `fort_wadsworth_1806` | Fort Richmond and Fort Tompkins | fort | 1806-1865 | - | OpenStreetMap | Fort_Wadsworth |
 | `fort_wadsworth` | Fort Wadsworth | fort | 1865-1994 | - | OpenStreetMap | Fort_Wadsworth |
-| `fort_at_willets_point` | Fort at Willets Point (Camp Morgan) | fort | 1862-1898 | - | LPC district | Fort_Totten_(Queens) |
+| `fort_at_willets_point` | Fort at Willets Point | fort | 1862-1898 | - | LPC district | Fort_Totten_(Queens) |
 | `fort_totten` | Fort Totten | fort | 1898-1974 | - | OpenStreetMap | Fort_Totten_(Queens) |
 | `fort_schuyler` | Fort Schuyler | fort | 1833-1934 | - | OpenStreetMap | Fort_Schuyler |
 | `suny_maritime_college` | New York State Maritime College (Fort Schuyler) | other | 1934- | - | OpenStreetMap | Fort_Schuyler |
 | `fort_tilden` | Fort Tilden | fort | 1917-1974 | end | OpenStreetMap | Fort_Tilden |
-| `fort_lafayette` | Fort Lafayette (Fort Diamond) | fort | 1812-1960 | - | USGS sheet | Fort_Lafayette |
-| `nas_new_york` | Naval Air Station New York (Floyd Bennett Field) | military_base | 1941-1971 | end | OpenStreetMap | Floyd_Bennett_Field |
-| `miller_field` | Miller Field (Army airfield) | military_base | 1919-1969 | - | OpenStreetMap | Miller_Field_(Staten_Island) |
+| `fort_lafayette` | Fort Lafayette | fort | 1812-1960 | - | USGS sheet | Fort_Lafayette |
+| `nas_new_york` | Naval Air Station New York | military_base | 1941-1971 | end | OpenStreetMap | Floyd_Bennett_Field |
+| `miller_field` | Miller Field | military_base | 1919-1969 | - | OpenStreetMap | Miller_Field_(Staten_Island) |
 | `nas_rockaway` | Naval Air Station Rockaway | military_base | 1917-1930 | outline | estimated | Naval_Air_Station_Rockaway |
-| `brooklyn_navy_yard` | New York Navy Yard (Brooklyn Navy Yard) | navy_yard | 1801-1966 | - | OpenStreetMap | Brooklyn_Navy_Yard |
-| `brooklyn_navy_yard_industrial` | Brooklyn Navy Yard (industrial park) | factory | 1969- | - | OpenStreetMap | Brooklyn_Navy_Yard |
+| `brooklyn_navy_yard` | Brooklyn Navy Yard | navy_yard | 1801-1966 | - | OpenStreetMap | Brooklyn_Navy_Yard |
+| `brooklyn_navy_yard_industrial` | Brooklyn Navy Yard | factory | 1969- | - | OpenStreetMap | Brooklyn_Navy_Yard |
 | `brooklyn_naval_hospital` | Brooklyn Naval Hospital | hospital_campus | 1838-1948 | - | OpenStreetMap | Brooklyn_Naval_Hospital |
-| `brooklyn_army_base` | Brooklyn Army Base (New York Port of Embarkation) | military_base | 1919-1966 | - | OpenStreetMap | Brooklyn_Army_Terminal |
+| `brooklyn_army_base` | Brooklyn Army Base | military_base | 1919-1966 | - | OpenStreetMap | Brooklyn_Army_Terminal |
 | `brooklyn_army_terminal` | Brooklyn Army Terminal | terminal | 1981- | - | OpenStreetMap | Brooklyn_Army_Terminal |
-| `naval_station_new_york` | Naval Station New York (Stapleton home port) | military_base | 1990-1994 | - | OpenStreetMap | Naval_Station_New_York |
+| `naval_station_new_york` | Naval Station New York | military_base | 1990-1994 | - | OpenStreetMap | Naval_Station_New_York |
 | `stapleton_piers` | Stapleton piers (Foreign-Trade Zone No. 1) | terminal | 1920-1975 | end, outline | estimated | Stapleton,_Staten_Island |
-| `halloran_general_hospital` | Halloran General Hospital (Army) | hospital_campus | 1942-1947 | - | OpenStreetMap | Halloran_General_Hospital |
+| `halloran_general_hospital` | Halloran General Hospital | hospital_campus | 1942-1947 | - | OpenStreetMap | Halloran_General_Hospital |
 | `willowbrook_state_school` | Willowbrook State School | asylum | 1947-1987 | - | OpenStreetMap | Willowbrook_State_School |
-| `quarantine_tompkinsville` | New York Marine Hospital (the Quarantine) | hospital_campus | 1799-1858 | outline | estimated | Staten_Island_Quarantine_War |
-| `hoffman_island_quarantine` | Hoffman Island quarantine station | hospital_campus | 1873-1938 | end | OpenStreetMap | Hoffman_Island |
-| `swinburne_island_quarantine` | Swinburne Island quarantine hospital | hospital_campus | 1870-1938 | end | OpenStreetMap | Swinburne_Island |
+| `quarantine_tompkinsville` | The Quarantine | hospital_campus | 1799-1858 | outline | estimated | Staten_Island_Quarantine_War |
+| `hoffman_island_quarantine` | Hoffman Island Quarantine | hospital_campus | 1873-1938 | end | OpenStreetMap | Hoffman_Island |
+| `swinburne_island_quarantine` | Swinburne Island Quarantine | hospital_campus | 1870-1938 | end | OpenStreetMap | Swinburne_Island |
 | `seamens_retreat` | Seamen's Retreat / U.S. Marine Hospital (Bayley Seton) | hospital_campus | 1831- | - | street blocks | Bayley_Seton_Hospital |
 | `sailors_snug_harbor` | Sailors' Snug Harbor | other | 1831-1976 | - | OpenStreetMap | Sailors'_Snug_Harbor |
 | `creedmoor_rifle_range` | Creedmoor Rifle Range | military_base | 1873-1907 | - | OpenStreetMap | Creedmoor_Rifle_Range |
 | `sunnyside_yard` | Sunnyside Yard | rail_yard | 1910- | - | OpenStreetMap | Sunnyside_Yard |
-| `thirtieth_street_yard` | 30th Street Yard (Hudson River Railroad, New York Central) | rail_yard | 1851-1987 | start | OpenStreetMap | West_Side_Yard |
-| `west_side_yard` | West Side Yard (John D. Caemmerer) | rail_yard | 1987- | - | OpenStreetMap | West_Side_Yard |
+| `thirtieth_street_yard` | 30th Street Yard | rail_yard | 1851-1987 | start | OpenStreetMap | West_Side_Yard |
+| `west_side_yard` | West Side Yard | rail_yard | 1987- | - | OpenStreetMap | West_Side_Yard |
 | `st_johns_park_freight_terminal` | St. John's Park Freight Depot | rail_yard | 1867-1927 | outline | estimated | St._John's_Park |
-| `sixtieth_street_yard` | 60th Street Yard (New York Central) | rail_yard | 1880-1975 | start, end, outline | estimated | Riverside_South,_Manhattan |
-| `bay_ridge_65th_street_yard` | Bay Ridge (65th Street) Yard | rail_yard | 1876- | - | OpenStreetMap | 65th_Street_Yard |
-| `coney_island_yard` | Coney Island Yard and Shops | rail_yard | 1926- | - | OpenStreetMap | New_York_City_Subway_yards |
+| `sixtieth_street_yard` | 60th Street Yard | rail_yard | 1880-1975 | start, end, outline | estimated | Riverside_South,_Manhattan |
+| `bay_ridge_65th_street_yard` | Bay Ridge Yard | rail_yard | 1876- | - | OpenStreetMap | 65th_Street_Yard |
+| `coney_island_yard` | Coney Island Yard | rail_yard | 1926- | - | OpenStreetMap | New_York_City_Subway_yards |
 | `yard_207th_street` | 207th Street Yard | rail_yard | 1932- | - | OpenStreetMap | IND_Eighth_Avenue_Line |
 | `jamaica_yard` | Jamaica Yard | rail_yard | 1936- | - | OpenStreetMap | New_York_City_Subway_yards |
 | `corona_yard` | Corona Yard | rail_yard | 1928- | - | OpenStreetMap | New_York_City_Subway_yards |
@@ -111,41 +111,41 @@ So the brackets are **not** used as the Bay project used them. `build_buildings.
 | `east_new_york_yard` | East New York Yard | rail_yard | 1885- | - | OpenStreetMap | New_York_City_Subway_yards |
 | `yard_239th_street` | 239th Street Yard | rail_yard | 1916- | - | OpenStreetMap | New_York_City_Subway_yards |
 | `unionport_yard` | East 180th Street and Unionport Yards | rail_yard | 1918- | start | OpenStreetMap | New_York_City_Subway_yards |
-| `morris_park_shops` | Morris Park Shops (Long Island Rail Road) | rail_yard | 1889- | - | OpenStreetMap | Morris_Park_Facility |
+| `morris_park_shops` | Morris Park Shops | rail_yard | 1889- | - | OpenStreetMap | Morris_Park_Facility |
 | `hillside_facility` | Hillside Maintenance Complex (Long Island Rail Road) | rail_yard | 1991- | - | OpenStreetMap | Hillside_Facility |
 | `brooklyn_eastern_district_terminal` | Brooklyn Eastern District Terminal | rail_yard | 1906-1983 | - | OpenStreetMap | Brooklyn_Eastern_District_Terminal |
 | `harlem_river_yard` | Harlem River Yard | rail_yard | 1991- | outline | estimated | Harlem_River_Intermodal_Yard |
-| `elmhurst_gas_tanks` | Elmhurst gas tanks (Newtown Holder Station) | gasworks | 1910-1996 | - | OpenStreetMap | Elmhurst_gas_tanks |
-| `gashouse_district` | Gas House District (Consolidated Gas works and holders) | gasworks | 1842-1945 | outline | estimated | Stuyvesant_Town%E2%80%93Peter_Cooper_Village |
+| `elmhurst_gas_tanks` | Elmhurst gas tanks | gasworks | 1910-1996 | - | OpenStreetMap | Elmhurst_gas_tanks |
+| `gashouse_district` | Gas House District | gasworks | 1842-1945 | outline | estimated | Stuyvesant_Town%E2%80%93Peter_Cooper_Village |
 | `waterside_station` | Waterside Generating Station | power_plant | 1901-2005 | - | street blocks | Waterside_Generating_Station |
 | `east_river_station` | East River Generating Station | power_plant | 1926- | - | OpenStreetMap | East_River_Generating_Station |
 | `ravenswood_station` | Ravenswood Generating Station | power_plant | 1963- | - | OpenStreetMap | Ravenswood_Generating_Station |
 | `poletti_power_project` | Charles Poletti Power Project (Astoria 6) | power_plant | 1977-2010 | - | OpenStreetMap | Charles_Poletti_Power_Project |
-| `astral_oil_works` | Astral Oil Works (Charles Pratt, Standard Oil) | refinery | 1867-1949 | end, outline | estimated | Astral_Oil_Works |
-| `standard_oil_brooklyn_refinery` | Standard Oil (Socony, Mobil) Brooklyn refinery | refinery | 1870-1966 | start, outline | estimated | Greenpoint_oil_spill |
+| `astral_oil_works` | Astral Oil Works | refinery | 1867-1949 | end, outline | estimated | Astral_Oil_Works |
+| `standard_oil_brooklyn_refinery` | Standard Oil Brooklyn Refinery | refinery | 1870-1966 | start, outline | estimated | Greenpoint_oil_spill |
 | `burlee_staten_island_shipbuilding` | Burlee Dry Dock / Staten Island Shipbuilding (Mariners Harbor) | shipyard | 1903-1938 | outline | estimated | Bethlehem_Staten_Island |
-| `bethlehem_staten_island` | Bethlehem Steel Staten Island shipyard | shipyard | 1938-1959 | outline | estimated | Bethlehem_Staten_Island |
+| `bethlehem_staten_island` | Bethlehem Steel shipyard | shipyard | 1938-1959 | outline | estimated | Bethlehem_Staten_Island |
 | `morse_dry_dock` | Morse Dry Dock and Repair Company (56th Street) | shipyard | 1900-1938 | start, outline | estimated | Bethlehem_Brooklyn_56th_Street |
-| `bethlehem_56th_street` | Bethlehem Steel 56th Street shipyard | shipyard | 1938-1963 | outline | estimated | Bethlehem_Brooklyn_56th_Street |
-| `erie_basin_dry_docks` | Erie Basin dry docks (Robins Dry Dock, Todd Shipyards) | shipyard | 1866-2008 | outline | estimated | Robins_Dry_Dock_and_Repair_Company |
+| `bethlehem_56th_street` | Bethlehem Steel shipyard | shipyard | 1938-1963 | outline | estimated | Bethlehem_Brooklyn_56th_Street |
+| `erie_basin_dry_docks` | Erie Basin dry docks | shipyard | 1866-2008 | outline | estimated | Robins_Dry_Dock_and_Repair_Company |
 | `continental_iron_works` | Continental Iron Works | shipyard | 1861-1928 | outline | estimated | Continental_Iron_Works |
 | `morgan_iron_works` | Morgan Iron Works | factory | 1838-1907 | outline | estimated | Morgan_Iron_Works |
 | `allaire_iron_works` | Allaire Iron Works | factory | 1816-1869 | outline | estimated | Allaire_Iron_Works |
-| `shooters_island_shipyard` | Townsend-Downey Shipbuilding (Shooters Island) | shipyard | 1898-1910 | - | OpenStreetMap | Shooters_Island |
-| `steinway_factory` | Steinway & Sons factory (Steinway village) | factory | 1870- | - | OpenStreetMap | Steinway,_Queens |
+| `shooters_island_shipyard` | Townsend-Downey Shipyard | shipyard | 1898-1910 | - | OpenStreetMap | Shooters_Island |
+| `steinway_factory` | Steinway & Sons | factory | 1870- | - | OpenStreetMap | Steinway,_Queens |
 | `havemeyers_elder_refinery` | Havemeyers & Elder sugar refinery | factory | 1856-1882 | outline | estimated | Domino_Sugar_Refinery |
-| `domino_sugar_refinery` | Domino Sugar Refinery (American Sugar Refining) | factory | 1882-2004 | outline | estimated | Domino_Sugar_Refinery |
-| `pfizer_brooklyn` | Charles Pfizer & Company (Brooklyn plant) | factory | 1849-2008 | outline | estimated | Pfizer |
+| `domino_sugar_refinery` | Domino Sugar Refinery | factory | 1882-2004 | outline | estimated | Domino_Sugar_Refinery |
+| `pfizer_brooklyn` | Chas. Pfizer & Co. | factory | 1849-2008 | outline | estimated | Pfizer |
 | `eberhard_faber_pencil_factory` | Eberhard Faber Pencil Company | factory | 1872-1956 | - | LPC district | Eberhard_Faber_Pencil_Factory |
-| `port_ivory` | Procter & Gamble, Port Ivory | factory | 1907-1991 | outline | estimated | Port_Ivory,_Staten_Island |
-| `kreischer_brick_works` | Kreischer brick works (Kreischerville) | factory | 1854-1927 | outline | estimated | Charleston,_Staten_Island |
+| `port_ivory` | Port Ivory (Procter & Gamble) | factory | 1907-1991 | outline | estimated | Port_Ivory,_Staten_Island |
+| `kreischer_brick_works` | Kreischer Brick Works | factory | 1854-1927 | outline | estimated | Charleston,_Staten_Island |
 | `kreischer_clay_pits` | Kreischer clay pits | quarry | 1854-1927 | start, outline | estimated | Clay_Pit_Ponds_State_Park_Preserve |
 | `nassau_smelting` | Nassau Smelting and Refining (Tottenville) | factory | 1900-2001 | outline | estimated | Tottenville,_Staten_Island |
 | `bush_terminal` | Bush Terminal | terminal | 1895- | outline | estimated | Bush_Terminal |
-| `fulton_fish_market` | Fulton Market and Fulton Fish Market | terminal | 1822-2005 | outline | estimated | Fulton_Fish_Market |
+| `fulton_fish_market` | Fulton Fish Market | terminal | 1822-2005 | outline | estimated | Fulton_Fish_Market |
 | `washington_market` | Washington Market | terminal | 1813-1967 | end, outline | estimated | Washington_Market |
 | `gansevoort_market` | Gansevoort Market | terminal | 1879- | - | street blocks | Meatpacking_District,_Manhattan |
-| `hunts_point_produce_market` | Hunts Point Terminal Produce Market | terminal | 1967- | - | OpenStreetMap | Hunts_Point,_Bronx |
+| `hunts_point_produce_market` | Hunts Point Market | terminal | 1967- | - | OpenStreetMap | Hunts_Point,_Bronx |
 | `hunts_point_meat_market` | Hunts Point Cooperative (Meat) Market | terminal | 1974- | - | OpenStreetMap | Hunts_Point,_Bronx |
 | `new_fulton_fish_market` | New Fulton Fish Market | terminal | 2005- | - | OpenStreetMap | Fulton_Fish_Market |
 | `bronx_terminal_market` | Bronx Terminal Market | terminal | 1935-2006 | - | OpenStreetMap | Bronx_Terminal_Market |
@@ -157,22 +157,22 @@ So the brackets are **not** used as the Bay project used them. `build_buildings.
 | `fountain_avenue_landfill` | Fountain Avenue Landfill | landfill | 1961-1985 | - | OpenStreetMap | Shirley_Chisholm_State_Park |
 | `edgemere_landfill` | Edgemere Landfill | landfill | 1938-1991 | - | OpenStreetMap | Edgemere_Landfill |
 | `ferry_point_landfill` | Ferry Point landfill | landfill | 1952-1970 | - | OpenStreetMap | Ferry_Point_Park |
-| `barren_island_works` | Barren Island rendering and fertilizer works | factory | 1859-1934 | outline | estimated | Barren_Island,_Brooklyn |
-| `rikers_island_landfill` | Rikers Island (city farm and ash landfill) | landfill | 1884-1932 | - | OpenStreetMap | Rikers_Island |
-| `rikers_island_jails` | Rikers Island (penitentiary and jails) | prison | 1932- | - | OpenStreetMap | Rikers_Island |
-| `blackwells_island` | Blackwell's Island (penitentiary, asylum, almshouse, hospitals) | prison | 1828-1921 | - | OpenStreetMap | Roosevelt_Island |
-| `welfare_island` | Welfare Island (city hospitals) | hospital_campus | 1921-1973 | - | OpenStreetMap | Roosevelt_Island |
-| `hart_island` | Hart Island (potter's field, workhouse and institutions) | other | 1868- | - | OpenStreetMap | Hart_Island |
-| `north_brother_island` | Riverside Hospital (North Brother Island) | hospital_campus | 1885-1963 | - | OpenStreetMap | North_and_South_Brother_Islands_(New_York_City) |
-| `randalls_island_institutions` | Randall's Island (House of Refuge, almshouse and children's hospitals) | asylum | 1845-1935 | - | OpenStreetMap | Randalls_and_Wards_Islands |
-| `wards_island_institutions` | Wards Island (State Emigrant Refuge, City Asylum for the Insane) | asylum | 1847-1899 | - | OpenStreetMap | Randalls_and_Wards_Islands |
-| `manhattan_state_hospital` | Manhattan State Hospital (Wards Island) | asylum | 1899-1936 | end | OpenStreetMap | Manhattan_Psychiatric_Center |
+| `barren_island_works` | Barren Island works | factory | 1859-1934 | outline | estimated | Barren_Island,_Brooklyn |
+| `rikers_island_landfill` | Rikers Island dump | landfill | 1884-1932 | - | OpenStreetMap | Rikers_Island |
+| `rikers_island_jails` | Rikers Island jails | prison | 1932- | - | OpenStreetMap | Rikers_Island |
+| `blackwells_island` | Blackwell's Island | prison | 1828-1921 | - | OpenStreetMap | Roosevelt_Island |
+| `welfare_island` | Welfare Island | hospital_campus | 1921-1973 | - | OpenStreetMap | Roosevelt_Island |
+| `hart_island` | Hart Island potter's field | other | 1868- | - | OpenStreetMap | Hart_Island |
+| `north_brother_island` | Riverside Hospital | hospital_campus | 1885-1963 | - | OpenStreetMap | North_and_South_Brother_Islands_(New_York_City) |
+| `randalls_island_institutions` | House of Refuge | asylum | 1845-1935 | - | OpenStreetMap | Randalls_and_Wards_Islands |
+| `wards_island_institutions` | Wards Island asylum | asylum | 1847-1899 | - | OpenStreetMap | Randalls_and_Wards_Islands |
+| `manhattan_state_hospital` | Manhattan State Hospital | asylum | 1899-1936 | end | OpenStreetMap | Manhattan_Psychiatric_Center |
 | `manhattan_psychiatric_center` | Manhattan Psychiatric Center | asylum | 1936- | start | OpenStreetMap | Manhattan_Psychiatric_Center |
 | `richmond_county_poor_farm` | Richmond County Poor Farm | asylum | 1829-1898 | - | OpenStreetMap | New_York_City_Farm_Colony |
 | `new_york_city_farm_colony` | New York City Farm Colony | asylum | 1898-1975 | - | OpenStreetMap | New_York_City_Farm_Colony |
 | `seaview_hospital` | Sea View Hospital | hospital_campus | 1905- | - | LPC district | Seaview_Hospital |
-| `creedmoor_state_hospital` | Creedmoor State Hospital (Creedmoor Psychiatric Center) | asylum | 1912- | - | OpenStreetMap | Creedmoor_Psychiatric_Center |
-| `kings_county_hospital` | Kings County Hospital (Kings County Almshouse) | hospital_campus | 1831- | - | OpenStreetMap | Kings_County_Hospital_Center |
+| `creedmoor_state_hospital` | Creedmoor State Hospital | asylum | 1912- | - | OpenStreetMap | Creedmoor_Psychiatric_Center |
+| `kings_county_hospital` | Kings County Hospital | hospital_campus | 1831- | - | OpenStreetMap | Kings_County_Hospital_Center |
 | `long_island_state_hospital` | Long Island State Hospital (Kingsboro Psychiatric Center) | asylum | 1895- | - | OpenStreetMap | Kingsboro_Psychiatric_Center |
 | `bellevue_hospital` | Bellevue Hospital | hospital_campus | 1798- | - | OpenStreetMap | Bellevue_Hospital |
 | `bronx_state_hospital` | Bronx State Hospital (Bronx Psychiatric Center) | asylum | 1963- | - | OpenStreetMap | Bronx_Psychiatric_Center |
@@ -224,8 +224,8 @@ Map years (`site_map:<site>:<BIN>`): rikers_island_jails 8, bronx_state_hospital
 | `gashouse_district_holder_5` | Gas holder, Gas House District (Consolidated Gas) | 1890-1945 | outline | 30 | Holder symbol read on the USGS Brooklyn 1:24,000 sheet of 1947 (photographs 1940), +-15 m and generalised; start year estimated (the district's tanks date from 1842 on and were many 'by the late 19th century'), end year estimated (clearance for Stuyvesant Town, 1945); height estimated. |
 | `goldwater_memorial_hospital` | Goldwater Memorial Hospital (Welfare Hospital for Chronic Diseases) | 1939-2014 | outline | 20 | Opened July 1939, closed 2013 (demolition year 2014 estimated); hull of the chevron pavilions traced on the USGS Central Park 1:24,000 sheet of 1966, +-10 m; height estimated. |
 | `city_hospital_roosevelt_island` | City Hospital (Charity Hospital) | 1861-1994 | outline | 18 | Renwick's hospital completed 1861, closed 1957, demolished 1994; outline traced on the USGS Central Park 1:24,000 sheet of 1966, +-10 m; height estimated. |
-| `blackwells_island_penitentiary` | Blackwell's Island Penitentiary | 1830-1936 | 180x18 m, 60.0 deg | 15 | Opened 3 August 1830; the inmates left and the jail was demolished by 1936, Goldwater hospital taking the ground; position, footprint and height estimated. |
-| `pearl_street_station` | Pearl Street Station (Edison Electric Illuminating Company) | 1882-1895 | 15x30 m, 60.0 deg | 15 | 255-257 Pearl Street on a lot of 50 by 100 ft (cited); generating from 4 September 1882, burned 1890 and rebuilt, decommissioned 1895 (end = that year; the building's demolition was not researched); orientation, height and material estimated. |
+| `blackwells_island_penitentiary` | Blackwell's Island Penitentiary | 1830-1936 | 180x18 m, -60.0 deg | 15 | Opened 3 August 1830; the inmates left and the jail was demolished by 1936, Goldwater hospital taking the ground; position, footprint and height estimated. |
+| `pearl_street_station` | Pearl Street Station (Edison Electric Illuminating Company) | 1882-1895 | 15x30 m, -50.0 deg | 15 | 255-257 Pearl Street on a lot of 50 by 100 ft (cited); generating from 4 September 1882, burned 1890 and rebuilt, decommissioned 1895 (end = that year; the building's demolition was not researched); orientation, height and material estimated. |
 | `waterside_station_buildings` | Waterside Generating Station (Nos. 1 and 2) | 1901-2007 | outline | 40 | No. 1 (38th-39th Street) October 1901, No. 2 (39th-40th Street) November 1906; decommissioned 2005 (demolition year estimated); outline: the two street blocks; height estimated. |
 | `st_johns_park_freight_depot` | St. John's Park Freight Depot (Hudson River Railroad) | 1868-1927 | 130x125 m, 28.0 deg | 15 | Four-acre depot on the former park: construction began 1867 (start 1868 estimated: the opening), demolished 1927; footprint from the 4 acres, storeys and height estimated. |
 | `havemeyers_elder_refinery_1856` | Havemeyers & Elder sugar refinery (first) | 1856-1882 | 100x60 m, 28.0 deg | 25 | First Williamsburg refinery of 1856, replaced by the complex built 1882-83 on the west side of Kent Avenue between South 2nd and South 6th Streets; footprint, height and material estimated. |
