@@ -78,8 +78,9 @@ buildings: footprints overture grid land
 county-buildings: land
 	$(P) ../$(PY) county_buildings.py
 
-# street trees of the 1995 / 2005 / 2015 censuses with planting years
-street-trees: download
+# the city's tree inventory (884 k street and park trees): recorded planting dates, else the
+# age of the trunk by species (data/research/street_trees.md); run before `terrain`
+street-trees: buildings land
 	$(P) ../$(PY) street_trees.py
 
 # runways, taxiways, aprons with researched years (data/tables/airports.csv); airfield outlines

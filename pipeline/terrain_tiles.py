@@ -690,6 +690,13 @@ def decorations(name, g, covers, years, elev, urban_y, park_y, wood_y):
         block = features.rasterize(blockers, out_shape=shape, transform=t, fill=0, dtype="uint8").astype(bool)
         tree_fine &= ~block
         del block, blockers
+    # the city's tree inventory stands for itself (street_trees.py): no canopy tree on its cells
+    if name == "detail":
+        try:
+            from street_trees import inventory_mask
+            tree_fine &= ~inventory_mask(t, shape, reach=1)
+        except Exception as e:  # noqa: BLE001
+            log(f"terrain {name}: tree inventory not used to thin the canopy trees ({type(e).__name__}: {e})")
     # the 1609 forest: cells whose natural cover is forest and that were cleared later
     nat_forest = covers[0] == FOREST
     cleared_y = np.where(nat_forest & (covers[1] != FOREST), years[0], np.nan).astype(np.float32)
