@@ -1,4 +1,13 @@
-"""Manual-data tool: trace building footprints from Library of Congress Sanborn sheets (Western Addition).
+"""NOT USED FOR NEW YORK. Kept as copied from the Bay project, for reference only: it is written round one
+district's street frame (San Francisco's Western Addition) and Library of Congress Sanborn sheets, and nothing in
+it runs here. The New York atlas tracing — NYPL real-estate atlases of the 1880s-90s, registered on today's
+streets and standing buildings, traced by fill colour — is data/manual/atlas/tools/atlas.py (method and results
+in data/manual/atlas/README.md). What was taken over from this file is the approach: pixel classes in Lab for
+the yellow (frame) and pink (brick) fills, one region per fill between the drawn lines, and fitting each sheet
+to today's ground because the sheets are to scale but not accurately placed.
+
+Original description (Bay project):
+Manual-data tool: trace building footprints from Library of Congress Sanborn sheets (Western Addition).
 
 Not a `make` stage: it writes hand-checked data into data/manual/sanborn/ (committed).
 

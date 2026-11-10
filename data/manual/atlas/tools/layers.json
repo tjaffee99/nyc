@@ -307,7 +307,9 @@
     "L_max": 84
    },
    "outline": 0.35,
-   "wash_cool": -3.0
+   "wash_cool": -3.0,
+   "street_min_q": 0.25,
+   "street_win_m": 300.0
   }
  }
 }

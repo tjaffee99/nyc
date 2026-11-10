@@ -1,5 +1,5 @@
 #!/bin/sh
-# refine (street match; skipped with a third argument "nostreet") + trace every plate of a layer that has no
+# refine (street match; skipped with a third argument "nostreet" or when the plate has a correction) + trace every plate of a layer that has no
 # trace yet, in N parallel workers:  sh run_layer.sh <layer> [workers] [nostreet]
 # logs: data/interim/atlas/<layer>/run_<k>.log (appended)
 cd "$(dirname "$0")/../../../.." || exit 1
@@ -13,7 +13,7 @@ n=$N
 for k in range(n): print(' '.join(p[k::n]))
 " | { k=0; while read ids; do
   ( for id in $ids; do
-      [ "$MODE" = street ] && .venv/bin/python -I data/manual/atlas/tools/atlas.py refine $L $id
+      [ "$MODE" = street ] && [ ! -f data/interim/atlas/$L/${id}_corr.json ] && .venv/bin/python -I data/manual/atlas/tools/atlas.py refine $L $id
       .venv/bin/python -I data/manual/atlas/tools/atlas.py trace $L $id
     done >> data/interim/atlas/$L/run_$k.log 2>&1 ) &
   k=$((k+1)); done; wait; }

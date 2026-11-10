@@ -11,8 +11,8 @@
     one's centre lies in the other (10 m slack), and their areas are within a factor 3.
  2b. registration: see step 1b in main() (control piers per sheet, local offsets).
  3. every track is then looked up on every source that covers it (the classified rasters of extract.py / chart.py):
-    'pier' (60 % or more of the outline is solid and it is not plain land), 'water' (30 % or less solid), 'land'
-    (the outline lies in land wider than 90 m: filled), else unknown.  The lookup tolerates 6 m of misregistration.
+    'pier' (60 % or more of the outline is solid, with water beside it), 'water' (30 % or less solid), 'land'
+    (the outline lies in land wider than 90 m, or is solid with solid ground on its sides: filled), else unknown.  The lookup tolerates 6 m of misregistration.
  4. dates.  End: standing if OpenStreetMap has it; else between the last source that shows it and the first later one
     that does not (mid-point, `bracket`, both named in the note; `estimated` if the bracket is wider than 20 years).
     Start: between the last source that shows water and the first that shows the pier; a pier already on the first
@@ -69,7 +69,8 @@ class Source:
             self.label = f"C&GS / NOAA chart {meta['quad'].split()[-1] if meta['date_on_map'] < 1974 else {'745': '12335', '541': '12334'}[meta['quad'].split()[-1]]}, {meta['date_on_map']} edition"
             self.A = rasterio.Affine(*meta["affine"])
             fit = meta["fit"][-1]
-            self.use = fit["used"] >= 8 and fit["rms_m"] <= 12
+            self.use = fit["used"] >= 8 and fit["rms_m"] <= 30
+            self.trusted = fit["rms_m"] <= 5          # fitted to today's shore within 5 m: its outlines are control
             self.shift = (0.0, 0.0)
         else:
             info = E.SHEETS[self.name]
@@ -93,6 +94,7 @@ class Source:
                 self.tr, self.geo = s.transform, E.Geo(s.crs)
             sm = meta.get("shift_m")
             self.shift = tuple(sm) if sm and meta.get("shift_peak", 0) >= 1.2 else (0.0, 0.0)
+            self.trusted = False
         b = meta["bbox"] if self.chart else E.SHEETS[self.name]["bbox"]
         self.box = shapely.box(b["minX"] - 0.002, b["minY"] - 0.002, b["maxX"] + 0.002, b["maxY"] + 0.002)
         self.ds = None
@@ -199,6 +201,10 @@ class Source:
             if best is None or solid > best[0]:
                 best = (solid, core, dy, dx)
         solid, core, dy, dx = best
+        # water beside it: a pier has water along its sides, made land and wharves do not
+        ring = features.rasterize([(gl.buffer(12 / self.pxm), 1)], out_shape=cls.shape, fill=0, dtype="uint8").astype(bool) & ~m
+        rv = cls[np.roll(np.roll(ring, dy, axis=0), dx, axis=1)]
+        beside = float(((rv == 1) | (rv == 2)).mean()) if rv.size else 0.0
         ink = self.ds.read(2, window=win)
         inner = shapely.affinity.translate(gl, dx, dy).buffer(-4.0 / self.pxm)
         inkshare = None
@@ -206,7 +212,7 @@ class Source:
             mi = features.rasterize([(inner, 1)], out_shape=cls.shape, fill=0, dtype="uint8").astype(bool)
             if mi.sum() >= 6:
                 inkshare = float(ink[mi].mean())
-        state = "land" if core >= 0.7 else ("pier" if solid >= 0.6 else ("water" if solid <= 0.3 else "unknown"))
+        state = "land" if (core >= 0.7 or (solid >= 0.6 and beside > 0.6)) else ("pier" if solid >= 0.6 else ("water" if solid <= 0.3 else "unknown"))
         return state, round(solid, 2), round(core, 2), None if inkshare is None else round(inkshare, 2)
 
 
@@ -250,7 +256,7 @@ def osm_piers(boros):
         if not g.is_valid:
             g = g.buffer(0)
         b = boros.of(g.centroid)
-        if b is None or (g.area < 150 and not name):
+        if b is None or g.area < (120 if name else 150):
             continue
         t = json.loads(tags) if tags else {}
         if t.get("floating") == "yes":
@@ -368,11 +374,11 @@ def main():
         cands[s.name] = out
     # 1b. the USGS scans sit up to 30 m off in places: where each sheet draws the piers whose position is known
     # (OpenStreetMap's and the charts', fitted to 2-3 m) gives its local offset; its own outlines are moved back by it
-    trusted = [o["geom"] for o in osm if o["geom"].area >= 400] + [c["geom"] for s in sources if s.chart for c in cands.get(s.name, [])]
+    trusted = [o["geom"] for o in osm if o["geom"].area >= 400] + [c["geom"] for s in sources if s.trusted for c in cands.get(s.name, [])]
     tw = [to_wgs(g).centroid for g in trusted]
     rep = {}
     for s in sources:
-        if s.chart:
+        if s.trusted:
             continue
         ctrl = []
         for g, c in zip(trusted, tw):
@@ -439,10 +445,10 @@ def main():
             for k, o in enumerate(sorted(osm_m, key=lambda m: -m["geom"].area)):
                 tracks.append(dict(geom=o["geom"], osm=o, maps=maps if k == 0 else [], borough=o["borough"]))
                 if k == 0 and maps:
-                    bm = max(maps, key=lambda m: m["p"]["rect_fill"] + (1.0 if m["src"].startswith("chart_") else 0.0))
+                    bm = max(maps, key=lambda m: m["p"]["rect_fill"] + (1.0 if by_name[m["src"]].trusted else 0.0))
                     tracks[-1]["map_geom"], tracks[-1]["outline_src"] = rectish(bm["geom"]), bm["src"]
         else:
-            best = max(maps, key=lambda m: m["p"]["rect_fill"] + (1.0 if m["src"].startswith("chart_") else 0.0))
+            best = max(maps, key=lambda m: m["p"]["rect_fill"] + (1.0 if by_name[m["src"]].trusted else 0.0))
             tracks.append(dict(geom=rectish(best["geom"]), osm=None, maps=maps, borough=best["borough"], outline_src=best["src"]))
     print(len(tracks), "tracks,", sum(t["osm"] is not None for t in tracks), "standing")
 

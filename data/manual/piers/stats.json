@@ -1,75 +1,80 @@
 {
- "features": 925,
- "standing": 223,
- "vanished": 702,
+ "features": 1035,
+ "standing": 216,
+ "vanished": 819,
  "by_borough": {
-  "Bronx": 96,
-  "Brooklyn": 173,
-  "Manhattan": 377,
-  "Queens": 123,
-  "Staten Island": 156
+  "Bronx": 97,
+  "Brooklyn": 279,
+  "Manhattan": 348,
+  "Queens": 139,
+  "Staten Island": 172
  },
  "by_borough_vanished": {
-  "Bronx": 81,
-  "Brooklyn": 135,
-  "Manhattan": 262,
-  "Queens": 94,
-  "Staten Island": 130
+  "Bronx": 75,
+  "Brooklyn": 220,
+  "Manhattan": 265,
+  "Queens": 114,
+  "Staten Island": 145
  },
  "start_decade": {
-  "1880s": 6,
-  "1890s": 332,
-  "1900s": 2,
-  "1910s": 109,
-  "1920s": 106,
-  "1930s": 13,
-  "1940s": 175,
-  "1950s": 35,
-  "1960s": 39,
-  "1970s": 20,
-  "1980s": 4,
-  "1990s": 18,
-  "2000s": 34,
-  "2010s": 23,
-  "2020s": 1,
-  "unknown": 8
+  "1880s": 31,
+  "1890s": 337,
+  "1900s": 11,
+  "1910s": 77,
+  "1920s": 63,
+  "1930s": 74,
+  "1940s": 136,
+  "1950s": 67,
+  "1960s": 64,
+  "1970s": 28,
+  "1980s": 14,
+  "1990s": 38,
+  "2000s": 15,
+  "2010s": 79,
+  "2020s": 1
  },
  "end_decade": {
-  "1910s": 6,
+  "1900s": 1,
+  "1910s": 47,
   "1920s": 21,
-  "1940s": 91,
-  "1950s": 26,
-  "1960s": 99,
-  "1970s": 65,
-  "1980s": 28,
-  "1990s": 122,
-  "2000s": 135,
-  "2010s": 109,
-  "standing": 223
+  "1930s": 50,
+  "1940s": 95,
+  "1950s": 57,
+  "1960s": 74,
+  "1970s": 80,
+  "1980s": 68,
+  "1990s": 108,
+  "2000s": 90,
+  "2010s": 128,
+  "standing": 216
  },
  "start_quality": {
-  "bracket": 107,
-  "estimated": 780,
-  "recorded": 38
+  "estimated": 714,
+  "bracket": 288,
+  "recorded": 33
  },
  "end_quality": {
-  "estimated": 440,
-  "recorded": 226,
-  "bracket": 259
+  "recorded": 219,
+  "estimated": 359,
+  "bracket": 457
  },
- "start_upper_bound_only": 504,
+ "start_upper_bound_only": 523,
  "shed": {
-  "shed": 674,
-  "none": 251
+  "none": 408,
+  "shed": 627
  },
  "dropped": {
-  "one sighting, ragged outline": 104,
-  "one sighting": 6,
-  "same spot and years as a better outline": 50
+  "one sighting, ragged outline": 133,
+  "on land older than itself": 69,
+  "one sighting": 43,
+  "never a pier on any source": 29,
+  "outline not long and thin": 3,
+  "in OpenStreetMap but on no dated source used here": 2,
+  "same spot and years as a better outline": 44
  },
  "outline_source": {
-  "usgs": 514,
-  "osm": 275,
-  "noaa": 136
+  "osm": 274,
+  "usgs": 428,
+  "noaa": 333
  }
 }

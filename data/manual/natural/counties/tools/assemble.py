@@ -19,10 +19,10 @@ cells under a polygon of the city layer are left out) is decided, in this order,
   what it covers; beaches; dunes            dunes unless the sheet shows water or marsh
   upland soils                              dry (nothing written), except, in the tidal zone, blocks >= 2 ha that the
                                             sheet shows wet >= 36 m inside the unit (confidence low)
-Inland (not connected to tidewater) the sheets only turn fill / urban units into freshwater wetland where they show
-a marsh or water symbol; no ponds are written (water on the sheets there is mostly mill ponds, and the print
-texture does not separate water from marsh).  Urban land and unnamed fill below 3 m in a tidal setting that the
-sheet leaves blank is taken as marsh or filled water (source "estimated_lowland").
+Inland (not connected to tidewater) only the soil survey decides: no ponds and no wetlands are taken from the sheets
+(water on them there is mostly mill ponds, the print texture does not separate water from marsh, and stream lines
+gave false patches).  Urban land and unnamed fill below 4.5 m in a tidal setting that the sheet leaves blank is taken as marsh or filled water (source "estimated_lowland"); on the Paterson and Staten Island
+sheets, blank paper with blue tuft marks (wooded swamp) beside tidal marsh is taken as marsh.
   reservoirs of data/manual/fill_zones_counties.csv   dry_valley over today's water
 
 "Tidal" = connected to today's tidal water (sea.tif) through cells that are water or marsh on the sheet, tidal
@@ -88,8 +88,9 @@ KINDS = {
     19: ("sheet", "low", "marsh on the USGS sheet not connected to tidal water; soil survey maps upland here"),
     20: ("sheet", "low", "inland water on the USGS sheet, land today; soil survey maps upland here"),
     21: ("sheet", "medium", "water on the USGS sheet, land today; soil survey: fill over wet substratum"),
-    24: ("estimated_lowland", "low", "urban land or unnamed fill lying below 3 m, blank on the USGS sheet (its swamp symbol is not read) or no usable sheet; over half of the ground within 300 m is tidal marsh, wet-substratum fill or tidal water: taken as marsh (estimated)"),
-    25: ("estimated_lowland", "low", "urban land or unnamed fill lying below 3 m, blank on the USGS sheet or no usable sheet; over half of the ground within 300 m is tidal water today: taken as filled water (estimated)"),
+    24: ("estimated_lowland", "low", "urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet (its swamp symbol is not read) or no usable sheet; over half of the ground within 300 m is tidal marsh, wet-substratum fill or tidal water: taken as marsh (estimated)"),
+    25: ("estimated_lowland", "low", "urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet or no usable sheet; over half of the ground within 300 m is tidal water today: taken as filled water (estimated)"),
+    26: ("sheet", "low", "blue tuft marks (wooded swamp symbol) on blank paper on the USGS sheet, urban land or unnamed fill today, beside tidal marsh: taken as marsh (cedar swamp of the meadows; estimated)"),
     22: ("sheet", "low", "blank on the USGS sheet seaward of its water lining (open water is not lined far from shore), land today: taken as open water"),
     23: ("sheet", "low", "blank on the USGS sheet seaward of its water lining, land today: taken as open water; soil survey: fill over wet substratum"),
 }
@@ -283,13 +284,23 @@ def band(area, name, soilwin, rings, c0, c1, r0, r1, k0, k1, acc):
     put(amb & pale_w & tidal, 1, 22)
     put(amb & u_water2 & tidal, 1, 1)
     put(amb & u_marsh2 & tidal, 2, 2)
-    put(amb & (u_marsh2 | u_water2) & ~tidal, 7, 3)
-    # undifferentiated urban land and unnamed fill below 3 m, blank on the sheet, in a tidal setting (estimated)
+    # undifferentiated urban land and unnamed fill below 4.5 m, blank on the sheet, in a tidal setting (estimated)
     ctx = lambda m: UP(ndimage.uniform_filter(RED(m), 25)) >= 0.5
-    lowl = (sc == AMBIG) & (dem <= 3.0) & (out == 0)
+    lowl = (sc == AMBIG) & (dem <= 4.5) & (out == 0)
     put(lowl & ctx(sea0), 1, 25)
     put(lowl & ctx(tidal | np.isin(sc, (WETSUB, MARSHSUB, TMARSH))), 2, 24)
     del lowl, sea0, dem
+    # wooded (cedar) swamp on the two New Jersey sheets is drawn as blue tufts on blank paper, which the sheet
+    # classifier does not read as wet: urban land / unnamed fill where >= 6 % of the cells within about 85 m carry
+    # isolated blue marks and >= 30 % of the ground within 300 m is tidal marsh, wet fill or tidal water
+    nj = [SID.index(x) + 1 for x in ("usgs_paterson_1888", "usgs_staten_island_1898")]
+    solid = dilate(erode(u_water2 | u_marsh2, 4), 6)
+    marks = np.isin(us, (1, 2, 3)) & ~solid & np.isin(usid, nj)
+    del solid
+    tufts = UP(ndimage.uniform_filter(RED(marks), 7)) >= 0.06
+    wetctx = UP(ndimage.uniform_filter(RED(tidal | np.isin(sc, (WETSUB, MARSHSUB, TMARSH))), 25)) >= 0.3
+    put((sc == AMBIG) & tufts & wetctx, 2, 26)
+    del marks, tufts, wetctx
     put(sc == BEACH, 4, 15)
     put(sc == DUNES, 5, 16)
     del amb
@@ -378,8 +389,20 @@ def county(area):
 def merge():
     fr = [gpd.read_parquet(f) for f in sorted(glob.glob(f"{D}/polys_*.parquet")) if "NY059" not in f]
     g = pd.concat([f for f in fr if len(f)], ignore_index=True)
+    # the Tarrytown 1892 scan carries no blue and the Oyster Bay 1897 sheet lines 13 % of its water: what rests on
+    # them alone (urban land / unnamed fill that they show wet) is dropped; where the soil survey says wet
+    # substratum the polygon stays, only its marsh / water label is theirs
+    weak = g.source.isin(["usgs_tarrytown_1892", "usgs_oyster_bay_1897"]) & g.kind.isin([1, 2, 17, 18, 22])
+    print("dropped (unusable sheet, no soil support):", int(weak.sum()), "polygons", round(float(g[weak].area.sum() / 1e4), 1), "ha",
+          (g[weak].area.groupby([g[weak].county, g[weak].cover]).sum() / 1e4).round(1).to_dict())
+    g = g[~weak].reset_index(drop=True)
     g["geometry"] = g.geometry.buffer(0)
-    g = g[~g.geometry.is_empty]
+    seen = None                                      # reservoir rings can overlap each other: keep each cell once
+    for i in g.index[g.cover == "dry_valley"]:
+        geom = g.geometry[i] if seen is None else g.geometry[i].difference(seen)
+        seen = geom if seen is None else seen.union(geom)
+        g.loc[[i], "geometry"] = gpd.GeoSeries([geom], index=[i], crs=g.crs)
+    g = g[~g.geometry.is_empty & (g.area > 600)]
     g4 = g.drop(columns=["kind"]).to_crs(4326)
     g4["geometry"] = g4.geometry.set_precision(1e-6)
     g4 = g4[~g4.geometry.is_empty]

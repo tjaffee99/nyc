@@ -1,4 +1,4 @@
-"""Tracks (build.py) -> dated piers: data/manual/piers/piers.geojson, review.csv, stats.json.
+"""Tracks (build.py) -> dated piers: data/manual/piers/piers.geojson, piers_terrain_conflict.geojson, review.csv, stats.json.
 
   python dates.py
 
@@ -118,6 +118,8 @@ def street_names(tracks):
             pt = shapely.Point(*e)
             for j in tree.query(pt.buffer(60)):
                 name, line = segs[int(j)]
+                if not re.search(r"(Street|Avenue|Place|Slip|Lane|Road|Boulevard|Court|Terrace)$", name):
+                    continue
                 d = line.distance(pt)
                 if d > 60:
                     continue
@@ -176,14 +178,14 @@ def segments(t):
         if prev:
             pw = max(prev, key=lambda o: o["lo"])
             a_s = min(pw["lo"], b_s)
-            seg.update(start=round((a_s + b_s) / 2, 1), start_quality=quality(a_s, b_s), start_bound=False,
+            seg.update(start=round(min((a_s + b_s) / 2, a_e), 1), start_quality=quality(a_s, b_s), start_bound=False,
                        start_note=f"not on {pw['label']}; first on {first['label']}")
         else:
-            seg.update(start=float(b_s), start_quality="estimated", start_bound=True,
+            seg.update(start=float(min(first["lo"], a_e)), start_quality="estimated", start_bound=True,
                        start_note=f"already on the first source of its place, {first['label']}: built by then, earlier life not traced")
         if nxt:
             nw = min(nxt, key=lambda o: o["hi"])
-            b_e = max(nw["hi"], a_e)
+            b_e = max(nw["hi"], a_e + 1)
             seg.update(end=round((a_e + b_e) / 2, 1), end_quality=quality(a_e, b_e), end_note=f"last on {last['label']}; gone on {nw['label']}"
                        + (" (its place is land there)" if nw["state"] == "land" else ""))
         elif standing:
@@ -199,8 +201,12 @@ def segments(t):
             segs.append(dict(obs=[], first=None, last=None, start=round((pw["lo"] + TODAY) / 2, 1), start_quality=quality(pw["lo"], TODAY), start_bound=False,
                              start_note=f"not on {pw['label']}; in OpenStreetMap {TODAY}", end=9999, end_quality="recorded", end_note="stands (OpenStreetMap)"))
         else:
-            segs.append(dict(obs=[], first=None, last=None, start=None, start_quality="estimated", start_bound=True,
-                             start_note="on no dated source used here", end=9999, end_quality="recorded", end_note="stands (OpenStreetMap)"))
+            lands = [o for o in t["obs"] if o["state"] == "land"]
+            if lands:                      # a platform or wharf that the maps draw as part of the land
+                f0 = min(lands, key=lambda o: o["hi"])
+                segs.append(dict(obs=[], first=None, last=None, start=float(f0["hi"]), start_quality="estimated", start_bound=True,
+                                 start_note=f"the maps draw its place as solid ground (a wharf or platform), first {f0['label']}: there by then",
+                                 end=9999, end_quality="recorded", end_note="stands (OpenStreetMap)"))
     return segs, noise
 
 
@@ -301,11 +307,11 @@ def main():
         return None
 
     names = street_names(tracks)
-    feats, review = [], []
+    feats, review, conflicts = [], [], []
     for t, street in zip(tracks, names):
         segs, noise = segments(t)
         if not segs:
-            review.append(dict(reason="never a pier on any source", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))
+            review.append(dict(reason="in OpenStreetMap but on no dated source used here" if t["osm"] else "never a pier on any source", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))
             continue
         L, Wd = dims(t["g"])
         lyv = land_years(t["g"])
@@ -355,9 +361,6 @@ def main():
                 before = float(np.mean(lyv <= seg["start"]))                       # land before the pier: cannot be
                 during = (lyv > seg["start"]) & (lyv < seg["end"])                 # filled while the maps still show it
                 p["made_land_share"] = round(float(np.mean(lyv <= seg["end"])), 2)
-                if before > 0.6 and t["osm"] is None:
-                    review.append(dict(reason="on land older than itself (terrain grid)", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))
-                    continue
                 if during.mean() > 0.5 and seg["end_quality"] != "recorded":
                     fy = float(np.median(lyv[during]))
                     note.append(f"the terrain makes this ground land in {fy:.0f}, before the maps' end {seg['end']}: ended then")
@@ -398,11 +401,32 @@ def main():
                     else:
                         extra.update(start_year=old_start, start_quality=seg["start_quality"], start_is_upper_bound=seg["start_bound"])
                         extra["note_start"] = seg["start_note"]
+            conflict = None
+            if not standing and p["start_year"] is not None and float(np.mean(lyv <= p["start_year"])) > 0.5:
+                # the terrain has this ground as land before the pier: kept apart (piers_terrain_conflict.geojson)
+                conflict = round(float(np.mean(lyv <= p["start_year"])), 2)
+                p["terrain_land_year"] = round(float(np.nanmedian(lyv[lyv <= p["start_year"]])), 1)
+                review.append(dict(reason="on land older than itself (terrain grid)", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))
+            if p["start_year"] is not None and p["end_year"] <= p["start_year"]:
+                p["end_year"] = round(p["start_year"] + 1.0, 1)
+            end_ = p["end_year"] if p["end_year"] != 9999 else TODAY + 1
+            if p.get("shed_end") is not None and not ((p["start_year"] or 0) < p["shed_end"] <= end_):
+                p.pop("shed_end")
+            if p.get("shed_start") is not None and not ((p["start_year"] or 0) <= p["shed_start"] < end_):
+                p.pop("shed_start")
+            L2, W2 = dims(to_utm(geom))
+            if p["source"] != "osm" and not (L2 >= 1.4 * W2 and W2 <= 105):
+                review.append(dict(reason="outline not long and thin", borough=t["borough"], lon=round(t["gw"].centroid.x, 5), lat=round(t["gw"].centroid.y, 5)))
+                continue
             if noise:
                 note.append(f"{noise} source(s) in between do not show it (taken as misreadings)")
             p["note"] = "; ".join(n for n in note if n)
             p["evidence"] = " ".join(f"{o['lo']}{'s' if o.get('stroke') else ('c' if o['chart'] else 'u')}:{o['state'][0]}" for o in
                                      sorted([o for o in t["obs"] if o["state"] != "unknown"], key=lambda o: (o["lo"], o["hi"])))
+            if conflict is not None:
+                p["terrain_conflict_share"] = conflict
+                conflicts.append(dict(type="Feature", geometry=mapping(geom), properties=p))
+                continue
             feats.append(dict(type="Feature", geometry=mapping(geom), properties=p))
             if extra is not None and (extra["start_year"] is None or extra["start_year"] < extra["end_year"]):
                 extra["note"] = "; ".join(n for n in [f"the pier before the present one: {r['note']} [{r['source_url']}]", extra.pop("note_start", "")] if n)
@@ -445,6 +469,10 @@ def main():
         f["properties"] = dict(id=f"pier_{b}_{cnt[b]:04d}", **f["properties"])
         f["geometry"] = mapping(shapely.set_precision(shape(f["geometry"]), 1e-6))
     json.dump(dict(type="FeatureCollection", features=feats), open(HERE / "piers.geojson", "w"))
+    for k, f in enumerate(sorted(conflicts, key=lambda f: (f["properties"]["borough"], shape(f["geometry"]).centroid.y)), start=1):
+        f["properties"] = dict(id=f"pier_conflict_{k:03d}", **f["properties"])
+        f["geometry"] = mapping(shapely.set_precision(shape(f["geometry"]), 1e-6))
+    json.dump(dict(type="FeatureCollection", features=conflicts), open(HERE / "piers_terrain_conflict.geojson", "w"))
     with open(HERE / "review.csv", "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=["reason", "borough", "lon", "lat"])
         w.writeheader()
@@ -456,6 +484,7 @@ def main():
                  start_decade=dict(sorted(Counter(dec(p["start_year"]) for p in P).items())), end_decade=dict(sorted(Counter(dec(p["end_year"]) for p in P).items())),
                  start_quality=dict(Counter(p["start_quality"] for p in P)), end_quality=dict(Counter(p["end_quality"] for p in P)),
                  start_upper_bound_only=sum(p["start_is_upper_bound"] for p in P), shed=dict(Counter(p["shed"] for p in P)),
+                 terrain_conflicts=len(conflicts), terrain_conflicts_by_borough=dict(Counter(f["properties"]["borough"] for f in conflicts)),
                  dropped=dict(Counter(r["reason"].split(" (")[0] for r in review)), outline_source=dict(Counter(p["source"].split("_")[0] for p in P)))
     json.dump(stats, open(HERE / "stats.json", "w"), indent=1)
     print(json.dumps(stats, indent=1))

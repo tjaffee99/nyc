@@ -6,41 +6,40 @@
   "land_today_ha": 60198.6,
   "water_today_ha": 3780.2,
   "no_sheet_land_ha": 21308.9,
-  "blank_paper_taken_as_water_ha": 122.2,
+  "blank_paper_taken_as_water_ha": 148.3,
   "cover_ha": {
-   "water": 736.4,
-   "tidal_marsh": 3877.3,
+   "water": 758.3,
+   "tidal_marsh": 4150.2,
    "tidal_flat": 0.0,
    "beach": 0.0,
    "dunes": 0.0,
-   "pond": 1149.0,
-   "freshwater_wetland": 5864.2,
+   "pond": 0.0,
+   "freshwater_wetland": 6162.2,
    "dry_valley": 608.6
   },
   "by_kind_ha": {
-   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water, land today": 35.2,
-   "pond | inland water on the USGS sheet, land today (may be a mill pond or rese": 998.1,
-   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water; soil survey: fil": 51.0,
-   "freshwater_wetland | soil survey: fill over wet substratum, not connected to tidewater; tak": 4205.2,
+   "freshwater_wetland | wet (marsh or water symbol) on the USGS sheet, not connected to tidal ": 478.2,
+   "freshwater_wetland | soil survey: fill over wet substratum, not connected to tidewater; tak": 4209.0,
    "freshwater_wetland | soil survey: Udorthents, organic substratum (fill over peat), not conn": 49.8,
    "freshwater_wetland | soil survey: hydric natural soil (muck, or poorly drained mineral soil": 1425.2,
-   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water; soil survey maps": 97.9,
-   "pond | inland water on the USGS sheet, land today; soil survey maps upland he": 150.9,
    "water | water on the USGS sheet, land today; soil survey: fill over wet substr": 84.0,
-   "water | water on the USGS sheet, land today": 577.0,
-   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 1314.5,
+   "tidal_marsh | blue tuft marks (wooded swamp symbol) on blank paper on the USGS sheet": 16.0,
+   "water | water on the USGS sheet, land today": 589.7,
+   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 1302.6,
    "tidal_marsh | marsh on the USGS sheet (sheet water over 150 m from today's tidal wat": 227.1,
    "water | soil survey: fill over wet substratum; land already on the USGS sheet,": 6.2,
    "tidal_marsh | soil survey: fill over wet substratum; land already on the USGS sheet,": 596.5,
    "tidal_marsh | soil survey: Udorthents, organic substratum (fill over marsh peat)": 603.8,
    "tidal_marsh | soil survey: tidal-marsh soil, still marsh today": 1133.2,
    "tidal_marsh | marsh on the USGS sheet, land today; soil survey maps upland here": 2.2,
-   "water | blank on the USGS sheet seaward of its water lining (open water is not": 68.6,
-   "water | blank on the USGS sheet seaward of its water lining, land today: taken": 0.6
+   "water | blank on the USGS sheet seaward of its water lining (open water is not": 77.8,
+   "water | blank on the USGS sheet seaward of its water lining, land today: taken": 0.6,
+   "tidal_marsh | urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet ": 268.8,
+   "water | urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet ": 0.0
   },
   "made_land_ha": {
-   "was_water": 736.4,
-   "was_tidal_marsh": 2744.1,
+   "was_water": 758.3,
+   "was_tidal_marsh": 3017.0,
    "tidal_marsh_still_marsh": 1133.2
   },
   "reservoirs": [
@@ -119,7 +118,7 @@
    ]
   },
   "cells_in_both_this_county_and_city_survey": 0,
-  "polygons": 1928
+  "polygons": 1850
  },
  "Essex": {
   "county": "Essex",
@@ -130,30 +129,29 @@
   "no_sheet_land_ha": 16338.4,
   "blank_paper_taken_as_water_ha": 264.8,
   "cover_ha": {
-   "water": 427.2,
-   "tidal_marsh": 1430.2,
+   "water": 427.8,
+   "tidal_marsh": 1527.9,
    "tidal_flat": 0.0,
    "beach": 0.0,
    "dunes": 0.0,
-   "pond": 102.8,
-   "freshwater_wetland": 2421.1,
+   "pond": 0.0,
+   "freshwater_wetland": 2399.6,
    "dry_valley": 25.2
   },
   "by_kind_ha": {
-   "water | water on the USGS sheet, land today": 162.2,
-   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 1408.7,
-   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water, land today": 18.6,
-   "pond | inland water on the USGS sheet, land today (may be a mill pond or rese": 27.6,
+   "water | water on the USGS sheet, land today": 162.7,
+   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 1437.4,
    "freshwater_wetland | soil survey: hydric natural soil (muck, or poorly drained mineral soil": 2399.6,
    "water | water on the USGS sheet, land today; soil survey maps upland here": 7.3,
    "tidal_marsh | marsh on the USGS sheet, land today; soil survey maps upland here": 21.5,
-   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water; soil survey maps": 2.9,
-   "pond | inland water on the USGS sheet, land today; soil survey maps upland he": 75.2,
-   "water | blank on the USGS sheet seaward of its water lining (open water is not": 257.7
+   "water | blank on the USGS sheet seaward of its water lining (open water is not": 257.7,
+   "tidal_marsh | urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet ": 61.6,
+   "water | urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet ": 0.1,
+   "tidal_marsh | blue tuft marks (wooded swamp symbol) on blank paper on the USGS sheet": 7.4
   },
   "made_land_ha": {
-   "was_water": 427.2,
-   "was_tidal_marsh": 1430.2,
+   "was_water": 427.8,
+   "was_tidal_marsh": 1527.9,
    "tidal_marsh_still_marsh": 0.0
   },
   "reservoirs": [
@@ -181,7 +179,7 @@
    ]
   },
   "cells_in_both_this_county_and_city_survey": 0,
-  "polygons": 237
+  "polygons": 228
  },
  "Hudson": {
   "county": "Hudson",
@@ -190,39 +188,39 @@
   "land_today_ha": 11507.5,
   "water_today_ha": 4645.0,
   "no_sheet_land_ha": 0.0,
-  "blank_paper_taken_as_water_ha": 1687.3,
+  "blank_paper_taken_as_water_ha": 1697.9,
   "cover_ha": {
-   "water": 2513.3,
-   "tidal_marsh": 2973.1,
+   "water": 2552.4,
+   "tidal_marsh": 3110.0,
    "tidal_flat": 0.0,
    "beach": 0.0,
    "dunes": 0.0,
-   "pond": 34.1,
-   "freshwater_wetland": 30.7,
+   "pond": 0.0,
+   "freshwater_wetland": 35.1,
    "dry_valley": 3.3
   },
   "by_kind_ha": {
-   "water | water on the USGS sheet, land today": 326.3,
-   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 273.4,
-   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water, land today": 6.5,
-   "pond | inland water on the USGS sheet, land today (may be a mill pond or rese": 26.2,
-   "tidal_marsh | marsh on the USGS sheet (sheet water over 150 m from today's tidal wat": 930.7,
-   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water; soil survey: fil": 0.5,
+   "water | water on the USGS sheet, land today": 327.7,
+   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 272.7,
+   "tidal_marsh | marsh on the USGS sheet (sheet water over 150 m from today's tidal wat": 905.8,
+   "freshwater_wetland | wet (marsh or water symbol) on the USGS sheet, not connected to tidal ": 11.4,
    "water | soil survey: fill over wet substratum; land already on the USGS sheet,": 77.5,
-   "tidal_marsh | soil survey: fill over wet substratum; land already on the USGS sheet,": 981.5,
+   "tidal_marsh | soil survey: fill over wet substratum; land already on the USGS sheet,": 972.2,
    "freshwater_wetland | soil survey: fill over wet substratum, not connected to tidewater; tak": 16.9,
    "tidal_marsh | soil survey: tidal-marsh soil, still marsh today": 779.5,
    "freshwater_wetland | soil survey: hydric natural soil (muck, or poorly drained mineral soil": 6.8,
    "water | water on the USGS sheet, land today; soil survey maps upland here": 0.6,
    "tidal_marsh | marsh on the USGS sheet, land today; soil survey maps upland here": 8.0,
-   "pond | inland water on the USGS sheet, land today; soil survey maps upland he": 8.0,
-   "water | water on the USGS sheet, land today; soil survey: fill over wet substr": 595.8,
-   "water | blank on the USGS sheet seaward of its water lining (open water is not": 567.5,
-   "water | blank on the USGS sheet seaward of its water lining, land today: taken": 945.6
+   "water | water on the USGS sheet, land today; soil survey: fill over wet substr": 620.7,
+   "water | blank on the USGS sheet seaward of its water lining (open water is not": 568.5,
+   "water | blank on the USGS sheet seaward of its water lining, land today: taken": 954.6,
+   "tidal_marsh | urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet ": 155.4,
+   "water | urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet ": 2.8,
+   "tidal_marsh | blue tuft marks (wooded swamp symbol) on blank paper on the USGS sheet": 16.3
   },
   "made_land_ha": {
-   "was_water": 2513.3,
-   "was_tidal_marsh": 2193.6,
+   "was_water": 2552.4,
+   "was_tidal_marsh": 2330.5,
    "tidal_marsh_still_marsh": 779.5
   },
   "reservoirs": [
@@ -264,7 +262,102 @@
    ]
   },
   "cells_in_both_this_county_and_city_survey": 0,
-  "polygons": 926
+  "polygons": 1025
+ },
+ "Passaic": {
+  "county": "Passaic",
+  "area": "NJ031",
+  "bands": 2,
+  "land_today_ha": 47481.1,
+  "water_today_ha": 3394.7,
+  "no_sheet_land_ha": 33698.6,
+  "blank_paper_taken_as_water_ha": 2.9,
+  "cover_ha": {
+   "water": 4.8,
+   "tidal_marsh": 2.5,
+   "tidal_flat": 0.0,
+   "beach": 0.0,
+   "dunes": 0.0,
+   "pond": 0.0,
+   "freshwater_wetland": 4946.7,
+   "dry_valley": 1259.0
+  },
+  "by_kind_ha": {
+   "freshwater_wetland | soil survey: fill over wet substratum, not connected to tidewater; tak": 6.0,
+   "freshwater_wetland | soil survey: hydric natural soil (muck, or poorly drained mineral soil": 4940.0,
+   "freshwater_wetland | wet (marsh or water symbol) on the USGS sheet, not connected to tidal ": 0.6,
+   "water | water on the USGS sheet, land today; soil survey maps upland here": 4.8,
+   "tidal_marsh | marsh on the USGS sheet, land today; soil survey maps upland here": 2.5
+  },
+  "made_land_ha": {
+   "was_water": 4.8,
+   "was_tidal_marsh": 2.5,
+   "tidal_marsh_still_marsh": 0.0
+  },
+  "reservoirs": [
+   {
+    "name": "Wanaque Reservoir",
+    "county": "Passaic",
+    "year": 1928,
+    "ha": 885.5,
+    "sheet_wet_share": null,
+    "sheets": []
+   },
+   {
+    "name": "Monksville Reservoir",
+    "county": "Passaic",
+    "year": 1987,
+    "ha": 207.7,
+    "sheet_wet_share": null,
+    "sheets": []
+   },
+   {
+    "name": "Pompton Lake",
+    "county": "Passaic",
+    "year": 1908,
+    "ha": 13.1,
+    "sheet_wet_share": null,
+    "sheets": []
+   },
+   {
+    "name": "Charlotteburg Reservoir (Passaic and Morris counties)",
+    "county": "Passaic",
+    "year": 1957,
+    "ha": 59.7,
+    "sheet_wet_share": null,
+    "sheets": []
+   },
+   {
+    "name": "Pompton Lake",
+    "county": "Passaic",
+    "year": 1908,
+    "ha": 61.2,
+    "sheet_wet_share": null,
+    "sheets": []
+   },
+   {
+    "name": "Packanack Lake (Wayne)",
+    "county": "Passaic",
+    "year": 1928,
+    "ha": 31.9,
+    "sheet_wet_share": null,
+    "sheets": []
+   }
+  ],
+  "lining_share": {
+   "usgs_paterson_1888": [
+    [
+     0,
+     0.0
+    ],
+    [
+     23073,
+     0.876
+    ]
+   ]
+  },
+  "cells_in_both_this_county_and_city_survey": 0,
+  "polygons": 375
  },
  "Union": {
   "county": "Union",
@@ -276,28 +369,29 @@
   "blank_paper_taken_as_water_ha": 550.9,
   "cover_ha": {
    "water": 570.9,
-   "tidal_marsh": 1681.9,
+   "tidal_marsh": 1771.4,
    "tidal_flat": 0.0,
    "beach": 0.0,
    "dunes": 0.0,
-   "pond": 3.6,
-   "freshwater_wetland": 759.1,
+   "pond": 0.0,
+   "freshwater_wetland": 759.0,
    "dry_valley": 11.0
   },
   "by_kind_ha": {
    "water | water on the USGS sheet, land today": 115.9,
-   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 597.5,
-   "freshwater_wetland | marsh on the USGS sheet not connected to tidal water, land today": 0.0,
-   "pond | inland water on the USGS sheet, land today (may be a mill pond or rese": 3.6,
+   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 620.3,
    "tidal_marsh | soil survey: Udorthents, organic substratum (fill over marsh peat)": 877.9,
    "freshwater_wetland | soil survey: Udorthents, organic substratum (fill over peat), not conn": 39.4,
    "tidal_marsh | soil survey: tidal-marsh soil, still marsh today": 206.5,
    "freshwater_wetland | soil survey: hydric natural soil (muck, or poorly drained mineral soil": 719.6,
-   "water | blank on the USGS sheet seaward of its water lining (open water is not": 455.0
+   "water | blank on the USGS sheet seaward of its water lining (open water is not": 455.0,
+   "tidal_marsh | urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet ": 58.7,
+   "water | urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet ": 0.0,
+   "tidal_marsh | blue tuft marks (wooded swamp symbol) on blank paper on the USGS sheet": 7.9
   },
   "made_land_ha": {
    "was_water": 570.9,
-   "was_tidal_marsh": 1475.4,
+   "was_tidal_marsh": 1564.9,
    "tidal_marsh_still_marsh": 206.5
   },
   "reservoirs": [
@@ -319,6 +413,283 @@
    ]
   },
   "cells_in_both_this_county_and_city_survey": 0,
-  "polygons": 199
+  "polygons": 235
+ },
+ "Rockland": {
+  "county": "Rockland",
+  "area": "NY087",
+  "bands": 2,
+  "land_today_ha": 44821.1,
+  "water_today_ha": 6737.3,
+  "no_sheet_land_ha": 30706.3,
+  "blank_paper_taken_as_water_ha": 0.0,
+  "cover_ha": {
+   "water": 85.0,
+   "tidal_marsh": 365.6,
+   "tidal_flat": 0.0,
+   "beach": 0.0,
+   "dunes": 0.0,
+   "pond": 0.0,
+   "freshwater_wetland": 2967.6,
+   "dry_valley": 642.1
+  },
+  "by_kind_ha": {
+   "water | water on the USGS sheet, land today": 3.5,
+   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 1.2,
+   "tidal_marsh | marsh on the USGS sheet (sheet water over 150 m from today's tidal wat": 4.0,
+   "water | soil survey: fill over wet substratum; land already on the USGS sheet,": 57.3,
+   "tidal_marsh | soil survey: fill over wet substratum; land already on the USGS sheet,": 51.3,
+   "freshwater_wetland | soil survey: fill over wet substratum, not connected to tidewater; tak": 219.2,
+   "tidal_marsh | soil survey: tidal-marsh soil, still marsh today": 285.1,
+   "freshwater_wetland | soil survey: hydric natural soil (muck, or poorly drained mineral soil": 2745.4,
+   "water | water on the USGS sheet, land today; soil survey: fill over wet substr": 7.8,
+   "tidal_marsh | urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet ": 24.1,
+   "water | urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet ": 16.4,
+   "freshwater_wetland | wet (marsh or water symbol) on the USGS sheet, not connected to tidal ": 3.0
+  },
+  "made_land_ha": {
+   "was_water": 85.0,
+   "was_tidal_marsh": 80.5,
+   "tidal_marsh_still_marsh": 285.1
+  },
+  "reservoirs": [
+   {
+    "name": "Lake DeForest",
+    "county": "Rockland",
+    "year": 1956,
+    "ha": 52.0,
+    "sheet_wet_share": 0.0,
+    "sheets": [
+     "usgs_tarrytown_1892"
+    ]
+   },
+   {
+    "name": "Lake Sebago (Harriman State Park)",
+    "county": "Rockland",
+    "year": 1925,
+    "ha": 118.2,
+    "sheet_wet_share": null,
+    "sheets": []
+   },
+   {
+    "name": "Lake Welch (Harriman State Park)",
+    "county": "Rockland",
+    "year": 1942,
+    "ha": 81.6,
+    "sheet_wet_share": null,
+    "sheets": []
+   },
+   {
+    "name": "Lake Tappan (Bergen and Rockland counties)",
+    "county": "Rockland",
+    "year": 1967,
+    "ha": 36.9,
+    "sheet_wet_share": 0.006,
+    "sheets": [
+     "usgs_tarrytown_1892"
+    ]
+   },
+   {
+    "name": "Lake DeForest",
+    "county": "Rockland",
+    "year": 1956,
+    "ha": 353.4,
+    "sheet_wet_share": 0.006,
+    "sheets": [
+     "usgs_tarrytown_1892"
+    ]
+   }
+  ],
+  "lining_share": {
+   "usgs_tarrytown_1892": [
+    [
+     84635,
+     0.149
+    ],
+    [
+     80042,
+     0.091
+    ]
+   ],
+   "usgs_harlem_1891": [
+    [
+     5754,
+     1.0
+    ]
+   ],
+   "usgs_paterson_1888": [
+    [
+     0,
+     0.0
+    ]
+   ]
+  },
+  "cells_in_both_this_county_and_city_survey": 0,
+  "polygons": 486
+ },
+ "Westchester": {
+  "county": "Westchester",
+  "area": "NY119",
+  "bands": 3,
+  "land_today_ha": 111338.2,
+  "water_today_ha": 18144.7,
+  "no_sheet_land_ha": 63149.9,
+  "blank_paper_taken_as_water_ha": 0.0,
+  "cover_ha": {
+   "water": 283.9,
+   "tidal_marsh": 454.7,
+   "tidal_flat": 0.0,
+   "beach": 0.0,
+   "dunes": 0.0,
+   "pond": 0.0,
+   "freshwater_wetland": 5467.0,
+   "dry_valley": 3195.6
+  },
+  "by_kind_ha": {
+   "water | water on the USGS sheet, land today": 47.0,
+   "freshwater_wetland | wet (marsh or water symbol) on the USGS sheet, not connected to tidal ": 95.1,
+   "water | soil survey: fill over wet substratum; land already on the USGS sheet,": 181.4,
+   "tidal_marsh | soil survey: fill over wet substratum; land already on the USGS sheet,": 155.3,
+   "freshwater_wetland | soil survey: fill over wet substratum, not connected to tidewater; tak": 1110.1,
+   "tidal_marsh | soil survey: tidal-marsh soil, still marsh today": 93.2,
+   "freshwater_wetland | soil survey: hydric natural soil (muck, or poorly drained mineral soil": 4261.7,
+   "water | water on the USGS sheet, land today; soil survey: fill over wet substr": 42.4,
+   "tidal_marsh | urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet ": 14.3,
+   "water | urban land or unnamed fill lying below 4.5 m, blank on the USGS sheet ": 13.1,
+   "tidal_marsh | marsh on the USGS sheet (marsh / water split by print texture; sheet w": 126.5,
+   "tidal_marsh | marsh on the USGS sheet (sheet water over 150 m from today's tidal wat": 59.6,
+   "tidal_marsh | marsh on the USGS sheet, land today; soil survey maps upland here": 5.8
+  },
+  "made_land_ha": {
+   "was_water": 283.9,
+   "was_tidal_marsh": 361.5,
+   "tidal_marsh_still_marsh": 93.2
+  },
+  "reservoirs": [
+   {
+    "name": "New Croton Reservoir",
+    "county": "Westchester",
+    "year": 1906,
+    "ha": 853.0,
+    "sheet_wet_share": 0.019,
+    "sheets": [
+     "usgs_tarrytown_1892"
+    ]
+   },
+   {
+    "name": "Titicus Reservoir",
+    "county": "Westchester",
+    "year": 1893,
+    "ha": 273.8,
+    "sheet_wet_share": null,
+    "sheets": []
+   },
+   {
+    "name": "Muscoot Reservoir",
+    "county": "Westchester",
+    "year": 1905,
+    "ha": 454.6,
+    "sheet_wet_share": null,
+    "sheets": []
+   },
+   {
+    "name": "Amawalk Reservoir",
+    "county": "Westchester",
+    "year": 1897,
+    "ha": 234.6,
+    "sheet_wet_share": null,
+    "sheets": []
+   },
+   {
+    "name": "Cross River Reservoir",
+    "county": "Westchester",
+    "year": 1908,
+    "ha": 368.4,
+    "sheet_wet_share": null,
+    "sheets": []
+   },
+   {
+    "name": "Kensico Reservoir / Rye Lake",
+    "county": "Westchester",
+    "year": 1917,
+    "ha": 873.6,
+    "sheet_wet_share": 0.001,
+    "sheets": [
+     "usgs_tarrytown_1892"
+    ]
+   },
+   {
+    "name": "Tarrytown Reservoir",
+    "county": "Westchester",
+    "year": 1897,
+    "ha": 36.2,
+    "sheet_wet_share": 0.0,
+    "sheets": [
+     "usgs_tarrytown_1892"
+    ]
+   },
+   {
+    "name": "Grassy Sprain Reservoir",
+    "county": "Westchester",
+    "year": 1876,
+    "ha": 68.8,
+    "sheet_wet_share": 0.56,
+    "sheets": [
+     "usgs_harlem_1891"
+    ]
+   },
+   {
+    "name": "Hillview Reservoir",
+    "county": "Westchester",
+    "year": 1915,
+    "ha": 35.0,
+    "sheet_wet_share": 0.0,
+    "sheets": [
+     "usgs_harlem_1891"
+    ]
+   }
+  ],
+  "lining_share": {
+   "usgs_tarrytown_1892": [
+    [
+     41215,
+     0.176
+    ],
+    [
+     133255,
+     0.093
+    ],
+    [
+     24511,
+     0.06
+    ]
+   ],
+   "usgs_harlem_1891": [
+    [
+     138465,
+     0.999
+    ]
+   ],
+   "usgs_paterson_1888": [
+    [
+     0,
+     0.0
+    ]
+   ],
+   "usgs_oyster_bay_1897": [
+    [
+     237181,
+     0.128
+    ]
+   ],
+   "usgs_northport_1901": [
+    [
+     11344,
+     0.97
+    ]
+   ]
+  },
+  "cells_in_both_this_county_and_city_survey": 0,
+  "polygons": 2123
  }
 }

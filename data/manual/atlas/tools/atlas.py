@@ -69,7 +69,7 @@ STYLES = {
         brick=dict(da_min=12.0, db_max=9.0, L_min=42),
         ink=dict(L_max=47, db_max=9.0),
         ink_grow=2, hole_px=150,
-        core_frame=9, core_brick=11, outline=0.62, outline_low=0.3, compact=14.0, outline_brick=0.72, line_depth=8.0,                # a building is wider than a band: opening by this many pixels
+        core_frame=9, core_brick=11, outline=0.62, outline_low=0.3, compact=14.0, outline_brick=0.72, outline_warm=0.7, line_depth=8.0,                # a building is wider than a band: opening by this many pixels
         small_open=5, small_r=2.6, band_grow=2,      # narrower frame buildings (sheds): by colour, away from bands
         split_by_ink=False, min_m2=15.0, max_m2=5000.0,
     ),
@@ -236,7 +236,19 @@ def fills(c, line, st, inside):
         ok = np.zeros(n + 1, bool)
         ok[1:] = (r >= st["small_r"]) & (touch == 0)
         small = ok[lab]
-    res["frame"] = select(wide | small, ink, st["outline"], st["outline_low"], st["compact"])
+    A = select(wide | small, ink, st["outline"], st["outline_low"], st["compact"])
+    # ... plus compact wide fills of either warm hue with a full outline, where the first path found nothing
+    # (a building of a redder ochre standing on or beside an orange band)
+    # (only in tiles where such fills are common - see trace_window; elsewhere it would mostly add band pieces)
+    if st.get("warm_path"):
+        B = select(_wide(_grow(((c == 2) | (c == 5)) & inside, ink, st), st["core_frame"]), ink, 2.0, st["outline_warm"], st["compact"])
+        lab, n = ndi.label(B, structure=CROSS)
+        if n:
+            ok = np.zeros(n + 1, bool)
+            ok[1:] = ndi.sum(A, lab, np.arange(1, n + 1)) == 0
+            B = ok[lab]
+        A = A | B
+    res["frame"] = A
     res["brick"] = select(_wide(_grow((c == 3) & inside, ink, st), st["core_brick"]), ink, st["outline_brick"])
     for k in res:  # the outline belongs to the building
         res[k] = ndi.binary_dilation(res[k], CROSS, mask=res[k] | ink)
@@ -517,53 +529,69 @@ def window_shifts(P, f=4, win_m=400.0, search_m=30.0, min_q=0.4, F=None):
     return np.array(out).reshape(-1, 5)
 
 
+def _fit_corr(old, new, tol0=15.0):
+    """Correction old -> new from window pairs: affine when at least 10 windows agree, a constant shift when at
+    least 4 do. Returns (A, t, kind, median residual of the agreeing windows, their number)."""
+    d = new - old
+    keep = np.hypot(*(d - np.median(d, 0)).T) < tol0
+    A, t, kind, res = np.eye(2), np.zeros(2), "none", None
+    if keep.sum() >= 10:
+        for _ in range(4):
+            X = np.column_stack([old[keep], np.ones(keep.sum())])
+            C = np.linalg.lstsq(X, new[keep], rcond=None)[0]
+            e = np.hypot(*(np.column_stack([old, np.ones(len(old))]) @ C - new).T)
+            keep2 = e < max(6.0, 2.5 * np.median(e[keep]))
+            if keep2.sum() < 10 or (keep2 == keep).all():
+                break
+            keep = keep2
+        A, t, kind, res = C[:2].T, C[2], "affine", float(np.median(e[keep]))
+    elif keep.sum() >= 4:
+        t, kind = d[keep].mean(0), "shift"
+        res = float(np.median(np.hypot(*(d[keep] - t).T)))
+    return A, t, kind, res, int(keep.sum())
+
+
 def refine(layer, pid, verbose=True):
-    """Correct a plate's control-point fit with the street match: an affine correction when at least 10 windows
-    agree, a constant shift when at least 4 do, nothing otherwise. Writes <plate>_corr.json; returns a report."""
+    """Correct a plate's control-point fit with the street match, in two passes (search 30 m, then 15 m on the
+    corrected fit): an affine correction when at least 10 windows agree, a constant shift when at least 4 do,
+    nothing otherwise. Writes <plate>_corr.json (replacing any earlier correction); returns a report."""
     cf = WORK / layer / f"{pid}_corr.json"
     if cf.exists():
         cf.unlink()
     P = Plate(layer, pid, verbose=False)
+    q, win = P.style.get("street_min_q", 0.4), P.style.get("street_win_m", 400.0)
     rep = dict(plate=str(pid), gcps=int(P.m.keep.sum()), model=P.m.model, cv_rms=round(P.m.cv_rms, 1), mpp=round(P.m.src_mpp, 3))
-    sh = window_shifts(P)
-    rep["windows"] = len(sh)
-    if len(sh) >= 4:
-        old = P.fwd(sh[:, :2])
-        new = P.fwd(sh[:, :2] + sh[:, 2:4])
+    A, t = np.eye(2), np.zeros(2)
+    wash = None
+    for k, search in enumerate((30.0, 15.0)):
+        sh = window_shifts(P, search_m=search, min_q=q, win_m=win, F=wash)
+        wash = P._wash if wash is None else wash
+        if k == 0:
+            rep["windows"] = len(sh)
+        if len(sh) < 4:
+            break
+        old, new = P.fwd(sh[:, :2]), P.fwd(sh[:, :2] + sh[:, 2:4])
         d = new - old
-        rep["shift_median"] = [round(float(v), 1) for v in np.median(d, 0)]
-        rep["shift_abs_median"] = round(float(np.median(np.hypot(d[:, 0], d[:, 1]))), 1)
-        keep = np.hypot(*(d - np.median(d, 0)).T) < 15.0
-        A, t = np.eye(2), np.zeros(2)
-        kind = "none"
-        if keep.sum() >= 10:
-            for _ in range(3):
-                X = np.column_stack([old[keep], np.ones(keep.sum())])
-                C = np.linalg.lstsq(X, new[keep], rcond=None)[0]
-                e = np.hypot(*(np.column_stack([old, np.ones(len(old))]) @ C - new).T)
-                keep2 = e < max(6.0, 2.5 * np.median(e[keep]))
-                if keep2.sum() < 10 or (keep2 == keep).all():
-                    break
-                keep = keep2
-            A, t, kind = C[:2].T, C[2], "affine"
-            rep["fit_residual_m"] = round(float(np.median(e[keep])), 1)
-        elif keep.sum() >= 4:
-            t, kind = d[keep].mean(0), "shift"
-            rep["fit_residual_m"] = round(float(np.median(np.hypot(*(d[keep] - t).T))), 1)
-        rep["agree"], rep["kind"] = int(keep.sum()), kind
-        if kind != "none":
-            (WORK / layer).mkdir(parents=True, exist_ok=True)
-            cf.write_text(json.dumps(dict(A=A.tolist(), t=t.tolist(), report=rep)))
-            # what is left after the correction
-            P2 = Plate(layer, pid, verbose=False)
-            sh2 = window_shifts(P2, search_m=20.0, F=P._wash)
-            if len(sh2):
-                d2 = P2.fwd(sh2[:, :2] + sh2[:, 2:4]) - P2.fwd(sh2[:, :2])
-                rep["after_windows"] = len(sh2)
-                rep["after_abs_median"] = round(float(np.median(np.hypot(d2[:, 0], d2[:, 1]))), 1)
-            cf.write_text(json.dumps(dict(A=A.tolist(), t=t.tolist(), report=rep)))
-    else:
-        rep["kind"] = "none"
+        if k == 0:
+            rep["shift_median"] = [round(float(v), 1) for v in np.median(d, 0)]
+            rep["shift_abs_median"] = round(float(np.median(np.hypot(d[:, 0], d[:, 1]))), 1)
+        A1, t1, kind, res, agree = _fit_corr(old, new)
+        if kind == "none" or (res is not None and res > 5.0):
+            break
+        A, t = A1 @ A, A1 @ t + t1
+        rep["kind" if k == 0 else "kind2"], rep["agree" if k == 0 else "agree2"] = kind, agree
+        rep["fit_residual_m" if k == 0 else "fit_residual2_m"] = round(res, 1)
+        (WORK / layer).mkdir(parents=True, exist_ok=True)
+        cf.write_text(json.dumps(dict(A=A.tolist(), t=t.tolist(), report=rep)))
+        P = Plate(layer, pid, verbose=False)
+    rep.setdefault("kind", "none")
+    if rep["kind"] != "none":   # what is left after the correction
+        sh = window_shifts(P, search_m=15.0, min_q=q, win_m=win, F=wash)
+        if len(sh):
+            d = P.fwd(sh[:, :2] + sh[:, 2:4]) - P.fwd(sh[:, :2])
+            rep["after_windows"] = len(sh)
+            rep["after_abs_median"] = round(float(np.median(np.hypot(d[:, 0], d[:, 1]))), 1)
+        cf.write_text(json.dumps(dict(A=A.tolist(), t=t.tolist(), report=rep)))
     if verbose:
         print(json.dumps(rep), flush=True)
     return rep
@@ -631,8 +659,35 @@ def trace_window(P, full, inside, paper, win, core=None):
     lo, hi = 0.6 * st["min_m2"] / mpp ** 2, 1.5 * st["max_m2"] / mpp ** 2
     # Only the neighbourhoods of fill are worked on (most of a county plate is empty paper): groups of fill
     # at least 3 pixels wide, grown by 30 pixels; each group is traced in its own box, restricted to itself.
+    cand5 = None
+    if st.get("band") and not st.get("split_by_ink"):
+        # Is there an orange property band in this tile? Bands are the long thin warm structures (not part of a
+        # fill 13 pixels wide, 150 pixels long or more, mostly of the band hue). Without any, the band hue is
+        # just this sheet's frame pigment (the colourists' ochre runs to orange on some sheets): read it as frame.
+        m5 = (c == 5) & ins
+        warm = ((c == 2) & ins) | m5
+        thin = warm & ~_dil(_open(warm, 13), 6)
+        tl, tn = ndi.label(thin, structure=SQ3)
+        nb = 0
+        if tn:
+            n_all = np.bincount(tl.ravel(), minlength=tn + 1)
+            n_5 = np.bincount(tl.ravel(), weights=m5.ravel(), minlength=tn + 1)
+            for k, sl in enumerate(ndi.find_objects(tl), 1):
+                if sl is not None and max(sl[0].stop - sl[0].start, sl[1].stop - sl[1].start) >= 150 and n_5[k] >= 0.5 * n_all[k]:
+                    nb += int(n_all[k])
+        if nb < 600:
+            c[c == 5] = 2
+        else:
+            # bands and band-hued fills together: the second frame path of `fills` is used where the wide
+            # band-hued fills are a quarter or more of all wide warm fills (this tile's buildings run to orange)
+            w5, w2 = int(_open(m5, 13).sum()), int(_open((c == 2) & ins, 13).sum())
+            if w5 > 0.25 * (w5 + w2):
+                st = dict(st, warm_path=True)
+                cand5 = _open(m5, st["core_frame"])
     fillc = (c == 2) | (c == 3) | (c == 4)
     cand = _open(fillc & ins, 3)
+    if cand5 is not None:
+        cand |= cand5
     if not cand.any():
         return []
     rl, rn = ndi.label(_dil(cand, 30))
@@ -923,6 +978,37 @@ def export(layer, max_off=8.0):
               (r.get("bld") or {}).get("shift_median"), (r.get("bld") or {}).get("fit_residual_m"))
 
 
+def readme_tables():
+    """Fill the per-plate tables of README.md (between <!-- TABLE layer --> and <!-- /TABLE -->) from the
+    <layer>_stats.json files written by export."""
+    f = OUT / "README.md"
+    txt = f.read_text()
+    for layer in layers():
+        sf = OUT / f"{layer}_stats.json"
+        a, b = f"<!-- TABLE {layer} -->", f"<!-- /TABLE {layer} -->"
+        if not sf.exists() or a not in txt:
+            continue
+        st = json.loads(sf.read_text())
+        rows = ["| sheet | Map Warper id | NYPL image | control points (fit, CV rms m) | m / px | street match: windows agreeing, shift found m, left m | "
+                "building match: windows, residual m | buildings (frame / brick / stone) | on a standing footprint (IoU > 0.5) | their median offset m | status |",
+                "|---|---|---|---|---|---|---|---|---|---|---|"]
+        for r in st["plates"]:
+            sr, br = r.get("street") or {}, r.get("bld") or {}
+            street = "none" if sr.get("kind", "none") == "none" else f"{sr.get('kind')}: {sr.get('agree2', sr.get('agree'))}, {sr.get('shift_abs_median')}, {sr.get('after_abs_median')}"
+            bld = "none" if br.get("kind", "none") == "none" else f"{br.get('kind')}: {br.get('agree')}, {br.get('fit_residual_m')}"
+            n = r.get("exported", r.get("n", 0)) or 0
+            rows.append(f"| {r.get('sheet')} | {r.get('plate')} | {r.get('image', '')} | {r.get('gcps', '')} ({r.get('model', '')}, {r.get('cv_rms', '')}) | {r.get('mpp', '')} | "
+                        f"{street} | {bld} | {n} ({r.get('frame', 0)} / {r.get('brick', 0)} / {r.get('stone', 0)}) | "
+                        f"{r.get('coincide', 0)} ({100 * (r.get('share') or 0):.0f} %) | {r.get('off_median_m', '')} | {r.get('status')} |")
+        t = st["total"]
+        rows.append(f"| **all** | | | | | | | **{t['buildings']}** ({t['frame']} / {t['brick']} / {t['stone']}) | {t['on_today']} ({100 * t['on_today'] / max(t['buildings'], 1):.0f} %) | | "
+                    f"{t['plates']} plates, {t['coverage_km2']} km2 |")
+        i, j = txt.index(a) + len(a), txt.index(b)
+        txt = txt[:i] + "\n" + "\n".join(rows) + "\n" + txt[j:]
+    f.write_text(txt)
+    print("README tables written")
+
+
 # --------------------------------------------------------------------------------------------- pictures
 def overlay(layer, pid, cx, cy, size_m, out_png, px=False, scale=3):
     P = Plate(layer, pid, verbose=False)
@@ -988,6 +1074,8 @@ if __name__ == "__main__":
             regeo(a[1], pid)
     elif a[0] == "export":
         export(a[1])
+    elif a[0] == "readme":
+        readme_tables()
     elif a[0] == "trace":
         for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
             trace(a[1], pid)
