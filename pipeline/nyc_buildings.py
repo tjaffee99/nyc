@@ -540,6 +540,7 @@ def build():
     year = land_check(g, year, src)
     start = row_timing(xy, year, g.doitt_id.values)
     start = np.where(src == "known", year, start)
+    start = np.minimum(start, 2029.9)   # under construction today (also when its made land is dated later)
     g = g.assign(start_year=start, end_year=end, year_confidence=conf, raw_year=raw, year_src=src)
     bbl = g.pluto_bbl.fillna("").astype(str).values
     g["bldgclass"] = pluto.bldgclass.reindex(bbl).values
