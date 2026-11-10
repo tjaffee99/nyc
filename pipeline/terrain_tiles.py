@@ -518,7 +518,7 @@ def lenape_fields(lon, lat):
     return m
 
 
-def histories(name, g, d, land_only=False):
+def histories(name, g, d, land_only=False, reuse_land=True):
     rows, cols = g["rows"], g["cols"]
     lon, lat = lonlat_of(g)
     elev = np.nan_to_num(d["elev"], nan=0.0).astype(np.float32)
@@ -549,7 +549,7 @@ def histories(name, g, d, land_only=False):
     # buildings around it, so a recomputation after the buildings moved would differ by a few
     # years and leave some of them standing before their ground: keep the saved years.
     sv = INTERIM / f"grid_{name}_landyear.npy"
-    if sv.exists():
+    if reuse_land and sv.exists():
         saved = np.load(sv)
         if saved.shape == land_year.shape:
             both = np.isfinite(saved) & np.isfinite(land_year)
@@ -700,15 +700,19 @@ def histories(name, g, d, land_only=False):
     n = np.zeros((rows, cols), np.int8)
     for e in range(C.shape[0]):
         ce, ye = C[e], Y[e]
+        # bare fill that is built on within 4 years goes straight to the city (saves a slot):
+        # the city's cover arrives AT THE LAND YEAR. (It used to arrive with the city, up to four
+        # years later, and the ground stayed water or marsh under buildings that the ground
+        # rule had already let stand.)
+        if e + 1 < C.shape[0] and (ce == FILL).any():
+            soon_c = np.zeros((rows, cols), np.uint8)
+            for e2 in range(C.shape[0] - 1, e, -1):   # the nearest following event wins
+                m2 = np.isin(C[e2], [URBAN, SUBURB, PARK]) & (Y[e2] - ye < 4)
+                soon_c = np.where(m2, C[e2], soon_c)
+            ce = np.where((ce == FILL) & (soon_c > 0), soon_c, ce)
         ok = np.isfinite(ye) & (ce != last) & (n < 4) & (ye >= YEAR_MIN)
         # fields never follow city, fill or park
         ok &= ~(np.isin(ce, [FARM, PASTURE]) & np.isin(last, [URBAN, SUBURB, FILL, PARK, GRASS]))
-        # bare fill that is built on within 4 years goes straight to the city (saves a slot)
-        if e + 1 < C.shape[0] and (ce == FILL).any():
-            soon = np.zeros_like(ok)
-            for e2 in range(e + 1, C.shape[0]):
-                soon |= np.isin(C[e2], [URBAN, SUBURB, PARK]) & (Y[e2] - ye < 4)
-            ok &= ~((ce == FILL) & soon)
         rr, cc = np.nonzero(ok)
         covers[n[ok] + 1, rr, cc] = ce[ok]
         years[n[ok], rr, cc] = ye[ok]
@@ -1076,8 +1080,11 @@ def pack_tiles():
 def main():
     if len(sys.argv) > 1 and sys.argv[1] == "land":
         for name in ("region", "detail"):
+            # the same cover histories as the full run (so the year a cell turns to land is
+            # the one the viewer shows), recomputed from the evidence and the buildings on disk
             g, d = load_grid(name)
-            np.save(INTERIM / f"grid_{name}_landyear.npy", histories(name, g, d, land_only=True))
+            covers, years = histories(name, g, d, reuse_land=False)[:2]
+            np.save(INTERIM / f"grid_{name}_landyear.npy", land_year_of(covers, years))
         return
     meta = {}
     for name, zooms, step in (("region", [8, 9, 10, 11, 12, 13], 2), ("detail", [14], 2)):
