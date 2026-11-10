@@ -1,29 +1,29 @@
 {
  "total": {
   "layer": "brooklyn_crownheights_1888",
-  "plates": 10,
-  "buildings": 2710,
-  "frame": 1780,
-  "brick": 930,
+  "plates": 12,
+  "buildings": 2949,
+  "frame": 2008,
+  "brick": 941,
   "stone": 0,
   "gasholders": 0,
-  "on_today": 512,
+  "on_today": 520,
   "invalid": 0,
   "area_out_of_range": 0,
   "outside_coverage": 0,
-  "coverage_km2": 2.24
+  "coverage_km2": 2.89
  },
  "plates": [
   {
    "plate": "19734",
    "image": "1810445",
    "name": "Brooklyn, V. 7, Double Page Plate No. G [Map bounded by Martense St., Bedford Ave., Clarks",
-   "gcps": 9,
+   "gcps": 6,
    "model": "affine",
-   "cv_rms": 6.3,
-   "mpp": 0.105,
+   "cv_rms": 3.7,
+   "mpp": 0.106,
    "n": 68,
-   "frame": 66,
+   "frame": 65,
    "brick": 2,
    "stone": 0,
    "coincide": 0,
@@ -35,15 +35,21 @@
     8.0
    ],
    "sheet": "V7-G",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 6.3 m)"
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 67,
+   "duplicates_dropped": 0,
+   "status": "ok"
   },
   {
    "plate": "19735",
    "image": "1810446",
    "name": "Brooklyn, V. 7, Double Page Plate No. H [Map bounded by Clarkson Ave., Bedford Ave., Rulip",
-   "gcps": 5,
+   "gcps": 4,
    "model": "affine",
-   "cv_rms": 8.8,
+   "cv_rms": 275.6,
    "mpp": 0.104,
    "n": 107,
    "frame": 106,
@@ -58,22 +64,22 @@
     9.0
    ],
    "sheet": "V7-H",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 8.8 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 275.6 m)"
   },
   {
    "plate": "19733",
    "image": "1810444",
    "name": "Brooklyn, V. 7, Double Page Plate No. F [Map bounded by Butler St., Locust St. Or Bedford ",
-   "gcps": 8,
+   "gcps": 6,
    "model": "affine",
-   "cv_rms": 8.0,
-   "mpp": 0.102,
+   "cv_rms": 4.1,
+   "mpp": 0.103,
    "n": 249,
    "frame": 242,
    "brick": 7,
    "stone": 0,
-   "coincide": 1,
-   "share": 0.004,
+   "coincide": 5,
+   "share": 0.02,
    "corrected": false,
    "paper": [
     87.0,
@@ -81,49 +87,44 @@
     8.0
    ],
    "off_median_vec": [
-    1.33,
-    0.69
+    0.16,
+    1.14
    ],
-   "off_median_m": 1.5,
+   "off_median_m": 1.25,
    "sheet": "V7-F",
-   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.5 m; control points CV rms 8.0 m)"
+   "status": "left out: not placed reliably (no street or building match; 5 outlines on standing footprints, median offset 1.25 m; control points CV rms 4.1 m)"
   },
   {
    "plate": "19732",
    "image": "1810443",
    "name": "Brooklyn, V. 7, Double Page Plate No. E [Map bounded by Butler St., Rogers Ave.]",
-   "gcps": 8,
+   "gcps": 6,
    "model": "affine",
-   "cv_rms": 5.9,
-   "mpp": 0.104,
+   "cv_rms": 6.5,
+   "mpp": 0.103,
    "n": 159,
    "frame": 148,
    "brick": 11,
    "stone": 0,
-   "coincide": 2,
-   "share": 0.013,
+   "coincide": 0,
+   "share": 0.0,
    "corrected": false,
    "paper": [
     85.0,
     -2.0,
     9.0
    ],
-   "off_median_vec": [
-    0.42,
-    1.73
-   ],
-   "off_median_m": 1.79,
    "sheet": "V7-E",
-   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 1.79 m; control points CV rms 5.9 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 6.5 m)"
   },
   {
    "plate": "19728",
    "image": "1810439",
    "name": "Brooklyn, V. 7, Double Page Plate No. A [Map bounded by Malbone St., Flatbush Ave., Crown ",
-   "gcps": 11,
-   "model": "poly2",
-   "cv_rms": 8.7,
-   "mpp": 0.105,
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 6.8,
+   "mpp": 0.106,
    "n": 110,
    "frame": 109,
    "brick": 1,
@@ -137,7 +138,7 @@
     8.0
    ],
    "sheet": "V7-A",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 8.7 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 6.8 m)"
   },
   {
    "plate": "19726",
@@ -166,10 +167,10 @@
    "plate": "19724",
    "image": "1810435",
    "name": "Brooklyn, V. 7, Double Page Plate No. 189 [Map bounded by Brooklyn Ave., Malbone St., Nost",
-   "gcps": 10,
+   "gcps": 4,
    "model": "affine",
-   "cv_rms": 9.4,
-   "mpp": 0.108,
+   "cv_rms": 116.7,
+   "mpp": 0.11,
    "n": 62,
    "frame": 59,
    "brick": 3,
@@ -183,18 +184,18 @@
     8.0
    ],
    "sheet": "V7-189",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 9.4 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 116.7 m)"
   },
   {
    "plate": "19722",
    "image": "1810433",
    "name": "Brooklyn, V. 7, Double Page Plate No. 187 [Map bounded by Crown St., Classon Ave., Parkway",
-   "gcps": 10,
+   "gcps": 5,
    "model": "affine",
-   "cv_rms": 8.7,
-   "mpp": 0.107,
-   "n": 97,
-   "frame": 94,
+   "cv_rms": 4.3,
+   "mpp": 0.103,
+   "n": 91,
+   "frame": 88,
    "brick": 3,
    "stone": 0,
    "coincide": 0,
@@ -206,16 +207,16 @@
     8.0
    ],
    "sheet": "V7-187",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 8.7 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 4.3 m)"
   },
   {
    "plate": "19720",
    "image": "1810431",
    "name": "Brooklyn, V. 7, Double Page Plate No. 185 [Map bounded by Hopkinson Ave., Belmont Ave., Ho",
-   "gcps": 12,
+   "gcps": 5,
    "model": "affine",
-   "cv_rms": 6.6,
-   "mpp": 0.105,
+   "cv_rms": 126.9,
+   "mpp": 0.103,
    "n": 19,
    "frame": 19,
    "brick": 0,
@@ -229,7 +230,7 @@
     5.0
    ],
    "sheet": "V7-185",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 6.6 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 126.9 m)"
   },
   {
    "plate": "19715",
@@ -310,16 +311,16 @@
    "plate": "19710",
    "image": "1810421",
    "name": "Brooklyn, V. 7, Double Page Plate No. 175 [Map bounded by Broadway, East New York Ave., Sa",
-   "gcps": 11,
+   "gcps": 6,
    "model": "affine",
-   "cv_rms": 7.9,
-   "mpp": 0.104,
-   "n": 173,
-   "frame": 164,
+   "cv_rms": 3.5,
+   "mpp": 0.103,
+   "n": 172,
+   "frame": 163,
    "brick": 9,
    "stone": 0,
-   "coincide": 4,
-   "share": 0.023,
+   "coincide": 8,
+   "share": 0.047,
    "corrected": false,
    "paper": [
     90.0,
@@ -327,12 +328,18 @@
     6.0
    ],
    "off_median_vec": [
-    -0.44,
-    0.18
+    0.06,
+    0.7
    ],
-   "off_median_m": 1.52,
+   "off_median_m": 1.84,
    "sheet": "V7-175",
-   "status": "left out: not placed reliably (no street or building match; 4 outlines on standing footprints, median offset 1.52 m; control points CV rms 7.9 m)"
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 172,
+   "duplicates_dropped": 0,
+   "status": "ok"
   },
   {
    "plate": "19704",
@@ -476,12 +483,12 @@
    "plate": "19725",
    "image": "1810436",
    "name": "Brooklyn, V. 7, Double Page Plate No. 190 [Map bounded by Albany Ave., Malbone St., Brookl",
-   "gcps": 7,
+   "gcps": 5,
    "model": "affine",
-   "cv_rms": 5.9,
-   "mpp": 0.105,
-   "n": 14,
-   "frame": 14,
+   "cv_rms": 5.5,
+   "mpp": 0.103,
+   "n": 13,
+   "frame": 13,
    "brick": 0,
    "stone": 0,
    "coincide": 0,
@@ -493,7 +500,7 @@
     8.0
    ],
    "sheet": "V7-190",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 5.9 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 5.5 m)"
   },
   {
    "plate": "19721",
@@ -717,9 +724,9 @@
    "plate": "19714",
    "image": "1810425",
    "name": "Brooklyn, V. 7, Double Page Plate No. 179 [Map bounded by Parkway, Bedford Ave., Park Plac",
-   "gcps": 4,
+   "gcps": 3,
    "model": "affine",
-   "cv_rms": 2.6,
+   "cv_rms": 0.0,
    "mpp": 0.104,
    "n": 121,
    "frame": 86,
@@ -734,12 +741,12 @@
     6.0
    ],
    "off_median_vec": [
-    1.22,
-    -0.46
+    0.76,
+    -0.79
    ],
-   "off_median_m": 1.35,
+   "off_median_m": 1.15,
    "sheet": "V7-179",
-   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 1.35 m; control points CV rms 2.6 m)"
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 1.15 m; control points CV rms 0.0 m)"
   },
   {
    "plate": "19719",
@@ -830,13 +837,13 @@
    "plate": "19730",
    "image": "1810441",
    "name": "Brooklyn, V. 7, Double Page Plate No. C [Map bounded by Bedford Ave., Ridgewood St., Caton",
-   "gcps": 5,
+   "gcps": 3,
    "model": "affine",
-   "cv_rms": 6.0,
-   "mpp": 0.106,
-   "n": 141,
-   "frame": 132,
-   "brick": 9,
+   "cv_rms": 0.0,
+   "mpp": 0.105,
+   "n": 138,
+   "frame": 130,
+   "brick": 8,
    "stone": 0,
    "coincide": 2,
    "share": 0.014,
@@ -847,12 +854,12 @@
     8.0
    ],
    "off_median_vec": [
-    -0.37,
-    1.92
+    0.72,
+    1.24
    ],
-   "off_median_m": 1.99,
+   "off_median_m": 1.47,
    "sheet": "V7-C",
-   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 1.99 m; control points CV rms 6.0 m)"
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 1.47 m; control points CV rms 0.0 m)"
   },
   {
    "plate": "19709",
@@ -905,16 +912,16 @@
    "plate": "19731",
    "image": "1810442",
    "name": "Brooklyn, V. 7, Double Page Plate No. D [Map bounded by Bedford Ave., Looust St., Burler S",
-   "gcps": 6,
+   "gcps": 5,
    "model": "affine",
-   "cv_rms": 5.5,
+   "cv_rms": 6.7,
    "mpp": 0.105,
-   "n": 190,
-   "frame": 182,
+   "n": 188,
+   "frame": 180,
    "brick": 8,
    "stone": 0,
-   "coincide": 1,
-   "share": 0.005,
+   "coincide": 2,
+   "share": 0.011,
    "corrected": false,
    "paper": [
     87.0,
@@ -922,12 +929,12 @@
     6.0
    ],
    "off_median_vec": [
-    -0.18,
-    1.78
+    1.84,
+    1.13
    ],
-   "off_median_m": 1.79,
+   "off_median_m": 2.29,
    "sheet": "V7-D",
-   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.79 m; control points CV rms 5.5 m)"
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 2.29 m; control points CV rms 6.7 m)"
   },
   {
    "plate": "19701",

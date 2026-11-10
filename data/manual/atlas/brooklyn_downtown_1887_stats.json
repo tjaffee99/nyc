@@ -1,17 +1,17 @@
 {
  "total": {
   "layer": "brooklyn_downtown_1887",
-  "plates": 22,
-  "buildings": 11979,
-  "frame": 4770,
-  "brick": 7146,
-  "stone": 63,
+  "plates": 21,
+  "buildings": 11686,
+  "frame": 4645,
+  "brick": 6983,
+  "stone": 58,
   "gasholders": 0,
-  "on_today": 1303,
+  "on_today": 1300,
   "invalid": 0,
   "area_out_of_range": 0,
   "outside_coverage": 0,
-  "coverage_km2": 4.53
+  "coverage_km2": 4.35
  },
  "plates": [
   {
@@ -764,72 +764,8 @@
   },
   {
    "plate": "19215",
-   "image": "1809032",
-   "name": "Brooklyn V. 2, Double Page Plate No. 33 [Map bounded by Washington St., Middagh St., Sands",
-   "gcps": 10,
-   "model": "affine",
-   "cv_rms": 20.4,
-   "mpp": 0.1,
-   "n": 308,
-   "frame": 125,
-   "brick": 163,
-   "stone": 5,
-   "coincide": 3,
-   "share": 0.01,
-   "corrected": true,
-   "paper": [
-    88.0,
-    -2.0,
-    8.0
-   ],
-   "off_median_vec": [
-    5.5,
-    0.24
-   ],
-   "off_median_m": 7.33,
-   "street": {
-    "plate": "19215",
-    "min_q": 0.2,
-    "win_m": 300.0,
-    "gcps": 10,
-    "model": "affine",
-    "cv_rms": 20.4,
-    "mpp": 0.1,
-    "windows": 5,
-    "shift_median": [
-     -2.9,
-     7.8
-    ],
-    "shift_abs_median": 8.3,
-    "kind": "shift",
-    "agree": 5,
-    "fit_residual_m": 2.9,
-    "kind2": "shift",
-    "agree2": 4,
-    "fit_residual2_m": 3.9,
-    "after_windows": 4,
-    "after_abs_median": 3.9
-   },
-   "bld": {
-    "plate": "19215",
-    "n": 308,
-    "windows": 4,
-    "shift_median": [
-     -2.7,
-     2.8
-    ],
-    "fit_residual_m": 1.71,
-    "agree": 3,
-    "kind": "shift"
-   },
    "sheet": "V2-33",
-   "lettering_dropped": 0,
-   "water_dropped": 0,
-   "band_pieces_dropped": 0,
-   "washed_dropped": 0,
-   "exported": 293,
-   "duplicates_dropped": 14,
-   "status": "ok"
+   "status": "left out: its three outlines on standing footprints lie 7.3 m off; street match left 3.9 m: not trusted"
   },
   {
    "plate": "19223",

@@ -1028,3 +1028,321 @@ plates, contour sheets, not opened) — priority 4 is untraced.
 | 18 | 9455 | | | | 0 | | | left out: no street or building match found, control points only; sheet is marsh / water at Hunts Point shore, almost nothing traced |
 | 19 | 9456 | | | | 0 | | | left out: no street or building match found, control points only; sheet is marsh / water at Hunts Point shore, almost nothing traced |
 <!-- /TABLE bronx_south_1904 -->
+
+## Brooklyn (Sanborn volumes 1-9 of 1886-88; `tools_brooklyn/`)
+
+Nine layers, `brooklyn_<area>_<year>.geojson` (+ `_coverage.geojson`, `_stats.json`), traced from the NYPL's copies of the
+**Sanborn-Perris *Insurance maps of the city of Brooklyn*, volumes 1-9 (1886-1888)** (NYPL Map Division, "Atlas 63, 66, 69, 74,
+77, 80, 83, 86, 89"; public domain; control points CC0 from the Map Warper dump as above). The plates are at 50 ft to the inch
+(about 0.10 m per pixel), every house is drawn separately in pink (brick), yellow (frame) or blue (stone), so rows come out
+house by house, not as one outline as the 1890 county atlas would give. Same properties as above; `storeys` is printed on every
+building (`2`, `3`, `1/2`) but **not read**. `map_year` is the volume's date in the NYPL catalogue (1886: vol. 1; 1887: vols. 2,
+3, 4, 8; 1888: vols. 5, 6, 7, 9); the survey dates on the plates were not read, and the Sanborn company corrected its plates
+in place, so a building stood by about that year. The 1904-08 re-issues (Atlas 64, 67, 70, 75, 78, 84, 87, 90, 92, 95, 97)
+are in the dump and are not traced.
+
+| layer | volume (NYPL Atlas) | area | buildings | km2 (plate masks) |
+|---|---|---|---|---|
+| `brooklyn_downtown_1887` | vol. 2 (66) | Brooklyn Heights north of Joralemon St, Fulton Ferry, DUMBO / Vinegar Hill, downtown, the Civic Center, Fort Greene, Navy Yard edge, Myrtle Av | 11,686 | 4.4 |
+| `brooklyn_williamsburg_1887` | vol. 3 (69) | Williamsburg (north and south side), the Bushwick / Greenpoint edge | 11,113 | 4.8 |
+| `brooklyn_southwest_1886` | vol. 1 (63) | Gowanus, Carroll Gardens, Cobble Hill, Columbia St waterfront (part of Red Hook) | 8,419 | 3.3 |
+| `brooklyn_bedstuy_1888` | vol. 5 (77) | Bedford, Stuyvesant Heights, Ocean Hill edge | 6,686 | 4.5 |
+| `brooklyn_browns_1887` | vol. 8 (86) | Brownsville edge, East New York, Cypress Hills (mostly sparse frame houses) | 3,758 | 6.1 |
+| `brooklyn_crownheights_1888` | vol. 7 (83) | Crown Heights, Prospect Heights (12 of 29 plates) | 2,949 | 2.9 |
+| `brooklyn_parkslope_1888` | vol. 6 (80) | Park Slope, Windsor Terrace (8 of 11 plates) | 2,789 | 2.1 |
+| `brooklyn_bushwick_1888` | vol. 9 (89) | Bushwick, Ridgewood edge (9 of 14 plates, mostly open lots) | 2,372 | 2.3 |
+| `brooklyn_greenpoint_1887` | vol. 4 (74) | Greenpoint, Williamsburg-Greenpoint line (3 of 4 plates in the dump) | 2,107 | 0.8 |
+
+Total 51,879 buildings (28,303 frame / 23,504 brick / 72 stone), 139 plates used, 53 left out. Coverage is the Map Warper mask of
+each plate (the map area, including empty ground and water), summed: neighbouring volumes overlap at their edges (e.g. Bushwick
+x Browns 12 pairs, Bed-Stuy x Bushwick 3, Greenpoint x Williamsburg 2 pairs of outlines overlap by more than 0.3 of the smaller
+one; nothing was deduplicated between layers).
+
+**Not complete.** Inside the coverage the tracing finds most buildings but not all; absence is not evidence of an empty lot.
+Small sheds and rear buildings are the commonest miss. Not in these layers: Red Hook proper (the Erie Basin / Hamilton Av plates
+of vol. 1 could not be placed), the part of the Civic Center / Downtown core on the plates left out below, Sunset Park
+(vol. 11, 1905 only), Coney Island and the south (Atlas 61 / 62, 1893-95, not opened), Brownsville proper (vol. 8's
+sheets are mostly East New York), Bushwick's built-up part (vol. 9 covers its open east side).
+
+### What was changed from the tool above
+
+`tools_brooklyn/` is a copy of `tools/`; changes (all in `atlas.py` / `layers.json`):
+
+* **Style for Sanborn colours** (`style_override` in `layers.json`, measured on plate 19213): the pink and blue washes are paler than
+  Bromley's (pink dL -12, da +4, db 0 against the paper; blue dL -8, da -2, db -6; yellow db +14), so `brick` da > 2, `stone` (blue)
+  db -14..-3.5, `frame` db > 8, no stone-front joining. Blue counts as `stone`; the water wash is excluded by the existing width /
+  size filter (stone outlines under 80 m2, 6 m wide or 60 % of their rectangle are dropped: 4-63 per layer survive, mostly real
+  warehouses).
+* **Street match on blank paper** (`empty_raster`): Sanborn plates tint nothing, so the streets are taken to be the paper left
+  blank between blocks (non-paper pixels smoothed 4 reduced pixels), matched to today's street centrelines as before; 300 m
+  windows, `min_q` 0.2, search 30 m then 15 m. Then the building match on standing pre-war footprints as before.
+* **Control points that agree** (`fix_gcps.py`): many plates have 4-12 Map Warper points of which most are wrong (CV rms 15-270 m).
+  For plates that failed the match, the largest group of points agreeing on one rigid similarity transform (scale fixed to
+  0.095-0.115 m per pixel, 5 m tolerance, at least 3 points) is kept, written to `gcps_own.json`, and the plate is registered
+  again. Of the 44 plates this was applied to, 5 ended up used (V2-41, V1-9 and three others, on the consistent-points rule); the rest stayed left out.
+* **Acceptance rule in `export`** (`require_match`): a plate is used only if (a) a street or building match corrected it, or (b) at
+  least 10 of its outlines lie on standing footprints with median offset <= 4 m, or (c) at least 5 control points are
+  consistent (leave-one-out error <= 4 m); otherwise it is listed as left out. Plate V2-33 (street match left 3.9 m, its three
+  survivors 7.3 m off) was left out by hand. Plates accepted by (c) alone (V2-41, V1-9) and plates accepted by (b)/(a) with few
+  survivors are registered to about 2-3 m, no better.
+* Ids carry the plate id when two plates of a layer share a sheet label (`V9-265-27645_3`). `run_all.sh`, `run_city.sh`,
+  `redo_street.sh`, `redo_nocorr.sh`, `fix_layer.sh` drive the runs; `check_layer.py` is the independent numeric check;
+  `readme_section.py` wrote the tables below. Work files: `data/interim/atlas_brooklyn/`.
+
+### Checks
+
+* Numeric, on the files as written (`check_layer.py`, independent of `export`): all 51,879 polygons valid, 15-5,000 m2, ids unique,
+  centres inside the coverage; no overlapping pair (> 0.3 of the smaller) within a layer except 1 in `brooklyn_crownheights_1888`.
+  Touching pairs (shared walls) are normal. The median offset of the outlines that coincide with a standing footprint (IoU > 0.5)
+  is in the tables: 0.5-2.1 m on every plate with such outlines except V8-194 (3.3 m, 2 outlines), none above 4 m after V2-33
+  was dropped.
+* **Looked at on the scans** (final overlays, 100 m windows): 27 windows on 26 plates. downtown: 19213 (before registration, 2
+  windows), 19221, 19219, 19227, 19239, 19236; williamsburg: 19333, 19328, 19324, 19318; southwest: 19132, 19139, 19130, 19123;
+  bushwick 19996, 19999; bedstuy 19596, 19585; browns 19840, 19836, 19844, 19833; parkslope 19681, 19682; crownheights 19704, 19707.
+  Results: nearly every drawn house is one outline each (about 90-95 % of the buildings on the windows are traced; 19213: ~95 %),
+  rows of attached houses are cut at the party walls, registration against surviving rows within 1-2 m. **False or poor
+  outlines**: stables and sheds drawn with a cross (X) are cut into triangles or a ragged polygon (about 1 in 15 outlines on the
+  commercial plates, e.g. 19132, 19721 area), a few frame houses "brick lined" (a pink core in a yellow outline) come out in two
+  pieces or with a bite, lot numbers and storey figures leave ragged inner edges, the grey stone-front strips of brick rows are
+  sometimes missing (2 m short), a few small rear sheds are missed, large yards drawn with diagonals (H.R.R. stables, 19704) give
+  one big outline with a diagonal cut. No false building was seen on empty ground; the Map Warper plate edges and the ~10 m
+  margin outside the mask are cut by centre.
+* **Not looked at**: 113 of the 139 plates; the water-wash edge of the Fulton Ferry / Columbia St piers (stone outlines there
+  were kept only if 80 m2 and 6 m wide, none seen); plates accepted on control points alone (V2-41, V1-9, V8 plates without
+  survivors: 195, 217, 210, 195 ... see the tables) were not looked at; Greenpoint and Park Slope plates other than 19681-2.
+
+### Per layer
+
+The tables give, per plate: Map Warper control points kept (leave-one-out error m), the registration applied, the street-match
+residual left after it (m), buildings exported, those on a standing footprint, their median offset.
+
+#### brooklyn_downtown_1887
+
+11,686 buildings (4,645 frame / 6,983 brick / 58 stone), 21 plates used, coverage 4.35 km2, 1,300 on a standing footprint (IoU > 0.5, 11 %).
+
+| sheet | plate | control points (CV rms m) | registration | street match: left m | buildings (frame / brick / stone) | on a standing footprint | their median offset m |
+|---|---|---|---|---|---|---|---|
+| V2-31 | 19213 | 8 (4.8) | building match | None | 296 (83 / 198 / 15) | 77 (26 %) | 1.45 |
+| V2-49 | 19231 | 7 (7.8) | control points only, not checked | None | 233 (31 / 202 / 0) | 65 (28 %) | 2.46 |
+| V2-58 | 19240 | 9 (9.2) | street match + building match | 3.5 | 569 (203 / 366 / 0) | 149 (26 %) | 1.35 |
+| V2-57 | 19239 | 4 (15.9) | street match + building match | 1.0 | 595 (183 / 412 / 0) | 134 (22 %) | 1.07 |
+| V2-50 | 19232 | 7 (15.0) | street match + building match | 1.1 | 441 (58 / 383 / 0) | 59 (13 %) | 1.24 |
+| V2-53 | 19235 | 8 (5.6) | street match + building match | 2.7 | 392 (62 / 330 / 0) | 25 (6 %) | 1.22 |
+| V2-48 | 19230 | 6 (7.5) | street match + building match | 1.0 | 586 (129 / 457 / 0) | 132 (22 %) | 1.77 |
+| V2-47 | 19229 | 4 (5.7) | building match | None | 741 (499 / 242 / 0) | 39 (5 %) | 1.41 |
+| V2-45 | 19227 | 10 (6.1) | street match | 2.3 | 826 (490 / 335 / 1) | 1 (0 %) | 2.23 |
+| V2-43 | 19225 | 7 (8.1) | street match + building match | 0.7 | 424 (104 / 316 / 4) | 9 (2 %) | 1.52 |
+| V2-32 | 19214 | 7 (7.1) | building match | None | 356 (106 / 235 / 15) | 45 (13 %) | 1.42 |
+| V2-41 | 19223 | 6 (3.4) | control points only, not checked | None | 684 (443 / 241 / 0) | 0 (0 %) | None |
+| V2-42 | 19224 | 5 (48.7) | control points only, not checked | None | 950 (623 / 327 / 0) | 14 (2 %) | 2.05 |
+| V2-40 | 19222 | 8 (14.4) | street match + building match | 2.2 | 414 (74 / 320 / 20) | 45 (11 %) | 1.73 |
+| V2-39 | 19221 | 6 (3.7) | street match + building match | 1.6 | 569 (17 / 552 / 0) | 179 (32 %) | 1.65 |
+| V2-38 | 19220 | 10 (13.6) | building match | None | 592 (138 / 452 / 2) | 46 (8 %) | 1.59 |
+| V2-37 | 19219 | 4 (5.4) | street match | 1.0 | 742 (474 / 267 / 1) | 2 (0 %) | 1.79 |
+| V2-54 | 19236 | 11 (2.5) | street match | 2.1 | 565 (316 / 249 / 0) | 97 (17 %) | 1.27 |
+| V2-52 | 19234 | 12 (2.9) | street match + building match | 0.9 | 503 (135 / 368 / 0) | 138 (27 %) | 0.99 |
+| V2-51 | 19233 | 9 (6.5) | street match + building match | 2.2 | 561 (239 / 322 / 0) | 31 (6 %) | 2.2 |
+| V2-44 | 19226 | 10 (5.4) | street match | 1.5 | 647 (238 / 409 / 0) | 13 (2 %) | 2.48 |
+
+Left out (6): V2-55 (19237; 373 outlines traced; CV rms 0.0 m; 3 on standing footprints); V2-46 (19228; 647 outlines traced; CV rms 4.7 m; 0 on standing footprints); V2-35 (19217; 350 outlines traced; CV rms 5.9 m; 4 on standing footprints); V2-34 (19216; 268 outlines traced; CV rms 0.0 m; 0 on standing footprints); V2-33 (19215; 0 outlines traced; CV rms None m; 0 on standing footprints); V2-36 (19218; 776 outlines traced; CV rms 7.4 m; 1 on standing footprints).
+
+
+#### brooklyn_williamsburg_1887
+
+11,113 buildings (7,171 frame / 3,933 brick / 9 stone), 23 plates used, coverage 4.84 km2, 1,082 on a standing footprint (IoU > 0.5, 10 %).
+
+| sheet | plate | control points (CV rms m) | registration | street match: left m | buildings (frame / brick / stone) | on a standing footprint | their median offset m |
+|---|---|---|---|---|---|---|---|
+| V3-65 | 19316 | 4 (7.2) | street match + building match | 0.9 | 594 (465 / 128 / 1) | 110 (18 %) | 1.37 |
+| V3-82 | 19333 | 12 (6.0) | street match | 2.3 | 687 (613 / 74 / 0) | 13 (2 %) | 1.86 |
+| V3-80 | 19331 | 11 (4.8) | street match + building match | 0.8 | 423 (210 / 212 / 1) | 90 (21 %) | 1.17 |
+| V3-79 | 19330 | 10 (6.6) | street match | 1.8 | 580 (350 / 230 / 0) | 50 (9 %) | 1.58 |
+| V3-78 | 19329 | 9 (7.8) | street match + building match | 1.5 | 582 (246 / 336 / 0) | 31 (5 %) | 1.56 |
+| V3-77 | 19328 | 12 (6.0) | street match + building match | 0.6 | 637 (216 / 420 / 1) | 57 (9 %) | 1.95 |
+| V3-76 | 19327 | 5 (3.1) | street match + building match | 1.0 | 460 (7 / 453 / 0) | 40 (9 %) | 1.8 |
+| V3-75 | 19326 | 8 (7.1) | street match + building match | 1.5 | 425 (30 / 395 / 0) | 85 (20 %) | 1.62 |
+| V3-74 | 19325 | 10 (5.9) | street match + building match | 0.6 | 387 (183 / 203 / 1) | 79 (20 %) | 1.09 |
+| V3-73 | 19324 | 8 (5.3) | street match | 0.4 | 488 (426 / 62 / 0) | 6 (1 %) | 1.94 |
+| V3-72 | 19323 | 6 (3.6) | street match | 3.0 | 545 (432 / 113 / 0) | 18 (3 %) | 1.97 |
+| V3-71 | 19322 | 9 (4.4) | street match | 0.8 | 642 (551 / 90 / 1) | 15 (2 %) | 1.03 |
+| V3-70 | 19321 | 11 (15.0) | street match + building match | 1.1 | 539 (462 / 77 / 0) | 94 (17 %) | 1.32 |
+| V3-69 | 19320 | 7 (16.6) | street match | 0.8 | 331 (234 / 97 / 0) | 39 (12 %) | 1.32 |
+| V3-68 | 19319 | 4 (11.1) | street match | 0.6 | 298 (137 / 161 / 0) | 60 (20 %) | 1.39 |
+| V3-67 | 19318 | 4 (8.7) | building match | None | 434 (241 / 193 / 0) | 98 (23 %) | 1.56 |
+| V3-59 | 19310 | 8 (5.4) | building match | None | 228 (115 / 112 / 1) | 12 (5 %) | 1.61 |
+| V3-83 | 19334 | 9 (8.4) | street match + building match | 0.9 | 596 (530 / 66 / 0) | 34 (6 %) | 1.27 |
+| V3-66 | 19317 | 4 (8.7) | street match + building match | 1.3 | 384 (326 / 58 / 0) | 32 (8 %) | 1.21 |
+| V3-64 | 19315 | 5 (6.2) | street match + building match | 1.8 | 687 (534 / 153 / 0) | 81 (12 %) | 1.34 |
+| V3-60 | 19311 | 8 (3.9) | street match | 1.0 | 353 (112 / 238 / 3) | 27 (8 %) | 1.45 |
+| V3-81 | 19332 | 11 (14.1) | street match | 3.7 | 295 (263 / 32 / 0) | 4 (1 %) | 2.76 |
+| V3-84 | 19335 | 4 (5.6) | street match | 3.5 | 518 (488 / 30 / 0) | 7 (1 %) | 2.47 |
+
+Left out (3): V3-63 (19314; 155 outlines traced; CV rms 37.9 m; 2 on standing footprints); V3-62 (19313; 172 outlines traced; CV rms 54.2 m; 0 on standing footprints); V3-61 (19312; 290 outlines traced; CV rms 0.0 m; 2 on standing footprints).
+
+
+#### brooklyn_southwest_1886
+
+8,419 buildings (2,718 frame / 5,697 brick / 4 stone), 14 plates used, coverage 3.34 km2, 2,541 on a standing footprint (IoU > 0.5, 30 %).
+
+| sheet | plate | control points (CV rms m) | registration | street match: left m | buildings (frame / brick / stone) | on a standing footprint | their median offset m |
+|---|---|---|---|---|---|---|---|
+| V1-24 | 19140 | 4 (14.6) | street match + building match | 2.2 | 857 (291 / 566 / 0) | 107 (12 %) | 1.56 |
+| V1-22 | 19138 | 5 (16.2) | street match + building match | 1.4 | 768 (108 / 660 / 0) | 364 (47 %) | 1.15 |
+| V1-18 | 19134 | 6 (13.0) | street match + building match | 4.5 | 536 (61 / 475 / 0) | 280 (52 %) | 0.97 |
+| V1-17 | 19133 | 6 (12.6) | street match + building match | 1.1 | 660 (83 / 577 / 0) | 354 (54 %) | 1.18 |
+| V1-16 | 19132 | 8 (7.6) | street match + building match | 0.7 | 948 (266 / 682 / 0) | 367 (39 %) | 1.29 |
+| V1-7 | 19123 | 4 (3.2) | street match + building match | 2.6 | 466 (293 / 173 / 0) | 32 (7 %) | 1.35 |
+| V1-23 | 19139 | 4 (12.8) | street match + building match | 1.7 | 987 (323 / 664 / 0) | 316 (32 %) | 0.77 |
+| V1-25 | 19141 | 4 (6.5) | street match | 1.5 | 391 (298 / 93 / 0) | 33 (8 %) | 1.74 |
+| V1-21 | 19137 | 4 (806.7) | building match | None | 254 (169 / 85 / 0) | 46 (18 %) | 1.18 |
+| V1-19 | 19135 | 6 (1.3) | street match | 2.1 | 355 (256 / 99 / 0) | 13 (4 %) | 1.41 |
+| V1-9 | 19125 | 6 (3.4) | control points only, not checked | None | 139 (126 / 13 / 0) | 2 (1 %) | 1.37 |
+| V1-14 | 19130 | 4 (6.2) | street match + building match | 1.3 | 728 (59 / 669 / 0) | 328 (45 %) | 0.85 |
+| V1-13 | 19129 | 4 (30.2) | control points only, not checked | None | 564 (270 / 294 / 0) | 11 (2 %) | 1.78 |
+| V1-15 | 19131 | 4 (26.9) | street match + building match | 1.7 | 766 (115 / 647 / 4) | 288 (38 %) | 1.04 |
+
+Left out (14): V1-11 (19127; 3 outlines traced; CV rms 36.8 m; 0 on standing footprints); V1-29 (19145; 234 outlines traced; CV rms 106.1 m; 2 on standing footprints); V1-12 (19128; 189 outlines traced; CV rms 22.2 m; 0 on standing footprints); V1-20 (19136; 37 outlines traced; CV rms 0.0 m; 0 on standing footprints); V1-6 (19122; 133 outlines traced; CV rms 0.0 m; 3 on standing footprints); V1-5 (19121; 120 outlines traced; CV rms 0.0 m; 1 on standing footprints); V1-2 (19118; 192 outlines traced; CV rms 6.5 m; 1 on standing footprints); V1-1 (19117; 113 outlines traced; CV rms 18.5 m; 0 on standing footprints); V1-26 (19142; 135 outlines traced; CV rms 4.3 m; 1 on standing footprints); V1-10 (19126; 109 outlines traced; CV rms 4.9 m; 0 on standing footprints); V1-8 (19124; 64 outlines traced; CV rms 0.0 m; 0 on standing footprints); V1-4 (19120; 48 outlines traced; CV rms 9.9 m; 0 on standing footprints); V1-28 (19144; 251 outlines traced; CV rms 0.0 m; 2 on standing footprints); V1-27 (19143; 227 outlines traced; CV rms 0.0 m; 2 on standing footprints).
+
+
+#### brooklyn_greenpoint_1887
+
+2,107 buildings (1,338 frame / 768 brick / 1 stone), 3 plates used, coverage 0.78 km2, 270 on a standing footprint (IoU > 0.5, 13 %).
+
+| sheet | plate | control points (CV rms m) | registration | street match: left m | buildings (frame / brick / stone) | on a standing footprint | their median offset m |
+|---|---|---|---|---|---|---|---|
+| V4-103 | 19497 | 39 (0.4) | street match + building match | 0.3 | 788 (510 / 278 / 0) | 130 (16 %) | 1.18 |
+| V4-90 | 19484 | 8 (6.3) | street match + building match | 3.4 | 464 (389 / 75 / 0) | 51 (11 %) | 1.7 |
+| V4-104 | 19498 | 10 (1.5) | street match + building match | 0.7 | 855 (439 / 415 / 1) | 89 (10 %) | 1.03 |
+
+Left out (1): V4-92 (19486; 20 outlines traced; CV rms 4.7 m; 0 on standing footprints).
+
+
+#### brooklyn_bushwick_1888
+
+2,372 buildings (2,050 frame / 322 brick / 0 stone), 9 plates used, coverage 2.29 km2, 389 on a standing footprint (IoU > 0.5, 16 %).
+
+| sheet | plate | control points (CV rms m) | registration | street match: left m | buildings (frame / brick / stone) | on a standing footprint | their median offset m |
+|---|---|---|---|---|---|---|---|
+| V9-259 | 19999 | 4 (6.4) | control points only, not checked | None | 195 (178 / 17 / 0) | 12 (6 %) | 1.32 |
+| V9-256 | 19996 | 8 (8.4) | street match + building match | 2.9 | 605 (483 / 122 / 0) | 108 (18 %) | 1.16 |
+| V9-255 | 19995 | 4 (15.1) | building match | None | 270 (249 / 21 / 0) | 57 (21 %) | 1.91 |
+| V9-260 | 20000 | 8 (5.3) | control points only, not checked | None | 189 (161 / 28 / 0) | 17 (9 %) | 2.05 |
+| V9-265 | 27645 | 3 (0.0) | control points only, not checked | None | 184 (178 / 6 / 0) | 38 (21 %) | 1.06 |
+| V9-251 | 19991 | 4 (13.3) | street match | 6.5 | 321 (279 / 42 / 0) | 5 (2 %) | 1.99 |
+| V9-258 | 19998 | 5 (7.4) | street match + building match | 1.5 | 485 (414 / 71 / 0) | 131 (27 %) | 1.43 |
+| V9-265 | 20005 | 4 (2.2) | control points only, not checked | None | 22 (22 / 0 / 0) | 0 (0 %) | 2.08 |
+| V9-264 | 20004 | 4 (4.7) | control points only, not checked | None | 101 (86 / 15 / 0) | 21 (21 %) | 1.31 |
+
+Left out (5): V9-247 (19987; 9 outlines traced; CV rms 0.0 m; 0 on standing footprints); V9-267 (20007; 103 outlines traced; CV rms 18.0 m; 0 on standing footprints); V9-266 (20006; 134 outlines traced; CV rms 1.8 m; 1 on standing footprints); V9-244 (19984; 43 outlines traced; CV rms 0.0 m; 1 on standing footprints); V9-233 (19973; 32 outlines traced; CV rms 0.0 m; 0 on standing footprints).
+
+
+#### brooklyn_bedstuy_1888
+
+6,686 buildings (3,876 frame / 2,810 brick / 0 stone), 21 plates used, coverage 4.46 km2, 1,398 on a standing footprint (IoU > 0.5, 21 %).
+
+| sheet | plate | control points (CV rms m) | registration | street match: left m | buildings (frame / brick / stone) | on a standing footprint | their median offset m |
+|---|---|---|---|---|---|---|---|
+| V5-120 | 19585 | 4 (13.4) | control points only, not checked | None | 194 (158 / 36 / 0) | 16 (8 %) | 1.55 |
+| V5-115 | 19580 | 4 (3.8) | building match | None | 144 (41 / 103 / 0) | 48 (33 %) | 0.98 |
+| V5-134 | 19599 | 4 (9.7) | street match | 1.3 | 338 (161 / 177 / 0) | 32 (10 %) | 1.58 |
+| V5-131 | 19596 | 4 (21.1) | street match + building match | 4.4 | 661 (395 / 266 / 0) | 140 (21 %) | 1.32 |
+| V5-129 | 19594 | 4 (1.1) | street match + building match | 2.6 | 340 (266 / 74 / 0) | 59 (17 %) | 1.3 |
+| V5-132 | 19597 | 4 (3.7) | building match | None | 377 (284 / 93 / 0) | 85 (22 %) | 1.31 |
+| V5-118 | 19583 | 4 (12.8) | control points only, not checked | None | 396 (329 / 67 / 0) | 21 (5 %) | 1.09 |
+| V5-112 | 19577 | 4 (6.0) | street match + building match | 3.8 | 272 (46 / 226 / 0) | 38 (14 %) | 1.19 |
+| V5-114 | 19579 | 4 (5.7) | street match + building match | 2.0 | 326 (169 / 157 / 0) | 80 (24 %) | 1.54 |
+| V5-135 | 19600 | 6 (15.1) | building match | None | 268 (156 / 112 / 0) | 58 (22 %) | 1.27 |
+| V5-123 | 19588 | 4 (8.4) | street match | 1.2 | 229 (156 / 73 / 0) | 38 (17 %) | 1.22 |
+| V5-124 | 19589 | 8 (32.0) | building match | None | 130 (74 / 56 / 0) | 29 (22 %) | 0.83 |
+| V5-127 | 19592 | 4 (7.1) | street match + building match | 4.0 | 379 (162 / 217 / 0) | 93 (24 %) | 1.36 |
+| V5-126 | 19591 | 4 (13.4) | street match + building match | 3.1 | 335 (183 / 152 / 0) | 92 (28 %) | 1.23 |
+| V5-130 | 19595 | 4 (7.3) | street match + building match | 0.9 | 498 (339 / 159 / 0) | 89 (18 %) | 1.06 |
+| V5-133 | 19598 | 4 (11.1) | street match + building match | 1.4 | 242 (158 / 84 / 0) | 16 (7 %) | 1.85 |
+| V5-128 | 19593 | 4 (0.1) | street match + building match | 3.2 | 287 (168 / 119 / 0) | 73 (25 %) | 1.14 |
+| V5-116 | 19581 | 4 (7.5) | street match + building match | 3.1 | 217 (82 / 135 / 0) | 56 (26 %) | 1.01 |
+| V5-125 | 19590 | 5 (3.5) | street match + building match | 2.6 | 479 (311 / 168 / 0) | 166 (35 %) | 1.11 |
+| V5-111 | 19576 | 11 (2.1) | street match + building match | 1.1 | 449 (171 / 278 / 0) | 139 (31 %) | 1.35 |
+| V5-119 | 19584 | 4 (8.7) | building match | None | 125 (67 / 58 / 0) | 30 (24 %) | 1.49 |
+
+Left out (4): V5-122 (19587; 54 outlines traced; CV rms 14.8 m; 0 on standing footprints); V5-121 (19586; 276 outlines traced; CV rms 0.0 m; 3 on standing footprints); V5-113 (19578; 134 outlines traced; CV rms 0.0 m; 1 on standing footprints); V5-117 (19582; 157 outlines traced; CV rms 129.4 m; 2 on standing footprints).
+
+
+#### brooklyn_browns_1887
+
+3,758 buildings (3,562 frame / 196 brick / 0 stone), 28 plates used, coverage 6.11 km2, 451 on a standing footprint (IoU > 0.5, 12 %).
+
+| sheet | plate | control points (CV rms m) | registration | street match: left m | buildings (frame / brick / stone) | on a standing footprint | their median offset m |
+|---|---|---|---|---|---|---|---|
+| V8-196 | 19825 | 31 (0.6) | control points only, not checked | None | 136 (134 / 2 / 0) | 1 (1 %) | 1.43 |
+| V8-194 | 19823 | 20 (0.6) | control points only, not checked | None | 131 (126 / 5 / 0) | 2 (2 %) | 3.27 |
+| V8-211 | 19840 | 42 (1.2) | control points only, not checked | None | 356 (342 / 14 / 0) | 70 (20 %) | 1.31 |
+| V8-212 | 19841 | 30 (0.5) | control points only, not checked | None | 130 (123 / 7 / 0) | 11 (8 %) | 1.51 |
+| V8-218 | 19847 | 23 (1.0) | control points only, not checked | None | 191 (184 / 7 / 0) | 3 (2 %) | 2.15 |
+| V8-210 | 19839 | 20 (1.1) | control points only, not checked | None | 53 (53 / 0 / 0) | 3 (6 %) | 1.52 |
+| V8-214 | 19843 | 9 (0.8) | control points only, not checked | None | 54 (48 / 6 / 0) | 3 (6 %) | 1.17 |
+| V8-217 | 19846 | 25 (0.7) | control points only, not checked | None | 52 (52 / 0 / 0) | 2 (4 %) | 0.74 |
+| V8-199 | 19828 | 37 (0.6) | control points only, not checked | None | 183 (174 / 9 / 0) | 11 (6 %) | 1.24 |
+| V8-201 | 19830 | 33 (0.8) | street match + building match | 1.4 | 352 (315 / 37 / 0) | 28 (8 %) | 1.36 |
+| V8-216 | 19845 | 17 (0.7) | control points only, not checked | None | 102 (97 / 5 / 0) | 10 (10 %) | 1.58 |
+| V8-195 | 30226 | 7 (1.8) | control points only, not checked | None | 4 (4 / 0 / 0) | 0 (0 %) | None |
+| V8-220 | 19849 | 16 (1.3) | control points only, not checked | None | 15 (15 / 0 / 0) | 0 (0 %) | None |
+| V8-219 | 19848 | 11 (0.8) | control points only, not checked | None | 26 (20 / 6 / 0) | 1 (4 %) | 1.46 |
+| V8-213 | 19842 | 12 (0.9) | control points only, not checked | None | 83 (81 / 2 / 0) | 1 (1 %) | 0.53 |
+| V8-215 | 19844 | 32 (0.5) | control points only, not checked | None | 130 (124 / 6 / 0) | 32 (25 %) | 1.25 |
+| V8-207 | 19836 | 50 (0.8) | building match | None | 383 (356 / 27 / 0) | 104 (27 %) | 0.9 |
+| V8-208 | 19837 | 17 (0.4) | control points only, not checked | None | 110 (110 / 0 / 0) | 4 (4 %) | 1.22 |
+| V8-209 | 19838 | 20 (0.4) | control points only, not checked | None | 50 (49 / 1 / 0) | 0 (0 %) | None |
+| V8-206 | 19835 | 33 (0.5) | control points only, not checked | None | 85 (82 / 3 / 0) | 32 (38 %) | 1.0 |
+| V8-205 | 19834 | 7 (1.7) | control points only, not checked | None | 9 (9 / 0 / 0) | 0 (0 %) | None |
+| V8-204 | 19833 | 37 (0.7) | street match | 2.7 | 345 (313 / 32 / 0) | 18 (5 %) | 2.06 |
+| V8-203 | 19832 | 39 (0.7) | street match + building match | 0.4 | 294 (275 / 19 / 0) | 106 (36 %) | 0.93 |
+| V8-202 | 19831 | 28 (0.9) | control points only, not checked | None | 216 (211 / 5 / 0) | 9 (4 %) | 1.64 |
+| V8-200 | 19829 | 33 (0.6) | control points only, not checked | None | 32 (32 / 0 / 0) | 0 (0 %) | None |
+| V8-197 | 19826 | 15 (1.3) | control points only, not checked | None | 82 (81 / 1 / 0) | 0 (0 %) | None |
+| V8-198 | 19827 | 10 (1.0) | control points only, not checked | None | 36 (35 / 1 / 0) | 0 (0 %) | None |
+| V8-195 | 19824 | 8 (1.2) | control points only, not checked | None | 118 (117 / 1 / 0) | 0 (0 %) | None |
+
+Left out (0): none.
+
+
+#### brooklyn_crownheights_1888
+
+2,949 buildings (2,008 frame / 941 brick / 0 stone), 12 plates used, coverage 2.89 km2, 520 on a standing footprint (IoU > 0.5, 18 %).
+
+| sheet | plate | control points (CV rms m) | registration | street match: left m | buildings (frame / brick / stone) | on a standing footprint | their median offset m |
+|---|---|---|---|---|---|---|---|
+| V7-G | 19734 | 6 (3.7) | control points only, not checked | None | 67 (65 / 2 / 0) | 0 (0 %) | None |
+| V7-176 | 19711 | 4 (8.3) | building match | None | 237 (159 / 78 / 0) | 40 (17 %) | 1.2 |
+| V7-175 | 19710 | 6 (3.5) | control points only, not checked | None | 172 (163 / 9 / 0) | 8 (5 %) | 1.84 |
+| V7-169 | 19704 | 7 (7.2) | street match + building match | 1.7 | 444 (289 / 155 / 0) | 85 (19 %) | 1.19 |
+| V7-171 | 19706 | 15 (1.7) | street match + building match | 0.4 | 458 (412 / 46 / 0) | 55 (12 %) | 1.43 |
+| V7-186 | 19721 | 7 (2.6) | control points only, not checked | None | 71 (70 / 1 / 0) | 3 (4 %) | 1.6 |
+| V7-177 | 19712 | 10 (2.0) | building match | None | 224 (108 / 116 / 0) | 78 (35 %) | 1.13 |
+| V7-178 | 19713 | 4 (4.9) | control points only, not checked | None | 108 (61 / 47 / 0) | 32 (30 %) | 1.47 |
+| V7-173 | 19708 | 4 (9.4) | building match | None | 239 (117 / 122 / 0) | 57 (24 %) | 1.05 |
+| V7-172 | 19707 | 4 (7.3) | control points only, not checked | None | 330 (314 / 16 / 0) | 22 (7 %) | 2.61 |
+| V7-174 | 19709 | 4 (5.0) | building match | None | 284 (137 / 147 / 0) | 103 (36 %) | 1.2 |
+| V7-166 | 19701 | 9 (4.6) | street match + building match | 2.5 | 315 (113 / 202 / 0) | 37 (12 %) | 1.31 |
+
+Left out (17): V7-H (19735; 107 outlines traced; CV rms 275.6 m; 0 on standing footprints); V7-F (19733; 249 outlines traced; CV rms 4.1 m; 5 on standing footprints); V7-E (19732; 159 outlines traced; CV rms 6.5 m; 0 on standing footprints); V7-A (19728; 110 outlines traced; CV rms 6.8 m; 0 on standing footprints); V7-191 (19726; 25 outlines traced; CV rms 5.0 m; 0 on standing footprints); V7-189 (19724; 62 outlines traced; CV rms 116.7 m; 0 on standing footprints); V7-187 (19722; 91 outlines traced; CV rms 4.3 m; 0 on standing footprints); V7-185 (19720; 19 outlines traced; CV rms 126.9 m; 0 on standing footprints); V7-180 (19715; 74 outlines traced; CV rms 5.7 m; 1 on standing footprints); V7-190 (19725; 13 outlines traced; CV rms 5.5 m; 0 on standing footprints); V7-181 (19716; 55 outlines traced; CV rms 9.6 m; 2 on standing footprints); V7-183 (19718; 104 outlines traced; CV rms 3.1 m; 1 on standing footprints); V7-179 (19714; 121 outlines traced; CV rms 0.0 m; 2 on standing footprints); V7-184 (19719; 78 outlines traced; CV rms 17.4 m; 4 on standing footprints); V7-188 (19723; 8 outlines traced; CV rms 3.3 m; 0 on standing footprints); V7-C (19730; 138 outlines traced; CV rms 0.0 m; 2 on standing footprints); V7-D (19731; 188 outlines traced; CV rms 6.7 m; 2 on standing footprints).
+
+
+#### brooklyn_parkslope_1888
+
+2,789 buildings (935 frame / 1,854 brick / 0 stone), 8 plates used, coverage 2.14 km2, 537 on a standing footprint (IoU > 0.5, 19 %).
+
+| sheet | plate | control points (CV rms m) | registration | street match: left m | buildings (frame / brick / stone) | on a standing footprint | their median offset m |
+|---|---|---|---|---|---|---|---|
+| V6-152 | 19684 | 4 (14.7) | building match | None | 78 (15 / 63 / 0) | 14 (18 %) | 1.05 |
+| V6-151 | 19683 | 7 (12.9) | building match | None | 190 (9 / 181 / 0) | 31 (16 %) | 2.25 |
+| V6-149 | 19681 | 4 (20.5) | street match + building match | 3.3 | 502 (256 / 246 / 0) | 45 (9 %) | 1.93 |
+| V6-146 | 19676 | 4 (6.4) | street match + building match | 1.0 | 545 (66 / 479 / 0) | 110 (20 %) | 1.46 |
+| V6-145 | 19675 | 8 (4.2) | building match | None | 266 (18 / 248 / 0) | 79 (30 %) | 1.49 |
+| V6-143 | 19673 | 8 (9.8) | street match + building match | 3.3 | 430 (131 / 299 / 0) | 83 (19 %) | 1.68 |
+| V6-155 | 19688 | 9 (3.6) | street match + building match | 0.3 | 552 (416 / 136 / 0) | 67 (12 %) | 1.32 |
+| V6-150 | 19682 | 9 (2.9) | building match | None | 226 (24 / 202 / 0) | 108 (48 %) | 0.84 |
+
+Left out (3): V6-142A (19671; 202 outlines traced; CV rms 15.1 m; 0 on standing footprints); V6-165 (19698; 127 outlines traced; CV rms 7.4 m; 2 on standing footprints); V6-156 (19689; 145 outlines traced; CV rms 1.6 m; 1 on standing footprints).
+
+
+All Brooklyn layers: 51,879 buildings (28,303 frame / 23,504 brick / 72 stone), 139 plates used, 53 left out, 31.2 km2 of coverage (layers may overlap at their edges: the layers were not deduplicated against each other).
