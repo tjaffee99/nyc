@@ -629,14 +629,26 @@ def trace_window(P, full, inside, paper, win, core=None):
     del lab_all
     mpp = P.m.src_mpp
     lo, hi = 0.6 * st["min_m2"] / mpp ** 2, 1.5 * st["max_m2"] / mpp ** 2
+    # Only the neighbourhoods of fill are worked on (most of a county plate is empty paper): groups of fill
+    # at least 3 pixels wide, grown by 30 pixels; each group is traced in its own box, restricted to itself.
+    fillc = (c == 2) | (c == 3) | (c == 4)
+    cand = _open(fillc & ins, 3)
+    if not cand.any():
+        return []
+    rl, rn = ndi.label(_dil(cand, 30))
     found = []
-    if st.get("split_by_ink"):
-        lab, mat = fills_rows(c, line, st, ins)
-        found = [(p, mat[v - 1]) for p, v in label_polygons(lab, lo, hi)]
-    else:
-        f = fills(c, line, st, ins)
-        for name in ("frame", "brick"):
-            found += [(p, name) for p, apx in polygons(f[name], 0.0, lo, hi)]
+    for k, sl in enumerate(ndi.find_objects(rl), 1):
+        ys = slice(max(0, sl[0].start - 40), min(c.shape[0], sl[0].stop + 40))
+        xs = slice(max(0, sl[1].start - 40), min(c.shape[1], sl[1].stop + 40))
+        cc, ll = c[ys, xs], line[ys, xs]
+        ii = ins[ys, xs] & (rl[ys, xs] == k)
+        if st.get("split_by_ink"):
+            lab, mat = fills_rows(cc, ll, st, ii)
+            part = [(p, mat[v - 1]) for p, v in label_polygons(lab, lo, hi)]
+        else:
+            f = fills(cc, ll, st, ii)
+            part = [(p, name) for name in ("frame", "brick") for p, apx in polygons(f[name], 0.0, lo, hi)]
+        found += [(shapely.affinity.translate(p, xs.start, ys.start), name) for p, name in part]
     out = []
     for p, name in found:
         q = shapely.affinity.translate(tidy(p), x0, y0)

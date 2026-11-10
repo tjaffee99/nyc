@@ -23,7 +23,8 @@ cells under a polygon of the city layer are left out) is decided, in this order,
 
 "Tidal" = connected to today's tidal water (sea.tif) through cells that are water or marsh on the sheet, tidal
 water today, or wet / organic-substratum fill and marsh soils lying below 8 m, without crossing today's non-tidal
-water (surface above 3 m).
+water (surface above 3 m).  Water on the sheet is believed only within 150 m of today's tidal water or of
+blank-paper open water; farther in it is counted as marsh (the print texture does not separate them reliably).
 Blank paper on a sheet is either land or open water (the water lining stops a few hundred metres from shore): two
 fronts spread through the blank cells, one from natural upland and dune soils, one from today's open tidewater
 that the sheet leaves blank; a blank cell belongs to the front that reaches it first.  Blank patches neither front
@@ -63,10 +64,10 @@ SKIP_RESERVOIRS = ("Greenwood Lake", "Weequahic", "Branch Brook")   # a natural 
 # kind -> (source: "ssurgo" or "sheet", confidence, note)
 KINDS = {
     1: ("sheet", "medium", "water on the USGS sheet, land today"),
-    2: ("sheet", "low", "marsh on the USGS sheet (marsh / water split by print texture), land today"),
+    2: ("sheet", "low", "marsh on the USGS sheet (marsh / water split by print texture; sheet water over 150 m from today's tidal water counts as marsh), land today"),
     3: ("sheet", "low", "marsh on the USGS sheet not connected to tidal water, land today"),
     4: ("sheet", "low", "inland water on the USGS sheet, land today (may be a mill pond or reservoir of the 19th century)"),
-    5: ("sheet", "medium", "marsh on the USGS sheet; soil survey: fill over wet substratum"),
+    5: ("sheet", "medium", "marsh on the USGS sheet (sheet water over 150 m from today's tidal water counts as marsh); soil survey: fill over wet substratum"),
     6: ("sheet", "medium", "marsh on the USGS sheet not connected to tidal water; soil survey: fill over wet substratum"),
     7: ("ssurgo", "low", "soil survey: fill over wet substratum; land already on the USGS sheet, or no usable sheet; within 150 m of open tidewater, so taken as filled water (estimated)"),
     8: ("ssurgo", "low", "soil survey: fill over wet substratum; land already on the USGS sheet, or no usable sheet; over 150 m from open tidewater, so taken as salt marsh (estimated)"),
@@ -237,6 +238,13 @@ def band(area, name, soilwin, rings, c0, c1, r0, r1, k0, k1, acc):
     u_marsh2 = u_marsh & ~narrow
     u_water2 = u_water | narrow
     del narrow, u_marsh, u_water
+    # print texture does not tell water from marsh reliably on these sheets (discriminant accuracy 0.6-0.87; on the
+    # Paterson sheet the edges of the meadows read as water): sheet water on today's land is believed only within
+    # 150 m of today's tidal water or of blank-paper open water; farther in it is counted as marsh
+    far = u_water2 & tidal & ~dilate(sea | pale_w, 25)
+    u_marsh2 |= far
+    u_water2 &= ~far
+    del far
     near_open = dilate(open_w, 25)
     del open_w, sea
     land = own & ~water_today
