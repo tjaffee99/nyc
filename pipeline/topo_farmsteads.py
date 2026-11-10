@@ -786,7 +786,7 @@ class FootprintMatcher:
         self.bp = INTERIM / "nyc_buildings.parquet"
         self.to_utm = pyproj.Transformer.from_crs("EPSG:4326", "EPSG:32618", always_xy=True)
         self.B = self.con.execute(f"""select doitt_id, bin, lon, lat, start_year, year_confidence, year_src, raw_year, area, height_m, bldgclass
-                                      from '{self.bp}' where end_year = 9999 and area >= 45""").df()
+                                      from '{self.bp}' where end_year = 9999 and area >= 45 and isfinite(lon) and isfinite(lat)""").df()
         bE, bN = self.to_utm.transform(self.B["lon"].values, self.B["lat"].values)
         self.tree = cKDTree(np.column_stack([bE, bN]))
 
