@@ -1,72 +1,75 @@
 {
- "features": 918,
- "standing": 225,
- "vanished": 693,
+ "features": 925,
+ "standing": 223,
+ "vanished": 702,
  "by_borough": {
   "Bronx": 96,
-  "Brooklyn": 172,
-  "Manhattan": 371,
+  "Brooklyn": 173,
+  "Manhattan": 377,
   "Queens": 123,
   "Staten Island": 156
  },
  "by_borough_vanished": {
   "Bronx": 81,
-  "Brooklyn": 134,
-  "Manhattan": 256,
+  "Brooklyn": 135,
+  "Manhattan": 262,
   "Queens": 94,
-  "Staten Island": 128
+  "Staten Island": 130
  },
  "start_decade": {
-  "1880s": 5,
-  "1890s": 338,
-  "1910s": 100,
-  "1920s": 98,
-  "1930s": 11,
-  "1940s": 186,
-  "1950s": 34,
-  "1960s": 40,
+  "1880s": 6,
+  "1890s": 332,
+  "1900s": 2,
+  "1910s": 109,
+  "1920s": 106,
+  "1930s": 13,
+  "1940s": 175,
+  "1950s": 35,
+  "1960s": 39,
   "1970s": 20,
   "1980s": 4,
-  "1990s": 17,
+  "1990s": 18,
   "2000s": 34,
   "2010s": 23,
+  "2020s": 1,
   "unknown": 8
  },
  "end_decade": {
   "1910s": 6,
   "1920s": 21,
-  "1940s": 89,
-  "1950s": 25,
-  "1960s": 96,
+  "1940s": 91,
+  "1950s": 26,
+  "1960s": 99,
   "1970s": 65,
   "1980s": 28,
   "1990s": 122,
-  "2000s": 132,
+  "2000s": 135,
   "2010s": 109,
-  "standing": 225
+  "standing": 223
  },
  "start_quality": {
   "bracket": 107,
-  "estimated": 811
+  "estimated": 780,
+  "recorded": 38
  },
  "end_quality": {
-  "estimated": 438,
-  "recorded": 225,
-  "bracket": 255
+  "estimated": 440,
+  "recorded": 226,
+  "bracket": 259
  },
- "start_upper_bound_only": 524,
+ "start_upper_bound_only": 504,
  "shed": {
-  "shed": 667,
+  "shed": 674,
   "none": 251
  },
  "dropped": {
   "one sighting, ragged outline": 104,
   "one sighting": 6,
-  "same spot and years as a better outline": 54
+  "same spot and years as a better outline": 50
  },
  "outline_source": {
-  "usgs": 511,
-  "osm": 274,
-  "noaa": 133
+  "usgs": 514,
+  "osm": 275,
+  "noaa": 136
  }
 }

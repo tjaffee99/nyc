@@ -263,7 +263,7 @@ def main():
 
     research = load_research()
 
-    def research_for(t, seg, last):
+    def research_for(t, seg, last, first):
         """the research row for this lifespan: by OpenStreetMap name (+ borough, + box if given) for the standing pier,
         by box alone (match_name '*') for every pier in it whose first map sighting does not precede the cited year."""
         c = t["gw"].centroid
@@ -275,9 +275,11 @@ def main():
                 x0, y0, x1, y1 = (float(v) for v in r["bbox"].split(";"))
                 inbox = x0 <= c.x <= x1 and y0 <= c.y <= y1
             if r["match_name"] == "*":
+                # a group rule: the first lifespan of a pier of the group's size that no source shows before the year
                 y = float(r["start_year"])
-                firsts = [o["lo"] for o in seg["obs"]]
-                if inbox and firsts and min(firsts) >= y - 1 and not seg["start_bound"] or (inbox and firsts and min(firsts) >= y - 1 and seg["start_bound"]):
+                if (inbox and first and dims(t["g"])[0] >= float(r.get("min_length_m") or 0) and seg["obs"]
+                        and not any(o["state"] == "pier" and o["hi"] < y for o in t["obs"])
+                        and not any(o["state"] == "water" and o["lo"] > y for o in t["obs"] if o["hi"] <= min(q["hi"] for q in seg["obs"]))):
                     if t["osm"] is None or not any(q["match_name"] == t["osm"]["name"] and q["borough"] == t["borough"] for q in research):
                         return r
             elif last and t["osm"] is not None and t["osm"]["name"] == r["match_name"] and inbox:
@@ -335,7 +337,7 @@ def main():
             # ground: share of the outline on cells that are land while the pier stands
             if seg["start"] is not None:
                 p["land_share"] = round(float(np.mean(lyv <= (seg["end"] if seg["end"] != 9999 else TODAY) - 1)), 2)
-            r = research_for(t, seg, k == len(segs) - 1)
+            r = research_for(t, seg, k == len(segs) - 1, k == 0)
             extra = None
             if r is not None:
                 if r.get("name"):

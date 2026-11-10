@@ -177,7 +177,7 @@ class Sheet:
         f = np.array(self.shift["field"], float).reshape(-1, 4)
         if not len(f):
             return np.full(col.shape, g[0]), np.full(col.shape, g[1])
-        sig = 1500.0 / self.m_per_px * (DPI / self.dpi) ** 0          # 1.5 km in this sheet's pixels
+        sig = 1500.0 / self.m_per_px          # 1.5 km in this sheet's pixels
         d2 = (col[:, None] - f[None, :, 0]) ** 2 + (row[:, None] - f[None, :, 1]) ** 2
         w = np.exp(-d2 / (2 * sig * sig))
         w0 = 0.02                                                     # weight of the overall shift: takes over beyond ~4 km from any window

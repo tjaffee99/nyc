@@ -20,7 +20,7 @@ Stage: `pipeline/building_records.py` (downloads cached under `data/raw/records/
   four fifths of the city on placeholder years cannot be re-dated from recorded years. What
   the records give instead for old buildings is **bounds**: the legal class of 88,453 multiple
   dwellings (old-law tenement = before April 1901, new-law = 1901-1929, …), which the pipeline's
-  estimates break for 22,675 buildings — see "Bounds".
+  estimates break for 22,805 buildings — see "Bounds".
 - For buildings since 1989 the assessor's year is nearly always there and is **the year of
   the permit, not of completion** — see the quality table.
 
@@ -60,7 +60,8 @@ Looked at and **not used**:
   year built", "BCAS", "building condition assessment survey", "SCA building", "hospital
   building year"). The SCA's Building Condition Assessment Survey is published per building
   as PDF, not as data. The only official per-building year for them is Local Law 84 (1,600
-  single-building K-12 properties; 145 of them told the pipeline something new).
+  single-building K-12 properties; 75 school rows written, 23 college, the rest of the 816
+  mostly apartment houses).
 - MapPLUTO archives 2002 → : not downloaded. The Finance rolls of FY2010 / FY2017 (6a) carry
   the same assessor's year per lot, with the estimate flag PLUTO drops.
 - The current roll `8y4t-faws` no longer carries the flag (68 `E` in 2.3 M rows).
@@ -179,9 +180,10 @@ NYCHA: the Data Book's `completion_date` is "the Initial Occupancy Completion Da
 when the development was at least 95 % occupied" — one date per development, its buildings
 finished up to about two years earlier. Only developments of type NEW CONST are used (224
 BINs of REHAB developments skipped: their date is the renovation). The addresses table covers
-216 of the 346 developments (those converted to private management are missing from it).
-Spot checks against published histories: Marcy 1949, Ravenswood 1951, Sumner 1958, Redfern
-1959, Ingersoll 1944 agree.
+216 of the 346 developments; buildings of the other 130 get no row (why they are missing from
+the addresses table was not established). Not verified against a second source: the dates
+for Marcy (1949), Ravenswood (1951), Sumner (1958), Redfern (1959) and Ingersoll (1944), where
+the assessor's year is 5-9 years off, look right from memory of their published histories.
 
 Local Law 84 rows say "estimated" in the note (so the pipeline marks them `estimated`): the
 year is typed in by the owner.
@@ -201,8 +203,8 @@ year minus assessor's year):
 
 Why the DOB records run later: the assessor's year is the **permit** year. Assessor's year
 minus the year of the job's first permit (71,357 buildings): same year 44 %, +1 33 %, +2 11 %,
-earlier 3 %. Sign-off / first certificate minus permit: +1 year 30 %, +2 32 %, +3 15 %, later
-17 %. So for buildings since 1989 the assessor's non-placeholder year is about one year before
+earlier 3 %. Sign-off / first certificate minus permit: same year 3 %, +1 year 30 %, +2 32 %,
++3 16 %, later 20 %. So for buildings since 1989 the assessor's non-placeholder year is about one year before
 the building was finished, and 2-3 % are a previous building's year (10+ years off).
 For public housing of 1936-2005 the assessor's "exact" years are much worse: only 56 % within
 a year, 7 % ten or more years off.
@@ -234,10 +236,10 @@ Left out because they fail the same test: "hereafter erected class A / B" (31 % 
 older than 1929 by LPC's date — buildings reclassified after an alteration), "converted …
 law tenement", the single-room-occupancy classes.
 
-Against the pipeline as built on 2026-11-10: **22,675 estimated years lie outside their
-bound** by more than a year (13,165 old-law tenements dated after 1902, median 1920; 7,579
-new-law tenements, mostly 1930-31 placeholders two to three years late; 2,061 "heretofore"
-buildings). And the assessor's *non-placeholder* years break the bounds too: 1,513 of 1,760
+Against the pipeline as built on 2026-11-10: **22,805 estimated years lie outside their
+bound** by more than a year (130 of them LPC date ranges, the rest heap and neighbour
+estimates): 13,165 old-law tenements dated after 1902, median 1920; 7,579 new-law tenements,
+mostly 1930-31 placeholders two to three years late; 2,061 "heretofore" buildings. And the assessor's *non-placeholder* years break the bounds too: 1,513 of 1,760
 old-law tenements with an "exact" assessor's year are dated three or more years after 1901
 (median 27 years), 318 of 1,100 "heretofore converted class A", 838 of 15,087 new-law. Those
 years are alterations, not construction.
@@ -257,12 +259,13 @@ neighbouring years), so its absence proves nothing.
   rule (IoU > 0.6 with a standing footprint whose *assessor's* year is before the end year):
   120 pairs remain, and in all 120 the standing BIN has a fitting DOB new-building job
   completed in or after the demolition year (a rebuild whose assessor's year is stale; 102 of
-  them are in the known-dates rows or agree already).
-- Known demolitions looked up by hand: 270 Park Avenue (1958-2021.4, 215.8 m, 52 storeys),
-  5 Pointz (2014-15), Drake Hotel (2008.5, 75 m), 130 Liberty Street — right. **Shea Stadium
-  (`oti-h560134`) and the old Yankee Stadium (`oti-h72245`) carry 2004 on the record and were
-  retired in 2009** (really 2009 and 2010): no DOB job, so `end_check = none`,
-  `end_quality = estimated`, `retired = 2009.46`.
+  the 120 standing buildings are rows of the known-dates file, 18 are not).
+- Ten well-known sites looked up in the file and compared with what I remember of them (not
+  with a second source): 270 Park Avenue (1958-2021.4, 215.8 m, 52 storeys), 5 Pointz
+  (2014-15), 130 Liberty Street (2011.55) fit; the Drake Hotel is a year late (2008.5 for
+  2007). **Shea Stadium (`oti-h560134`) and the old Yankee Stadium (`oti-h72245`) carry 2004
+  on the record and were retired in 2009** (really 2009 and 2010): no DOB job, so
+  `end_check = none`, `end_quality = estimated`, `retired = 2009.46`.
 
 Not checked: nothing was looked at on screen; no rebuild was run with the files merged; the
 stage was not re-run against a pipeline that already contains its rows (the decisions use
@@ -272,7 +275,8 @@ change — reasoned, not tested).
 ## Known weak spots
 
 - 17,952 demolition years rest on OTI's field alone. `big_unconfirmed_demolitions.csv`
-  lists the 83 over 4,000 m² (airport terminals, the two stadiums, Kings Plaza …).
+  lists the 83 over 4,000 m² (among them the two stadiums and many outlines on the two
+  airports' lots).
 - The layer is incomplete (table above). Hotel Pennsylvania (2023) is not in it; St
   Vincent's Hospital has two small outlines only.
 - Outlines drawn during construction survive at large sites without a standing building of
@@ -294,7 +298,7 @@ change — reasoned, not tested).
 | `records_by_bin.parquet` | 105,201 | every candidate record per BIN, with `decision` |
 | `year_bounds.csv` | 88,453 | bin, not_before, not_after, class, the pipeline's year and whether it violates |
 | `dof_flagged_estimates.csv` | 20,883 | bin, year: assessor's estimates the pipeline treats as exact |
-| `standing_after_demolition.csv` | 4,639 | standing BIN, `not_before` = end of the demolished building on its ground, where the pipeline starts the standing building earlier (4,281 of them on a recorded assessor's year — mostly the same calendar year) |
+| `standing_after_demolition.csv` | 4,639 | standing BIN, `not_before` = end of the demolished building on its ground, where the pipeline starts the standing building earlier: 2,722 within the same calendar year, 1,917 a year or more earlier (1,563 of those on a recorded assessor's year) |
 | `standing_marked_for_demolition.csv` | 42 | bin, sign-off date |
 | `dob_demolitions_without_outline.csv` | 3,809 | demolitions with no outline in the city's data |
 | `big_unconfirmed_demolitions.csv` | 83 | to check by hand |

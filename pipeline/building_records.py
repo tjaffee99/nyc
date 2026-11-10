@@ -6,7 +6,7 @@ the rules for choosing between records and what the numbers say about the assess
 data/research/building_records.md.
 
   python building_records.py download     # fetch the raw tables into data/raw/records/ (cached)
-  python building_records.py              # download (cached) + normalise + write the outputs (~4 min)
+  python building_records.py              # download (cached) + normalise + write the outputs (~5 min)
 
 Idempotent: the downloads are cached and never modified; every output is rewritten from them.
 Run it after nyc_buildings (it compares with data/interim/nyc_buildings.parquet to leave out
