@@ -352,7 +352,16 @@ def dob_candidates(c):
 
 
 # ------------------------------------------------------------------ standing buildings
-def standing_records(c, rep):
+def lpc_bins():
+    """BINs in the Landmarks Commission's building database (read as text: the file is 50 MB)."""
+    import re
+    f = RAW / "nyc" / "lpc_buildings.geojson"
+    if not f.exists():
+        return set()
+    return {int(m) for m in re.findall(r'"bin"\s*:\s*"?(\d{7})', f.read_text(errors="ignore"))}
+
+
+def standing_records(c, heaps, rep):
     """known_building_dates.records.csv: recorded years of standing buildings, by BIN.
 
     Evidence order when several records exist for one BIN: NYCHA's completion date of a newly built
@@ -443,14 +452,20 @@ def standing_records(c, rep):
     confirmed = (((allr.pluto_year.astype("float64") - allr.ry).abs() <= 2).fillna(False)
                  | (allr.first_demolition.astype("float64") <= allr.ry + 1).fillna(False))
 
-    strong = (allr.p_src == "assessor") & (allr.p_conf == "exact") & (allr.p_raw > 0)
-    lpc = allr.p_src.isin(["lpc", "known"])
+    # what the pipeline can know without these rows (so that merging them does not change this file):
+    # the assessor's year is a record unless it is one of the borough's placeholder years; the
+    # Landmarks Commission's buildings keep their date
+    lb = lpc_bins()
+    placeholder = pd.Series([y_ in heaps.get(str(b_)[:1], ()) for y_, b_ in zip(allr.p_raw.fillna(0), allr.bin)],
+                            index=allr.index)
+    strong = (allr.p_raw > 0) & ~placeholder
+    lpc = (allr.p_src == "lpc") | ((allr.p_src == "known") & allr.bin.isin(lb))
     diff = allr.ry - allr.p_raw
     dob = allr.src == "dob"
     dec = pd.Series("", index=allr.index)
     dec[~strong & ~lpc] = "write:no_recorded_year"
     # a new-building job on a lot whose (placeholder) year is far older: the job may be another structure
-    far = dob & ~strong & ~lpc & (allr.p_raw > 0) & ((allr.ry - allr.p_year).abs() > 10)
+    far = dob & ~strong & ~lpc & (allr.p_raw > 0) & ((allr.ry - allr.p_raw).abs() > 10)
     dec[far & confirmed] = "write:replaced_building"
     dec[far & ~confirmed] = "skip:unconfirmed_new_building"
     dec[lpc] = "skip:lpc"
@@ -492,9 +507,9 @@ def standing_records(c, rep):
     w = w.sort_values(["bin", "rank"]).drop_duplicates("bin")
     w = w[w.y.between(1800, TODAY)]
 
+    ph = placeholder.reindex(w.index)
     note = (w.what + ". Assessor: " + np.where(w.p_raw > 0, w.p_raw.fillna(0).astype(int).astype(str), "none")
-            + "; pipeline had " + w.p_src.fillna("none") + " " + w.p_year.round(1).astype(str)
-            + " [" + w.decision.str.split(":").str[1] + "]")
+            + np.where(ph, " (placeholder year)", "") + " [" + w.decision.str.split(":").str[1] + "]")
     name = w.p_name.fillna(w.fp_name)
     if "rname" in w:
         name = name.fillna(w.rname)
@@ -988,7 +1003,7 @@ def main():
     rep["placeholder_years"] = {b: sorted(int(x) for x in v) for b, v in heaps.items()}
     rep.update(norm_dob(c))
     rep.update(dob_candidates(c))
-    standing_records(c, rep)
+    standing_records(c, heaps, rep)
     demolished(c, heaps, rep)
     demolitions_without_outline(c, rep)
     bounds(c, rep)

@@ -45,6 +45,8 @@ the same features and rules, with these differences —
     median of what the buildings around its holes give (`golf_estimated`; a course does not
     appear hole by hole).
   * where nothing stands within 400 m the search widens to 1 km before the 1950 fallback.
+  * the era floors also hold for what the buildings around date (parcel years there reach
+    back to 1650): pitches, tracks, playgrounds not before 1903, dog runs 1990, golf 1888.
   * to keep the file small, outlines there are simplified to 2 m and the smallest pieces
     dropped (COUNTY_MIN_AREA: lawns, gardens and plazas under 150 m2, the rest under 40 m2).
   * labels: researched greens (as the city's greens that are not city properties: no
@@ -115,6 +117,9 @@ SIMPLIFY_M = 1.0      # outline tolerance
 SEG_M = 25.0          # longest edge, so flat polygons follow the terrain
 PLAY_FLOOR = 1903.0   # Seward Park, first municipal playground (https://en.wikipedia.org/wiki/Seward_Park_(Manhattan))
 DOG_FLOOR = 1990.0    # Tompkins Square dog run, the city's first (https://en.wikipedia.org/wiki/Tompkins_Square_Park)
+# no golf hole before the country's oldest golf club: "Founded in 1888 by John Reid ... the club is the oldest
+# golf club in the United States" (https://en.wikipedia.org/wiki/Saint_Andrew%27s_Golf_Club_(New_York))
+GOLF_FLOOR = 1888.0
 RACETRACK_M2 = 30000  # an oval this big is a horse / motor track (dirt), not a running track
 DEFAULT_YEAR = 1950.0
 # Parks and cemeteries that are not city properties and have no researched year: the buildings
@@ -581,6 +586,12 @@ def date_features(feats, fu, parks, courses, hood, stadiums=None):
         year[ii] = np.median(b) if len(b) else DEFAULT_YEAR
         rule[ii] = "golf_estimated"
         n_est_courses += 1
+    # the counties' parcel years reach back to 1650: what the buildings around date there keeps
+    # the era floors too (as inside parks) — no ball field before 1903, no dog run before 1990,
+    # no golf hole before 1888 (estimated floors; the city's fallback is as it was)
+    fl = np.select([np.isin(cls, PLAY), cls == "dog_park", is_golf], [PLAY_FLOOR, DOG_FLOOR, GOLF_FLOOR], -np.inf)
+    low = ~city & np.isin(rule.astype(str), ["buildings", "default", "golf_estimated"]) & (year < fl)
+    year[low] = fl[low]
     # the field of a stadium (OpenStreetMap stadium grounds) is no older than its stands:
     # Yankee Stadium's diamond of 2009 lies in a park of 1897
     n_stadium = 0
@@ -600,7 +611,7 @@ def date_features(feats, fu, parks, courses, hood, stadiums=None):
     year = np.where(late, gone, year)
     year = np.clip(year, YEAR_MIN, float(CURRENT_YEAR))   # mapped today: there by today
     stats = {"era_floor_applied": floored, "after_vanished_building": int(late.sum()), "stadium_fields": n_stadium,
-             "golf_courses_estimated": n_est_courses}
+             "golf_courses_estimated": n_est_courses, "county_era_floor_on_estimates": int(low.sum())}
     return year, end, rule, stats
 
 
@@ -748,7 +759,9 @@ def park_labels(parks, lu, courses, hood):
     for i in np.argsort(-ha):
         nm, c = str(osm["name"].values[i]).strip(), rl.values[i]
         k = norm(nm)
-        if any(abs(c.x - x) < 0.02 and abs(c.y - y) < 0.02 for x, y in seen.get(k, ())):
+        # (the counties' parks lie in several outlines more often: one label per ~5 km there)
+        near = 0.02 if osm_city[i] else 0.05
+        if any(abs(c.x - x) < near and abs(c.y - y) < near for x, y in seen.get(k, ())):
             continue
         if not osm_city[i]:
             # the counties: a researched year or no label

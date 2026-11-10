@@ -111,6 +111,14 @@ for w in json.load(open(RAW / "ohm" / "ohm_rail_region.json"))["elements"]:
         start, end, note, s2 = CITED[nm]
         extra = {"note": note, "geometry_source": src}
         src = s2
+    if nm == "CNJ Newark Bay Bridge" and "bridge1864" not in seen:
+        # OpenHistoricalMap draws the four tracks of the lift bridge of 1926; the crossing dates from 1864 (trestle and
+        # swing bridge, bascule bridge 1904): one of the four tracks stands in for the earlier bridges
+        seen.add("bridge1864")
+        start = "1864"
+        extra = {"note": "the earlier bridges on this crossing (opened 1864, year only: estimated day; rebuilt 1887 and 1904), drawn on one track of "
+                         "the 1926 lift bridge: position estimated", "geometry_source": src}
+        src = WP + "CRRNJ_Newark_Bay_Bridge"
     if len(start) < 4 or start[:4] >= end[:4] or int(start[:4]) < 1825:
         continue
     feats.append(feat(nm, start, end, structure(t), g, src, "CC0 (OpenHistoricalMap)", **extra))

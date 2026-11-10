@@ -47,7 +47,7 @@ OUT_DIR = MANUAL / "farmsteads"
 HTMC = "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/PDF/"
 UA = "NYCThroughTime-research/0.1"
 DPI = 600                       # render resolution (the scans are 599-600 ppi)
-DETECTOR_VERSION = 5
+DETECTOR_VERSION = 6
 
 # id: (file under HTMC, quadrangle, scale, print year, survey year the sheet shows, collar text, period)
 # Survey years were read off the collars (data/manual/farmsteads/README.md); the catalogue's
@@ -265,7 +265,9 @@ def detect_tile(rgb, thr, thr_loose, sat_max=None):
     comps  = connected ink at the loose threshold: what a core is attached to (nothing, a letter, the road net)"""
     from scipy import ndimage as ndi
     mx = rgb.max(-1)
-    sat = mx.astype(np.int16) - rgb.min(-1)                      # black ink is grey; dark brown index contours and dark blue streams are not
+    # hue of the ink: black bleeds towards the paper's yellow (R = G > B); a dark brown index contour has R well above G,
+    # a dark blue stream B above R
+    sat = np.maximum(rgb[..., 0].astype(np.int16) - rgb[..., 1], 2 * (rgb[..., 2].astype(np.int16) - rgb[..., 0]))
     blue = ndi.uniform_filter(((rgb[..., 2].astype(np.int16) - rgb[..., 0] > 25) & (rgb[..., 2] > 110)).astype(np.float32), 41)
     ink = mx < thr
     inkL = mx < thr_loose
@@ -480,9 +482,9 @@ def detect_sheet(sh: "Sheet", tile=2600, margin=80):
     x1, y1 = np.ceil(sh.neat_px.max(0)).astype(int)
     probe = sh.render((x0 + x1) // 2 - 1500, (y0 + y1) // 2 - 1500, 3000, 3000)
     thr, thr_loose, paper, inkv = ink_threshold(probe)
-    # how grey this scan's black ink is (max - min channel of the solid blobs): 15 on the 1898 prints, 38 on the 1889 one
+    # the hue index (R - G, or twice B - R) of this scan's black ink, plus a margin: brown and blue lie 30-50 above it
     sats = [m["sat"] for m in detect_tile(probe, thr, thr_loose) if "sat" in m]
-    sat_max = (float(np.median(sats)) if len(sats) >= 30 else 30.0) + 25.0
+    sat_max = (float(np.median(sats)) if len(sats) >= 30 else 5.0) + 24.0
     marks = []
     lines = np.zeros((sh.H // 4 + 1, sh.W // 4 + 1), np.uint8)
     thick = np.zeros_like(lines)            # any solid ink (marks, bars, block fronts, heavy strokes), 1/4 resolution

@@ -215,7 +215,7 @@
   "map_year": 1887,
   "atlas": "Atlas of the city of New York: from official records, private plans & actual surveys, compiled under the direction of E. Robinson and R. H. Pidgeon; the 23rd Ward (E. Robinson, New York, 1887)",
   "source": "robinson_23rd_ward_1887",
-  "style": "robinson_300ft",
+  "style": "bromley_city",
   "plates": [
    {
     "id": 8625,
@@ -298,6 +298,16 @@
     "sheet": "21"
    }
   ],
-  "source_url": "https://digitalcollections.nypl.org/ (Robinson & Pidgeon, Atlas of the city of New York, 23rd Ward, 1887; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)"
+  "source_url": "https://digitalcollections.nypl.org/ (Robinson & Pidgeon, Atlas of the city of New York, 23rd Ward, 1887; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "style_override": {
+   "frame": {
+    "db_min": 4.5,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 84
+   },
+   "outline": 0.35,
+   "wash_cool": -3.0
+  }
  }
 }

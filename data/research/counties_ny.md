@@ -6,8 +6,11 @@ Everything below was fetched and built on **2026-11-10**; the numbers in the tab
 written from the built files by the stage's reports, not typed.
 
 **In one paragraph.** New York's assessors' inventories reach the public only through the
-State's "NYS Tax Parcels Public" layer, and only for the counties that agreed to share and the
-municipalities whose assessor files the inventory with the State. **Rockland: yes** — every
+State's "NYS Tax Parcels Public" layer, and only for the counties that agreed to share and,
+within them, the municipalities whose year built is in the roll data the State holds (all or
+nothing per municipality — apparently those whose assessor files the inventory with the
+State; the layer itself says only that its attributes come from the 2025 roll data of the
+Office of Real Property Tax Services). **Rockland: yes** — every
 municipality, 100 % of the homes carry a year. **Westchester: in part** — 15 of its 43
 municipalities are dated (Yonkers, White Plains, Scarsdale, Harrison, the Sound shore from
 Pelham to Port Chester, New Castle, Somers, Pound Ridge), 6 partly, and 22 have no year at
@@ -108,8 +111,8 @@ but 19 years old and without heights. Hence Overture first, the State's outlines
 
 ### Westchester (36119)
 
-**Is it in the public layer?** Yes — but `YR_BLT` is filled only where the municipality's
-assessor files its inventory with the State. Counted on the service itself (2026-11-10):
+**Is it in the public layer?** Yes — but `YR_BLT` is filled for some municipalities and
+empty for others. Counted on the service itself (2026-11-10):
 119,031 of 258,145 parcels carry a year (46 %); of the residential parcels (classes 2xx)
 110,166 of 190,972 (58 %). Per municipality it is all or nothing, with a few in between —
 see the table. Nothing else public was found for the empty ones (see "Checked and not
@@ -122,7 +125,7 @@ used").
 - Outline sources: `overture:osm` 231,333, `overture:esri` 42,639, `overture:microsoft` 4,430, `nys_bf_2013` 3,517, `nys_bf_microsoft` 806.
 - With a year: **143,331 (50.7 %)**; main buildings 109,762 of 200,899 (54.6 %); secondary (not the largest outline of their parcel) 81,826; outside every parcel 537.
 - Single-family homes (class 210 / 215), main buildings: 88,773 of 154,353 dated (57.5 %). Commercial, industrial, civic and other main buildings: 3,803 of 15,015 dated (25 %).
-- On heap years: **18,307** footprints (13 % of the dated); main buildings 11,856 (11 %).
+- On heap years: **18,217** footprints (13 % of the dated); main buildings 11,766 (11 %).
 - With a height: **241,639 (85 %)** (Overture's `height`; 528 of them are 1.5 m or less); with a floor count 906; named 7,374; with an inventory year 133 (+ 133 'circa').
 - Years run 1700-2025; geometry: 0 invalid.
 
@@ -149,7 +152,7 @@ Per municipality (`muni` = the village, the town outside its villages, or the ci
 | Lewisboro | Lewisboro | 6,880 | 0 | 0 % | 0 % | 0 | 6,451 |
 | Mamaroneck | Mamaroneck | 3,826 | 3,734 | 98 % | 100 % | 468 | 3,165 |
 | Mamaroneck, Village | Mamaroneck | 5,553 | 5,424 | 98 % | 100 % | 1,658 | 3,611 |
-| Mount Kisco | Mount Kisco | 2,962 | 1,383 | 47 % | 62 % | 173 | 2,888 |
+| Mount Kisco | Mount Kisco | 2,962 | 1,383 | 47 % | 62 % | 83 | 2,888 |
 | Mount Pleasant | Mount Pleasant | 10,724 | 7,455 | 70 % | 82 % | 466 | 8,527 |
 | Mount Vernon | Mount Vernon | 13,860 | 548 | 4 % | 4 % | 0 | 8,981 |
 | New Castle | New Castle | 7,639 | 7,088 | 93 % | 100 % | 449 | 7,452 |
@@ -180,7 +183,7 @@ Heap years per assessing unit (count of main buildings on the year), residential
 | Assessing unit | Homes | Other |
 |---|---|---|
 | Mamaroneck | 1897 (46), 1900 (78), 1902 (50), 1905 (50), 1907 (48), 1910 (75), 1912 (59), 1920 (194), 1947 (88), 1948 (85), 1978 (63) | 1900 (14), 1920 (63), 1930 (128), 1940 (125), 1950 (91), 1960 (47), 1970 (18), 1980 (22), 1990 (10) |
-| Mount Kisco | 1927 (51) | 1982 (90) |
+| Mount Kisco | 1927 (51) | - |
 | Mount Pleasant | 1900 (131), 1910 (45), 1912 (44), 1920 (135), 1922 (85), 1940 (70) | 1900 (21), 1920 (15), 1925 (13), 1930 (10), 1940 (12), 1950 (19), 1970 (14) |
 | New Castle | 1900 (50), 1920 (59), 1927 (67), 1930 (83) | - |
 | New Rochelle | 1880 (82), 1885 (292), 1890 (147), 1895 (73), 1900 (242), 1905 (226), 1906 (113), 1987 (70) | - |
@@ -193,7 +196,7 @@ Heap years per assessing unit (count of main buildings on the year), residential
 | Yonkers | 1890 (118), 1900 (725) | 1900 (128), 1950 (54), 1960 (89), 1965 (103), 1970 (125), 1975 (102), 1980 (73), 1985 (40), 1990 (68) |
 | Yorktown | 1920 (66), 1926 (41), 1930 (143), 1931 (52), 1935 (71), 1940 (148) | - |
 
-Flagged by count but concentrated in a few 400 m cells (one development, NOT flagged): Mount Kisco 1949 (48 homes, spread 0.36); Mount Kisco 1978 (45 homes, spread 0.2); Mount Kisco 1987 (105 homes, spread 0.3); New Rochelle 1979 (62 homes, spread 0.43); Rye (town) 1978 (44 homes, spread 0.45); Rye (town) 1979 (93 homes, spread 0.3); Rye (town) 1985 (134 homes, spread 0.45); Rye (town) 1986 (81 homes, spread 0.41); Rye (town) 1963 (45 other, spread 0.38).
+Flagged by count but concentrated in a few 400 m cells (one development, NOT flagged): Mount Kisco 1949 (48 homes, spread 0.36); Mount Kisco 1978 (45 homes, spread 0.2); Mount Kisco 1987 (105 homes, spread 0.3); New Rochelle 1979 (62 homes, spread 0.43); Rye (town) 1978 (44 homes, spread 0.45); Rye (town) 1979 (93 homes, spread 0.3); Rye (town) 1985 (134 homes, spread 0.45); Rye (town) 1986 (81 homes, spread 0.41); Mount Kisco 1982 (90 other, more buildings than its whole era, ten or more to a cell); Rye (town) 1963 (45 other, spread 0.38).
 
 For comparison, the same test on the whole county: homes [1880, 1885, 1890, 1900, 1910, 1920], other [1900, 1920, 1930, 1940, 1950, 1960, 1965, 1970, 1975, 1980, 1982, 1990].
 
@@ -379,7 +382,8 @@ What was tried, all on 2026-11-10:
    Nassau has 423,430 parcel points on the 2025 roll (Hempstead 230,107, Oyster Bay 102,019,
    North Hempstead 73,474, Long Beach 9,850, Glen Cove 7,980) and `YR_BLT` is **null in every
    one** (min and max of the field are null in all five units). Nassau's Department of
-   Assessment keeps its own system and does not file its inventory with the State.
+   Assessment keeps its own system (its map service is named `IASWorld`) and its inventory
+   is evidently not in the roll data the State holds.
 3. **Nassau County itself**: the Land Records Viewer (https://lrv.nassaucountyny.gov) shows a
    property's record one parcel at a time behind a captcha (or an account); its map services
    (https://legacygis.nassaucountyny.gov/arcgis/rest/services, `Akanda` and `IASWorld`) serve
@@ -389,9 +393,10 @@ What was tried, all on 2026-11-10:
    values, owners and classes, not the inventory (per the search results; not opened). Harvesting
    the viewer parcel by parcel is against the spirit of the captcha and was not attempted.
 4. **data.ny.gov assessment rolls** (`7vem-aaz7`): no year built for any county.
-5. **Copies on ArcGIS Online** ("Nassau Interactive Map Parcels" and others): the State's
-   2020 file shared with state agencies, re-posted by third parties — no `YR_BLT` among its
-   fields, and not a source one may rely on. Commercial resellers sell Nassau parcels with a
+5. **Copies on ArcGIS Online**: "Nassau Interactive Map Parcels" is the State's 2020 file
+   shared with state agencies, re-posted by a third party — no `YR_BLT` among its fields;
+   two other third-party "Nassau parcels" services gave no readable layer. None is a source
+   one may rely on. Commercial resellers sell Nassau parcels with a
    year built (about $250): not open data.
 6. Footprints would not be the problem: the State's layer has 575,634 Nassau outlines (Nassau
    County 2013) and Overture covers the county.
@@ -469,18 +474,20 @@ county releases its inventory (a FOIL request to the Department of Assessment is
   `usn` (inventory number), `footprint_src`, `area_m2`, `lon`, `lat`, `muni_year_share`,
   `hist_src`, `year_hist_ca`.
 - Rebuild: `cd pipeline && ../.venv/bin/python counties_ny.py` (downloads are cached; the
-  build peaked at 1.3 GB for Westchester, 0.6 GB for Rockland, and takes three to five minutes; `check` rewrites the tables of
-  well-known buildings).
+  build peaked at 1.3 GB for Westchester and 0.6 GB for Rockland and takes three to five
+  minutes; two runs gave identical files; `check` rewrites the tables of well-known
+  buildings). The comparison windows of the State's footprints are in
+  `data/raw/counties_ny/compare/`, the services' metadata in `data/raw/counties_ny/meta/`.
 
 
 ## Summary table
 
 | County | Footprints | With a year | On heap years | With a height | Verdict |
 |---|---:|---:|---:|---:|---|
-| Westchester | 282,725 | 143,331 (50.7 %) | 18,307 | 241,639 (85 %) | in part: 15 municipalities yes, 6 partly, 22 no |
+| Westchester | 282,725 | 143,331 (50.7 %) | 18,217 | 241,639 (85 %) | in part: 15 municipalities yes, 6 partly, 22 no |
 | Rockland | 99,559 | 95,105 (95.5 %) | 13,544 | 72,534 (73 %) | yes |
 | Westchester, the 15 dated municipalities only | 118,132 | 107,921 (91.4 %) | 14,350 | 96,765 (82 %) | |
-| Westchester, the 6 partly dated | 51,337 | 32,624 (63.5 %) | 3,913 | 43,192 (84 %) | |
+| Westchester, the 6 partly dated | 51,337 | 32,624 (63.5 %) | 3,823 | 43,192 (84 %) | |
 | Westchester, the 22 without years | 113,256 | 2,786 (2.5 %) | 44 | 101,682 (90 %) | |
 | Nassau | not built | no public year built | - | - | no |
 

@@ -101,6 +101,12 @@ ROWS = [
      "(year only: estimated day)", WP + "Westfield_station_(NJ_Transit)", "Raritan Valley Line", (-74.425, 40.55, -74.25, 40.70)),
     ("cnj_raritan_valley_west", "1842-01", "Elizabethtown & Somerville Railroad reached Somerville at the beginning of 1842 (estimated day)",
      WP + "Elizabethtown_and_Somerville_Railroad", "Raritan Valley Line", (W, 40.50, -74.425, 40.70)),
+    ("cnj_bayonne", "1864", "Central Railroad of New Jersey's extension from Elizabethport across Newark Bay to Jersey City, 1864 (year only: "
+     "estimated day): the freight track left on its roadbed in Bayonne", WP + "Elizabethtown_and_Somerville_Railroad", "Bayonne Industrial Track", None),
+    ("cnj_elizabethport", "1836", "Elizabethtown & Somerville Railroad, Elizabethport - Elizabeth, opened 1836 (year only: estimated day)",
+     WP + "Elizabethtown_and_Somerville_Railroad", "Elizabeth Industrial Track", (-74.22, 40.63, -74.15, 40.69)),
+    ("cnj_elizabeth_west", "1839", "Elizabethtown & Somerville Railroad west of Elizabeth: the Cranford and Westfield station infoboxes give 1839 "
+     "(year only: estimated day)", WP + "Westfield_station_(NJ_Transit)", "Elizabeth Industrial Track|Garwood Industrial Track", None),
     ("lv_lehigh_line", "1891", "Lehigh Valley Railroad's own route from South Plainfield towards Jersey City, established 1891 (year only: estimated day)",
      WP + "Lehigh_Valley_Railroad", "Lehigh Line", None),
     ("lv_oak_island", "1903", "Oak Island Yard, built by the Lehigh Valley Railroad, opened 1903 (year only: estimated day)", WP + "Oak_Island_Yard",

@@ -462,7 +462,7 @@ def street_raster(P, shape, f, half_m=8.0):
     return features.rasterize([(x.buffer(r), 1) for x in px], out_shape=shape, dtype="uint8").astype(np.float32)
 
 
-def wash_raster(img, paper, f):
+def wash_raster(img, paper, f, cool=None):
     """Share of 'wash' per reduced pixel: lightly tinted, not ink, not a strong fill - on these atlases the streets
     (peach, grey or lilac tint; blocks are left paper). Read on every second pixel."""
     H, W = img.shape[:2]
@@ -472,7 +472,10 @@ def wash_raster(img, paper, f):
     for r0 in range(0, sub.shape[0], 512 * g):
         lab = rgb2lab(sub[r0:r0 + 512 * g])
         dL, da, db = lab[..., 0] - paper[0], lab[..., 1] - paper[1], lab[..., 2] - paper[2]
-        w = (dL < -3.5) & (dL > -14) & (np.abs(da) < 7) & (db < 14)
+        if cool is None:
+            w = (dL < -3.5) & (dL > -14) & (np.abs(da) < 7) & (db < 14)
+        else:   # streets tinted lilac-grey on a greyish sheet: bluer than the paper, hardly darker
+            w = (db < cool) & (dL > -14) & (np.abs(da) < 7)
         out[r0 // g:r0 // g + w.shape[0] // g] = w.reshape(w.shape[0] // g, g, w.shape[1] // g, g).mean((1, 3))
     return out
 
@@ -484,7 +487,7 @@ def window_shifts(P, f=4, win_m=400.0, search_m=30.0, min_q=0.4, F=None):
     if F is None:
         img = P.img()
         paper = paper_colour(img, P.inside(img.shape[:2]))
-        F = wash_raster(img, paper, f)
+        F = wash_raster(img, paper, f, P.style.get("wash_cool"))
         F = ndi.gaussian_filter(F, 1.0)  # the whole sheet: what lies outside the Map Warper mask is map all the same
         P._wash = F
     R = street_raster(P, F.shape, f)

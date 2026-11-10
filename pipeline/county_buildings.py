@@ -5,7 +5,8 @@ row per footprint — Overture / state outlines with the construction year of th
 under them (New Jersey's MOD-IV tax list; New York's assessment rolls), a flag for
 placeholder years, and a historic-inventory year where one exists. Only counties with real
 years are built (common.REGION_COUNTIES lists the candidates; a county is on the map when
-its file exists and data/manual/extent_counties.json names it).
+its file exists and data/manual/extent_counties.json names it), and within New York's
+counties only the municipalities whose roll carries years (MIN_YEAR_SHARE).
 
 Years, as in the city (nyc_buildings.py): historic inventory > parcel year (unless a
 placeholder) > the shared estimator (placeholders are ranges, refined by recorded
@@ -35,6 +36,8 @@ UTM = NYC_CRS
 OUT = VIEWER_DATA / "county-buildings"
 SRC = INTERIM / "counties"
 NOW = 2026.5
+# a municipality is built when at least this share of its main buildings carries a year
+MIN_YEAR_SHARE = 0.5
 # pseudo building classes for the city's material rules, by use code
 USE_CLASS = {0: "", 1: "A", 2: "C", 3: "K", 4: "O", 5: "F", 6: "W", 7: "Z"}
 
@@ -59,6 +62,14 @@ def load():
             g = g.set_crs(4326)
         if keep is not None:
             g = g[g.county.isin(list(keep))]
+        # New York's rolls publish no year at all for some municipalities (22 of Westchester's
+        # 43: Mount Vernon, Greenburgh, Peekskill ...; data/research/counties_ny.md). Their
+        # buildings are not drawn: a year for them could only be generated.
+        if "muni_year_share" in g:
+            n0 = len(g)
+            g = g[pd.to_numeric(g.muni_year_share, errors="coerce").fillna(0) >= MIN_YEAR_SHARE]
+            if len(g) < n0:
+                log(f"counties: {f.name}: {n0 - len(g)} footprints left out (municipalities whose roll has no construction years)")
         if len(g):
             parts.append(g.to_crs(4326))
             log(f"counties: {f.name}: {len(g)} footprints")

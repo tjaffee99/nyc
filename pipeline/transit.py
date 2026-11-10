@@ -844,8 +844,8 @@ def railroad_tracks(r, ground, ohm, openings):
         k = len(s["xy"])
         s["lon"], s["lat"], s["county"] = lon[k0:k0 + k], lat[k0:k0 + k], county[k0:k0 + k]
         k0 += k
-        nj = s["lon"][k // 2] < -74.02
-        lr = s["cls"] == "light_rail" and nj
+        # New Jersey's light rail (the city's only light rail is AirTrain JFK, which stays with the railroads)
+        lr = s["cls"] == "light_rail" and "AirTrain" not in s["name"] and s["lon"][k // 2] < -73.95
         s["sys"] = "path" if s["path"] else ("hblr" if "Hudson" in s["name"] else "nlr" if "Newark" in s["name"] else "lr") if lr else "rail"
         name = s["name"] or ("PATH" if s["path"] else "")
         y, src, rid = np.full(k, np.nan), np.zeros(k, np.uint8), np.full(k, -1)
@@ -865,11 +865,15 @@ def railroad_tracks(r, ground, ohm, openings):
                 src[miss] = 2
         s["year"], s["src"], s["rule"] = y, src, rid
         s["end"] = np.full(k, 9999.0)
-    have = np.concatenate([~np.isnan(s["year"]) for s in segs])
-    if have.any():
-        t = cKDTree(np.concatenate([s["xy"] for s in segs])[have])
-        ty = np.concatenate([s["year"] for s in segs])[have]
-        for s in segs:
+    # the nearest dated track of its own kind: a freight siding beside a light rail line of 2000 is not of 2000
+    for grp in (True, False):
+        mine = [s for s in segs if (s["sys"] == "rail") == grp]
+        have = np.concatenate([~np.isnan(s["year"]) for s in mine]) if mine else np.zeros(0, bool)
+        if not have.any():
+            continue
+        t = cKDTree(np.concatenate([s["xy"] for s in mine])[have])
+        ty = np.concatenate([s["year"] for s in mine])[have]
+        for s in mine:
             miss = np.isnan(s["year"])
             if miss.any():
                 dd, ii = t.query(s["xy"][miss], distance_upper_bound=400.0)
@@ -1003,6 +1007,10 @@ def rapid_lines(rr, ground):
 
         sxy = to_utm(stops[:, 0], stops[:, 1]) if len(stops) else np.zeros((0, 2))
         ol, lxy = build_line(spec, xy, segs, tr, ground, years, list(sxy), veh)
+        # the two directions' tracks differ in height at some terminals (Newark Penn Station's two levels):
+        # the line rides the running median between them
+        z = pd.Series(ol["z"]).rolling(9, center=True, min_periods=1).median().rolling(5, center=True, min_periods=1).mean()
+        ol["z"] = np.round(z.values, 1).tolist()
         out.append(ol)
         geo.append(lxy)
         grp.append(tset)

@@ -20,7 +20,8 @@ and the counties around it that are on the map: extent.map_counties).
     year); what is gone or is not a road (the elevated West Side Highway, ferries, colonial
     roads) is drawn from the row's line.
   * Motorways, trunks and ramps in 3D (freeway_items): viaduct decks from Overture's level /
-    bridge / tunnel flags, ramps coming down to the streets they join.
+    bridge / tunnel flags, ramps coming down to the streets they join; a bridge between high
+    banks keeps the level of its abutments (BRIDGE_SAG).
   * The decks of the bridges modelled as landmarks (data/tables/landmarks_bridges.csv: road
     names and segment ids in each model's notes) are left out of every file; where a model
     ends high above the terrain grid the generic highway takes over at its deck height
@@ -46,7 +47,7 @@ Outputs (BAYT; the file names are the viewer's, kept from the Bay Area map):
 The researched tables are written by the scripts in data/manual/roads_tools/ (README:
 data/manual/routes_README.md).
 
-Usage:  ../.venv/bin/python roads.py          everything (about 2 minutes, under 3 GB)
+Usage:  ../.venv/bin/python roads.py          everything (2 to 3 minutes, 1.2 GB at its peak)
         ../.venv/bin/python roads.py check    invariants of the built files
 """
 from __future__ import annotations

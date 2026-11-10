@@ -1,8 +1,9 @@
 #!/bin/sh
 # city atlases (no street tint): trace, then fine registration on standing buildings, for every plate of a layer
-# without a trace yet, in N workers:  sh run_city.sh <layer> [workers]
+# without a trace yet, in N workers:  sh run_city.sh <layer> [workers] [street]
+# ("street": first the street match of run_layer.sh, for atlases that tint their streets)
 cd "$(dirname "$0")/../../../.." || exit 1
-L=$1; N=${2:-2}
+L=$1; N=${2:-2}; MODE=${3:-nostreet}
 mkdir -p data/interim/atlas/$L
 .venv/bin/python -I -c "
 import json,os
@@ -12,6 +13,7 @@ n=$N
 for k in range(n): print(' '.join(p[k::n]))
 " | { k=0; while read ids; do
   ( for id in $ids; do
+      [ "$MODE" = street ] && .venv/bin/python -I data/manual/atlas/tools/atlas.py refine $L $id
       .venv/bin/python -I data/manual/atlas/tools/atlas.py trace $L $id
       .venv/bin/python -I data/manual/atlas/tools/atlas.py refine_buildings $L $id
     done >> data/interim/atlas/$L/run_$k.log 2>&1 ) &

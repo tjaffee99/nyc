@@ -4,8 +4,9 @@
 
  1. candidates: the fingers of every full edition (USGS 1935, 1947, 1955-57, 1966-69, 1994-95 where the sheet was really
     revised; chart editions) that look like piers (reach 35 m or more from the bulkhead, attached at one end only,
-    length >= 1.4 x width, width <= 100 m, at least 55 % of their bounding rectangle), inside the five boroughs,
-    over today's water or over land made after the sheet.  Today's piers: OpenStreetMap man_made=pier polygons.
+    length >= 1.4 x width, width <= 100 m, at least 55 % of their bounding rectangle; USGS: 62 %), inside the five
+    boroughs, over today's tidal water or over land made after the sheet; not at a marsh unless roofed; not a beach
+    groyne (natural_ok).  Today's piers: OpenStreetMap man_made=pier polygons.
  2. one pier across sources = one track: two outlines match when half of the smaller lies in the larger, or each
     one's centre lies in the other (10 m slack), and their areas are within a factor 3.
  2b. registration: see step 1b in main() (control piers per sheet, local offsets).
@@ -243,6 +244,67 @@ def osm_piers(boros):
     return out
 
 
+def context():
+    """today's tidal water (every water polygon connected to the Upper Bay), the open ocean, today's wetlands (UTM)."""
+    con = duckdb.connect()
+    con.execute("INSTALL spatial; LOAD spatial;")
+    base = f"{E.ROOT}/data/raw/overture/2026-10-21.0"
+    box = "ST_XMax(geometry) > -74.30 AND ST_XMin(geometry) < -73.65 AND ST_YMax(geometry) > 40.45 AND ST_YMin(geometry) < 40.95"
+    rows = con.execute(f"""SELECT subtype, class, ST_AsWKB(geometry) FROM '{base}/base_water.parquet'
+        WHERE class NOT IN ('swimming_pool', 'wastewater', 'reflecting_pool', 'shoal', 'stream', 'drain', 'ditch') AND {box}
+          AND (subtype IN ('ocean', 'physical', 'river', 'canal') OR ST_Area(geometry) > 3e-7)""").fetchall()
+    clip = shapely.box(-74.30, 40.45, -73.65, 40.95)
+    polys, ocean = [], []
+    for st, cl, w in rows:
+        g = shapely.from_wkb(bytes(w))
+        g = (g if g.is_valid else g.buffer(0)).intersection(clip)
+        if g.is_empty:
+            continue
+        g = to_utm(g)
+        polys.append(g)
+        if st == "ocean":
+            ocean.append(g)
+    tree = STRtree(polys)
+    seed = to_utm(shapely.Point(-74.045, 40.665))
+    start = [int(i) for i in tree.query(seed) if polys[int(i)].contains(seed)]
+    seen, stack = set(start), list(start)
+    while stack:
+        i = stack.pop()
+        for j in tree.query(polys[i].buffer(3)):
+            j = int(j)
+            if j not in seen and polys[j].distance(polys[i]) <= 3:
+                seen.add(j)
+                stack.append(j)
+    tidal = [polys[i] for i in seen]
+    wet = [to_utm(shapely.from_wkb(bytes(w)).buffer(0)) for (w,) in con.execute(f"SELECT ST_AsWKB(geometry) FROM '{base}/base_land.parquet' WHERE subtype = 'wetland' AND {box}").fetchall()]
+    print(len(polys), "water polygons,", len(tidal), "tidal,", len(ocean), "ocean,", len(wet), "wetlands")
+    return STRtree(tidal), tidal, STRtree(ocean), ocean, STRtree(wet), wet
+
+
+def flags(g, ctx):
+    ttree, tidal, otree, ocean, wtree, wet = ctx
+    share = lambda tree, polys: sum(g.intersection(polys[int(i)]).area for i in tree.query(g)) / g.area
+    return dict(tidal=round(min(share(ttree, tidal), 1.0), 2), ocean=round(min(share(otree, ocean), 1.0), 2),
+                wetland=bool(len([i for i in wtree.query(g.buffer(40)) if wet[int(i)].distance(g) <= 40])))
+
+
+def natural_ok(c):
+    """drops what the finger test also finds on natural shores: marsh edges, creek banks, ponds, beach groynes."""
+    p, f = c["p"], c["f"]
+    chart = c["src"].startswith("chart_")
+    if f["tidal"] < 0.5 and p["on_made_land"] < 0.5:
+        return False                                   # not over the harbour's water (a pond, a lake, dry land)
+    if chart:
+        return True
+    if p["rect_fill"] < 0.62 or p["length_m"] > 520:
+        return False
+    if f["wetland"] and p["ink"] < 0.3:
+        return False                                   # an open, unroofed finger at a marsh: marsh
+    if f["ocean"] >= 0.5 and (p["length_m"] < 4 * p["width_m"] or p["length_m"] < 60):
+        return False                                   # beach groynes and bars
+    return True
+
+
 def rectish(g):
     """the outline as its bounding rectangle when it nearly is one (pier outlines read off a 2 m raster are ragged)."""
     r = g.minimum_rotated_rectangle
@@ -264,7 +326,8 @@ def main():
     print(len(sources), "sources:", Counter("chart" if s.chart else E.SHEETS[s.name]["edition"] for s in sources))
     # 1. candidates
     osm = osm_piers(boros)
-    cands = {}
+    ctx = context()
+    cands, dropped = {}, Counter()
     for s in sources:
         if s.positive_only:
             continue
@@ -278,7 +341,12 @@ def main():
                 g = shapely.affinity.translate(g, *s.shift)
             b = next((n for n, poly in boros if poly.contains(g.centroid)), None)
             if b is not None:
-                out.append(dict(kind="map", src=s.name, geom=g.buffer(0), borough=b, p=p))
+                c = dict(kind="map", src=s.name, geom=g.buffer(0), borough=b, p=p)
+                c["f"] = flags(c["geom"], ctx)
+                if natural_ok(c):
+                    out.append(c)
+                else:
+                    dropped[s.name] += 1
         cands[s.name] = out
     # 1b. the USGS scans sit up to 30 m off in places: where each sheet draws the piers whose position is known
     # (OpenStreetMap's and the charts', fitted to 2-3 m) gives its local offset; its own outlines are moved back by it
@@ -305,6 +373,7 @@ def main():
                 c["geom"] = shapely.affinity.translate(c["geom"], -e, -n)
     json.dump(rep, open(E.OUT / "sheet_offsets.json", "w"), indent=1)
     print("sheet offsets (m):", {k.split("_24000")[0].split("_25000")[0]: (v["n"], v["median_east"], v["median_north"], v["p90_abs"]) for k, v in rep.items()})
+    print("dropped as natural shore:", sum(dropped.values()))
     items = [c for s in sources for c in cands.get(s.name, [])]
     n_map = len(items)
     items += osm
@@ -382,7 +451,8 @@ def main():
             s.ds = None
     json.dump([dict(geom=mapping(to_wgs(t["geom"])), map_geom=None if t.get("map_geom") is None else mapping(to_wgs(t["map_geom"])), borough=t["borough"],
                     osm=None if t["osm"] is None else dict(id=t["osm"]["id"], name=t["osm"]["name"], tags=t["osm"]["tags"], record=t["osm"].get("record")),
-                    outline_src=t.get("outline_src"), n_maps=len(t["maps"]), map_srcs=sorted({m["src"] for m in t["maps"]}), obs=t["obs"]) for t in tracks],
+                    outline_src=t.get("outline_src"), n_maps=len(t["maps"]), best_rect=max([m["p"]["rect_fill"] for m in t["maps"]], default=None),
+                    ocean=max([m["f"]["ocean"] for m in t["maps"]], default=0), map_srcs=sorted({m["src"] for m in t["maps"]}), obs=t["obs"]) for t in tracks],
               open(E.OUT / "tracks.json", "w"))
     print("tracks.json written")
 
