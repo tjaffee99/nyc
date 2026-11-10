@@ -8,16 +8,19 @@ at that time, and only where the map itself has nothing. Rules, sources, validat
 data/manual/gapfill/README.md. In short:
 
   lots        every city block (the polygons between today's street centre lines) is cut into
-              lot-sized outlines in rows along its long frontages, on the block's own bearing
-              (tenement 7.6 x 18-27 m, row house 5.8 x 12 m, frame house 6.1 x 10 m - by the
-              height of the old buildings standing in the block). A block deeper than one city
-              block (a superblock whose streets were closed) is cut as the blocks it replaced.
-              The lots are candidates, not buildings.
+              lot-sized outlines in rows along its straight frontages, each row on its frontage's
+              bearing; the outline's width and depth are the medians of the old buildings standing
+              in the block (4.8-8.5 m by 9.5-27 m; type - frame, row house, tenement - by their
+              height). A block deeper than one city block (a superblock whose streets were closed)
+              is also cut inside, as the blocks it replaced. The lots are candidates, not buildings.
   evidence    (1) the city's aerial mosaics of 1924 and 1951: the presence model of
               aerial_presence.py scores every lot on the photograph ("a building stands on this
-              outline"), unchanged and not retrained;
+              outline"), unchanged and not retrained; a lot is kept by its own score and by what
+              the photograph shows on the free lots around it, and not in open country;
               (2) the built-up extent snapshots (data/manual/extents) for the years before 1924,
-              and for Hudson County the urban tint of the USGS sheets (data/manual/gapfill);
+              for the share of lots that the traced atlases show for such ground; for Hudson
+              County the built block fronts of the USGS sheets of 1943 / 1947 and the built-up
+              ground of the sheets of 1898 (data/manual/gapfill);
               (3) records that date a clearance: housing authority completion dates, park
               acquisitions, highway openings.
   a row       a lot the evidence shows built on at a time when no building of the map (standing
@@ -29,13 +32,16 @@ data/manual/gapfill/README.md. In short:
 
     python gap_fill.py snapshot    # copy of the buildings the map has (nyc + Hudson County)
     python gap_fill.py lots        # per z14 block: the lots and their photograph scores (cached; the long step)
+    python gap_fill.py ink         # Hudson County: the 1940s sheets read on the lots (cached)
     python gap_fill.py assemble    # evidence -> rows; data/interim/gapfill/gapfill.parquet
     python gap_fill.py report      # the checks (districts, overlaps, streets, years) -> report.md
-    python gap_fill.py             # all four
+    python gap_fill.py             # all five
     python gap_fill.py fresh       # forget the snapshot (after a rebuild with new atlas layers), keep the lots
     python gap_fill.py look <lon> <lat> [name]   # thumbnails of both photographs with the lots drawn
 
-Memory: one z14 block (1.85 km) at a time, under 1.5 GB per process; `lots` runs three processes.
+Run time and memory (2026-11-10, the loaded four-core build machine): `lots` 25 minutes with six
+processes (`lots` three, `lots-reverse` two, `lots-middle` one), one z14 block (1.85 km) at a time,
+under 1 GB each; snapshot 10 s, ink 40 s, assemble 2.5 minutes (three processes), report 1 minute.
 """
 from __future__ import annotations
 
@@ -1101,21 +1107,22 @@ def assemble_block(job):
         W[Y] = window(T, AFTER_GAP)
         p = lots[f"p{Y}"].values.astype(float)
         nyc = area != "Hudson"
-        # The model's p is calibrated for even odds beforehand. What stands around a lot says more: the
-        # odds beforehand are taken from the lots within NEAR_M whose state is clear (a map building on
-        # them, or a clear call of the photograph either way), and the lot is kept when the odds after
-        # its own score reach the model's own threshold. In a row the photograph shows built, a lot with
-        # an inconclusive score is taken as built; a lot alone among open ground needs p >= 0.94.
+        # The model's p is calibrated for even odds beforehand. What the photograph shows around a lot
+        # says more. The odds beforehand are taken from the other FREE lots within NEAR_M (lots the map
+        # leaves empty): built by a clear call, open by a clear call, or without a call (counted as half
+        # open). Lots that carry a map building say nothing here - where the map is complete, the free
+        # lots between its buildings are the gardens. No free lot around: even odds, the model's own
+        # rule. In a row of free lots that the photograph shows built, a lot with an inconclusive score
+        # is taken as built; among open ground a lot needs p >= 0.94.
         alive = (es <= T + AFTER_GAP) & (ee > T)
-        occ = np.zeros(n, bool)
-        occ[li[(ps <= T + AFTER_GAP) & (pe > T) & ~minor]] = True
-        clear_b = occ | (W[Y][0] & (p >= P_STOOD[Y]))
+        clear_b = W[Y][0] & (p >= P_STOOD[Y])
         clear_o = W[Y][0] & (p <= P_OPEN[Y])
-        tb = cKDTree(cen[clear_b]).query_ball_point(cen, r_near, return_length=True) - clear_b.astype(int) if clear_b.any() else np.zeros(n, int)
-        to = cKDTree(cen[clear_o]).query_ball_point(cen, r_near, return_length=True) - clear_o.astype(int) if clear_o.any() else np.zeros(n, int)
         scored = W[Y][0] & np.isfinite(p) & ~clear_b & ~clear_o
-        tn = cKDTree(cen[scored]).query_ball_point(cen, r_near, return_length=True) - scored.astype(int) if scored.any() else np.zeros(n, int)
-        prior = np.clip((tb + 0.5) / (tb + to + 0.5 * tn + 2.5), PRIOR_RANGE[0], PRIOR_RANGE[1])
+
+        def around(m_):
+            return cKDTree(cen[m_]).query_ball_point(cen, r_near, return_length=True) - m_.astype(int) if m_.any() else np.zeros(n, int)
+        tb, to, tn = around(clear_b), around(clear_o), around(scored)
+        prior = np.clip((tb + 1.25) / (tb + to + 0.5 * tn + 2.5), PRIOR_RANGE[0], PRIOR_RANGE[1])
         with np.errstate(invalid="ignore", divide="ignore"):
             post = prior * p / (prior * p + (1 - prior) * (1 - p))
         s = W[Y][0] & (post >= np.where(area == "5", P_STATEN, P_STOOD[Y])) & nyc & (W[Y][1] <= T - BEFORE_GAP)
@@ -1428,10 +1435,26 @@ def assemble_block(job):
             if gm is None or gm.is_empty or gm.area * MPP2 < NOTCH_MIN * la[i[r_]]:
                 keep[r_] = False
     st["notched"] = cutn
+    # written years: the start rounded up, the end down (two rows a hundredth of a year apart must not meet)
+    start = np.ceil(start * 100 - 1e-6) / 100
+    end = np.floor(end * 100 + 1e-6) / 100
+    keep &= end - start >= 1.0
+    # last guard, on the outlines and years as written: no row shares ground with a map building while both stand
+    kk = np.flatnonzero(keep)
+    if len(kk):
+        gk = np.array([gout[q] for q in kk], dtype=object)
+        a_, b_ = shapely.STRtree(ex.g.values).query(gk, predicate="intersects")
+        t_ = (start[kk][a_] < ee[b_]) & (es[b_] < end[kk][a_])
+        a_, b_ = a_[t_], b_[t_]
+        if len(a_):
+            ov = shapely.area(shapely.intersection(gk[a_], ex.g.values[b_])) * MPP2 > 0.4
+            bad_ = np.unique(a_[ov])
+            keep[kk[bad_]] = False
+            st["dropped_on_a_map_building"] = int(len(bad_))
     wkb_out = np.array(shapely.to_wkb(to_lonlat(np.array([q if q is not None else shapely.Point() for q in gout], dtype=object))), dtype=object)
     out = pd.DataFrame({
         "id": ["gf" + hashlib.sha1(k_.encode()).hexdigest()[:14] for k_ in key],
-        "start_year": np.round(start, 2), "end_year": np.round(end, 2), "height_m": np.round(height, 1), "storeys": storeys,
+        "start_year": start, "end_year": end, "height_m": np.round(height, 1), "storeys": storeys,
         "material": material, "evidence": R.evidence.values, "end_basis": basis, "area": area[i],
         "cid": cid[i], "kind": kind, "next_exact": next_exact, "next_start": b, "t_ev": T_ev, "p1924": lots.p1924.values[i], "p1951": lots.p1951.values[i],
         "lon": lots.lon.values[i], "lat": lots.lat.values[i], "wkb": wkb_out})[keep].reset_index(drop=True)
@@ -1472,6 +1495,15 @@ def step_assemble(workers=3, only=None):
                 log(f"assemble: {k + 1}/{len(jobs)} blocks, {time.time() - t0:.0f} s")
     df = pd.concat([pd.read_parquet(p) for p in sorted(ROWS.glob("*.parquet"))], ignore_index=True)
     df = df.drop_duplicates("id").reset_index(drop=True)
+    # no two rows on one spot at once, across the whole file (lots of neighbouring blocks, frontage against inner rows)
+    gpx = to_px(shapely.from_wkb(df.wkb.values))
+    a_, b_ = shapely.STRtree(gpx).query(gpx, predicate="intersects")
+    t_ = (a_ < b_) & (df.start_year.values[a_] < df.end_year.values[b_]) & (df.start_year.values[b_] < df.end_year.values[a_])
+    a_, b_ = a_[t_], b_[t_]
+    ov = shapely.area(shapely.intersection(gpx[a_], gpx[b_])) * MPP2 > 0.4 if len(a_) else np.zeros(0, bool)
+    drop_ = np.unique(b_[ov])
+    total["dropped_on_another_row"] = int(len(drop_))
+    df = df.drop(index=drop_).reset_index(drop=True)
     total["rows"] = len(df)
     (WORK / "stats.json").write_text(json.dumps(total, indent=1))
     geom = shapely.from_wkb(df.wkb.values)
@@ -1577,6 +1609,7 @@ def step_report(workers=3):
             L.append(f"| {lab} | {n_} | {100 * st.get(key + '_built', 0) / n_:.1f} | {100 * st.get(key + '_open', 0) / n_:.1f} |")
     rws = pd.concat([pd.read_parquet(p_, columns=["end_basis", "next_exact", "next_start", "t_ev", "evidence"]) for p_ in sorted(ROWS.glob("*.parquet"))], ignore_index=True)
     same = (rws.end_basis == "replaced_by_standing") & ~rws.next_exact & (rws.next_start - rws.t_ev <= 15) & rws.evidence.str.contains("aerial")
+    L += ["", f"Dropped at the last guard: {st.get('dropped_on_a_map_building', 0)} rows on a map building, {st.get('dropped_on_another_row', 0)} on another row."]
     L += ["", f"Rows of the photographs that end under a standing building whose own year is an estimate within 15 years after the "
           f"photograph (the photograph may show that very building): {int(same.sum())} of {int(rws.evidence.str.contains('aerial').sum())}.",
           "", f"Hudson County, the 1940s sheets: lots free in 1941 with a reading {st.get('hudson_free1941', 0)}, heavy ink (kept) "
@@ -1641,12 +1674,16 @@ def step_report(workers=3):
         for r in pool.imap_unordered(_check_job, jobs):
             for k, v in r.items():
                 tot[k] = tot.get(k, 0) + v
+    gpx = to_px(f.geometry.values)
+    a_, b_ = shapely.STRtree(gpx).query(gpx, predicate="intersects")
+    t_ = (a_ < b_) & (f.start_year.values[a_] < f.end_year.values[b_]) & (f.start_year.values[b_] < f.end_year.values[a_])
+    tot["self_overlap"] = int((shapely.area(shapely.intersection(gpx[a_[t_]], gpx[b_[t_]])) * MPP2 > 0.5).sum()) if t_.any() else 0
     sy = np.floor(f.start_year.values).astype(int)
     ey = np.floor(f.end_year.values).astype(int)
     sc, ec = pd.Series(sy).value_counts(), pd.Series(ey).value_counts()
     L += ["", "## Invariants (recomputed from the written rows, block by block)", "",
           f"- rows that share ground (> 0.5 m2) with a building of the map while both stand: **{tot.get('overlap_pairs', 0)}** pairs ({tot.get('overlap_m2', 0):.0f} m2)",
-          f"- rows that share ground with another row while both stand: **{tot.get('self_overlap', 0)}** pairs",
+          f"- rows that share ground (> 0.5 m2) with another row while both stand, whole file: **{tot.get('self_overlap', 0)}** pairs",
           f"- rows within 5.5 m of a street centre line of today: **{tot.get('on_street', 0)}**",
           f"- rows on today's water: **{tot.get('in_water', 0)}**",
           f"- rows with start >= end: **{int((f.start_year >= f.end_year).sum())}**; shorter than a year: {int((f.end_year - f.start_year < 1).sum())}",
