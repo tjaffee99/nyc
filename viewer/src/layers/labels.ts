@@ -12,7 +12,8 @@ import {TextLayer} from '@deck.gl/layers';
 import {parseCsv} from '../data/tables';
 import {elevationAt} from './elevation';
 
-const files = import.meta.glob('../../../data/tables/places.csv', {query: '?raw', import: 'default', eager: true}) as Record<string, string>;
+// places.csv (the city) and places_counties.csv (the counties around it): same columns
+const files = import.meta.glob(['../../../data/tables/places.csv', '../../../data/tables/places_counties.csv'], {query: '?raw', import: 'default', eager: true}) as Record<string, string>;
 
 type Place = {name: string; tier: string; lon: number; lat: number; start: number; end: number; z: number; mx: number; my: number; text: string};
 
@@ -44,9 +45,10 @@ const TIERS: Record<string, {zoom: [number, number, number, number]; size: numbe
 let places: Place[] = [];
 
 export function loadPlaces() {
-  const text = Object.values(files)[0];
-  if (!text) return;
-  places = parseCsv(text)
+  const texts = Object.values(files);
+  if (!texts.length) return;
+  places = texts
+    .flatMap(text => parseCsv(text))
     .map(r => ({
       name: r.name,
       tier: r.tier,

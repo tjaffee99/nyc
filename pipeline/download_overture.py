@@ -15,10 +15,11 @@ import duckdb
 
 from common import RAW, log
 
-from common import NYC_BBOX, OVERTURE_RELEASE
+from common import NYC_BBOX, OVERTURE_RELEASE, REGION_BBOX as _REGION
 
 RELEASE = OVERTURE_RELEASE
-# the five boroughs with a margin (the same box as the terrain grids)
+# buildings and OSM 3D parts: the five boroughs with a margin (the city's own footprints
+# are the base there; the counties' footprints are region_building.parquet)
 BBOX = NYC_BBOX
 
 
@@ -55,17 +56,19 @@ def main():
         log(f"overture {typ}: {n} rows -> {out}")
 
 
-def base_theme():
-    """OSM-derived natural land (wood, scrub, sand…) and land use (parks, golf…)."""
+def base_theme(refetch=False):
+    """OSM-derived land, water and land use polygons of the wider box (common.REGION_BBOX)."""
+    import os
     out_dir = RAW / "overture" / RELEASE
     con = duckdb.connect()
     con.execute("INSTALL httpfs; LOAD httpfs; INSTALL spatial; LOAD spatial;")
     con.execute("CREATE OR REPLACE SECRET overture (TYPE s3, PROVIDER config, KEY_ID '', SECRET '', REGION 'us-west-2');")
-    xmin, ymin, xmax, ymax = BBOX
+    xmin, ymin, xmax, ymax = _REGION
     for typ in ("land", "land_use", "water"):
-        out = out_dir / f"base_{typ}.parquet"
-        if out.exists():
+        final = out_dir / f"base_{typ}.parquet"
+        if final.exists() and not refetch:
             continue
+        out = out_dir / f"_stage_base_{typ}.parquet"
         src = f"s3://overturemaps-us-west-2/release/{RELEASE}/theme=base/type={typ}/*"
         con.execute(f"""
         COPY (
@@ -75,11 +78,12 @@ def base_theme():
             AND ST_GeometryType(geometry) IN ('POLYGON', 'MULTIPOLYGON')
         ) TO '{out}' (FORMAT parquet);""")
         n = con.execute(f"SELECT count(*) FROM '{out}'").fetchone()[0]
-        log(f"overture base {typ}: {n} polygons -> {out}")
+        os.replace(out, final)
+        log(f"overture base {typ}: {n} polygons -> {final}")
 
 
 # roads.py REGION_BBOX_ROADS must match
-REGION_BBOX = NYC_BBOX
+REGION_BBOX = _REGION
 _BOX = "bbox.xmin < {2} AND bbox.xmax > {0} AND bbox.ymin < {3} AND bbox.ymax > {1}"
 # region extracts cut by REGION_BBOX: file -> (theme/type, columns, extra condition)
 REGION_EXTRACTS = {
@@ -196,6 +200,8 @@ if __name__ == "__main__":
         local_roads()
         sys.exit(0)
     if len(sys.argv) > 1 and sys.argv[1] in ("region", "refetch"):   # refetch: REGION_BBOX changed
+        if sys.argv[1] == "refetch" and not sys.argv[2:]:
+            base_theme(refetch=True)
         for name in (sys.argv[2:] or REGION_EXTRACTS):
             region_extract(name, refetch=sys.argv[1] == "refetch")
         sys.exit(0)

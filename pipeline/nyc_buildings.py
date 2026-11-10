@@ -56,6 +56,9 @@ OUT = VIEWER_DATA / "region-buildings"
 CORE = VIEWER_DATA / "core-buildings.bin.gz"
 CORE_BORO = "1"  # Manhattan ships as one file
 NOW = 2026.5
+ROOT_MANUAL = INTERIM.parent / "manual"
+# aerial_presence.py probabilities that count as evidence (its README gives the error rates)
+AERIAL_THERE, AERIAL_ABSENT = 0.85, 0.10
 # feature codes kept (metadata: 1003 = placeholder triangle, 1005 = temporary structure)
 KEEP_CODES = {2100, 5110, 5100, 1000, 1001, 1002, 1004, 1006, 2110}
 COLS = ["start_year", "end_year", "height", "base", "year_confidence", "use", "raw_year", "stories", "mat", "roof",
@@ -193,12 +196,37 @@ def assign_years(g, pluto, lpc):
         f"{int((~np.isfinite(raw)).sum())} without any year")
     # researched rows
     year, conf, src, end = known_dates(g, year, conf, src)
+    lo, hi, ev = evidence_bounds(g)
+    sf = site_floors(g)
+    ev = np.where(np.isfinite(sf) & ~(lo >= sf), "site", ev)
+    lo = np.fmax(lo, sf)
+    year, src = fill_estimates(xy, year, raw, is_heap, H, g.doitt_id.values, src, lo, hi, ev)
+    # under construction today
+    uc = (g.feature_code.values == 5100) & (src != "known")
+    year[uc] = np.maximum(year[uc], 2027.0 + np.array([h01(f"l{k}") for k in g.doitt_id.values[uc]]))
+    conf[uc] = "estimated"
+    year = np.clip(year, YEAR_MIN, 2029.0)
+    return year, np.nan_to_num(raw), conf, end, src, xy
+
+
+def fill_estimates(xy, year, raw, is_heap, H, keys, src, lo=None, hi=None, ev=None):
+    """Years for the buildings without a recorded one (shared by the city and the counties).
+    year: recorded years (NaN where none); raw: the roll's year (NaN if none); is_heap: raw is
+    a placeholder. lo / hi: evidence bounds per building — not before / standing by (NaN =
+    none; from aerial photographs and dated maps), ev: what that evidence is (for the popup).
+    Returns (year, src)."""
+    n = len(year)
+    year = year.copy()
+    src = src.copy()
+    lo = np.full(n, np.nan) if lo is None else np.asarray(lo, float)
+    hi = np.full(n, np.inf) if hi is None else np.where(np.isfinite(hi), hi, np.inf)
+    ev = np.full(n, "", dtype=object) if ev is None else np.asarray(ev, dtype=object)
     recorded = np.isfinite(year)
     tree = cKDTree(xy[recorded])
     ry = year[recorded]
-    floor = height_floor(H)
+    floor = np.fmax(height_floor(H), lo)   # not before: height, and evidence that it was not there yet
     hb = np.array([h01(f"b{int(a)}_{int(b_)}") for a, b_ in zip(np.floor(xy[:, 0] / 80), np.floor(xy[:, 1] / 80))])
-    hl = np.array([h01(f"l{k}") for k in g.doitt_id.values])
+    hl = np.array([h01(f"l{k}") for k in keys])
 
     def neighbours(idx, k, radius, lo, hi):
         """Median of the recorded years within radius that lie in [lo, hi]; NaN if < 2."""
@@ -213,13 +241,14 @@ def assign_years(g, pluto, lpc):
     # heaps up to 1901: "by then"
     early = np.nonzero(is_heap & ~recorded & (raw <= 1901))[0]
     if len(early):
-        up = raw[early] + 1.0
-        lo = np.maximum(floor[early], YEAR_MIN)
-        med = neighbours(early, 12, 150.0, lo, up)
-        spread = raw[early] - 25.0 * (1 - np.sqrt((hb[early] + 0.3 * hl[early]) % 1.0))
-        year[early] = np.maximum(np.where(np.isfinite(med), med + (hl[early] - 0.5) * 5.0, spread), lo)
+        up = np.fmin(raw[early] + 1.0, hi[early])
+        lo_e = np.maximum(floor[early], YEAR_MIN)
+        med = neighbours(early, 12, 150.0, lo_e, up)
+        spread = up - 1.0 - 25.0 * (1 - np.sqrt((hb[early] + 0.3 * hl[early]) % 1.0))
+        year[early] = np.maximum(np.where(np.isfinite(med), med + (hl[early] - 0.5) * 5.0, spread), lo_e)
         year[early] = np.minimum(year[early], up)
-        src[early] = np.where(np.isfinite(med), "heap_by+neighbours", "heap_by+spread")
+        src_by = np.where(hi[early] < raw[early], "evidence_by:" + ev[early].astype(str), "")
+        src[early] = np.where(src_by != "", src_by, np.where(np.isfinite(med), "heap_by+neighbours", "heap_by+spread"))
     # later heaps: "about then"
     late = np.nonzero(is_heap & ~recorded & (raw > 1901))[0]
     if len(late):
@@ -236,14 +265,21 @@ def assign_years(g, pluto, lpc):
         year[late] = np.where(np.isfinite(med), np.clip(med + (hl[late] - 0.5) * 5.0, v - 5.0, v + 5.0), spread)
         year[late] = np.maximum(year[late], floor[late])
         src[late] = np.where(np.isfinite(med), "heap_about+neighbours", "heap_about+spread")
+        # evidence beats the assessor's rounded year: standing before its window (a photograph,
+        # a map shows it), or not yet there after it
+        by = hi[late] < year[late]
+        year[late] = np.where(by, hi[late] - 0.5 - 7.0 * ((hb[late] + 0.3 * hl[late]) % 1.0), year[late])
+        src[late] = np.where(by, "evidence_by:" + ev[late].astype(str), src[late])
+        after = np.isfinite(lo[late]) & (lo[late] > v + 2.5) & ~by
+        src[late] = np.where(after, "evidence_after:" + ev[late].astype(str), src[late])
     # no year at all: recorded neighbours of a comparable size (a tower is not dated from the houses around it)
     miss = np.nonzero(~np.isfinite(year))[0]
     if len(miss):
         tall = H[miss] >= 20
         est = np.full(len(miss), np.nan)
-        lo = np.maximum(floor[miss], YEAR_MIN)
-        hi = np.full(len(miss), NOW)
-        est[~tall] = neighbours(miss[~tall], 12, 200.0, lo[~tall], hi[~tall])
+        lo_m = np.maximum(floor[miss], YEAR_MIN)
+        hi_m = np.fmin(np.full(len(miss), NOW), hi[miss])
+        est[~tall] = neighbours(miss[~tall], 12, 200.0, lo_m[~tall], hi_m[~tall])
         if tall.any():
             big = recorded & (H >= 20)
             if big.sum() > 50:
@@ -251,49 +287,131 @@ def assign_years(g, pluto, lpc):
                 y2 = year[big]
                 d, j = t2.query(xy[miss[tall]], k=8, distance_upper_bound=400.0)
                 v = np.where(np.isfinite(d), y2[np.minimum(j, len(y2) - 1)], np.nan)
-                v = np.where(v >= lo[tall][:, None], v, np.nan)
+                v = np.where((v >= lo_m[tall][:, None]) & (v <= hi_m[tall][:, None]), v, np.nan)
                 with np.errstate(all="ignore"):
                     est[tall] = np.nanmedian(v, axis=1)
         d1, j1 = tree.query(xy[miss], k=1)
-        est = np.where(np.isfinite(est), est, np.maximum(ry[j1], lo))
-        year[miss] = est + (hl[miss] - 0.5)
+        est = np.where(np.isfinite(est), est, np.clip(ry[j1], lo_m, hi_m))
+        year[miss] = np.clip(est + (hl[miss] - 0.5), lo_m, hi_m)
         src[miss] = "neighbours"
-    # under construction today
-    uc = (g.feature_code.values == 5100) & (src != "known")
-    year[uc] = np.maximum(year[uc], 2027.0 + hl[uc])
-    conf[uc] = "estimated"
-    year = np.clip(year, YEAR_MIN, 2029.0)
-    return year, np.nan_to_num(raw), conf, end, src, xy
+    return year, src
+
+
+def evidence_bounds(g):
+    """Per footprint: (not before, standing by, what says so) from independent evidence.
+      * data/manual/aerial/presence.parquet (aerial_presence.py): the 1924 and 1951 aerial
+        mosaics — a building standing on the outline (p >= 0.85) or none (p <= 0.1);
+      * data/manual/farmsteads/farmsteads.geojson (topo_farmsteads.py): a standing building
+        under a mark of an 1890s USGS sheet stood when it was surveyed.
+    NaN / inf where there is none."""
+    n = len(g)
+    lo = np.full(n, np.nan)
+    hi = np.full(n, np.inf)
+    ev = np.full(n, "", dtype=object)
+    did = g.doitt_id.astype(str).values
+    p = ROOT_MANUAL / "aerial" / "presence.parquet"
+    if p.exists():
+        a = pd.read_parquet(p)
+        a = a.assign(doitt_id=a.doitt_id.astype(str)).drop_duplicates("doitt_id").set_index("doitt_id").reindex(did)
+        for yr in (1951, 1924):   # the earlier photograph last, so it wins "standing by"
+            if f"p{yr}" not in a:
+                continue
+            pv = a[f"p{yr}"].values.astype(float)
+            there = pv >= AERIAL_THERE
+            hi = np.where(there, np.minimum(hi, float(yr)), hi)
+            ev = np.where(there, f"aerial{yr}", ev)
+        for yr in (1924, 1951):   # the later photograph last, so it wins "not before"
+            if f"p{yr}" not in a:
+                continue
+            pv = a[f"p{yr}"].values.astype(float)
+            absent = (pv <= AERIAL_ABSENT) & ~(hi <= yr)
+            lo = np.where(absent, np.fmax(lo, yr + 0.3), lo)
+            ev = np.where(absent & (ev == ""), f"aerial{yr}", ev)
+        log(f"buildings: aerial evidence: standing by 1924 {int((hi <= 1924).sum())}, by 1951 {int((hi <= 1951).sum())}, "
+            f"not before 1924 {int((lo > 1924).sum())}, not before 1951 {int((lo > 1951).sum())}")
+    p = ROOT_MANUAL / "farmsteads" / "farmsteads.geojson"
+    if p.exists():
+        f = gpd.read_file(p, ignore_geometry=True)
+        if "standing_bin" in f:
+            f = f[pd.to_numeric(f.standing_bin, errors="coerce").notna()]
+            by = dict(zip(pd.to_numeric(f.standing_bin).astype("int64"), pd.to_numeric(f.first_year, errors="coerce")))
+            fy = np.array([by.get(int(b), np.nan) if np.isfinite(b) else np.nan for b in g.bin.astype("float64").values])
+            better = np.isfinite(fy) & (fy < hi)
+            hi = np.where(better, fy, hi)
+            ev = np.where(better, np.array([f"topo{int(v)}" if np.isfinite(v) else "" for v in fy], dtype=object), ev)
+            log(f"buildings: {int(better.sum())} standing buildings are on an 1890s USGS sheet")
+    return lo, hi, ev
 
 
 def known_dates(g, year, conf, src):
-    """data/tables/known_building_dates.csv: id,name,lat,lon,bin,start_year,end_year,source_url,note —
+    """data/tables/known_building_dates*.csv: id,name,lat,lon,bin,start_year,end_year,source_url,note —
     researched years for buildings the roll misdates (exempt and institutional property, landmarks
-    outside the LPC database). A row applies to the footprint with its BIN, else the one its point is in."""
+    outside the LPC database, the city's own records). A row applies to the footprints with its
+    BIN, else to the one its point is in. Files are read in name order; a later file does not
+    overwrite an earlier one's building (known_building_dates.csv, the hand-checked rows, first).
+    Rows whose id starts with `site_floor:` are not dates (see site_floors)."""
     end = np.full(len(g), 9999.0)
-    p = TABLES / "known_building_dates.csv"
-    if not p.exists():
+    files = sorted(TABLES.glob("known_building_dates*.csv"))
+    if not files:
         return year, conf, src, end
-    t = pd.read_csv(p)
-    by_bin = {int(b): i for i, b in enumerate(g.bin.fillna(0).astype("int64").values) if b % 1000000}
+    bins = g.bin.fillna(0).astype("int64").values
+    by_bin = pd.DataFrame({"bin": bins, "i": np.arange(len(g))})
+    by_bin = by_bin[(by_bin.bin % 1000000) != 0]   # the borough's placeholder BIN (x000000) is not a building
     tree = shapely.STRtree(g.geometry.values)
-    hits = 0
-    for r in t.itertuples():
-        idx = []
-        if "bin" in t and pd.notna(getattr(r, "bin", np.nan)):
-            idx = [i for i, b in enumerate(g.bin.fillna(0).astype("int64").values) if b == int(r.bin)]
-        if not idx and pd.notna(r.lat) and pd.notna(r.lon):
-            idx = list(tree.query(shapely.Point(r.lon, r.lat), predicate="within"))
-        for i in idx:
-            year[i] = float(r.start_year)
-            conf[i] = "estimated" if "estimate" in str(getattr(r, "note", "")).lower() else "exact"
-            src[i] = "known"
-            if pd.notna(r.end_year) and float(r.end_year) < 9000:
-                end[i] = float(r.end_year)
-            hits += 1
-    log(f"buildings: {hits} footprints dated by {len(t)} researched rows")
-    del by_bin
+    done = np.zeros(len(g), bool)
+    for p in files:
+        t = pd.read_csv(p)
+        t = t[~t.id.astype(str).str.startswith("site_floor:")]
+        t = t[pd.to_numeric(t.start_year, errors="coerce").notna()].reset_index(drop=True)
+        if not len(t):
+            continue
+        sy = pd.to_numeric(t.start_year).values.astype(float)
+        ey = pd.to_numeric(t.end_year, errors="coerce").values.astype(float) if "end_year" in t else np.full(len(t), np.nan)
+        est = t.note.astype(str).str.lower().str.contains("estimate").values if "note" in t else np.zeros(len(t), bool)
+        tb = pd.to_numeric(t.bin, errors="coerce").fillna(0).astype("int64").values if "bin" in t else np.zeros(len(t), "int64")
+        m = pd.DataFrame({"bin": tb, "k": np.arange(len(t))})
+        m = m[m.bin > 0].merge(by_bin, on="bin")
+        pairs = [m[["k", "i"]]]
+        left = np.setdiff1d(np.arange(len(t)), m.k.values)
+        lon = pd.to_numeric(t.lon, errors="coerce").values
+        lat = pd.to_numeric(t.lat, errors="coerce").values
+        left = left[np.isfinite(lon[left]) & np.isfinite(lat[left])]
+        if len(left):
+            qi, gi = tree.query(shapely.points(lon[left], lat[left]), predicate="within")
+            pairs.append(pd.DataFrame({"k": left[qi], "i": gi}))
+        pr = pd.concat(pairs, ignore_index=True).drop_duplicates("i")
+        pr = pr[~done[pr.i.values]]
+        i, k = pr.i.values, pr.k.values
+        year[i] = sy[k]
+        conf[i] = np.where(est[k], "estimated", "exact")
+        src[i] = "known"
+        e_ok = np.isfinite(ey[k]) & (ey[k] < 9000)
+        end[i[e_ok]] = ey[k][e_ok]
+        done[i] = True
+        log(f"buildings: {len(i)} footprints dated by {len(t)} researched rows ({p.name}; "
+            f"{len(t) - len(np.unique(k))} rows matched no footprint)")
     return year, conf, src, end
+
+
+def site_floors(g):
+    """Not before: buildings inside a researched site (a fort, a navy yard, a works —
+    data/manual/sites/sites.geojson) are not older than the site, unless a record says so.
+    Only sites flagged `floor` (the ground was empty or cleared when the site was laid out)."""
+    lo = np.full(len(g), np.nan)
+    p = ROOT_MANUAL / "sites" / "sites.geojson"
+    if not p.exists():
+        return lo
+    s = gpd.read_file(p)
+    if "floor" not in s:
+        return lo
+    s = s[s["floor"].astype(str).str.lower().isin(["true", "1", "yes"]) & pd.to_numeric(s.start_year, errors="coerce").notna()]
+    if not len(s):
+        return lo
+    rp = g.geometry.representative_point().values
+    si, gi = shapely.STRtree(rp).query(s.geometry.values, predicate="contains")
+    np.fmax.at(lo, gi, pd.to_numeric(s.start_year).values.astype(float)[si])
+    log(f"buildings: {int(np.isfinite(lo).sum())} footprints stand inside {len(s)} sites with a founding year")
+    return lo
 
 
 def land_check(geoms, start, src, height, keys):
@@ -568,6 +686,38 @@ def build():
     return g
 
 
+def write_tile_set(rest, out_dir):
+    """z13 tiles of every building + z11 tiles of the large / tall ones + index.json."""
+    import shutil
+    rp = rest.geometry.representative_point()
+    tx, ty = tile_of(rp.x.values, rp.y.values)
+    rest = rest.assign(tx=tx, ty=ty)
+    if out_dir.exists():
+        shutil.rmtree(out_dir)
+    index = []
+    for (x, y), t in rest.groupby(["tx", "ty"]):
+        path = out_dir / str(TILE_Z) / str(x) / f"{y}.bin.gz"
+        write_buildings(path, t, tile_origin(x, y), CONF, USE_CATEGORIES)
+        index.append({"x": int(x), "y": int(y), "n": int(len(t)), "bbox": [round(float(v), 5) for v in t.total_bounds]})
+    # zoomed out: only buildings big enough to see there, outlines simplified to 1.5 m
+    ru = rest.geometry.to_crs(UTM)
+    big = (ru.area.values > 600) | (rest.height.values - 1.0 > 12)
+    low = rest[big].copy()
+    low["geometry"] = ru[big].simplify(1.5, preserve_topology=True).to_crs(4326).values
+    low = low[~low.geometry.is_empty & low.geometry.is_valid & (low.geometry.geom_type == "Polygon")]
+    lp = low.geometry.representative_point()
+    lx, ly = tile_of(lp.x.values, lp.y.values, LOW_Z)
+    low = low.assign(tx=lx, ty=ly)
+    low_index = []
+    for (x, y), t in low.groupby(["tx", "ty"]):
+        write_buildings(out_dir / str(LOW_Z) / str(x) / f"{y}.bin.gz", t, tile_origin(x, y, LOW_Z), CONF, USE_CATEGORIES)
+        low_index.append({"x": int(x), "y": int(y), "n": int(len(t))})
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "index.json").write_text(json.dumps({"z": TILE_Z, "tiles": index, "low": {"z": LOW_Z, "tiles": low_index}},
+                                                   separators=(",", ":")))
+    log(f"buildings: {out_dir.name}: {len(index)} tiles with {len(rest)} buildings, {len(low_index)} low-zoom tiles with {len(low)}")
+
+
 def write_outputs(g):
     full = g
     g = g[COLS + ["boro"] + [c for c in ("year_src", "name") if c in g]].copy()
@@ -589,30 +739,7 @@ def write_outputs(g):
         raw_b, gz_b = write_buildings(CORE, core, (float(b[0]), float(b[1])), CONF, USE_CATEGORIES)
         log(f"buildings: core file {len(core)} buildings, {gz_b / 1e6:.1f} MB gzip")
     rest = g[g.boro != CORE_BORO]
-    tx, ty = tile_of(rp.x.values[(g.boro != CORE_BORO).values], rp.y.values[(g.boro != CORE_BORO).values])
-    rest = rest.assign(tx=tx, ty=ty)
-    index = []
-    for (x, y), t in rest.groupby(["tx", "ty"]):
-        path = OUT / str(TILE_Z) / str(x) / f"{y}.bin.gz"
-        write_buildings(path, t, tile_origin(x, y), CONF, USE_CATEGORIES)
-        index.append({"x": int(x), "y": int(y), "n": int(len(t)), "bbox": [round(float(v), 5) for v in t.total_bounds]})
-    # zoomed out: only buildings big enough to see there, outlines simplified to 1.5 m
-    ru = rest.geometry.to_crs(UTM)
-    big = (ru.area.values > 600) | (rest.height.values - 1.0 > 12)
-    low = rest[big].copy()
-    low["geometry"] = ru[big].simplify(1.5, preserve_topology=True).to_crs(4326).values
-    low = low[~low.geometry.is_empty & low.geometry.is_valid & (low.geometry.geom_type == "Polygon")]
-    lp = low.geometry.representative_point()
-    lx, ly = tile_of(lp.x.values, lp.y.values, LOW_Z)
-    low = low.assign(tx=lx, ty=ly)
-    low_index = []
-    for (x, y), t in low.groupby(["tx", "ty"]):
-        write_buildings(OUT / str(LOW_Z) / str(x) / f"{y}.bin.gz", t, tile_origin(x, y, LOW_Z), CONF, USE_CATEGORIES)
-        low_index.append({"x": int(x), "y": int(y), "n": int(len(t))})
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "index.json").write_text(json.dumps({"z": TILE_Z, "tiles": index, "low": {"z": LOW_Z, "tiles": low_index}},
-                                               separators=(",", ":")))
-    log(f"buildings: {len(index)} tiles with {len(rest)} buildings, {len(low_index)} low-zoom tiles with {len(low)}")
+    write_tile_set(rest, OUT)
     report(g)
 
 
@@ -667,6 +794,16 @@ def main():
         add_predecessors = None
     if add_predecessors is not None:
         g = add_predecessors(g)
+    # pier decks and sheds (data/manual/piers): low platforms over the water
+    try:
+        import nyc_extras
+        pr = nyc_extras.piers()
+        if pr is not None and len(pr):
+            if os.environ.get("NYC_BORO"):
+                pr = pr[pr.boro == os.environ["NYC_BORO"]]
+            g = gpd.GeoDataFrame(pd.concat([g, pr], ignore_index=True), geometry="geometry", crs=4326)
+    except Exception as e:  # noqa: BLE001
+        log(f"buildings: piers not added ({type(e).__name__}: {e})")
     if os.environ.get("NYC_DRY"):   # test run: build everything, write nothing
         report(g)
         return

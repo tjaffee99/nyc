@@ -1,10 +1,10 @@
 """Stage: master terrain grids (elevation + present-day land cover) on the Web-Mercator
 tile-vertex lattice, cached as .npy for terrain_tiles.py.
 
-Two grids share the same lattice definition (vertex = 1/64 of a tile) and the same box
-(common.NYC_BBOX, the five boroughs with a margin):
-  * region grid at z13/64 (~58 m on the ground)  - tiles for zooms 8-13
-  * detail grid at z14/64 (~29 m)                - tiles for zoom 14
+Two grids share the same lattice definition (vertex = 1/64 of a tile):
+  * region grid at z13/64 (~58 m on the ground)  - common.REGION_BBOX (the city and the
+    counties around it); tiles for zooms 8-13, and all there is outside the detail grid
+  * detail grid at z14/64 (~29 m)                - common.NYC_BBOX; tiles for zoom 14
 
 Inputs (windowed reads of cloud-optimised GeoTIFFs; nothing bulky is stored):
   * USGS 3DEP 1/3 arc-second DEM (public domain) - prd-tnm S3
@@ -25,14 +25,16 @@ from rasterio.enums import Resampling
 from rasterio.transform import Affine
 from rasterio.warp import reproject
 
-from common import INTERIM, NYC_BBOX, log
+from common import INTERIM, NYC_BBOX, REGION_BBOX, log
 
 R = 6378137.0
 ORIGIN_SHIFT = math.pi * R  # 20037508.34
 
 GRIDS = {
     # name: (zoom of the lattice tiles, lon_min, lat_min, lon_max, lat_max)
-    "region": (13, *NYC_BBOX),
+    # the wider map: the city and the counties around it
+    "region": (13, *REGION_BBOX),
+    # 29 m: the five boroughs (with Hudson County's waterfront)
     "detail": (14, *NYC_BBOX),
 }
 VERTS = 64  # grid cells per tile edge

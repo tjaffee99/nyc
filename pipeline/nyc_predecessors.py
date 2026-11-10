@@ -56,8 +56,9 @@ import shapely
 import shapely.affinity
 from scipy.spatial import cKDTree
 
-from building_binary import M_BRICK, M_BROWNSTONE, M_DUTCH, M_EARLY, M_FRAME, M_MASONRY, R_FLAT, R_SHINGLE, R_TILE
-from common import MANUAL, NYC_CRS, RAW, log
+from building_binary import (M_BARK, M_BRICK, M_BROWNSTONE, M_DUTCH, M_EARLY, M_FRAME, M_MASONRY, R_FLAT, R_SHINGLE, R_TILE,
+                             R_WALL)
+from common import MANUAL, NYC_CRS, RAW, YEAR_MIN, log
 
 UTM = NYC_CRS
 BI = RAW / "nypl" / "building-inspector.objects.ndjson"
@@ -136,6 +137,22 @@ def load_ohm():
 def load_structures():
     rows = load_bi() + load_ohm()
     t = gpd.GeoDataFrame(pd.DataFrame(rows, columns=COLS), geometry="geometry", crs=4326).to_crs(UTM)
+    t["conf_doc"] = None
+    t["mat_doc"] = ""
+    # researched extras (nyc_extras.py): early sites, documented lost buildings, the city's
+    # record of removed buildings, atlas layers traced for this map
+    import nyc_extras
+    extra = []
+    for fn in (nyc_extras.early_sites, nyc_extras.notable, nyc_extras.demolished, nyc_extras.atlas_layers):
+        try:
+            extra += fn()
+        except Exception as e:  # noqa: BLE001
+            log(f"predecessors: {fn.__name__} not used ({type(e).__name__}: {e})")
+    if extra:
+        x = gpd.GeoDataFrame(pd.DataFrame(extra), geometry="geometry", crs=UTM)
+        x["boro"] = nyc_extras.boro_of(x.geometry.representative_point().to_crs(4326).values)
+        t = gpd.GeoDataFrame(pd.concat([t, x[list(t.columns)]], ignore_index=True), geometry="geometry", crs=UTM)
+    t["mat_doc"] = t.mat_doc.fillna("").astype(str)
     t["geometry"] = t.geometry.buffer(0)
     t = t[t.geometry.geom_type == "Polygon"]
     t["area"] = t.geometry.area
@@ -143,7 +160,7 @@ def load_structures():
     # within one map layer, overlapping outlines are one building drawn twice: keep the larger
     drop = np.zeros(len(t), bool)
     tr = t[t.cls == "traced"]
-    for _, grp in tr.groupby([tr.id.str.split(":").str[0], "map_year"]):
+    for _, grp in tr.groupby([tr.id.str.rsplit(":", n=1).str[0], "map_year"]):
         ii, jj = grp.sindex.query(grp.geometry.values, predicate="intersects")
         m = ii < jj
         ii, jj = ii[m], jj[m]
@@ -402,7 +419,9 @@ def add_predecessors(g):
     # building that starts no earlier than today's is that building under an old name: it goes)
     end = np.where(np.isfinite(t_today), np.minimum(end, t_today - 0.3), end)
     start = np.where(documented_start, start, np.minimum(start, end - 1.0))
-    start = np.maximum(start, SETTLED)
+    # (the researched early sites — Lenape settlements, the first Dutch landings — are older than the fort)
+    early_site = v.id.str.startswith("early:").values
+    start = np.maximum(start, np.where(early_site & documented_start, float(YEAR_MIN), SETTLED))
 
     # ---- shape and material
     st, frame = storeys_of(v.colors.values, v["area"].values, my, xy[:, 1], v.boro.values, hsh)
@@ -416,14 +435,32 @@ def add_predecessors(g):
     mat = np.where(start < 1700, M_DUTCH, np.where((start < 1790) & (hsh2 < 0.5), M_EARLY, mat)).astype(np.uint8)
     roof = np.where(frame, R_SHINGLE, R_FLAT)
     roof = np.where(start < 1700, R_TILE, np.where(start < 1830, R_SHINGLE, roof)).astype(np.uint8)
+    # a researched wall material (lost buildings, early sites) beats the era's
+    md = v.mat_doc.values.astype(str)
+    for words, code, rf in ((("bark",), M_BARK, R_WALL), (("frame", "wood", "timber", "clapboard", "log"), M_FRAME, R_SHINGLE),
+                            (("brownstone",), M_BROWNSTONE, None), (("brick",), M_BRICK, None),
+                            (("stone", "granite", "marble", "limestone", "masonry"), M_MASONRY, None)):
+        hit = np.array([any(w in m for w in words) for m in md]) & (md != "")
+        mat = np.where(hit, code, mat).astype(np.uint8)
+        if rf is not None:
+            roof = np.where(hit, rf, roof).astype(np.uint8)
+        md = np.where(hit, "", md)
     is_doc = v.cls.values == "documented"
-    srcs = np.where(is_doc, "ohm_documented", np.where(v.id.str.startswith("ohm:").values, "map_", "atlas_").astype(object)
-                    + v.map_year.astype(str).values)
-    conf_out = np.where(is_doc & documented_start, "exact", "estimated")
+    pre = v.id.str.split(":").str[0].values
+    lenape = early_site & (v.mat_doc.values == "bark")
+    srcs = np.where(lenape, "lenape_site", np.where(pre == "early", "early_site", np.where(pre == "notable", "lost_researched",
+            np.where(pre == "demo", "city_demolition", np.where(is_doc, "ohm_documented",
+            np.where(pre == "ohm", "map_", np.where(pre == "atlas", "traced_", "atlas_")).astype(object) + v.map_year.astype(str).values)))))
+    conf_out = np.where(is_doc & documented_start, "exact", "estimated").astype(object)
+    cd = v.conf_doc.values
+    has_cd = np.array([isinstance(c, str) and c != "" for c in cd])
+    conf_out = np.where(has_cd, cd, conf_out)
+    # a dwelling placed by a hash inside its site gives way to any outline that is real
+    rank = np.where(conf_out == "procedural", 0, is_doc.astype(int) + 1)
     out = gpd.GeoDataFrame({"start_year": start, "end_year": end, "height_m": H, "year_confidence": conf_out,
                             "use": np.uint8(0), "raw_year": 0.0, "stories": st, "mat": mat, "roof": roof,
                             "fid_key": v.id.values, "boro": v.boro.values, "year_src": srcs, "name": v.name.values,
-                            "area": v["area"].values, "part_base": 0.0, "doitt_id": v.id.values, "rank": is_doc.astype(int) + 1,
+                            "area": v["area"].values, "part_base": 0.0, "doitt_id": v.id.values, "rank": rank,
                             "map_year": my},
                            geometry=v.geometry.values, crs=UTM)[~conflict & (end > start + 0.5)]
     gen = generate_earlier(out, snaps, fires)
@@ -443,7 +480,8 @@ def add_predecessors(g):
     from nyc_buildings import Ground, ring_ground
     gmin, gmean = ring_ground(Ground(), out.geometry.values)
     out = out.assign(height=out.height_m.values + (gmean - gmin) + 1.0, base=gmin - 1.0).drop(columns=["rank"])
-    log(f"predecessors: + {len(out)} vanished structures ({int((out.year_src == 'ohm_documented').sum())} documented, "
+    log(f"predecessors: + {len(out)} vanished structures ({int(np.isin(out.year_src, ['ohm_documented', 'lost_researched', 'city_demolition']).sum())} documented, "
+        f"{int(np.isin(out.year_src, ['lenape_site', 'early_site']).sum())} at early sites, "
         f"{int((out.year_src == 'generated').sum())} generated; "
         f"{int(conflict.sum())} dropped as redrawn standing buildings; snapshots {sum(len(v_) for v_ in snaps.values())}, fires {len(fires)}); "
         f"start {np.percentile(out.start_year, [5, 50, 95]).round(0).tolist()}, end {np.percentile(out.end_year, [5, 50, 95]).round(0).tolist()}; "

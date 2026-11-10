@@ -66,6 +66,28 @@ Read `CLAUDE.md` first (what the project is, the owner's rules, the conventions)
   source_dataset, lon, lat (centre), WKB geometry. About 5 M rows: query windows with DuckDB.
 - County outlines: `data/raw/tiger/tl_2024_us_county.zip` (STATEFP + COUNTYFP).
 
+## The counties (since 2026-11-10 afternoon)
+
+- The map now reaches beyond the five boroughs: `data/manual/extent_counties.json` names the
+  counties on it (Hudson, Bergen, Essex, Union, Passaic NJ; Westchester, Rockland NY — more may
+  follow), `pipeline/extent.py` (`in_extent`, `POLY`) is the outline of the city plus those
+  counties, `common.REGION_BBOX` = (-74.52, 40.47, -73.40, 41.38) is the box of every region
+  extract and of the region terrain grid (z13, ~58 m cells; the fine z14 grid still covers
+  only `common.NYC_BBOX`).
+- `data/raw/overture/2026-10-21.0/`: `roads_region`, `roads_local`, `freeways`, `rail`,
+  `base_land`, `base_land_use`, `base_water`, `region5_land_use`, `region_airports` were
+  refetched for the wider box (same columns as before).
+- `data/interim/county_buildings.parquet` (GeoParquet, 1.18 M buildings: `start_year`,
+  `end_year`, `year_confidence`, `year_src` (`parcel`, `parcel_secondary`, `heap_…`,
+  `neighbours`, `historic_register`), `county`, `height_m`, `area`, `name`, `use`) and the light
+  `data/interim/county_building_points.parquet` (lon, lat, start_year, end_year, area_m2,
+  height, boro = "9", county, conf). Rewritten by every rebuild: retry a failed read.
+- `data/interim/grid_region_landyear.npy` covers the wider box (`pipeline/ground_rule.py`:
+  `land_year_at(lon, lat)`, `ground_year(geoms)` read the fine grid where it exists, else this).
+- County tables (same columns as the city's): `data/tables/population_counties.csv`,
+  `places_counties.csv`, `events_counties.csv`, `parks_counties.csv`;
+  `data/manual/fill_zones_counties.csv`; `data/manual/natural/counties/`.
+
 ## Standard hand-over formats (so the lead can wire parts in without reading your code)
 
 - A researched year for a standing building: a row in `data/tables/known_building_dates.csv`

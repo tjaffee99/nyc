@@ -106,6 +106,18 @@ def source_label(src: str) -> str:
         return "no recorded year: estimated from the buildings around"
     if src == "on_map":
         return "standing on a 19th-century atlas (year estimated)"
+    if src.startswith("evidence_by:aerial"):
+        return f"standing on the {src[-4:]} aerial photograph: built by then (the assessor's rounded year is later)"
+    if src.startswith("evidence_after:aerial"):
+        return f"not yet on the {src[-4:]} aerial photograph: built after it (the assessor's rounded year is earlier)"
+    if src.startswith("evidence_by:topo"):
+        return f"drawn on the USGS map surveyed in {src[-4:]}: built by then"
+    if src == "parcel":
+        return "property tax record (parcel year)"
+    if src == "parcel_secondary":
+        return "property tax record of the lot's main building (an outbuilding: estimated)"
+    if src == "historic_register":
+        return "state historic-resource inventory"
     if src == "after_map":
         return "a 19th-century atlas shows another building here: year estimated after it"
     if src.startswith("atlas_"):
@@ -114,6 +126,22 @@ def source_label(src: str) -> str:
         return f"outline traced from a {src[4:]} map (OpenHistoricalMap); years estimated"
     if src == "ohm_documented":
         return "OpenHistoricalMap (documented lost building)"
+    if src == "lenape_site":
+        return "a documented Lenape site; the dwellings and where each stands are generated (drawn at twice their size)"
+    if src == "early_site":
+        return "a documented site of the colony (researched); outline from the kind of building, not a survey"
+    if src == "lost_researched":
+        return "researched record of a lost building"
+    if src == "city_demolition":
+        return "city records: a building removed since the 1990s (outline from the city's footprints)"
+    if src.startswith("traced_"):
+        return f"outline traced from a {src[7:]} atlas for this map; years estimated"
+    if src == "pier":
+        return "pier: outline and years researched (deck height estimated)"
+    if src == "farmstead":
+        return "a building mark on an 1890s USGS map (position real; outline and years estimated)"
+    if src.startswith("evidence_after:site"):
+        return "inside a site with a founding year: not older than the site"
     if src == "generated":
         return "generated from the built-up extent of the time (no outline survives)"
     return src or "unknown"

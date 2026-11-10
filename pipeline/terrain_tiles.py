@@ -180,9 +180,17 @@ def natural_cover(name, g, d, land_now, lake_now):
     N[land_now & (wc == 60) & ndimage.binary_dilation(sea, iterations=3)] = BEACH
     N[lake_now] = RESERVOIR
     known = np.zeros((rows, cols), bool)
-    p = MANUAL / "natural" / "natural_1609.geojson"
-    if p.exists():
-        nat = gpd.read_file(p).to_crs(3857)
+    files = [f for f in (MANUAL / "natural" / "natural_1609.geojson",
+                         MANUAL / "natural" / "counties" / "natural_1609_counties.geojson") if f.exists()]
+    if files:
+        nat = pd.concat([gpd.read_file(f).to_crs(3857)[["cover", "geometry"]] for f in files], ignore_index=True)
+        nat = gpd.GeoDataFrame(nat, geometry="geometry", crs=3857)
+        # ground that was a dry valley in 1609 and is under a reservoir today: forest until the dam
+        dv = nat[(nat.cover == "dry_valley") & nat.geometry.notna() & ~nat.geometry.is_empty]
+        if len(dv):
+            m = rasterize_on(g, [(geom, 1) for geom in dv.geometry], fill=0, dtype="uint8").astype(bool)
+            N[m] = FOREST
+            known |= m
         nat = nat[nat.cover.isin(list(NATURAL)) & nat.geometry.notna() & ~nat.geometry.is_empty]
         for cov in NATURAL_ORDER:
             sel = nat[nat.cover == cov]
@@ -244,13 +252,16 @@ def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet, known):
     zone_start = np.full((rows, cols), np.nan, np.float32)
     zone_end = np.full((rows, cols), np.nan, np.float32)
     temp_land = np.zeros((rows, cols), bool)          # filled water that is water again today
-    p = MANUAL / "fill_zones.csv"
     z = None
-    if p.exists():
-        try:
-            z = pd.read_csv(p)
-        except Exception as e:  # noqa: BLE001 - a file being written
-            log(f"terrain {name}: fill_zones.csv unreadable ({e})")
+    parts = []
+    for p in (MANUAL / "fill_zones.csv", MANUAL / "fill_zones_counties.csv"):
+        if p.exists():
+            try:
+                parts.append(pd.read_csv(p))
+            except Exception as e:  # noqa: BLE001 - a file being written
+                log(f"terrain {name}: {p.name} unreadable ({e})")
+    if parts:
+        z = pd.concat(parts, ignore_index=True)
     n_zone = 0
     if z is not None and len(z):
         z["poly"] = [parse_ring(r) for r in z.ring]
@@ -350,13 +361,13 @@ def building_evidence(g, standing_only=False):
     within one cell of each cell (incl. vanished ones, unless standing_only), and the share
     of the ground they cover."""
     rows, cols = g["rows"], g["cols"]
-    p = INTERIM / "nyc_building_points.parquet"
     urban_y = np.full((rows, cols), np.nan, np.float32)
     cover = np.zeros((rows, cols), np.float32)
-    if not p.exists():
+    files = [f for f in (INTERIM / "nyc_building_points.parquet", INTERIM / "county_building_points.parquet") if f.exists()]
+    if not files:
         log("terrain: no building points yet (nyc_buildings.py) - no city ground")
         return urban_y, cover
-    b = pd.read_parquet(p)
+    b = pd.concat([pd.read_parquet(f, columns=["lon", "lat", "start_year", "end_year", "area_m2"]) for f in files], ignore_index=True)
     if standing_only:
         b = b[b.end_year >= 9000]
     X = np.radians(b.lon.values) * 6378137.0
@@ -417,10 +428,10 @@ def park_layers(g, urban_fill):
     park_y = np.full((rows, cols), np.nan, np.float32)
     big = np.zeros((rows, cols), bool)
     names = {}
-    pc = TABLES / "parks.csv"
-    if pc.exists():
-        t = pd.read_csv(pc)
-        names = {str(n).strip().lower(): float(y) for n, y in zip(t.name, t.start_year) if pd.notna(y)}
+    for pc in (TABLES / "parks.csv", TABLES / "parks_counties.csv"):
+        if pc.exists():
+            t = pd.read_csv(pc)
+            names.update({str(n).strip().lower(): float(y) for n, y in zip(t.name, t.start_year) if pd.notna(y)})
     shapes = []
     pp = RAW / "nyc" / "parks_properties.geojson"
     if pp.exists():
@@ -457,12 +468,12 @@ def park_layers(g, urban_fill):
 
 
 def settlement_seeds():
-    p = TABLES / "places.csv"
     seeds = list(SEEDS)
-    if p.exists():
-        t = pd.read_csv(p)
-        t = t[t.tier.isin(["city", "town"]) & (pd.to_numeric(t.year_start, errors="coerce") < 1800)]
-        seeds += [(float(r.lon), float(r.lat), float(r.year_start)) for r in t.itertuples() if float(r.year_start) >= 1624]
+    for p in (TABLES / "places.csv", TABLES / "places_counties.csv"):
+        if p.exists():
+            t = pd.read_csv(p)
+            t = t[t.tier.isin(["city", "town"]) & (pd.to_numeric(t.year_start, errors="coerce") < 1800)]
+            seeds += [(float(r.lon), float(r.lat), float(r.year_start)) for r in t.itertuples() if float(r.year_start) >= 1624]
     return seeds
 
 

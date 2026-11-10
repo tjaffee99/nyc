@@ -3,7 +3,7 @@
  * Imported at build time; missing files simply yield empty tables.
  */
 // only the tables the viewer shows (the research tables are pipeline inputs: don't bundle them)
-const files = import.meta.glob(['../../../data/tables/eras.csv', '../../../data/tables/events.csv', '../../../data/tables/population.csv'], {
+const files = import.meta.glob(['../../../data/tables/eras.csv', '../../../data/tables/events.csv', '../../../data/tables/events_counties.csv', '../../../data/tables/population.csv'], {
   query: '?raw',
   import: 'default',
   eager: true
@@ -68,7 +68,7 @@ export const eras: Era[] = table('eras')
   .filter(e => Number.isFinite(e.start))
   .sort((a, b) => a.start - b.start);
 
-export const events: HistEvent[] = table('events')
+export const events: HistEvent[] = [...table('events'), ...table('events_counties')]
   .map(r => ({
     year: +r.year,
     month: r.month ? +r.month : undefined,
@@ -137,6 +137,7 @@ type Place = {name: string; geoid: string; kind: string; rings: Ring[]; bbox?: [
 /** 8 September 1664: New Amsterdam becomes New York. */
 const ENGLISH = 1664.69;
 const FIRST_CENSUS = 1698;
+const CITY_BOROUGHS = new Set(['Manhattan', 'The Bronx', 'Brooklyn', 'Queens', 'Staten Island']);
 let cities: {places: Place[]; counties: Place[]; pop: Record<string, [number, number][]>; region: [number, number][]; region_label: string} | null =
   null;
 
@@ -178,6 +179,12 @@ function seriesAt(year: number, s: [number, number][] | undefined) {
 /** The population to show for the year at this map centre and zoom. */
 export function localPopulationAt(year: number, lon: number, lat: number, zoom: number): {value: number; label: string} | null {
   if (!cities) return populationLabelAt(year);
+  // outside the city: the county under the centre of the map, at any zoom
+  const outer = placeAt(cities.counties, lon, lat);
+  if (outer && !CITY_BOROUGHS.has(outer.name)) {
+    const v = seriesAt(year, cities.pop[`county:${outer.name}`]);
+    if (v != null) return {value: v, label: `${outer.name} County`};
+  }
   if (zoom >= 11.5) {
     const city = placeAt(cities.places, lon, lat);
     if (city) {

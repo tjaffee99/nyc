@@ -25,20 +25,36 @@ type Index = {
   low?: {z: number; tiles: {x: number; y: number; n: number}[]};
 };
 
-let index: Index | null = null;
-let have = new Set<string>();
-let haveLow = new Set<string>();
+/** Tile sets: the city's outer boroughs (nyc_buildings.py) and the counties around the city
+ *  (county_buildings.py). Same format, separate folders, so each can be rebuilt alone. */
+type TileSet = {id: string; dir: string; index: Index; have: Set<string>; haveLow: Set<string>};
+const SETS: {id: string; dir: string}[] = [
+  {id: 'region-buildings', dir: 'data/region-buildings'},
+  {id: 'region-buildings-county', dir: 'data/county-buildings'}
+];
+let sets: TileSet[] = [];
 
 export async function loadRegionIndex() {
-  try {
-    const r = await fetch('data/region-buildings/index.json');
-    if (!r.ok || !(r.headers.get('content-type') ?? '').includes('json')) return; // not built yet
-    index = (await r.json()) as Index;
-    have = new Set(index.tiles.map(t => `${t.x}/${t.y}`));
-    haveLow = new Set((index.low?.tiles ?? []).map(t => `${t.x}/${t.y}`));
-  } catch (e) {
-    console.warn('region buildings index', e);
-  }
+  const loaded = await Promise.all(
+    SETS.map(async ({id, dir}) => {
+      try {
+        const r = await fetch(`${dir}/index.json`);
+        if (!r.ok || !(r.headers.get('content-type') ?? '').includes('json')) return null; // not built yet
+        const index = (await r.json()) as Index;
+        return {
+          id,
+          dir,
+          index,
+          have: new Set(index.tiles.map(t => `${t.x}/${t.y}`)),
+          haveLow: new Set((index.low?.tiles ?? []).map(t => `${t.x}/${t.y}`))
+        } as TileSet;
+      } catch (e) {
+        console.warn('building tiles index', dir, e);
+        return null;
+      }
+    })
+  );
+  sets = loaded.filter((s): s is TileSet => !!s);
 }
 
 // every footprint from city scale on, like San Francisco (whose buildings are always all
@@ -47,6 +63,7 @@ const FULL_FROM = 11;
 
 function tileLayer(
   id: string,
+  dir: string,
   z: number,
   set: Set<string>,
   zoomOffset: number,
@@ -70,7 +87,7 @@ function tileLayer(
     visibleMinZoom: loadFrom,
     visibleMaxZoom: loadTo,
     maxCacheSize: 900,
-    extent: [-74.29, 40.47, -73.67, 40.94],
+    extent: [-74.52, 40.47, -73.4, 41.38],
     getTileData: async ({index: t}: any) => {
       if (!set.has(`${t.x}/${t.y}`)) return null;
       // outside the map's extent (Morgan Hill, Antioch, …): not drawn
@@ -78,7 +95,7 @@ function tileLayer(
       const lon = ((t.x + 0.5) / n) * 360 - 180;
       const lat = (Math.atan(Math.sinh(Math.PI * (1 - (2 * (t.y + 0.5)) / n))) * 180) / Math.PI;
       if (extentDistance(lon, lat) < -3) return null;
-      const file = await loadTileInWorker(new URL(`data/region-buildings/${z}/${t.x}/${t.y}.bin.gz`, document.baseURI).href);
+      const file = await loadTileInWorker(new URL(`${dir}/${z}/${t.x}/${t.y}.bin.gz`, document.baseURI).href);
       return fromBinary(file);
     },
     renderSubLayers: (props: any) => {
@@ -99,10 +116,11 @@ function tileLayer(
  *  large / tall ones (z11 tiles) — houses are below a pixel there and the suburban ground
  *  colour stands for them. */
 export function regionBuildingLayers(year: number, zoom: number, quality: boolean): Layer[] {
-  if (!index) return [];
   const out: Layer[] = [];
-  if (index.low)
-    out.push(tileLayer('region-buildings-low', index.low.z, haveLow, 2, year, quality, zoom >= 9 && zoom < FULL_FROM, 8.6, FULL_FROM + 0.8) as any);
-  out.push(tileLayer('region-buildings', index.z, have, 2, year, quality, zoom >= FULL_FROM, FULL_FROM - 0.3, null) as any);
+  for (const s of sets) {
+    if (s.index.low)
+      out.push(tileLayer(`${s.id}-low`, s.dir, s.index.low.z, s.haveLow, 2, year, quality, zoom >= 9 && zoom < FULL_FROM, 8.6, FULL_FROM + 0.8) as any);
+    out.push(tileLayer(s.id, s.dir, s.index.z, s.have, 2, year, quality, zoom >= FULL_FROM, FULL_FROM - 0.3, null) as any);
+  }
   return out;
 }

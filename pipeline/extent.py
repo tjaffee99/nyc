@@ -1,4 +1,5 @@
-"""The map's extent: the five boroughs of New York City.
+"""The map's extent: the five boroughs of New York City and the counties around them that
+have been built (data/manual/extent_counties.json).
 
 The outline is the union of the TIGER 2024 county polygons of the five boroughs (New York,
 Bronx, Kings, Queens, Richmond — they include each county's share of the rivers, the harbour
@@ -26,10 +27,22 @@ GROW_DEG = 0.012
 FADE_KM = 1.0
 
 
+COUNTIES_FILE = MANUAL / "extent_counties.json"
+
+
+def map_counties():
+    """{state+county FIPS: name} of the counties on the map beside the five boroughs
+    (data/manual/extent_counties.json; written by `python extent.py counties <fips> ...`)."""
+    if COUNTIES_FILE.exists():
+        return json.loads(COUNTIES_FILE.read_text()).get("counties", {})
+    return {}
+
+
 def _compute_ring():
     import geopandas as gpd
     co = gpd.read_file(f"zip://{RAW / 'tiger' / 'tl_2024_us_county.zip'}")
-    co = co[(co.STATEFP == "36") & co.COUNTYFP.isin(list(BORO_COUNTY))].to_crs(4326)
+    fips = co.STATEFP + co.COUNTYFP
+    co = co[((co.STATEFP == "36") & co.COUNTYFP.isin(list(BORO_COUNTY))) | fips.isin(list(map_counties()))].to_crs(4326)
     u = shapely.union_all(list(co.geometry)).buffer(GROW_DEG).simplify(0.002)
     poly = max(getattr(u, "geoms", [u]), key=lambda p: p.area)
     ring = [[round(x, 4), round(y, 4)] for x, y in np.asarray(poly.exterior.coords)[:-1, :2]]
@@ -57,5 +70,13 @@ def write_viewer_extent():
 
 
 if __name__ == "__main__":
+    import sys
+    if len(sys.argv) > 2 and sys.argv[1] == "counties":
+        # set the counties on the map and recompute the outline
+        from common import REGION_COUNTIES
+        chosen = {f: REGION_COUNTIES[f] for f in sys.argv[2:]}
+        COUNTIES_FILE.write_text(json.dumps({"counties": chosen}, indent=1))
+        EXTENT = _compute_ring()
+        POLY = Polygon(EXTENT)
     write_viewer_extent()
     print("map-extent.json written", POLY.bounds, len(EXTENT), "vertices")

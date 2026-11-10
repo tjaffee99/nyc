@@ -147,8 +147,8 @@ map.on('click', e => {
   showInfo((info ?? {picked: false, index: -1}) as PickingInfo);
 });
 
-/** Extent of the terrain tiles (the five boroughs with a margin; pipeline common.NYC_BBOX). */
-const REGION: [number, number, number, number] = [-74.29, 40.47, -73.67, 40.94];
+/** Extent of the terrain tiles (the city and the counties around it; pipeline common.REGION_BBOX). */
+const REGION: [number, number, number, number] = [-74.52, 40.47, -73.4, 41.38];
 
 function render() {
   const layers: Layer[] = [];
