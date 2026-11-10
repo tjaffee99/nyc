@@ -278,19 +278,32 @@ def main():
         c, r = ~gtr * (np.array(X), np.array(Y))
         return ly[np.clip(r.astype(int), 0, ly.shape[0] - 1), np.clip(c.astype(int), 0, ly.shape[1] - 1)]
 
-    bp = con.execute(f"SELECT lon, lat, start_year, area_m2 FROM '{E.ROOT}/data/interim/nyc_building_points.parquet' WHERE end_year = 9999 AND area_m2 >= 150").fetchnumpy()
+    # today's buildings of the city's footprints that stand on a pier.  The footprints hold many pier DECKS as low
+    # "buildings" (3-7 m), besides the sheds and terminals: both are told apart by height.
+    bp = con.execute(f"SELECT lon, lat, start_year, area_m2, height FROM '{E.ROOT}/data/interim/nyc_building_points.parquet' WHERE end_year = 9999 AND area_m2 >= 150").fetchnumpy()
     bx, by = UTM.transform(np.asarray(bp["lon"], float), np.asarray(bp["lat"], float))
     from scipy.spatial import cKDTree
     btree = cKDTree(np.column_stack([bx, by]))
+    rawb = con.execute(f"SELECT lon, lat, bin FROM '{E.ROOT}/data/interim/nyc_footprints_raw.parquet' WHERE lat < 40.93").fetchnumpy()
+    rtree = cKDTree(np.column_stack([np.asarray(rawb["lon"], float), np.asarray(rawb["lat"], float)]))
 
     def buildings_on(g):
-        """(roofed share, earliest start year) of today's buildings whose centre lies on the outline."""
+        """today's buildings whose centre lies on the outline: (share of the outline under buildings taller than 6.5 m,
+        their earliest start year, is the deck itself a footprint, BINs)."""
         c = g.centroid
         r = max(dims(g)[0], 30.0) / 2 + 20
         idx = [i for i in btree.query_ball_point([c.x, c.y], r) if g.contains(shapely.Point(bx[i], by[i]))]
         if not idx:
-            return 0.0, None
-        return float(sum(bp["area_m2"][i] for i in idx) / g.area), float(min(bp["start_year"][i] for i in idx))
+            return 0.0, None, False, []
+        tall = [i for i in idx if bp["height"][i] is not None and bp["height"][i] > 6.5]
+        deck = any(bp["area_m2"][i] >= 0.6 * g.area and not (bp["height"][i] is not None and bp["height"][i] > 6.5) for i in idx)
+        bins = []
+        for i in sorted(idx, key=lambda i: -bp["area_m2"][i])[:6]:
+            d, j = rtree.query([bp["lon"][i], bp["lat"][i]])
+            if d < 2e-5 and rawb["bin"][j] is not None:
+                bins.append(int(rawb["bin"][j]))
+        share = float(sum(bp["area_m2"][i] for i in tall) / g.area)
+        return share, (float(min(bp["start_year"][i] for i in tall)) if tall else None), deck, bins
 
     research = load_research()
 
@@ -389,10 +402,15 @@ def main():
                     note.append(f"the terrain makes this ground land in {fy:.0f}, before the maps' end {seg['end']}: ended then")
                     p["end_year"], p["end_quality"] = round(fy, 1), "estimated"
             if standing:
-                share, by0 = buildings_on(t["g"])
+                share, by0, deck, bins = buildings_on(t["g"])
+                if bins:
+                    p["footprint_bins"] = bins
+                if deck:
+                    p["deck_in_footprints"] = True
+                    note.append("the city's building footprints hold this deck as a low building (see footprint_bins): do not draw it twice")
                 if share >= 0.25:
                     p["shed_building_share"] = round(share, 2)
-                    if by0 is not None and p["shed"] != "none" and by0 > (seg["start"] or 0) + 1:
+                    if by0 is not None and p["shed"] != "none" and by0 > (seg["start"] or 0) + 1 and by0 < 2000:
                         p["shed_end"] = by0
                         note.append(f"from {by0:.0f} the roof is the building in the city's footprints (do not draw the shed after that)")
                     else:
