@@ -298,9 +298,15 @@ def farmsteads():
         return rows
     g = gpd.read_file(p).to_crs(UTM)
     basis = g.standing_basis.fillna("").astype(str).values if "standing_basis" in g else np.full(len(g), "")
-    keep = (g.confidence.astype(str).values != "low") & ~g.builtup.fillna(False).astype(bool).values \
-        & ~np.isin(g.ground.fillna("").astype(str).values, ["tidal_flat", "tidal_marsh", "wetland"]) \
-        & ~np.isin(basis, ["recorded", "by_then"])
+    strong = g.standing_strength.astype(str).values == "strong" if "standing_strength" in g else np.zeros(len(g), bool)
+    dist = pd.to_numeric(g.standing_dist_m, errors="coerce").values if "standing_dist_m" in g else np.full(len(g), np.inf)
+    # (the standing building is the one on the map only on a recorded year right at the mark,
+    # or a strong "by then" match: elsewhere the mark is drawn — nine in ten footprints near
+    # a mark are not the mapped building)
+    same = ((basis == "recorded") & (dist <= 12)) | ((basis == "by_then") & strong)
+    builtup = g.builtup.fillna(False).astype(bool).values if "builtup" in g else np.zeros(len(g), bool)
+    ground = g.ground.fillna("").astype(str).values if "ground" in g else np.full(len(g), "")
+    keep = (g.confidence.astype(str).values != "low") & ~builtup & ~np.isin(ground, ["tidal_flat", "tidal_marsh", "wetland"]) & ~same
     fy = pd.to_numeric(g.first_year, errors="coerce").values
     ly = pd.to_numeric(g.last_year, errors="coerce").values
     gb = pd.to_numeric(g.gone_by, errors="coerce").values

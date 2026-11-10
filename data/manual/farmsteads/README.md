@@ -10,7 +10,7 @@ NADCON grid `us_noaa_conus.tif` (https://cdn.proj.org, open licence); today's st
 footprints from the project's own extracts. The readings are this project's (CC0).
 
 **What it is good for, in one paragraph.** 8,864 buildings that stood in 1889 and / or 1897
-where the map today shows nothing before the 1920s; 1,357 of them with a year by which they
+where the map today shows nothing before the 1920s; 1,358 of them with a year by which they
 were gone. Measured precision 0.93 (216 hand-checked marks), recall about 0.65 of the marks
 drawn separately; village cores drawn as touching rows or black frontages are **not** read.
 It does **not** prove individual standing buildings older than their assessor year: a mark is
@@ -39,7 +39,7 @@ good to 15-25 m, and in today's fabric a point that close to a footprint is no e
 | `mark_m` | length of the mark's solid core on the ground (a house mark is 15-30 m whatever the house; for `large` it is about the building's length) |
 | `site`, `n_marks` | marks within 60 m of each other share a `site`; `n_marks` = marks of the site (house + barns) |
 | `sheet` | sheet ids that show it, e.g. `brooklyn_1889+brooklyn_1897` |
-| `confidence` | `high` (on both surveys, or a recorded old building stands there) 1,369; `medium` (one survey, clean mark) 5,966; `low` (`large`, `in_row`, on marsh, or inside the built-up extent of its edition) 1,529 |
+| `confidence` | `high` (on both surveys, or a recorded old building stands there) 1,362; `medium` (one survey, clean mark) 5,970; `low` (`large`, `in_row`, on marsh, or inside the built-up extent of its edition) 1,532 |
 | `borough` | Manhattan 262, Bronx 1,633, Brooklyn 2,010, Queens 3,455, Staten Island 1,504 |
 | `standing_bin` … | today's footprint within 25 m that could be the building (below) |
 | `late_symbol` | later 1:24,000 editions (`1947`, `1947+1955` …) with a building symbol within 45 m and no black mass: something still stood on the spot, not necessarily the same building |
@@ -49,13 +49,17 @@ good to 15-25 m, and in today's fabric a point that close to a footprint is no e
 | `ground` | ground of the survey year if not dry land: `tidal_marsh` 246, `shore` 103 (water cell with land beside it), `wetland` 24, `tidal_flat` 2 |
 
 `standing_*`: `standing_bin` (BIN), `standing_basis` — `recorded` (a recorded or LPC year no
-later than `first_year`: 106), `by_then` (an estimated year no later than it, or a "by 1901"
-placeholder: 662), `later_estimate` (an estimated year after the survey: 4,738) —
+later than `first_year`: 99), `by_then` (an estimated year no later than it, or a "by 1901"
+placeholder: 754), `later_estimate` (an estimated year after the survey: 4,796) —
 `standing_strength` (`strong` only for `recorded`, and for `by_then` within 12 m in open
-ground, i.e. at most 6 footprints within 60 m: 4 rows), `standing_year`, `standing_year_src`
+ground, i.e. at most 6 footprints within 60 m: 19 rows), `standing_year`, `standing_year_src`
 (the built model's), `standing_dist_m` (0 = the point is inside the footprint), `standing_n`
 (footprints of the same basis within 25 m), `standing_n60` (footprints within 60 m),
-`standing_area_m2`. A footprint with a recorded year after the survey is never offered.
+`standing_area_m2`. A footprint with a recorded year after the survey is never offered; one
+the model has itself dated from this file (`evidence_by:topo1889 / topo1897`) is classed by
+its assessor year. Counts are for the model build of 2026-11-10 18:24; **3,215 marks have no
+such footprint. `standing_bin` is a candidate, not a finding — see "Footprints under the
+marks against chance".**
 
 ## Sheets
 
@@ -204,8 +208,8 @@ of the separately drawn marks, 0.85 away from village cores and lettering. Lost:
 touching each other or a block front, marks drawn on a single-line road (taken for rail
 knots), marks next to lettering, the two houses attached to a long barn.
 
-**gone_by** — 63 points lie within 12 m of a standing building with a recorded year before
-the survey; 3 of them (5 %) were blank on a later sheet (the sheet omits or displaces the
+**gone_by** — 59 points lie within 12 m of a standing building with a recorded year before
+the survey; 2 of them (3 %; 3 of 63 against the previous model build) were blank on a later sheet (the sheet omits or displaces the
 building; e.g. two Riverdale estates on Yonkers 1947). Those are reset to `null`; expect the
 same rate among the rest. Before the late sheets' ink threshold was fixed the rate was 5 of 5
 checked — the check is what found it.
@@ -228,13 +232,18 @@ moved 150-190 m off their spots find a footprint just as often.
 
 | Best footprint within 25 m | Real | Moved (three offsets) |
 |---|---|---|
-| recorded year no later than the survey | 106 | 67, 70, 67 |
-| estimated year no later than it ("by then"), within 12 m in open ground | 4 | 2, 3, 3 |
-| the same, elsewhere | 658 | 597, 615, 600 |
-| estimated year after the survey | 4,738 | 4,792, 4,597, 4,781 |
+| recorded year no later than the survey | 99 | 53, 58, 52 |
+| estimated year no later than it ("by then"), within 12 m in open ground | 19 | 4, 4, 4 |
+| the same, elsewhere | 735 | 653, 674, 663 |
+| estimated year after the survey | 4,796 | 4,874, 4,676, 4,857 |
 
-Only the recorded class stands out (1.5 times chance; 2.5 times where at most 6 footprints
-stand within 60 m). See `data/research/farmsteads_years.md`.
+(Model build of 2026-11-10 18:24. Against the build before it, which had not yet used the
+marks: 106 against 67-70; 4 against 2-3; 658 against 597-615; 4,738 against 4,597-4,792.)
+Only the recorded class stands out (1.5-1.8 times chance; 3 times where at most 6 footprints
+stand within 60 m), and the handful of "by then" footprints in open ground. A later-dated
+footprint that is the only one within 25 m and lies within 12 m of the mark — the rule
+`nyc_buildings.evidence_bounds` used — is found 285 times at the real marks and 225 times at
+the moved ones. See `data/research/farmsteads_years.md`.
 
 ## Known failures
 

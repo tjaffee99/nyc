@@ -42,3 +42,11 @@ for key in (["cl"], ["cl", "d"], ["cl", "dens"], ["cl", "boro"], ["cl", "dens", 
     out = pd.concat([r, m], axis=1)
     out["ratio"] = (out["real"] / out["moved (mean of 3)"].replace(0, np.nan)).round(2)
     print(out.to_string(), "\n")
+
+# the filter nyc_buildings.evidence_bounds used on 2026-11-10 to re-date footprints from this file:
+# every `recorded` / `by_then` match, and a `later` match that is the only one of its class within 25 m and within 12 m
+print("later-dated footprint, the only one within 25 m, within 12 m of the mark:")
+f = lambda t: int(((t["cl"] == "later") & (t["n"] == 1) & (t["dist"] <= 12)).sum())
+print("  real", f(real), " moved", [f(t) for t in moved])
+f = lambda t: int(((t["cl"] == "later") & (t["n"] == 1) & (t["dist"] <= 12) & (t["n60"] <= 3)).sum())
+print("  ... and at most 3 footprints within 60 m: real", f(real), " moved", [f(t) for t in moved])

@@ -393,12 +393,12 @@ def evidence_bounds(g):
         if "standing_bin" in f:
             f = f[pd.to_numeric(f.standing_bin, errors="coerce").notna()]
             if "standing_basis" in f:
-                # the standing building is the one on the map only where its own year agrees
-                # (recorded, or a "by 1900" placeholder), or it stands alone right on the mark;
-                # elsewhere a later house may have replaced the farmhouse
-                alone = (pd.to_numeric(f.standing_n, errors="coerce") == 1) & (pd.to_numeric(f.standing_dist_m, errors="coerce") <= 12)
-                f = f[f.standing_basis.isin(["recorded", "by_then"]) | ((f.standing_basis == "later_estimate") & alone
-                                                                        & (f.confidence != "low") & ~f.builtup.fillna(False).astype(bool))]
+                # only where the standing building's own year agrees with the map: a recorded
+                # year no later than the survey, or a "by 1900" placeholder on a strong match.
+                # A later-dated footprint under a mark is a coincidence four times in five
+                # (data/manual/farmsteads/README.md: marks moved 150 m match as often)
+                strong = f.standing_strength.astype(str) == "strong" if "standing_strength" in f else False
+                f = f[(f.standing_basis == "recorded") | ((f.standing_basis == "by_then") & strong)]
             by = dict(zip(pd.to_numeric(f.standing_bin).astype("int64"), pd.to_numeric(f.first_year, errors="coerce")))
             fy = np.array([by.get(int(b), np.nan) if np.isfinite(b) else np.nan for b in g.bin.astype("float64").values])
             better = np.isfinite(fy) & (fy < hi)

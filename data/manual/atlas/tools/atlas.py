@@ -62,9 +62,11 @@ STYLES = {
     # E. Robinson, county atlases at 300 ft to the inch (0.48 m per pixel): ochre frame buildings, carmine brick,
     # property bands in orange / carmine / green 3-5 m wide, streets and laid-out blocks tinted peach or grey.
     # Measured on plate 22 (paper Lab 87, 0, 9): frame fill L 61-73, a 5-10, b 28-40; orange band a 10-14, b 27-30
-    # (redder: a / b over paper 0.5-0.6 against 0.2-0.33); peach tint L 77-81, b 18-21; carmine L 66, a 21, b 13.
+    # (redder: a / b over paper 0.5-0.6 against 0.2-0.33); peach tint L 77-82, b 18-21 (9-12 over paper: under the
+    # frame threshold of 15); carmine L 66, a 21, b 13. The frame fill is pale on some sheets (plate 21, Coney
+    # Island: L 78-79, b 28), so lightness does not limit it.
     "robinson_300ft": dict(
-        frame=dict(db_min=15.0, hue=0.42, L_min=36, L_max=75.5),
+        frame=dict(db_min=15.0, hue=0.42, L_min=36, L_max=84.0),
         band=dict(db_min=12.0),                      # the orange property band (warm, redder than the frame fill)
         brick=dict(da_min=12.0, db_max=9.0, L_min=42),
         ink=dict(L_max=47, db_max=9.0),
@@ -726,6 +728,8 @@ def trace_window(P, full, inside, paper, win, core=None):
         # Is there an orange property band in this tile? Bands are the long thin warm structures (not part of a
         # fill 13 pixels wide, 150 pixels long or more, mostly of the band hue). Without any, the band hue is
         # just this sheet's frame pigment (the colourists' ochre runs to orange on some sheets): read it as frame.
+        # (Deciding this pixel by pixel - band hue counts as band only near a detected band - was tried and
+        # dropped: bands wider than 13 pixels are not detected and came out as buildings.)
         m5 = (c == 5) & ins
         warm = ((c == 2) & ins) | m5
         thin = warm & ~_dil(_open(warm, 13), 6)
@@ -863,6 +867,8 @@ def regeo(layer, pid, verbose=True):
         if g.is_empty or g.geom_type != "Polygon" or not (st["min_m2"] <= g.area <= st["max_m2"]):
             continue
         out.append(dict(material=o["material"], px=o["px"], geom=wkb.dumps(g), area=g.area))
+        if "yellow" in o:
+            out[-1]["yellow"] = o["yellow"]
     stats = _stats(P, out, d["stats"].get("paper"))
     for k in ("street", "bld"):
         if k in d["stats"]:

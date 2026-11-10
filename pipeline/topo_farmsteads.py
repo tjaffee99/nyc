@@ -811,9 +811,16 @@ class FootprintMatcher:
         fy = first_year[ii]
         exact = (b["year_confidence"].values == "exact") | (b["year_src"].values == "lpc")
         sy = np.floor(b["start_year"].values)
-        # 0 = a recorded year no later than the survey, 1 = an estimate no later than it or a "by then" placeholder,
+        # no circle: a footprint the model has dated from these very marks (year_src evidence_by:topo1889 / topo1897)
+        # is judged by the assessor's year it had before
+        topo = b["year_src"].str.startswith("evidence_by:topo").values
+        raw = b["raw_year"].fillna(0).values
+        sy = np.where(topo, np.where(raw > 0, raw, 9998), sy)
+        exact &= ~topo
+        by_heap = (b["year_src"].str.startswith("heap_by").values | topo) & (sy <= 1901)
+        # 0 = a recorded year no later than the survey, 1 = an estimate no later than it or a "by 1901" placeholder,
         # 2 = an estimate later than the survey, 3 = a recorded year later than the survey (cannot be the building)
-        rank = np.where(exact, np.where(sy <= fy, 0, 3), np.where((b["year_src"].str.startswith("heap_by").values & (sy <= 1901)) | (sy <= fy), 1, 2))
+        rank = np.where(exact, np.where(sy <= fy, 0, 3), np.where(by_heap | (sy <= fy), 1, 2))
         small = (b["height_m"].fillna(0).values <= 22) & ((b["area"].values <= 1500) | (cls[ii] == "bar"))
         t = pd.DataFrame({"i": ii, "j": jj, "dist": dist, "rank": rank, "ok": (dist <= BIN_M) & ((rank == 0) | ((rank < 3) & small))})
         near = t[t["dist"] <= 60.0].groupby("i")["rank"].agg(n60="size", old60=lambda r: int((r <= 1).sum()))
