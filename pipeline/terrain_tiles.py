@@ -563,11 +563,34 @@ def histories(name, g, d, land_only=False):
         if ye < 9000:
             city_y = np.where(m, np.fmax(city_y, ye), city_y).astype(np.float32)
             park_y = np.where(m, np.fmax(park_y, ye), park_y).astype(np.float32)
+    # researched sites (data/manual/sites/sites.geojson, README there): a yard, works or
+    # terminal is city ground from its founding; a fort, asylum, hospital ground or landfill is
+    # open grass from its founding until today's use takes the ground
+    site_y = np.full((rows, cols), np.nan, np.float32)
+    open_y = np.full((rows, cols), np.nan, np.float32)
+    sp = MANUAL / "sites" / "sites.geojson"
+    if sp.exists():
+        try:
+            st = gpd.read_file(sp).to_crs(3857)
+            for geom, gr, y0 in zip(st.geometry, st.ground.astype(str), pd.to_numeric(st.start_year, errors="coerce")):
+                if geom is None or geom.is_empty or not np.isfinite(y0):
+                    continue
+                m = rasterize_on(g, [(geom, 1)], fill=0, dtype="uint8").astype(bool) & land_now
+                tgt = site_y if gr in ("paved", "yard") else open_y
+                tgt[m] = np.fmin(tgt[m], y0)
+            city_y = np.fmin(city_y, site_y).astype(np.float32)
+            log(f"terrain {name}: site ground: {int(np.isfinite(site_y).sum())} cells of yards and works, "
+                f"{int(np.isfinite(open_y).sum())} cells of forts and open grounds")
+        except Exception as e:  # noqa: BLE001
+            log(f"terrain {name}: sites not used ({type(e).__name__}: {e})")
     # farms: dry natural land that is city, small park or open grass today
     F = farm_years(g, lon, lat, boro)
     farmable = land_now & ~made & np.isin(N, [FOREST, GRASS, SCRUB]) & ~kept_woods & (slope < 0.16)
     target_y = np.where(is_park, np.fmin(park_y, city_y), city_y)
-    farm_ok = farmable & (F < target_y - 8.0)
+    farm_ok = farmable & (F < target_y - 8.0) & ~(F > open_y)
+    # (the open ground of a site: only where it comes before what is there today)
+    later = np.nan_to_num(np.where(is_park, park_y, np.where(is_city, city_y, np.inf)), nan=np.inf)
+    event(np.isfinite(open_y) & (open_y < later - 2.0), GRASS, np.fmax(open_y, ground_y + 0.5))
     pasture = h01_grid(rows, cols, salt=7, block=10) < 0.4
     event(farm_ok & ~pasture, FARM, F)
     event(farm_ok & pasture, PASTURE, F)
@@ -594,6 +617,7 @@ def histories(name, g, d, land_only=False):
     # city ground first — buildings stood there well before, or the maps show it built up
     # a generation earlier
     was_y = np.fmin(np.where(urban_y < park_y - 5.0, urban_y, np.nan), np.where(ext_y < park_y - 25.0, ext_y, np.nan))
+    was_y = np.fmin(was_y, np.where(site_y < park_y - 5.0, site_y, np.nan))   # a yard or works that became a park
     event(is_park & land_now & np.isfinite(was_y), URBAN, np.fmax(was_y, ground_y + 0.5))
     # city ground
     event(is_city & ~suburb, URBAN, np.fmax(city_y, ground_y + 0.5))

@@ -227,7 +227,7 @@ for y in range(1790, 1900, 10):
         tn = (f'the three towns were counted at Hempstead {t3[0]:,} + North Hempstead {t3[1]:,} + Oyster Bay {t3[2]:,} = {s:,} (town figures as given in the towns\' Wikipedia tables); the bureau leaves out {s - nassau_present[y]:,}, '
               'one fifth of Hempstead, for the Rockaway peninsula, which went to the city in 1898 - that fifth is the bureau\'s estimate')
     else:
-        tn = 'the towns of Hempstead, North Hempstead and Oyster Bay less the bureau\'s allowance for the Rockaway part of Hempstead, which went to the city in 1898 (one fifth of the town at the other censuses; the town figures were not at hand for this year)'
+        tn = 'the towns of Hempstead, North Hempstead and Oyster Bay less the bureau\'s allowance for the Rockaway part of Hempstead, which went to the city in 1898 (one fifth of the town at the other censuses; ' + ('the 1820 town figures were not at hand)' if y == 1820 else 'the town figures in the Wikipedia tables for this year - Hempstead 5,084 in 1810 and 6,215 in 1830 - do not reproduce the bureau\'s figure and are not used)')
     add(y, 'nassau', nassau_present[y], FORSTALL, f'Census Bureau estimate of the present area (Forstall, New York note 11): Nassau County was set off from Queens County in 1899; Queens County counted {queens_co[y]:,}, and {tn}. '
         'The city\'s queens row is the rest of the old county')
 add(1790, 'rockland', 4826 + 1175, C1790, 'US census, town returns summed: Haverstraw 4,826 + Orangetown 1,175, the two towns of Orange County south of the Highlands that became Rockland County in 1798 '

@@ -93,7 +93,13 @@ R_FLAT, R_TILE, R_SHINGLE, R_WALL = range(4)
 def source_label(src: str) -> str:
     """Plain words for a year_src code (nyc_buildings.py, nyc_predecessors.py)."""
     if src == "known":
-        return "researched record"
+        return "researched or official record (building permits, housing authority, cited history)"
+    if src == "known_est":
+        return "researched, but the year is an estimate"
+    if src == "owner_reported":
+        return "year reported by the owner (energy benchmarking filing): estimated"
+    if src == "lot_year":
+        return "city records: the year of the tax lot, shared by its buildings (an estimate for this one)"
     if src == "lpc":
         return "Landmarks Preservation Commission database"
     if src == "assessor":

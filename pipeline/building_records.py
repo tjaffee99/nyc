@@ -574,7 +574,7 @@ def demolished(c, heaps, rep):
 
     # --- today's footprints on the same ground
     sy = c.execute("""select fp.bin, coalesce(year(n.done), nullif(p.p_raw, 0), nullif(fp.year_raw, 0)) s_year,
-               p.p_year, p.p_src from fp left join pipe p using (bin)
+               p.p_year, p.p_src, fp.height_m s_height from fp left join pipe p using (bin)
                left join (select bin, done from nbbest where ok) n using (bin)""").df()
     sy = _f(sy).set_index("bin")
     pairs = []
@@ -601,6 +601,8 @@ def demolished(c, heaps, rep):
     best = pr.sort_values("iou").drop_duplicates("h", keep="last").set_index("h")
     g["best_iou"] = best.iou.reindex(g.index).fillna(0)
     g["best_older"] = best.older.reindex(g.index).fillna(False).astype(bool)
+    g["best_height"] = best.s_height.reindex(g.index)
+    g["best_year"] = best.s_year.reindex(g.index)
     big = pr.sort_values("inter").drop_duplicates("h", keep="last").set_index("h")
     g["standing_bin"] = big.s_bin.reindex(g.index)
     g["standing_year"] = big.s_year.reindex(g.index)
@@ -612,6 +614,20 @@ def demolished(c, heaps, rep):
     flag[(flag == "") & ~g.dyear.between(1900, 2026)] = "no_valid_year"
     flag[(flag == "") & (g.best_iou > 0.6) & g.best_older] = "coincides_with_older_standing"
     flag[(flag == "") & (g.ov_older > 0.5)] = "inside_older_standing"
+
+    # --- "demolitions" that no DOB demolition job confirms and that look like the standing building
+    # itself, redrawn: the same outline, or the same height on much the same outline, or a structure
+    # that lasted five years or less under a building standing today (an outline drawn during construction)
+    dmk = _f(c.execute("select bin, max(year(signoff)) so_y, min(year(first_permit)) pm_y from dm group by 1").df()).set_index("bin")
+    so_y = g.bin.map(dmk.so_y)
+    pm_y = g.bin.map(dmk.pm_y)
+    confirmed = (so_y.notna() | pm_y.notna()) & ((pm_y <= g.dyear) | (so_y >= g.dyear - 3))
+    hm = g.hr * 0.3048
+    new_epoch = g.led.dt.year >= 2017
+    unc = (flag == "") & ~confirmed
+    flag[unc & (g.best_iou > 0.6)] = "same_outline_unconfirmed"
+    flag[unc & (flag == "") & (g.best_iou > 0.4) & (hm > 0) & ((g.best_height / hm - 1).abs() <= 0.15)] = "same_building_redrawn"
+    flag[unc & (flag == "") & new_epoch & g.cy.between(1800, 2026) & (g.dyear - g.cy <= 5) & (g.ov_any >= 0.5)] = "short_lived_unconfirmed"
 
     # --- the same outline twice in the layer: keep the better record
     k = g[flag == ""]
@@ -726,9 +742,13 @@ def demolished(c, heaps, rep):
     st_ = d[(d.est > 0) & (d.est < 120)].sort_values("so").drop_duplicates("h", keep="last").set_index("h").est
     storeys = st_.reindex(w.index).astype(float)
     s10 = pd.Series(d10.story.values, index=w.index)
-    f10 = storeys.isna() & (w.dyear >= 2010) & (d10.bldgs.values == 1) & (s10 > 0)
+    f10 = storeys.isna() & (w.dyear >= 2010) & (d10.bldgs.values == 1) & (s10 > 0) & y10.between(1800, 2008) & (y10 <= w.dyear - 2)
     storeys[f10] = s10[f10]
     height = (w.hr * 0.3048).where((w.hr > 0) & (w.hr < 2000)).round(1)
+    per = height / storeys
+    rep["demolished_height_storeys_inconsistent"] = int(((per > 8) | (per < 2)).sum())
+    storeys[(per < 2)] = np.nan            # more storeys than the measured height allows: another structure's
+    height[(per > 8)] = np.nan             # e.g. 164 m on six storeys: a mis-measured roof
 
     # lifespans: no start >= end, years in range
     badspan = start.notna() & (start >= end - 0.01)

@@ -49,6 +49,8 @@ CLIP = {
     "us1_9_newark": [ESSEX],
     "nj17_bergen": [BERGEN],
     "i287_nj_north": [PASSAIC, BERGEN],
+    "croton_expressway": [WESTCHESTER],
+    "i278_linden": [UNION],
 }
 
 DEFS = [
@@ -139,6 +141,10 @@ DEFS = [
   "The segment between Armonk and Bedford Hills opened in 1970.", W + "Interstate_684"),
  ("i684_north", "Interstate 684: Bedford Hills - Brewster", "freeway", I684, x("Saw Mill River Parkway"), end("N"), 1974.95, S, G,
   "Estimated: the final segment was completed in December 1974 (the article has Purdys - Brewster open in 1969 in one sentence and Goldens Bridge - Brewster completed December 1974 in another; Katonah - Goldens Bridge was Route 22's four-lane highway before): the completion date is used north of Bedford Hills.", W + "Interstate_684"),
+ ("croton_expressway", "Croton Expressway (US 9): Croton-on-Hudson - Peekskill", "freeway", {"ref0:US:US 9", "class:motorway"}, "all", None, 1967, S, G,
+  "The Croton Expressway opened in 1967 with the US 9 designation.", W + "U.S._Route_9_in_New_York"),
+ ("i278_linden", "Interstate 278 (Union Freeway): US 1/9 in Linden - Goethals Bridge", "freeway", {"ref0:US:I 278"}, "all", None, 1969, S, G,
+  "The only section of I-278 in New Jersey, between US 1/9 in Linden and the Goethals Bridge, opened in 1969.", W + "Interstate_278"),
  # ---- Westchester parkways
  ("bronx_river_1925", "Bronx River Parkway: Bronx Park - Kensico Dam", "highway", {"Bronx River Parkway"}, x("Allerton Avenue"), end("N"), 1925, S, G,
   "Completed 1925 (the first sections 1922); the split from the 1950-52 extension at Allerton Ave, the north end of Bronx Park, is estimated.", NR + "bronx-river/"),

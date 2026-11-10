@@ -89,8 +89,9 @@ def ll(line, tol=8.0):
 
 def _select(names):
     """mask of the segments carrying one of the names; "ref:<network> <number>" = the segments of a route,
-    "ref0:..." = only its unnamed segments"""
-    up = {n.upper() for n in names if not n.startswith(("ref:", "ref0:"))}
+    "ref0:..." = only its unnamed segments; "class:motorway" = of those, only the motorways (a numbered
+    route is a freeway in one place and an old road in another)"""
+    up = {n.upper() for n in names if not n.startswith(("ref:", "ref0:", "class:"))}
     m = fw.name.str.upper().isin(up).values
     refs = {n[4:] for n in names if n.startswith("ref:")}
     refs0 = {n[5:] for n in names if n.startswith("ref0:")}
@@ -100,6 +101,9 @@ def _select(names):
         m = m | np.array([bool(k & refs) for k in KEYS])
     if refs0:
         m = m | (np.array([bool(k & refs0) for k in KEYS]) & (fw.name.values == ""))
+    cls = {n[6:] for n in names if n.startswith("class:")}
+    if cls:
+        m = m & fw["class"].isin(cls).values
     return m
 
 

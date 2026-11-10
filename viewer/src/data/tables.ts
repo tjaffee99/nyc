@@ -68,7 +68,9 @@ export const eras: Era[] = table('eras')
   .filter(e => Number.isFinite(e.start))
   .sort((a, b) => a.start - b.start);
 
-export const events: HistEvent[] = [...table('events'), ...table('events_counties')]
+// (events of a county that is not on the map yet — Nassau, east of the city line — are left out)
+const offMap = (r: Record<string, string>) => r.county === 'Nassau' || (+r.lon > -73.745 && +r.lat < 40.93);
+export const events: HistEvent[] = [...table('events'), ...table('events_counties').filter(r => !offMap(r))]
   .map(r => ({
     year: +r.year,
     month: r.month ? +r.month : undefined,

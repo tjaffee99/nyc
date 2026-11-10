@@ -688,25 +688,39 @@ def _syn_job(job):
     return job, len(res)
 
 
-def step_synthetic(workers: int = 3, n_blocks: int = 110):
+def block_tiles(t):
+    """block -> the needed tiles it reads (with the margin)."""
+    tset = set(zip(t.x, t.y))
+    return {b: [(x, y) for x in range(b[0] * NB - PAD, (b[0] + 1) * NB + PAD) for y in range(b[1] * NB - PAD, (b[1] + 1) * NB + PAD) if (x, y) in tset]
+            for b in set(zip(t.bx, t.by))}
+
+
+def step_synthetic(workers: int = 3, n_blocks: int = 64, follow: bool = False):
     """Street outlines for a fixed sample of blocks (every borough), both years."""
     from multiprocessing import Pool
     t = tile_list()
+    need = block_tiles(t)
     rng = np.random.default_rng(11)
     jobs = []
     for boro in BORO_ORDER:
-        bl = sorted(set(zip(t[t.bboro == boro].bx, t[t.bboro == boro].by)))
-        size = t[t.bboro == boro].groupby(["bx", "by"]).n.sum()
-        bl = [b for b in bl if size[b] > 8000]            # blocks with at least ~2,000 footprints
+        tb = t[t.bboro == boro]
+        size = tb.groupby(["bx", "by"]).n.sum()
+        bl = sorted(b for b in set(zip(tb.bx, tb.by)) if size[b] > 8000)      # blocks with at least ~2,000 footprints
         rng.shuffle(bl)
         for b in bl[: max(8, n_blocks * len(bl) // 220)]:
             jobs += [(year, int(b[0]), int(b[1])) for year in YEARS]
-    jobs = [j for j in jobs if not synthetic_path(*j).exists()]
-    log(f"synthetic: {len(jobs)} block-years to do")
-    with Pool(workers) as pool:
-        for k, (job, n) in enumerate(pool.imap_unordered(_syn_job, jobs)):
-            if k % 20 == 0:
-                log(f"  {k}/{len(jobs)} {job} {n} outlines")
+    while True:
+        todo = [j for j in jobs if not synthetic_path(*j).exists()]
+        ready = [j for j in todo if all(tile_path(j[0], Z, x, y) is not None for x, y in need[(j[1], j[2])])]
+        if ready:
+            log(f"synthetic: {len(ready)} block-years ready, {len(todo) - len(ready)} waiting for tiles")
+            with Pool(workers) as pool:
+                for k, (job, n) in enumerate(pool.imap_unordered(_syn_job, sorted(ready))):
+                    if k % 10 == 0:
+                        log(f"  {k}/{len(ready)} {job} {n} outlines")
+        if len(ready) == len(todo) or not follow:
+            break
+        time.sleep(60)
     log("synthetic: done")
 
 
@@ -735,11 +749,9 @@ def step_features(workers: int = 3, follow: bool = False):
     running `tiles` step and goes on until every block is done."""
     from multiprocessing import Pool
     t = tile_list()
-    blocks = sorted(set(zip(t.bx, t.by)), key=lambda b: (BORO_ORDER.index(t[(t.bx == b[0]) & (t.by == b[1])].bboro.iloc[0]), b))
-    need = {}
-    tset = set(zip(t.x, t.y))
-    for bx, by in blocks:
-        need[(bx, by)] = [(x, y) for x in range(bx * NB - PAD, (bx + 1) * NB + PAD) for y in range(by * NB - PAD, (by + 1) * NB + PAD) if (x, y) in tset]
+    boro_of = dict(zip(zip(t.bx, t.by), t.bboro))
+    blocks = sorted(set(zip(t.bx, t.by)), key=lambda b: (BORO_ORDER.index(boro_of[b]), b))
+    need = block_tiles(t)
     while True:
         todo, waiting = [], 0
         for year in YEARS:
@@ -903,49 +915,146 @@ def isotonic(score, y, w, knots=120):
     return np.array(xs), np.clip(np.array(ps), 0.005, 0.995)
 
 
-MODEL_FEATS = FEATS + ["log_area", "compact", "ring_share"]
-GEOM_ONLY = ["log_area", "compact", "ring_share", "cov30", "cov100"]
-GAP = 2            # recorded years within +-GAP of the photograph are not used as labels
-COVER_MIN = 0.95   # the mosaic must cover this share of footprint and ring
+MODEL_FEATS = FEATS          # image evidence only: no size, shape or density of today's footprint
+GAP = 2                     # recorded years within +-GAP of the photograph are not used as labels
+GREEN_AFTER = 25            # "open ground" labels: recorded this long after the photograph ...
+COVER_MIN = 0.95            # the mosaic must cover this share of footprint and ring
+N_FOLDS = 5
 
 
-def load_features(year: int, blocks=None):
+def load_features(year: int, kind: str = "features"):
     import pandas as pd
-    files = sorted((WORK / "features" / str(year)).glob("*.parquet"))
-    if blocks is not None:
-        files = [f for f in files if tuple(int(v) for v in f.stem.split("_")) in blocks]
+    files = sorted((WORK / kind / str(year)).glob("*.parquet"))
     parts = [pd.read_parquet(f) for f in files]
     parts = [p for p in parts if len(p)]
-    df = pd.concat(parts, ignore_index=True)
-    return df
+    return pd.concat(parts, ignore_index=True)
 
 
-NEG_SPAN = 15      # "not yet built" labels: recorded years up to this long after the photograph
+def recorded(df):
+    return df.year_src.isin(["lpc", "assessor"]).values & (df.year_confidence.values == "exact")
 
 
-def labels(df, year: int):
-    """1 = recorded year before the photograph (the building itself stood); 0 = recorded in the
-    NEG_SPAN years after it; -1 = not a label. Recorded = `year_src` lpc / assessor, exact.
-    Later recorded years are not used as "absent": in built-up districts most of those
-    buildings replaced an earlier one, which the photograph shows on the same outline."""
-    rec = df.year_src.isin(["lpc", "assessor"]).values & (df.year_confidence.values == "exact")
+def greenfield(df, year: int):
+    """Footprints on ground that was certainly open in `year`: recorded GREEN_AFTER years or more
+    after the photograph, in surroundings (a 3 x 3 window of 116 m cells) where at least 12
+    buildings have recorded years, none of them before the photograph, and fewer than one
+    building in ten carries a placeholder year (placeholder years mark the older stock)."""
+    from scipy import ndimage as ndi
+    px, py = lonlat_to_pixel(df.lon.values, df.lat.values)
+    cx = (px // 128).astype("int64")
+    cy = (py // 128).astype("int64")
+    cx -= cx.min()
+    cy -= cy.min()
+    shape = (cy.max() + 1, cx.max() + 1)
+    rec = recorded(df)
     y = np.floor(df.start_year.values)
-    lab = np.full(len(df), -1, "int8")
-    lab[rec & (y <= year - GAP - 1)] = 1
-    lab[rec & (y >= year + GAP + 1) & (y <= year + NEG_SPAN)] = 0
-    return lab
+
+    def grid(m):
+        g = np.zeros(shape, "float32")
+        np.add.at(g, (cy[m], cx[m]), 1)
+        return ndi.uniform_filter(g, 3, mode="constant") * 9
+    n_all = grid(np.ones(len(df), bool))
+    n_rec = grid(rec)
+    n_old = grid(rec & (y <= year + GAP))
+    ok = (n_rec >= 12) & (n_old == 0) & ((n_all - n_rec) < 0.1 * n_all)
+    return rec & (y >= year + GREEN_AFTER) & ok[cy, cx]
 
 
-def density_class(df):
+def training_set(year: int):
+    """Rows and labels for one photograph: 1 = recorded year before it (the building itself
+    stood); 0 = a street outline, or a footprint on certainly open ground. Weights: the two
+    sides weigh the same, and the two kinds of 0 weigh the same."""
+    import pandas as pd
+    real = load_features(year)
+    syn = load_features(year, "synthetic")
+    rec = recorded(real)
+    y = np.floor(real.start_year.values)
+    pos = rec & (y <= year - GAP - 1)
+    green = greenfield(real, year)
+    cols = ["doitt_id", "boro", "bx", "by", "cover", "cov100"] + FEATS
+    d = pd.concat([real.loc[pos, cols].assign(lab=1, kind="recorded before"),
+                   real.loc[green, cols].assign(lab=0, kind="open ground"),
+                   syn[cols].assign(lab=0, kind="street outline")], ignore_index=True)
+    d = d[d.cover >= COVER_MIN].reset_index(drop=True)
+    w = np.zeros(len(d))
+    for kind, share in (("recorded before", 0.5), ("open ground", 0.25), ("street outline", 0.25)):
+        m = (d.kind == kind).values
+        w[m] = share / max(m.sum(), 1)
+    d["w"] = w * len(d)
+    return d, real
+
+
+def density_class(cov100):
     """Today's fabric around the footprint: share of the ground within ~50 m that is building."""
-    c = df.cov100.values
+    c = np.asarray(cov100)
     return np.where(c < 0.15, "open <15%", np.where(c < 0.30, "detached 15-30%", np.where(c < 0.45, "rows 30-45%", "dense >45%")))
 
 
-def fold_of(df, k=5):
+def fold_of(bx, by, k=N_FOLDS):
     """Whole districts are held out together: z13 squares (3.8 km) hashed into k folds."""
-    h = (df.bx.values // 2).astype("int64") * 7919 + (df.by.values // 2).astype("int64") * 104729
+    h = (np.asarray(bx) // 2).astype("int64") * 7919 + (np.asarray(by) // 2).astype("int64") * 104729
     return (h % 1000003 % k).astype(int)
+
+
+def model_path(year: int) -> Path:
+    return WORK / f"model_{year}.npz"
+
+
+def step_model(years=YEARS, trees: int = 250):
+    """Per photograph: district hold-out scores, the final model and its calibration."""
+    import pandas as pd
+    for year in years:
+        d, _ = training_set(year)
+        X = d[MODEL_FEATS].values.astype("float64")
+        y = d.lab.values.astype("float64")
+        w = d.w.values
+        fold = fold_of(d.bx.values, d.by.values)
+        oof = np.zeros(len(d))
+        for k in range(N_FOLDS):
+            tr, te = fold != k, fold == k
+            if te.any():
+                oof[te] = GBM(n_trees=trees, seed=k).fit(X[tr], y[tr], w[tr]).decision(X[te])
+            log(f"model {year}: fold {k} done ({int(te.sum())} held out)")
+        xs, ps = isotonic(oof, y, w)
+        m = GBM(n_trees=trees, seed=99).fit(X, y, w)
+        np.savez(model_path(year), edges=np.array(m.edges, dtype=object), feat=m.feat, thr=m.thr, val=m.val, base=m.base,
+                 xs=xs, ps=ps, gain=m.gain, feats=np.array(MODEL_FEATS), allow_pickle=True)
+        d["score"] = oof
+        d["p"] = np.interp(oof, xs, ps)
+        d[["doitt_id", "boro", "bx", "by", "cov100", "lab", "kind", "w", "score", "p"]].to_parquet(WORK / f"oof_{year}.parquet")
+        log(f"model {year}: {len(d)} rows ({d.kind.value_counts().to_dict()}), hold-out AUC {auc(y, oof, w):.3f}")
+
+
+def load_model(year: int):
+    z = np.load(model_path(year), allow_pickle=True)
+    m = GBM(n_trees=z["feat"].shape[0], depth=int(round(math.log2(z["feat"].shape[1] + 1))) - 1)
+    m.edges, m.feat, m.thr, m.val, m.base = list(z["edges"]), z["feat"], z["thr"], z["val"], float(z["base"])
+    return m, z["xs"], z["ps"]
+
+
+# ----------------------------------------------------------------------------- output
+def step_predict():
+    """data/manual/aerial/presence.parquet: one row per standing footprint."""
+    import pandas as pd
+    out = None
+    for year in YEARS:
+        real = load_features(year)
+        m, xs, ps = load_model(year)
+        p = np.interp(m.decision(real[MODEL_FEATS].values.astype("float64")), xs, ps)
+        cov = real.cover.values >= COVER_MIN
+        p[~cov] = np.nan
+        mpp = 156543.03392804097 * np.cos(np.radians(real.lat.values)) / 2 ** Z
+        part = pd.DataFrame({"doitt_id": real.doitt_id.values, "bin": real.bin.values,
+                             f"p{year}": np.round(p, 3).astype("float32"), f"cover{year}": cov,
+                             f"offset_m_{year}": np.round(np.hypot(real.offx.values, real.offy.values) * mpp, 1).astype("float32")})
+        out = part if out is None else out.merge(part.drop(columns="bin"), on="doitt_id", how="outer")
+    for year in YEARS:
+        out[f"cover{year}"] = out[f"cover{year}"].fillna(False).astype(bool)
+    out = out[["doitt_id", "bin"] + [f"p{y}" for y in YEARS] + [f"cover{y}" for y in YEARS] + [f"offset_m_{y}" for y in YEARS]]
+    out = out.sort_values("doitt_id").reset_index(drop=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    out.to_parquet(OUT_DIR / "presence.parquet", compression="zstd", index=False)
+    log(f"predict: {len(out)} rows -> {OUT_DIR / 'presence.parquet'} ({(OUT_DIR / 'presence.parquet').stat().st_size / 1e6:.1f} MB)")
 
 
 # ----------------------------------------------------------------------------- step 1: tiles
@@ -1004,7 +1113,7 @@ def step_tiles():
 
 
 if __name__ == "__main__":
-    steps = sys.argv[1:] or ["tiles", "features", "model", "predict"]
+    steps = sys.argv[1:] or ["tiles", "features", "synthetic", "model", "predict"]
     for st in steps:
         if st == "tiles":
             step_tiles()
@@ -1012,5 +1121,11 @@ if __name__ == "__main__":
             step_features()
         elif st == "synthetic":
             step_synthetic()
+        elif st == "model":
+            step_model()
+        elif st == "predict":
+            step_predict()
+        elif st == "synthetic-follow":
+            step_synthetic(workers=1, follow=True)
         elif st == "features-follow":
             step_features(workers=3, follow=True)

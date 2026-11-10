@@ -341,6 +341,10 @@ def piers():
     return gdf
 
 
+def _norm(name):
+    return "".join(ch for ch in str(name).lower() if ch.isalnum())
+
+
 def site_labels():
     """Append the labels of military / industrial sites (tier `site`) to park-labels.json."""
     p = MANUAL / "sites" / "sites.geojson"
@@ -349,6 +353,12 @@ def site_labels():
         return
     g = gpd.read_file(p)
     labels = [x for x in json.loads(out.read_text()) if x.get("tier") != "site"]
+    # names that already have a label near by (a park, an airfield, a place of places.csv)
+    have = [(_norm(x["name"]), x["lon"], x["lat"]) for x in labels]
+    for f in ("places.csv", "places_counties.csv"):
+        if (TABLES / f).exists():
+            pl = pd.read_csv(TABLES / f)
+            have += [(_norm(nm), lo, la) for nm, lo, la in zip(pl.name, pl.lon, pl.lat)]
     n = 0
     area = g.to_crs(UTM).geometry.area.values / 1e4
     for r, ha in zip(g.itertuples(), area):
@@ -358,6 +368,9 @@ def site_labels():
         if not np.isfinite(s):
             continue
         c = r.geometry.representative_point()
+        key = _norm(r.name)
+        if any((key == k or key in k or k in key) and abs(lo - c.x) < 0.012 and abs(la - c.y) < 0.009 for k, lo, la in have if k):
+            continue
         e = _num(getattr(r, "end_year", 9999), 9999.0)
         row = {"name": r.name, "lon": round(c.x, 5), "lat": round(c.y, 5), "start": s, "ha": round(float(ha), 1), "tier": "site"}
         if e < 9000:

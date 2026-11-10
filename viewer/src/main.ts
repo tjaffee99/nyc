@@ -26,6 +26,7 @@ import {loadLocalStreetIndex, loadRoads, localStreetLayers, roadLayers, trafficL
 import {events, eventTime, loadCities, localPopulationAt} from './data/tables';
 import {readHash, writeHash} from './url-state';
 import {installCameraControls} from './camera-controls';
+import {initStory} from './story';
 import {CONFIDENCE, CONFIDENCE_COLORS} from './palette';
 
 export const YEAR_MIN = 1609;
@@ -181,6 +182,24 @@ const popArea = $('population-area');
 const infoBox = $('info');
 const legend = $('legend');
 
+// the guided tour (story.ts): it drives the camera and the year
+const story = initStory(
+  map,
+  {
+    getYear: () => state.year,
+    setYear: y => {
+      state.year = y;
+      render();
+    },
+    onStart: () => {
+      setPlaying(false);
+      infoBox.hidden = true;
+    }
+  },
+  YEAR_MIN,
+  YEAR_MAX
+);
+
 slider.min = String(YEAR_MIN);
 slider.max = String(YEAR_MAX);
 slider.value = String(state.year);
@@ -196,12 +215,14 @@ function updateOverlays() {
 }
 
 slider.addEventListener('input', () => {
+  story.pause();
   state.year = Number(slider.value);
   render();
   scheduleHash();
 });
 
 function setPlaying(p: boolean) {
+  if (p) story.exit();
   state.playing = p;
   playBtn.textContent = p ? '❚❚' : '▶';
   playBtn.setAttribute('aria-label', p ? 'Pause' : 'Play');
@@ -231,6 +252,16 @@ function tick(t: number) {
 
 document.addEventListener('keydown', e => {
   if ((e.target as HTMLElement).tagName === 'SELECT') return;
+  if (story.active()) {
+    // the tour has the keys: space pauses, arrows step, escape ends it
+    if (e.code === 'Space') story.toggle();
+    else if (e.key === 'ArrowRight') story.step(1);
+    else if (e.key === 'ArrowLeft') story.step(-1);
+    else if (e.key === 'Escape') story.exit();
+    else return;
+    e.preventDefault();
+    return;
+  }
   if (e.code === 'Space') {
     e.preventDefault();
     setPlaying(!state.playing);

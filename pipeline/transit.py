@@ -920,10 +920,12 @@ def county_report(segs, rules, ohm):
                        "max_abs": float(np.abs(v).max())} for k, v in chk.items()])
     c.round(3).to_csv(out / "county_rail_ohm_check.csv", index=False)
     g = pd.DataFrame([{"system": k[0], "line": k[1], "km_before_ground": v[0], "km_on_made_land": v[1]} for k, v in gr.items() if v[1] > 0])
-    g.round(2).sort_values("km_before_ground", ascending=False).to_csv(out / "county_rail_ground.csv", index=False)
     if len(g):
+        g.round(2).sort_values("km_before_ground", ascending=False).to_csv(out / "county_rail_ground.csv", index=False)
         log(f"transit: counties: {g.km_before_ground.sum():.1f} km of track open before its ground of {g.km_on_made_land.sum():.1f} km on made land "
             f"(data/interim/transit/county_rail_ground.csv; causeways across the marsh are real - reported, not changed)")
+    else:
+        log("transit: counties: no track on made land found (is data/interim/grid_region_landyear.npy built?)")
 
 
 # ---------------------------------------------------------------- rapid transit of the counties
@@ -1024,33 +1026,49 @@ def former_railroads(ground):
 
 
 # ---------------------------------------------------------------- stations
-def station_rows(stations, out_lines, geo, ground, poly):
+def station_rows(stations, out_lines, geo, ground, poly, groups, track_year):
+    """`groups`: 'subway' / 'el' / 'path' / 'lr' per line - a station stands on a line of its own system.
+    `track_year(lon, lat)`: opening year of the railroad track at a place, for stations without a date."""
     lv_xy = np.concatenate(geo)
     lv_li = np.concatenate([np.full(len(g), i) for i, g in enumerate(geo)])
     lv_k = np.concatenate([np.arange(len(g)) for g in geo])
     live = np.array([ol.get("gap") is None for ol in out_lines])
-    trees = {True: cKDTree(lv_xy[live[lv_li]]), False: cKDTree(lv_xy[~live[lv_li]]) if (~live).any() else None}
-    index = {True: np.nonzero(live[lv_li])[0], False: np.nonzero(~live[lv_li])[0]}
+    lv_grp = np.array(groups)[lv_li]
+
+    def tree_of(mask):
+        idx = np.nonzero(mask)[0]
+        return (cKDTree(lv_xy[idx]), idx) if len(idx) else None
+
+    trees = {"subway": tree_of(live[lv_li] & (lv_grp == "subway")), "gone": tree_of(~live[lv_li]), "path": tree_of(lv_grp == "path")}
+    n_line_year = 0
     names = pd.read_csv(TABLES / "transit_station_names.csv", dtype=str, keep_default_na=False)
     out = []
     for r in stations.itertuples():
-        if not r.lon or not r.opened:
+        if not r.lon:
             continue
         lon, lat = float(r.lon), float(r.lat)
         if not poly.contains(Point(lon, lat)):
             continue
+        if r.opened:
+            start = decyear(r.opened)
+        else:  # no opening date found: the opening year of the track it stands on (estimated; see the row's note)
+            start = track_year(lon, lat)
+            if not np.isfinite(start):
+                continue
+            n_line_year += 1
         p = to_utm([lon], [lat])[0]
-        heavy = r.system in ("subway", "sir", "el")
+        heavy = r.system in ("subway", "sir", "el", "path")
+        reach = 80 if r.system == "path" else 45
         d, li, k = np.inf, 0, 0
         if heavy:
             # a closed station sits on a line that is gone when one passes; else on today's line
-            for standing in ((False,) if r.system == "el" else (False, True) if r.closed else (True, False)):
-                t = trees[standing]
+            for key in (("path",) if r.system == "path" else ("gone",) if r.system == "el" else ("gone", "subway") if r.closed else ("subway", "gone")):
+                t = trees[key]
                 if t is None:
                     continue
-                dd, j = t.query(p)
-                if dd < 45:
-                    j = index[standing][j]
+                dd, j = t[0].query(p)
+                if dd < reach:
+                    j = t[1][j]
                     d, li, k = dd, int(lv_li[j]), int(lv_k[j])
                     break
         ol = out_lines[li]
@@ -1058,7 +1076,7 @@ def station_rows(stations, out_lines, geo, ground, poly):
         st = (r.structure or "").strip()
         kind = STRUCT_KIND.get(st) or ("elevated" if "levated" in st else "underground" if "nderground" in st else
                                        "surface" if st else "elevated" if r.system == "el" else "surface")
-        if d < 45:
+        if d < reach:
             a, b = geo[li][max(0, k - 2)], geo[li][min(len(geo[li]) - 1, k + 2)]
             heading = math.degrees(math.atan2(b[0] - a[0], b[1] - a[1]))
             ll = to_ll(geo[li][k:k + 1])
@@ -1074,9 +1092,8 @@ def station_rows(stations, out_lines, geo, ground, poly):
             heading, zt = 0.0, gz + (EL_H if kind == "elevated" else GROUND_H)
             if heavy:
                 kind = "underground" if kind != "elevated" or not r.closed else kind
-        if heavy and d >= 45 and kind != "underground":
+        if heavy and d >= reach and kind != "underground":
             kind = "underground"  # no line to stand on: label only (the viewer draws platforms on a line)
-        start = decyear(r.opened)
         end = decyear(r.closed) if r.closed else 9999.0
         if end <= start:
             continue
@@ -1084,7 +1101,8 @@ def station_rows(stations, out_lines, geo, ground, poly):
              "z": round(zt, 1), "ground": round(gz, 1), "heading": round(heading, 1), "kind": kind, "start": start, "end": end,
              "line": ol["id"], "veh": "bart" if ol["veh"] == "bart" else "ebart"}
         if heavy:  # typical platform length of its division (m), for a viewer that reads it
-            s["platform"] = 61 if r.system == "el" else 91 if r.system == "sir" else 160 if r.line.startswith("IRT") else 183
+            # (PATH: eight 51 ft cars, about 125 m - estimated)
+            s["platform"] = 61 if r.system == "el" else 91 if r.system == "sir" else 125 if r.system == "path" else 160 if r.line.startswith("IRT") else 183
         old = names[(names.system == r.system) & (names.code == r.code)].sort_values("until")
         if len(old):
             per = [{"name": o["name"], "start": round(max(start, decyear(o["from"])), 2), "end": round(decyear(o["until"]), 2)}
@@ -1092,48 +1110,61 @@ def station_rows(stations, out_lines, geo, ground, poly):
             per.append({"name": r.name, "start": per[-1]["end"], "end": end})
             s["names"] = per
         out.append(s)
+    if n_line_year:
+        log(f"transit: {n_line_year} stations without an opening date took the year of their track (estimated)")
     return out
 
 
 # ---------------------------------------------------------------- main
 def main():
-    g, ohm_file = downloads()
+    g, ohm_files = downloads()
     ground = Ground()
     poly = extent_poly()
     openings = pd.read_csv(TABLES / "transit_openings.csv", dtype=str, keep_default_na=False)
     stations = pd.read_csv(TABLES / "transit_stations.csv", dtype=str, keep_default_na=False)
     gt = load_gtfs(g)
     trees = dated_network(openings, gt, stations)
-    ohm = ohm_dated(ohm_file)
+    ohm = ohm_dated(ohm_files)
     rail = read_rail(poly)
 
     segs = subway_tracks(rail, ground, trees, ohm)
     out_lines, geo = subway_lines(gt, segs, ground, trees)
     gone, gone_lines, gone_geo = manual_lines(openings, stations, ground)
     rr = railroad_tracks(rail, ground, ohm, openings)
+    rapid, rapid_geo, rapid_grp = rapid_lines(rr, ground)
     old_rr = former_railroads(ground)
 
     items = (path_items(segs, ground, K_BART, 3.0, poly) + path_items(gone, ground, K_BART, 3.0, poly)
-             + path_items(rr, ground, K_RAIL, 3.0, poly)
+             + path_items([x for x in rr if x["sys"] == "rail"], ground, K_RAIL, 3.0, poly)
+             + path_items([x for x in rr if x["sys"] == "path"], ground, K_BART, 3.0, poly)
+             + path_items([x for x in rr if x["sys"] in ("hblr", "nlr", "lr")], ground, K_LIGHTRAIL, 3.0, poly)
              + path_items([x for x in old_rr if x["kind"] == "rail"], ground, K_RAIL, 3.0, poly)
              + path_items([x for x in old_rr if x["kind"] != "rail"], ground, K_BART, 3.0, poly))
     write_paths3d(VIEWER_DATA / "transit.bin.gz", items)
-    all_lines = out_lines + gone_lines
+    all_lines = out_lines + gone_lines + rapid
     meta = {"origin": list(ORIGIN), "vehicles": VEHICLES, "lines": all_lines}
     (VIEWER_DATA / "transit-lines.json").write_text(json.dumps(meta, separators=(",", ":")))
-    st = station_rows(stations, all_lines, geo + gone_geo, ground, poly)
+    rr_tree, rr_year = cKDTree(np.concatenate([x["xy"] for x in rr])), np.concatenate([x["year"] for x in rr])
+
+    def track_year(lon, lat):
+        dd, ii = rr_tree.query(to_utm([lon], [lat])[0], distance_upper_bound=250.0)
+        return float(rr_year[ii]) if np.isfinite(dd) else float("nan")
+
+    st = station_rows(stations, all_lines, geo + gone_geo + rapid_geo, ground, poly,
+                      ["subway"] * len(out_lines) + ["el"] * len(gone_lines) + rapid_grp, track_year)
     (VIEWER_DATA / "transit-stations.json").write_text(json.dumps(st, separators=(",", ":")))
 
     # ---- report
     km = defaultdict(float)
     for lon, lat, z, kind, width, y0, y1, el in items:
         d = float(np.hypot(np.diff(lon) * 84400, np.diff(lat) * 111320).sum()) / 1000
-        km[("subway/el" if kind == K_BART else "railroad", {0: "ground", 2: "aerial", 4: "tunnel"}[el], "standing" if y1 > 9000 else "gone")] += d
+        km[({K_BART: "subway/el/PATH", K_LIGHTRAIL: "light rail"}.get(kind, "railroad"), {0: "ground", 2: "aerial", 4: "tunnel"}[el],
+            "standing" if y1 > 9000 else "gone")] += d
     for k_, v in sorted(km.items()):
         log(f"transit: {' / '.join(k_)}: {v:.0f} km of track")
     kinds = Counter((s["system"], s["kind"]) for s in st)
-    log(f"transit: {len(st)} stations {dict(kinds)}; {len(all_lines)} service lines, "
-        f"{sum(len(l['lon']) for l in all_lines)} line vertices")
+    log(f"transit: {len(st)} stations {dict(kinds)}; {len(all_lines)} service lines ({len(out_lines)} subway / SIR, {len(gone_lines)} gone, "
+        f"{len(rapid)} PATH / light rail), {sum(len(l['lon']) for l in all_lines)} line vertices")
 
 
 if __name__ == "__main__":

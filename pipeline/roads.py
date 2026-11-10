@@ -98,6 +98,7 @@ ELEV = {"ground": 0, "embankment": 1, "viaduct": 2, "bridge": 3, "tunnel": 4}
 WIDTH = {K_STREET: 9, K_MAJOR: 14, K_FREEWAY: 24, K_HIGHWAY: 16, K_FERRY: 6}
 ROAD_WIDTH = 7  # mode `road`: a colonial road
 DEFAULT_LOCAL, DEFAULT_MAIN, DEFAULT_FREEWAY = 1900.0, 1870.0, 1960.0
+BRIDGE_SAG = 0.03  # a motorway / trunk bridge deck falls at most 3 % below its abutments' level
 COUNTY_BORO = {"061": "1", "005": "2", "047": "3", "081": "4", "085": "5"}
 BORO_NAME = {"1": "Manhattan", "2": "Bronx", "3": "Brooklyn", "4": "Queens", "5": "Staten Island"}
 # the counties around the city: houses stand back from the road, so a street without a
@@ -777,7 +778,7 @@ def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None, 
             conn_count[cid] = conn_count.get(cid, 0) + 1
         segs.append({"i": i, "g": g, "f": f, "s": f * L, "h": h, "tn": tn, "tn_real": tn_real, "conns": conns,
                      "cls": row["class"], "sub": row.subclass, "bounds": row.geometry.bounds, "name": nm,
-                     "id": str(row["id"]), "br": bool(br.mean() >= 0.5)})
+                     "id": str(row["id"]), "br": bool(br.mean() >= 0.5), "brv": br & ~tn})
     # the extract is wider than the map: heights and junctions are worked out on the whole
     # network, but only roads inside the map's extent (+ margin) are written
     inside = in_extent(shapely.points([(sg["bounds"][0] + sg["bounds"][2]) / 2 for sg in segs],
@@ -924,6 +925,28 @@ def freeway_items(ground, fw_routes, lm, date_trunk, streets=None, report=None, 
         H[up] = lift[up]
         n_pin += len(pins[z])
     log(f"roads: {len(ends)} ends of landmark bridge decks, {n_pin} pinned at the model's deck height")
+    # A bridge is level between its abutments. The heights so far are above the ground under
+    # each vertex: over a gorge or a river between high banks (the Bear Mountain Bridge, the
+    # east end of the Tappan Zee Bridge) the deck would follow the ground down to the water.
+    # Every bridge vertex is at least as high as each abutment less BRIDGE_SAG of the way to
+    # it — one shortest-path pass over the bridge vertices, the abutments (the vertices next
+    # to a bridge stretch) as sources. Clearances are not recorded: `estimated`.
+    brm = np.concatenate([sg["brv"] for sg in segs])
+    zabs = vground + H
+    eb = brm[a_] | brm[b_]
+    ea, eb2 = a_[eb], b_[eb]
+    abut = np.unique(np.concatenate([ea[~brm[ea]], eb2[~brm[eb2]]]))
+    abut = abut[~lm_mask[abut] & ~real_tn[abut]]
+    n_lift = 0
+    if len(abut):
+        ztop = float(zabs[abut].max()) + 1.0
+        gb = csr_matrix((np.concatenate([np.maximum(BRIDGE_SAG * wts[eb], 1e-6), ztop - zabs[abut]]),
+                         (np.concatenate([ea, np.full(len(abut), N)]), np.concatenate([eb2, abut]))), shape=(N + 1, N + 1))
+        level = ztop - dijkstra(gb, directed=False, indices=N)[:N]
+        up = brm & np.isfinite(level) & (level - vground > H + 0.5)
+        H[up] = (level - vground)[up]
+        n_lift = int(up.sum())
+    log(f"roads: {n_lift} bridge vertices raised to the level of their abutments")
     # keep junctions continuous after lowering: the lowest member wins, and a road may
     # climb away from a lowered junction at no more than 8 %
     for _ in range(4):

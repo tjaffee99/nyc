@@ -66,7 +66,8 @@ const DEG = 111320;
 async function loadSet(id: string, url: string) {
   const set = decodeSet(id, await loadColumnar(url));
   sets.push(set);
-  if (id === 'roads-region' || id === 'freeways') for (const ch of splitSet(set, 8, 8)) drawSets.push(addDecks(withColumns(ch)));
+  // squares of about 7 km (the sets span the region box, 95 x 100 km, since the counties were added)
+  if (id === 'roads-region' || id === 'freeways') for (const ch of splitSet(set, 12, 14)) drawSets.push(addDecks(withColumns(ch)));
   else drawSets.push(addDecks(withColumns(set)));
 }
 
@@ -158,7 +159,8 @@ function streetTiles(
     visibleMinZoom: loadFrom,
     visibleMaxZoom: loadTo,
     maxCacheSize: 400,
-    extent: [-74.29, 40.47, -73.67, 40.94],
+    // the box of the region extracts (pipeline common.REGION_BBOX): the city and the counties around it
+    extent: [-74.52, 40.47, -73.4, 41.38],
     getTileData: async ({index: t}: any) => {
       if (!have.has(`${t.x}/${t.y}`)) return null;
       return decodeSet(`${id}-${t.x}-${t.y}`, await loadColumnar(`data/region-streets/${z}/${t.x}/${t.y}.bin.gz`));

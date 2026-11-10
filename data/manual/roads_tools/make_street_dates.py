@@ -2,7 +2,8 @@
 applies to given as a box whose edges are computed from Overture's street centre lines (the crossing of the
 named cross street), not typed in.
 columns: street (Overture name, upper-cased; "re:<regex>" = every name matching), year_start, note, source_url,
-rule (blank = not before; set = replaces the estimate), boro (1-5, blank = any), bbox ("lon0 lat0 lon1 lat1":
+rule (blank = not before; set = replaces the estimate), boro (the boroughs 1-5 and / or county FIPS codes the
+row is about, separated by spaces; blank = the five boroughs, never the counties), bbox ("lon0 lat0 lon1 lat1":
 by the segment's middle; blank = the whole street)."""
 import csv
 import sys
@@ -97,6 +98,11 @@ add("EASTERN PARKWAY", 1897, "The extension to Bushwick Avenue had been complete
     W + "Eastern_Parkway", "set", "3", lon_box("Eastern Parkway", "Ralph Avenue", None, (-73.922, 40.669), None))
 add("KINGS HIGHWAY", 1704, "An Indian trail ('the ancient pathway' in a 1652 deed, the 'wagon path' in 1682), made the King's Highway in 1704. Today's boulevard was widened and straightened in the 1920s: where it left the old line the year is estimated (OpenHistoricalMap's trace of the old line is in routes.csv).",
     W + "Kings_Highway_(Brooklyn)", "set", "3")
+# ---- the counties (boro = county FIPS: 36119 Westchester, 34017 Hudson, 34003 Bergen, 34031 Passaic)
+add("BOSTON POST ROAD", 1673, "The first ride to lay out the post road between New York and Boston started 1673-01-01 (the road follows older trails: the year the post route was laid out is used; today's US 1 was widened and in places straightened: estimated where it left the old line).",
+    W + "Boston_Post_Road", "set", "36119")
+add("PATERSON PLANK ROAD", 1851.2, "Estimated: the company which built the Paterson and New York Plank Road received its charter 1851-03-14 (the charter date is used; the plank road across the meadows opened soon after).",
+    W + "Paterson_Plank_Road", "set", "34017 34003 34031")
 
 with open(os.path.join(M.ROOT, "data", "tables", "street_dates.csv"), "w", newline="") as f:
     w = csv.writer(f)

@@ -6,8 +6,8 @@
     revised; chart editions) that look like piers (reach 35 m or more from the bulkhead, attached at one end only,
     length >= 1.4 x width, width <= 100 m, at least 55 % of their bounding rectangle), inside the five boroughs,
     over today's water or over land made after the sheet.  Today's piers: OpenStreetMap man_made=pier polygons.
- 2. one pier across sources = one track: two outlines match when each one's centre lies in the other (10 m slack)
-    and their areas are within a factor 2.5.
+ 2. one pier across sources = one track: two outlines match when half of the smaller lies in the larger, or each
+    one's centre lies in the other (10 m slack), and their areas are within a factor 3.
  3. every track is then looked up on every source that covers it (the classified rasters of extract.py / chart.py):
     'pier' (60 % or more of the outline is solid and it is not plain land), 'water' (30 % or less solid), 'land'
     (the outline lies in land wider than 90 m: filled), else unknown.  The lookup tolerates 6 m of misregistration.
@@ -163,10 +163,10 @@ def boroughs():
 def osm_piers(boros):
     con = duckdb.connect()
     con.execute("INSTALL spatial; LOAD spatial;")
-    rows = con.execute(f"""SELECT id, name, CAST(tags AS VARCHAR), ST_AsWKB(geometry) FROM '{E.RAW}/overture_piers.parquet'
+    rows = con.execute(f"""SELECT id, name, CAST(tags AS VARCHAR), ST_AsWKB(geometry), source_record FROM '{E.RAW}/overture_piers.parquet'
                            WHERE subtype = 'pier' AND ST_GeometryType(geometry) IN ('POLYGON', 'MULTIPOLYGON')""").fetchall()
     out = []
-    for oid, name, tags, wkb in rows:
+    for oid, name, tags, wkb, rec in rows:
         g = to_utm(shapely.from_wkb(bytes(wkb)))
         if not g.is_valid:
             g = g.buffer(0)
@@ -176,7 +176,7 @@ def osm_piers(boros):
         t = json.loads(tags) if tags else {}
         if t.get("floating") == "yes":
             continue
-        out.append(dict(kind="osm", id=oid, name=name or "", tags=t, geom=g, borough=b))
+        out.append(dict(kind="osm", id=oid, name=name or "", tags=t, geom=g, borough=b, record=rec))
     return out
 
 
@@ -244,7 +244,8 @@ def main():
                 continue
             gj = geoms[j]
             ra = g.area / gj.area
-            if 0.4 <= ra <= 2.5 and gj.buffer(10).contains(cents[i]) and g.buffer(10).contains(cents[j]):
+            inter = g.intersection(gj).area / min(g.area, gj.area)
+            if 0.33 <= ra <= 3.0 and (inter >= 0.5 or (gj.buffer(10).contains(cents[i]) and g.buffer(10).contains(cents[j]))):
                 a, b = find(i), find(j)
                 if a != b:
                     parent[a] = b
@@ -261,6 +262,9 @@ def main():
         if osm_m:
             for k, o in enumerate(sorted(osm_m, key=lambda m: -m["geom"].area)):
                 tracks.append(dict(geom=o["geom"], osm=o, maps=maps if k == 0 else [], borough=o["borough"]))
+                if k == 0 and maps:
+                    bm = max(maps, key=lambda m: m["p"]["rect_fill"] + (0.1 if m["src"].startswith("chart_") else 0.0))
+                    tracks[-1]["map_geom"], tracks[-1]["outline_src"] = rectish(bm["geom"]), bm["src"]
         else:
             best = max(maps, key=lambda m: m["p"]["rect_fill"] + (0.1 if m["src"].startswith("chart_") else 0.0))
             tracks.append(dict(geom=rectish(best["geom"]), osm=None, maps=maps, borough=best["borough"], outline_src=best["src"]))
@@ -287,7 +291,8 @@ def main():
         if s.ds is not None:
             s.ds.close()
             s.ds = None
-    json.dump([dict(geom=mapping(to_wgs(t["geom"])), borough=t["borough"], osm=None if t["osm"] is None else dict(id=t["osm"]["id"], name=t["osm"]["name"], tags=t["osm"]["tags"]),
+    json.dump([dict(geom=mapping(to_wgs(t["geom"])), map_geom=None if t.get("map_geom") is None else mapping(to_wgs(t["map_geom"])), borough=t["borough"],
+                    osm=None if t["osm"] is None else dict(id=t["osm"]["id"], name=t["osm"]["name"], tags=t["osm"]["tags"], record=t["osm"].get("record")),
                     outline_src=t.get("outline_src"), n_maps=len(t["maps"]), map_srcs=sorted({m["src"] for m in t["maps"]}), obs=t["obs"]) for t in tracks],
               open(E.OUT / "tracks.json", "w"))
     print("tracks.json written")

@@ -24,6 +24,7 @@ what is missing.
 """
 from __future__ import annotations
 
+import gc
 import gzip
 import json
 import re
@@ -254,7 +255,7 @@ def county_outline(fips):
     return _outlines[fips]
 
 
-def pages_gdf(folder):
+def pages_gdf(folder, columns=None):
     """Every cached GeoJSON page of a folder as one GeoDataFrame (WGS84), or None."""
     import geopandas as gpd
     parts = []
@@ -262,7 +263,9 @@ def pages_gdf(folder):
         with gzip.open(p, "rt") as fh:
             feats = [f for f in json.load(fh)["features"] if f["geometry"]]
         if feats:
-            parts.append(gpd.GeoDataFrame.from_features(feats, crs=4326))
+            part = gpd.GeoDataFrame.from_features(feats, crs=4326)
+            parts.append(part[columns + ["geometry"]] if columns else part)
+        del feats
     if not parts:
         return None
     g = gpd.GeoDataFrame(pd.concat(parts, ignore_index=True), geometry="geometry", crs=4326)
@@ -307,30 +310,56 @@ def load_footprints(key):
     g["area_m2"] = np.round(area, 1)
     g = g[area >= MIN_AREA].reset_index(drop=True)
     log(f"footprints {name}: Overture {n_all} in the county, {n_all - len(g)} under {MIN_AREA} m2 dropped, {bad} repaired, {len(g)} kept")
-    st = pages_gdf(CACHE / "state_footprints" / name)
+    del df
+    gc.collect()
+    st = state_footprints(key)
     n_state = n_fill = 0
     if st is not None:
         st, _ = in_county(st, poly)
         su = st.geometry.to_crs(UTM)
-        st["area_m2"] = np.round(su.area.values, 1)
-        keep = su.area.values >= MIN_AREA
-        st, su = st[keep].reset_index(drop=True), su[keep].reset_index(drop=True)
+        sarea = su.area.values
+        keep = sarea >= MIN_AREA
+        st, su, sarea = st[keep].reset_index(drop=True), su[keep].reset_index(drop=True), sarea[keep]
         n_state = len(st)
         ou = g.geometry.to_crs(UTM)
-        j = gpd.sjoin(gpd.GeoDataFrame({"si": np.arange(len(st))}, geometry=su.values, crs=UTM),
-                      gpd.GeoDataFrame({"oi": np.arange(len(g))}, geometry=ou.values, crs=UTM), predicate="intersects")
-        inter = shapely.area(shapely.intersection(su.values[j.si.values], ou.values[j.oi.values]))
-        cover = pd.Series(inter).groupby(j.si.values).sum().reindex(np.arange(len(st))).fillna(0).values / st.area_m2.values
-        fill = st[(cover < FILL_OVERLAP) & (cover * st.area_m2.values < FILL_AREA)]
-        n_fill = len(fill)
-        add = gpd.GeoDataFrame({"id": "nysbf:" + fill.OBJECTID.astype(int).astype(str), "name": None, "height": np.nan,
+        og = gpd.GeoDataFrame({"oi": np.arange(len(g))}, geometry=ou.values, crs=UTM)
+        covered = np.zeros(len(st))
+        for a in range(0, len(st), 40000):   # in chunks: the machine is shared
+            b = min(a + 40000, len(st))
+            j = gpd.sjoin(gpd.GeoDataFrame({"si": np.arange(a, b)}, geometry=su.values[a:b], crs=UTM), og, predicate="intersects")
+            inter = shapely.area(shapely.intersection(su.values[j.si.values], ou.values[j.oi.values]))
+            np.add.at(covered, j.si.values, inter)
+            del j, inter
+        del og, ou
+        fill = (covered < FILL_OVERLAP * sarea) & (covered < FILL_AREA)
+        n_fill = int(fill.sum())
+        fs = st[fill]
+        add = gpd.GeoDataFrame({"id": "nysbf:" + fs.OBJECTID.astype(int).astype(str), "name": None, "height": np.nan,
                                 "num_floors": np.nan,
-                                "source_dataset": np.where(fill.NYSGEO_SOURCE.fillna("").eq("NYSERDA"),
-                                                           "NYS " + fill.SOURCEDATE.fillna("").astype(str).str[-4:], "NYS microsoft"),
-                                "area_m2": fill.area_m2.values}, geometry=fill.geometry.values, crs=4326)
+                                "source_dataset": np.where(fs.NYSGEO_SOURCE.fillna("").eq("NYSERDA"),
+                                                           "NYS " + fs.SOURCEDATE.fillna("").astype(str).str[-4:], "NYS microsoft"),
+                                "area_m2": np.round(sarea[fill], 1)}, geometry=fs.geometry.values, crs=4326)
+        del st, su, fs
         g = gpd.GeoDataFrame(pd.concat([g, add], ignore_index=True), geometry="geometry", crs=4326)
         log(f"footprints {name}: the State's layer has {n_state} of {MIN_AREA} m2 or more; {n_fill} stand where Overture has none -> added, {len(g)} in all")
     return g, {"overture_in_county": n_all, "state_layer": n_state, "state_fill": n_fill}
+
+
+def state_footprints(key):
+    """The State's footprints of the county (WGS84; OBJECTID, source, source date), cached as one GeoParquet."""
+    import geopandas as gpd
+    name = COUNTIES[key][0]
+    out = OUT / f"state_fp_{key}.parquet"
+    pages = sorted((CACHE / "state_footprints" / name).glob("oid_*.geojson.gz"))
+    if not pages:
+        return None
+    if not (out.exists() and out.stat().st_mtime > max(p.stat().st_mtime for p in pages)):
+        g = pages_gdf(CACHE / "state_footprints" / name, ["OBJECTID", "NYSGEO_SOURCE", "SOURCEDATE"])
+        OUT.mkdir(parents=True, exist_ok=True)
+        g.to_parquet(out)
+        del g
+        gc.collect()
+    return gpd.read_parquet(out)
 
 
 def load_parcels(key):
@@ -344,7 +373,8 @@ def load_parcels(key):
         return None
     if out.exists() and out.stat().st_mtime > max(p.stat().st_mtime for p in pages):
         return gpd.read_parquet(out)
-    g = pages_gdf(CACHE / "parcels" / name).to_crs(UTM)
+    g = pages_gdf(CACHE / "parcels" / name, ["OBJECTID", "MUNI_NAME", "SWIS", "CITYTOWN_NAME", "PRINT_KEY", "PARCEL_ADDR", "PROP_CLASS",
+                                             "YR_BLT", "OWNER_TYPE", "NYS_NAME", "DUP_GEO"]).to_crs(UTM)
     bad = ~g.geometry.is_valid.values
     if bad.any():
         g.loc[bad, "geometry"] = shapely.make_valid(g.geometry.values[bad])
@@ -522,13 +552,13 @@ def cris_points(key):
 def build(key):
     import geopandas as gpd
     name, fips = COUNTIES[key]
-    par = load_parcels(key)
-    if par is None:
+    if not any((CACHE / "parcels" / name).glob("oid_*.geojson.gz")):
         log(f"{name}: no parcels with construction years -> not built (see data/research/counties_ny.md)")
         return None
     fp, counts = load_footprints(key)
-    st = parcel_stacks(par)
-    del par
+    gc.collect()
+    st = parcel_stacks(load_parcels(key))
+    gc.collect()
     u = fp.geometry.to_crs(UTM)
     cen = u.centroid
     inside = u.contains(cen).values

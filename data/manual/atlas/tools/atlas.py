@@ -95,11 +95,18 @@ def layers() -> dict:
 
 
 # --------------------------------------------------------------------------------------------- pixels
+_LIN = None
+
+
 def rgb2lab(rgb):
-    c = rgb.astype(np.float32) / 255
-    c = np.where(c > 0.04045, ((c + 0.055) / 1.055) ** 2.4, c / 12.92)
+    """CIE Lab (D65) of an sRGB uint8 array."""
+    global _LIN
+    if _LIN is None:
+        c = np.arange(256, dtype=np.float32) / 255
+        _LIN = np.where(c > 0.04045, ((c + 0.055) / 1.055) ** 2.4, c / 12.92).astype(np.float32)
+    c = _LIN[rgb]
     M = np.array([[0.4124564, 0.3575761, 0.1804375], [0.2126729, 0.7151522, 0.0721750], [0.0193339, 0.1191920, 0.9503041]], np.float32)
-    xyz = c @ M.T / np.array([0.95047, 1.0, 1.08883], np.float32)
+    xyz = c @ (M.T / np.array([0.95047, 1.0, 1.08883], np.float32))
     f = np.where(xyz > 0.008856, np.cbrt(xyz), 7.787 * xyz + 16 / 116)
     return np.stack([116 * f[..., 1] - 16, 500 * (f[..., 0] - f[..., 1]), 200 * (f[..., 1] - f[..., 2])], -1)
 
@@ -118,12 +125,12 @@ def paper_colour(img, inside=None):
     return np.array([k // 1000000, (k // 1000) % 1000 - 500, k % 1000 - 500], float)
 
 
-def classes(img, paper, st):
+def classes(img, paper, st, lab_all=None):
     """uint8 per pixel: 0 other, 1 ink, 2 frame fill, 3 brick fill, 4 stone (grey) fill, 5 orange band."""
     H = img.shape[0]
     out = np.zeros(img.shape[:2], np.uint8)
     for r0 in range(0, H, 1024):
-        lab = rgb2lab(img[r0:r0 + 1024])
+        lab = rgb2lab(img[r0:r0 + 1024]) if lab_all is None else lab_all[r0:r0 + 1024]
         L, da, db = lab[..., 0], lab[..., 1] - paper[1], lab[..., 2] - paper[2]
         c = np.zeros(L.shape, np.uint8)
         k = st["ink"]
@@ -143,18 +150,13 @@ def classes(img, paper, st):
     return out
 
 
-def thin_lines(img, depth=8.0):
+def thin_lines(img, depth=8.0, L=None):
     """Drawn lines 1-3 pixels wide, whatever they are drawn on: darker than their surroundings by `depth` in L
     (black top-hat over 5 x 5). The outline of a building on its own fill is found this way; the ink class alone
     (dark and neutral) misses it."""
-    H = img.shape[0]
-    out = np.zeros(img.shape[:2], bool)
-    for r0 in range(0, H, 1024):
-        a, b = max(0, r0 - 4), min(H, r0 + 1024 + 4)
-        L = rgb2lab(img[a:b])[..., 0]
-        t = ndi.grey_closing(L, size=(5, 5)) - L > depth
-        out[r0:min(H, r0 + 1024)] = t[r0 - a:r0 - a + min(H, r0 + 1024) - r0]
-    return out
+    if L is None:
+        L = np.concatenate([rgb2lab(img[r0:r0 + 1024])[..., 0] for r0 in range(0, img.shape[0], 1024)])
+    return ndi.grey_closing(L, size=(5, 5)) - L > depth
 
 
 SQ3 = np.ones((3, 3), bool)
@@ -462,27 +464,29 @@ def street_raster(P, shape, f, half_m=8.0):
 
 def wash_raster(img, paper, f):
     """Share of 'wash' per reduced pixel: lightly tinted, not ink, not a strong fill - on these atlases the streets
-    (peach, grey or lilac tint; blocks are left paper)."""
+    (peach, grey or lilac tint; blocks are left paper). Read on every second pixel."""
     H, W = img.shape[:2]
+    g = f // 2
+    sub = img[:H - H % f:2, :W - W % f:2]
     out = np.zeros((H // f, W // f), np.float32)
-    for r0 in range(0, H - H % f, 1024):
-        r1 = min(H - H % f, r0 + 1024)
-        lab = rgb2lab(img[r0:r1, :W - W % f])
+    for r0 in range(0, sub.shape[0], 512 * g):
+        lab = rgb2lab(sub[r0:r0 + 512 * g])
         dL, da, db = lab[..., 0] - paper[0], lab[..., 1] - paper[1], lab[..., 2] - paper[2]
         w = (dL < -3.5) & (dL > -14) & (np.abs(da) < 7) & (db < 14)
-        out[r0 // f:r1 // f] = w.reshape((r1 - r0) // f, f, W // f, f).mean((1, 3))
+        out[r0 // g:r0 // g + w.shape[0] // g] = w.reshape(w.shape[0] // g, g, w.shape[1] // g, g).mean((1, 3))
     return out
 
 
-def window_shifts(P, f=4, win_m=400.0, search_m=30.0, min_q=0.4):
+def window_shifts(P, f=4, win_m=400.0, search_m=30.0, min_q=0.4, F=None):
     """Where the plate's street wash sits best on today's streets, window by window:
     rows (u, v, du, dv, q) in full-resolution pixels (the map content at u, v belongs at u + du, v + dv)."""
     from scipy import signal
-    img = P.img()
-    inside = P.inside(img.shape[:2])
-    paper = paper_colour(img, inside)
-    F = wash_raster(img, paper, f)
-    F = ndi.gaussian_filter(F, 1.0)  # the whole sheet: what lies outside the Map Warper mask is map all the same
+    if F is None:
+        img = P.img()
+        paper = paper_colour(img, P.inside(img.shape[:2]))
+        F = wash_raster(img, paper, f)
+        F = ndi.gaussian_filter(F, 1.0)  # the whole sheet: what lies outside the Map Warper mask is map all the same
+        P._wash = F
     R = street_raster(P, F.shape, f)
     k = P.m.src_mpp * f
     w, sr = int(win_m / k) // 2 * 2, int(round(search_m / k))
@@ -549,7 +553,7 @@ def refine(layer, pid, verbose=True):
             cf.write_text(json.dumps(dict(A=A.tolist(), t=t.tolist(), report=rep)))
             # what is left after the correction
             P2 = Plate(layer, pid, verbose=False)
-            sh2 = window_shifts(P2, search_m=20.0)
+            sh2 = window_shifts(P2, search_m=20.0, F=P._wash)
             if len(sh2):
                 d2 = P2.fwd(sh2[:, :2] + sh2[:, 2:4]) - P2.fwd(sh2[:, :2])
                 rep["after_windows"] = len(sh2)
@@ -616,8 +620,10 @@ def trace_window(P, full, inside, paper, win, core=None):
     img, ins = full[y0:y1, x0:x1], inside[y0:y1, x0:x1]
     if not ins.any():
         return []
-    c = classes(img, paper, st)
-    line = thin_lines(img, st["line_depth"])
+    lab_all = rgb2lab(img)
+    c = classes(img, paper, st, lab_all)
+    line = thin_lines(img, st["line_depth"], lab_all[..., 0])
+    del lab_all
     mpp = P.m.src_mpp
     lo, hi = 0.6 * st["min_m2"] / mpp ** 2, 1.5 * st["max_m2"] / mpp ** 2
     found = []

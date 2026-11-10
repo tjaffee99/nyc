@@ -657,7 +657,8 @@ def process_late(sid: str, force=False):
             small = np.zeros(n + 1, bool)
             for k, sl in enumerate(ndi.find_objects(lab), 1):
                 small[k] = max(sl[0].stop - sl[0].start, sl[1].stop - sl[1].start) <= 14
-            pink = (a[..., 0] >= 200) & (a[..., 0] - a[..., 1] >= 30) & (a[..., 0] - a[..., 2] >= 30) & (a[..., 1] >= 140)
+            # salmon to pink: the scans range from (250, 210, 170) to (240, 190, 180); paper is (245, 246, 210), brown contours darker
+            pink = (a[..., 0] >= 195) & (a[..., 0] - a[..., 1] >= 14) & (a[..., 0] - a[..., 2] >= 45) & (a[..., 1] >= 150)
             for arr, dst, f in ((small[lab], compact, "max"), (core & ~small[lab], large, "max"), (pink, tint, "half")):
                 b = arr.reshape(h // 4, 4, w // 4, 4)
                 b = b.max((1, 3)) if f == "max" else b.mean((1, 3)) >= 0.5
@@ -912,7 +913,7 @@ def export():
         ix = best.index.values
         F.loc[ix, "standing_bin"] = bb["bin"].values
         F.loc[ix, "standing_basis"] = names[best["rank"].values]
-        F.loc[ix, "standing_year"] = bb["start_year"].values
+        F.loc[ix, "standing_year"] = np.floor(bb["start_year"].values)
         F.loc[ix, "standing_year_src"] = bb["year_src"].values
         F.loc[ix, "standing_dist_m"] = best["dist"].round(1).values
         F.loc[ix, "standing_n"] = best["n"].values

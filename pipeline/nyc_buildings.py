@@ -187,13 +187,23 @@ def assign_years(g, pluto, lpc):
     # LPC building database
     lp = lpc.reindex(g.bin.astype("float64").values)
     ly = lp.year.values.astype(float)
-    has = np.isfinite(ly)
+    has = np.isfinite(ly) & (ly <= NOW)
     year[has] = ly[has]
     conf[has] = np.where(lp.exact.values[has].astype(bool), "exact", "estimated")
     src[has] = "lpc"
     log(f"buildings: {int(has.sum())} footprints dated by the LPC building database, "
         f"{int((src == 'assessor').sum())} by a recorded assessor year, {int(is_heap.sum())} on heap years, "
         f"{int((~np.isfinite(raw)).sum())} without any year")
+    # a year stamped on every building of an institutional lot (Rikers Island: 193 buildings
+    # "1933") is the lot's year, not each building's: kept, but an estimate. Housing built in
+    # one campaign (residential lots) keeps its year.
+    bbl = g.pluto_bbl.fillna("").astype(str).values
+    lot_cls = pluto.bldgclass.reindex(bbl).fillna("").astype(str).str[:1].values
+    same = pd.DataFrame({"b": bbl, "y": year}).groupby(["b", "y"]).y.transform("size").values
+    stamp = (src == "assessor") & (bbl != "") & (same >= 5) & ~np.isin(lot_cls, list("ABCDRSL"))
+    conf[stamp] = "estimated"
+    src[stamp] = "lot_year"
+    log(f"buildings: {int(stamp.sum())} buildings carry the year of an institutional lot shared by five or more (estimated)")
     # researched rows
     year, conf, src, end = known_dates(g, year, conf, src)
     lo, hi, ev = evidence_bounds(g)
@@ -386,10 +396,15 @@ def known_dates(g, year, conf, src):
             pairs.append(pd.DataFrame({"k": left[qi], "i": gi}))
         pr = pd.concat(pairs, ignore_index=True).drop_duplicates("i")
         pr = pr[~done[pr.i.values]]
+        # an estimated row does not replace an exact landmark record
+        pr = pr[~(est[pr.k.values] & (src[pr.i.values] == "lpc") & (conf[pr.i.values] == "exact"))]
         i, k = pr.i.values, pr.k.values
         year[i] = sy[k]
         conf[i] = np.where(est[k], "estimated", "exact")
-        src[i] = "known"
+        # (only a row that is not an estimate counts as a record: for the ground rule, as
+        # evidence of ground, against the atlases)
+        owner = t.id.astype(str).str.startswith("ll84-").values
+        src[i] = np.where(est[k], np.where(owner[k], "owner_reported", "known_est"), "known")
         e_ok = np.isfinite(ey[k]) & (ey[k] < 9000)
         end[i[e_ok]] = ey[k][e_ok]
         done[i] = True
