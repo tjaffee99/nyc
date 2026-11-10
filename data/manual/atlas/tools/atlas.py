@@ -579,26 +579,32 @@ def footprints(box_local, pad=30.0):
 
 
 def match(polys, box):
-    """Each traced polygon against today's footprints: best IoU, centroid offset to that footprint, its year."""
+    """Each traced polygon against today's footprints: best IoU, centroid offset to that footprint, its recorded
+    year, and the share of the traced outline lying on pre-war footprints (recorded year <= 1940 or none)."""
     fp, yr, _ = footprints(box)
     n = len(polys)
     iou = np.zeros(n)
     off = np.full((n, 2), np.nan)
     fyear = np.zeros(n, int)
+    cover = np.zeros(n)
     if len(fp) == 0 or n == 0:
-        return iou, off, fyear
+        return iou, off, fyear, cover
     tree = shapely.STRtree(fp)
-    a, b = tree.query(polys, predicate="intersects")
-    inter = shapely.area(shapely.intersection(np.asarray(polys, object)[a], fp[b]))
-    union = shapely.area(np.asarray(polys, object)[a]) + shapely.area(fp[b]) - inter
+    pa = np.asarray(polys, object)
+    a, b = tree.query(pa, predicate="intersects")
+    inter = shapely.area(shapely.intersection(pa[a], fp[b]))
+    union = shapely.area(pa[a]) + shapely.area(fp[b]) - inter
     v = inter / np.maximum(union, 1e-9)
+    pre = (yr[b] == 0) | (yr[b] <= 1940)
+    np.add.at(cover, a[pre], inter[pre])
+    cover = np.minimum(1.0, cover / np.maximum(shapely.area(pa), 1e-9))
     for i, j, w in zip(a, b, v):
         if w > iou[i]:
             iou[i] = w
             ci, cj = polys[i].centroid, fp[j].centroid
             off[i] = (cj.x - ci.x, cj.y - ci.y)
             fyear[i] = yr[j]
-    return iou, off, fyear
+    return iou, off, fyear, cover
 
 
 def trace_window(P, full, inside, paper, win, core=None):
@@ -666,7 +672,7 @@ def trace(layer, pid, save=True, verbose=True, window=None, tile=2000, margin=22
         stats = _stats(P, out, paper)
     else:
         polys = [wkb.loads(o["geom"]) for o in out]
-        iou, off, fy = match(polys, shapely.MultiPolygon(polys).bounds if polys else (0, 0, 1, 1))
+        iou, off, fy, cov = match(polys, shapely.MultiPolygon(polys).bounds if polys else (0, 0, 1, 1))
         for o, i in zip(out, iou):
             o["iou"] = float(i)
         stats = dict(plate=P.id, n=len(out), coincide=int((iou > 0.5).sum()))
@@ -686,9 +692,9 @@ def _stats(P, out, paper=None):
     polys = [wkb.loads(o["geom"]) for o in out]
     ml = P.mask_local()
     box = ml.bounds if ml is not None else shapely.MultiPolygon(polys).bounds
-    iou, off, fy = match(polys, box)
-    for o, i, d, y in zip(out, iou, off, fy):
-        o["iou"], o["off"], o["fyear"] = float(i), (float(d[0]), float(d[1])), int(y)
+    iou, off, fy, cov = match(polys, box)
+    for o, i, d, y, cv in zip(out, iou, off, fy, cov):
+        o["iou"], o["off"], o["fyear"], o["cover"] = float(i), (float(d[0]), float(d[1])), int(y), float(cv)
     hit = iou > 0.5
     stats = dict(plate=P.id, image=P.m.rec["imageId"], name=P.m.rec["name"][:90], gcps=int(P.m.keep.sum()), model=P.m.model,
                  cv_rms=round(P.m.cv_rms, 1), mpp=round(P.m.src_mpp, 3), n=len(out),
@@ -861,7 +867,7 @@ def export(layer, max_off=8.0):
             feats.append(dict(type="Feature", properties=dict(
                 id=f"{spec['source']}_{pl['sheet']}_{k}", map_year=spec["map_year"], material=o["material"],
                 source=spec["source"], sheet=pl["sheet"], plate=int(pl["id"]), area_m2=round(g.area, 1),
-                on_today=bool(o.get("iou", 0) > 0.5)), geometry=sg.mapping(_ll(g))))
+                on_today=bool(o.get("iou", 0) > 0.5), today_cover=round(o.get("cover", 0.0), 2)), geometry=sg.mapping(_ll(g))))
         st["exported"], st["duplicates_dropped"], st["status"] = len(feats) - n0, int((~keep).sum()), "ok"
         rep.append(st)
         if d.get("mask"):

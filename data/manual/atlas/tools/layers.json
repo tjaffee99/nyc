@@ -139,9 +139,76 @@
   "style": "bromley_city",
   "plates": [
    {
+    "id": 8224,
+    "sheet": "image 1516793",
+    "name": "Part of Secions 5 & 6."
+   },
+   {
+    "id": 8225,
+    "sheet": "31",
+    "name": "[Plate 31: Bounded by Second Avenue, E. 101st Street, East River, Avenue B and and E. 84th Street.]"
+   },
+   {
+    "id": 8226,
+    "sheet": "32",
+    "name": "[Plate 32: Bounded by E. 108th Street, East River, E. 101st Street, Second Avenue, E. 97th Street and (Central"
+   },
+   {
+    "id": 8230,
+    "sheet": "36",
+    "name": "Plate 36: Bounded by W. 97th Street, Central Park West, W. 86th Street, and (Hudson River) Riverside Drive."
+   },
+   {
+    "id": 8227,
+    "sheet": "image 1516796",
+    "name": "Part of Section 6 : New York City."
+   },
+   {
+    "id": 8231,
+    "sheet": "37",
+    "name": "[Plate 37: Bounded by W. 108th Street, Central Park West, W. 97th Street and (Hudson River) Riverside Drive.]"
+   },
+   {
+    "id": 8228,
+    "sheet": "34",
+    "name": "[Plate 34: Bounded by Lenox Avenue, W. 125th Street, Third Avenue, E. 108th Street, Fifth Avenue and (Central "
+   },
+   {
+    "id": 8186,
+    "sheet": "38",
+    "name": "Plate 38: Bounded by (Hudson River) Riverside Park/Drive, W. 125th Street, 9th Avenue, W. 123rd Street, 10th A"
+   },
+   {
+    "id": 8202,
+    "sheet": "image 1516771",
+    "name": "Part of Section 6: New York City."
+   },
+   {
     "id": 8188,
-    "sheet": "40"
+    "sheet": "40",
+    "name": "Plate 40: Bounded by W. 136th Street, Fifth Avenue, W. 125th Street, and Convent Avenue."
+   },
+   {
+    "id": 8187,
+    "sheet": "image 1516756",
+    "name": "Part of Section 7: New York City."
+   },
+   {
+    "id": 8201,
+    "sheet": "42",
+    "name": "Plate 42: Bounded by W. 147th Street, Hudson River, Madison Avenue, W. 136th Street, and Avenue St. Nicholas."
+   },
+   {
+    "id": 8204,
+    "sheet": "image 1516773",
+    "name": "Part of Sections 6, 7 & 8: New York City."
+   },
+   {
+    "id": 8205,
+    "sheet": "image 1516774",
+    "name": "Part of Section 8: New York City."
    }
-  ]
+  ],
+  "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the city of New York, Manhattan Island, 1897; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)"
  }
 }

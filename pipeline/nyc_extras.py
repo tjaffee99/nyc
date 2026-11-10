@@ -147,6 +147,9 @@ def early_sites():
         lenape = kind.startswith("lenape") or mat == "bark"
         h = _num(getattr(r, "height_m", np.nan), 3.0 if lenape else 5.0)
         scale = VILLAGE_SCALE if lenape else 1.0
+        # the Dutch and English villages were single streets (Midwout, Nieuw Haarlem, Vlissingen):
+        # their houses are set along the row's bearing (the nearest road of today: an estimate)
+        street = kind == "house" and n >= 6 and spread >= 150
         placed = []
         for i in range(max(n, 1)):
             if i == 0 and n == 1:
@@ -156,9 +159,17 @@ def early_sites():
                 # (and off the water and marsh of the time: a dwelling that finds no dry spot is left out)
                 found = False
                 for t_ in range(24):
-                    ang = 2 * math.pi * h01(f"{r.id}a{i}_{t_}")
-                    rad = max(spread, 3 * max(w, d)) * math.sqrt(h01(f"{r.id}r{i}_{t_}"))
-                    dx, dy = rad * math.sin(ang), rad * math.cos(ang)
+                    if street:
+                        # a street village: houses on both sides of one street (bearing rot)
+                        along = (2 * h01(f"{r.id}a{i}_{t_}") - 1) * spread
+                        across = (14 + 16 * h01(f"{r.id}r{i}_{t_}")) * (1 if h01(f"{r.id}s{i}") < 0.5 else -1)
+                        br = math.radians(rot)
+                        dx = along * math.sin(br) + across * math.cos(br)
+                        dy = along * math.cos(br) - across * math.sin(br)
+                    else:
+                        ang = 2 * math.pi * h01(f"{r.id}a{i}_{t_}")
+                        rad = max(spread, 3 * max(w, d)) * math.sqrt(h01(f"{r.id}r{i}_{t_}"))
+                        dx, dy = rad * math.sin(ang), rad * math.cos(ang)
                     if all(math.hypot(dx - px, dy - py) > 1.6 * scale * max(w, d) for px, py in placed) \
                             and not natural_wet(X[k] + dx, Y[k] + dy)[0]:
                         found = True
@@ -170,7 +181,7 @@ def early_sites():
             if lenape and abs(w - d) < 1.5 and max(w, d) <= 8:
                 shape = _round(max(w, d) * scale)                      # a wigwam
             else:
-                shape = _rect(w * scale, d * scale, rot if n == 1 else rot + 180 * h01(f"{r.id}o{i}"))
+                shape = _rect(w * scale, d * scale, rot if (n == 1 or street) else rot + 180 * h01(f"{r.id}o{i}"))
             poly = shapely.affinity.translate(shape, X[k] + dx, Y[k] + dy)
             rows.append({"id": f"early:{r.id}:{i}" if n > 1 else f"early:{r.id}", "map_year": int(_num(r.end_year, 1700)) - 1,
                          "boro": "", "colors": "", "name": r.name if n == 1 else f"{r.name} (one of {n} dwellings; position generated)",

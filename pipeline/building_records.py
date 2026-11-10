@@ -825,7 +825,8 @@ def demolished(c, heaps, rep):
 def demolitions_without_outline(c, rep):
     """DOB demolition jobs against OTI's historic layer: how complete the layer is, and the signed-off
     demolitions whose BIN is in neither layer (a building certainly gone, no outline in the city's data)."""
-    c.execute(f"""create table hbin as select distinct try_cast("BIN" as bigint) bin from {csv('historic')}""")
+    c.execute(f"""create table hbin as select distinct try_cast("BIN" as bigint) bin from {csv('historic')}
+                  where try_cast("BIN" as bigint) is not null""")
     c.execute("""create table dmb as
         select bin, max(signoff) signoff, min(first_permit) first_permit, max(est) storeys, max(eh) height_ft,
                any_value(boro) boro, any_value(block) block, any_value(lot) lot, any_value(house) house,
