@@ -176,6 +176,106 @@
     "sheet": "40",
     "name": "Jersey City, V. 1, Double Page Plate No. 40 [Map bounded by E. 40th St., New York Bay, E. 21st St.] / compiled"
    }
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 6.5,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 84
+   }
+  }
+ },
+ "hudson_jersey_city_1866": {
+  "map_year": 1866,
+  "atlas": "Insurance maps of Jersey City, N.J., 1866, vol. 1 (Spielmann & Brush)",
+  "source": "spielmann_brush_jersey_city_1866",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Insurance maps of Jersey City, New Jersey, 1866; NYPL Map Division, public domain); control points: Map Warper dump (CC0)",
+  "plates": [
+   {
+    "id": 28496,
+    "sheet": "2",
+    "name": "Jersey City, V. 1, Double Page Plate No. 2 [Map bounded by Hudson St., York St., Atlantic St., Essex St.]"
+   },
+   {
+    "id": 28497,
+    "sheet": "5",
+    "name": "Jersey City, V. 1, Double Page Plate No. 5 [Map bounded by Washington St., Essex St., Hudson St., South St.]"
+   },
+   {
+    "id": 28499,
+    "sheet": "9",
+    "name": "Jersey City, V. 1, Double Page Plate No. 9 [Map bounded by Van Vorst St., Essex St., Washington St., Water St."
+   },
+   {
+    "id": 28500,
+    "sheet": "11",
+    "name": "Jersey City, V. 1, Double Page Plate No. 11 [Map bounded by Henderson St., Railroad Ave., Warren St., Washingt"
+   },
+   {
+    "id": 28501,
+    "sheet": "16",
+    "name": "Jersey City, V. 1, Double Page Plate No. 16 [Map bounded by Grove St., Newark Ave., Henderson St., Van Vorst S"
+   },
+   {
+    "id": 28502,
+    "sheet": "17",
+    "name": "Jersey City, V. 1, Double Page Plate No. 17 [Map bounded by Grove St., S. 7th St., Provost St., Steuben St., N"
+   },
+   {
+    "id": 28504,
+    "sheet": "19",
+    "name": "Jersey City, V. 1, Double Page Plate No. 19 [Map bounded by Jersey Ave., Bright St., Grove St., Essex St.]"
+   },
+   {
+    "id": 28505,
+    "sheet": "29",
+    "name": "Jersey City, V. 1, Double Page Plate No. 29 [Map bounded by Prior St., S. 7th St., Colgate St., Mill Creek]"
+   }
+  ]
+ },
+ "hudson_jersey_city_1873": {
+  "map_year": 1873,
+  "atlas": "Insurance maps of Jersey City, N.J., 1873, vol. 4 (Spielmann & Brush)",
+  "source": "spielmann_brush_jersey_city_1873",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Insurance maps of Jersey City, N.J., 1873; NYPL Map Division, public domain); control points: Map Warper dump (CC0)",
+  "plates": [
+   {
+    "id": 28490,
+    "sheet": "29",
+    "name": "Jersey City, V. 4, Double Page Plate No. 29 [Map bounded by Central Ave., Bowers St., Webster Ave., Franklin S"
+   },
+   {
+    "id": 28491,
+    "sheet": "30",
+    "name": "Jersey City, V. 4, Double Page Plate No. 30 [Map bounded by Webster Ave., Griffith St., Paterson Plank Rd., Ho"
+   },
+   {
+    "id": 28492,
+    "sheet": "31",
+    "name": "Jersey City, V. 4, Double Page Plate No. 31 [Map bounded by Webster Ave., South St., Paterson and New York Pla"
+   }
+  ]
+ },
+ "hudson_hoboken_1887": {
+  "map_year": 1887,
+  "atlas": "Insurance maps of Hudson County, New Jersey, vol. 8 (Chas. B. Brush, 1887)",
+  "source": "brush_hudson_1887",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Insurance maps of Hudson County, New Jersey, 1887; NYPL Map Division, public domain); control points: Map Warper dump (CC0)",
+  "plates": [
+   {
+    "id": 26155,
+    "sheet": "2",
+    "name": "Hudson County, V. 8, Double Page Plate No. 2 [Map bounded by Summit Ave., Courtland St., Spring St., Paterson "
+   },
+   {
+    "id": 26156,
+    "sheet": "3",
+    "name": "Hudson County, V. 8, Double Page Plate No. 3 [Map bounded by Kerrigan Ave., Charles St., Courtland St., Bergen"
+   }
   ]
  }
 }

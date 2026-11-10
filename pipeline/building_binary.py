@@ -127,7 +127,8 @@ def source_label(src: str) -> str:
     if src.startswith("evidence_by:topo"):
         return f"drawn on the USGS map surveyed in {src[-4:]}: built by then"
     if src == "modelled":
-        return "no public construction year: estimated from the census's count of homes by decade built in the block and the town's growth"
+        return ("no public construction year: modelled from the census's count of homes by decade built in the block "
+                "group and the town's growth (typically within about 20 years; not a record)")
     if src.startswith("gapfill"):
         ev = src.split(":", 1)[1] if ":" in src else ""
         what = {"aerial1924": "the 1924 aerial photograph shows a building here", "aerial1951": "the 1951 aerial photograph shows a building here",

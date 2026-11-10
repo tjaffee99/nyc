@@ -16,7 +16,11 @@ Not a pipeline stage: it writes hand-checked data into data/manual/atlas/ (commi
                                                         # for checking by eye
     python -I atlas.py colours <layer> <plate> <x0,y0,x1,y1 px> <out.png>   # class picture of a crop (calibration)
 
-<layer> = a key of layers.json (next to this file); <plate> = NYPL Map Warper map id.
+<layer> = a key of layers.json (next to this file); <plate> = NYPL Map Warper map id, or an id of gcps_own.json
+(plates that are not in the Map Warper dump, with control points made here: 900019, 900035).
+layers.json per layer: atlas, map_year, source, style, style_override, plates (id, sheet, skip), and optionally
+clip (north_of: two lon / lat points; outside_layers: coverage of other layers to stay out of), frame_yellow,
+stone_min_m2 / stone_min_width_m / stone_max_aspect.
 
 Method (details, residuals and what was seen in data/manual/atlas/README.md):
   * scan and control points: the Map Warper record of each plate in the NYC Space/Time Directory dump (CC0) and
@@ -29,12 +33,14 @@ Method (details, residuals and what was seen in data/manual/atlas/README.md):
   * footprints: pixel classes in CIE Lab relative to the plate's paper colour (frame = the yellow / ochre fill,
     brick = the rose / carmine fill, stone = grey, ink). County plates: property bands of the same pigments are
     removed by width and by the ink outline a building has all round. City plates: the fill of a row is cut at
-    the party walls (the connected thin lines). The export drops band pieces, lettering and washed lots.
+    the party walls (the connected thin lines); with a `blue` setting, round pale blue fills are gasholders.
+    The export drops band pieces, lettering, washed lots and water, and applies the layer's clip.
 Local coordinates: X = UTM 18N easting - 580000, Y = northing - 4500000 (metres), as in the extents tools.
 """
 from __future__ import annotations
 
 import json
+import os
 import pickle
 import sys
 import time
@@ -1109,7 +1115,8 @@ def export(layer, max_off=8.0):
                 keep[i[inter > 0.3 * small]] = False
         # grey ("stone") outlines: bold block numbers and street lettering print in the same grey and come out as
         # small ragged pieces; a stone building is kept only if it is 80 m2 or more and fills 60 % of its rectangle
-        # ... and is 6 m wide or more (the grey strip of a row's stone fronts, grey lines along tracks and kerbs).
+        # ... and, where the layer sets them (`stone_min_m2`, `stone_min_width_m`, `stone_max_aspect`), is large,
+        # wide and compact enough not to be the grey strip of a row's stone fronts or a grey line along a kerb.
         # Pale blue ("iron") outlines are gasholders when round - about as long as wide, filling 60-90 % of their
         # rectangle (a circle fills 79 %), 250 m2 or more; every other blue outline is water between piers.
         lettering, water = 0, 0
@@ -1121,7 +1128,8 @@ def export(layer, max_off=8.0):
             e1_, e2_ = np.hypot(*(xy_[1] - xy_[0])), np.hypot(*(xy_[2] - xy_[1]))
             w_, l_ = min(e1_, e2_), max(e1_, e2_)
             fr_ = g.area / max(r_.area, 1e-9)
-            if o["material"] == "stone" and (g.area < 80.0 or fr_ < 0.6 or w_ < 6.0):
+            if o["material"] == "stone" and (g.area < spec.get("stone_min_m2", 80.0) or fr_ < 0.6 or w_ < spec.get("stone_min_width_m", 0.0)
+                                             or l_ >= spec.get("stone_max_aspect", 1e9) * w_):
                 keep[k] = False
                 lettering += 1
             elif o["material"] == "iron" and not (g.area >= 250.0 and l_ <= 1.3 * w_ and 0.6 <= fr_ <= 0.9):
@@ -1209,8 +1217,12 @@ def export(layer, max_off=8.0):
                 geometry=sg.mapping(_ll(m))))
     crs = {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}}
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / f"{layer}.geojson").write_text(json.dumps(dict(type="FeatureCollection", name=layer, crs=crs, features=feats), separators=(",", ":")))
-    (OUT / f"{layer}_coverage.geojson").write_text(json.dumps(dict(type="FeatureCollection", name=layer + "_coverage", crs=crs, features=cov), separators=(",", ":")))
+    def put(name, text):                                      # written whole or not at all (a rebuild may be reading)
+        tmp = OUT / (name + ".tmp")
+        tmp.write_text(text)
+        os.replace(tmp, OUT / name)
+    put(f"{layer}.geojson", json.dumps(dict(type="FeatureCollection", name=layer, crs=crs, features=feats), separators=(",", ":")))
+    put(f"{layer}_coverage.geojson", json.dumps(dict(type="FeatureCollection", name=layer + "_coverage", crs=crs, features=cov), separators=(",", ":")))
     # checks on the written layer
     g = np.asarray(acc, object)
     area = shapely.area(g) if len(g) else np.array([])
@@ -1225,7 +1237,7 @@ def export(layer, max_off=8.0):
                invalid=int((~shapely.is_valid(g)).sum()) if len(g) else 0,
                area_out_of_range=int(((area < 15) | (area > mx)).sum()), outside_coverage=int((~inside).sum()),
                coverage_km2=round(union.area / 1e6, 2) if union is not None else 0)
-    (OUT / f"{layer}_stats.json").write_text(json.dumps(dict(total=tot, plates=rep), indent=1))
+    put(f"{layer}_stats.json", json.dumps(dict(total=tot, plates=rep), indent=1))
     print(json.dumps(tot))
     for r in rep:
         print(r.get("sheet"), r.get("plate"), r.get("status"), "n", r.get("n"), "exp", r.get("exported"), "coinc", r.get("coincide"), r.get("share"),

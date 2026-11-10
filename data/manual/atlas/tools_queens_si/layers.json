@@ -563,7 +563,17 @@
     "sheet": "image 1693974",
     "name": "Queens, Vol. 2, Part of Ward Two Corona Park; [Map bounded by Corona Ave., Mill Creek, Wal"
    }
-  ]
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 5.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 84
+   },
+   "outline": 0.4,
+   "stone": null
+  }
  },
  "queens_flushing_1901": {
   "map_year": 1901,
@@ -677,7 +687,17 @@
     "sheet": "21",
     "name": "Queens, Vol. 3, Double Page Plate No. 21; Part of ward Three Sub Plan; [Map bounded by Lit"
    }
-  ]
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 5.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 84
+   },
+   "outline": 0.4,
+   "stone": null
+  }
  },
  "queens_jamaica_1901": {
   "map_year": 1901,
@@ -730,6 +750,1365 @@
     "id": 17282,
     "sheet": "23",
     "name": "Queens, V. 1, Double Page Plate No. 23; Part of Far Rockaway, Ward 5; [Map bounded by Corn"
+   }
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 5.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 84
+   },
+   "outline": 0.4,
+   "stone": null
+  }
+ },
+ "queens_bromley_1909": {
+  "map_year": 1909,
+  "atlas": "Atlas of the city of New York, borough of Queens, Long Island City, Newtown, Flushing, Jamaica, Rockaway... (Bromley, 1909)",
+  "source": "bromley_queens_1909",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Bromley Queens 1909; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 8125,
+    "sheet": "1",
+    "name": "[Plate 1: Bounded by (East River) River Street, Dock Street, Front Street, Hunterspoint Av"
+   },
+   {
+    "id": 17582,
+    "sheet": "1",
+    "name": "[Plate 1: Bounded by (East River) River Street, Dock Street, Front Street, Hunterspoint Av"
+   },
+   {
+    "id": 8126,
+    "sheet": "2",
+    "name": "[Plate 2: Bounded by (East River) Vernon Avenue, Boulevard, Fulton Avenue, Mill Street, Or"
+   },
+   {
+    "id": 8144,
+    "sheet": "4",
+    "name": "[Plate 4: Bounded by Rapelje Avenue, Woolsey Avenue, Flushing Avenue, Old Bowery Bay Road,"
+   },
+   {
+    "id": 8145,
+    "sheet": "5",
+    "name": "[Plate 5: Bounded by (Con. Ed. Gas Co. of N.Y.)Winthrop Avenue, Blackwell Avenue, Berrian "
+   },
+   {
+    "id": 8147,
+    "sheet": "7",
+    "name": "[Plate 7: Bounded by Maspeth Avenue, Maurice Avenue, Juniper Avenue, (Mount Olivet Cemeter"
+   },
+   {
+    "id": 8141,
+    "sheet": "13",
+    "name": "[Plate 13: Bounded by Astoria Road, Middleburg Avenue, Woodside Avenue, Bowery Bay Road, J"
+   },
+   {
+    "id": 8142,
+    "sheet": "14",
+    "name": "[Plate 14: Bounded by Railroad Avenue, Myrtle Avenue, Corona Avenue, North Hempstead Plank"
+   },
+   {
+    "id": 8118,
+    "sheet": "17",
+    "name": "[Plate 17: Bounded by Bowery Bay Road, Shore Road, N. Beach Avenue, Maple Avenue, Old Bowe"
+   },
+   {
+    "id": 8114,
+    "sheet": "18",
+    "name": "[Plate 18: Bounded by Remsen Street, North Hempstead Plank Road, Corona Avenue, Strongs Ca"
+   },
+   {
+    "id": 8119,
+    "sheet": "21",
+    "name": "[Plate 21: Bounded by (Mill Creek) Bayside Avenue, Congress Avenue, Myrtle Avenue, Whitest"
+   },
+   {
+    "id": 8129,
+    "sheet": "23",
+    "name": "[Plate 23: Bounded by (East River) Avenue G, North Boulevard, N. 20th Street, Avenue C, Bo"
+   },
+   {
+    "id": 8135,
+    "sheet": "26",
+    "name": "[Plate 26: Willets Point Road (Little Bay), Bell Avenue (Little Neck Bay), Bayside Road an"
+   },
+   {
+    "id": 8133,
+    "sheet": "30",
+    "name": "[Plate 30: Bounded by Nassau Road, Broadway, Clinton Avenue, East Alley Road, Little Neck "
+   },
+   {
+    "id": 8112,
+    "sheet": "31",
+    "name": "[Plate 31: Bounded by New York and Rockaway Beach, Ocean Avenue, Freeland Avenue, Flushing"
+   },
+   {
+    "id": 8106,
+    "sheet": "32",
+    "name": "[Plate 32: Bounded by (Forest Park) Magnolia Avenue, Union Place, Tulip Street, Cleveland "
+   },
+   {
+    "id": 8096,
+    "sheet": "38",
+    "name": "[Plate 38: Bounded by Hillside Avenue, Rocky Hill Road, Hamilton Avenue, Jericho Turnpike,"
+   },
+   {
+    "id": 8099,
+    "sheet": "39",
+    "name": "[Plate 39: Bounded by Chichester Ave., Claremont Ave., Queens Blvd., Hempstead and Jamaica"
+   },
+   {
+    "id": 8109,
+    "sheet": "40",
+    "name": "[Plate 40: Bounded by Old South Road, Centerville Avenue, Rockway Plank Road, Road to Berg"
+   },
+   {
+    "id": 8110,
+    "sheet": "42",
+    "name": "[Plate 42: Bounded by Central Avenue, (Springfield, Laurelton, Rosedale Terrace) Springfie"
+   },
+   {
+    "id": 8111,
+    "sheet": "44",
+    "name": "[Plate 44: Bounded by (Banister Creek) Somerset Avenue, (Atlantic Ocean) Jarvis Lane, Sout"
+   },
+   {
+    "id": 8104,
+    "sheet": "45",
+    "name": "[Plate 45: Bounded by Horton Place, Remsen Avenue, Central Avenue, (Inlet, Atlantic Ocean)"
+   },
+   {
+    "id": 8097,
+    "sheet": "image 1516369",
+    "name": "Part of the Borough of Queens, Jamaica, Ward 4."
+   },
+   {
+    "id": 8098,
+    "sheet": "image 1516370",
+    "name": "Part of the Borough of Queens, Far Rockaway, Ward 5."
+   },
+   {
+    "id": 8100,
+    "sheet": "image 1516372",
+    "name": "Part of the Borough of Queens, Jamaica, Ward 4."
+   },
+   {
+    "id": 8101,
+    "sheet": "image 1516373",
+    "name": "Part of the Borough of Queens, Jamaica, Ward 4."
+   },
+   {
+    "id": 8102,
+    "sheet": "image 1516374",
+    "name": "Part of the Borough of Queens, Jamaica, Ward 4."
+   },
+   {
+    "id": 8103,
+    "sheet": "image 1516375",
+    "name": "Part of the Borough of Queens, Jamaica, Ward 4."
+   },
+   {
+    "id": 8105,
+    "sheet": "image 1516377",
+    "name": "Part of the Borough of Queens, Far Rockaway, Ward 5."
+   },
+   {
+    "id": 8107,
+    "sheet": "image 1516379",
+    "name": "Part of the Borough of Queens, Jamaica, Ward 4."
+   },
+   {
+    "id": 8108,
+    "sheet": "image 1516380",
+    "name": "Part of the Borough of Queens, Jamaica, Ward 4."
+   },
+   {
+    "id": 8113,
+    "sheet": "image 1516385",
+    "name": "Part of the Borough of Queens, New town, Ward 2."
+   },
+   {
+    "id": 8115,
+    "sheet": "image 1516387",
+    "name": "Part of the Borough of Queens, Flushing, Ward 3."
+   },
+   {
+    "id": 8116,
+    "sheet": "image 1516388",
+    "name": "Part of the Borough of Queens, Flushing, Ward 3."
+   },
+   {
+    "id": 8117,
+    "sheet": "image 1516389",
+    "name": "Part of the Borough of Queens, New town, Ward 2."
+   },
+   {
+    "id": 8127,
+    "sheet": "image 1516399",
+    "name": "Part of the Borough of Queens, Flushing, Ward 3."
+   },
+   {
+    "id": 8128,
+    "sheet": "image 1516400",
+    "name": "Part of the Borough of Queens, Long Island City, Ward 1."
+   },
+   {
+    "id": 8130,
+    "sheet": "image 1516402",
+    "name": "Part of the Borough of Queens, Flushing, Ward 3."
+   },
+   {
+    "id": 8131,
+    "sheet": "image 1516403",
+    "name": "Part of the Borough of Queens, Flushing, Ward 3."
+   },
+   {
+    "id": 8132,
+    "sheet": "image 1516404",
+    "name": "Part of the Borough of Queens, Flushing, Ward 3."
+   },
+   {
+    "id": 8134,
+    "sheet": "image 1516406",
+    "name": "Part of the Borough of Queens, Flushing, Ward 3."
+   },
+   {
+    "id": 8136,
+    "sheet": "image 1516408",
+    "name": "Part of the Borough of Queens, Flushing, Ward 3."
+   },
+   {
+    "id": 8137,
+    "sheet": "image 1516409",
+    "name": "Part of the Borough of Queens, New town, Ward 2."
+   },
+   {
+    "id": 8138,
+    "sheet": "image 1516410",
+    "name": "Part of the Borough of Queens, New town, Ward 2."
+   },
+   {
+    "id": 8139,
+    "sheet": "image 1516411",
+    "name": "Part of the Borough of Queens, New town, Ward 2."
+   },
+   {
+    "id": 8140,
+    "sheet": "image 1516412",
+    "name": "Part of the Borough of Queens, New town, Ward 2."
+   },
+   {
+    "id": 8143,
+    "sheet": "image 1516415",
+    "name": "Part of the Borough of Queens, New town, Ward 2."
+   },
+   {
+    "id": 8146,
+    "sheet": "image 1516418",
+    "name": "Part of the Borough of Queens, New town, Ward 2."
+   }
+  ]
+ },
+ "queens_hyde_1907_lic": {
+  "map_year": 1907,
+  "atlas": "Atlas of the borough of Queens, vol. 2, First and second wards (1907)",
+  "source": "queens_wards12_1907",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Queens vol. 2 1907; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 15640,
+    "sheet": "1",
+    "name": "Queens, Vol. 2, Doble Page Plate No. 1; Part of Long Island City Ward One (Part of Old War"
+   },
+   {
+    "id": 15641,
+    "sheet": "2",
+    "name": "Queens, Vol. 2, Double Page Plate No. 2; Part of Long Island City Ward one (Part of Old Wa"
+   },
+   {
+    "id": 15642,
+    "sheet": "3",
+    "name": "Queens, Vol. 2, Double Page Plate No. 3; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15643,
+    "sheet": "4",
+    "name": "Queens, Vol. 2, Double Page Plate No. 4; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15644,
+    "sheet": "5",
+    "name": "Queens, Vol. 2, Double Page Plate No. 5; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15645,
+    "sheet": "6",
+    "name": "Queens, Vol. 2, Double Page Plate No. 6; Part of Long Island City Ward One (Part of Wards "
+   },
+   {
+    "id": 15646,
+    "sheet": "7",
+    "name": "Queens, Vol. 2, Double Page Plate No. 7; Part Long Island City Ward One (Part of Old Wards"
+   },
+   {
+    "id": 15647,
+    "sheet": "8",
+    "name": "Queens, Vol. 2, Double Page Plate No. 8; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15648,
+    "sheet": "9",
+    "name": "Queens, Vol. 2, Double Page Plate No. 9; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15649,
+    "sheet": "10",
+    "name": "Queens, Vol. 2, Double Page Plate No. 10; Part of Long Island City Ward One (Part of Old W"
+   },
+   {
+    "id": 15650,
+    "sheet": "11",
+    "name": "Queens, Vol. 2, Double Page Plate No. 11; Part of Long Island City Ward One (Part of Old W"
+   },
+   {
+    "id": 15651,
+    "sheet": "12",
+    "name": "Queens, vol. 2, Double Page Plate No. 12; Part of Long Island City Ward One (Part of Old W"
+   },
+   {
+    "id": 15652,
+    "sheet": "13",
+    "name": "Queens, Vol. 2, Double Page Plate No. 13; Part of Ward Two Newtown; [Map bounded by Long I"
+   },
+   {
+    "id": 15653,
+    "sheet": "14",
+    "name": "Queens, Vol. 2, Double Page Plate No. 14; Part of Ward two Newtown; [Map bounded by Hunter"
+   },
+   {
+    "id": 15654,
+    "sheet": "15",
+    "name": "Queens, Vol. 2, Double Page Plate No. 15; Part of Ward Two Woodside; [Map bounded by Kelly"
+   },
+   {
+    "id": 15655,
+    "sheet": "16",
+    "name": "Queens, Vol. 2, Double Page Plate No. 16; Part of Ward two Winfield; [Map bounded by Woods"
+   },
+   {
+    "id": 15656,
+    "sheet": "17",
+    "name": "Queens, Vol. 2, Double Page Plate No. 17; Part of Ward Two Elmhurst; [Map bounded by Jacks"
+   },
+   {
+    "id": 15657,
+    "sheet": "18",
+    "name": "Queens, Vol. 2, Double Page Plate No. 18; Part of Ward Two Newtown; [Map bounded by Trains"
+   },
+   {
+    "id": 15658,
+    "sheet": "19",
+    "name": "Queens, Vol. 2, Double Page Plate No. 19; Part of Ward two North Beach; [Map bounded by Fl"
+   },
+   {
+    "id": 15659,
+    "sheet": "20",
+    "name": "Queens, Vol. 2, Double Page Plate No. 20; Part of Ward two Newtown; [Map bounded by Flushi"
+   },
+   {
+    "id": 15660,
+    "sheet": "21",
+    "name": "Queens, Vol. 2, Double Page Plate No. 21; Sub Plan No. 1; [Map bounded by Flushing and New"
+   },
+   {
+    "id": 15661,
+    "sheet": "22",
+    "name": "Queens, Vol. 2, Double Page Plate No. 22; Part of Ward Two Corona and Louona Park; [Map bo"
+   },
+   {
+    "id": 15662,
+    "sheet": "23",
+    "name": "Queens, Vol. 2, Double Page Plate No. 23; Part of Ward Two Corona; [Map bounded by Flushin"
+   },
+   {
+    "id": 15663,
+    "sheet": "24",
+    "name": "Queens, Vol. 2, Double Page Plate No. 24; Part of Ward Two Corona Park; [Map bounded by Gr"
+   },
+   {
+    "id": 15665,
+    "sheet": "26",
+    "name": "Queens, Vol. 2, Double Page Plate No. 26; Part of Ward two Nassau Heights and Newtown Heig"
+   },
+   {
+    "id": 15666,
+    "sheet": "27",
+    "name": "Queens, Vol. 2, Double Page Plate No. 27; Part of Ward Two Maspeth and Nassau Heights; [Ma"
+   },
+   {
+    "id": 15667,
+    "sheet": "28",
+    "name": "Queens, Vol. 2, Double Page Plate No. 28; Part of Ward Two Maspeth; [Map bounded by Mauric"
+   },
+   {
+    "id": 15668,
+    "sheet": "29",
+    "name": "Queens, vol. 2, Double Page Plate No. 29; Part of Ward Two Newtown; [Map bounded by Greenp"
+   },
+   {
+    "id": 15669,
+    "sheet": "30",
+    "name": "Queens, Vol. 2, Double Page Plate No. 30; Part of Ward Two Laurel Hill; [Map bounded by Be"
+   },
+   {
+    "id": 15670,
+    "sheet": "31",
+    "name": "Queens, Vol. 2, Double Page Plate No. 31; Part of Ward two Newtown; [Map bounded by Newtow"
+   },
+   {
+    "id": 15671,
+    "sheet": "32",
+    "name": "Queens, Vol. 2, Double Page Plate No. 32; Part of Ward Two Melvina Maspeth Linden Hill Eas"
+   },
+   {
+    "id": 15672,
+    "sheet": "33",
+    "name": "Queens, Vol. 2, Double Page Plate No. 33; Part of Ward Two Newtown; [Map bounded by Flushi"
+   },
+   {
+    "id": 15673,
+    "sheet": "34",
+    "name": "Queens, Vol. 2, Double Page Plate No. 34; Part of Ward Two East Williamsburgh; [Map bounde"
+   },
+   {
+    "id": 15674,
+    "sheet": "35",
+    "name": "Queens, Vol. 2, Double Page Plate No. 35; Part of Ward Two East Williamsburgh; [Map bounde"
+   },
+   {
+    "id": 15675,
+    "sheet": "36",
+    "name": "Queens, Vol. 2, Double Page Plate No. 36; Part of Ward Two Newtown; [Map bounded by Cooper"
+   },
+   {
+    "id": 15676,
+    "sheet": "37",
+    "name": "Queens, Vol. 2, Double Page Plate No. 37; Part of Ward Two Glendale and St. James Park; [M"
+   },
+   {
+    "id": 15677,
+    "sheet": "38",
+    "name": "Queens, Vol. 2, Double Page Plate No. 38; Part of Ward Two Newtown; [Map bounded by Mt. Ol"
+   },
+   {
+    "id": 15678,
+    "sheet": "39",
+    "name": "Queens, Vol. 2, Double Page Plate No. 39; Part of Ward Two Middle Village; [Map bounded by"
+   },
+   {
+    "id": 15679,
+    "sheet": "40",
+    "name": "Queens, Vol. 2, Double Page Plate No. 40; Part of Ward Two Newtown; [Map bounded by Johnso"
+   },
+   {
+    "id": 15680,
+    "sheet": "41",
+    "name": "Queens, Vol. 2, Double Page Plate No. 41; Part of Ward Two Newtown; [Map bounded by Trotti"
+   },
+   {
+    "id": 15681,
+    "sheet": "42",
+    "name": "Queens, Vol. 2, Double Page Plate No. 42; Part of Ward Two Newtown; [Map bounded by Trotti"
+   },
+   {
+    "id": 15682,
+    "sheet": "43",
+    "name": "Queens, Vol. 2, Double Page Plate No. 43; Part of Ward Two Newtown; [Map bounded by Metrop"
+   },
+   {
+    "id": 15683,
+    "sheet": "44",
+    "name": "Queens, Vol. 2, Double Page Plate No. 44; Part of Ward Two Newtown; [Map bounded by Union "
+   },
+   {
+    "id": 15688,
+    "sheet": "45",
+    "name": "Queens, Vol. 2, Double Page Plate No. 45; Part of Ward Two Newtown; [Map bounded by Burns "
+   },
+   {
+    "id": 15684,
+    "sheet": "46",
+    "name": "Queens, Vol. 2, Double Page Plate No. 46; Part of Ward Two Newtown; [Map bounded by Meteor"
+   },
+   {
+    "id": 15685,
+    "sheet": "47",
+    "name": "Queens, Vol. 2, Double Page Plate No. 47; Part of Ward Two Newtown; [Map bounded by north "
+   },
+   {
+    "id": 15686,
+    "sheet": "48",
+    "name": "Queens, Vol. 2, Double Page Plate No. 48; Part of Ward Two Newtown; [Map bounded by Court "
+   },
+   {
+    "id": 15687,
+    "sheet": "49",
+    "name": "Queens, Vol. 2, Double Page Plate No. 49; Part of Ward Two Newtown; [Map bounded by Flushi"
+   }
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 5.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 84
+   },
+   "outline": 0.4,
+   "stone": null
+  }
+ },
+ "queens_hyde_1907_jamaica": {
+  "map_year": 1907,
+  "atlas": "Atlas of the borough of Queens, vol. 1, Fourth and fifth wards, Jamaica and Rockaway (1907)",
+  "source": "queens_wards45_1907",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Queens vol. 1 1907; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 15631,
+    "sheet": "1",
+    "name": "Queens, Vol. 1, Double Page Plate No. 1; Part of ward Four, Jamaica; [Map bounded by Borou"
+   },
+   {
+    "id": 15632,
+    "sheet": "2",
+    "name": "Queens, Vol. 1, Double Page Plate No. 2; Part of Ward Four, Jamaica; [Map bounded by Borou"
+   },
+   {
+    "id": 15633,
+    "sheet": "3",
+    "name": "Queens, Vol. 1, Double Page Plate No. 3; Part of Ward Four, Jamaica; [Map bounded by Atlan"
+   },
+   {
+    "id": 15592,
+    "sheet": "4",
+    "name": "Queens, Vol. 1, Double Page Plate No. 4; Part of ward 4, Jamaica; [Map bounded by Manor Av"
+   },
+   {
+    "id": 15593,
+    "sheet": "5",
+    "name": "Queens, Vol. 1, Double Page Plate No. 5; Sub Plan; [Map bounded by Division Ave.; Includin"
+   },
+   {
+    "id": 15594,
+    "sheet": "6",
+    "name": "Queens, Vol. 1, Double Page Plate No. 6; Part of Ward 4, Jamaica; [Map bounded by Atlantic"
+   },
+   {
+    "id": 15595,
+    "sheet": "7",
+    "name": "Queens, Vol. 1, Double Page Plate No. 7; Part of Ward 4, Jamaica; [Map bounded by Rockaway"
+   },
+   {
+    "id": 15596,
+    "sheet": "8",
+    "name": "Queens, Vol. 1, Double Page Plate No. 8; Part of Ward 4, Jamaica; [Map bounded by Kaplan A"
+   },
+   {
+    "id": 15597,
+    "sheet": "9",
+    "name": "Queens, Vol. 1, Double Page Plate No. 9; Sub Plan;[Map bounded by Flushing Ave., Grand Ave"
+   },
+   {
+    "id": 15598,
+    "sheet": "10",
+    "name": "Queens, Vol. 1, Double Page Plate No. 10; Part of Ward 4, Jamaica; [Map bounded by New Yor"
+   },
+   {
+    "id": 15599,
+    "sheet": "11",
+    "name": "Queens, Vol. 1, Double Page Plate No. 11; Sub Plan; Formerly Town of Flushing 3rd Ward; [M"
+   },
+   {
+    "id": 15600,
+    "sheet": "12",
+    "name": "Queens, Vol. 1, Double Page Plate No. 12; Part of Ward 4; Jamaica; [Map bounded by Foothil"
+   },
+   {
+    "id": 15601,
+    "sheet": "13",
+    "name": "Queens, Vol. 1, Double Page Plate No. 13; Part of Ward 4 Jamaica; (Formerly Town of Flushi"
+   },
+   {
+    "id": 15602,
+    "sheet": "14",
+    "name": "Queens, Vol. 1, Double Page Plate No. 14; Sub Plan No. 1; [Map Bounded by Hempstead and Ja"
+   },
+   {
+    "id": 15603,
+    "sheet": "15",
+    "name": "Queens, Vol. 1, Double Page Plate No. 15; Sub Plan; Formerly Town of Flushing 3rd Ward; [M"
+   },
+   {
+    "id": 15604,
+    "sheet": "16",
+    "name": "Queens, Vol. 1, Double Page Plate No. 16; Part of Ward 4; Jamaica; [Map bounded by Jericho"
+   },
+   {
+    "id": 15605,
+    "sheet": "17",
+    "name": "Queens, Vol. 1, Double Page Plate No. 17; Part of Ward 4; Jamaica; [Map bounded by Liberty"
+   },
+   {
+    "id": 15614,
+    "sheet": "18",
+    "name": "Queens, Vol. 1, Double Page Plate No. 18; Part of Ward 4; Jamaica; [Map bounded by South S"
+   },
+   {
+    "id": 15606,
+    "sheet": "19",
+    "name": "Queens, Vol. 1, Double Page Plate No. 19; Part Of Ward 4; Jamaica; [Map bounded by Conduit"
+   },
+   {
+    "id": 15607,
+    "sheet": "20",
+    "name": "Queens, Vol. 1, Double Page Plate No. 20; Part of Ward 4; Jamaica; Sub Plan From Plate No."
+   },
+   {
+    "id": 15608,
+    "sheet": "21",
+    "name": "Queens, Vol. 1, Double Page Plate No. 21; Part of Ward 4; [Map bounded by Metropolis Ave.,"
+   },
+   {
+    "id": 15609,
+    "sheet": "22",
+    "name": "Queens, Vol. 1, Double Page Plate No. 22; Part of Ward 4; [Map bounded by Road to Landing,"
+   },
+   {
+    "id": 15610,
+    "sheet": "23",
+    "name": "Queens, Vol. 1, Double Page Plate No. 23; Part of Ward 4; Jamaica; [Map bounded by Rockawa"
+   },
+   {
+    "id": 15611,
+    "sheet": "24",
+    "name": "Queens, Vol. 1, Double Page Plate No. 24; Part of Ward 4; Jamaica; Sub Plan From Plate 18;"
+   },
+   {
+    "id": 15612,
+    "sheet": "25",
+    "name": "Queens, Vol. 1, Double Page Plate No. 25; Part of Ward 4; Jamaica; [Map bounded by Liberty"
+   },
+   {
+    "id": 15613,
+    "sheet": "26",
+    "name": "Queens, Vol. 1, Double Page Plate No. 26; Part of Ward 4; [Map bounded by Woodlawn Ave., R"
+   },
+   {
+    "id": 15615,
+    "sheet": "27",
+    "name": "Queens, Vol. 1, Double Page Plate No. 27; Sub Plan No. 2; [Map bounded by Springfield Road"
+   },
+   {
+    "id": 15616,
+    "sheet": "28",
+    "name": "Queens, Vol. 1, Double Page Plate No. 28; Part of Ward 4; Jamaica; [Map bounded by Broadwa"
+   },
+   {
+    "id": 15617,
+    "sheet": "29",
+    "name": "Queens, Vol. 1, Double Page Plate No. 29; Part of Ward 4; Jamaica; Sub Plan; [Map bounded "
+   },
+   {
+    "id": 15618,
+    "sheet": "30",
+    "name": "Queens, Vol. 1, Double Page Plate No. 30; Part of Ward 4; Sub Plan From Plate Nos. 18 and "
+   },
+   {
+    "id": 15619,
+    "sheet": "31",
+    "name": "Queens, Vol. 1, Double Page Plate No. 31; Part of Ward 4; Jamaica; [Map bounded by Farmers"
+   },
+   {
+    "id": 15620,
+    "sheet": "32",
+    "name": "Queens, Vol. 1, Double Page Plate No. 32; Part of Ward 5; Farrockaway; [Map bounded by Cen"
+   },
+   {
+    "id": 15621,
+    "sheet": "33",
+    "name": "Queens, Vol. 1, Double Page Plate No. 33; Sub Plan No. 1; [Map bounded by Jamaica Bay, Mot"
+   },
+   {
+    "id": 15622,
+    "sheet": "34",
+    "name": "Queens, Vol. 1, Double Page Plate No. 34; Part of Ward 5; Farrockaway; [Map bounded by The"
+   },
+   {
+    "id": 15623,
+    "sheet": "35",
+    "name": "Queens, Vol. 1, Double Page Plate No. 35; Part of Ward 5; Rockaway; [Map bounded by Jamaic"
+   },
+   {
+    "id": 15624,
+    "sheet": "36",
+    "name": "Queens, Vol. 1, Double Page Plate No. 36; Sub Plan; [Map bounded by Isabel Ave., Amstel Ca"
+   },
+   {
+    "id": 15625,
+    "sheet": "37",
+    "name": "Queens, Vol. 1, Double Page Plate No. 37; Part of Ward 5; Farrockaway; [Remsen Ave., Henry"
+   },
+   {
+    "id": 15626,
+    "sheet": "38",
+    "name": "Queens, Vol. 1, Double Page Plate No. 38; Part of Ward 5; Farrockaway; [Map bounded by bay"
+   },
+   {
+    "id": 15627,
+    "sheet": "39",
+    "name": "Queens, Vol. 1, Double Page Plate No. 39; Part of Ward 5; Farrockaway; [Map bounded by Par"
+   },
+   {
+    "id": 15628,
+    "sheet": "40",
+    "name": "Queens, Vol. 1, Double Page Plate No. 40; Part of Ward 5; Farrockaway; [map bounded by Jam"
+   },
+   {
+    "id": 15629,
+    "sheet": "41",
+    "name": "Queens, Vol. 1, Double Page Plate No. 41; Part of Ward 4; [Map bounded by Merrick Road, Ro"
+   }
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 5.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 84
+   },
+   "outline": 0.4,
+   "stone": null
+  }
+ },
+ "si_bromley_1917": {
+  "map_year": 1917,
+  "atlas": "Atlas of the city of New York, borough of Richmond, Staten Island (Bromley, 1917)",
+  "source": "bromley_richmond_1917",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Bromley Richmond 1917; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 15367,
+    "sheet": "image 1646236",
+    "name": "Part of Ward 1. [Map bound by Castleton Ave, N. Burgher Ave (Burgher), Cary Ave, Bement Av"
+   },
+   {
+    "id": 15368,
+    "sheet": "image 1646237",
+    "name": "Part of Ward 1. [Map bound by Palmers Run, Spring St, Post Ave, Greenleaf Ave, Forest Ave "
+   },
+   {
+    "id": 15369,
+    "sheet": "image 1646238",
+    "name": "Part of Ward 3. [Map bound by Richmond Ave, Albion PL, Washington PL, Simonson PL, Cathari"
+   },
+   {
+    "id": 15370,
+    "sheet": "image 1646239",
+    "name": "Part of Ward 3. [Map bound by Richmond Ave, Richmond Terrace, Pierhead and Bulkhead Line, "
+   },
+   {
+    "id": 15371,
+    "sheet": "image 1646240",
+    "name": "Part of Ward 3. [Map bound by Nicholas Ave, Richmond Terrace, Pierhead and Bulkhead Line, "
+   },
+   {
+    "id": 15372,
+    "sheet": "image 1646241",
+    "name": "Part of Ward 3. [Map bound by Winant St (Monroe), Richmond Terrace, Pierhead & Bulkhead Li"
+   },
+   {
+    "id": 15373,
+    "sheet": "image 1646242",
+    "name": "Part of Ward 3. [Map bound by Union Ave, Staten Island Rapid Transit R.R., De Hart Ave (Ce"
+   },
+   {
+    "id": 15375,
+    "sheet": "image 1646244",
+    "name": "Part of Wards 1 & 3. [Map bound by Union Ave, Maple Ave, Van Pelt Ave, Van Name Ave, Simon"
+   },
+   {
+    "id": 15377,
+    "sheet": "image 1646246",
+    "name": "Part of Ward 1. [Map bound by Egbert Ave, Brookside Ave, Forest Ave, Clove Road, Purcell S"
+   },
+   {
+    "id": 15378,
+    "sheet": "image 1646247",
+    "name": "Part of Wards 1 & 2. [Map bound by Dongan Ave, Fairview Ave, Knox PL (1st St), Slosson Ave"
+   },
+   {
+    "id": 15379,
+    "sheet": "image 1646248",
+    "name": "Part of Ward 2. [Map bound by Ocean Terrace, Little Clove Road, Seneca Ave, Schohaire St, "
+   },
+   {
+    "id": 15380,
+    "sheet": "image 1646249",
+    "name": "Part of Ward 2. [Map bound by Ridge Ave, Prospect Ave, Ocean Terrace, Douglas Road, Richmo"
+   },
+   {
+    "id": 15381,
+    "sheet": "image 1646250",
+    "name": "Part of Ward 2. [Map bound by Area PL, Franklin PL, Norwalk Ave, Todt Hill Road, Ocean Ter"
+   },
+   {
+    "id": 15382,
+    "sheet": "image 1646251",
+    "name": "Part of Ward 2. [Map bound by Todt Hill Road, New York Ave, Benedict Ave (Atlantic Ave), C"
+   },
+   {
+    "id": 15383,
+    "sheet": "image 1646252",
+    "name": "Part of Ward 2. [Map bound by Moravian Cemetery, Todt Hill Road, Flagg (Prospect Ave) PL, "
+   },
+   {
+    "id": 15384,
+    "sheet": "image 1646253",
+    "name": "Part of Ward 3. [Map bound by London Road, Meisner Ave, Rockland Ave (Egbert), Richmond Ro"
+   },
+   {
+    "id": 15385,
+    "sheet": "image 1646254",
+    "name": "Part of Wards 2 & 3. [Map bound by Rockland Ave (Saw Mill RD), Bradley Ave (Manor RD), Was"
+   },
+   {
+    "id": 15386,
+    "sheet": "image 1646255",
+    "name": "Part of Wards 1 & 2. [Map bound by Buchanan Ave, Willow Brook RD, Roosevelt Ave, Mann Ave,"
+   },
+   {
+    "id": 15387,
+    "sheet": "image 1646256",
+    "name": "Part of Wards 1, 2 & 3. [Map bound by Forest Hill Road (Fort Richmond), Willow Brook Road "
+   },
+   {
+    "id": 15388,
+    "sheet": "image 1646257",
+    "name": "Part of Ward 3. [Map bound by Attorney St, Essex St, Lambert St, Center St, Spring St, De "
+   },
+   {
+    "id": 15389,
+    "sheet": "image 1646258",
+    "name": "Part of Ward 3. [Map bound by Richmond Turnpike, Darcys Lane, Willow Brook Road (Gun Facto"
+   },
+   {
+    "id": 15390,
+    "sheet": "image 1646259",
+    "name": "Part of Ward 3. [Map bound by Forest Hill Road (Old Mill Road), Richmond Hill Road, Klondi"
+   },
+   {
+    "id": 15391,
+    "sheet": "image 1646260",
+    "name": "Part of Ward 3. [Map bound by Richmond Creek, Fresh Kills, Springville Flaak, Springville "
+   },
+   {
+    "id": 15392,
+    "sheet": "image 1646261",
+    "name": "Part of Ward 3. [Map bound by Little Fresh Kills, Richmond Turnpike, Burying Hill Road, Ca"
+   },
+   {
+    "id": 15393,
+    "sheet": "image 1646262",
+    "name": "Part of Ward 3. [Map bound by River Road (Water St), Chelsea Road, Bloomfield Ave (Decker "
+   },
+   {
+    "id": 15394,
+    "sheet": "image 1646263",
+    "name": "Part of Ward 3. [Map bound by Sedge Pond, Old Place Creek, Western Ave, Washington Ave, Jo"
+   },
+   {
+    "id": 15395,
+    "sheet": "image 1646264",
+    "name": "Part of Ward 3. [Map bound by State Line, Richmond Terrace (Shore RD), Arlington Ave, Balt"
+   },
+   {
+    "id": 15399,
+    "sheet": "image 1646268",
+    "name": "Part of Ward 4. [Map bound by Vanderbilt Ave, Pierhead Line, North St, Front St, Maple Ave"
+   },
+   {
+    "id": 15400,
+    "sheet": "image 1646269",
+    "name": "Part of Ward 4. [Map bound by Chestnut Ave, Bay St (New York Ave), Sylvaton Ter., Edgewate"
+   },
+   {
+    "id": 15401,
+    "sheet": "image 1646270",
+    "name": "Part of Ward 4. [Map bound by Maryland Ave, New York Bay, Harbor View Place, Bay St (New Y"
+   },
+   {
+    "id": 15402,
+    "sheet": "image 1646271",
+    "name": "Part of Ward 4. [Map bound by The Narrows, Lower New York Bay, Richmond Ave, Tompkins Ave,"
+   },
+   {
+    "id": 15403,
+    "sheet": "image 1646272",
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Vanderbilt Ave, Tompkins Ave (Centre St), Cli"
+   },
+   {
+    "id": 15404,
+    "sheet": "image 1646273",
+    "name": "Part of Ward 4. [Map bound by Steuben St, Mosel Ave, Clove Ave, Richmond Road]"
+   },
+   {
+    "id": 15405,
+    "sheet": "image 1646274",
+    "name": "Part of Ward 4. [Map bound by Mosel Ave, Staten Island Rail Road, Rockwell Ave, Pennsylvan"
+   },
+   {
+    "id": 15406,
+    "sheet": "image 1646275",
+    "name": "Part of Ward 4. [Map bound by Fingerboard Road, Sherman Ave, Grant Ave, Tompkins Ave, Rich"
+   },
+   {
+    "id": 15407,
+    "sheet": "image 1646276",
+    "name": "Part of Ward 4. [Map bound by Richmond Ave, Sea Ave (Sand), Seaside Boulevard, Lower New Y"
+   },
+   {
+    "id": 15408,
+    "sheet": "image 1646277",
+    "name": "Part of Ward 4. [Map bound by Staten Island Rail Road, Fingerboard Road, Old Town Road, Sc"
+   },
+   {
+    "id": 15409,
+    "sheet": "image 1646278",
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Baltic Ave, Hanover Ave (Main), Neckar Ave, W"
+   },
+   {
+    "id": 15410,
+    "sheet": "image 1646279",
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Old Town Road, Wilson Ave, Cornelia St, Pelto"
+   },
+   {
+    "id": 15411,
+    "sheet": "image 1646280",
+    "name": "Part of Ward 4. [Map bound by Scott Ave, Old Town Road, South Field Beach Rail Road, New C"
+   },
+   {
+    "id": 15412,
+    "sheet": "image 1646281",
+    "name": "Part of Ward 4. [Map bound by Liberty Ave, Seaview Ave, Scotland Ave, New Creek, South Fie"
+   },
+   {
+    "id": 15413,
+    "sheet": "image 1646282",
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Stobe Ave (Jackson Ave), South Side Boulevard"
+   },
+   {
+    "id": 15414,
+    "sheet": "image 1646283",
+    "name": "Part of Ward 4. [Map bound by Franklin Ave, 6th St, Maple Ave, Midland Beach, Lower New Yo"
+   },
+   {
+    "id": 15415,
+    "sheet": "image 1646284",
+    "name": "Part of Ward 4. [Map bound by Amboy Road, Bishop Ave, Dale Ave, Dorothea PL, Grace RD, Ric"
+   },
+   {
+    "id": 15416,
+    "sheet": "image 1646285",
+    "name": "Part of Ward 4. [Map bound by New Dorp Lane, New Dorp Beach, Lower New York Bay, Old Mill "
+   },
+   {
+    "id": 15417,
+    "sheet": "image 1646286",
+    "name": "Part of Ward 4. [Map bound by Oak Ave, Mill Road, Kissam Ave, Lower New York Bay, Brook Av"
+   },
+   {
+    "id": 15418,
+    "sheet": "image 1646287",
+    "name": "Part of Ward 4. [Map bound by Amboy Road, Cedarview Ave, Oak Ave, South Side Boulevard, 9t"
+   },
+   {
+    "id": 15419,
+    "sheet": "image 1646288",
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Grand St, Clarke Ave, Amboy Road, Tysens St, "
+   },
+   {
+    "id": 15420,
+    "sheet": "image 1646289",
+    "name": "Part of Ward 4. [Map bound by Center St, Clarke Ave, St. Agnes Cemetery, Amboy Road, State"
+   },
+   {
+    "id": 15421,
+    "sheet": "image 1646290",
+    "name": "Part of Wards 4 & 5. [Map bound by Ocean View Cemetery, Staten Island Rail Road, Amboy Roa"
+   },
+   {
+    "id": 15422,
+    "sheet": "image 1646291",
+    "name": "Nelson Ave, Cleveland Ave, 2nd St, Madison TER, Great Kills RD, South Side Boulevard, Cole"
+   },
+   {
+    "id": 15423,
+    "sheet": "image 1646292",
+    "name": "Part of Wards 4 & 5. [Map bound by Linderwood Ave, Nelson Ave, Crescent Beach, Lower New Y"
+   },
+   {
+    "id": 15424,
+    "sheet": "image 1646293",
+    "name": "Part of Wards 4 & 5. [Map bound by Richmond Ave, (Eltingville Ave), South Side Boulevard, "
+   },
+   {
+    "id": 15425,
+    "sheet": "image 1646294",
+    "name": "Part of Ward 5. [Map bound by Sheldon Ave, Jefferson Boulevard, Rathbun Ave, Arden Ave (Wa"
+   },
+   {
+    "id": 15426,
+    "sheet": "image 1646295",
+    "name": "Part of Ward 5. [Map bound by Barclay Ave, Raritan Bay, Poillon Ave (Harrison Ave), Arbutu"
+   },
+   {
+    "id": 15427,
+    "sheet": "image 1646296",
+    "name": "Part of Ward 5. [Map bound by Arbutus Ave (Broadway), Arbutus Lake, 5th St, Raritan Bay, S"
+   },
+   {
+    "id": 15428,
+    "sheet": "image 1646297",
+    "name": "Part of Ward 5. [Map bound by Maguire Ave, Ramona Ave, Lamont Ave, Ionia Ave, Edgegrove Av"
+   },
+   {
+    "id": 15429,
+    "sheet": "image 1646298",
+    "name": "Part of Ward 5. [Map bound by Holton St, Henry St, Seguine Ave, William St, Melville St, W"
+   },
+   {
+    "id": 15430,
+    "sheet": "image 1646299",
+    "name": "Part of Ward 5. [Map bound by Amboy Road, Bedell St (Seguine RD). Sharrot Ave (Pleasant Pl"
+   },
+   {
+    "id": 15432,
+    "sheet": "image 1646301",
+    "name": "Part of Ward 5. [Map bound by Page sty (Beach), Raritan Bay, Surf Ave, Rockaway St, Belmon"
+   },
+   {
+    "id": 15433,
+    "sheet": "image 1646302",
+    "name": "Part of Ward 5. [Map bound by Sleight Ave, Rockaway St, Surf Ave, Bulkhead Line, Amboy Roa"
+   },
+   {
+    "id": 15434,
+    "sheet": "image 1646303",
+    "name": "Part of Ward 5. [Map bound by Pierhead And Bulkhead Line, Barnard Ave (James St), Amboy Ro"
+   },
+   {
+    "id": 15435,
+    "sheet": "image 1646304",
+    "name": "Part of Ward 5. [Map bound by Arthur Kill, Arthur Kill Road (Fresh Kills RD), Richmond Val"
+   },
+   {
+    "id": 15436,
+    "sheet": "image 1646305",
+    "name": "Part of Ward 5. [Map bound by Gifford Lane, Staten Island Rail Road, Richmond Ave (Bridge "
+   },
+   {
+    "id": 15437,
+    "sheet": "image 1646306",
+    "name": "Part of Ward 5. [Map bound by Arthur Kill Road (Fresh Kills RD), Arden Ave (Washington), C"
+   },
+   {
+    "id": 15438,
+    "sheet": "image 1646307",
+    "name": "Part of Ward 5. [Map bound by Arthur Kill Road, Rossville Ave, Woodrow Road, Foster Road ("
+   },
+   {
+    "id": 15439,
+    "sheet": "image 1646308",
+    "name": "Part of Ward 5. [Map bound by Winant PL, Arthur Kill Road (Fresh Kills RD), Sharrotts Road"
+   },
+   {
+    "id": 15440,
+    "sheet": "image 1646309",
+    "name": "Part of Ward 5. [Map bound by Arthur Kill or Staten Island Sound, Arthur Kill Road (Fresh "
+   },
+   {
+    "id": 15441,
+    "sheet": "image 1646310",
+    "name": "Part of Ward 5. [Map bound by Great Fresh Kills, Fresh Kills, Richmond Creek, Arthur Kill "
+   },
+   {
+    "id": 15442,
+    "sheet": "image 1646311",
+    "name": "Part of Ward 2. [Map bound by Richmond Turnpike, Austin PL, Occident Ave, St. Pauls Ave, S"
+   },
+   {
+    "id": 15443,
+    "sheet": "image 1646312",
+    "name": "Part of Ward 1. [Map bound by Bement Ave, Harvest Ave, Revere Ave (Laurel Ave), University"
+   },
+   {
+    "id": 15444,
+    "sheet": "image 1646313",
+    "name": "Part of Ward 1. [Map bound by Castleton Ave, Forest Ave (Brighton), Greenwood Ave, Univers"
+   },
+   {
+    "id": 15445,
+    "sheet": "image 1646314",
+    "name": "Part of Ward 1. [Map bound by Kissel Ave, Richmond Terrace, Pierhead and Bulkhead Line, La"
+   },
+   {
+    "id": 15449,
+    "sheet": "image 1646318",
+    "name": "Part of Ward 1. [Map bound by Richmond Terrace (Bay St), Pierhead Line, Hyatt St, St. Mark"
+   },
+   {
+    "id": 15450,
+    "sheet": "image 1646319",
+    "name": "Part of Ward 1. [Map bound by Fort PL, St. Marks PL (Tompkins Ave), Hyatt St, Borough PL ("
+   },
+   {
+    "id": 15451,
+    "sheet": "image 1646320",
+    "name": "Part of Ward 1. [Map bound by Brighton Ave, York Ave, Pauw St (Centre St), Jersey St, Taft"
+   },
+   {
+    "id": 15452,
+    "sheet": "image 1646321",
+    "name": "Part of Ward 1. [Map bound by Pierhead Line, Richmond Terrace, Nicholas St, St. Marks PL, "
+   },
+   {
+    "id": 15453,
+    "sheet": "image 1646322",
+    "name": "Part of Ward 1. [Map bound by Greenwood Ave, Ridgewood PL, Castleton Ave, Brighton Ave, Th"
+   },
+   {
+    "id": 15454,
+    "sheet": "image 1646323",
+    "name": "Part of Ward 2. [Map bound by Richmond Turnpike, Arriette St, Bulkhead Line, Bay St (Griff"
+   },
+   {
+    "id": 15455,
+    "sheet": "image 1646324",
+    "name": "Part of Ward 2. [Map bound by St. Pauls Ave, Beach St, Jackson St, Van Duzer St (Richmond "
+   },
+   {
+    "id": 15456,
+    "sheet": "image 1646325",
+    "name": "Part of Ward 2. [Map bound by Broad St, Bay St, Thompson St, Front St, Dock St, Vanderbilt"
+   },
+   {
+    "id": 15457,
+    "sheet": "image 1646326",
+    "name": "Part of Ward 2. [Map bound by Serpentine Road, Howard Ave (Serpentine RD) , Broad St, Gord"
+   },
+   {
+    "id": 15458,
+    "sheet": "image 1646327",
+    "name": "Part of Ward 1. [Map bound by N. Burgher Ave (Burgher), Richmond Terrace, Pierhead Line, K"
+   },
+   {
+    "id": 15459,
+    "sheet": "image 1646328",
+    "name": "Part of Ward 1. [Map bound by Pierhead Line, N. Burgher Ave (Burgher Ave), Castleton Ave, "
+   }
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 5.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 84
+   },
+   "outline": 0.4
+  }
+ },
+ "si_1907": {
+  "map_year": 1907,
+  "atlas": "Atlas of the borough of Richmond, city of New York (1907)",
+  "source": "richmond_1907",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Richmond 1907; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 15330,
+    "sheet": "image 1643828",
+    "name": "Part of Ward 1. [Map bound by Broadway, Forest Ave, Cherry Lane, Jewett Ave, Richmond Terr"
+   },
+   {
+    "id": 15331,
+    "sheet": "image 1643829",
+    "name": "Part of Wards 1 & 3. [Map bound by Palmer's Run, Jewett Ave, Cherry Lane, Barrett Ave, Dec"
+   },
+   {
+    "id": 15332,
+    "sheet": "image 1643830",
+    "name": "Part of Wards 1 & 3. [Map bound by Washington Ave, Richmond Road, Decker Ave, Barrett Ave,"
+   },
+   {
+    "id": 15333,
+    "sheet": "image 1643831",
+    "name": "Part of Ward 1. [Map bound by Cherry Lane, Forest Ave, Lowell Ave, Davis Ave, Pelton Ave, "
+   },
+   {
+    "id": 15334,
+    "sheet": "image 1643832",
+    "name": "Part of Wards 1 & 2. [Map bound by Forest Ave, Brighton Ave, Castleton Ave, Woodstock St, "
+   },
+   {
+    "id": 15335,
+    "sheet": "image 1643833",
+    "name": "Part of Wards 1 & 2. [Map bound by Brighton Ave, York Ave, Second Ave, Westervelt Ave, Arr"
+   },
+   {
+    "id": 15336,
+    "sheet": "image 1643834",
+    "name": "Part of Ward 2. [Map bound by Eddy St, Howard Ave, Trossach Road, St. Pauls Ave, Richmond "
+   },
+   {
+    "id": 15337,
+    "sheet": "image 1643835",
+    "name": "Part of Wards 1 & 2. [Map bound by Grymes Hill, Howard Ave, Woodside Ave, Centre Ave, Irvi"
+   },
+   {
+    "id": 15338,
+    "sheet": "image 1643836",
+    "name": "Part of Ward 4. [Map bound by Pier Line, New York Ave, Lyman Ave, Fingerboard Road, Fletch"
+   },
+   {
+    "id": 15339,
+    "sheet": "image 1643837",
+    "name": "Part of Ward 4. [Map bound by Fox Hill Golf Links, Oak St, Virginia Ave, Clifton Ave, Penn"
+   },
+   {
+    "id": 15340,
+    "sheet": "image 1643838",
+    "name": "Part of Ward 4. [Map bound by Fingerboard Road, Tompkins Ave, Lyman Ave, New York Ave, Ric"
+   },
+   {
+    "id": 15341,
+    "sheet": "image 1643839",
+    "name": "Part of Ward 4. [Map bound by Old Town Road, Seaside Boulevard, Southfield Boulevard, Rich"
+   },
+   {
+    "id": 15342,
+    "sheet": "image 1643840",
+    "name": "Part of Ward 4. [Map bound by Jackson Ave, Lower Bay, New Dorp Lane, Richmond Road]"
+   },
+   {
+    "id": 15346,
+    "sheet": "image 1643844",
+    "name": "Part of Ward 1. [Map bound by Kill Van Kull, Pier Head of 1889 & 1904, Arrietta St, First "
+   },
+   {
+    "id": 15347,
+    "sheet": "image 1643845",
+    "name": "Part of Ward 1. [Map bound by Franklin Ave, Prospect Ave, \"The Cedars\", La Fayette Ave, We"
+   },
+   {
+    "id": 15348,
+    "sheet": "image 1643846",
+    "name": "Part of Ward 1. [Map bound by Sailors Snug Harbor, Henderson Ave, Castleton Ave, Forest Av"
+   },
+   {
+    "id": 15349,
+    "sheet": "image 1643847",
+    "name": "Part of Ward 4. [Map bound by New Dorp Lane, New Dorp Beach, Lower Bay, Birch Ave, Brook A"
+   },
+   {
+    "id": 15350,
+    "sheet": "image 1643848",
+    "name": "Part of Wards 4 & 5. [Map bound by Clarke Ave, Emmet Ave, Maple Ave, Lower Bay, Seaside Av"
+   },
+   {
+    "id": 15351,
+    "sheet": "image 1643849",
+    "name": "Part of Wards 4 & 5. [Map bound by Railroad Ave, The Staten Island Railway Co., Great Kill"
+   },
+   {
+    "id": 15352,
+    "sheet": "image 1643850",
+    "name": "Part of Wards 4 & 5. [Map bound by The Staten Island Railway Co., Seaside Ave, Southfield "
+   },
+   {
+    "id": 15353,
+    "sheet": "image 1643851",
+    "name": "Part of Ward 5. [Map bound by The Staten Island Railway Co., Amboy Road, Holton St, Henry "
+   },
+   {
+    "id": 15354,
+    "sheet": "image 1643852",
+    "name": "Part of Ward 5. [Map bound by Amboy Road, Beach St, Pier & Bulkhead Line]"
+   },
+   {
+    "id": 15355,
+    "sheet": "image 1643853",
+    "name": "Part of Ward 5. [Map bound by Old Pier & Bulkhead Line, Church St, Amboy Ave]"
+   },
+   {
+    "id": 15356,
+    "sheet": "image 1643854",
+    "name": "Part of Ward 5. [Map bound by Sharrotts Road, Shore Road, Wood Row Road, Foster or Rossvil"
+   },
+   {
+    "id": 15357,
+    "sheet": "image 1643855",
+    "name": "Part of Ward 5. [Map bound by State Boundary Line, Hugenot Ave, Wood Row Road, Sharrotts R"
+   },
+   {
+    "id": 15358,
+    "sheet": "image 1643856",
+    "name": "Part of Ward 5. [Map bound by Huguenot Ave, Fresh Kills Road, Bridge Ave, Staten Island Ra"
+   },
+   {
+    "id": 15359,
+    "sheet": "image 1643857",
+    "name": "Part of Wards 2, 3, & 4. [Map bound by Forest Hill Road, New Road, Willow Brook Road, Mano"
+   },
+   {
+    "id": 15360,
+    "sheet": "image 1643858",
+    "name": "Part of Wards 2 & 4. [Map bound by Richmond Turnpike, Clove Oak St, Richmond Road, Clove A"
+   },
+   {
+    "id": 15361,
+    "sheet": "image 1643859",
+    "name": "Part of Wards 2 & 3. [Map bound by Richmond Turnpike, Chestnut Ave, Todt Hill Road, Ocean "
+   },
+   {
+    "id": 15362,
+    "sheet": "image 1643860",
+    "name": "Part of Ward 3. [Map bound by Johnson Ave, Innis St, Grant St, Sherman Ave, Prospect St, R"
+   },
+   {
+    "id": 15363,
+    "sheet": "image 1643861",
+    "name": "Part of Ward 3. [Map bound by Van Pelt Ave, Washington (Old Place Road) Ave, John St, Mart"
+   },
+   {
+    "id": 15364,
+    "sheet": "image 1643862",
+    "name": "Part of Ward 3. [Map bound by State Line, Richmond (Shore Road) Terrace, Holland Ave, John"
+   },
+   {
+    "id": 15365,
+    "sheet": "image 1643863",
+    "name": "Part of Wards 2 & 3. [Map bound by Old Place Creek, Washington Ave, Lisk Ave, Lamberts Lan"
+   },
+   {
+    "id": 15366,
+    "sheet": "image 1643864",
+    "name": "Part of Wards 3, 4, & 5. [Map bound by Cannon Ave, Burying Hill Road, Richmond Turnpike, U"
    }
   ]
  }

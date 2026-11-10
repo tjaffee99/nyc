@@ -745,6 +745,105 @@
     "id": 9588,
     "sheet": "32"
    }
+  ],
+  "style_override": {
+   "brick": {
+    "da_min": 4.5,
+    "db_max": 5.0,
+    "L_min": 45
+   },
+   "street_min_q": 0.2,
+   "street_win_m": 300.0
+  }
+ },
+ "bronx_south_1904": {
+  "map_year": 1904,
+  "atlas": "Atlas and owners names, borough of the Bronx, sections 9 & 10: from actual surveys and official plans (G. W. Bromley & Co., Philadelphia, 1904)",
+  "source": "bromley_bronx_1904",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the borough of the Bronx, Sections 9-13, 1921; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "style_override": {
+   "brick": {
+    "da_min": 4.5,
+    "db_max": 5.0,
+    "L_min": 45
+   },
+   "street_min_q": 0.2,
+   "street_win_m": 300.0
+  },
+  "plates": [
+   {
+    "id": 9438,
+    "sheet": "1"
+   },
+   {
+    "id": 9439,
+    "sheet": "2"
+   },
+   {
+    "id": 9440,
+    "sheet": "3"
+   },
+   {
+    "id": 9442,
+    "sheet": "5"
+   },
+   {
+    "id": 9443,
+    "sheet": "6"
+   },
+   {
+    "id": 9444,
+    "sheet": "7"
+   },
+   {
+    "id": 9445,
+    "sheet": "8"
+   },
+   {
+    "id": 9446,
+    "sheet": "9"
+   },
+   {
+    "id": 9447,
+    "sheet": "10"
+   },
+   {
+    "id": 9448,
+    "sheet": "11"
+   },
+   {
+    "id": 9449,
+    "sheet": "12"
+   },
+   {
+    "id": 9450,
+    "sheet": "13"
+   },
+   {
+    "id": 9451,
+    "sheet": "14"
+   },
+   {
+    "id": 9452,
+    "sheet": "15"
+   },
+   {
+    "id": 9453,
+    "sheet": "16"
+   },
+   {
+    "id": 9454,
+    "sheet": "17"
+   },
+   {
+    "id": 9455,
+    "sheet": "18"
+   },
+   {
+    "id": 9456,
+    "sheet": "19"
+   }
   ]
  }
 }

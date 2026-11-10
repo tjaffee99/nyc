@@ -1349,8 +1349,14 @@ if __name__ == "__main__":
             except Exception as e:  # noqa
                 print(json.dumps(dict(plate=str(pid), error=str(e))), flush=True)
     elif a[0] == "refine_buildings":
-        for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
-            refine_buildings(a[1], pid)
+        kw = {}
+        if "--search" in a:
+            kw["search_m"] = float(a[a.index("--search") + 1])
+        if "--q" in a:
+            kw["min_q"] = float(a[a.index("--q") + 1])
+        ids = [v for i, v in enumerate(a[2:], 2) if v.isdigit() and not a[i - 1].startswith("--")]
+        for pid in (ids or [p["id"] for p in layers()[a[1]]["plates"]]):
+            refine_buildings(a[1], pid, **kw)
     elif a[0] == "regeo":
         for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
             regeo(a[1], pid)

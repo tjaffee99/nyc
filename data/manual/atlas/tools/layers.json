@@ -209,6 +209,10 @@
     "id": 8205,
     "sheet": "image 1516774",
     "name": "Part of Section 8: New York City."
+   },
+   {
+    "id": 900035,
+    "sheet": "35"
    }
   ],
   "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the city of New York, Manhattan Island, 1897; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)"
@@ -404,6 +408,9 @@
    "outside_layers": [
     "harlem_1897"
    ]
-  }
+  },
+  "stone_min_m2": 200.0,
+  "stone_min_width_m": 6.0,
+  "stone_max_aspect": 4.0
  }
 }

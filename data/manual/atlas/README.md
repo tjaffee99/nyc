@@ -8,7 +8,8 @@ What the atlas does not give (years of construction and demolition, heights) is 
 | layer | atlas | area | buildings |
 |---|---|---|---|
 | `kings_towns_1890.geojson` | *Robinson's atlas of Kings County, New York* (E. Robinson, 1890), 29 of its 31 plates | the county towns before they joined Brooklyn: Flatbush, New Utrecht (Bay Ridge, Fort Hamilton, Bath Beach, Bensonhurst), Gravesend (the village, Coney Island, Sheepshead Bay), Flatlands (Canarsie in part) | 6,914 (6,795 frame, 119 brick) |
-| `harlem_1897.geojson` | *Atlas of the city of New York, Manhattan Island* (G. W. & W. S. Bromley, 1897), the 14 plates north of 84th / 86th St | Yorkville north of 84th St, East Harlem, the Upper West Side from 86th St, Morningside Heights, Harlem, Manhattanville, Hamilton Heights, Washington Heights to about 190th St | 18,386 (3,057 frame, 15,323 brick, 6 stone) |
+| `harlem_1897.geojson` | *Atlas of the city of New York, Manhattan Island* (G. W. & W. S. Bromley, 1897), the 15 plates north of 84th / 86th St (one of them, plate 35, georeferenced here) | Yorkville north of 84th St, East Harlem, the Upper West Side from 86th St, Morningside Heights, Harlem, Manhattanville, Hamilton Heights, Washington Heights to about 190th St | 19,925 (3,114 frame, 16,805 brick, 6 stone) |
+| `manhattan_midtown_1897.geojson` | the same atlas, 11 plates (one of them, plate 19, georeferenced here) | Manhattan from 40th St to 84th / 86th St, river to river: Hell's Kitchen, Lincoln Square, the Upper West Side to 86th St, Midtown, Turtle Bay, the Upper East Side, Yorkville to 84th St | 19,244 (1,687 frame, 17,524 brick, 7 stone, 26 gasholders) |
 | `bronx_23rd_ward_1887.geojson` | *Atlas of the city of New York … 23rd Ward* (E. Robinson & R. H. Pidgeon, 1887), 18 of 21 plates (plate 6 is not in the dump; 16 and 20 left out) | the Bronx south of about 170th St: Mott Haven, Port Morris, Melrose, Morrisania, Hunts Point, Highbridge, Claremont | 5,456 (4,498 frame, 924 brick, 34 stone) |
 
 Each layer has a `<layer>_coverage.geojson` (one polygon per plate read) and a `<layer>_stats.json` (the
@@ -29,6 +30,7 @@ numbers of the tables below, written by the export).
 | `area_m2` | |
 | `on_today` | true if the outline coincides with one of today's footprints (IoU > 0.5) — measured here for the checks; the pipeline should apply its own rule |
 | `today_cover` | share of the outline lying on today's footprints of pre-war buildings (recorded year <= 1940, or none) |
+| `kind` | `manhattan_midtown_1897` only: `building`, or `gasholder` (a round iron tank, `material` empty) |
 
 `storeys` is **not** given: the Kings County and Bronx plates do not print it; the Bromley plates do (`3B`,
 `4`, `5` in the front of each house) but the figures were not read.
@@ -78,6 +80,8 @@ metres over the coverage edge.
 * Control points and masks: NYPL Map Warper records in the NYC Space/Time Directory dump
   `https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson` (CC0), as worked
   out for `data/manual/extents` (its `tools/warp.py` and `tools/streets.py` are reused, not copied).
+* Two plates of the 1897 Manhattan atlas are not in the dump (19 and 35): their control points were made here
+  from the scans (`tools/gcps_own.json`, CC0); see `manhattan_midtown_1897`.
 * Today's streets and footprints used for registration and checks: Overture roads and the city's footprints
   (`data/raw/overture`, `data/interim/nyc_footprints_raw.parquet`).
 * The tracings are this project's (CC0).
@@ -212,7 +216,9 @@ Brick is under-read (the filter against band pieces is strict).
 
 ### harlem_1897
 
-Bromley's *Atlas of the city of New York, Manhattan Island* (1897): plates 31, 32, 34, 36, 37, 38, 40, 42 and
+**Plate 35** (W 108th / 110th St to W 125th St, Lenox Av to Columbus Av and Morningside Park: central Harlem) is not in the Map Warper dump and was missing from the first version of this layer - a hole of about 1 km2 that the per-plate checks did not show. It was added later (1,539 outlines), georeferenced here like plate 19 of the Midtown layer: scan NYPL image 1516798; 36 control points at the crossings of W 112th-124th St with Manhattan, Eighth and Seventh Av (`tools/gcps_own.json`, map id 900035), cross-validated 2.4 m; then the building match (32 windows, 0.7 m). 19 % of its outlines coincide with a standing footprint, at 1.7 m. The two blocks south of 110th St lie outside its control points: the two standing buildings there sit 3 m off. One window looked at (W 119th-120th St at St Nicholas Av): rows traced house by house and on their footprints; a large frame greenhouse is one outline; a small frame building and a crossed stable missed or in pieces. The 18,386 outlines of the first version are unchanged. **Plate 45 (Inwood, north of about 190th St) is also not in the dump and is not in the layer**: its streets are not a grid, so it needs hand control points (image 1516775).
+
+Bromley's *Atlas of the city of New York, Manhattan Island* (1897): plates 31, 32, 34, 35, 36, 37, 38, 40, 42 and
 six plates the Map Warper titles only call "Part of Section …" (image ids in the table); 0.24 m per pixel
 (the scale statement was not read), the two northern plates smaller (0.32 and 0.49 m). Rose = brick, grey strip
 along the front = stone front, grey = stone, yellow = frame.
@@ -234,7 +240,8 @@ along the front = stone front, grey = stone, yellow = frame.
 | 42 | 8201 | 1516770 | 23 (poly2, 1.3) | 0.243 | none | affine: 18, 0.36 | 663 (124 / 538 / 1) | 118 (18 %) | 1.31 | ok |
 | image 1516773 | 8204 | 1516773 | 70 (tps, 1.1) | 0.324 | none | affine: 21, 0.6 | 901 (298 / 602 / 1) | 109 (12 %) | 1.48 | ok |
 | image 1516774 | 8205 | 1516774 | 25 (tps, 1.9) | 0.49 | none | none | 486 (280 / 202 / 4) | 14 (3 %) | 1.61 | ok |
-| **all** | | | | | | | **18386** (3057 / 15323 / 6) | 2106 (11 %) | | 14 plates, 20.07 km2 |
+| 35 | 900035 | 1516798 | 36 (tps, 2.4) | 0.241 | none | affine: 32, 0.7 | 1539 (57 / 1482 / 0) | 289 (19 %) | 1.67 | ok |
+| **all** | | | | | | | **19925** (3114 / 16805 / 6) | 2395 (12 %) | | 15 plates, 21.13 km2 |
 <!-- /TABLE harlem_1897 -->
 
 **Registration.** No street tint on this atlas; the plates were fitted on the standing buildings. The first
@@ -243,8 +250,8 @@ footprint sit 1.2-2.1 m (median centre distance, which includes the difference i
 common direction. Plate 38 (Morningside Heights, mostly empty in 1897) and the Washington Heights plate had
 too few standing buildings for the match and keep the control-point fit (cross-validated 1-2 m).
 
-**Why so few coincide.** 11 % of the outlines reach IoU 0.5 with a footprint of today, 37 % lie on pre-war
-footprints for four fifths of their area or more, 52 % for less than a fifth. The last group is the answer to
+**Why so few coincide.** 12 % of the outlines reach IoU 0.5 with a footprint of today, 38 % lie on pre-war
+footprints for four fifths of their area or more, 50 % for less than a fifth. The last group is the answer to
 "what stood before": East Harlem under the housing projects, the frame houses of the 1890s edge. The middle
 group is partly row houses replaced before the war by apartment houses on several lots, partly standing houses
 the tracing cut or joined differently from today's footprints (see *How to use*). The registration is not the
@@ -262,6 +269,97 @@ Both before the lettering filter; 12 of the 14 plates were not looked at.
 **Known failures.** Two houses as one outline where the party wall is faint; a house in pieces under large lot
 numbers or pencil lines; stone-front strips not joined; stone buildings mostly missing; grey hatched grounds
 are not read (only fills).
+
+### manhattan_midtown_1897
+
+The same Bromley atlas of 1897 as `harlem_1897`, for the band from 40th St to the Harlem layer's edge at
+84th / 86th St, river to river: plates 19, 21, 25, 26, 27, 28, 29 and four plates the Map Warper titles only call
+"Part of Section ..." (image ids in the table); 0.25 m per pixel. 19,244 outlines (1,687 frame, 17,524 brick, 7
+stone, 26 gasholders), 11.2 km2. The layer is cut at the line of 40th St (today's centreline) and at the
+coverage of `harlem_1897`, so no building is in both layers (1,654 outlines traced south of 40th St or inside
+the Harlem coverage are left out).
+
+<!-- TABLE manhattan_midtown_1897 -->
+| sheet | Map Warper id | NYPL image | control points (fit, CV rms m) | m / px | street match: windows agreeing, shift found m, left m | building match: windows, residual m | buildings (frame / brick / stone) | on a standing footprint (IoU > 0.5) | their median offset m | status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| image 1516786 | 8217 | 1516786 | 20 (tps, 1.4) | 0.249 | none | affine: 24, 0.74 | 2022 (469 / 1550 / 0) | 157 (8 %) | 1.6 | ok |
+| 19 | 900019 | 1516787 | 30 (poly2, 2.6) | 0.246 | none | affine: 22, 0.79 | 1643 (226 / 1407 / 0) | 113 (7 %) | 1.84 | ok |
+| 25 | 8209 | 1516778 | 30 (poly2, 1.2) | 0.247 | none | affine: 30, 0.71 | 1649 (106 / 1539 / 0) | 161 (10 %) | 1.51 | ok |
+| 21 | 8212 | 1516781 | 49 (poly2, 1.2) | 0.252 | none | affine: 22, 1.35 | 2626 (170 / 2450 / 0) | 111 (4 %) | 1.8 | ok |
+| 27 | 8211 | 1516780 | 38 (poly2, 1.1) | 0.251 | none | affine: 23, 0.72 | 1290 (170 / 1117 / 0) | 108 (8 %) | 1.87 | ok |
+| 29 | 8214 | 1516783 | 38 (poly2, 1.3) | 0.25 | none | affine: 33, 0.67 | 1315 (210 / 1105 / 0) | 173 (13 %) | 1.76 | ok |
+| 28 | 8213 | 1516782 | 90 (tps, 1.2) | 0.249 | none | affine: 65, 0.96 | 1688 (49 / 1639 / 0) | 155 (9 %) | 2.17 | ok |
+| image 1516788 | 8219 | 1516788 | 38 (poly2, 1.3) | 0.246 | none | affine: 39, 1.79 | 1221 (57 / 1164 / 0) | 21 (2 %) | 4.47 | ok |
+| image 1516784 | 8215 | 1516784 | 34 (tps, 1.3) | 0.248 | none | affine: 28, 0.99 | 2139 (26 / 2107 / 6) | 71 (3 %) | 2.74 | ok |
+| image 1516785 | 8216 | 1516785 | 18 (tps, 1.5) | 0.248 | none | affine: 18, 0.71 | 2227 (131 / 2095 / 1) | 41 (2 %) | 2.58 | ok |
+| 26 | 8210 | 1516779 | 37 (tps, 1.1) | 0.251 | none | affine: 41, 0.93 | 1424 (73 / 1351 / 0) | 163 (11 %) | 1.81 | ok |
+| **all** | | | | | | | **19244** (1687 / 17524 / 7) | 1274 (7 %) | | 11 plates, 11.2 km2 |
+<!-- /TABLE manhattan_midtown_1897 -->
+
+**Plate 19** (W 36th-47th St, Eighth Av to the Hudson: Hell's Kitchen's 40s, the gas works) **is not in the Map
+Warper dump**; without it the band has a hole there. Its scan is NYPL image 1516787 (found by its place in the
+atlas's run of image ids). Control points were made here (`tools/gcps_own.json`, map id 900019): on the scan
+the streets and avenues are the bands without building fill; their middle lines, fitted per street and per
+avenue, cross at 30 points (W 37th-46th St with Ninth, Tenth and Eleventh Av), set against today's centreline
+crossings. Cross-validated 2.6 m (2nd-order fit), then the building match as on the other plates. The plate's
+"mask" is the block of ground its title names, from today's centrelines.
+
+**Registration.** Every plate was fitted on its standing buildings (three passes); the window residual of the
+last pass is 0.67-1.79 m. Outlines that coincide with a footprint of today sit 1.51-4.47 m (median
+centre distance) from it. The weakest plate is "image 1516788" (Eighth Av to Park Av, 40th-47th St: Times Square
+and Grand Central, where almost nothing of 1897 stands): 21 coinciding outlines, 4.5 m - much of that is the
+difference between a traced part and today's whole building, but the plate has the least to hold it.
+
+**How much coincides.** 7 % of the outlines reach IoU 0.5 with a footprint of today (2-13 % by
+plate), 40 % lie on pre-war footprints for four fifths of their area or more, 47 % for less than a fifth.
+
+**Settings that differ from `harlem_1897`** (`layers.json`): outlines up to 20,000 m2 (armouries, car depots,
+Grand Central Depot, breweries, slaughterhouses: 91 outlines over 2,000 m2, 10 over 5,000 m2); a large,
+wide fill needs only 30 % of its outline (St Patrick's Cathedral came out with 48 % under its bold lettering and
+was missing); the grey of stone is read a little lighter; pale blue round outlines of 250 m2 or more are
+**gasholders** (`kind = gasholder`, `material` empty) - every other pale blue outline is water between piers and
+is dropped (800); a stone outline must be 200 m2, 6 m wide and less than four times as long as wide (the grey
+strip of a row's stone fronts otherwise comes out as a building; 515 grey pieces dropped, mostly lettering).
+
+**Looked at** (plate crops with the outlines drawn on them, 150 m windows unless said):
+* Hell's Kitchen, W 52nd-53rd St between Tenth and Eleventh Av: about 60 buildings drawn, about 55 covered by
+  an outline, no false outline; two or three outlines hold two houses, one crossed stable is in X-shaped pieces.
+* Hell's Kitchen, W 55th-56th St between Ninth and Tenth Av: about 62 drawn, about 56 covered, no false
+  outline; missed: three crossed frame sheds, a frame building, half of a frame church under its lettering;
+  one outline holds three houses; the grey front strips of two rows are not joined (those houses are 2 m short).
+* Hell's Kitchen, W 44th-45th St between Ninth and Tenth Av (plate 19): about 110 drawn, about 100 covered,
+  no false outline; five crossed stables in X-shaped pieces, three small frame rear buildings missed. Standing
+  tenements lie on their footprints.
+* Lincoln Square, W 62nd-63rd St between Amsterdam and West End Av: about 62 drawn, all covered, no false
+  outline; two outlines hold two to four houses.
+* Queensboro Bridge approach, E 59th-60th St between First and Second Av: about 85 drawn, about 78 covered, no
+  false outline; about eight outlines hold two to four houses, about ten are ragged where figures stand on the
+  house; a crossed frame shed and two or three houses at the sheet fold missed.
+* Yorkville, E 77th-78th St between First and Second Av: about 75 drawn, about 70 covered, no false outline;
+  the grey front strips of one block face are not joined; three or four outlines hold two or three houses.
+* St Patrick's Cathedral (E 50th-51st St): missing in the first run, in the layer after the change above, with
+  its two residences; the outline is short of the real plan where the lettering crosses it.
+* The stock yards and slaughterhouses at W 58th-61st St, West End Av (300 m): Eastman's Dressed Beef Co. and
+  the two large brick buildings of the next block are single outlines; the empty block of the Union Stock Yards
+  has nothing; no tracks or lot lines came out as buildings.
+* All 26 gasholders, all 7 stone outlines and the 32 largest other outlines, one by one: the gasholders are
+  gasholders (one cut in half by the sheet fold); the stone outlines are St Patrick's and its two houses, three
+  churches and one institution; of the 32 large outlines 31 are single buildings or works (armouries, depots,
+  breweries, slaughterhouses, the Foundling Asylum, the Normal College, a grain elevator) and one is a row of
+  about fifteen houses on E 41st St run together.
+The first six windows were looked at before the last re-trace (which changed the handling of large, grey and
+blue fills only); they were not looked at again.
+
+**Churches.** Most churches on these plates are drawn rose (brick) or yellow (frame) and are traced as such,
+often ragged under their lettering. Grey (stone) buildings are few: seven are in the layer. Sixteen grey outlines
+of 200 m2 or more were traced before the cut at 40th St and the filters; the nine not exported were not looked
+at one by one (some lie outside the band, some are front strips).
+
+**Known failures.** As for Harlem: two to four houses as one outline where party walls are faint (about one
+outline in ten; at worst a whole block face); houses in pieces or ragged under figures; stone-front strips not
+joined; crossed stables and sheds in X-shaped pieces or missing; small frame rear buildings missed. Blackwell's
+(Roosevelt) Island is not on these plates.
+
 
 ### bronx_23rd_ward_1887
 
@@ -330,10 +428,11 @@ Rose-washed lots, if the atlas has any, are not filtered — not looked for.
 * The export checks and writes the same thing: validity and area are tested on the coordinates as written
   (6 decimals), in degrees and in metres; two outlines of one plate on one spot are reduced to the larger.
 * By eye: the overlays named under each layer (`tools/atlas.py overlay … [--final]`: plate crop with the
-  traced or exported outlines and today's footprints) — ten windows: six on four plates of Kings County, two
-  on two plates of Manhattan, two on two plates of the Bronx.
+  traced or exported outlines and today's footprints) — ten windows on the first three layers (six on four plates of Kings County, two on two plates of
+  Harlem, two on two plates of the Bronx), one more on Harlem's plate 35, and eight windows on five plates of
+  the Midtown layer with every gasholder, stone outline and the 32 largest outlines one by one.
 
-Not checked: the layers in the pipeline or the viewer; the other 53 of the 61 plates by eye; the storeys; the survey
+Not checked: the layers in the pipeline or the viewer; the other 59 of the 73 plates by eye; the storeys; the survey
 dates on the collars of the 1887 and 1897 atlases; whether the brick outlines of the Bronx include rose-washed
 lots.
 
@@ -349,6 +448,8 @@ lots.
 | Manhattan above 86th St in the 1880s | Robinson 1885 (plates 22-33, 5-26 points), Bromley 1879 / 1891 | an earlier state of Harlem; Robinson's style is the county style |
 | Staten Island | Beers 1874 (small scale), Robinson 1898 / 1907 | not opened |
 | plates 6, 16, 20 of the 23rd Ward atlas | 6 is not in the dump; 16 and 20 need hand control points | holes in the Bronx coverage (around E 149th St / Third Av; Longwood; Hunts Point) |
+| Manhattan south of 40th St, 1897 | the same atlas, plates 1-18 (Map Warper ids 8189-8222, 3-49 control points) | traced layers of 1854 / 1857 / 1894 exist there; plate "image 1516792" (W 26th-40th St, Eighth Av to the river, with the 30th St yard) was traced for this run and left out by the cut at 40th St |
+| Inwood | plate 45 of the 1897 Manhattan atlas (NYPL image 1516775), not in the dump | irregular streets: hand control points needed |
 | storeys on the Bromley plates | printed in each house | would need a digit reader (the Bay tool has one for Sanborn marks) |
 
 ## Tools
@@ -359,6 +460,7 @@ lots.
 | | |
 |---|---|
 | `layers.json` | the layers: atlas, map year, style, plates (Map Warper id, sheet, `skip` with the reason), per-layer settings |
+| `gcps_own.json` | control points made here for plates that are not in the Map Warper dump (plate 19 of the 1897 Manhattan atlas), in the dump's record format |
 | `atlas.py fetch <layer>` | master scans -> `data/raw/atlas/nypl_u/` |
 | `atlas.py refine <layer> [plate] [--q 0.25 --win 300]` | street match -> `data/interim/atlas/<layer>/<plate>_corr.json`. `--locate [--hint dx,dy]` first searches +- 8 km for a plate the Map Warper misplaced (tried on Kings County plate 25: ambiguous, not used) |
 | `atlas.py trace <layer> [plate]` | tracing -> `data/interim/atlas/<layer>/<plate>.pkl` (pixel outlines, ground outlines, match against today) |

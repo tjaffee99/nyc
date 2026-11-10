@@ -547,7 +547,28 @@
     "sheet": "V2-44",
     "name": "Brooklyn V. 2, Double Page Plate No. 44 [Map bounded by State St., Hoyt St., De Kalb Ave., Navy St., 3rd Ave.]"
    }
-  ]
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 8.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 88
+   },
+   "brick": {
+    "da_min": 2.0,
+    "db_max": 3.0,
+    "L_min": 45
+   },
+   "stone": {
+    "da_abs": 3.5,
+    "db_min": -14.0,
+    "db_max": -3.5,
+    "dL_min": -22.0,
+    "dL_max": -4.0
+   },
+   "front_px": 0
+  }
  },
  "brooklyn_southwest_1886": {
   "map_year": 1886,
@@ -695,7 +716,28 @@
     "sheet": "V1-27",
     "name": "Brooklyn, V. 1, Double Page Plate No. 27 [Map bounded by 10th St., Gowanus Canal, 5th St., 3rd Ave.]"
    }
-  ]
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 8.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 88
+   },
+   "brick": {
+    "da_min": 2.0,
+    "db_max": 3.0,
+    "L_min": 45
+   },
+   "stone": {
+    "da_abs": 3.5,
+    "db_min": -14.0,
+    "db_max": -3.5,
+    "dL_min": -22.0,
+    "dL_max": -4.0
+   },
+   "front_px": 0
+  }
  },
  "brooklyn_williamsburg_1887": {
   "map_year": 1887,
@@ -833,7 +875,28 @@
     "sheet": "V3-61",
     "name": "Brooklyn V. 3, Double Page Plate No. 61 [Map bounded by Division Ave., Wythe Ave., Ross St., East River]"
    }
-  ]
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 8.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 88
+   },
+   "brick": {
+    "da_min": 2.0,
+    "db_max": 3.0,
+    "L_min": 45
+   },
+   "stone": {
+    "da_abs": 3.5,
+    "db_min": -14.0,
+    "db_max": -3.5,
+    "dL_min": -22.0,
+    "dL_max": -4.0
+   },
+   "front_px": 0
+  }
  },
  "brooklyn_greenpoint_1887": {
   "map_year": 1887,
@@ -861,7 +924,28 @@
     "sheet": "V4-104",
     "name": "Brooklyn V. 4, Double Page Plate No.104 [Map bounded by S. 3rd St., Driggs St., N. 4th St., Ainslie St., Keap "
    }
-  ]
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 8.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 88
+   },
+   "brick": {
+    "da_min": 2.0,
+    "db_max": 3.0,
+    "L_min": 45
+   },
+   "stone": {
+    "da_abs": 3.5,
+    "db_min": -14.0,
+    "db_max": -3.5,
+    "dL_min": -22.0,
+    "dL_max": -4.0
+   },
+   "front_px": 0
+  }
  },
  "brooklyn_bedstuy_1888": {
   "map_year": 1888,
@@ -994,7 +1078,28 @@
     "sheet": "V5-119",
     "name": "Brooklyn, V. 5, Double Page Plate No. 119 [Map bounded by Decatur St., Reid Ave., Jefferson Ave., Ralph Ave.]"
    }
-  ]
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 8.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 88
+   },
+   "brick": {
+    "da_min": 2.0,
+    "db_max": 3.0,
+    "L_min": 45
+   },
+   "stone": {
+    "da_abs": 3.5,
+    "db_min": -14.0,
+    "db_max": -3.5,
+    "dL_min": -22.0,
+    "dL_max": -4.0
+   },
+   "front_px": 0
+  }
  },
  "brooklyn_bushwick_1888": {
   "map_year": 1888,
@@ -1072,7 +1177,28 @@
     "sheet": "V9-264",
     "name": "Brooklyn, V. 9, Double Page Plate No. 264 [Map bounded by Furman Ave., Broadway, Cooper Ave., Central Ave.]"
    }
-  ]
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 8.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 88
+   },
+   "brick": {
+    "da_min": 2.0,
+    "db_max": 3.0,
+    "L_min": 45
+   },
+   "stone": {
+    "da_abs": 3.5,
+    "db_min": -14.0,
+    "db_max": -3.5,
+    "dL_min": -22.0,
+    "dL_max": -4.0
+   },
+   "front_px": 0
+  }
  },
  "brooklyn_crownheights_1888": {
   "map_year": 1888,
@@ -1225,7 +1351,28 @@
     "sheet": "V7-166",
     "name": "Brooklyn, V. 7, Double Page Plate No. 166 [Map bounded by Dean St., Classon Ave., Fulton St., Bedford Ave.]"
    }
-  ]
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 8.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 88
+   },
+   "brick": {
+    "da_min": 2.0,
+    "db_max": 3.0,
+    "L_min": 45
+   },
+   "stone": {
+    "da_abs": 3.5,
+    "db_min": -14.0,
+    "db_max": -3.5,
+    "dL_min": -22.0,
+    "dL_max": -4.0
+   },
+   "front_px": 0
+  }
  },
  "brooklyn_browns_1887": {
   "map_year": 1887,
@@ -1373,7 +1520,28 @@
     "sheet": "V8-195",
     "name": "Brooklyn, V. 8, Double Page Plate No. 195 [Map bounded by Osborn St., Newport St., Rockway Ave., Hopkinson Ave"
    }
-  ]
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 8.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 88
+   },
+   "brick": {
+    "da_min": 2.0,
+    "db_max": 3.0,
+    "L_min": 45
+   },
+   "stone": {
+    "da_abs": 3.5,
+    "db_min": -14.0,
+    "db_max": -3.5,
+    "dL_min": -22.0,
+    "dL_max": -4.0
+   },
+   "front_px": 0
+  }
  },
  "brooklyn_parkslope_1888": {
   "map_year": 1888,
@@ -1436,6 +1604,27 @@
     "sheet": "V6-156",
     "name": "Brooklyn, V. 6, Double Page Plate No. 156 [Map bounded by Eastern Parkway, Underhill Ave., Prospect Place, Cla"
    }
-  ]
+  ],
+  "style_override": {
+   "frame": {
+    "db_min": 8.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 88
+   },
+   "brick": {
+    "da_min": 2.0,
+    "db_max": 3.0,
+    "L_min": 45
+   },
+   "stone": {
+    "da_abs": 3.5,
+    "db_min": -14.0,
+    "db_max": -3.5,
+    "dL_min": -22.0,
+    "dL_max": -4.0
+   },
+   "front_px": 0
+  }
  }
 }
