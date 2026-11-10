@@ -460,6 +460,7 @@ def standing_records(c, heaps, rep):
                             index=allr.index)
     strong = (allr.p_raw > 0) & ~placeholder
     lpc = (allr.p_src == "lpc") | ((allr.p_src == "known") & allr.bin.isin(lb))
+    strong &= ~lpc
     diff = allr.ry - allr.p_raw
     dob = allr.src == "dob"
     dec = pd.Series("", index=allr.index)
