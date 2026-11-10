@@ -67,9 +67,9 @@ D_BROADLEAF, D_CONIFER, D_PALM, D_ORCHARD, D_FARMHOUSE, D_SHRUB, D_FARMYARD = ra
 NATURAL = {"water": SHALLOW, "tidal_marsh": MARSH, "tidal_flat": FLAT, "beach": BEACH, "dunes": DUNES,
            "pond": RESERVOIR, "freshwater_wetland": WETLAND, "forest": FOREST, "grassland": GRASS,
            "shrub": SCRUB, "rock": ROCK}
-# paint order: uplands first, then wetlands, shore, open water last (later wins)
-NATURAL_ORDER = ["forest", "grassland", "shrub", "rock", "dunes", "beach", "freshwater_wetland", "pond",
-                 "tidal_marsh", "tidal_flat", "water"]
+# paint order (later wins; data/manual/natural/README.md): pond > wetland > marsh > flat > beach > dunes > water
+NATURAL_ORDER = ["forest", "grassland", "shrub", "rock", "water", "dunes", "beach", "tidal_flat", "tidal_marsh",
+                 "freshwater_wetland", "pond"]
 
 # Colonial settlements the farms spread from (lon, lat, year): fallback when
 # data/tables/places.csv is not there. Founding years from the town articles of Wikipedia.
@@ -499,6 +499,25 @@ def histories(name, g, d, land_only=False):
     pasture = h01_grid(rows, cols, salt=7, block=10) < 0.4
     event(farm_ok & ~pasture, FARM, F)
     event(farm_ok & pasture, PASTURE, F)
+    # airfields (airports.py -> data/interim/airports.parquet): mown grass from the opening year;
+    # one that closed hands the ground on to today's use when it closed
+    ap = INTERIM / "airports.parquet"
+    if ap.exists():
+        af = gpd.read_parquet(ap).to_crs(3857)
+        af = af[~af["class"].astype(str).str.contains("heliport")]
+        for geom, opened, closed in zip(af.geometry, af.opened.astype(float), af.closed.astype(float)):
+            if geom is None or geom.is_empty:
+                continue
+            m = rasterize_on(g, [(geom, 1)], fill=0, dtype="uint8").astype(bool) & land_now
+            if not m.any():
+                continue
+            event(m, GRASS, np.fmax(opened, ground_y + 0.5))
+            if closed < 9000:
+                city_y = np.where(m, np.fmax(city_y, closed), city_y).astype(np.float32)
+                park_y = np.where(m, np.fmax(park_y, closed), park_y).astype(np.float32)
+            else:
+                is_city &= ~m      # the field is still a field: pavement and terminals are drawn on it
+                open_grass &= ~m
     # city ground
     event(is_city & ~suburb, URBAN, np.fmax(city_y, ground_y + 0.5))
     event(is_city & suburb, SUBURB, np.fmax(city_y, ground_y + 0.5))

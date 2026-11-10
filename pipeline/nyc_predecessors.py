@@ -305,7 +305,7 @@ def add_predecessors(g):
     my = v.map_year.values.astype(float)
     hsh, hsh2, h3 = hashes(v.id), hashes(v.id, "e"), hashes(v.id, "w")
     hb = np.array([h01(f"b{int(a)}_{int(b)}") for a, b in zip(np.floor(xy[:, 0] / 80), np.floor(xy[:, 1] / 80))])
-    hk = (0.65 * hb + 0.35 * hsh) % 1.0   # one date per ~80 m block, so a block fills together
+    hk = (hb + 0.35 * hsh) % 1.0   # uniform; neighbours in an ~80 m block get dates close together
 
     # ---- start
     prev_map = np.full(n, np.nan)
@@ -337,7 +337,11 @@ def add_predecessors(g):
     ov = pd.DataFrame({"i": i3, "j": j3, "f": it3 / v["area"].values[i3], "fb": it3 / gu["area"].values[j3],
                        "tstart": gu.start.values[j3]})
     # today's building took the spot: it covers a good part of the old outline, or lies mostly inside it
-    t_today = ov[(ov.f >= 0.3) | (ov.fb >= 0.5)].groupby("i").tstart.min().reindex(range(n)).values.astype(float)
+    ov["iou"] = it3 / (v["area"].values[i3] + gu["area"].values[j3] - it3)
+    ov2 = ov[(ov.f >= 0.3) | (ov.fb >= 0.5)].sort_values("tstart").drop_duplicates("i").set_index("i")
+    t_today = ov2.tstart.reindex(range(n)).values.astype(float)
+    j_today = ov2.j.reindex(range(n)).fillna(-1).values.astype(int)
+    iou_today = ov2.iou.reindex(range(n)).fillna(0).values
     end = t_today - 0.8 - 1.2 * hsh2
     rb = v.repl_by.values.astype(float)
     by_map = v.last_seen.values + 1.0 + (rb - v.last_seen.values - 1.5) * hsh2
@@ -373,13 +377,30 @@ def add_predecessors(g):
     end = np.maximum(end, v.last_seen.values + 0.5 + 3.0 * hsh2)
     edoc = v.end_doc.values.astype(float)
     end = np.where(np.isfinite(edoc), edoc, end)
-    # a documented building never outlasts the start of the building standing on its spot today;
-    # one that starts no earlier than today's building is that building under an old name
-    is_doc_ = v.cls.values == "documented"
-    clash = is_doc_ & np.isfinite(t_today) & (end > t_today - 0.5)
-    end = np.where(clash, t_today - 0.5, end)
-    # today's building there is recorded as older than the last map: the outline is that building drawn differently
-    conflict = np.isfinite(t_today) & (t_today <= v.last_seen.values + 0.5) & (v.cls.values == "traced")
+    # ---- against the building standing on the spot today
+    traced_ = v.cls.values == "traced"
+    t_exact = (j_today >= 0) & np.isin(gu.src.values[np.maximum(j_today, 0)], ["lpc", "assessor", "known"])
+    late_map = traced_ & np.isfinite(t_today) & (t_today <= v.last_seen.values + 1.0)
+    # the map shows a clearly different building where today's stands, and today's year is only
+    # an estimate: today's building is later than the map (estimated)
+    redate2 = late_map & ~t_exact & (iou_today < 0.4)
+    if redate2.any():
+        rd = pd.DataFrame({"j": j_today[redate2], "y": v.last_seen.values[redate2] + 1.0 + 5.0 * hsh2[redate2]}).groupby("j").y.max()
+        gs = g.start_year.values.copy()
+        gc = g.year_confidence.values.copy()
+        gsrc = g.year_src.values.copy()
+        gs[rd.index.values] = np.maximum(gs[rd.index.values], rd.values)
+        gc[rd.index.values] = "estimated"
+        gsrc[rd.index.values] = "after_map"
+        g = g.assign(start_year=gs, year_confidence=gc, year_src=gsrc)
+        t_today = np.where(redate2, rd.reindex(j_today).values, t_today)
+        log(f"predecessors: {len(rd)} standing buildings re-dated to after the map that shows another building on their spot")
+    # today's building is recorded as older than the last map (or has much the same outline):
+    # the traced outline is that building drawn differently, not a second building
+    conflict = late_map & ~redate2
+    # nothing vanished outlasts the start of the building standing on its spot (a documented
+    # building that starts no earlier than today's is that building under an old name: it goes)
+    end = np.where(np.isfinite(t_today), np.minimum(end, t_today - 0.3), end)
     start = np.where(documented_start, start, np.minimum(start, end - 1.0))
     start = np.maximum(start, SETTLED)
 

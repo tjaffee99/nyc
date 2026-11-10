@@ -5,7 +5,7 @@
 PY := .venv/bin/python
 P  := cd pipeline &&
 
-.PHONY: setup data download overture footprints extent grid land buildings terrain cities transit dev build deploy
+.PHONY: setup data download overture footprints extent grid land ohm buildings airports terrain ground-detail cities transit roads audit dev build deploy
 
 setup:
 	python3 -m venv .venv
@@ -13,7 +13,7 @@ setup:
 	cd viewer && npm install
 
 # everything, in dependency order
-data: download overture footprints extent grid buildings terrain cities transit
+data: download overture footprints extent grid ohm land buildings airports terrain ground-detail cities transit roads audit
 
 # NYC Open Data (footprints, PLUTO, LPC, parks), NYPL Building Inspector, MTA GTFS, TIGER
 download:
@@ -38,14 +38,29 @@ grid:
 land: grid overture
 	$(P) ../$(PY) terrain_tiles.py land
 
-# 1.1 M buildings: years (LPC > assessor, heaps spread), measured heights, OSM parts
+# OpenHistoricalMap buildings of the map box -> data/manual/ohm/ (committed; only needs the
+# network when data/raw/ohm is empty)
+ohm: footprints
+	$(P) ../$(PY) ohm_nyc.py
+
+# 1.1 M buildings: years (LPC > assessor, heaps spread), measured heights, OSM parts;
+# what stood before them (nyc_predecessors.py: atlases, OpenHistoricalMap, generated fill)
 #   -> viewer/public/data/core-buildings.bin.gz (Manhattan) + region-buildings/ tiles
 buildings: footprints overture grid land
 	$(P) ../$(PY) nyc_buildings.py
 
+# runways, taxiways, aprons with researched years (data/tables/airports.csv); airfield outlines
+# for the terrain
+airports: land
+	$(P) ../$(PY) airports.py
+
 # terrain tiles: 1609 cover -> farms -> city ground -> parks, made land, forest and today's trees
-terrain: grid overture buildings
+terrain: grid overture buildings airports
 	$(P) ../$(PY) terrain_tiles.py
+
+# pitches, tracks, golf, playgrounds, plazas draped on the ground + park labels
+ground-detail: terrain buildings
+	$(P) ../$(PY) ground_detail.py
 
 # borough outlines + census series for the population counter
 cities: download
@@ -54,6 +69,14 @@ cities: download
 # subway, elevated lines, railroads with stations and trains
 transit: overture grid
 	$(P) ../$(PY) transit.py
+
+# streets dated by the buildings along them, highways in 3D, researched routes and ferries
+roads: buildings terrain
+	$(P) ../$(PY) roads.py
+
+# invariants on the built building files (no start >= end, no stacked years, no doubles)
+audit:
+	$(P) ../$(PY) audit.py
 
 # ---- viewer ----------------------------------------------------------------
 dev:

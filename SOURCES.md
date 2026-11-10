@@ -38,6 +38,12 @@ The built building files mix OpenStreetMap parts with city data and are offered 
 | `tiger` | County outlines 2024 | US Census Bureau TIGER/Line — https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html | Public domain | The map's extent, borough outlines |
 | `nyc_parks` | Parks Properties (outlines, acquisition dates) | NYC Department of Parks and Recreation, NYC Open Data `enfh-gkve` — https://data.cityofnewyork.us/d/enfh-gkve | NYC Open Data terms of use | When each park became a park |
 
+| `ssurgo` | Soil survey of the five counties (NY005, NY047, NY061, NY081, NY085): fill over tidal marsh / reclaimed land | USDA NRCS SSURGO, Web Soil Survey — https://websoilsurvey.nrcs.usda.gov | Public domain | The 1609 marsh and shore outside Manhattan |
+| `viele1865` | Egbert Viele, *Sanitary & Topographical Map of the City and Island of New York* (1865): original shore, marsh, ponds, watercourses | Library of Congress, Geography and Map Division — https://www.loc.gov/item/2006629795/ | Public domain | Manhattan's 1609 shore, marshes and streams (georeferenced here, residual ~10 m) |
+| `usgs_htmc` | Historical Topographic Map Collection: Harlem 1891 / 1897, Brooklyn 1897, Staten Island 1898, Hempstead 1897, Oyster Bay 1897, Flushing 1947 / 1966, The Narrows 1955 | US Geological Survey — https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/ | Public domain | Shore and marsh before the 20th-century fills; streams; built-up extents of 1889 and 1897; vanished airfields |
+| `nypl_maps` | Castello Plan (1660), Grim (1742-44), Ratzer (1766-67), Taylor-Roberts (1797), Dripps (1852, 1867) with the Map Warper's control points | NYPL Digital Collections; NYC Space/Time Directory dump https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson | Public domain scans; CC0 control points | Built-up extent snapshots (`data/manual/extents/`) |
+| `loc_colton_1836` | Colton, *Topographical Map of the City and County of New-York* (1836) | Library of Congress — https://www.loc.gov/item/2007627512/ | Public domain | Built-up extent of 1836 (Manhattan, Brooklyn, Williamsburgh) |
+
 The natural landscape of 1609 (`data/manual/natural/`), the dated made-land zones
 (`data/manual/fill_zones.csv`) and the built-up extents (`data/manual/extents/`) are researched
 layers; each has a README with its own sources.
@@ -76,4 +82,6 @@ A source URL on every row. Readmes: `data/tables/places_README.md`, `data/manual
 | Landmark dimensions | Wikipedia articles, NIST NCSTAR 1 (World Trade Center), Carstensen & Gildemeister *New York Crystal Palace* (1854), LPC designation data, OpenHistoricalMap outlines (CC0), OpenStreetMap parts (ODbL) — per model in `data/research/landmarks_*.md` | Facts; CC0 / ODbL for outlines |
 | Skyscraper heights and years | CTBUH Skyscraper Center — https://www.skyscrapercenter.com/city/new-york-city ; LPC designation reports https://s-media.nyc.gov/agencies/lpc/lp/NNNN.pdf (2000, 0992, 1273, 0219, 1446, 1530, 1936, 2441, 2582, 1625, 1277, 1664, 0079, 2024, 2067, 0971, 2100) | Facts |
 | Bridge dimensions, tower and pier positions | Wikipedia bridge articles; NYC DOT bridge fact pages; OpenStreetMap `bridge:support` outlines (ODbL) | Facts; ODbL |
+| Storeys by era (generated and traced buildings) | LPC *Rowhouse Manual* — https://www.nyc.gov/assets/lpc/downloads/pdf/pubs/rowhouse.pdf ; `data/manual/extents/README.md` | Facts |
+| Golf course, airport and park-name years | Wikipedia articles, nysga.org, sichamber.com, baysidehistorical.org, airfields-freeman.com (URL per row in `data/tables/golf_courses.csv`, `airports.csv`, `park_names.csv`) | Facts |
 

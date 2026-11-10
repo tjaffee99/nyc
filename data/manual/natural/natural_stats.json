@@ -1,0 +1,170 @@
+{
+ "by_borough_cover": {
+  "Bronx|freshwater_wetland": {
+   "n": 18,
+   "ha": 34.9
+  },
+  "Bronx|pond": {
+   "n": 7,
+   "ha": 8.3
+  },
+  "Bronx|tidal_flat": {
+   "n": 1,
+   "ha": 0.9
+  },
+  "Bronx|tidal_marsh": {
+   "n": 183,
+   "ha": 1238.9
+  },
+  "Bronx|water": {
+   "n": 179,
+   "ha": 476.8
+  },
+  "Brooklyn|beach": {
+   "n": 6,
+   "ha": 10.4
+  },
+  "Brooklyn|dunes": {
+   "n": 10,
+   "ha": 11.6
+  },
+  "Brooklyn|freshwater_wetland": {
+   "n": 5,
+   "ha": 12.8
+  },
+  "Brooklyn|pond": {
+   "n": 6,
+   "ha": 4.9
+  },
+  "Brooklyn|tidal_flat": {
+   "n": 20,
+   "ha": 213.4
+  },
+  "Brooklyn|tidal_marsh": {
+   "n": 226,
+   "ha": 3095.6
+  },
+  "Brooklyn|water": {
+   "n": 206,
+   "ha": 425.8
+  },
+  "Ellis Island (New Jersey side)|water": {
+   "n": 1,
+   "ha": 9.3
+  },
+  "Manhattan|freshwater_wetland": {
+   "n": 17,
+   "ha": 62.0
+  },
+  "Manhattan|pond": {
+   "n": 18,
+   "ha": 14.5
+  },
+  "Manhattan|tidal_flat": {
+   "n": 2,
+   "ha": 5.2
+  },
+  "Manhattan|tidal_marsh": {
+   "n": 51,
+   "ha": 362.8
+  },
+  "Manhattan|water": {
+   "n": 57,
+   "ha": 791.7
+  },
+  "Queens|beach": {
+   "n": 6,
+   "ha": 68.0
+  },
+  "Queens|dunes": {
+   "n": 6,
+   "ha": 96.2
+  },
+  "Queens|freshwater_wetland": {
+   "n": 22,
+   "ha": 75.1
+  },
+  "Queens|pond": {
+   "n": 24,
+   "ha": 65.2
+  },
+  "Queens|tidal_flat": {
+   "n": 26,
+   "ha": 108.3
+  },
+  "Queens|tidal_marsh": {
+   "n": 275,
+   "ha": 5119.3
+  },
+  "Queens|water": {
+   "n": 281,
+   "ha": 747.9
+  },
+  "Staten Island|beach": {
+   "n": 1,
+   "ha": 3.5
+  },
+  "Staten Island|dunes": {
+   "n": 3,
+   "ha": 4.9
+  },
+  "Staten Island|freshwater_wetland": {
+   "n": 117,
+   "ha": 353.9
+  },
+  "Staten Island|pond": {
+   "n": 12,
+   "ha": 17.4
+  },
+  "Staten Island|tidal_flat": {
+   "n": 1,
+   "ha": 10.1
+  },
+  "Staten Island|tidal_marsh": {
+   "n": 211,
+   "ha": 2099.5
+  },
+  "Staten Island|water": {
+   "n": 182,
+   "ha": 375.6
+  }
+ },
+ "made_land_ha": {
+  "Bronx": {
+   "tidal_marsh": 1144.2,
+   "water": 476.8,
+   "total_ha": 1621.0,
+   "total_acres": 4006.0
+  },
+  "Brooklyn": {
+   "tidal_marsh": 2930.2,
+   "water": 425.8,
+   "total_ha": 3356.0,
+   "total_acres": 8293.0
+  },
+  "Ellis Island (New Jersey side)": {
+   "tidal_marsh": 0.0,
+   "water": 9.3,
+   "total_ha": 9.3,
+   "total_acres": 23.0
+  },
+  "Manhattan": {
+   "tidal_marsh": 362.1,
+   "water": 791.7,
+   "total_ha": 1153.8,
+   "total_acres": 2851.0
+  },
+  "Queens": {
+   "tidal_marsh": 4550.9,
+   "water": 747.9,
+   "total_ha": 5298.9,
+   "total_acres": 13094.0
+  },
+  "Staten Island": {
+   "tidal_marsh": 1460.5,
+   "water": 375.6,
+   "total_ha": 1836.1,
+   "total_acres": 4537.0
+  }
+ }
+}

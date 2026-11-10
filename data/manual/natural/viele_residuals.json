@@ -1,0 +1,237 @@
+{
+ "1st Avenue": [
+  "avenue",
+  -8.2,
+  2042
+ ],
+ "2nd Avenue": [
+  "avenue",
+  -7.2,
+  1570
+ ],
+ "3rd Avenue": [
+  "avenue",
+  -1.0,
+  1924
+ ],
+ "Lexington Avenue": [
+  "avenue",
+  -8.2,
+  1539
+ ],
+ "Madison Avenue": [
+  "avenue",
+  24.6,
+  1630
+ ],
+ "5th Avenue": [
+  "avenue",
+  -3.1,
+  2075
+ ],
+ "6th Avenue": [
+  "avenue",
+  5.1,
+  998
+ ],
+ "7th Avenue": [
+  "avenue",
+  -10.2,
+  667
+ ],
+ "8th Avenue": [
+  "avenue",
+  23.6,
+  688
+ ],
+ "9th Avenue": [
+  "avenue",
+  22.5,
+  654
+ ],
+ "10th Avenue": [
+  "avenue",
+  24.6,
+  687
+ ],
+ "Amsterdam Avenue": [
+  "avenue",
+  0.0,
+  1411
+ ],
+ "Columbus Avenue": [
+  "avenue",
+  19.5,
+  710
+ ],
+ "Avenue A": [
+  "avenue",
+  -1.0,
+  178
+ ],
+ "Avenue B": [
+  "avenue",
+  -10.2,
+  172
+ ],
+ "Hudson Street": [
+  "avenue",
+  -13.3,
+  487
+ ],
+ "Bowery": [
+  "avenue",
+  -1.0,
+  432
+ ],
+ "East 14th Street": [
+  "street",
+  -12.3,
+  354
+ ],
+ "West 14th Street": [
+  "street",
+  -5.1,
+  233
+ ],
+ "East 23rd Street": [
+  "street",
+  -2.0,
+  235
+ ],
+ "West 23rd Street": [
+  "street",
+  -2.0,
+  283
+ ],
+ "East 34th Street": [
+  "street",
+  15.4,
+  203
+ ],
+ "West 34th Street": [
+  "street",
+  -12.3,
+  332
+ ],
+ "East 42nd Street": [
+  "street",
+  -18.4,
+  211
+ ],
+ "West 42nd Street": [
+  "street",
+  15.4,
+  327
+ ],
+ "East 57th Street": [
+  "street",
+  1.0,
+  213
+ ],
+ "West 57th Street": [
+  "street",
+  -7.2,
+  329
+ ],
+ "East 72nd Street": [
+  "street",
+  0.0,
+  245
+ ],
+ "West 72nd Street": [
+  "street",
+  -4.1,
+  173
+ ],
+ "East 79th Street": [
+  "street",
+  2.0,
+  253
+ ],
+ "East 86th Street": [
+  "street",
+  16.4,
+  252
+ ],
+ "West 86th Street": [
+  "street",
+  -13.3,
+  177
+ ],
+ "East 96th Street": [
+  "street",
+  -13.3,
+  199
+ ],
+ "West 96th Street": [
+  "street",
+  0.0,
+  168
+ ],
+ "East 106th Street": [
+  "street",
+  -2.0,
+  261
+ ],
+ "West 106th Street": [
+  "street",
+  0.0,
+  161
+ ],
+ "West 116th Street": [
+  "street",
+  -9.2,
+  265
+ ],
+ "East 125th Street": [
+  "street",
+  4.1,
+  171
+ ],
+ "West 125th Street": [
+  "street",
+  -6.1,
+  372
+ ],
+ "East 135th Street": [
+  "street",
+  6.1,
+  222
+ ],
+ "West 135th Street": [
+  "street",
+  -7.2,
+  301
+ ],
+ "West 145th Street": [
+  "street",
+  -2.0,
+  252
+ ],
+ "East Houston Street": [
+  "street",
+  -7.2,
+  645
+ ],
+ "Canal Street": [
+  "street",
+  7.2,
+  479
+ ],
+ "Chambers Street": [
+  "street",
+  2.0,
+  171
+ ],
+ "Delancey Street": [
+  "street",
+  23.6,
+  527
+ ],
+ "Fulton Street": [
+  "street",
+  11.3,
+  251
+ ]
+}

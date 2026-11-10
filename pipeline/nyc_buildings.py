@@ -128,8 +128,10 @@ def load_lpc():
     span = hi - lo
     year = np.where(span <= 5, hi, (lo + hi) / 2.0)
     circa = pd.to_numeric(t.circa, errors="coerce").fillna(0).values > 0
+    nm = t.build_nme.fillna("").astype(str).str.strip() if "build_nme" in t else pd.Series("", index=t.index)
     out = pd.DataFrame({"bin": pd.to_numeric(t.bin, errors="coerce"), "year": year, "exact": (span <= 2) & ~circa,
-                        "mat_prim": t.mat_prim.fillna("").astype(str), "area": pd.to_numeric(t.shape_area, errors="coerce")})
+                        "mat_prim": t.mat_prim.fillna("").astype(str), "area": pd.to_numeric(t.shape_area, errors="coerce"),
+                        "lpc_name": nm.where(~nm.isin(["0", ""]), None)})
     out = out[ok & out.bin.notna() & (out.bin % 1000000 != 0)]
     # several rows per BIN (a house and its garage share one): the largest outline is the building
     out = out.sort_values("area").drop_duplicates("bin", keep="last").set_index("bin")
@@ -214,7 +216,7 @@ def assign_years(g, pluto, lpc):
         up = raw[early] + 1.0
         lo = np.maximum(floor[early], YEAR_MIN)
         med = neighbours(early, 12, 150.0, lo, up)
-        spread = raw[early] - 25.0 * (1 - np.sqrt(0.7 * hb[early] + 0.3 * hl[early]))
+        spread = raw[early] - 25.0 * (1 - np.sqrt((hb[early] + 0.3 * hl[early]) % 1.0))
         year[early] = np.maximum(np.where(np.isfinite(med), med + (hl[early] - 0.5) * 5.0, spread), lo)
         year[early] = np.minimum(year[early], up)
         src[early] = np.where(np.isfinite(med), "heap_by+neighbours", "heap_by+spread")
@@ -228,7 +230,8 @@ def assign_years(g, pluto, lpc):
         w1 = np.where(v == 1940, 1942.4, w1)
         w0 = np.where(v == 1945, 1945.6, w0)
         w1 = np.where(v == 1945, 1948.5, w1)
-        spread = w0 + (w1 - w0) * (0.7 * hb[late] + 0.3 * hl[late])
+        # (uniform over the window; the buildings of an ~80 m block land close together)
+        spread = w0 + (w1 - w0) * ((hb[late] + 0.3 * hl[late]) % 1.0)
         # (around the local median, +/- 2.5 years: the median alone stacks a district on one year)
         year[late] = np.where(np.isfinite(med), np.clip(med + (hl[late] - 0.5) * 5.0, v - 5.0, v + 5.0), spread)
         year[late] = np.maximum(year[late], floor[late])
@@ -544,6 +547,11 @@ def build():
     floors = pluto.numfloors.reindex(bbl).values.astype(float)
     nb = pluto.numbldgs.reindex(bbl).values.astype(float)
     g["lpc_mat"] = lpc.mat_prim.reindex(g.bin.astype("float64").values).fillna("").str.lower().values
+    # names: the footprint's own (few), else the LPC database's building name
+    if "lpc_name" in lpc:
+        ln = lpc.lpc_name.reindex(g.bin.astype("float64").values).values
+        own = g["name"].values
+        g["name"] = [a if isinstance(a, str) and a.strip() else (b if isinstance(b, str) else None) for a, b in zip(own, ln)]
     # measured roof height; where missing, floors of the lot, else a storey and a half
     H = g.height_m.fillna(0).values.astype(float)
     H = np.where(H > 1.5, H, np.where(floors > 0, floors * 3.3 + 1.5, np.where(g.feature_code.values == 5110, 3.2, 7.0)))

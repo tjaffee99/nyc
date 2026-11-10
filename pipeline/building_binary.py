@@ -101,6 +101,8 @@ def source_label(src: str) -> str:
         return "no recorded year: estimated from the buildings around"
     if src == "on_map":
         return "standing on a 19th-century atlas (year estimated)"
+    if src == "after_map":
+        return "a 19th-century atlas shows another building here: year estimated after it"
     if src.startswith("atlas_"):
         return f"outline traced from the {src[6:]} fire-insurance atlas (NYPL Building Inspector); years estimated"
     if src.startswith("map_"):

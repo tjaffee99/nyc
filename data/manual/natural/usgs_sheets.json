@@ -1,0 +1,96 @@
+{
+ "NJ_Harlem_472515_1891": {
+  "source": "usgs_harlem_1891",
+  "shift_px": [
+   -11,
+   14
+  ],
+  "shift_m": [
+   -58.20833333333333,
+   -74.08333333333333
+  ],
+  "peak_ratio": 1.27,
+  "n_water": 2070044,
+  "n_marsh": 252688,
+  "lda_acc_water": 0.865,
+  "lda_acc_marsh": 0.886
+ },
+ "NY_Brooklyn_123118_1897": {
+  "source": "usgs_brooklyn_1897",
+  "shift_px": [
+   -8,
+   3
+  ],
+  "shift_m": [
+   -42.33333333333333,
+   -15.874999999999998
+  ],
+  "peak_ratio": 1.36,
+  "n_water": 5302726,
+  "n_marsh": 497722,
+  "lda_acc_water": 0.844,
+  "lda_acc_marsh": 0.979
+ },
+ "NJ_Staten_Island_255388_1898": {
+  "source": "usgs_staten_island_1898",
+  "shift_px": [
+   -9,
+   -13
+  ],
+  "shift_m": [
+   -47.625,
+   68.79166666666667
+  ],
+  "peak_ratio": 1.26,
+  "n_water": 5149983,
+  "n_marsh": 212443,
+  "lda_acc_water": 0.945,
+  "lda_acc_marsh": 0.969
+ },
+ "NJ_Paterson_255310_1888": {
+  "source": "usgs_paterson_1888",
+  "shift_px": [
+   13,
+   9
+  ],
+  "shift_m": [
+   68.79166666666666,
+   -47.62500000000047
+  ],
+  "peak_ratio": 2.06,
+  "n_water": 2279,
+  "n_marsh": 0,
+  "lda": "too few labelled pixels; flat-tint / ruling rule used"
+ },
+ "NY_Hempstead_129886_1897": {
+  "source": "usgs_hempstead_1897",
+  "shift_px": [
+   -7,
+   5
+  ],
+  "shift_m": [
+   -37.041666666666664,
+   -26.45833333333333
+  ],
+  "peak_ratio": 3.39,
+  "n_water": 8678,
+  "n_marsh": 25267,
+  "lda_acc_water": 0.729,
+  "lda_acc_marsh": 0.814
+ },
+ "NY_Oyster_Bay_136363_1897": {
+  "source": "usgs_oyster_bay_1897",
+  "shift_px": [
+   -6,
+   -25
+  ],
+  "shift_m": [
+   -31.749999999999996,
+   132.29166666666669
+  ],
+  "peak_ratio": 2.51,
+  "n_water": 953,
+  "n_marsh": 5754,
+  "lda": "too few labelled pixels; flat-tint / ruling rule used"
+ }
+}

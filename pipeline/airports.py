@@ -1,51 +1,57 @@
-"""Stage: airports — runways, taxiways and aprons (Overture base/infrastructure, OSM) as
-dated ground features, and airport outlines for the terrain (airfield grass instead of
-city ground or orchard, from the opening year).
+"""Stage: airports — runways, taxiways, aprons and heliport decks (Overture
+base/infrastructure, OpenStreetMap) as dated ground features, and airfield outlines for
+the terrain (airfield grass instead of city ground, from the opening year).
 
-Dates: data/tables/airports.csv (researched opening / closing years per airport, source
-per row; SFO / OAK / SJC piece by piece from data/manual/airports; researched pieces of
-vanished airfields may carry their own start_year / end_year). Airports OSM maps only as a
-point get an outline from their own pavement. Nothing is laid before its ground exists (bay
-fill: SFO, OAK, NAS Alameda) — each feature waits for the terrain's land year (median over
-the piece). Runways are mostly OSM
-centrelines: buffered to the usual width (45 m at the international / military fields,
-23 m elsewhere; taxiways 23 / 15 m, taxilanes 10 m).
+Dates: data/tables/airports.csv (researched opening / closing years per airport, `name` =
+the OpenStreetMap name, source per row). Single runways / taxiways built later than their
+airport take their own years from data/manual/airports/pavement_dates.csv (by Overture id;
+README there). Airfields gone from today's map (Floyd Bennett Field, Flushing Airport ...)
+come from data/manual/airports/extra_pavement.geojson + extra_outlines.geojson, each piece
+with its own start_year / end_year. Nothing is laid before its ground exists (Jamaica Bay
+and Flushing Bay fill under JFK and LaGuardia): each feature waits for the terrain's land
+year (median over the piece). Runways and taxiways are OSM centrelines: buffered to the
+usual width (45 m runways / 23 m taxiways at the international airports, 23 / 15 m
+elsewhere, taxilanes 10 m).
 
 Outputs: viewer/public/data/airports.bin.gz (BAYT: start_indices, positions f32[3] offsets
 from ORIGIN with z = ground + 0.35, kind u8 (0 runway, 1 taxiway, 2 apron), years f32[2]),
-data/interim/airports.parquet (airport outlines with opened / closed for terrain_tiles).
+viewer/public/data/airport-lines.bin.gz (runway centre lines with their width, for far zooms),
+data/interim/airports.parquet (airfield outlines: name, class, opened, closed),
+data/interim/airport_pavement.parquet (every dated pavement polygon: start, end, kind).
 """
 from __future__ import annotations
 
 import geopandas as gpd
 import numpy as np
 import pandas as pd
+import shapely
 
-from common import INTERIM, MANUAL, RAW, TABLES, VIEWER_DATA, log
-from download_overture import RELEASE
+from common import INTERIM, MANUAL, NYC_CRS, OVERTURE_RELEASE, RAW, TABLES, VIEWER_DATA, log
 from export_columnar import write_columnar
 from extent import in_extent
-from roads import ORIGIN, UTM, Ground
 
-AIRPORT_CLASSES = ["airport", "international_airport", "military_airport", "municipal_airport", "private_airport"]
+UTM = NYC_CRS
+ORIGIN = (-73.97, 40.75)   # as ground_detail.py; the file header carries it
+AIRPORT_CLASSES = ["airport", "international_airport", "military_airport", "municipal_airport", "private_airport",
+                   "heliport"]
 BIG = {"international_airport", "military_airport"}
-KIND = {"runway": 0, "stopway": 0, "taxiway": 1, "taxilane": 1, "apron": 2}
+KIND = {"runway": 0, "stopway": 0, "taxiway": 1, "taxilane": 1, "apron": 2, "helipad": 2}
+EXTRA = MANUAL / "airports"
 
 
 def point_airport_outlines(g, reach=1500.0, margin=40.0):
-    """Outlines for airports OSM maps only as a point (San Rafael Airport, Meadowlark Field):
-    the convex hull of the runways / taxiways / aprons around the point that belong to it
-    (nearer to it than to any other airport, within `reach` m), plus a margin. Points
-    within 300 m of a polygon outline are duplicates of it and skipped; a point with no
-    pavement around it gets no outline (nothing to draw)."""
-    import shapely
+    """Outlines for airports OSM maps only as a point: the convex hull of the runways /
+    taxiways / aprons around the point that belong to it (nearer to it than to any other
+    airport, within `reach` m), plus a margin. Points within 300 m of a polygon outline are
+    duplicates of it and skipped; a point with no pavement around it (the seaplane bases)
+    gets no outline (nothing to draw)."""
     none = gpd.GeoDataFrame(columns=["name", "class", "geometry"], geometry="geometry", crs=4326)
-    ports = g[g["class"].isin(AIRPORT_CLASSES)].to_crs(UTM)
+    ports = g[g["class"].isin(AIRPORT_CLASSES + ["seaplane_airport"])].to_crs(UTM)
     poly = ports[ports.geom_type.isin(["Polygon", "MultiPolygon"])]
     pts = ports[ports.geom_type == "Point"]
     if not poly.empty:
         pts = pts[pts.geometry.distance(shapely.union_all(poly.geometry.values)) > 300]
-    feats = g[g["class"].isin(list(KIND))].to_crs(UTM)
+    feats = g[g["class"].isin(["runway", "stopway", "taxiway", "taxilane", "apron"])].to_crs(UTM)
     if pts.empty or feats.empty:
         return none
     # distance of every feature to every airport (polygon outlines first, then the points)
@@ -59,7 +65,7 @@ def point_airport_outlines(g, reach=1500.0, margin=40.0):
             continue
         parts = [geom.buffer(12) for geom in feats.geometry.values[mine]] + [p.geometry.buffer(30)]
         hull = shapely.union_all(parts).convex_hull.buffer(margin)
-        out.append({"name": p["name"], "class": p["class"], "geometry": hull})
+        out.append({"name": p["name"], "class": "airport", "geometry": hull})
         log(f"airports: outline for point-only {p['name']} from {int(mine.sum())} runway / taxiway / apron features "
             f"({hull.area / 1e4:.1f} ha)")
     return gpd.GeoDataFrame(out, geometry="geometry", crs=UTM).to_crs(4326) if out else none
@@ -68,6 +74,8 @@ def point_airport_outlines(g, reach=1500.0, margin=40.0):
 def land_year(lon, lat):
     """Year the ground at each point became dry land (terrain land-year grids), NaN if always land."""
     from terrain_grid import grid_def
+    lon = np.asarray(lon, float)
+    lat = np.asarray(lat, float)
     out = np.full(len(lon), np.nan)
     for name in ("detail", "region"):
         p = INTERIM / f"grid_{name}_landyear.npy"
@@ -85,14 +93,12 @@ def land_year(lon, lat):
 
 
 def dated_pavement(f):
-    """SFO / OAK / SJC pavement dated feature by feature (data/manual/airports: USGS topo
-    editions + airport histories; README there): a whole feature takes its own years, a
-    runway is cut into its construction phases (metres along its axis), taxiways / aprons
-    crossing a phase boundary are clipped by the dated zones; the removed runways (Mills
-    Field's north-south strip 1927-62, OAK's Navy diagonal 1944-86) are added."""
-    import shapely
-    base = MANUAL / "airports"
-    pp, zp, vp = base / "pavement_dates.csv", base / "pavement_zones.geojson", base / "vanished_pavement.geojson"
+    """Pavement dated feature by feature (data/manual/airports/pavement_dates.csv, by Overture
+    id): a whole feature takes its own years, a runway can be cut into construction phases
+    (`axis_interval`: the part between two points on its axis), taxiways / aprons crossing a
+    phase boundary are clipped by dated zones (pavement_zones.geojson); runways gone from
+    today's airports are added from vanished_pavement.geojson."""
+    pp, zp, vp = EXTRA / "pavement_dates.csv", EXTRA / "pavement_zones.geojson", EXTRA / "vanished_pavement.geojson"
     if not pp.exists():
         return f
     pav = pd.read_csv(pp)
@@ -155,62 +161,76 @@ def dated_pavement(f):
                                   "closed": pd.to_numeric(v.end_year, errors="coerce").fillna(9999.0),
                                   "aclass": "aerodrome"}, geometry=vg, crs=UTM)
         f2 = gpd.GeoDataFrame(pd.concat([f2, extra], ignore_index=True), geometry="geometry", crs=UTM)
-    log(f"airports: {n_dated} SFO / OAK / SJC pavement features dated by construction phase, "
-        f"+ {len(f2) - len(f)} pieces / removed runways")
+    log(f"airports: {n_dated} pavement features dated on their own, + {len(f2) - len(f)} pieces / removed runways")
     return f2
 
 
 def main():
-    d = pd.read_parquet(RAW / "overture" / RELEASE / "region_airports.parquet")
+    from nyc_buildings import Ground
+    d = pd.read_parquet(RAW / "overture" / OVERTURE_RELEASE / "region_airports.parquet")
     g = gpd.GeoDataFrame(d, geometry=gpd.GeoSeries.from_wkb(d.geometry), crs=4326)
     g = g[in_extent(g.geometry.representative_point())]
     # airports OSM has only as a point (no aerodrome outline): outline from their pavement
     po = point_airport_outlines(g)
     if len(po):
         g = gpd.GeoDataFrame(pd.concat([g, po], ignore_index=True), geometry="geometry", crs=4326)
-    # airfields gone from today's map (NAS Alameda 1940-97, Crissy Field 1921-74): researched
-    # pavement polygons (data/manual/airports_extra.geojson, already at their real width; a
-    # piece with its own start_year / end_year keeps them) + airfield outline
-    extra_f = MANUAL / "airports_extra.geojson"
-    extra_o = MANUAL / "airports_extra_outlines.geojson"
-    if extra_f.exists() and extra_o.exists():
+    # a heliport's deck is its pavement: the outline is also drawn as an apron
+    hp = g[(g["class"] == "heliport") & (g.geom_type == "Polygon")].copy()
+    hp["class"] = "apron"
+    hp["id"] = None
+    g = gpd.GeoDataFrame(pd.concat([g, hp], ignore_index=True), geometry="geometry", crs=4326)
+    # airfields gone from today's map: researched pavement polygons (already at their real
+    # width; each piece keeps its own start_year / end_year) + the airfield outline
+    extra_f, extra_o = EXTRA / "extra_pavement.geojson", EXTRA / "extra_outlines.geojson"
+    add = []
+    if extra_f.exists():
         ef = gpd.read_file(extra_f).to_crs(4326).rename(columns={"airport": "name"})
         ef["class"] = ef["kind"]
         for c in ("start_year", "end_year"):
             ef["piece_" + c] = pd.to_numeric(ef[c], errors="coerce") if c in ef else np.nan
-        eo = gpd.read_file(extra_o).to_crs(4326)
-        g = gpd.GeoDataFrame(pd.concat([g, ef[["name", "class", "piece_start_year", "piece_end_year", "geometry"]],
-                                        eo[["name", "class", "geometry"]]],
-                                       ignore_index=True), geometry="geometry", crs=4326)
-        log(f"airports: + {len(ef)} researched pavement polygons, {len(eo)} outlines of vanished airfields")
+        add.append(ef[["name", "class", "piece_start_year", "piece_end_year", "geometry"]])
+    if extra_o.exists():
+        add.append(gpd.read_file(extra_o).to_crs(4326)[["name", "class", "geometry"]])
+    if add:
+        g = gpd.GeoDataFrame(pd.concat([g] + add, ignore_index=True), geometry="geometry", crs=4326)
+        log(f"airports: + {sum(len(a) for a in add)} researched pavement polygons / outlines of vanished airfields")
     ports = g[g["class"].isin(AIRPORT_CLASSES) & (g.geom_type == "Polygon")].copy()
     t = pd.read_csv(TABLES / "airports.csv")
     ports = ports.merge(t[["name", "opened", "closed"]], on="name", how="left")
     ports["opened"] = pd.to_numeric(ports.opened, errors="coerce")
     ports["closed"] = pd.to_numeric(ports.closed, errors="coerce").fillna(9999.0)
-    log(f"airports: {len(ports)} airport outlines, {ports.opened.notna().sum()} dated "
-        f"(undated: {sorted(ports[ports.opened.isna()].name.dropna().tolist())[:12]}…)")
-    ports["opened"] = ports.opened.fillna(1950.0)  # undated small fields: estimated
+    undated = sorted(ports[ports.opened.isna()].name.fillna("(unnamed)").tolist())
+    log(f"airports: {len(ports)} airfield / heliport outlines, {ports.opened.notna().sum()} dated"
+        + (f" (undated, left out: {undated})" if undated else ""))
+    ports = ports[ports.opened.notna()]
     pu = ports.to_crs(UTM)
+    INTERIM.mkdir(parents=True, exist_ok=True)
     pu[["name", "class", "opened", "closed", "geometry"]].to_crs(4326).to_parquet(INTERIM / "airports.parquet")
 
-    f = g[g["class"].isin(list(KIND))].copy().to_crs(UTM)
-    # features belong to the airport they touch, else the nearest one within 1.5 km (SFO's
-    # maintenance base, aprons just outside a drawn boundary); farm strips far from any
-    # mapped airport are left out
-    j = gpd.sjoin_nearest(f, pu[["class", "opened", "closed", "geometry"]].rename(columns={"class": "aclass"}),
-                          how="left", max_distance=1500)
-    j = j[~j.index.duplicated()]
-    # align by row label (sjoin_nearest returns its rows in its own order: assigning .values
-    # positionally gave features other airports' opening years)
+    f = g[g["class"].isin(list(KIND)) & (g.geom_type != "Point")].copy().to_crs(UTM)
+    # features belong to the airport they touch, else the nearest one within 1.5 km (aprons
+    # just outside a drawn boundary); helipads only on an airfield / heliport itself (the
+    # rest are hospital and office roofs)
+    # (ties — a heliport inside a larger airfield — go to the smaller outline)
+    pu = pu.assign(parea=pu.geometry.area.values)
+    j = gpd.sjoin_nearest(f, pu[["class", "opened", "closed", "parea", "geometry"]].rename(columns={"class": "aclass"}),
+                          how="left", max_distance=1500, distance_col="dist")
+    j = j.sort_values(["dist", "parea"])
+    j = j[~j.index.duplicated()].reindex(f.index)
+    # align by row label (sjoin_nearest returns its rows in its own order)
     f["aclass"] = j.aclass.reindex(f.index).values
     f["opened"] = j.opened.reindex(f.index).values
-    f["closed"] = j.closed.reindex(f.index).values
+    # pavement on today's map is there today, whatever became of the airfield (Floyd Bennett
+    # Field's runways are park roads now): only researched pieces of vanished fields end
+    f["closed"] = 9999.0
+    f["aclosed"] = j.closed.values
+    far_pad = f["class"].eq("helipad").values & ~(j.dist.reindex(f.index).values <= 30)
+    f = f[~far_pad]
     if "piece_start_year" in f:
-        # researched pieces of vanished airfields carry their own years (Crissy Field's paved
-        # runway 1947-99 inside an airfield of 1921-74)
+        # researched pieces of vanished airfields carry their own years
         f["opened"] = f.piece_start_year.where(f.piece_start_year.notna() & f.opened.notna(), f.opened)
-        f["closed"] = f.piece_end_year.where(f.piece_end_year.notna() & f.opened.notna(), f.closed)
+        is_piece = f.piece_start_year.notna().values
+        f["closed"] = np.where(is_piece, f.piece_end_year.fillna(f.aclosed).fillna(9999.0), f.closed)
     f = f[f.opened.notna()]
     big = f.aclass.isin(list(BIG)).values
     width = np.select([f["class"].isin(["runway", "stopway"]).values, f["class"].eq("taxiway").values,
@@ -226,13 +246,22 @@ def main():
     # vertices every 25 m so the flat polygons follow the terrain (earcut joins the long
     # edges of a runway across its width, so the inside follows too); segmentize can turn
     # a clipped piece with a pinched ring into a MultiPolygon, so explode afterwards
-    f = f.set_geometry(f.geometry.make_valid().segmentize(25))
+    # holes (the grass between Floyd Bennett Field's runways, mapped as one apron with 15
+    # holes) are cut open: the binary format carries simple rings
+    from ground_detail import cut_holes
+    f = f.set_geometry(f.geometry.make_valid())
+    f = f.explode(index_parts=False).reset_index(drop=True)
+    f = f[f.geometry.geom_type == "Polygon"].reset_index(drop=True)
+    cut = [cut_holes(geom) for geom in f.geometry.values]
+    f = f.loc[np.repeat(np.arange(len(f)), [len(c) for c in cut])].reset_index(drop=True)
+    f = f.set_geometry(gpd.GeoSeries([p for c in cut for p in c], crs=UTM).segmentize(25).make_valid())
     f = f.explode(index_parts=False).reset_index(drop=True)
     f = f[(f.geometry.geom_type == "Polygon") & (f.geometry.area > 20)].reset_index(drop=True)
+    f = f.set_geometry(gpd.GeoSeries([shapely.Polygon(g_.exterior) for g_ in f.geometry.values], crs=UTM))
     ll = f.to_crs(4326)
     # ground year of a piece = median over its representative point and up to 24 of its
     # vertices ("always land" counts as earliest): one cell of a ditch or pond that only
-    # became land with a later building no longer holds back a whole taxiway
+    # became land with a later building does not hold back a whole taxiway
     smp = []
     for geom in ll.geometry.values:
         xy = np.asarray(geom.exterior.coords)[:-1, :2]
@@ -246,15 +275,16 @@ def main():
     ly = np.array([np.median(v) for v in np.split(lys, np.cumsum(n_s)[:-1])])
     ly = np.where(ly < 0, np.nan, ly)
     start = np.where(np.isfinite(ly), np.maximum(f.opened.values, ly + 0.5), f.opened.values)
-    # dated pavement for the terrain: the airfield's grass follows its pavement phases
-    # (terrain_tiles.py), not the whole of today's outline from the opening year
-    gpd.GeoDataFrame({"start": start, "end": f.closed.values, "kind": f["class"].map(KIND).values},
+    log(f"airports: {int((np.isfinite(ly) & (ly + 0.5 > f.opened.values)).sum())} of {len(f)} pieces wait for made land")
+    # dated pavement for the terrain: the airfield's grass can follow its pavement phases,
+    # not the whole of today's outline from the opening year
+    kind_arr = f["class"].map(KIND).values
+    gpd.GeoDataFrame({"start": start, "end": f.closed.values, "kind": kind_arr, "airport_class": f.aclass.values},
                      geometry=f.geometry.values, crs=UTM).to_crs(4326).to_parquet(INTERIM / "airport_pavement.parquet")
     ground = Ground()
     starts, pos, kinds, years = [0], [], [], []
     # drawn in this order without depth writes (viewer DrapeExtension): aprons, then
     # taxiways, then runways on top; big pieces before small ones
-    kind_arr = f["class"].map(KIND).values
     order = np.lexsort((-f.geometry.area.values, -kind_arr))
     for i in order:
         geom, k, y0, y1 = ll.geometry.values[i], kind_arr[i], start[i], f.closed.values[i]
@@ -264,14 +294,13 @@ def main():
         starts.append(starts[-1] + len(ring))
         kinds.append(k)
         years.extend((float(y0), float(y1)))
-    # centre lines of runways and taxiways (long axis of each piece): drawn with a
-    # minimum pixel width so the airfields still read when zoomed far out
+    # centre lines of runways (long axis of each piece): drawn with a minimum pixel width
+    # so the airfields still read when zoomed far out
     lstarts, lpos, lkind, lwidth, lyears = [0], [], [], [], []
     fu = f.geometry.values
     for geom, k, y0, y1 in zip(fu, kind_arr, start, f.closed.values):
-        # runways only (taxiway pieces are curved / L-shaped: their bounding rectangle
-        # drew wide grey bands across the field when zoomed out), and only pieces that
-        # are close to a rectangle; width = area / length (the true mean width)
+        # runways only (taxiway pieces are curved / L-shaped), and only pieces that are
+        # close to a rectangle; width = area / length (the true mean width)
         if k != 0:
             continue
         mrr = geom.minimum_rotated_rectangle
@@ -287,8 +316,8 @@ def main():
         w = geom.area / max(L, 1.0)
         if L < 3 * w:
             continue
-        ll = gpd.GeoSeries(gpd.points_from_xy([a[0], b[0]], [a[1], b[1]]), crs=UTM).to_crs(4326)
-        lon, lat = ll.x.values, ll.y.values
+        pl = gpd.GeoSeries(gpd.points_from_xy([a[0], b[0]], [a[1], b[1]]), crs=UTM).to_crs(4326)
+        lon, lat = pl.x.values, pl.y.values
         z = ground(lon, lat) + 0.45
         lpos.append(np.column_stack([lon - ORIGIN[0], lat - ORIGIN[1], z]).ravel())
         lstarts.append(lstarts[-1] + 2)
@@ -297,18 +326,19 @@ def main():
         lyears.extend((float(y0), float(y1)))
     write_columnar(VIEWER_DATA / "airport-lines.bin.gz", {
         "start_indices|shuffle": np.asarray(lstarts, np.uint32),
-        "positions|shuffle": np.concatenate(lpos).astype(np.float32),
+        "positions|shuffle": (np.concatenate(lpos) if lpos else np.zeros(0)).astype(np.float32),
         "kind": np.asarray(lkind, np.uint8),
         "width": np.asarray(lwidth, np.uint8),
         "years": np.asarray(lyears, np.float32),
     }, origin=ORIGIN, counts={"paths": len(lkind), "vertices": lstarts[-1]})
     write_columnar(VIEWER_DATA / "airports.bin.gz", {
         "start_indices|shuffle": np.asarray(starts, np.uint32),
-        "positions|shuffle": np.concatenate(pos).astype(np.float32),
+        "positions|shuffle": (np.concatenate(pos) if pos else np.zeros(0)).astype(np.float32),
         "kind": np.asarray(kinds, np.uint8),
         "years": np.asarray(years, np.float32),
     }, origin=ORIGIN, counts={"polygons": len(kinds), "vertices": starts[-1]})
-    log(f"airports: {len(kinds)} runway / taxiway / apron polygons ({np.bincount(kinds, minlength=3).tolist()})")
+    log(f"airports: {len(kinds)} runway / taxiway / apron polygons ({np.bincount(kinds, minlength=3).tolist()}), "
+        f"{len(lkind)} runway centre lines")
 
 
 if __name__ == "__main__":
