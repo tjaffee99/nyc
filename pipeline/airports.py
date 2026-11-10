@@ -11,7 +11,15 @@ with its own start_year / end_year. Nothing is laid before its ground exists (Ja
 and Flushing Bay fill under JFK and LaGuardia): each feature waits for the terrain's land
 year (median over the piece). Runways and taxiways are OSM centrelines: buffered to the
 usual width (45 m runways / 23 m taxiways at the international airports, 23 / 15 m
-elsewhere, taxilanes 10 m).
+elsewhere, taxilanes 10 m), or to the airport's cited runway width where airports.csv
+gives one (optional column `runway_width_m`; taxiways 23 m where it is 45 m or more).
+
+The map box is common.REGION_BBOX: the airfields of the counties around the city come from
+the same extract and the same tables (Newark, Teterboro, Westchester County ...); an airfield
+is drawn if it lies inside the map outline (extent.in_extent) and airports.csv dates it.
+Made land: the pieces wait for their ground as in the city, but a researched opening year is
+never moved — data/interim/airports/ground_conflicts.csv lists each airfield with the latest
+land year under its outline (ground_rule.ground_year) and the pieces that wait.
 
 Outputs: viewer/public/data/airports.bin.gz (BAYT: start_indices, positions f32[3] offsets
 from ORIGIN with z = ground + 0.35, kind u8 (0 runway, 1 taxiway, 2 apron), years f32[2]),
@@ -69,6 +77,11 @@ def point_airport_outlines(g, reach=1500.0, margin=40.0):
         log(f"airports: outline for point-only {p['name']} from {int(mine.sum())} runway / taxiway / apron features "
             f"({hull.area / 1e4:.1f} ha)")
     return gpd.GeoDataFrame(out, geometry="geometry", crs=UTM).to_crs(4326) if out else none
+
+
+def _in_city(points):
+    from ground_detail import inside_city
+    return inside_city(points)
 
 
 def land_year(lon, lat):
@@ -196,7 +209,9 @@ def main():
         log(f"airports: + {sum(len(a) for a in add)} researched pavement polygons / outlines of vanished airfields")
     ports = g[g["class"].isin(AIRPORT_CLASSES) & (g.geom_type == "Polygon")].copy()
     t = pd.read_csv(TABLES / "airports.csv")
-    ports = ports.merge(t[["name", "opened", "closed"]], on="name", how="left")
+    if "runway_width_m" not in t:
+        t["runway_width_m"] = np.nan
+    ports = ports.merge(t[["name", "opened", "closed", "runway_width_m"]].drop_duplicates("name"), on="name", how="left")
     ports["opened"] = pd.to_numeric(ports.opened, errors="coerce")
     ports["closed"] = pd.to_numeric(ports.closed, errors="coerce").fillna(9999.0)
     undated = sorted(ports[ports.opened.isna()].name.fillna("(unnamed)").tolist())
@@ -213,12 +228,15 @@ def main():
     # rest are hospital and office roofs)
     # (ties — a heliport inside a larger airfield — go to the smaller outline)
     pu = pu.assign(parea=pu.geometry.area.values)
-    j = gpd.sjoin_nearest(f, pu[["class", "opened", "closed", "parea", "geometry"]].rename(columns={"class": "aclass"}),
+    j = gpd.sjoin_nearest(f, pu[["name", "class", "opened", "closed", "parea", "runway_width_m", "geometry"]]
+                          .rename(columns={"class": "aclass", "name": "aname", "runway_width_m": "rw"}),
                           how="left", max_distance=1500, distance_col="dist")
     j = j.sort_values(["dist", "parea"])
     j = j[~j.index.duplicated()].reindex(f.index)
     # align by row label (sjoin_nearest returns its rows in its own order)
     f["aclass"] = j.aclass.reindex(f.index).values
+    f["aname"] = j.aname.reindex(f.index).values
+    f["rw"] = pd.to_numeric(j.rw.reindex(f.index), errors="coerce").values
     f["opened"] = j.opened.reindex(f.index).values
     # pavement on today's map is there today, whatever became of the airfield (Floyd Bennett
     # Field's runways are park roads now): only researched pieces of vanished fields end
@@ -233,8 +251,11 @@ def main():
         f["closed"] = np.where(is_piece, f.piece_end_year.fillna(f.aclosed).fillna(9999.0), f.closed)
     f = f[f.opened.notna()]
     big = f.aclass.isin(list(BIG)).values
+    rw = f.rw.values.astype(float)   # the airport's cited runway width, where airports.csv has one
+    wide = np.where(np.isfinite(rw), rw >= 45, big)
     width = np.select([f["class"].isin(["runway", "stopway"]).values, f["class"].eq("taxiway").values,
-                       f["class"].eq("taxilane").values], [np.where(big, 45, 23), np.where(big, 23, 15), 10], 0)
+                       f["class"].eq("taxilane").values],
+                      [np.where(np.isfinite(rw), rw, np.where(big, 45, 23)), np.where(wide, 23, 15), 10], 0)
     geoms = []
     for geom, w in zip(f.geometry.values, width):
         if geom.geom_type == "LineString":
@@ -276,6 +297,24 @@ def main():
     ly = np.where(ly < 0, np.nan, ly)
     start = np.where(np.isfinite(ly), np.maximum(f.opened.values, ly + 0.5), f.opened.values)
     log(f"airports: {int((np.isfinite(ly) & (ly + 0.5 > f.opened.values)).sum())} of {len(f)} pieces wait for made land")
+    # made land under each airfield: reported, never forced on the researched opening year
+    from ground_rule import ground_year
+    gy = ground_year(pu.to_crs(4326).geometry.values)
+    aname = f.aname.values if "aname" in f else np.full(len(f), None)
+    conf = []
+    for nm, cls_, op, cl, g_y in zip(pu["name"], pu["class"], pu.opened, pu.closed, gy):
+        m = aname == nm
+        w = m & np.isfinite(ly) & (ly + 0.5 > f.opened.values)
+        conf.append({"airfield": nm, "class": cls_, "opened": op, "closed": cl,
+                     "latest_land_year_under_outline": g_y, "outline_predates_ground": bool(np.isfinite(g_y) and g_y > op),
+                     "pieces": int(m.sum()), "pieces_waiting": int(w.sum()),
+                     "latest_piece_start": float(start[m].max()) if m.any() else np.nan,
+                     "in_city": bool(_in_city(shapely.points([(shapely.centroid(pg).x, shapely.centroid(pg).y)]))[0])
+                     if (pg := pu.to_crs(4326).geometry.values[list(pu["name"]).index(nm)]) is not None else False})
+    (INTERIM / "airports").mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(conf).to_csv(INTERIM / "airports" / "ground_conflicts.csv", index=False)
+    log(f"airports: {sum(c['outline_predates_ground'] for c in conf)} of {len(conf)} airfields open before the latest made land "
+        f"under their outline (data/interim/airports/ground_conflicts.csv)")
     # dated pavement for the terrain: the airfield's grass can follow its pavement phases,
     # not the whole of today's outline from the opening year
     kind_arr = f["class"].map(KIND).values

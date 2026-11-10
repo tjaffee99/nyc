@@ -357,7 +357,8 @@ Planting decades:
 | 2020s | 110,169 |
 
 The rise to 2010 and the fall after it is what diameter dating of the 2015 census gives (most
-trees were measured in 2015-16); the MillionTreesNYC years (2007-2015) are in it. Recorded dates
+trees were measured in 2015-16); the MillionTreesNYC planting campaign falls in those years
+(2007-2015 per https://en.wikipedia.org/wiki/MillionTreesNYC — from memory, not re-read here). Recorded dates
 start in 2015 and are thin until 2019 (2015: 1,841; 2016: 4,773; 2017: 7,813; 2018: 4,622; 2019: 5,929; 2020: 8,030; 2021: 8,297; 2022: 12,319; 2023: 16,079; 2024: 17,735; 2025: 18,943; 2026: 10,133) — the bracket class fills part of that gap.
 
 ## The terrain's canopy trees and the inventory
@@ -389,3 +390,39 @@ shape, reach=1)` returns the canopy cells the real trees already stand for (cell
 - Not looked at on screen. The viewer draws a crown at twice its stored radius (at least 4 m) and a
   height at 1.45 times: along New York's closely planted streets that may read as a closed hedge.
 - New Jersey and the other counties of the wider map have no inventory here.
+
+## Wiring (for the lead; nothing outside the stage's own files was edited)
+
+Run: `cd pipeline && ../.venv/bin/python street_trees.py` (download, build, check). Downloads: 460 MB in
+`data/raw/street_trees/`, about 6 minutes, cached per table (delete a table's folder to refresh it).
+`build`: under 3 minutes, 1.4 GB peak. Inputs from other stages: `data/interim/nyc_building_points.parquet`,
+`data/interim/grid_detail_landyear.npy`, `terrain_grid.grid_def`, the TIGER county outlines. Re-run
+`street_trees.py build` after every rebuild of the buildings or of the land years.
+
+Makefile (after `buildings`; before `terrain` if the mask below is used):
+
+```
+# real street and park trees: NYC Parks' living inventory (ForMS) + the 2015 census, dated by planting
+# records, the census and trunk diameter -> viewer/public/data/street-trees.bin.gz (Manhattan) + region-trees/
+street-trees: buildings land
+	$(P) ../$(PY) street_trees.py
+```
+
+Terrain (`terrain_tiles.decorations`, after `tree_fine &= ~block`): canopy pixels that an inventory tree
+already stands for give way to it —
+
+```
+    if name == "detail":
+        from street_trees import inventory_mask
+        tree_fine &= ~inventory_mask(t, shape, reach=1)
+```
+
+(`t`, `shape`: the canopy grid's affine and shape as already defined there; an empty mask if the tree
+stage has not run.) This removes about 100,000-140,000 of the terrain's 2.3 million present-day trees.
+
+SOURCES.md rows: the table under "Sources" above (ids `forms_tree_points`, `forms_planting_spaces`,
+`census_2015`, `usfs_utd`; `census_2005` / `census_1995` as examined and not used).
+
+Viewer (not edited): `decodeTrees` could read an `end_year` column to draw removed trees, and the
+`source` / `park` columns for a click popup ("planted 2019, NYC Parks record" / "about 1950, from a
+36 in trunk").

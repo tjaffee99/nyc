@@ -2,6 +2,7 @@
 
     python counties_ny.py download [westchester|rockland|nassau ...]   cached downloads only
     python counties_ny.py build    [westchester|rockland|nassau ...]   -> data/interim/counties/ny_<county>.parquet
+    python counties_ny.py check    [westchester|rockland ...]          well-known buildings against their known dates
     python counties_ny.py                                              both, every county that has a source
 
 Sources, licences and what was found per county: data/research/counties_ny.md.
@@ -627,8 +628,142 @@ def report(key, g, heaps, county_heaps, counts):
     log(lines[0])
 
 
+# ---------------------------------------------------------------------------------------------
+# check: well-known buildings against their known dates
+# (label, (lat, lon) or a regular expression on the footprint's name, known year, where the year is from)
+#   brief   = the date given in this part's brief
+#   wp-list = read on 2026-11-10 from https://en.wikipedia.org/wiki/List_of_Registered_Historic_Places_in_Rockland_County,_New_York
+#             or https://en.wikipedia.org/wiki/National_Register_of_Historic_Places_listings_in_southern_Westchester_County,_New_York
+#   wd      = Wikidata P571 of the building's item, read on 2026-11-10
+#   cris    = the year in the State Historic Preservation Office's inventory name
+#   memory  = the commonly published date (the building's Wikipedia article), NOT re-read on 2026-11-10
+KNOWN = {
+    "westchester": [
+        ("Yonkers City Hall", (40.93211, -73.89790), 1910, "brief"),
+        ("Philipse Manor Hall, Yonkers", (40.93574, -73.89940), 1682, "memory"),
+        ("Kykuit, Pocantico Hills", (41.08960, -73.84443), 1913, "memory"),
+        ("Westchester County Courthouse, White Plains", (41.02978, -73.76999), 1974, "wd"),
+        ("Old Dutch Church of Sleepy Hollow", (41.09041, -73.86190), 1685, "memory"),
+        ("John Jay Homestead, Katonah", (41.25158, -73.66037), 1801, "memory"),
+        ("Glenview Mansion (Hudson River Museum), Yonkers", (40.95448, -73.89621), 1876, "cris"),
+        ("Sherwood House, Yonkers", (40.95205, -73.85497), 1740, "memory"),
+        ("Thomas Paine Cottage, New Rochelle", (40.93449, -73.79117), 1793, "memory"),
+        ("Leland Castle, New Rochelle", (40.90055, -73.78101), 1859, "memory"),
+        ("Jacob Purdy House, White Plains", (41.03689, -73.77309), 1721, "memory"),
+        ("White Plains Armory", (41.03131, -73.76250), 1910, "memory"),
+        ("Wayside Cottage, Scarsdale", (40.99225, -73.79398), 1720, "memory"),
+        ("Playland bathhouse, Rye", (40.96416, -73.67775), 1928, "memory"),
+        ("Peter Augustus Jay House (Jay Estate), Rye", (40.95728, -73.70606), 1838, "memory"),
+        ("Timothy Knapp House, Rye", (40.96496, -73.68623), 1670, "wp-list"),
+        ("Capitol Theatre, Port Chester", (41.00168, -73.66505), 1926, "memory"),
+        ("Life Savers Building, Port Chester", (41.00579, -73.65969), 1920, "memory"),
+        ("Bolton Priory, Pelham Manor", (40.88610, -73.79430), 1838, "wd"),
+        ("Pelhamdale, Pelham Manor", (40.90099, -73.81501), 1750, "memory"),
+        ("PepsiCo headquarters, Purchase", (41.03486, -73.69283), 1970, "memory"),
+        ("Union Church of Pocantico Hills", (41.09563, -73.83229), 1921, "wd"),
+        ("Reader's Digest headquarters, Chappaqua", (41.17950, -73.75587), 1939, "memory"),
+        ("Horace Greeley House, Chappaqua", (41.15912, -73.77133), 1820, "memory"),
+        ("IBM Watson Research Center, Yorktown", (41.20978, -73.80416), 1961, "memory"),
+        ("Alder Manor, Yonkers", (40.97288, -73.88451), 1912, "memory"),
+        ("St. Joseph's Seminary, Dunwoodie", (40.93107, -73.86430), 1896, "memory"),
+        ("Yonkers station", (40.93560, -73.90234), 1911, "memory"),
+        ("Yonkers Main Post Office", (40.93505, -73.90207), 1927, "memory"),
+        ("Proctor's Theater, Yonkers", (40.93223, -73.89957), 1916, "memory"),
+        ("Proctor's Theater, Mount Vernon", (40.91248, -73.83769), 1913, "cris"),
+        ("Lyndhurst, Tarrytown", (41.05397, -73.86736), 1838, "memory"),
+        ("Sunnyside, Tarrytown", (41.04760, -73.86987), 1835, "memory"),
+        ("Manor House, Larchmont", (40.92531, -73.75184), 1797, "memory"),
+        ("Bar Building, White Plains", (41.03262, -73.76753), 1926, "memory"),
+        ("Scarsdale station", (40.99000, -73.80814), 1904, "memory"),
+        ("Boyce Thompson Institute, Yonkers", (40.97208, -73.88197), 1924, "memory"),
+        ("Mamaroneck Methodist Church", (40.95159, -73.72907), 1859, "memory"),
+        ("Holy Trinity Church, Mamaroneck", r"Holy Trinity Roman Catholic", 1886, "wd"),
+        ("Trump Plaza, New Rochelle", (40.91270, -73.78160), 2007, "wd"),
+    ],
+    "rockland": [
+        ("Edward Hopper House, Nyack", (41.09325, -73.91800), 1858, "memory"),
+        ("DeWint House, Tappan", (41.01994, -73.94612), 1700, "memory"),
+        ("Tappan Reformed Church", (41.02257, -73.94766), 1835, "memory"),
+        ("Nyack Library", (41.08863, -73.91848), 1903, "memory"),
+        ("Rockland County Courthouse, New City", (41.14702, -73.99073), 1928, "memory"),
+        ("Stony Point Lighthouse", (41.24135, -73.97176), 1826, "memory"),
+        ("Lafayette Theatre, Suffern", (41.11469, -74.15018), 1924, "memory"),
+        ("Palisades Center, West Nyack", (41.09751, -73.95645), 1998, "memory"),
+        ("Old Stone Church, Upper Nyack", (41.10367, -73.91701), 1813, "memory"),
+        ("Bear Mountain Inn", (41.31308, -73.98980), 1915, "wp-list"),
+        ("Blauvelt-Cropsey Farm, New City (1790s)", (41.13235, -74.00166), 1795, "wp-list"),
+        ("First Reformed Church, Piermont", (41.03628, -73.91680), 1946, "wp-list"),
+        ("Kings Daughters Public Library, Haverstraw", (41.19661, -73.96071), 1903, "wp-list"),
+        ("Jacob Sloat House, Sloatsburg", (41.15551, -74.19487), 1848, "wp-list"),
+        ("US Post Office, Haverstraw", (41.19624, -73.96078), 1934, "wp-list"),
+        ("US Post Office, Spring Valley", (41.11308, -74.04571), 1936, "wp-list"),
+        ("US Post Office, Pearl River", r"POST OFFICE.*PEARL RIVER|PEARL RIVER.*POST OFFICE", 1935, "wp-list"),
+        ("North Main Street School, Spring Valley", r"NORTH MAIN STREET SCHOOL", 1916, "wp-list"),
+        ("Camp Hill School, Pomona", r"CAMP HILL SCHOOL", 1923, "wp-list"),
+        ("Pig Knoll School, Pomona", r"PIG KNOLL", 1915, "wp-list"),
+        ("English Church, New City", r"ENGLISH CHURCH", 1827, "wp-list"),
+        ("John Green House, Nyack", r"JOHN GREEN HOUSE", 1819, "wp-list"),
+        ("The Homestead, Haverstraw (c. 1800)", r"^(THE )?HOMESTEAD\b", 1800, "wp-list"),
+        ("Edward Salyer House, Pearl River", r"EDWARD SALYER", 1765, "wp-list"),
+        ("Michael Salyer Stone House, Orangetown", r"MICHAEL SALYER", 1790, "wp-list"),
+        ("McCready House, Sloatsburg", r"MCCREADY", 1889, "wp-list"),
+        ("William H. Rose House, Stony Point (c. 1862)", r"ROSE HOUSE", 1862, "wp-list"),
+        ("Sloat House, Sloatsburg", r"^SLOAT HOUSE", 1755, "wp-list"),
+        ("H. R. Stevens House, New City", r"STEVENS HOUSE", 1775, "wp-list"),
+        ("Tallman-Budke House, Clarkstown", r"TALLMAN.?BUDKE", 1790, "wp-list"),
+        ("House at 352 Piermont Avenue", r"352 PIERMONT", 1780, "wp-list"),
+    ],
+}
+
+
+def check(key):
+    import geopandas as gpd
+    import shapely
+    f = OUT / f"ny_{key}.parquet"
+    if key not in KNOWN or not f.exists():
+        return
+    g = gpd.read_parquet(f)
+    u = g.geometry.to_crs(UTM)
+    tree = shapely.STRtree(u.values)
+    to_utm = __import__("pyproj").Transformer.from_crs(4326, UTM, always_xy=True)
+    lines, tally = [], {}
+    for label, where, known, src in KNOWN[key]:
+        i = None
+        if isinstance(where, tuple):
+            pt = shapely.Point(*to_utm.transform(where[1], where[0]))
+            i = tree.nearest(pt)
+            if u.values[i].distance(pt) > 40:
+                i = None
+        else:
+            m = g.index[g.name.str.contains(where, case=False, regex=True)]
+            if len(m):
+                i = g.area_m2.loc[m].idxmax()
+        if i is None:
+            verdict, detail = "no footprint found", ""
+        else:
+            r = g.iloc[i]
+            best = r.year_hist if np.isfinite(r.year_hist) else r.year_raw
+            if not np.isfinite(best):
+                verdict = "no year"
+            else:
+                d = abs(best - known)
+                verdict = "hit" if d <= 3 else "near (<= 10 y)" if d <= 10 else "miss"
+                if np.isfinite(r.year_hist):
+                    verdict += " by the inventory year"
+                elif r.heap:
+                    verdict += " (flagged heap)"
+            detail = (f"assessor {'-' if not np.isfinite(r.year_raw) else int(r.year_raw)}{' heap' if r.heap else ''}"
+                      f"{' secondary' if r.secondary else ''}, inventory {'-' if not np.isfinite(r.year_hist) else int(r.year_hist)}, "
+                      f"class {r.prop_class or '-'}, {r.muni}, \"{r['name'][:40]}\"")
+        tally[verdict.split(" (")[0].split(" by")[0]] = tally.get(verdict.split(" (")[0].split(" by")[0], 0) + 1
+        lines.append(f"{label} | {known} ({src}) | {verdict} | {detail}")
+    lines.append("tally: " + json.dumps(tally))
+    (OUT / f"ny_{key}_checks.txt").write_text("\n".join(lines) + "\n")
+    log(f"check {COUNTIES[key][0]}: {tally}")
+
+
 def main(argv):
-    cmd = argv[0] if argv and argv[0] in ("download", "build") else "all"
+    cmd = argv[0] if argv and argv[0] in ("download", "build", "check") else "all"
     keys = [a.lower() for a in argv if a.lower() in COUNTIES] or list(COUNTIES)
     for key in keys:
         if cmd in ("download", "all"):
@@ -637,6 +772,8 @@ def main(argv):
                 download_cris(key)
         if cmd in ("build", "all"):
             build(key)
+        if cmd in ("check", "all"):
+            check(key)
 
 
 if __name__ == "__main__":

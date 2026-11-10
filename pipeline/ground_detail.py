@@ -171,7 +171,7 @@ def counties():
     return _counties
 
 
-def in_city(points):
+def inside_city(points):
     """Boolean mask: shapely points (EPSG:4326) inside the five boroughs."""
     c = counties()
     poly = shapely.union_all(c.geometry.values[c.boro.values != COUNTY_BORO])
@@ -507,6 +507,7 @@ def date_features(feats, fu, parks, courses, hood, stadiums=None):
     """Start / end year and the rule that gave it, for every feature."""
     n = len(feats)
     cls = feats["class"].values
+    city = feats.city.values
     rp_u = fu.geometry.representative_point()
     pxy = np.column_stack([rp_u.x.values, rp_u.y.values])
     pts_u = gpd.GeoDataFrame(geometry=rp_u.values, crs=UTM)
@@ -556,8 +557,24 @@ def date_features(feats, fu, parks, courses, hood, stadiums=None):
     # otherwise: when the buildings around it were built
     todo = np.flatnonzero(np.isnan(year))
     nb = hood.second_earliest(pxy[todo])
+    # the counties are thinly built in places: one more radius before the fallback year
+    far = np.isnan(nb) & ~city[todo]
+    if far.any():
+        nb[far] = hood.second_earliest(pxy[todo[far]], radii=(COUNTY_RADIUS_M,))
     year[todo] = np.where(np.isfinite(nb), nb, DEFAULT_YEAR)
     rule[todo] = np.where(np.isfinite(nb), "buildings", "default")
+    # a golf course of the counties without a researched year: the whole course at once, at
+    # the median of what the buildings around its holes say (estimated)
+    n_est_courses = 0
+    und = j[[not r for r in j.rows.values]]
+    und = und[~und.index.duplicated()]
+    und = und[~city[und.index.values] & np.isin(rule[und.index.values].astype(str), ["buildings", "default"])]
+    for _c, grp in und.groupby("index_right"):
+        ii = grp.index.values
+        b = year[ii][rule[ii] == "buildings"]
+        year[ii] = np.median(b) if len(b) else DEFAULT_YEAR
+        rule[ii] = "golf_estimated"
+        n_est_courses += 1
     # the field of a stadium (OpenStreetMap stadium grounds) is no older than its stands:
     # Yankee Stadium's diamond of 2009 lies in a park of 1897
     n_stadium = 0
@@ -576,8 +593,12 @@ def date_features(feats, fu, parks, courses, hood, stadiums=None):
     late = np.isfinite(gone) & (gone > year)
     year = np.where(late, gone, year)
     year = np.clip(year, YEAR_MIN, float(CURRENT_YEAR))   # mapped today: there by today
-    stats = {"era_floor_applied": floored, "after_vanished_building": int(late.sum()), "stadium_fields": n_stadium}
+    stats = {"era_floor_applied": floored, "after_vanished_building": int(late.sum()), "stadium_fields": n_stadium,
+             "golf_courses_estimated": n_est_courses}
     return year, end, rule, stats
+
+
+POINT_HA = {}
 
 
 def park_name_periods():
@@ -586,7 +607,10 @@ def park_name_periods():
     cemetery that is not a city property; `name` is the label for [from_year, to_year). Rows
     with lon / lat apply only to the park of that name within ~1 km of the point (names
     repeat between boroughs). A park listed here is labelled only for its listed periods (a
-    gap = no known name, no label). Returns ({norm park: [(name, y0, y1, lon, lat)]}, table)."""
+    gap = no known name, no label). In the counties `park` is the OpenStreetMap name of the
+    park / reservation / cemetery / airfield and every row carries a point: the outline of that
+    name within 1.5 km of the point takes the periods, and the first one dates the park
+    (county_researched). Returns ({norm park: [(name, y0, y1, lon, lat)]}, table)."""
     p = TABLES / "park_names.csv"
     if not p.exists():
         return {}, None
@@ -596,9 +620,14 @@ def park_name_periods():
     t = t[t.from_year.notna() & t.name.notna() & t.park.notna()]
     lon = pd.to_numeric(t.get("lon"), errors="coerce")
     lat = pd.to_numeric(t.get("lat"), errors="coerce")
+    # optional column `ha`: the size of a ground that has no outline (labels at the row's point)
+    ha = pd.to_numeric(t["ha"], errors="coerce") if "ha" in t else pd.Series(np.nan, index=t.index)
+    POINT_HA.clear()
     out = {}
-    for r, x, y in zip(t.itertuples(), lon, lat):
+    for r, x, y, h in zip(t.itertuples(), lon, lat, ha):
         out.setdefault(norm(r.park), []).append((str(r.name).strip(), float(r.from_year), float(r.to_year), float(x), float(y)))
+        if np.isfinite(h):
+            POINT_HA[(norm(r.park), str(r.name).strip(), float(r.from_year))] = float(h)
     for v in out.values():
         v.sort(key=lambda a: a[1])
     return out, t
@@ -619,17 +648,21 @@ def park_labels(parks, lu, courses, hood):
          researched year (parks.csv by name, park_names.csv by name and point), else no
          label (ESTIMATE_OSM_LABELS would date them by the buildings around: unreliable);
       3. golf courses from their opening year;
-      4. park_names.csv rows with lon / lat that match no outline (vanished parks)."""
+      4. park_names.csv rows with lon / lat that match no outline (vanished parks);
+      5. the counties' airfields (airports.parquet) from their opening to their closing year.
+    The counties' greens come under 2: researched (county_researched) or no label."""
     hist, _ = park_name_periods()
+    cres = parks.attrs.get("county_researched", {})
     used_hist = set()
     labels = []
     stats = {"city_researched": 0, "city_acquired": 0, "osm_researched": 0, "osm_estimated": 0, "golf": 0,
-             "name_history": 0, "vanished": 0}
+             "name_history": 0, "vanished": 0, "county_researched": 0, "airfield": 0}
     early = []
 
-    def emit(name, c, y0, y1, ha, researched, tier=None):
-        """Append the label(s) of one park; True if any."""
-        rows = periods_for(hist, name, c.x, c.y)
+    def emit(name, c, y0, y1, ha, researched, tier=None, rows=None):
+        """Append the label(s) of one park; True if any. `rows`: its name periods where the
+        caller matched them itself (the counties: by distance to the outline)."""
+        rows = periods_for(hist, name, c.x, c.y) if rows is None else rows
         n0 = len(labels)
         if rows:
             used_hist.add(norm(name))
@@ -684,7 +717,7 @@ def park_labels(parks, lu, courses, hood):
             if emit(g["name"], g["c"], g["y0"], g["y1"], g["ha"], g["res"]):
                 stats["city_researched" if g["res"] else "city_acquired"] += 1
     # 2. OpenStreetMap greens that are not city properties
-    osm = lu[lu["class"].isin(GREEN_CLASSES) & lu["name"].notna()].copy()
+    osm = lu[lu["name"].notna() & np.where(lu.city, lu["class"].isin(GREEN_CLASSES), lu["class"].isin(COUNTY_GREEN_CLASSES))].copy()
     res = researched_parks()
     alias = {norm(v): k for k, v in OSM_ALIASES.items() if norm(k) in res}
     osm["name"] = osm["name"].map(lambda n: alias.get(norm(n), n))
@@ -696,6 +729,7 @@ def park_labels(parks, lu, courses, hood):
                         predicate="within", how="left")
     in_city = in_city[~in_city.index.duplicated()].index_right.notna().values
     rl = rp.to_crs(4326)
+    osm_city = osm.city.values
     est = hood.second_earliest(np.column_stack([rp.x.values, rp.y.values]), radii=(150.0,))
     ly = land_year_of(osm.geometry.values)
     seen = {}
@@ -709,6 +743,13 @@ def park_labels(parks, lu, courses, hood):
         nm, c = str(osm["name"].values[i]).strip(), rl.values[i]
         k = norm(nm)
         if any(abs(c.x - x) < 0.02 and abs(c.y - y) < 0.02 for x, y in seen.get(k, ())):
+            continue
+        if not osm_city[i]:
+            # the counties: a researched year or no label
+            cr = cres.get(osm.index[i])
+            if cr is not None and emit(nm, c, cr["year"], cr["end"], float(ha[i]), True, rows=cr["rows"]):
+                seen.setdefault(k, []).append((c.x, c.y))
+                stats["county_researched"] += 1
             continue
         cls = osm["class"].values[i]
         has_hist = bool(periods_for(hist, nm, c.x, c.y))
@@ -744,16 +785,68 @@ def park_labels(parks, lu, courses, hood):
             continue
         for nm, a, b, x, y in rows:
             if np.isfinite(x) and np.isfinite(y) and a < b and in_extent(np.array([shapely.Point(x, y)]))[0]:
-                lab = {"name": nm, "lon": round(x, 6), "lat": round(y, 6), "start": a, "ha": 1.0}
+                lab = {"name": nm, "lon": round(x, 6), "lat": round(y, 6), "start": a, "ha": POINT_HA.get((k, nm, a), 1.0)}
                 if b < 9999:
                     lab["end"] = b
                 labels.append(lab)
                 stats["vanished"] += 1
+    # 5. airfields of the counties (the city's airports carried no label before the counties)
+    ap = INTERIM / "airports.parquet"
+    if ap.exists():
+        a = gpd.read_parquet(ap)
+        a = a[(a["class"] != "heliport") & a["name"].notna()]
+        au = a.to_crs(UTM)
+        tr = to_utm()
+        for nm, gl, gu, y0, y1 in zip(a["name"], a.geometry.values, au.geometry.values, a.opened.values, a.closed.values):
+            c = gl.representative_point()
+            if inside_city(np.array([c]))[0] and not AIRPORT_LABELS_CITY:
+                continue
+            rows = [r for r in hist.get(norm(nm), ())
+                    if not np.isfinite(r[3]) or gu.distance(shapely.Point(*tr.transform(r[3], r[4]))) <= MATCH_M]
+            if emit(str(nm).strip(), c, float(y0), float(y1), gu.area / 1e4, True, rows=rows):
+                stats["airfield"] += 1
     if early:
         log("ground detail: name histories that start before the park's acquisition date "
             f"(add the park to parks.csv to move its ground too): {early}")
     stats["estimated_list"] = estimated
     return labels, stats
+
+
+def site_duplicates(labels):
+    """Labels that repeat a labelled site of data/manual/sites/sites.geojson (military and
+    industrial sites: another stage draws those labels): same or contained name, within about
+    3 km, overlapping years. Returns (labels without the counties' duplicates, names dropped
+    in the counties, names of the city's duplicates — which are kept: the city's labels are
+    as they were before the counties)."""
+    f = MANUAL / "sites" / "sites.geojson"
+    if not f.exists() or not labels:
+        return labels, [], []
+    sites = [ft["properties"] for ft in json.loads(f.read_text())["features"]]
+    sites = [p for p in sites if p.get("label", True) and p.get("lon") is not None and p.get("name")]
+    city = inside_city(shapely.points([(lab["lon"], lab["lat"]) for lab in labels]))
+
+    def same(a, b):
+        a, b = norm(a), norm(b)
+        return a == b or a in b or b in a
+
+    def num(v, default):
+        try:
+            return float(v) if v is not None and np.isfinite(float(v)) else default
+        except (TypeError, ValueError):
+            return default
+
+    keep, dropped, city_dupes = [], [], []
+    for lab, c in zip(labels, city):
+        dup = any(abs(p["lon"] - lab["lon"]) < 0.03 and abs(p["lat"] - lab["lat"]) < 0.03 and same(p["name"], lab["name"])
+                  and num(p.get("start_year"), -1e9) < lab.get("end", 9999) and lab["start"] < num(p.get("end_year"), 9999.0)
+                  for p in sites)
+        if dup and not c:
+            dropped.append(lab["name"])
+            continue
+        if dup:
+            city_dupes.append(lab["name"])
+        keep.append(lab)
+    return keep, dropped, city_dupes
 
 
 def site_labels():
@@ -791,14 +884,17 @@ def main():
     feats = lu[lu["class"].isin(KINDS)].explode(index_parts=False)
     feats = feats[feats.geometry.geom_type == "Polygon"].reset_index(drop=True)
     fu = feats.to_crs(UTM)
-    keep = fu.geometry.area.values >= MIN_AREA
+    # (outside the city the smallest pieces are left out: the file is loaded at start)
+    cmin = feats["class"].map(lambda c: COUNTY_MIN_AREA.get(c, COUNTY_MIN_AREA_DEFAULT)).values
+    keep = fu.geometry.area.values >= np.where(feats.city.values, MIN_AREA, cmin)
     feats, fu = feats[keep].reset_index(drop=True), fu[keep].reset_index(drop=True)
     stadiums = lu[lu["class"] == "stadium"].to_crs(UTM)
     year, end, rule, stats = date_features(feats, fu, parks, courses, hood, stadiums)
 
     # outlines: simplified, holes cut, long edges split so they follow the terrain
     kind0 = feats["class"].map(KINDS).values
-    geoms = shapely.make_valid(shapely.simplify(fu.geometry.values, SIMPLIFY_M, preserve_topology=True))
+    tol = np.where(feats.city.values, SIMPLIFY_M, COUNTY_SIMPLIFY_M)
+    geoms = shapely.make_valid(shapely.simplify(fu.geometry.values, tol, preserve_topology=True))
     polys, src = [], []
     for i, g in enumerate(geoms):
         for p in cut_holes(g):
@@ -835,6 +931,26 @@ def main():
                                       "by_kind": np.bincount(kinds[m], minlength=15).tolist()}
         log(f"ground detail: {path.name}: {n_poly} outlines, {n_vert} vertices, {path.stat().st_size / 1e6:.2f} MB "
             f"({np.bincount(kinds[m], minlength=15).tolist()})")
+    # the city and each county: features by class and by dating rule, pieces drawn
+    def part(m):
+        return {"features": int(m.sum()), "pieces": int(m[src].sum()),
+                "by_class": {k: int(v) for k, v in feats["class"][m].value_counts().items()},
+                "dating": {k: int(v) for k, v in pd.Series(rule[m]).value_counts().items()}}
+    city_f = feats.city.values
+    report["city"] = part(city_f)
+    report["city"]["pieces_region_file"] = int((city_f[src] & ~manh).sum())
+    report["counties"] = part(~city_f)
+    report["by_county"] = {str(c): part(feats.county.values == c) for c in pd.unique(feats.county.values)}
+    first = np.full(len(feats), np.inf)
+    np.minimum.at(first, src, pyear)
+    rl = fu.geometry.representative_point().to_crs(4326)
+    out = INTERIM / "ground_detail"
+    out.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame({"class": feats["class"].values, "boro": feats.boro.values, "county": feats.county.values, "city": city_f,
+                  "rule": rule.astype(str), "year": year, "start": np.where(np.isfinite(first), first, np.nan), "end": end,
+                  "lon": rl.x.values, "lat": rl.y.values, "area_m2": fu.geometry.area.values}).to_parquet(out / "features.parquet")
+    log(f"ground detail: city {report['city']['features']} features ({report['city']['dating']}), "
+        f"counties {report['counties']['features']} ({report['counties']['dating']})")
     report["by_class"] = {k: int(v) for k, v in feats["class"].value_counts().items()}
     report["by_class_rule"] = {f"{c}|{r}": int(v) for (c, r), v in pd.crosstab(feats["class"], rule).stack().items() if v}
     report["years"] = {"min": float(pyear.min()), "max": float(pyear.max()),
@@ -849,8 +965,14 @@ def main():
         if not any(k["name"] == lab["name"] and abs(k["lon"] - lab["lon"]) < 0.02 and abs(k["lat"] - lab["lat"]) < 0.02
                    and k["start"] < lab.get("end", 9999) and lab["start"] < k.get("end", 9999) for k in kept):
             kept.append(lab)
-    labels = kept
+    labels, site_dropped, site_city = site_duplicates(kept)
     n_parks = len(labels)
+    in_c = inside_city(shapely.points([(lab["lon"], lab["lat"]) for lab in labels])) if labels else np.zeros(0, bool)
+    lstats["labels_city"] = int(in_c.sum())
+    lstats["labels_counties"] = int((~in_c).sum())
+    lstats["site_duplicates_dropped_counties"] = site_dropped
+    lstats["site_duplicates_kept_city"] = site_city
+    lstats["parks_counties_unmatched"] = parks.attrs.get("county_missing", [])
     labels += site_labels()
     for lab in labels:
         lab["start"] = float(max(lab["start"], YEAR_MIN))
@@ -859,7 +981,7 @@ def main():
     out = INTERIM / "ground_detail"
     out.mkdir(parents=True, exist_ok=True)
     (out / "report.json").write_text(json.dumps(report, indent=1))
-    log(f"ground detail: {len(labels)} labels { {k: v for k, v in lstats.items() if k != 'estimated_list'} }")
+    log(f"ground detail: {len(labels)} labels { {k: v for k, v in lstats.items() if not isinstance(v, list)} }")
 
 
 if __name__ == "__main__":

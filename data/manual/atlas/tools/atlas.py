@@ -413,15 +413,32 @@ class Plate:
         p = shapely.transform(p, lambda c: np.column_stack(S.local(c[:, 0], c[:, 1])))
         return p.buffer(0)
 
-    def inside(self, shape, inset_m=6.0):
-        """Pixel mask of the plate's map area: the Map Warper mask (drawn on the uncorrected fit), set in."""
-        from rasterio import features
+    def mask_px(self, grow_m=0.0):
+        """The Map Warper mask in the plate's pixel coordinates (it was drawn on the uncorrected fit)."""
         ml = self.mask_local()
         if ml is None:
-            return np.ones(shape, bool)
-        ml = ml.buffer(-inset_m)
+            return None
+        if grow_m:
+            ml = ml.buffer(grow_m)
         parts = [sg.Polygon(self.m.inv(np.asarray(g.exterior.coords)[:-1])) for g in getattr(ml, "geoms", [ml]) if not g.is_empty]
-        return features.rasterize([(g, 1) for g in parts], out_shape=shape, dtype="uint8").astype(bool)
+        return shapely.union_all([q.buffer(0) for q in parts])
+
+    def coverage_local(self):
+        """The plate's mask on the ground with the plate's correction applied."""
+        mp = self.mask_px()
+        if mp is None:
+            return None
+        parts = [sg.Polygon(self.fwd(np.asarray(g.exterior.coords)[:-1])).buffer(0) for g in getattr(mp, "geoms", [mp])]
+        return shapely.union_all(parts)
+
+    def inside(self, shape, grow_m=15.0):
+        """Pixel mask of the plate's map area: the Map Warper mask grown by grow_m, so that a building on the mask
+        edge is traced whole; `trace` then keeps the buildings whose centre lies inside the mask itself."""
+        from rasterio import features
+        mp = self.mask_px(grow_m)
+        if mp is None:
+            return np.ones(shape, bool)
+        return features.rasterize([(mp, 1)], out_shape=shape, dtype="uint8").astype(bool)
 
 
 # --------------------------------------------------------------------------------------------- registration
@@ -634,6 +651,10 @@ def trace(layer, pid, save=True, verbose=True, window=None, tile=2000, margin=22
                 core = (tx, ty, min(W, tx + tile), min(H, ty + tile))
                 found += trace_window(P, full, inside, paper, (tx - margin, ty - margin, core[2] + margin, core[3] + margin), core)
     out = []
+    mp = P.mask_px()
+    if mp is not None and window is None:
+        cen = shapely.points([(q.centroid.x, q.centroid.y) for q, _ in found]) if found else []
+        found = [f for f, k in zip(found, shapely.contains(mp, cen))if k] if found else []
     for q, name in found:
         g = sg.Polygon(P.fwd(np.asarray(q.exterior.coords)))
         if not g.is_valid:
@@ -656,7 +677,7 @@ def trace(layer, pid, save=True, verbose=True, window=None, tile=2000, margin=22
         print(json.dumps(stats), "%.0fs" % (time.time() - t0), flush=True)
     if save and window is None:
         (WORK / layer).mkdir(parents=True, exist_ok=True)
-        ml = P.mask_local()
+        ml = P.coverage_local()
         pickle.dump(dict(stats=stats, items=out, mask=wkb.dumps(ml) if ml is not None else None), open(WORK / layer / f"{P.id}.pkl", "wb"))
     return P, out, stats, None
 
@@ -710,14 +731,14 @@ def regeo(layer, pid, verbose=True):
             stats["bld"] = r["bld"]
     if verbose:
         print(json.dumps(stats), flush=True)
-    ml = P.mask_local()
+    ml = P.coverage_local()
     pickle.dump(dict(stats=stats, items=out, mask=wkb.dumps(ml) if ml is not None else None), open(f, "wb"))
     return stats
 
 
-def refine_buildings(layer, pid, cell=0.5, win_m=240.0, search_m=6.0, min_q=0.45, verbose=True):
+def refine_buildings(layer, pid, cell=0.5, win_m=240.0, search_m=6.0, min_q=0.25, verbose=True):
     """Fine registration of a city plate on the buildings that still stand: the traced building mask is matched to
-    today's footprints of buildings old enough to be on the map (recorded year <= map year + 4, or none), window
+    today's footprints of pre-war buildings (recorded year <= 1940, or none), window
     by window (filled masks, so the rhythm of equal row houses cannot alias; the row ends, yards and corner
     buildings give the position). The consensus of the window shifts corrects the plate (affine with >= 10
     windows, constant shift with >= 3), on top of any street correction. Then regeo."""
@@ -735,7 +756,7 @@ def refine_buildings(layer, pid, cell=0.5, win_m=240.0, search_m=6.0, min_q=0.45
     b = shapely.total_bounds(np.asarray(polys, object))
     x0, y0, x1, y1 = np.floor(b[0]) - 20, np.floor(b[1]) - 20, np.ceil(b[2]) + 20, np.ceil(b[3]) + 20
     fp, yr, _ = footprints((x0, y0, x1, y1), pad=0)
-    old = (yr == 0) | (yr <= P.spec["map_year"] + 4)
+    old = (yr == 0) | (yr <= 1940)   # the recorded years are heaps (1900, 1910, 1920 ...): only post-war is surely new
     shp = (int((y1 - y0) / cell), int((x1 - x0) / cell))
     tr = Affine(cell, 0, x0, 0, -cell, y1)
     A = features.rasterize([(q, 1) for q in polys], out_shape=shp, transform=tr, dtype="uint8").astype(np.float32)
@@ -794,6 +815,85 @@ def refine_buildings(layer, pid, cell=0.5, win_m=240.0, search_m=6.0, min_q=0.45
         print(json.dumps(rep), flush=True)
     regeo(layer, pid, verbose=verbose)
     return rep
+
+
+# --------------------------------------------------------------------------------------------- export
+def _ll(geom, nd=7):
+    return shapely.transform(geom, lambda c: np.round(np.column_stack(S.lonlat(c[:, 0], c[:, 1])), nd))
+
+
+def export(layer, max_off=8.0):
+    """Merge the traced plates of a layer -> data/manual/atlas/<layer>.geojson, <layer>_coverage.geojson (one
+    feature per plate read) and <layer>_stats.json. A plate whose standing buildings sit more than max_off metres
+    (median) from their footprints is left out. Where the masks of two plates overlap, a building traced on both
+    is kept once (from the plate listed first)."""
+    spec = layers()[layer]
+    feats, cov, rep = [], [], []
+    acc = []                                                  # accepted polygons (local metres)
+    for pl in spec["plates"]:
+        f = WORK / layer / f"{pl['id']}.pkl"
+        if not f.exists():
+            rep.append(dict(plate=str(pl["id"]), sheet=pl["sheet"], status="not traced"))
+            continue
+        d = pickle.load(open(f, "rb"))
+        st = dict(d["stats"], sheet=pl["sheet"])
+        if st.get("coincide", 0) >= 5 and st.get("off_median_m", 0) > max_off:
+            st["status"] = "rejected: standing buildings %.1f m from their footprints" % st["off_median_m"]
+            rep.append(st)
+            continue
+        polys = [wkb.loads(o["geom"]) for o in d["items"]]
+        keep = np.ones(len(polys), bool)
+        if acc and polys:
+            tree = shapely.STRtree(acc)
+            i, j = tree.query(polys, predicate="intersects")
+            if len(i):
+                inter = shapely.area(shapely.intersection(np.asarray(polys, object)[i], np.asarray(acc, object)[j]))
+                small = np.minimum(shapely.area(np.asarray(polys, object)[i]), shapely.area(np.asarray(acc, object)[j]))
+                keep[i[inter > 0.3 * small]] = False
+        n0 = len(feats)
+        for k, (o, g) in enumerate(zip(d["items"], polys)):
+            if not keep[k]:
+                continue
+            g = g.simplify(0.15)
+            if not g.is_valid or g.is_empty or g.geom_type != "Polygon":
+                continue
+            acc.append(g)
+            feats.append(dict(type="Feature", properties=dict(
+                id=f"{spec['source']}_{pl['sheet']}_{k}", map_year=spec["map_year"], material=o["material"],
+                source=spec["source"], sheet=pl["sheet"], plate=int(pl["id"]), area_m2=round(g.area, 1),
+                on_today=bool(o.get("iou", 0) > 0.5)), geometry=sg.mapping(_ll(g))))
+        st["exported"], st["duplicates_dropped"], st["status"] = len(feats) - n0, int((~keep).sum()), "ok"
+        rep.append(st)
+        if d.get("mask"):
+            m = wkb.loads(d["mask"]).simplify(0.5)
+            cov.append(dict(type="Feature", properties=dict(
+                layer=layer, map_year=spec["map_year"], source=spec["source"], sheet=pl["sheet"], plate=int(pl["id"]),
+                buildings=len(feats) - n0, registration_m=st.get("off_median_m"), coincide_share=st.get("share")),
+                geometry=sg.mapping(_ll(m))))
+    crs = {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}}
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / f"{layer}.geojson").write_text(json.dumps(dict(type="FeatureCollection", name=layer, crs=crs, features=feats), separators=(",", ":")))
+    (OUT / f"{layer}_coverage.geojson").write_text(json.dumps(dict(type="FeatureCollection", name=layer + "_coverage", crs=crs, features=cov), separators=(",", ":")))
+    # checks on the written layer
+    g = np.asarray(acc, object)
+    area = shapely.area(g) if len(g) else np.array([])
+    union = shapely.union_all([wkb.loads(pickle.load(open(WORK / layer / f"{c['properties']['plate']}.pkl", "rb"))["mask"]) for c in cov]) if cov else None
+    inside = shapely.contains(union.buffer(1.0), shapely.centroid(g)) if (union is not None and len(g)) else np.array([])
+    tot = dict(layer=layer, plates=len(cov), buildings=len(feats),
+               frame=sum(f["properties"]["material"] == "frame" for f in feats),
+               brick=sum(f["properties"]["material"] == "brick" for f in feats),
+               stone=sum(f["properties"]["material"] == "stone" for f in feats),
+               on_today=sum(f["properties"]["on_today"] for f in feats),
+               invalid=int((~shapely.is_valid(g)).sum()) if len(g) else 0,
+               area_out_of_range=int(((area < 15) | (area > 5000)).sum()), outside_coverage=int((~inside).sum()),
+               coverage_km2=round(union.area / 1e6, 2) if union is not None else 0)
+    (OUT / f"{layer}_stats.json").write_text(json.dumps(dict(total=tot, plates=rep), indent=1))
+    print(json.dumps(tot))
+    for r in rep:
+        print(r.get("sheet"), r.get("plate"), r.get("status"), "n", r.get("n"), "exp", r.get("exported"), "coinc", r.get("coincide"), r.get("share"),
+              "off", r.get("off_median_m"), "| street", (r.get("street") or {}).get("kind"), (r.get("street") or {}).get("agree"),
+              (r.get("street") or {}).get("shift_abs_median"), (r.get("street") or {}).get("after_abs_median"), "| bld", (r.get("bld") or {}).get("kind"),
+              (r.get("bld") or {}).get("shift_median"), (r.get("bld") or {}).get("fit_residual_m"))
 
 
 # --------------------------------------------------------------------------------------------- pictures
@@ -859,6 +959,8 @@ if __name__ == "__main__":
     elif a[0] == "regeo":
         for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
             regeo(a[1], pid)
+    elif a[0] == "export":
+        export(a[1])
     elif a[0] == "trace":
         for pid in (a[2:] or [p["id"] for p in layers()[a[1]]["plates"]]):
             trace(a[1], pid)

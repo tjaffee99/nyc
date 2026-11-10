@@ -615,6 +615,377 @@ def process(sid: str, force=False) -> dict:
     return res
 
 
+# ----------------------------------------------------------------------------- the later sheets
+def process_late(sid: str, force=False):
+    """A 1:24,000 sheet reduced to three rasters at 1/4 of LATE_DPI (8 m cells), cached:
+    compact = solid black blobs up to 28 m across (building squares; also pieces of lettering),
+    large   = solid black longer than that (heavy road lines and the black blocks of the 1947
+              editions, big buildings, large lettering),
+    tint    = the pink built-up tint of the 1955-57 editions (inside it only landmark buildings are drawn)."""
+    from scipy import ndimage as ndi
+    path = FARM_INTERIM / f"late_{sid}.npz"
+    if path.exists() and not force:
+        return path
+    sh = Sheet(sid, LATE_DPI)
+    x0, y0 = np.floor(sh.neat_px.min(0)).astype(int)
+    x1, y1 = np.ceil(sh.neat_px.max(0)).astype(int)
+    thr = ink_threshold(sh.render((x0 + x1) // 2 - 1200, (y0 + y1) // 2 - 1200, 2400, 2400))[0]
+    shape = (sh.H // 4 + 2, sh.W // 4 + 2)
+    compact, large, tint = np.zeros(shape, bool), np.zeros(shape, bool), np.zeros(shape, bool)
+    tile, margin, s8 = 2400, 40, np.ones((3, 3), bool)
+    for ty in range(y0 - y0 % 4, y1, tile):
+        for tx in range(x0 - x0 % 4, x1, tile):
+            ax0, ay0 = max(tx - margin, 0), max(ty - margin, 0)
+            w, h = min(tx + tile + margin, sh.W) - ax0, min(ty + tile + margin, sh.H) - ay0
+            w, h = w - w % 4, h - h % 4
+            if w < 8 or h < 8:
+                continue
+            rgb = sh.render(ax0, ay0, w, h)
+            a = rgb.astype(np.int16)
+            core = ndi.binary_opening(rgb.max(-1) < thr, np.ones((4, 4), bool))
+            lab, n = ndi.label(core, s8)
+            small = np.zeros(n + 1, bool)
+            for k, sl in enumerate(ndi.find_objects(lab), 1):
+                small[k] = max(sl[0].stop - sl[0].start, sl[1].stop - sl[1].start) <= 14
+            pink = (a[..., 0] >= 200) & (a[..., 0] - a[..., 1] >= 30) & (a[..., 0] - a[..., 2] >= 30) & (a[..., 1] >= 140)
+            for arr, dst, f in ((small[lab], compact, "max"), (core & ~small[lab], large, "max"), (pink, tint, "half")):
+                b = arr.reshape(h // 4, 4, w // 4, 4)
+                b = b.max((1, 3)) if f == "max" else b.mean((1, 3)) >= 0.5
+                my, mx_ = (ty - ay0) // 4, (tx - ax0) // 4          # write the tile itself, not its margin
+                b = b[my:my + tile // 4, mx_:mx_ + tile // 4]
+                dst[ty // 4:ty // 4 + b.shape[0], tx // 4:tx // 4 + b.shape[1]] = b
+    np.savez_compressed(path, compact=compact, large=large, tint=tint, neat_px=sh.neat_px)
+    log(sid, "compact", int(compact.sum()), "large", int(large.sum()), "tint", int(tint.sum()))
+    return path
+
+
+# ----------------------------------------------------------------------------- export
+MATCH_M = 35.0      # two editions show the same building
+CLEAR_M = 40.0      # nothing solid within this distance on a 15-minute sheet = not shown there
+LATE_M = 45.0       # ... on a 1:24,000 sheet (the early mark is good to about 20-25 m)
+BIN_M = 25.0        # today's footprint under the mark: within the positional error
+SITE_M = 60.0       # marks closer than this are one site (house and barns)
+BORO = {"36061": "Manhattan", "36047": "Brooklyn", "36081": "Queens", "36005": "Bronx", "36085": "Staten Island"}
+WET = {0: "water", 1: "water", 2: "tidal_flat", 3: "tidal_marsh", 14: "water", 21: "wetland", 22: "water"}   # terrain_tiles.COVER_NAMES
+
+
+def _poly_utm(sh):
+    import shapely
+    E, N = sh.px_to_utm(sh.neat_px[:, 0], sh.neat_px[:, 1])
+    return shapely.Polygon(np.column_stack([E, N]))
+
+
+def _near(mask, radius_cells):
+    from scipy import ndimage as ndi
+    return ndi.maximum_filter(mask.astype(np.uint8), size=2 * radius_cells + 1).astype(bool)
+
+
+def _sample(arr, col, row):
+    """arr at 1/4-resolution cells of page pixels (col, row); False outside."""
+    c, r = (np.asarray(col) // 4).astype(int), (np.asarray(row) // 4).astype(int)
+    ok = (c >= 0) & (r >= 0) & (c < arr.shape[1]) & (r < arr.shape[0])
+    out = np.zeros(len(c), arr.dtype)
+    out[ok] = arr[r[ok], c[ok]]
+    return out
+
+
+def cover_at(E, N, year):
+    """Ground cover name ('' = dry land) at UTM points in a year, from the built terrain's cover history
+    (data/interim/grid_detail_covers / _years: cover k holds until years[k]). None where the grid is missing."""
+    import pyproj
+    cp, yp = INTERIM / "grid_detail_covers.npy", INTERIM / "grid_detail_years.npy"
+    if not cp.exists():
+        return None
+    meta = json.loads((INTERIM / "grid_detail_meta.json").read_text())
+    covers, years = np.load(cp, mmap_mode="r"), np.load(yp, mmap_mode="r")
+    X, Y = pyproj.Transformer.from_crs("EPSG:32618", "EPSG:3857", always_xy=True).transform(E, N)
+    c = np.rint((np.asarray(X) - meta["X0"]) / meta["res"]).astype(int)
+    r = np.rint((meta["Y0"] - np.asarray(Y)) / meta["res"]).astype(int)
+    ok = (c >= 1) & (r >= 1) & (c < meta["cols"] - 1) & (r < meta["rows"] - 1)
+    out = np.array([""] * len(c), dtype=object)
+
+    def at(rr, cc):
+        cov = np.array(covers[0, rr, cc])
+        for k in range(years.shape[0]):
+            yk = np.array(years[k, rr, cc])
+            step = ~np.isnan(yk) & (year >= yk)
+            cov[step] = np.array(covers[k + 1, rr, cc])[step]
+        return cov
+    cov = at(r[ok], c[ok])
+    wet = np.isin(cov, list(WET))
+    dry_near = np.zeros(len(cov), bool)                    # the shore is good to a cell: dry ground next door counts
+    for dr, dc in ((0, 1), (0, -1), (1, 0), (-1, 0)):
+        dry_near |= ~np.isin(at(r[ok] + dr, c[ok] + dc), list(WET))
+    names = np.array([WET.get(int(v), "") for v in cov], dtype=object)
+    names[wet & dry_near & np.isin(names, ["water"])] = "shore"
+    out[ok] = names
+    return out
+
+
+def export():
+    import duckdb
+    import geopandas as gpd
+    import pandas as pd
+    import pyproj
+    import shapely
+    from scipy.sparse import coo_matrix
+    from scipy.sparse.csgraph import connected_components
+    from scipy.spatial import cKDTree
+    to_ll = pyproj.Transformer.from_crs("EPSG:32618", "EPSG:4326", always_xy=True)
+    to_utm = pyproj.Transformer.from_crs("EPSG:4326", "EPSG:32618", always_xy=True)
+
+    # --- the early sheets: kept marks in UTM
+    sheets, res, per = {}, {}, {}
+    for sid in SHEETS:
+        path = SHEET_CACHE / f"{sid}.json"
+        if not path.exists():
+            log("export: no detections for", sid, "- run detect")
+            continue
+        res[sid] = json.loads(path.read_text())
+        sh = sheets[sid] = Sheet(sid)
+        sh.shift = res[sid]["shift"]
+        ms = [m for m in res[sid]["marks"] if m["keep"]]
+        E, N = sh.px_to_utm([m["col"] for m in ms], [m["row"] for m in ms])
+        per[sid] = pd.DataFrame({"sid": sid, "E": E, "N": N, "col": [m["col"] for m in ms], "row": [m["row"] for m in ms],
+                                 "cls": [m["cls"] for m in ms], "ctx": [m["ctx"] for m in ms], "area": [m["area"] for m in ms],
+                                 "L": [m["L"] for m in ms]})
+    thick = {sid: _near(np.load(FARM_INTERIM / f"thick_{sid}.npy"), int(math.ceil(CLEAR_M / (4 * sheets[sid].m_per_px)))) for sid in sheets}
+
+    def shown(sid, E, N):
+        """Any solid ink within CLEAR_M of the points on sheet sid."""
+        c, r = sheets[sid].utm_to_px(E, N)
+        return _sample(thick[sid], c, r)
+
+    # --- one feature per building: match the two surveys of a quadrangle
+    feats = []
+    quads = {}
+    for sid in sheets:
+        quads.setdefault(SHEETS[sid][1], []).append(sid)
+    for quad, sids in quads.items():
+        sids = sorted(sids, key=lambda i: SHEETS[i][4])
+        if len(sids) == 1:
+            d = per[sids[0]]
+            y = SHEETS[sids[0]][4]
+            feats.append(d.assign(first_year=y, last_year=y, gone_by=np.nan, sheets=sids[0], earlier_unclear=False, later_unclear=False, new_since=np.nan))
+            continue
+        a_id, b_id = sids[0], sids[-1]
+        A, B = per[a_id], per[b_id]
+        ya, yb = SHEETS[a_id][4], SHEETS[b_id][4]
+        tb = cKDTree(B[["E", "N"]].values)
+        ta = cKDTree(A[["E", "N"]].values)
+        da, ia = tb.query(A[["E", "N"]].values)
+        db, ib = ta.query(B[["E", "N"]].values)
+        pair = (da <= MATCH_M) & (ib[ia] == np.arange(len(A)))
+        both = A[pair].copy()
+        bm = B.iloc[ia[pair]]
+        both["E"], both["N"] = (both["E"].values + bm["E"].values) / 2, (both["N"].values + bm["N"].values) / 2
+        both["cls"] = np.where((both["cls"].values == "bar") & (bm["cls"].values == "bar"), "bar", "mark")
+        feats.append(both.assign(first_year=ya, last_year=yb, gone_by=np.nan, sheets=f"{a_id}+{b_id}", earlier_unclear=False, later_unclear=False, new_since=np.nan))
+        only_a = A[~pair].copy()
+        still = shown(b_id, only_a["E"].values, only_a["N"].values)
+        feats.append(only_a.assign(first_year=ya, last_year=ya, gone_by=np.where(still, np.nan, yb), sheets=a_id, earlier_unclear=False, later_unclear=still, new_since=np.nan))
+        used_b = np.zeros(len(B), bool)
+        used_b[ia[pair]] = True
+        only_b = B[~used_b].copy()
+        before = shown(a_id, only_b["E"].values, only_b["N"].values)
+        feats.append(only_b.assign(first_year=yb, last_year=yb, gone_by=np.nan, sheets=b_id, earlier_unclear=before, later_unclear=False, new_since=np.where(before, np.nan, ya)))
+    F = pd.concat(feats, ignore_index=True)
+
+    # --- boroughs (marks outside the five boroughs stay in the per-sheet caches)
+    g = gpd.read_file("zip://" + str(RAW / "tiger" / "tl_2024_us_county.zip"), where="STATEFP = '36' AND COUNTYFP IN ('061','047','081','005','085')").to_crs(32618)
+    pts = gpd.GeoDataFrame(F, geometry=gpd.points_from_xy(F["E"], F["N"]), crs=32618)
+    j = gpd.sjoin(pts, g[["GEOID", "geometry"]], how="left", predicate="within")
+    F["borough"] = j["GEOID"].map(BORO).values
+    region_n = int(F["borough"].isna().sum())
+    F = F[F["borough"].notna()].reset_index(drop=True)
+
+    # --- ground of the survey year
+    F["ground"] = ""
+    for y in sorted(F["first_year"].unique()):
+        m = F["first_year"] == y
+        cov = cover_at(F.loc[m, "E"].values, F.loc[m, "N"].values, int(y))
+        if cov is not None:
+            F.loc[m, "ground"] = cov
+    in_water = int((F["ground"] == "water").sum())
+    F = F[F["ground"] != "water"].reset_index(drop=True)
+
+    # --- built-up extent of the same edition (data/manual/extents): frontages there are not separate marks
+    F["builtup"] = False
+    for y in (1889, 1897):
+        polys = []
+        for b in ("manhattan", "brooklyn", "queens", "bronx", "staten_island"):
+            fp = MANUAL / "extents" / f"{b}_{y}.geojson"
+            if fp.exists():
+                polys.append(gpd.read_file(fp).to_crs(32618))
+        if not polys:
+            continue
+        u = shapely.union_all(pd.concat(polys).geometry.values)
+        shapely.prepare(u)
+        m = F["last_year"] == y
+        F.loc[m, "builtup"] = shapely.contains_xy(u, F.loc[m, "E"].values, F.loc[m, "N"].values)
+
+    # --- the later sheets: gone by
+    F["late_symbol"] = ""
+    late_info = {}
+    for sid in sorted(LATE, key=lambda i: LATE[i][3]):
+        path = FARM_INTERIM / f"late_{sid}.npz"
+        if not path.exists():
+            continue
+        z = np.load(path)
+        sh = Sheet(sid, LATE_DPI)
+        poly = _poly_utm(sh)
+        shapely.prepare(poly)
+        inside = shapely.contains_xy(poly, F["E"].values, F["N"].values)
+        if not inside.any():
+            continue
+        cell = 4 * sh.m_per_px
+        c, r = sh.utm_to_px(F.loc[inside, "E"].values, F.loc[inside, "N"].values)
+        from scipy import ndimage as ndi
+        symbol = _sample(_near(z["compact"], int(round(LATE_M / cell))), c, r)
+        mass = _sample(_near(z["large"], int(round(30.0 / cell))), c, r)
+        k = 2 * int(round(LATE_M / cell)) + 1
+        tinted = _sample(ndi.uniform_filter(z["tint"].astype(np.float32), k) >= 0.2, c, r)
+        blank = ~symbol & ~mass & ~tinted
+        year = LATE[sid][3]
+        idx = F.index[inside]
+        gone = idx[blank & F.loc[idx, "gone_by"].isna().values]
+        F.loc[gone, "gone_by"] = year
+        seen = idx[symbol & ~mass & ~tinted & F.loc[idx, "gone_by"].isna().values]
+        F.loc[seen, "late_symbol"] = F.loc[seen, "late_symbol"].where(F.loc[seen, "late_symbol"] == "", F.loc[seen, "late_symbol"] + "+") + str(year)
+        late_info[sid] = {"inside": int(inside.sum()), "blank": int(blank.sum()), "symbol": int((symbol & ~mass & ~tinted).sum()),
+                          "unclear": int((mass | tinted).sum()), "gone_set": int(len(gone))}
+
+    # --- today's footprint under the mark
+    con = duckdb.connect()
+    con.execute("install spatial; load spatial;")
+    bp = INTERIM / "nyc_buildings.parquet"
+    F["standing_bin"] = np.nan
+    for col in ("standing_basis", "standing_year_src"):
+        F[col] = ""
+    for col in ("standing_year", "standing_dist_m", "standing_n", "standing_area_m2"):
+        F[col] = np.nan
+    control = {}
+    if bp.exists():
+        Bd = con.execute(f"""select doitt_id, bin, lon, lat, start_year, year_confidence, year_src, raw_year, area, height_m
+                             from '{bp}' where end_year = 9999 and area >= 45""").df()
+        bE, bN = to_utm.transform(Bd["lon"].values, Bd["lat"].values)
+        tree = cKDTree(np.column_stack([bE, bN]))
+
+        def match(E, N, first_year, cls, want_geom=True):
+            cand = tree.query_ball_point(np.column_stack([E, N]), BIN_M + 45.0)
+            ii = np.repeat(np.arange(len(E)), [len(x) for x in cand])
+            jj = np.fromiter((v for x in cand for v in x), int, count=len(ii))
+            ids = Bd["doitt_id"].values[np.unique(jj)]
+            con.register("ids", pd.DataFrame({"doitt_id": ids}))
+            gdf = con.execute(f"select b.doitt_id, ST_AsWKB(b.geometry) wkb from '{bp}' b join ids using (doitt_id) where b.end_year = 9999").df()
+            geom = dict(zip(gdf["doitt_id"], shapely.from_wkb([bytes(w) for w in gdf["wkb"]])))
+            polys = shapely.transform(np.array([geom[i] for i in Bd["doitt_id"].values[jj]]),
+                                      lambda xy: np.column_stack(to_utm.transform(xy[:, 0], xy[:, 1])))
+            dist = shapely.distance(polys, shapely.points(E[ii], N[ii]))
+            b = Bd.iloc[jj]
+            fy = first_year[ii]
+            exact = b["year_confidence"].values == "exact"
+            sy = b["start_year"].values
+            lpc = b["year_src"].values == "lpc"
+            ok = (dist <= BIN_M) & ~(exact & (sy > fy)) & ~(lpc & (sy > fy)) & ((b["height_m"].fillna(0).values <= 22) | ((exact | lpc) & (sy <= fy)))
+            ok &= (b["area"].values <= 1500) | (cls[ii] == "bar") | ((exact | lpc) & (sy <= fy))
+            rank = np.where((exact | lpc) & (sy <= fy), 0, np.where(b["year_src"].str.startswith("heap_by").values | (sy <= fy), 1, 2))
+            t = pd.DataFrame({"i": ii, "j": jj, "dist": dist, "rank": rank})[ok].sort_values(["i", "rank", "dist"])
+            best = t.groupby("i").first()
+            n_same = t.merge(best[["rank"]].rename(columns={"rank": "r0"}), left_on="i", right_index=True)
+            n_same = n_same[n_same["rank"] == n_same["r0"]].groupby("i").size()
+            return best.assign(n=n_same)
+
+        best = match(F["E"].values, F["N"].values, F["first_year"].values, F["cls"].values)
+        names = np.array(["recorded", "by_then", "later_estimate"])
+        bb = Bd.iloc[best["j"].values]
+        ix = best.index.values
+        F.loc[ix, "standing_bin"] = bb["bin"].values
+        F.loc[ix, "standing_basis"] = names[best["rank"].values]
+        F.loc[ix, "standing_year"] = bb["start_year"].values
+        F.loc[ix, "standing_year_src"] = bb["year_src"].values
+        F.loc[ix, "standing_dist_m"] = best["dist"].round(1).values
+        F.loc[ix, "standing_n"] = best["n"].values
+        F.loc[ix, "standing_area_m2"] = bb["area"].round().values
+        # chance: the same marks moved 150 m east and 100 m north
+        ctl = match(F["E"].values + 150.0, F["N"].values + 100.0, F["first_year"].values, F["cls"].values)
+        control = {names[k]: int(v) for k, v in ctl["rank"].value_counts().items()}
+        control["marks"] = int(len(F))
+
+    # --- sites, kind, confidence, id
+    xy = F[["E", "N"]].values
+    pairs = cKDTree(xy).query_pairs(SITE_M, output_type="ndarray")
+    n = len(F)
+    _, lab = connected_components(coo_matrix((np.ones(len(pairs)), (pairs[:, 0], pairs[:, 1])), shape=(n, n)), directed=False)
+    F["site"] = lab
+    F["n_marks"] = np.bincount(lab)[lab]
+    F["kind"] = np.where(F["cls"] == "bar", "large", "house")
+    two = F["first_year"] != F["last_year"]
+    F["confidence"] = np.where(two | (F["standing_basis"] == "recorded"), "high",
+                               np.where((F["cls"] == "bar") | F["ground"].isin(["tidal_marsh", "tidal_flat", "wetland"]) | F["builtup"], "low", "medium"))
+    abbr = {"Brooklyn": "bk", "Harlem": "ha", "Staten Island": "si", "Hempstead": "he", "Oyster Bay": "ob"}
+    first_sid = F["sheets"].str.split("+").str[0]
+    F["id"] = [f"{abbr[SHEETS[s][1]]}{SHEETS[s][4] % 100}_{int(c):05d}_{int(r):05d}" for s, c, r in zip(first_sid, F["col"], F["row"])]
+    lon, lat = to_ll.transform(F["E"].values, F["N"].values)
+    F["lon"], F["lat"] = np.round(lon, 6), np.round(lat, 6)
+    F = F.sort_values("id").reset_index(drop=True)
+
+    def val(v):
+        if v is None or (isinstance(v, float) and math.isnan(v)):
+            return None
+        if isinstance(v, (np.integer,)) or (isinstance(v, float) and v == int(v)):
+            return int(v)
+        if isinstance(v, np.bool_):
+            return bool(v)
+        return v
+    props = ["id", "first_year", "last_year", "gone_by", "new_since", "n_marks", "site", "kind", "sheet", "confidence", "borough",
+             "standing_bin", "standing_basis", "standing_year", "standing_year_src", "standing_dist_m", "standing_n", "standing_area_m2",
+             "late_symbol", "earlier_unclear", "later_unclear", "builtup", "ground"]
+    F["sheet"] = F["sheets"]
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    fc = {"type": "FeatureCollection", "name": "farmsteads",
+          "description": "Buildings drawn as separate marks on the USGS 15-minute sheets of the 1888-89 survey and its 1897 revision; see README.md",
+          "features": []}
+    for row in F.itertuples(index=False):
+        d = row._asdict()
+        p = {k: val(d[k]) for k in props}
+        for k in ("standing_basis", "standing_year_src", "late_symbol", "ground"):
+            p[k] = p[k] or None
+        if p["standing_dist_m"] is not None:
+            p["standing_dist_m"] = float(d["standing_dist_m"])
+        fc["features"].append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [float(d["lon"]), float(d["lat"])]}, "properties": p})
+    (OUT_DIR / "farmsteads.geojson").write_text(json.dumps(fc, separators=(",", ":")).replace('},{"type":"Feature"', '},\n{"type":"Feature"'))
+
+    # --- coverage and numbers
+    cov = {"type": "FeatureCollection", "name": "coverage", "features": []}
+    for sid, sh in sheets.items():
+        E, N = sh.px_to_utm(sh.neat_px[:, 0], sh.neat_px[:, 1])
+        lo, la = to_ll.transform(E, N)
+        f, quad, scale, printed, survey, collar, period = SHEETS[sid]
+        ring = [[round(float(x), 6), round(float(y), 6)] for x, y in zip(lo, la)]
+        cov["features"].append({"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [ring + [ring[0]]]},
+                                "properties": {"sheet": sid, "quadrangle": quad, "scale": scale, "print_year": printed, "survey_year": survey, "collar": collar,
+                                               "source_url": HTMC + f, "shift_model": res[sid]["shift"], "shift_rms_m": res[sid]["align"].get("rms_m"),
+                                               "marks_kept": int(sum(m["keep"] for m in res[sid]["marks"])),
+                                               "marks_in_city": int((F["sheets"].str.contains(sid)).sum())}})
+    (OUT_DIR / "coverage.geojson").write_text(json.dumps(cov, indent=1))
+    stats = {"features": int(len(F)), "outside_five_boroughs": region_n, "dropped_in_water": in_water,
+             "by_borough": F.groupby("borough").size().to_dict(),
+             "by_borough_first_last": {f"{b}|{int(a)}|{int(c)}": int(v) for (b, a, c), v in F.groupby(["borough", "first_year", "last_year"]).size().items()},
+             "by_confidence": F.groupby("confidence").size().to_dict(), "by_kind": F.groupby("kind").size().to_dict(),
+             "gone_by": {str(int(k)): int(v) for k, v in F["gone_by"].dropna().value_counts().sort_index().items()},
+             "new_since_1889": int(F["new_since"].notna().sum()), "builtup": int(F["builtup"].sum()),
+             "ground": F.groupby("ground").size().to_dict(), "late_sheets": late_info,
+             "standing": {f"{b}|{k}": int(v) for (b, k), v in F[F["standing_basis"] != ""].groupby(["borough", "standing_basis"]).size().items()},
+             "standing_by_src": {f"{b}|{k}|{s_}": int(v) for (b, k, s_), v in F[F["standing_basis"] != ""].groupby(["borough", "standing_basis", "standing_year_src"]).size().items()},
+             "standing_control_shifted_150m": control,
+             "sheets": {sid: {"kept": int(sum(m["keep"] for m in res[sid]["marks"])), "shift": res[sid]["shift"], "align": {k: v for k, v in res[sid]["align"].items() if k != "window_shifts_m"},
+                              "thr": res[sid]["thr"]} for sid in res}}
+    (OUT_DIR / "stats.json").write_text(json.dumps(stats, indent=1))
+    log("export:", len(F), "features;", stats["by_borough"])
+    return F
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("cmd", choices=["fetch", "detect", "export", "all"])
@@ -625,8 +996,13 @@ def main():
     if a.cmd in ("fetch", "all"):
         fetch(sids)
     if a.cmd in ("detect", "all"):
-        for sid in (sids or SHEETS):
-            process(sid, a.force)
+        for sid in (sids or {**SHEETS, **LATE}):
+            if sid in SHEETS:
+                process(sid, a.force)
+            else:
+                process_late(sid, a.force)
+    if a.cmd in ("export", "all"):
+        export()
 
 
 if __name__ == "__main__":

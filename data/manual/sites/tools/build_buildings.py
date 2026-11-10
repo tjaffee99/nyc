@@ -40,6 +40,12 @@ BRACKET_SITES = {
 TWO_SIDED = {"rikers_island_jails"}
 
 
+# floors that should also reach assessor years (the lot's year stamped on every building)
+FLOOR_NOTE = {
+    "fort_tilden": "; HERE ALSO to assessor years: the lot's 1900 / 1901 is stamped on 50 of the fort's 60 buildings",
+}
+
+
 def url(src):
     return src if src.startswith("http") else W + urllib.parse.quote(src, safe="_,()'&")
 
@@ -149,7 +155,7 @@ def main():
         rows.append([f"site_floor:{sid}", p["name"] + " (no building older than the site)", p["lat"], p["lon"], "",
                      p["start_year"], 9999, p["source_url"],
                      f"site_floor; site={sid}; no building inside this site's outline (data/manual/sites/sites.geojson) "
-                     f"predates {p['start_year']} - apply to estimated years only"])
+                     f"predates {p['start_year']} - apply to estimated years only" + FLOOR_NOTE.get(sid, "")])
     with open(OUT, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(COLS)

@@ -1,6 +1,7 @@
 """USGS 15-minute sheets of 1888-1901 -> land / water / marsh per sheet, registered on the soil survey.
-The method is the city layer's (data/manual/natural/tools/usgs_sheets.py), with five changes:
-  * blue ink by chromaticity instead of B - R (see one());
+The method is the city layer's (data/manual/natural/tools/usgs_sheets.py), with six changes:
+  * blue ink by chromaticity away from black line work instead of B - R, and a tint test (see one());
+  * no paper-white rule here (moved to the assembly);
   * the labels come from thirteen soil survey areas (the eight counties and the five boroughs);
   * every sheet is written as its own raster (sheet pixels, shift folded into the transform) instead of one mosaic;
   * registration by area agreement instead of shoreline edges (see register());
@@ -10,8 +11,9 @@ It is also written to stay under 1 GB (features are computed in strips and kept 
 build machine is shared.
 
 Per sheet (own pixel grid, about 5.3 m):
- 1. wet = blue-ink density (water lining, marsh ruling or tint), thin lines removed; blue ink is found by
-    chromaticity (B - R) / (R + G + B) against the paper's, which also works on yellowed sheets;
+ 1. wet = dense blue line work (water lining, marsh ruling) or a blue tint, thin lines removed; blue is measured by
+    chromaticity against the paper's, away from black line work.  Blank paper (open water far from shore has no
+    lining) is left as "land" here; the assembly decides whether it is land or open water;
  2. registration: the sheet is shifted so that its wet mask agrees best with the soil survey's wet set near the
     survey's upland boundary;
  3. marsh against water inside wet: a linear discriminant on print texture (mean tint, fine and coarse texture,
@@ -116,26 +118,32 @@ def one(stem, soil):
     lon0, lat0, lon1, lat1, sid = SHEETS[stem]
     with rasterio.open(f"{RAW}/usgs/{stem}_62500_geo.tif") as s:
         rgb = s.read([1, 2, 3]); crs = s.crs; tr = s.transform; H, W = s.height, s.width
-    # blue ink by chromaticity (B - R) / (R + G + B), not by B - R as in the city layer: on the yellow-paper sheets
-    # (all the New Jersey ones) the grey edge pixels of black line work have a higher B - R than the paper, so dense
-    # street grids read as water with B - R (seen at Jersey City on the Staten Island sheet); their chromaticity
-    # stays at or below the paper's
+    # Blue ink by chromaticity c = (B - R) / (R + G + B) against the paper's, counted only on cells that are not
+    # black line work or its grey edge (within 2 px of a dark pixel).  The city layer used B - R on every pixel; on
+    # the yellow-paper sheets (all the New Jersey ones) the grey edges of black lines have a higher B - R than the
+    # paper, so dense street grids read as water (seen at Jersey City on the Staten Island sheet).
     r, b = rgb[0].astype("float32"), rgb[2].astype("float32")
     tot = r + rgb[1] + b
-    dark = tot <= 180          # lum <= 60
     del rgb
+    valid = ~ndimage.binary_dilation(tot < 360, structure=rt.disk(2))        # lum < 120
     v = (b - r) / (tot + 1.0)
     del r, b, tot
-    sub = v[::4, ::4][~dark[::4, ::4]]
+    sub = v[::4, ::4][valid[::4, ::4]]
     hist, edges = np.histogram(sub, bins=480, range=(-0.6, 0.6))
     paper = float(edges[np.argmax(hist)] + 0.00125)
     rng = float(np.percentile(sub, 99.5) - paper)
     del sub
-    ink = (v > paper + 0.35 * rng) & ~dark
-    del dark
-    vn = ((v - paper) / rng).astype("float16")
+    v = np.where(valid, (v - paper) / rng, 0).astype("float32")              # 0 = paper, 1 = strong blue ink
+    ink = v > 0.35
+    # wet = dense blue line work (water lining, marsh ruling) or a blue tint (the pale marsh tint of the meadows):
+    # ink on more than 18 % of the usable cells of a 48 m box, or a mean tint above 12 % of the ink range over 80 m
+    n9 = ndimage.uniform_filter(valid.astype("float32"), 9)
+    wet = (ndimage.uniform_filter(ink.astype("float32"), 9) > 0.18 * np.maximum(n9, 0.25)) & (n9 > 0.25)
+    n15 = ndimage.uniform_filter(valid.astype("float32"), 15)
+    wet |= (ndimage.uniform_filter(v, 15) > 0.12 * np.maximum(n15, 0.25)) & (n15 > 0.25)
+    del n9, n15, valid
+    vn = v.astype("float16")
     del v
-    wet = ndimage.uniform_filter(ink.astype("float32"), 9) > 0.18
     wet = ndimage.binary_closing(ndimage.binary_opening(wet, structure=rt.disk(3)), structure=rt.disk(3))
     thin_line = ink & ~wet & ~ndimage.binary_dilation(wet, structure=rt.disk(2))
     tf = Transformer.from_crs("EPSG:4267", crs.to_wkt(), always_xy=True)
@@ -153,16 +161,6 @@ def one(stem, soil):
     dx, dy, reg = register(wet, code, quad)
     code = ndimage.shift(code, (-dy, -dx), order=0)          # today's layer into sheet pixels
     w_today = code == WATER
-    # paper-white open water far from any shore: a dry patch of 20 ha or more that is mostly open water today is water
-    lab, n = ndimage.label(~wet & quad)
-    pale = np.zeros((H, W), bool)
-    if n:
-        idx = np.arange(1, n + 1)
-        size = ndimage.sum(~wet & quad, lab, index=idx)
-        fw = ndimage.mean(w_today.astype("float32"), lab, index=idx)
-        pale = np.isin(lab, 1 + np.nonzero((size >= 7000) & (fw >= 0.6))[0])
-        wet |= pale
-    del lab
     # 3. features in strips -> scratch file
     eps = 1e-6
     rows = [(a, min(H, a + STRIP)) for a in range(0, H, STRIP)]
@@ -175,7 +173,7 @@ def one(stem, soil):
         F[:, a:b_] = strip_features(vn, ink, wet, a, b_, eps, a0)
     F.flush()
     del vn, ink
-    lab_w = ndimage.binary_erosion(w_today & wet & quad & ~pale, structure=rt.disk(3))
+    lab_w = ndimage.binary_erosion(w_today & wet & quad, structure=rt.disk(3))
     lab_m = ndimage.binary_erosion(np.isin(code, (TMARSH, MARSHSUB)) & wet & quad, structure=rt.disk(3))
     del code, w_today
     info = dict(source=sid, shift_px=[dx, dy], shift_m=[round(float(dx * tr.a), 1), round(float(-dy * abs(tr.e)), 1)], registration=reg,
@@ -217,9 +215,9 @@ def one(stem, soil):
     del F
     os.remove(scratch)
     if wv is not None:
-        marsh = (ndimage.uniform_filter(marsh.astype("float32"), 9) > 0.5) & wet & ~pale
+        marsh = (ndimage.uniform_filter(marsh.astype("float32"), 9) > 0.5) & wet
     else:
-        marsh = ndimage.binary_closing(ndimage.binary_opening(marsh & wet, structure=rt.disk(2)), structure=rt.disk(4)) & wet & ~pale
+        marsh = ndimage.binary_closing(ndimage.binary_opening(marsh & wet, structure=rt.disk(2)), structure=rt.disk(4)) & wet
     cls = np.zeros((H, W), "uint8")
     cls[wet] = 1
     cls[marsh] = 2

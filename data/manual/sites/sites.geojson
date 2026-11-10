@@ -14964,7 +14964,7 @@
 "source_url": "https://en.wikipedia.org/wiki/Bush_Terminal",
 "note": "Irving T. Bush built the first six warehouses 1895-1897; piers, lofts and railroad followed from 1902 (Industry City today). Outline estimated: hull of Industry City, the South Brooklyn Marine Terminal, Sunset Industrial Park and Bush Terminal Park, clipped to land.",
 "date_basis": "text",
-"floor": true,
+"floor": false,
 "area_ha": 114.4,
 "lon": -74.007308,
 "lat": 40.659351

@@ -253,7 +253,8 @@ def norm_dob(c):
                max(try_cast(existingno_of_stories as int)) est, max(try_cast(existing_height as double)) eh,
                arg_min(proposed_occupancy, "doc__") pocc, arg_min(job_description, "doc__") descr,
                any_value(borough) boro, any_value(block) block, any_value(lot) lot,
-               any_value("house__") house, any_value(street_name) street
+               any_value("house__") house, any_value(street_name) street,
+               max(try_cast(gis_latitude as double)) lat, max(try_cast(gis_longitude as double)) lon
         from {csv('dob_jobs')} group by 1""")
     c.execute(f"""create table now as
         select split_part(job_filing_number, '-', 1) job,
@@ -264,7 +265,8 @@ def norm_dob(c):
                max(try_cast(existing_stories as int)) est, max(try_cast(existing_height as double)) eh,
                cast(null as varchar) pocc, arg_min(job_description, job_filing_number) descr,
                any_value(borough) boro, any_value(block) block, any_value(lot) lot,
-               any_value(house_no) house, any_value(street_name) street
+               any_value(house_no) house, any_value(street_name) street,
+               max(try_cast(latitude as double)) lat, max(try_cast(longitude as double)) lon
         from {csv('dobnow_jobs')} group by 1""")
     # first permit of the job (new-building permit / demolition permit)
     c.execute(f"""create table permit as select job, min(d) first_permit from (
@@ -278,9 +280,9 @@ def norm_dob(c):
     c.execute(f"""create table hdb as select job_number job, min(try_cast(datecomplt as timestamp)) dc
         from {csv('housing_db')} where job_type = 'New Building' and datecomplt is not null group by 1""")
     c.execute("""create table jobs as
-        select 'bis' sys, job, jt, bin, st, signoff, filed, permitted, pst, ph, est, eh, pocc, descr, boro, block, lot, house, street from bis
+        select 'bis' sys, job, jt, bin, st, signoff, filed, permitted, pst, ph, est, eh, pocc, descr, boro, block, lot, house, street, lat, lon from bis
         union all
-        select 'now', job, jt, bin, st, signoff, filed, permitted, pst, ph, est, eh, pocc, descr, boro, block, lot, house, street
+        select 'now', job, jt, bin, st, signoff, filed, permitted, pst, ph, est, eh, pocc, descr, boro, block, lot, house, street, lat, lon
         from now where jt_long <> 'ALT-CO - New Building with Existing Elements to Remain'""")
     # completion of a new-building job: the first certificate of occupancy where the open data can know it
     # (DCP's Housing Database carries it for residential jobs completed since 2010; the certificate tables
@@ -697,6 +699,9 @@ def demolished(c, heaps, rep):
     rest = nody.difference(cand.index)
     end[rest] = w.edit[rest].round(2)   # the day the outline was retired: demolished by then
     esrc[rest] = "oti_edit_date"
+    retired = w.edit.where(w.edit >= np.floor(end)).round(2)
+    late = (echeck == "none") & w.dy.notna() & (np.floor(w.edit) - w.dy >= 3)
+    equal[late] = "estimated"   # the year on the record, but the outline stayed on the map 3+ years longer
     rep["historic_end_check"] = echeck.value_counts().to_dict()
     big_unconfirmed = w.index[(echeck == "none") & (w["area"] > 1000)]
     rep["historic_big_unconfirmed"] = int(len(big_unconfirmed))
@@ -746,6 +751,8 @@ def demolished(c, heaps, rep):
         notes = []
         if note_rej[idx] and ssrc[idx] != "oti":
             notes.append(f"construction year on the record ({int(row.cy)}) not used: not before the demolition, or the replacement's year")
+        if late[idx]:
+            notes.append("no DOB demolition job found and the outline was retired 3+ years after the year on the record: unconfirmed")
         if esrc[idx] == "oti_edit_date":
             notes.append("no demolition year on the record: end = the day the outline was retired (demolished by then)")
         props = {
@@ -759,6 +766,7 @@ def demolished(c, heaps, rep):
             "start_quality": squal[idx], "end_quality": equal[idx],
             "start_src": ssrc[idx] or None, "end_src": esrc[idx], "end_check": echeck[idx],
             "feature_code": int(row.fc) if row.fc == row.fc else None, "bbl": row.bbl if isinstance(row.bbl, str) else None,
+            "retired": None if retired[idx] != retired[idx] else float(retired[idx]),
             "standing_bin": int(row.standing_bin) if row.standing_bin == row.standing_bin else None,
             "standing_overlap": round(float(row.ov_any), 2),
             "note": "; ".join(notes) or None,
@@ -814,6 +822,92 @@ def demolished(c, heaps, rep):
         f"flagged {rep['historic_flagged']}")
 
 
+def demolitions_without_outline(c, rep):
+    """DOB demolition jobs against OTI's historic layer: how complete the layer is, and the signed-off
+    demolitions whose BIN is in neither layer (a building certainly gone, no outline in the city's data)."""
+    c.execute(f"""create table hbin as select distinct try_cast("BIN" as bigint) bin from {csv('historic')}""")
+    c.execute("""create table dmb as
+        select bin, max(signoff) signoff, min(first_permit) first_permit, max(est) storeys, max(eh) height_ft,
+               any_value(boro) boro, any_value(block) block, any_value(lot) lot, any_value(house) house,
+               any_value(street) street, max(lat) lat, max(lon) lon, any_value(job) job
+        from dm where signoff is not null group by 1""")
+    cov = c.execute("""select cast(floor(year(signoff) / 5) * 5 as int) period, count(*) bins,
+               round(avg((bin in (select bin from hbin))::int), 3) in_historic_layer,
+               round(avg((bin in (select bin from fp))::int), 3) bin_in_todays_footprints,
+               round(avg((bin not in (select bin from hbin) and bin not in (select bin from fp))::int), 3) in_neither
+        from dmb group by 1 order by 1""").df()
+    rep["dob_demolitions_vs_historic_layer"] = cov.to_dict("records")
+    t = c.execute(f"""select job, bin, boro, block, lot, house, street, strftime(signoff, '%Y-%m-%d') signoff,
+               round({DEC.format('signoff')}, 2) end_year, strftime(first_permit, '%Y-%m-%d') first_permit,
+               storeys, height_ft, lat, lon
+        from dmb where bin not in (select bin from hbin) and bin not in (select bin from fp) order by signoff""").df()
+    t.to_csv(WORK / "dob_demolitions_without_outline.csv", index=False)
+    rep["dob_demolitions_without_outline"] = int(len(t))
+    # footprints OTI marks for demolition whose DOB demolition job is signed off: gone, not yet retired
+    m = c.execute(f"""select f.bin, f.status, strftime(d.signoff, '%Y-%m-%d') signoff, round({DEC.format('d.signoff')}, 2) end_year,
+               f.lon, f.lat, f.height_m, f.year_raw
+        from (select bin, any_value(status) status, any_value(lon) lon, any_value(lat) lat, max(height_m) height_m,
+                     max(year_raw) year_raw from '{INTERIM / "nyc_footprints_raw.parquet"}'
+              where status in ('Marked for Demolition', 'Investigate Demolition', 'Demolition') group by 1) f
+        join dmb d using (bin)""").df()
+    m.to_csv(WORK / "standing_marked_for_demolition.csv", index=False)
+    rep["standing_marked_for_demolition_with_signed_off_job"] = int(len(m))
+
+
+# legal class of a multiple dwelling -> (not before, not after). Multiple Dwelling Law s. 4: an old-law
+# tenement existed before 12 April 1901; a new-law tenement was erected between then and 18 April 1929;
+# "heretofore" / "hereafter" erected or converted = before / after 18 April 1929.
+HPD_CLASS = {
+    "OLD LAW TENEMENT": (None, 1901.28), "OLD LAW SINGLE ROOM OCCUPANCY": (None, 1901.28),
+    "CONVERTED OLD LAW TENEMENT": (None, 1901.28),
+    "NEW LAW TENEMENT": (1901.28, 1929.3), "NEW LAW SINGLE ROOM OCCUPANCY": (1901.28, 1929.3),
+    "CONVERTED NEW LAW TENEMENT": (1901.28, 1929.3),
+    "HEREAFTER ERECTED CLASS A": (1929.3, None), "HEREAFTER ERECTED CLASS B": (1929.3, None),
+    "HERETOFORE ERECTED EXISTING CLASS A": (None, 1929.3), "HERETOFORE ERECTED EXISTING CLASS B": (None, 1929.3),
+    "HERETOFORE CONVERTED CLASS A": (None, 1929.3), "HERETOFORE CONVERTED CLASS B": (None, 1929.3),
+}
+
+
+def bounds(c, rep):
+    """data/interim/records/year_bounds.csv: bounds on the construction year from HPD's legal class of
+    multiple dwellings; dof_flagged_estimates.csv: years the assessor itself flags as estimated."""
+    import numpy as np
+    import pandas as pd
+    h = _f(c.execute(f"""select try_cast(bin as bigint) bin, regexp_replace(upper(trim(dobbuildingclass)), ' +', ' ', 'g') cls,
+               count(*) n from {csv('hpd_buildings')}
+        where lifecycle = 'Building' and recordstatus = 'Active' and dobbuildingclass is not null group by 1, 2""").df())
+    h = h[h.cls.isin(list(HPD_CLASS)) & h.bin.notna() & (h.bin % 1000000 != 0)]
+    h = h[~h.bin.duplicated(keep=False)]  # one class per BIN
+    h["not_before"] = h.cls.map(lambda k: HPD_CLASS[k][0])
+    h["not_after"] = h.cls.map(lambda k: HPD_CLASS[k][1])
+    p = _f(c.execute("select bin, p_year, p_src, p_conf, p_raw from pipe").df())
+    h = h.merge(p, on="bin", how="inner")
+    h["violates"] = (h.p_year < h.not_before.fillna(-1e9) - 1) | (h.p_year > h.not_after.fillna(1e9) + 1)
+    h["source_url"] = url("hpd_buildings")
+    h[["bin", "not_before", "not_after", "cls", "p_year", "p_src", "p_conf", "violates", "source_url"]].round(2).to_csv(
+        WORK / "year_bounds.csv", index=False)
+    exact = h.p_conf == "exact"
+    rep["hpd_class_bounds"] = {
+        "bins": int(len(h)),
+        "by_class": h.cls.value_counts().to_dict(),
+        "pipeline_exact_years_inside_bounds": {k: [int(len(g_)), round(float((~g_.violates).mean()), 3)]
+                                               for k, g_ in h[exact].groupby("p_src")},
+        "pipeline_estimates_outside_bounds": {k: [int(len(g_)), int(g_.violates.sum())]
+                                              for k, g_ in h[~exact].groupby("p_src")},
+        "outside_by_class": h[~exact & h.violates].cls.value_counts().to_dict(),
+    }
+    d = _f(c.execute(f"""select fp.bin, d.yrb, p.p_year, p.p_src from fp join pipe p using (bin)
+        join (select substr(bble, 1, 10) bbl, max(try_cast(yrb as int)) yrb, max(coalesce(yrb_flag, '')) flag
+              from (select bble, ease, yrb, yrb_flag from {csv('dof_tc1_2017')}
+                    union all select bble, ease, yrb, yrb_flag from {csv('dof_tc234_2017')})
+              where coalesce(ease, '') = '' group by 1) d on d.bbl = fp.bbl
+        where d.flag = 'E' and p.p_src = 'assessor' and p.p_conf = 'exact' and d.yrb = p.p_raw""").df())
+    d.to_csv(WORK / "dof_flagged_estimates.csv", index=False)
+    rep["dof_flagged_estimates_treated_as_exact"] = int(len(d))
+    log(f"records: {len(h)} BINs with a legal-class bound ({int(h.violates.sum())} pipeline years outside), "
+        f"{len(d)} assessor years flagged as estimates by Finance but exact in the pipeline")
+
+
 def main():
     import json
     WORK.mkdir(parents=True, exist_ok=True)
@@ -826,6 +920,8 @@ def main():
     rep.update(dob_candidates(c))
     standing_records(c, rep)
     demolished(c, heaps, rep)
+    demolitions_without_outline(c, rep)
+    bounds(c, rep)
     (WORK / "report.json").write_text(json.dumps(rep, indent=1, default=str))
     return rep
 

@@ -114,8 +114,7 @@ S("bush_terminal", "Bush Terminal", "terminal", 1895, 9999, "same", "paved", Tru
   "Irving T. Bush built the first six warehouses 1895-1897; piers, lofts and railroad followed from 1902 (Industry "
   "City today). Outline estimated: hull of Industry City, the South Brooklyn Marine Terminal, Sunset Industrial "
   "Park and Bush Terminal Park, clipped to land.",
-  lambda: G.land(G.union(G.osm("9bb17a87"), G.osm("e46d5967"), G.osm("3ec15ec1"), G.osm("7d469a1e")).convex_hull),
-  floor=True)
+  lambda: G.land(G.union(G.osm("9bb17a87"), G.osm("e46d5967"), G.osm("3ec15ec1"), G.osm("7d469a1e")).convex_hull))
 S("fulton_fish_market", "Fulton Market and Fulton Fish Market", "terminal", 1822, 2005, "city", "paved", True,
   "Fulton_Fish_Market", "Fulton Market opened 1822; the fish market moved to Hunts Point on 14 November 2005. "
   "Outline: the Fulton Market block and the market sheds on South Street (estimated).",

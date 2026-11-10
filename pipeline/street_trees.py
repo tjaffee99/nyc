@@ -22,7 +22,8 @@ Planting year, best first (the `source` column of the outputs says which):
   1 after 2015  a street tree whose ForMS record was made after the census, with a young
                 trunk, where the census counted no tree within 3 m, or a dead tree / stump,
                 or a thicker tree (its predecessor): planted between the census passing
-                (the date of its nearest record) and the ForMS record. A trunk still at
+                (the date of its nearest record) and the ForMS record; likewise a census
+                record whose trunk is now much thinner than counted (replaced). A trunk still at
                 planting size (<= 3.5 in) -> the day the record was made (records with
                 both dates were made a median 9 days after planting); else by the trunk,
                 inside the bracket                                             -> estimated
@@ -464,15 +465,18 @@ def build():
     dist, idx = cKDTree(np.column_stack([cx, cy])).query(np.column_stack([x, y]), k=1)
     c_alive, c_dbh, c_date = c.alive.values[idx], c.dbh.to_numpy(float)[idx], c.date.to_numpy(float)[idx]
     del c, cx, cy
-    same = (dist <= CENSUS_SAME_M) & (created <= CENSUS_IMPORT) & c_alive
     dbh_forms = d.dbh_forms.to_numpy(float)
     okd = lambda v: np.where((v > 0) & (v <= 90), v, np.nan)  # noqa: E731  inches; 0 and typing errors are no trunk
     dbh_forms, c_dbh = okd(dbh_forms), okd(c_dbh)
+    same = (dist <= CENSUS_SAME_M) & (created <= CENSUS_IMPORT) & c_alive
+    # ... unless its trunk is now much thinner than the census counted: the tree was replaced
+    replaced = same & (dbh_forms <= 0.6 * c_dbh) & (dbh_forms <= c_dbh - 3.0)
+    same &= ~replaced
     use15 = same & np.isfinite(c_dbh)
     dbh_meas = np.where(use15, c_dbh, dbh_forms)                       # the trunk used for the date ...
     asof = np.where(use15, c_date, np.where(np.isfinite(updated), np.fmax(updated, created), created))  # ... and when
     asof = np.clip(asof, 2015.0, today)
-    dbh_now = np.where(np.isfinite(dbh_forms), np.fmax(dbh_forms, np.where(same, np.nan_to_num(c_dbh), 0)), c_dbh)
+    dbh_now = np.where(np.isfinite(dbh_forms), dbh_forms, np.where(same, c_dbh, np.nan))    # today's trunk, for the size
 
     # ---- species: growth curves, form
     names = pd.Series(d.species.cat.categories)
@@ -484,7 +488,6 @@ def build():
     dbh_j = np.maximum(dbh_meas + (_hash01(oid, 1) - 0.5), 0.5)    # (NaN where there is no trunk)
     cm, cm_now = dbh_j * 2.54, np.where(np.isfinite(dbh_now), dbh_now, 6.0) * 2.54
     age = np.full(len(d), np.nan)
-    age_plant = np.full(len(d), np.nan)
     hgt, crn = np.full(len(d), np.nan), np.full(len(d), np.nan)
     how = np.full(len(d), "", dtype=object)
     form = np.zeros(len(d), np.uint8)
@@ -521,16 +524,18 @@ def build():
         f"{int((np.isfinite(planted) & ~bulk & too_thick).sum())} contradicted by the trunk, {int(rec_ok.sum())} used")
 
     # ---- 1: planted after the 2015 census — a street tree whose record was made after the
-    # census, with a young trunk, where the census counted no tree within 3 m, or a dead tree
-    # / stump, or a tree thicker than this one is now (its predecessor)
+    # census (or whose census record now holds a much thinner trunk), with a young trunk, where
+    # the census counted no tree within 3 m, or a dead tree / stump, or a tree thicker than
+    # this one is now (its predecessor)
     near = dist <= CENSUS_NEAR_M
     spot_free = ~near | ~c_alive | (np.nan_to_num(c_dbh, nan=0.0) >= np.nan_to_num(dbh_now, nan=99.0) + 3.0)
     young = np.isfinite(age) & (age <= (asof - 2015.4) + 4.0)
-    after15 = street & ~rec_ok & (created > CENSUS_IMPORT) & young & spot_free
+    after15 = street & ~rec_ok & ((created > CENSUS_IMPORT) | replaced) & young & spot_free
     lo = np.where(dist <= 100.0, c_date, 2016.0)             # when the census passed (its nearest record)
     lo = np.where(np.isfinite(lo), lo, 2016.0)
-    at_planting = (dbh_meas <= PLANTING_IN) & ~d.bulk_created.to_numpy()   # record made at planting
-    y_after = np.where(at_planting, created, np.clip(from_dbh, lo, np.fmax(created, lo)))
+    hi = np.where(replaced, asof, created)                   # the record (for a replaced tree: its new trunk's)
+    at_planting = (dbh_meas <= PLANTING_IN) & ~d.bulk_created.to_numpy() & ~replaced   # record made at planting
+    y_after = np.where(at_planting, created, np.clip(from_dbh, lo, np.fmax(hi, lo)))
 
     # ---- the street and the ground
     st = street_year(x, y)
@@ -546,7 +551,7 @@ def build():
     year = np.where(bounded, bound, year)
     on_fill = np.isfinite(ly) & np.isfinite(year) & (year < ly + 1.0)
     year = np.where(on_fill, ly + 1.0, year)
-    year = np.minimum(year, np.minimum(asof, today))
+    year = np.minimum(year, np.where(src == 0, today, np.minimum(asof, today)))   # a trunk dates no later than its measurement
     d["year"], d["src"] = year, src.astype(np.uint8)
     d["confidence"] = np.where((src == 0) & ~on_fill, 0, 1).astype(np.uint8)
     d["bounded_by"] = np.select([on_fill, bounded], ["ground", "street"], "")
@@ -577,6 +582,7 @@ def build():
     report(d, sizes, dict(living=n_living, outside=n_outside, doubles=n_dupe, undated=n_undated,
                           planting_dates=int(np.isfinite(planted).sum()), planting_dates_bulk=n_bulk,
                           planting_dates_too_thick=n_thick, counted_in_2015=int(same.sum()),
+                          replaced_since_2015=int(replaced.sum()),
                           big_trunks_not_remnant_bounded=n_big_bounded, today=round(today, 2)))
 
 
