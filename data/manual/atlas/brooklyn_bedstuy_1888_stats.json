@@ -18,44 +18,39 @@
    "plate": "19587",
    "image": "1810304",
    "name": "Brooklyn, V. 5, Double Page Plate No. 122 [Map bounded by Broadway, Chauncey St., Saratoga",
-   "gcps": 7,
+   "gcps": 5,
    "model": "affine",
-   "cv_rms": 101.3,
-   "mpp": 0.111,
-   "n": 57,
-   "frame": 33,
+   "cv_rms": 14.8,
+   "mpp": 0.102,
+   "n": 54,
+   "frame": 30,
    "brick": 24,
    "stone": 0,
-   "coincide": 1,
-   "share": 0.018,
+   "coincide": 0,
+   "share": 0.0,
    "corrected": false,
    "paper": [
     85.0,
     -2.0,
     8.0
    ],
-   "off_median_vec": [
-    -0.12,
-    -1.9
-   ],
-   "off_median_m": 1.9,
    "sheet": "V5-122",
-   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.9 m; control points CV rms 101.3 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 14.8 m)"
   },
   {
    "plate": "19586",
    "image": "1810303",
    "name": "Brooklyn, V. 5, Double Page Plate No. 121 [Map bounded by Saratoga Ave., Fulton St., Ralph",
-   "gcps": 5,
+   "gcps": 3,
    "model": "affine",
-   "cv_rms": 16.1,
-   "mpp": 0.102,
-   "n": 274,
-   "frame": 246,
+   "cv_rms": 0.0,
+   "mpp": 0.103,
+   "n": 276,
+   "frame": 248,
    "brick": 28,
    "stone": 0,
-   "coincide": 5,
-   "share": 0.018,
+   "coincide": 3,
+   "share": 0.011,
    "corrected": false,
    "paper": [
     85.0,
@@ -63,12 +58,12 @@
     9.0
    ],
    "off_median_vec": [
-    -0.19,
-    0.8
+    0.44,
+    -3.7
    ],
-   "off_median_m": 1.51,
+   "off_median_m": 3.73,
    "sheet": "V5-121",
-   "status": "left out: not placed reliably (no street or building match; 5 outlines on standing footprints, median offset 1.51 m; control points CV rms 16.1 m)"
+   "status": "left out: not placed reliably (no street or building match; 3 outlines on standing footprints, median offset 3.73 m; control points CV rms 0.0 m)"
   },
   {
    "plate": "19585",
@@ -350,24 +345,29 @@
    "plate": "19578",
    "image": "1810295",
    "name": "Brooklyn, V. 5, Double Page Plate No. 113 [Map bounded by Fulton St., Marcy Ave., McDonoug",
-   "gcps": 5,
+   "gcps": 3,
    "model": "affine",
-   "cv_rms": 9.7,
-   "mpp": 0.1,
-   "n": 133,
-   "frame": 73,
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 134,
+   "frame": 74,
    "brick": 60,
    "stone": 0,
-   "coincide": 0,
-   "share": 0.0,
+   "coincide": 1,
+   "share": 0.007,
    "corrected": false,
    "paper": [
     85.0,
     -2.0,
     9.0
    ],
+   "off_median_vec": [
+    -0.62,
+    0.55
+   ],
+   "off_median_m": 0.83,
    "sheet": "V5-113",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 9.7 m)"
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 0.83 m; control points CV rms 0.0 m)"
   },
   {
    "plate": "19597",
@@ -878,24 +878,29 @@
    "plate": "19582",
    "image": "1810299",
    "name": "Brooklyn, V. 5, Double Page Plate No. 117 [Map bounded by Fulton St., Lewis Ave., McDonoug",
-   "gcps": 7,
+   "gcps": 4,
    "model": "affine",
-   "cv_rms": 10.9,
+   "cv_rms": 129.4,
    "mpp": 0.096,
    "n": 157,
    "frame": 93,
    "brick": 64,
    "stone": 0,
-   "coincide": 0,
-   "share": 0.0,
+   "coincide": 2,
+   "share": 0.013,
    "corrected": false,
    "paper": [
     85.0,
     -2.0,
     8.0
    ],
+   "off_median_vec": [
+    -0.12,
+    -0.51
+   ],
+   "off_median_m": 0.93,
    "sheet": "V5-117",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 10.9 m)"
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 0.93 m; control points CV rms 129.4 m)"
   },
   {
    "plate": "19595",

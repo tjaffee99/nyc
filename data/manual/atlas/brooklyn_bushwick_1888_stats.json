@@ -121,10 +121,10 @@
    "plate": "19987",
    "image": "1810697",
    "name": "Brooklyn, V. 9, Double Page Plate No. 247 [Map bounded by Randolph St., Varick Ave., Meado",
-   "gcps": 5,
+   "gcps": 3,
    "model": "affine",
-   "cv_rms": 10.6,
-   "mpp": 0.103,
+   "cv_rms": 0.0,
+   "mpp": 0.101,
    "n": 9,
    "frame": 6,
    "brick": 0,
@@ -138,7 +138,7 @@
     6.0
    ],
    "sheet": "V9-247",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 10.6 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 0.0 m)"
   },
   {
    "plate": "19995",
@@ -433,16 +433,16 @@
    "plate": "19984",
    "image": "1810694",
    "name": "Brooklyn, V. 9, Double Page Plate No. 244 [Map bounded by Newtown Creek, Meadow St., Stewa",
-   "gcps": 5,
+   "gcps": 3,
    "model": "affine",
-   "cv_rms": 11.8,
-   "mpp": 0.103,
-   "n": 41,
-   "frame": 24,
-   "brick": 1,
+   "cv_rms": 0.0,
+   "mpp": 0.106,
+   "n": 43,
+   "frame": 27,
+   "brick": 0,
    "stone": 16,
    "coincide": 1,
-   "share": 0.024,
+   "share": 0.023,
    "corrected": false,
    "paper": [
     89.0,
@@ -450,12 +450,12 @@
     6.0
    ],
    "off_median_vec": [
-    -3.98,
-    -1.81
+    -9.34,
+    -4.46
    ],
-   "off_median_m": 4.37,
+   "off_median_m": 10.35,
    "sheet": "V9-244",
-   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 4.37 m; control points CV rms 11.8 m)"
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 10.35 m; control points CV rms 0.0 m)"
   },
   {
    "plate": "20005",
@@ -495,14 +495,14 @@
    "plate": "19973",
    "image": "1810683",
    "name": "Brooklyn, V. 9, Double Page Plate No. 233 [Map bounded by New Town Creek, Nassau Ave., Sut",
-   "gcps": 4,
+   "gcps": 3,
    "model": "affine",
-   "cv_rms": 154.9,
-   "mpp": 0.106,
-   "n": 81,
-   "frame": 34,
-   "brick": 35,
-   "stone": 12,
+   "cv_rms": 0.0,
+   "mpp": 0.066,
+   "n": 32,
+   "frame": 15,
+   "brick": 8,
+   "stone": 9,
    "coincide": 0,
    "share": 0.0,
    "corrected": false,
@@ -512,7 +512,7 @@
     8.0
    ],
    "sheet": "V9-233",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 154.9 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 0.0 m)"
   },
   {
    "plate": "20004",

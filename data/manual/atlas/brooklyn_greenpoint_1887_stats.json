@@ -18,24 +18,24 @@
    "plate": "19486",
    "image": "1810203",
    "name": "Brooklyn V. 4, Double Page Plate No.92 [Map bounded by Newtown Creek, Calyer St., Whale Cr",
-   "gcps": 13,
+   "gcps": 7,
    "model": "affine",
-   "cv_rms": 34.3,
-   "mpp": 0.1,
-   "n": 40,
-   "frame": 25,
-   "brick": 12,
-   "stone": 3,
+   "cv_rms": 4.7,
+   "mpp": 0.104,
+   "n": 20,
+   "frame": 11,
+   "brick": 7,
+   "stone": 2,
    "coincide": 0,
    "share": 0.0,
    "corrected": false,
    "paper": [
-    83.0,
+    84.0,
     -2.0,
     13.0
    ],
    "sheet": "V4-92",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 34.3 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 4.7 m)"
   },
   {
    "plate": "19497",

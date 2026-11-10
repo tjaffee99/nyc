@@ -15,6 +15,13 @@ rules, new data. The code was copied, not forked; nothing is shared at run time.
   Anything generated is marked `procedural`, anything imputed `estimated`. Prefer tracing a
   real historical map over inventing geometry. An accurate map of less ground beats a
   generated map of more.
+- **But a place that existed must not be empty** (owner, 2026-11-10: "I would prefer generated
+  data (within reason) to empty neighborhoods and towns where/when neighborhoods and towns
+  actually existed"). Where no outline survives, buildings are generated — only where
+  evidence says the ground was built on at that time (a photograph, a map, a census count),
+  marked `procedural`, naming that evidence in the popup, and giving way to any real outline.
+  The same goes for years: a town whose records carry no construction years is drawn with
+  modelled years marked `estimated`, not left out.
 - The owner is cost-sensitive: deploy rather than verify at length, and say plainly what was
   not checked.
 
