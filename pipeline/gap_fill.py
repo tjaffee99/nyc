@@ -58,7 +58,7 @@ from common import INTERIM, MANUAL, RAW, TABLES, log
 
 WORK = INTERIM / "gapfill"
 DOC = MANUAL / "gapfill"
-LAYOUT = 2                # version of the lot layout: a change of the cutting rules needs new lots (and new scores)
+LAYOUT = 3                # version of the lot layout: a change of the cutting rules needs new lots (and new scores)
 LOTS = WORK / f"lots_v{LAYOUT}"
 ROWS = WORK / "rows"
 EXISTING = WORK / "existing.parquet"
@@ -299,6 +299,65 @@ MPP = ap.metres_per_pixel(40.72)
 MPP2 = MPP * MPP
 
 
+def frontage_rows(poly, inset_m, key, bw, d, gap):
+    """Rows of lot outlines along every straight frontage of a city block (edges of 20 m and more of
+    the block polygon simplified by 2.5 m), longest frontage first; an outline that would lie on one
+    already placed is dropped, so corners go to the longer frontage. Each outline stands on the
+    building line (`inset_m` inside the centre-line polygon), is `bw` wide and about `d` deep - not
+    deeper than half the block behind that frontage. Returns [(rectangle, row index)]."""
+    inner = shapely.buffer(poly, -inset_m / MPP, join_style="mitre")
+    if inner.is_empty or shapely.area(inner) * MPP2 < 150:
+        return []
+    tol = shapely.buffer(inner, 0.6 / MPP)
+    shapely.prepare(tol)
+    shapely.prepare(poly)
+    ring = shapely.simplify(poly, 2.5 / MPP)
+    if ring.geom_type != "Polygon":
+        return []
+    c = np.asarray(ring.exterior.coords)[:-1]
+    iv = shapely.get_coordinates(inner)
+    edges = []
+    for a in range(len(c)):
+        p0, p1 = c[a], c[(a + 1) % len(c)]
+        Lp = float(np.hypot(*(p1 - p0)))
+        if Lp * MPP >= 20.0:
+            edges.append((Lp, p0, p1))
+    edges.sort(key=lambda e: -e[0])
+    w_px, bw_px, in_px, dmin = (bw + gap) / MPP, bw / MPP, inset_m / MPP, 0.88 * d
+    out, placed = [], []
+    for ri, (Lp, p0, p1) in enumerate(edges):
+        t = (p1 - p0) / Lp
+        nrm = np.array([-t[1], t[0]])
+        mid = p0 + t * Lp / 2 + nrm * (in_px + 3.0 / MPP)
+        if not shapely.contains_xy(poly, mid[0], mid[1]):
+            nrm = -nrm
+        nl = int(Lp // w_px)
+        if nl < 1:
+            continue
+        Hn = float(((iv - p0) @ nrm).max()) * MPP - inset_m           # depth of the block behind this frontage
+        if Hn < dmin * 0.8:
+            continue
+        avail = Hn / 2 - 0.5 if Hn >= 2 * dmin + 1.0 else Hn
+        us = (Lp - nl * w_px) / 2 + (gap / 2) / MPP + w_px * np.arange(nl)
+        dd = d * (0.88 + 0.24 * np.array([h01(f"{key}:f{ri}:{i}") for i in range(nl)]))
+        dd = np.minimum(dd, max(avail, dmin * 0.8)) / MPP
+        A = p0 + t * us[:, None] + nrm * in_px
+        B = A + t * bw_px
+        C = B + nrm * dd[:, None]
+        D = A + nrm * dd[:, None]
+        g = shapely.polygons(np.stack([A, B, C, D, A], axis=1))
+        g = g[shapely.contains(tol, g)]
+        if len(g) and placed:
+            hit = np.unique(shapely.STRtree(np.array(placed, dtype=object)).query(shapely.buffer(g, -0.15 / MPP), predicate="intersects")[0])
+            keep = np.ones(len(g), bool)
+            keep[hit] = False
+            g = g[keep]
+        for q in g:
+            placed.append(q)
+            out.append((q, ri))
+    return out
+
+
 def lots_of_block(poly, kind, inset_m, key, bw, d):
     """Lot-sized building outlines of one city block: rectangles in rows along the long frontages.
 
@@ -447,11 +506,20 @@ def make_lots(bx, by):
         pc = shapely.centroid(poly)
         lon, lat = px_to_lonlat(pc.x, pc.y)
         cb = hashlib.sha1(f"{lon:.5f},{lat:.5f},{shapely.area(poly) * MPP2:.0f}".encode()).hexdigest()[:10]
-        for g, ri in lots_of_block(poly, kind[k], inset[k], cb, float(med_w[k]), float(med_d[k])):
-            out.append((cb, kind[k], int(ri), g))
+        fr = frontage_rows(poly, inset[k], cb, float(med_w[k]), float(med_d[k]), TYPES[kind[k]]["gap"])
+        for g, ri in fr:
+            out.append((cb, kind[k], int(ri), g, inset[k]))
+        # the inside of a superblock (and blocks without straight frontages): rows on the block's own frame
+        deep = lots_of_block(poly, kind[k], inset[k], cb, float(med_w[k]), float(med_d[k]))
+        if deep and fr:
+            dg = np.array([q for q, _ in deep], dtype=object)
+            hit = np.unique(shapely.STRtree(np.array([q for q, _ in fr], dtype=object)).query(shapely.buffer(dg, -0.15 / MPP), predicate="intersects")[0])
+            deep = [x for j_, x in enumerate(deep) if j_ not in set(hit.tolist())]
+        for g, ri in deep:
+            out.append((cb, kind[k], 100 + int(ri), g, inset[k]))
     if not out:
         return pd.DataFrame(columns=cols), ex, lines, cls
-    df = pd.DataFrame(out, columns=["cb", "kind", "row", "g"])
+    df = pd.DataFrame(out, columns=["cb", "kind", "row", "g", "inset"])
     c = shapely.get_coordinates(shapely.centroid(df.g.values))
     inb = (c[:, 0] >= x0) & (c[:, 0] < x1) & (c[:, 1] >= y0) & (c[:, 1] < y1)
     df = df[inb].reset_index(drop=True)
@@ -459,17 +527,23 @@ def make_lots(bx, by):
     if not len(df):
         return pd.DataFrame(columns=cols), ex, lines, cls
     # not on a street, not in today's water, not in a cemetery
+    # (a lot stands on its block's building line: the street it faces cannot exclude it, a wider street
+    # at the end of its row can)
     bad = np.zeros(len(df), bool)
     if len(lines):
+        ins = df.inset.values
         for name in np.unique(cls):
-            st = shapely.STRtree(shapely.buffer(lines[cls == name], HALF_STREET[name] / MPP, cap_style="flat"))
-            bad[np.unique(st.query(df.g.values, predicate="intersects")[0])] = True
+            ln = lines[cls == name]
+            a_, b_ = shapely.STRtree(ln).query(df.g.values, predicate="dwithin", distance=HALF_STREET[name] / MPP)
+            if len(a_):
+                dist = shapely.distance(df.g.values[a_], ln[b_]) * MPP
+                bad[a_[dist < np.minimum(HALF_STREET[name], ins[a_] - 0.3)]] = True
     water, cem = water_window(bx, by)
     for area in (water, cem):
         if area is not None and not area.is_empty:
             shapely.prepare(area)
             bad |= shapely.intersects(area, df.g.values)
-    df = df[~bad].reset_index(drop=True)
+    df = df[~bad].drop(columns=["inset"]).reset_index(drop=True)
     c = c[~bad]
     lon, lat = px_to_lonlat(c[:, 0], c[:, 1])
     df["lon"] = lon
