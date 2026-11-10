@@ -1,0 +1,5 @@
+# ---------------------------------------------------------------- additions
+qn_jamaica_race_course|Jamaica Race Course|historic|40.6760,-73.7730|1903|1959|qn_rochdale_village|Q|Jamaica_Race_Course|Thoroughbred track open 1903-1959.
+qn_rochdale_village|Rochdale Village|neighborhood|40.6760,-73.7730|1963|9999||Q|Rochdale_Village,_Queens|Cooperative housing on the racetrack site; first residents 1963.
+bk_sea_gate|Sea Gate|neighborhood||1892|9999||B|Sea_Gate,_Brooklyn|Norton's Point, developed as a private community from 1892; year estimated.
+mn_meatpacking|Meatpacking District|neighborhood||1900|9999||M|Meatpacking_District,_Manhattan|Gansevoort Market opened 1884; some 250 slaughterhouses and packing plants by 1900. Start year of the name estimated.

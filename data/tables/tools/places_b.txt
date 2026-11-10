@@ -1,0 +1,161 @@
+# ---------------------------------------------------------------- Brooklyn: Lenape places
+bk_marechkawieck|Marechkawieck|historic|40.6935,-73.9870|1609|1646||B|Marechkawieck|Lenape (Canarsee) settlement around today's Downtown Brooklyn. End year estimated = the founding of Breuckelen. Location approximate.
+bk_keskachauge|Keskachauge|historic|40.6200,-73.9330|1609|1636|bk_amersfoort|B|Keskachauge|Canarsee settlement and planting land on the Flatlands plain; sold to Dutch buyers in 1636.
+bk_canarsee|Canarsee|historic|40.6400,-73.9000|1609|1684||B|Canarsee|Principal Canarsee settlement near today's Canarsie. End year estimated (last land sales of the 1680s).
+bk_nayack|Nayack|historic|40.6100,-74.0320|1609|1652||B|Nayack|Lenape settlement at the Narrows (Fort Hamilton). End year estimated (land sold 1652).
+# ---------------------------------------------------------------- Brooklyn: towns and the city
+bk_breuckelen|Breuckelen|town|40.6903,-73.9867|1646|1664|bk_brooklyn_town|B|Brooklyn|Village given its own government in 1646; label at the old village on the ferry road (Fulton Street near Hoyt Street).
+bk_brooklyn_town|Brooklyn|town|40.6903,-73.9867|1664|1834|bk_brooklyn_city|B|Brooklyn|English-period town (Brookland, Brooklyne); the village at the ferry was incorporated 1816.
+bk_brooklyn_city|Brooklyn|city|40.6928,-73.9903|1834|1898|bk_downtown_brooklyn|B|Brooklyn|City of Brooklyn, incorporated 8 Apr 1834; label at City Hall (Borough Hall, 1848).
+bk_downtown_brooklyn|Downtown Brooklyn|neighborhood|40.6928,-73.9880|1898|9999||B|Downtown_Brooklyn|The old city centre after consolidation.
+bk_the_ferry|The Ferry|historic|40.7030,-73.9945|1642|1814|bk_fulton_ferry|B|Fulton_Ferry,_Brooklyn|Landing of the East River ferry kept by Cornelis Dircksen from 1642 (het Veer).
+bk_fulton_ferry|Fulton Ferry|neighborhood|40.7030,-73.9945|1814|9999||B|Fulton_Ferry,_Brooklyn|Named for Robert Fulton's steam ferry of 1814.
+bk_midwout|Midwout|town|40.6502,-73.9590|1651|1664|bk_flatbush_town|B|Flatbush,_Brooklyn|Dutch town chartered 1651; label at the Reformed church (Flatbush and Church avenues).
+bk_flatbush_town|Flatbush|town|40.6502,-73.9590|1664|1894|bk_flatbush|B|Flatbush,_Brooklyn|English form of Vlacke Bos; one of the six towns of Kings County, annexed to Brooklyn 1894.
+bk_flatbush|Flatbush|neighborhood|40.6502,-73.9590|1894|9999||B|Flatbush,_Brooklyn|Neighbourhood after annexation.
+bk_amersfoort|Nieuw Amersfoort|town|40.6240,-73.9357|1636|1664|bk_flatlands_town|B|Flatlands,_Brooklyn|Farms on land bought 1636, the first European settlement on Long Island; town government 1647. Label at the Reformed church (Kings Highway).
+bk_flatlands_town|Flatlands|town|40.6240,-73.9357|1664|1896|bk_flatlands|B|Flatlands,_Brooklyn|English-period name; the last Kings County town annexed to Brooklyn, 1896.
+bk_flatlands|Flatlands|neighborhood|40.6240,-73.9357|1896|9999||B|Flatlands,_Brooklyn|Neighbourhood after annexation.
+bk_new_utrecht_dutch|Nieuw Utrecht|town|40.6085,-74.0010|1657|1664|bk_new_utrecht|B|New_Utrecht,_Brooklyn|Founded 1657 by Jacques Cortelyou; label at the Reformed church (18th Avenue and 84th Street).
+bk_new_utrecht|New Utrecht|town|40.6085,-74.0010|1664|1894||B|New_Utrecht,_Brooklyn|Town of Kings County, annexed to Brooklyn 1894; the area is now Bensonhurst, Bath Beach, Dyker Heights and Bay Ridge.
+bk_boswijck|Boswijck|town|40.7163,-73.9408|1661|1664|bk_bushwick_town|B|Bushwick,_Brooklyn|Chartered by Stuyvesant, 1661; label at the old town plot (Bushwick Avenue and Old Woodpoint Road).
+bk_bushwick_town|Bushwick|town|40.7163,-73.9408|1664|1855|bk_bushwick|B|Bushwick,_Brooklyn|Town of Kings County; merged into the City of Brooklyn with Williamsburgh, 1 Jan 1855.
+bk_bushwick|Bushwick|neighborhood||1855|9999||B|Bushwick,_Brooklyn|Neighbourhood; the name moved south-east with the brewery district.
+bk_gravesend_town|Gravesend|town|40.5953,-73.9737|1645|1894|bk_gravesend|B|Gravesend,_Brooklyn|Patent of 19 Dec 1645 to Lady Deborah Moody, the only English town among the six; label at the village square.
+bk_gravesend|Gravesend|neighborhood|40.5953,-73.9737|1894|9999||B|Gravesend,_Brooklyn|Annexed to Brooklyn 1894.
+bk_williamsburgh|Williamsburgh|town|40.7135,-73.9650|1802|1855|bk_williamsburg|B|Williamsburg,_Brooklyn|Laid out 1802 by Richard Woodhull and named for Jonathan Williams; village 1827, city 1852.
+bk_williamsburg|Williamsburg|neighborhood|40.7135,-73.9610|1855|9999||B|Williamsburg,_Brooklyn|Lost its h on annexation to Brooklyn, 1 Jan 1855.
+bk_new_lots|New Lots|town|40.6645,-73.8850|1852|1886||B|New_Lots,_Brooklyn|Town split from Flatbush in 1852 (settled in the 1670s); annexed to Brooklyn 1886. Label at the New Lots Reformed Church.
+bk_east_new_york|East New York|neighborhood||1835|9999||B|East_New_York,_Brooklyn|Founded 1835 by John R. Pitkin.
+bk_bedford|Bedford|town|40.6806,-73.9535|1663|1930|bk_bedford_stuyvesant|B|Bedford–Stuyvesant,_Brooklyn|Dutch hamlet of 1663 at Bedford Corners. End year estimated.
+bk_bedford_stuyvesant|Bedford–Stuyvesant|neighborhood||1930|9999||B|Bedford–Stuyvesant,_Brooklyn|Combined name in use from the 1930s; year estimated.
+bk_weeksville|Weeksville|historic|40.6740,-73.9255|1838|1930||B|Weeksville,_Brooklyn|Free Black community founded 1838 by James Weeks. End year estimated (absorbed into Crown Heights).
+bk_crow_hill|Crow Hill|historic|40.6690,-73.9440|1840|1916|bk_crown_heights|B|Crown_Heights,_Brooklyn|Earlier name of the ridge. Start year estimated.
+bk_crown_heights|Crown Heights|neighborhood||1916|9999||B|Crown_Heights,_Brooklyn|Renamed when Crown Street was cut through in 1916.
+bk_yellow_hook|Yellow Hook|town|40.6340,-74.0280|1700|1853|bk_bay_ridge|B|Bay_Ridge,_Brooklyn|Named for its yellow clay. Start year estimated.
+bk_bay_ridge|Bay Ridge|neighborhood||1853|9999||B|Bay_Ridge,_Brooklyn|Renamed in 1853 after yellow-fever epidemics made the old name unwelcome.
+bk_roode_hoek|Roode Hoek|landscape|40.6750,-74.0120|1636|1664|bk_red_hook|B|Red_Hook,_Brooklyn|Dutch name of the red-clay point, settled 1636.
+bk_red_hook|Red Hook|neighborhood|40.6750,-74.0120|1664|9999||B|Red_Hook,_Brooklyn|English form of Roode Hoek.
+bk_conyne_eylandt|Conyne Eylandt|landscape|40.5750,-73.9800|1639|1664|bk_coney_island_ls|B|Coney_Island|Dutch Rabbit Island. Start year estimated.
+bk_coney_island_ls|Coney Island|landscape|40.5750,-73.9800|1664|1829|bk_coney_island|B|Coney_Island|Barrier island of Gravesend.
+bk_coney_island|Coney Island|neighborhood|40.5750,-73.9800|1829|9999||B|Coney_Island|Resort from the Coney Island House of 1829; joined to the mainland as the creek was filled in the 20th century.
+bk_barren_island|Barren Island|landscape|40.5920,-73.8930|1664|1931||B|Barren_Island,_Brooklyn|Dutch Beeren Eylandt. Start year nominal; joined to the mainland by fill in the 1920s and covered by Floyd Bennett Field (1931).
+bk_wallabout_bay|Wallabout Bay|landscape|40.7045,-73.9740|1637|9999||B|Wallabout_Bay|Waal-bogt, settled 1637 by Joris Jansen Rapelje.
+bk_gowanus_creek|Gowanus Creek|landscape|40.6770,-73.9900|1636|1869|bk_gowanus_canal|B|Gowanus_Canal|Named for the sachem Gouwane; land bought 1636.
+bk_gowanus_canal|Gowanus Canal|landscape|40.6770,-73.9900|1869|9999||B|Gowanus_Canal|The creek was canalised 1853-1869.
+bk_gowanus|Gowanus|neighborhood||1869|9999||B|Gowanus,_Brooklyn|Neighbourhood along the canal; start year estimated.
+bk_navy_yard|Brooklyn Navy Yard|neighborhood|40.7020,-73.9710|1801|9999||B|Brooklyn_Navy_Yard|Navy yard established 1801; closed 1966, an industrial park since 1971.
+# ---------------------------------------------------------------- Brooklyn: neighbourhoods
+bk_brooklyn_heights|Brooklyn Heights|neighborhood||1820|9999||B|Brooklyn_Heights|Developed after the steam ferry of 1814 (earlier Clover Hill); start year estimated.
+bk_vinegar_hill|Vinegar Hill|neighborhood||1800|9999||B|Vinegar_Hill,_Brooklyn|Named by John Jackson about 1800 after the battle of Vinegar Hill (1798).
+bk_dumbo|Dumbo|neighborhood||1978|9999||B|Dumbo,_Brooklyn|Down Under the Manhattan Bridge Overpass; coined by residents in 1978.
+bk_fort_greene|Fort Greene|neighborhood||1850|9999||B|Fort_Greene,_Brooklyn|Named for the fort of 1776/1812; start year of the neighbourhood name estimated.
+bk_clinton_hill|Clinton Hill|neighborhood||1840|9999||B|Clinton_Hill,_Brooklyn|Clinton Avenue was laid out 1832; year estimated.
+bk_cobble_hill|Cobble Hill|neighborhood||1959|9999||B|Cobble_Hill,_Brooklyn|Colonial hill name (Cobleshill) revived in the late 1950s; year estimated.
+bk_boerum_hill|Boerum Hill|neighborhood||1964|9999||B|Boerum_Hill|Name coined 1964.
+bk_carroll_gardens|Carroll Gardens|neighborhood||1964|9999||B|Carroll_Gardens,_Brooklyn|Name from the 1960s; year estimated.
+bk_south_brooklyn|South Brooklyn|historic|40.6830,-73.9990|1840|1964||B|South_Brooklyn|The part of the old city south of Atlantic Avenue. Start and end years estimated (the name gave way to Cobble Hill, Carroll Gardens and Boerum Hill).
+bk_park_slope|Park Slope|neighborhood||1885|9999||B|Park_Slope|Built up after Prospect Park (1867-73); year estimated.
+bk_prospect_heights|Prospect Heights|neighborhood||1890|9999||B|Prospect_Heights,_Brooklyn|Year estimated.
+bk_windsor_terrace|Windsor Terrace|neighborhood||1851|9999||B|Windsor_Terrace,_Brooklyn|Farm bought and named 1851.
+bk_greenpoint|Greenpoint|neighborhood||1834|9999||B|Greenpoint,_Brooklyn|17th-century name of the point; Neziah Bliss began laying out streets in 1834.
+bk_east_williamsburg|East Williamsburg|neighborhood||1855|9999||B|East_Williamsburg,_Brooklyn|Year estimated.
+bk_brownsville|Brownsville|neighborhood||1865|9999||B|Brownsville,_Brooklyn|Charles S. Brown subdivided the land in 1865.
+bk_cypress_hills|Cypress Hills|neighborhood||1850|9999||B|Cypress_Hills,_Brooklyn|Named for the cemetery of 1848; year estimated.
+bk_canarsie|Canarsie|neighborhood||1700|9999||B|Canarsie,_Brooklyn|Village of the town of Flatlands named for the Canarsee; start year estimated.
+bk_kensington|Kensington|neighborhood||1885|9999||B|Kensington,_Brooklyn|Developed from 1885.
+bk_ditmas_park|Ditmas Park|neighborhood||1902|9999||B|Ditmas_Park,_Brooklyn|Developed from 1902 by Lewis Pounds.
+bk_prospect_park_south|Prospect Park South|neighborhood||1899|9999||B|Prospect_Park_South|Developed from 1899 by Dean Alvord.
+bk_prospect_lefferts|Prospect Lefferts Gardens|neighborhood||1968|9999||B|Prospect_Lefferts_Gardens|Name coined 1968 by the neighbourhood association.
+bk_midwood|Midwood|neighborhood||1900|9999||B|Midwood,_Brooklyn|Name derived from Midwout; year estimated.
+bk_east_flatbush|East Flatbush|neighborhood||1925|9999||B|East_Flatbush,_Brooklyn|Year estimated.
+bk_blythebourne|Blythebourne|historic|40.6330,-73.9990|1887|1920||B|Borough_Park,_Brooklyn|Electus Litchfield's suburb of 1887, absorbed by Borough Park; end year estimated.
+bk_borough_park|Borough Park|neighborhood||1898|9999||B|Borough_Park,_Brooklyn|William Reynolds' development of 1898.
+bk_fort_hamilton|Fort Hamilton|neighborhood||1831|9999||B|Fort_Hamilton|Fort built 1825-1831.
+bk_dyker_heights|Dyker Heights|neighborhood||1895|9999||B|Dyker_Heights,_Brooklyn|Developed from 1895 by Walter L. Johnson.
+bk_bensonhurst|Bensonhurst|neighborhood||1889|9999||B|Bensonhurst,_Brooklyn|Bensonhurst-by-the-Sea, laid out on the Benson farms in the late 1880s; year estimated.
+bk_bath_beach|Bath Beach|neighborhood||1863|9999||B|Bath_Beach,_Brooklyn|Resort named for Bath, England; year estimated.
+bk_sunset_park|Sunset Park|neighborhood||1965|9999||B|Sunset_Park,_Brooklyn|Named in the mid-1960s after the park (1891); before that part of South Brooklyn and Bay Ridge. Year estimated.
+bk_brighton_beach|Brighton Beach|neighborhood||1878|9999||B|Brighton_Beach|William Engeman's resort of 1868, named 1878.
+bk_manhattan_beach|Manhattan Beach|neighborhood||1877|9999||B|Manhattan_Beach,_Brooklyn|Austin Corbin's resort, opened 1877.
+bk_sheepshead_bay|Sheepshead Bay|neighborhood||1845|9999||B|Sheepshead_Bay,_Brooklyn|Fishing village named for the bay; year estimated.
+bk_gerritsen_beach|Gerritsen Beach|neighborhood||1920|9999||B|Gerritsen_Beach,_Brooklyn|Bungalow community begun 1920.
+bk_marine_park|Marine Park|neighborhood||1930|9999||B|Marine_Park_(neighborhood),_Brooklyn|Built up beside the park in the 1920s-30s; year estimated.
+bk_mill_basin|Mill Basin|neighborhood||1950|9999||B|Mill_Basin,_Brooklyn|Residential development from the late 1940s on the filled Mill Island; year estimated.
+bk_bergen_beach|Bergen Beach|neighborhood||1896|9999||B|Bergen_Beach,_Brooklyn|Resort and amusement park of 1896.
+bk_starrett_city|Starrett City|neighborhood||1974|9999||B|Starrett_City|Housing complex opened 1974 (Spring Creek Towers).
+# ---------------------------------------------------------------- Queens: Lenape places
+qn_mespaetches|Mespaetches|historic|40.7250,-73.9170|1609|1642|qn_maspat|Q|Maspeth,_Queens|Lenape band and settlement at the head of Newtown Creek that gave Maspeth its name. End year estimated. Location approximate.
+qn_matinecock|Matinecock|historic|40.7650,-73.8250|1609|1684||Q|Matinecock|Lenape band of the north shore around Flushing Bay. End year estimated (last land deeds of the 1680s). Label anchor approximate.
+qn_rockaway_lenape|Reckouwacky|historic|40.6050,-73.7600|1609|1685||Q|Rockaway,_Queens|Lenape band of the Rockaway peninsula. End year estimated (sold 1685). Label anchor approximate.
+qn_jameco|Jameco|historic|40.6900,-73.7900|1609|1656|qn_rustdorp|Q|Jamaica,_Queens|Lenape band (Yamecah) near Beaver Pond that gave Jamaica its name. End year estimated = the founding of Rustdorp.
+# ---------------------------------------------------------------- Queens: towns
+qn_vlissingen|Vlissingen|town|40.7632,-73.8303|1645|1664|qn_flushing_town|Q|Flushing,_Queens|Patent of 10 Oct 1645 to English settlers under Dutch rule; label at the old village (Northern Boulevard and Main Street).
+qn_flushing_town|Flushing|town|40.7632,-73.8303|1664|1898|qn_flushing|Q|Flushing,_Queens|English form of Vlissingen; town of Queens County until consolidation.
+qn_flushing|Flushing|neighborhood|40.7600,-73.8300|1898|9999||Q|Flushing,_Queens|Neighbourhood after consolidation.
+qn_maspat|Maspat|historic|40.7250,-73.9170|1642|1644||Q|Maspeth,_Queens|Rev. Francis Doughty's English settlement of 1642, destroyed in Kieft's War (1643-44).
+qn_middelburgh|Middelburgh|town|40.7386,-73.8770|1652|1665|qn_newtown|Q|Elmhurst,_Queens|Town founded 1652; label at the old village (Broadway and Queens Boulevard).
+qn_newtown|Newtown|town|40.7386,-73.8770|1665|1896|qn_elmhurst|Q|Elmhurst,_Queens|Renamed New Towne in 1665; town of Queens County.
+qn_elmhurst|Elmhurst|neighborhood|40.7386,-73.8770|1896|9999||Q|Elmhurst,_Queens|The village was renamed Elmhurst in 1896 at Cord Meyer's suggestion.
+qn_rustdorp|Rustdorp|town|40.7038,-73.8010|1656|1664|qn_jamaica_town|Q|Jamaica,_Queens|Town chartered by Stuyvesant, 1656.
+qn_jamaica_town|Jamaica|town|40.7038,-73.8010|1664|1898|qn_jamaica|Q|Jamaica,_Queens|English-period name (from Jameco); seat of Queens County 1683-1788; village incorporated 1814.
+qn_jamaica|Jamaica|neighborhood|40.7038,-73.8010|1898|9999||Q|Jamaica,_Queens|Neighbourhood after consolidation.
+qn_halletts_cove|Hallett's Cove|town|40.7725,-73.9300|1652|1839|qn_astoria_village|Q|Astoria,_Queens|William Hallett's grant of 1652.
+qn_astoria_village|Astoria|town|40.7725,-73.9300|1839|1870|qn_astoria|Q|Astoria,_Queens|Village incorporated 12 Apr 1839 and named for John Jacob Astor; merged into Long Island City 1870.
+qn_astoria|Astoria|neighborhood||1870|9999||Q|Astoria,_Queens|Neighbourhood of Long Island City, then of Queens.
+qn_dominies_hook|Dominie's Hook|historic|40.7430,-73.9570|1643|1825|qn_hunters_point|Q|Hunters_Point,_Queens|Land granted 1643 to Dominie Everardus Bogardus.
+qn_hunters_point|Hunters Point|neighborhood|40.7430,-73.9560|1825|9999||Q|Hunters_Point,_Queens|Named for the Hunter family, owners until 1825; year estimated.
+qn_long_island_city|Long Island City|city|40.7440,-73.9500|1870|1898|qn_lic|Q|Long_Island_City|City incorporated 1870 from Astoria, Ravenswood, Hunters Point, Dutch Kills, Blissville and other villages.
+qn_lic|Long Island City|neighborhood|40.7470,-73.9430|1898|9999||Q|Long_Island_City|Neighbourhood after consolidation.
+qn_ravenswood|Ravenswood|neighborhood||1848|9999||Q|Ravenswood,_Queens|Villa district developed from 1848.
+qn_dutch_kills|Dutch Kills|neighborhood||1642|9999||Q|Dutch_Kills,_Queens|Hamlet on the creek of the same name; start year estimated.
+qn_blissville|Blissville|neighborhood||1837|9999||Q|Blissville,_Queens|Named for Neziah Bliss; year estimated.
+qn_sunnyside|Sunnyside|neighborhood||1880|9999||Q|Sunnyside,_Queens|Named for a farm on Sunnyside Hill; start year estimated. Sunnyside Gardens was built 1924-1928.
+qn_steinway|Steinway|neighborhood||1870|9999||Q|Steinway,_Queens|Company village of Steinway & Sons, from 1870.
+qn_north_beach|North Beach|historic|40.7750,-73.8750|1886|1929||Q|North_Beach,_Queens|Amusement resort on Bowery Bay opened 1886; the site became an airfield in 1929 and LaGuardia Airport in 1939.
+qn_woodside|Woodside|neighborhood||1867|9999||Q|Woodside,_Queens|Developed from 1867 by Benjamin Hitchcock.
+qn_trains_meadow|Trains Meadow|historic|40.7550,-73.8850|1700|1909|qn_jackson_heights|Q|Jackson_Heights,_Queens|Farm district of Newtown. Start year estimated.
+qn_jackson_heights|Jackson Heights|neighborhood||1909|9999||Q|Jackson_Heights,_Queens|Named by the Queensboro Corporation, which began buying land in 1909.
+qn_west_flushing|West Flushing|town|40.7470,-73.8620|1854|1870|qn_corona|Q|Corona,_Queens|Subdivision of 1854.
+qn_corona|Corona|neighborhood||1870|9999||Q|Corona,_Queens|Renamed about 1870; year estimated (sources give 1870-1872).
+qn_east_elmhurst|East Elmhurst|neighborhood||1905|9999||Q|East_Elmhurst,_Queens|Developed from 1905.
+qn_corona_dumps|Corona Ash Dumps|historic|40.7460,-73.8450|1909|1936||Q|Flushing_Meadows–Corona_Park|Brooklyn's ashes were dumped on the Flushing meadows from about 1909 (year estimated) until the site was cleared for the 1939 World's Fair.
+qn_whitepot|Whitepot|historic|40.7200,-73.8450|1652|1906|qn_forest_hills|Q|Forest_Hills,_Queens|Farming hamlet of Newtown. Start year estimated.
+qn_forest_hills|Forest Hills|neighborhood||1906|9999||Q|Forest_Hills,_Queens|Cord Meyer bought the Whitepot farms in 1906 and renamed them; Forest Hills Gardens followed in 1909.
+qn_rego_park|Rego Park|neighborhood||1923|9999||Q|Rego_Park,_Queens|Named for the Real Good Construction Company, which began building in 1923.
+qn_kew_gardens|Kew Gardens|neighborhood||1910|9999||Q|Kew_Gardens,_Queens|Developed with the railway station of 1910.
+qn_richmond_hill|Richmond Hill|neighborhood||1869|9999||Q|Richmond_Hill,_Queens|Laid out 1869 by Albon Platt Man.
+qn_woodville|Woodville|town|40.6890,-73.8570|1835|1853|qn_woodhaven|Q|Woodhaven,_Queens|Village founded 1835.
+qn_woodhaven|Woodhaven|neighborhood||1853|9999||Q|Woodhaven,_Queens|Renamed 1853 for its post office.
+qn_ozone_park|Ozone Park|neighborhood||1882|9999||Q|Ozone_Park,_Queens|Developed 1882 by Benjamin Hitchcock and Charles Denton.
+qn_howard_beach|Howard Beach|neighborhood||1916|9999||Q|Howard_Beach,_Queens|William Howard's resort of the 1890s; the name Howard Beach dates from 1916.
+qn_glendale|Glendale|neighborhood||1869|9999||Q|Glendale,_Queens|Named 1869 (earlier Fresh Ponds).
+qn_ridgewood|Ridgewood|neighborhood||1900|9999||Q|Ridgewood,_Queens|Built up from the 1900s; year estimated.
+qn_middle_village|Middle Village|neighborhood||1816|9999||Q|Middle_Village,_Queens|Hamlet at the midpoint of the Williamsburgh and Jamaica Turnpike (1816); year estimated.
+qn_maspeth|Maspeth|neighborhood||1852|9999||Q|Maspeth,_Queens|Village laid out in the 1850s; year estimated.
+qn_strattonport|Strattonport|town|40.7870,-73.8460|1851|1867|qn_college_point|Q|College_Point,_Queens|Village laid out on the Stratton farm; start year estimated.
+qn_college_point|College Point|neighborhood||1867|9999||Q|College_Point,_Queens|Village incorporated 1867, named for St. Paul's College (1835).
+qn_whitestone|Whitestone|neighborhood||1645|9999||Q|Whitestone,_Queens|Settled 1645 and named for a white boulder on the shore; village incorporated 1869.
+qn_bayside|Bayside|neighborhood||1798|9999||Q|Bayside,_Queens|The name Bay Side is recorded from 1798; year estimated.
+qn_douglaston|Douglaston|neighborhood||1876|9999||Q|Douglaston,_Queens|Named 1876 for William Douglas, who gave the railway station.
+qn_little_neck|Little Neck|neighborhood||1700|9999||Q|Little_Neck,_Queens|Start year estimated.
+qn_brushville|Brushville|town|40.7180,-73.7370|1824|1856|qn_queens_old|Q|Queens_Village,_Queens|Named for Thomas Brush, 1824 (earlier Little Plains).
+qn_queens_old|Queens|town|40.7180,-73.7370|1856|1923|qn_queens_village|Q|Queens_Village,_Queens|The village was called Queens from the 1850s; year estimated.
+qn_queens_village|Queens Village|neighborhood|40.7180,-73.7370|1923|9999||Q|Queens_Village,_Queens|The railway station was renamed Queens Village in 1923.
+qn_hollis|Hollis|neighborhood||1885|9999||Q|Hollis,_Queens|Developed 1885 by Frederick W. Dunton.
+qn_st_albans|St. Albans|neighborhood||1899|9999||Q|St._Albans,_Queens|Named 1899.
+qn_springfield_gardens|Springfield Gardens|neighborhood||1927|9999||Q|Springfield_Gardens,_Queens|The 17th-century hamlet of Springfield took the longer name in the 1920s; year estimated.
+qn_laurelton|Laurelton|neighborhood||1907|9999||Q|Laurelton,_Queens|Laurelton Land Company and railway station, 1907.
+qn_rosedale|Rosedale|neighborhood||1892|9999||Q|Rosedale,_Queens|Earlier Foster's Meadow; renaming year estimated.
+qn_cambria_heights|Cambria Heights|neighborhood||1923|9999||Q|Cambria_Heights,_Queens|Developed from 1923.
+qn_jamaica_estates|Jamaica Estates|neighborhood||1907|9999||Q|Jamaica_Estates,_Queens|Developed from 1907.
+qn_fresh_meadows|Fresh Meadows|neighborhood||1946|9999||Q|Fresh_Meadows,_Queens|Colonial place name; the New York Life housing development was built 1946-1949.
+qn_kew_gardens_hills|Kew Gardens Hills|neighborhood||1937|9999||Q|Kew_Gardens_Hills,_Queens|Year estimated.
+qn_far_rockaway|Far Rockaway|neighborhood||1833|9999||Q|Far_Rockaway,_Queens|Resort from the Marine Pavilion of 1833; village incorporated 1888.
+qn_rockaway_beach|Rockaway Beach|neighborhood||1897|9999||Q|Rockaway_Beach,_Queens|Village incorporated 1897.
+qn_arverne|Arverne|neighborhood||1888|9999||Q|Arverne,_Queens|Developed by Remington Vernam from 1888.
+qn_edgemere|Edgemere|neighborhood||1892|9999||Q|Edgemere,_Queens|Founded 1892 by Frederick Lancaster.
+qn_belle_harbor|Belle Harbor|neighborhood||1907|9999||Q|Belle_Harbor,_Queens|West Rockaway Land Company, 1907.
+qn_neponsit|Neponsit|neighborhood||1910|9999||Q|Neponsit,_Queens|Developed from 1910.
+qn_breezy_point|Breezy Point|neighborhood||1960|9999||Q|Breezy_Point,_Queens|Bungalow colony from the early 1900s; residents bought it as a cooperative in 1960.
+qn_broad_channel|Broad Channel|neighborhood||1881|9999||Q|Broad_Channel,_Queens|Railway station on the Jamaica Bay trestle, 1881.

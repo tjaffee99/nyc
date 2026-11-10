@@ -116,7 +116,8 @@ export function landmarkInfo(set: LandmarkSet, info: PickingInfo) {
   if (!item) return null;
   const {lm} = item;
   const rows: Record<string, string | number> = {...lm.facts};
-  rows['Model'] = 'reconstructed from cited dimensions & photos';
+  // a model's own confidence note ("Model: LOW CONFIDENCE — …") is not overwritten
+  if (!rows['Model']) rows['Model'] = 'reconstructed from cited dimensions';
   rows['Sources'] = lm.sources.map(s => s.replace(/^https?:\/\/(www\.)?/, '').split('/')[0]).join(', ');
   return {title: lm.name, rows};
 }

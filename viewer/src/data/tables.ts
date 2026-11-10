@@ -134,6 +134,9 @@ export function populationAt(year: number, pts: PopPoint[] = cityPopulation): nu
 // of the map; zoomed out, the whole city (the five boroughs' area, also before 1898).
 type Ring = [number, number][];
 type Place = {name: string; geoid: string; kind: string; rings: Ring[]; bbox?: [number, number, number, number]};
+/** 8 September 1664: New Amsterdam becomes New York. */
+const ENGLISH = 1664.69;
+const FIRST_CENSUS = 1698;
 let cities: {places: Place[]; counties: Place[]; pop: Record<string, [number, number][]>; region: [number, number][]; region_label: string} | null =
   null;
 
@@ -184,8 +187,16 @@ export function localPopulationAt(year: number, lon: number, lat: number, zoom: 
     const county = placeAt(cities.counties, lon, lat);
     if (county) {
       const v = seriesAt(year, cities.pop[`county:${county.name.replace(/ County$/, '')}`] ?? cities.pop[`county:${county.name}`]);
-      if (v != null) return {value: v, label: county.name};
+      if (v != null) return {value: v, label: county.name === 'Manhattan' && year < ENGLISH ? 'New Amsterdam' : county.name};
     }
+  }
+  // Before the first census of the whole area (1698) there is no count of it: the counter
+  // shows the Lenape estimate until the Dutch settle (1626), then the town on Manhattan.
+  if (year < FIRST_CENSUS) {
+    const town = seriesAt(year, cities.pop['county:Manhattan']);
+    if (town != null) return {value: town, label: year < ENGLISH ? 'New Amsterdam' : 'New York'};
+    const first = cities.region[0];
+    if (first) return {value: first[1], label: 'Lenape around the harbour (estimate)'};
   }
   const v = seriesAt(year, cities.region);
   if (v != null) return {value: v, label: cities.region_label};

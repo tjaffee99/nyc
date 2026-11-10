@@ -1,0 +1,217 @@
+{
+ "mn_bayards_mount": {
+  "drop": true
+ },
+ "mn_harsenville": {
+  "title": "Upper_West_Side",
+  "note": "Hamlet on the Bloomingdale Road around today's 71st Street, named for the Harsen family farm. Start and end years estimated."
+ },
+ "mn_kapsee": {
+  "title": "The_Battery_(Manhattan)"
+ },
+ "bk_keskachauge": {
+  "title": "Flatlands,_Brooklyn"
+ },
+ "bk_marechkawieck": {
+  "title": "Canarsee"
+ },
+ "ls_pelham_bay": {
+  "title": "Pelham_Bay_Park"
+ },
+ "ls_sheepshead_bay": {
+  "title": "Sheepshead_Bay,_Brooklyn"
+ },
+ "mn_shorakapkok": {
+  "title": "Inwood_Hill_Park"
+ },
+ "bx_snakapins": {
+  "title": "Clason_Point,_Bronx"
+ },
+ "si_stony_brook": {
+  "title": "Staten_Island",
+  "y1": "1729",
+  "note": "First seat of Richmond County, from 1683 until the courts moved to Richmond Town about 1729. Start and end years estimated. Location approximate (Amboy Road near Richmond Road, today's Egbertville)."
+ },
+ "si_cocclestown": {
+  "y1": "1729"
+ },
+ "si_richmond": {
+  "y0": "1729",
+  "note": "County seat from about 1729 (Richmond Town); year estimated."
+ },
+ "mn_werpoes": {
+  "title": "Collect_Pond"
+ },
+ "mn_gramercy": {
+  "coord": "40.7379,-73.9861"
+ },
+ "bk_cypress_hills": {
+  "coord": "40.6800,-73.8800"
+ },
+ "qn_dutch_kills": {
+  "coord": "40.7525,-73.9365"
+ },
+ "bk_marine_park": {
+  "coord": "40.6090,-73.9330"
+ },
+ "ls_hallets_point": {
+  "coord": "40.7770,-73.9345"
+ },
+ "si_oude_dorp": {
+  "note": "First lasting European settlement, August 1661, near today's South Beach; location approximate (the only surviving building of the colony, the Billiou-Stillwell-Perine House of 1662, stands 2.6 km inland on Richmond Road). End year estimated."
+ },
+ "qn_blissville": {
+  "coord": "40.7350,-73.9385"
+ },
+ "qn_ravenswood": {
+  "coord": "40.7625,-73.9415"
+ },
+ "qn_steinway": {
+  "coord": "40.7760,-73.9030"
+ },
+ "bx_unionport": {
+  "coord": "40.8300,-73.8500",
+  "note": "Village laid out in the 1850s; year estimated."
+ },
+ "qn_douglaston": {
+  "coord": "40.7680,-73.7480",
+  "y0": "1866",
+  "note": "The railway arrived in 1866 and the stop was named for William Douglas, who gave the station building; year estimated."
+ },
+ "qn_little_neck": {
+  "coord": "40.7751,-73.7405"
+ },
+ "bk_bensonhurst": {
+  "coord": "40.6090,-73.9930"
+ },
+ "bk_bath_beach": {
+  "coord": "40.6020,-74.0060"
+ },
+ "mn_washington_market": {
+  "y0": "1813",
+  "note": "Wholesale market district on the lower west side, opened 1813 as Bear Market; the market moved to Hunts Point in 1967 (end year estimated)."
+ },
+ "mn_carnegie_hill": {
+  "y0": "1901",
+  "note": "Named for the mansion Andrew Carnegie built in 1901 at Fifth Avenue and 91st Street."
+ },
+ "mn_little_oyster_island": {
+  "note": "Dutch-period name (bought by Michael Paauw 1630). End year estimated."
+ },
+ "mn_fort_william": {
+  "note": "Fort William under Leisler from 1689, then Fort William Henry. End year estimated."
+ },
+ "mn_fort_anne": {
+  "note": "Named for Queen Anne (reigned 1702-1714); years estimated from the reign."
+ },
+ "mn_fort_george": {
+  "note": "Named for George I (from 1714, year estimated); demolished 1790 for Government House."
+ },
+ "mn_harlem_town": {
+  "note": "English-period village (an attempt to rename it Lancaster failed). End year estimated: Harlem was built into the city in the 1870s."
+ },
+ "mn_harlem": {
+  "note": "Neighbourhood label at 125th Street and Lenox Avenue. Start year estimated."
+ },
+ "bk_brownsville": {
+  "note": "Named for Charles S. Brown, who subdivided the land in the 1860s; year estimated."
+ },
+ "bk_bushwick_town": {
+  "note": "Town of Kings County; merged into the City of Brooklyn with Williamsburgh by the act of 1854, in effect 1 Jan 1855. Name switch from Boswijck dated to the English takeover of 1664 (nominal)."
+ },
+ "qn_maspat": {
+  "note": "Rev. Francis Doughty's English settlement of 1642, the first in Queens, destroyed in Kieft's War; end year estimated."
+ },
+ "qn_middelburgh": {
+  "note": "Town founded 1652; label at the old village (Broadway and Queens Boulevard). Renaming year estimated."
+ },
+ "qn_newtown": {
+  "note": "Renamed New Towne after the English takeover (year estimated); town of Queens County."
+ },
+ "qn_dominies_hook": {
+  "note": "Land granted to Dominie Everardus Bogardus in the 1640s; start year estimated."
+ },
+ "qn_rego_park": {
+  "note": "Named for the Real Good Construction Company, which built here in the 1920s; year estimated."
+ },
+ "qn_richmond_hill": {
+  "note": "Laid out by Albon Platt Man about 1868-1869; year estimated."
+ },
+ "qn_college_point": {
+  "note": "Named for St. Paul's College (1835); village incorporated in the late 1860s, year estimated."
+ },
+ "qn_strattonport": {
+  "note": "Village laid out on the Stratton farm; start and end years estimated."
+ },
+ "qn_whitestone": {
+  "note": "Settled in the 1640s and named for a white boulder on the shore; start year estimated."
+ },
+ "qn_laurelton": {
+  "note": "Laurelton Land Company development of the 1900s; year estimated."
+ },
+ "qn_cambria_heights": {
+  "note": "Developed in the 1920s with financing from the Cambria Title Savings and Trust Company; year estimated."
+ },
+ "qn_far_rockaway": {
+  "note": "Resort from the Marine Pavilion of the 1830s; start year estimated."
+ },
+ "qn_arverne": {
+  "note": "Developed by Remington Vernam in the late 1880s; year estimated."
+ },
+ "qn_broad_channel": {
+  "note": "Fishing and railway village on the Jamaica Bay trestle, from about 1880; year estimated."
+ },
+ "bx_morrisania_town": {
+  "note": "Morris family estate from about 1670 (start year estimated), manor 1697; village of Morrisania founded 1848, town 1855; annexed to New York 1874."
+ },
+ "bx_west_farms_town": {
+  "y0": "1666",
+  "note": "Patent of 1666 to Edward Jessup and John Richardson (land bought 1663); town 1846-1874."
+ },
+ "bx_cornells_neck": {
+  "note": "Thomas Cornell's grant of the 1640s; start and end years estimated."
+ },
+ "bx_hunts_point": {
+  "note": "Named for Thomas Hunt, who settled here in the 1660s; year estimated."
+ },
+ "bx_melrose": {
+  "note": "Village surveyed about 1850; year estimated."
+ },
+ "bx_woodlawn": {
+  "note": "Laid out in the 1870s by George Opdyke; year estimated."
+ },
+ "bx_catholic_protectory": {
+  "note": "New York Catholic Protectory, on this site from 1865; the land was sold to Metropolitan Life in the late 1930s, end year estimated."
+ },
+ "bx_eastchester": {
+  "note": "Southern end of the colonial town of Eastchester (the Ten Farms of the 1660s); start year estimated."
+ },
+ "si_clifton": {
+  "note": "Laid out in the late 1830s; year estimated."
+ },
+ "si_arrochar": {
+  "note": "Named for the estate W. W. MacFarland established in the 1840s; neighbourhood from the 1880s, year estimated."
+ },
+ "si_factoryville": {
+  "note": "Named for the dye works of 1819; start and end years estimated."
+ },
+ "si_linoleumville": {
+  "note": "Named for the American Linoleum Manufacturing Company plant of 1873; end year estimated."
+ },
+ "si_travis": {
+  "note": "Residents voted to rename the village about 1930, after the plant closed; year estimated."
+ },
+ "si_prohibition_park": {
+  "y0": "1877",
+  "note": "The Prohibition Campground Association bought its first 25 acres in 1877; end year estimated."
+ },
+ "si_kreischerville": {
+  "note": "Balthasar Kreischer's brickworks village, from 1854; end year estimated."
+ },
+ "ls_harlem_river": {
+  "note": "Named for Nieuw Haarlem (1658); Lenape Muscoota. Start year nominal."
+ },
+ "ls_gravesend_bay": {
+  "note": "Named for the town (1645); start year nominal."
+ }
+}

@@ -1,0 +1,226 @@
+route_id,opened,note,source,system,line,from_stop,to_stop,via,closed
+sir_S18_S28,1860-04-23,"Staten Island Railway, Vanderbilt's Landing (Clifton) - Eltingville",https://en.wikipedia.org/wiki/Staten_Island_Railway,sir,Staten Island Railway,S18,S28,SI..N03R,
+sir_S17_S18,1860-05-14,Annadale - Eltingville,https://en.wikipedia.org/wiki/New_York_City_Subway,sir,Staten Island Railway,S17,S18,SI..N03R,
+sir_S09_S17,1860-06-02,Tottenville - Annadale,https://en.wikipedia.org/wiki/New_York_City_Subway,sir,Staten Island Railway,S09,S17,SI..N03R,
+sir_S28_S30,1884-07-31,Clifton - Tompkinsville,https://en.wikipedia.org/wiki/New_York_City_Subway,sir,Staten Island Railway,S28,S30,SI..N03R,
+sir_S30_S31,1886-03-07,Tompkinsville - St George,https://en.wikipedia.org/wiki/New_York_City_Subway,sir,Staten Island Railway,S30,S31,SI..N03R,
+subway_R36_R41,1915-06-22,Fourth Avenue Line to 59th Street (45th and 53rd Street stations followed on 22 Sep 1915),https://en.wikipedia.org/wiki/BMT_Fourth_Avenue_Line,subway,BMT 4th Av,R36,R41,R..S71R,
+subway_R41_R44,1916-01-15,59 St - 86 St,https://en.wikipedia.org/wiki/BMT_Fourth_Avenue_Line,subway,BMT 4th Av,R41,R44,R..S71R,
+subway_R36_B19,1916-06-24,36 St - 18 Av,https://en.wikipedia.org/wiki/BMT_Fourth_Avenue_Line,subway,BMT 4th Av,R36,B19,D..S07R,
+subway_R44_R45,1925-10-31,86 St - Bay Ridge-95 St,https://en.wikipedia.org/wiki/BMT_Fourth_Avenue_Line,subway,BMT 4th Av,R44,R45,R..S71R,
+subway_R09_R01,1917-02-01,Queensboro Plaza - Astoria-Ditmars Blvd,https://en.wikipedia.org/wiki/BMT_Astoria_Line,subway,BMT Astoria,R09,R01,N..N34R,
+subway_R11_R13,1919-09-01,Broadway Line extended to Lexington Avenue,https://en.wikipedia.org/wiki/BMT_Broadway_Line,subway,BMT Astoria,R11,R13,R..S71R,
+subway_R13_R14,1919-09-01,5 Av/59 St - 57 St-7 Av,https://en.wikipedia.org/wiki/BMT_Astoria_Line,subway,BMT Astoria,R13,R14,R..S71R,
+subway_R11_R09,1920-08-01,60th Street Tunnel,https://en.wikipedia.org/wiki/60th_Street_Tunnel,subway,BMT Astoria,R11,R09,N..N34R,
+subway_R26_R27,1918-09-20,Rector St - Whitehall St-South Ferry,https://en.wikipedia.org/wiki/BMT_Broadway_Line,subway,BMT Broadway,R26,R27,R..S71R,
+subway_R27_R30,1920-08-01,Whitehall St-South Ferry - DeKalb Av,https://en.wikipedia.org/wiki/BMT_Broadway_Line,subway,BMT Broadway,R27,R30,R..S71R,
+subway_D40_D26,1878-07-02,"Brooklyn, Flatbush & Coney Island Railway, Prospect Park - Brighton Beach (surface line; grade-separated 1905-08, station dates in transit_stations.csv)",https://en.wikipedia.org/wiki/BMT_Brighton_Line,subway,BMT Broadway - Brighton,D40,D26,Q..N16R,
+subway_D26_S04,1878-08-18,"Brooklyn, Flatbush & Coney Island Railway north of Prospect Park (Franklin Avenue Line)",https://en.wikipedia.org/wiki/BMT_Franklin_Avenue_Line,subway,BMT Broadway - Brighton,D26,S04,FS.N01R,
+subway_R30_D22_1915,1915-06-22,Manhattan Bridge north tracks (to the Broadway / Nassau Street lines until 1967),https://en.wikipedia.org/wiki/Manhattan_Bridge,subway,BMT Broadway - Brighton,R30,-73.9944 40.7157,D..N05R,
+subway_R30_Q01,1915-06-22,Manhattan Bridge subway tracks (Fourth Avenue / Sea Beach service to Chambers Street),https://en.wikipedia.org/wiki/Manhattan_Bridge,subway,BMT Broadway - Brighton,R30,Q01,Q..N16R,
+subway_R30_R36,1915-06-22,DeKalb Av - 36 St,https://en.wikipedia.org/wiki/BMT_Brighton_Line,subway,BMT Broadway - Brighton,R30,R36,R..S71R,
+subway_D41_D40,1917-04-22,Ocean Pkwy - Brighton Beach,https://en.wikipedia.org/wiki/BMT_Brighton_Line,subway,BMT Broadway - Brighton,D41,D40,Q..N16R,
+subway_R20_R22,1917-09-04,14 St-Union Sq - Prince St,https://en.wikipedia.org/wiki/BMT_Brighton_Line,subway,BMT Broadway - Brighton,R20,R22,R..S71R,
+subway_R16_R20,1918-01-05,Times Sq-42 St - 14 St-Union Sq,https://en.wikipedia.org/wiki/BMT_Brighton_Line,subway,BMT Broadway - Brighton,R16,R20,R..S71R,
+subway_R22_R26,1918-01-05,Prince St - Rector St,https://en.wikipedia.org/wiki/BMT_Brighton_Line,subway,BMT Broadway - Brighton,R22,R26,R..S71R,
+subway_D42_D41,1919-05-19,W 8 St-NY Aquarium - Ocean Pkwy,https://en.wikipedia.org/wiki/BMT_Brighton_Line,subway,BMT Broadway - Brighton,D42,D41,Q..N16R,
+subway_R14_R16,1919-07-10,57 St-7 Av - Times Sq-42 St,https://en.wikipedia.org/wiki/BMT_Brighton_Line,subway,BMT Broadway - Brighton,R14,R16,R..S71R,
+subway_D26_R30,1920-08-01,Prospect Park - DeKalb Av,https://en.wikipedia.org/wiki/BMT_Brighton_Line,subway,BMT Broadway - Brighton,D26,R30,Q..N16R,
+subway_R30_D22_1967,1967-11-26,Chrystie Street Connection: Manhattan Bridge north tracks to Grand Street and the Sixth Avenue Line,https://en.wikipedia.org/wiki/Chrystie_Street_Connection,subway,BMT Broadway - Brighton,-73.9944 40.7157,D22,D..N05R,
+subway_R14_B08,1989-10-29,63rd Street Line connection to the Broadway Line (regular service from 2017),https://en.wikipedia.org/wiki/63rd_Street_lines,subway,BMT Broadway - Brighton,R14,B08,Q..N16R,
+subway_L24_L29,1906-07-28,Atlantic Av - Canarsie-Rockaway Pkwy,https://en.wikipedia.org/wiki/BMT_Canarsie_Line,subway,BMT Canarsie,L24,L29,L..S21R,
+subway_L02_L13,1924-06-30,6 Av - Montrose Av,https://en.wikipedia.org/wiki/BMT_Canarsie_Line,subway,BMT Canarsie,L02,L13,L..S21R,
+subway_L13_L24,1928-07-14,Montrose Av - Atlantic Av,https://en.wikipedia.org/wiki/BMT_Canarsie_Line,subway,BMT Canarsie,L13,L24,L..S21R,
+subway_L01_L02,1931-05-30,8 Av - 6 Av,https://en.wikipedia.org/wiki/BMT_Canarsie_Line,subway,BMT Canarsie,L01,L02,L..S21R,
+subway_S04_S03,1878-08-18,Franklin Avenue Line (Botanic Garden station itself opened 1928),https://en.wikipedia.org/wiki/BMT_Franklin_Avenue_Line,subway,BMT Franklin Shuttle,S04,S03,FS.N01R,
+subway_S03_S01,1896-08-15,"Franklin Avenue Line extended north to the Fulton Street elevated (the 1878 line ended at Bedford station, Atlantic Avenue)",https://en.wikipedia.org/wiki/BMT_Franklin_Avenue_Line,subway,BMT Franklin Shuttle,S03,S01,FS.N01R,
+subway_J27_J30,1885-07-18,Broadway Junction - Gates Av,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,subway,BMT Jamaica,J27,J30,J..S12R,
+subway_J24_J27,1885-09-05,Alabama Av - Broadway Junction,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,subway,BMT Jamaica,J24,J27,J..S12R,
+subway_J23_J24,1885-12-03,Van Siclen Av - Alabama Av,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,subway,BMT Jamaica,J23,J24,J..S12R,
+subway_J30_M16,1888-06-25,Gates Av - Marcy Av,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,subway,BMT Jamaica,J30,M16,J..S12R,
+subway_M11_M08,1889-07-20,Myrtle Av - Myrtle-Wyckoff Avs,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,subway,BMT Jamaica,M11,M08,M..S37R,
+subway_J19_J23,1893-05-30,Cypress Hills - Van Siclen Av,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,subway,BMT Jamaica,J19,J23,J..S12R,
+subway_M16_M18,1908-09-16,Williamsburg Bridge subway tracks,https://en.wikipedia.org/wiki/Williamsburg_Bridge,subway,BMT Jamaica,M16,M18,J..S12R,
+subway_M18_M21,1913-08-04,Delancey St-Essex St - Chambers St,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,subway,BMT Jamaica,M18,M21,J..S12R,
+subway_J13_J19,1917-05-28,111 St - Cypress Hills,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,subway,BMT Jamaica,J13,J19,J..S12R,
+subway_J12_J13,1918-07-03,121 St - 111 St,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,subway,BMT Jamaica,J12,J13,J..S12R,
+subway_M21_M23,1931-05-29,Chambers St - Broad St,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,subway,BMT Jamaica,M21,M23,J..S12R,
+subway_Q01_R22,1917-09-04,Canal St - Prince St,https://en.wikipedia.org/wiki/Chrystie_Street_Connection,subway,BMT Manhattan Bridge,Q01,R22,N..N34R,
+subway_M08_M01,1915-02-22,Myrtle-Wyckoff Avs - Middle Village-Metropolitan Av,https://en.wikipedia.org/wiki/BMT_Myrtle_Avenue_Line,subway,BMT Myrtle Av,M08,M01,M..S37R,
+subway_N10_R41,1915-06-22,86 St - 59 St,https://en.wikipedia.org/wiki/BMT_Sea_Beach_Line,subway,BMT Sea Beach,N10,R41,N..N34R,
+subway_D43_N10,1915-06-22,Sea Beach Line to Coney Island (today's terminal platforms: 1917-19),https://en.wikipedia.org/wiki/BMT_Sea_Beach_Line,subway,BMT Sea Beach / West End / Culver / Brighton,D43,N10,N..N34R,
+subway_D43_D42,1919-05-29,Brighton Line into Stillwell Avenue terminal,https://en.wikipedia.org/wiki/Coney_Island–Stillwell_Avenue_station,subway,BMT Sea Beach / West End / Culver / Brighton,D43,D42,Q..N16R,
+subway_B19_B22,1916-07-29,18 Av - 25 Av,https://en.wikipedia.org/wiki/BMT_West_End_Line,subway,BMT West End,B19,B22,D..S07R,
+subway_B22_B23,1917-07-21,25 Av - Bay 50 St,https://en.wikipedia.org/wiki/BMT_West_End_Line,subway,BMT West End,B22,B23,D..S07R,
+subway_B23_D43,1917-07-21,West End Line completed to Coney Island,https://en.wikipedia.org/wiki/BMT_West_End_Line,subway,BMT West End,B23,D43,D..S07R,
+subway_B04_B08,1989-10-29,21 St-Queensbridge - Lexington Av/63 St,https://en.wikipedia.org/wiki/63rd_Street_lines,subway,IND 63rd St,B04,B08,F..S69R,
+subway_B08_B10,1989-10-29,63rd Street Line,https://en.wikipedia.org/wiki/63rd_Street_lines,subway,IND 63rd St,B08,B10,F..S69R,
+subway_B08_Q05,2017-01-01,Lexington Av/63 St - 96 St,https://en.wikipedia.org/wiki/63rd_Street_lines,subway,IND 63rd St,B08,Q05,Q..N16R,
+subway_F29_F35,1919-03-16,Ditmas Av - Kings Hwy,https://en.wikipedia.org/wiki/IND_Sixth_Avenue_Line,subway,IND 6th Av - Culver,F29,F35,F..S69R,
+subway_F35_F38,1919-05-10,Kings Hwy - Avenue X,https://en.wikipedia.org/wiki/IND_Sixth_Avenue_Line,subway,IND 6th Av - Culver,F35,F38,F..S69R,
+subway_F38_D42,1920-05-01,Culver Line completed to Coney Island,https://en.wikipedia.org/wiki/IND_Culver_Line,subway,IND 6th Av - Culver,F38,D42,F..S69R,
+subway_F20_F26,1933-10-07,Bergen St - Fort Hamilton Pkwy,https://en.wikipedia.org/wiki/IND_Sixth_Avenue_Line,subway,IND 6th Av - Culver,F20,F26,G..S16R,
+subway_F26_F27,1933-10-07,South Brooklyn Line to Church Avenue,https://en.wikipedia.org/wiki/IND_Culver_Line,subway,IND 6th Av - Culver,F26,F27,G..S16R,
+subway_F27_F24,1933-10-07,Church Av - 7 Av,https://en.wikipedia.org/wiki/IND_Sixth_Avenue_Line,subway,IND 6th Av - Culver,F27,F24,F..N56R,
+subway_D20_D21,1936-01-01,W 4 St-Wash Sq - Broadway-Lafayette St,https://en.wikipedia.org/wiki/IND_Sixth_Avenue_Line,subway,IND 6th Av - Culver,D20,D21,D..S07R,
+subway_D21_F16,1936-01-01,Broadway-Lafayette St - East Broadway,https://en.wikipedia.org/wiki/IND_Sixth_Avenue_Line,subway,IND 6th Av - Culver,D21,F16,F..S69R,
+subway_F16_A41,1936-04-09,"Rutgers Street Tunnel, East Broadway - Jay Street",https://en.wikipedia.org/wiki/Rutgers_Street_Tunnel,subway,IND 6th Av - Culver,F16,A41,F..S69R,
+subway_D17_D20,1940-12-15,34 St-Herald Sq - W 4 St-Wash Sq,https://en.wikipedia.org/wiki/IND_Sixth_Avenue_Line,subway,IND 6th Av - Culver,D17,D20,F..S69R,
+subway_F27_F29,1954-10-30,Culver ramp: IND connected to the Culver elevated at Ditmas Avenue,https://en.wikipedia.org/wiki/IND_Culver_Line,subway,IND 6th Av - Culver,F27,F29,F..S69R,
+subway_D21_D22,1967-11-26,Chrystie Street Connection,https://en.wikipedia.org/wiki/Chrystie_Street_Connection,subway,IND 6th Av - Culver,D21,D22,D..S07R,
+subway_B10_D15,1968-07-01,57 St - 47-50 Sts-Rockefeller Ctr,https://en.wikipedia.org/wiki/IND_Sixth_Avenue_Line,subway,IND 6th Av - Culver,B10,D15,F..S69R,
+subway_D21_M18,1968-07-01,"Chrystie Street Connection, Williamsburg Bridge link (built with the 1967 connection; first trains 1 Jul 1968)",https://en.wikipedia.org/wiki/Chrystie_Street_Connection,subway,IND 6th Av - Culver,D21,M18,M..S24R,
+subway_A09_A02,1932-09-10,168 St - Inwood-207 St,https://en.wikipedia.org/wiki/IND_Eighth_Avenue_Line,subway,IND 8th Av - Fulton St,A09,A02,A..N54R,
+subway_A36_A09,1932-09-10,Chambers St - 168 St,https://en.wikipedia.org/wiki/IND_Eighth_Avenue_Line,subway,IND 8th Av - Fulton St,A36,A09,C..N04R,
+subway_A41_A36,1933-02-01,Jay St-MetroTech - Chambers St,https://en.wikipedia.org/wiki/IND_Eighth_Avenue_Line,subway,IND 8th Av - Fulton St,A41,A36,C..N04R,
+subway_A41_F20,1933-03-20,Jay St-MetroTech - Bergen St,https://en.wikipedia.org/wiki/IND_Eighth_Avenue_Line,subway,IND 8th Av - Fulton St,A41,F20,F..S69R,
+subway_A50_A41,1936-04-09,Rockaway Av - Jay St-MetroTech,https://en.wikipedia.org/wiki/IND_Eighth_Avenue_Line,subway,IND 8th Av - Fulton St,A50,A41,C..N04R,
+subway_A42_F20,1937-07-01,Crosstown Line completed: Hoyt-Schermerhorn Sts to the South Brooklyn Line at Bergen St,https://en.wikipedia.org/wiki/IND_Crosstown_Line,subway,IND 8th Av - Fulton St,A42,F20,G..S16R,
+subway_A51_A50,1946-12-30,Broadway Junction - Rockaway Av,https://en.wikipedia.org/wiki/IND_Eighth_Avenue_Line,subway,IND 8th Av - Fulton St,A51,A50,C..N04R,
+subway_A55_A51,1948-11-28,Euclid Av - Broadway Junction,https://en.wikipedia.org/wiki/IND_Eighth_Avenue_Line,subway,IND 8th Av - Fulton St,A55,A51,C..N04R,
+subway_D13_A14,1932-09-10,Eighth Avenue Line south of 145 St (the lower-level platforms opened with the Concourse Line in 1933),https://en.wikipedia.org/wiki/IND_Eighth_Avenue_Line,subway,IND Concourse,D13,A14,B..S65R,
+subway_D01_D13,1933-07-01,Norwood-205 St - 145 St,https://en.wikipedia.org/wiki/IND_Concourse_Line,subway,IND Concourse,D01,D13,D..S07R,
+subway_G22_G24,1933-08-19,Crosstown Line Queens Plaza - Nassau Avenue,https://en.wikipedia.org/wiki/IND_Crosstown_Line,subway,IND Crosstown,G22,G24,G..S16R,
+subway_G24_G28,1933-08-19,21 St - Nassau Av,https://en.wikipedia.org/wiki/IND_Crosstown_Line,subway,IND Crosstown,G24,G28,G..S16R,
+subway_G28_A42,1937-07-01,Nassau Av - Hoyt-Schermerhorn Sts,https://en.wikipedia.org/wiki/IND_Crosstown_Line,subway,IND Crosstown,G28,A42,G..S16R,
+subway_A65_A59,1915-09-25,Ozone Park-Lefferts Blvd - 80 St,https://en.wikipedia.org/wiki/IND_Fulton_Street_Line,subway,IND Liberty Av,A65,A59,A..N54R,
+subway_A57_A55,1956-04-29,Fulton Street Line extended to Grant Avenue and up to the Liberty Avenue elevated,https://en.wikipedia.org/wiki/IND_Fulton_Street_Line,subway,IND Liberty Av,A57,A55,A..N54R,
+subway_A59_A57,1956-04-29,ramp to the Liberty Avenue elevated (the elevated itself opened 1915-09-25),https://en.wikipedia.org/wiki/IND_Fulton_Street_Line,subway,IND Liberty Av,A59,A57,A..N54R,
+subway_G05_G06,1988-12-11,Jamaica Center-Parsons/Archer - Sutphin Blvd-Archer Av-JFK Airport,https://en.wikipedia.org/wiki/Archer_Avenue_lines,subway,IND Queens - Archer,G05,G06,J..S12R,
+subway_G06_G07,1988-12-11,Sutphin Blvd-Archer Av-JFK Airport - Jamaica-Van Wyck,https://en.wikipedia.org/wiki/Archer_Avenue_lines,subway,IND Queens - Archer,G06,G07,E..S69R,
+subway_G06_J12,1988-12-11,Archer Avenue Line (lower level) and ramp to the Jamaica elevated,https://en.wikipedia.org/wiki/Archer_Avenue_lines,subway,IND Queens - Archer,G06,J12,J..S12R,
+subway_G07_F05,1988-12-11,Archer Avenue Line (upper level) branch from the Queens Boulevard Line,https://en.wikipedia.org/wiki/Archer_Avenue_lines,subway,IND Queens - Archer,G07,F05,E..S69R,
+subway_G14_A25,1933-08-19,Jackson Hts-Roosevelt Av - 50 St,https://en.wikipedia.org/wiki/IND_Queens_Boulevard_Line,subway,IND Queens Blvd,G14,A25,E..S69R,
+subway_G14_G21,1933-08-19,Jackson Hts-Roosevelt Av - Queens Plaza,https://en.wikipedia.org/wiki/IND_Queens_Boulevard_Line,subway,IND Queens Blvd,G14,G21,R..S71R,
+subway_F06_G08,1936-12-31,Kew Gardens-Union Tpke - Forest Hills-71 Av,https://en.wikipedia.org/wiki/IND_Queens_Boulevard_Line,subway,IND Queens Blvd,F06,G08,E..S69R,
+subway_G08_G14,1936-12-31,Forest Hills-71 Av - Jackson Hts-Roosevelt Av,https://en.wikipedia.org/wiki/IND_Queens_Boulevard_Line,subway,IND Queens Blvd,G08,G14,R..S71R,
+subway_F02_F05,1937-04-24,169 St - Briarwood,https://en.wikipedia.org/wiki/IND_Queens_Boulevard_Line,subway,IND Queens Blvd,F02,F05,F..S69R,
+subway_F05_F06,1937-04-24,Briarwood - Kew Gardens-Union Tpke,https://en.wikipedia.org/wiki/IND_Queens_Boulevard_Line,subway,IND Queens Blvd,F05,F06,E..S69R,
+subway_D14_D17,1940-12-15,7 Av - 34 St-Herald Sq,https://en.wikipedia.org/wiki/IND_Queens_Boulevard_Line,subway,IND Queens Blvd,D14,D17,D..S07R,
+subway_F01_F02,1950-12-11,Jamaica-179 St - 169 St,https://en.wikipedia.org/wiki/IND_Queens_Boulevard_Line,subway,IND Queens Blvd,F01,F02,F..S69R,
+subway_G21_R11,1955-12-01,60th Street Tunnel Connection (11th Street Cut) from the Queens Boulevard Line,https://en.wikipedia.org/wiki/60th_Street_Tunnel_Connection,subway,IND Queens Blvd,G21,R11,R..S71R,
+subway_G20_B04,2001-12-16,63rd Street Connector to the Queens Boulevard Line,https://en.wikipedia.org/wiki/63rd_Street_lines,subway,IND Queens Blvd,G20,B04,M..S24R,
+subway_H01_A61,1956-06-28,Rockaway Line (ex-LIRR Rockaway Beach Branch) connected to the Liberty Avenue elevated,https://en.wikipedia.org/wiki/IND_Rockaway_Line,subway,IND Rockaway,H01,A61,A..N55R,
+subway_H02_H01,1956-06-28,Rockaway Line (Aqueduct Racetrack station itself opened 1959),https://en.wikipedia.org/wiki/IND_Rockaway_Line,subway,IND Rockaway,H02,H01,A..N55R,
+subway_H02_H10,1956-06-28,Aqueduct-N Conduit Av - Beach 25 St,https://en.wikipedia.org/wiki/IND_Rockaway_Line,subway,IND Rockaway,H02,H10,A..S58R,
+subway_H15_H04,1956-06-28,Rockaway Park-Beach 116 St - Broad Channel,https://en.wikipedia.org/wiki/IND_Rockaway_Line,subway,IND Rockaway,H15,H04,H..N21R,
+subway_H10_H11,1958-01-16,Beach 25 St - Far Rockaway-Mott Av,https://en.wikipedia.org/wiki/IND_Rockaway_Line,subway,IND Rockaway,H10,H11,A..S58R,
+subway_114_126,1904-10-27,145 St - 50 St,https://en.wikipedia.org/wiki/IRT_Broadway–Seventh_Avenue_Line,subway,IRT Broadway - 7Av,114,126,1..S03R,
+subway_126_127,1904-10-27,original 1904 subway north of Times Square (today's platforms opened 1917),https://en.wikipedia.org/wiki/Early_history_of_the_IRT_subway,subway,IRT Broadway - 7Av,126,127,1..S03R,
+subway_113_114,1904-11-12,157 St - 145 St,https://en.wikipedia.org/wiki/IRT_Broadway–Seventh_Avenue_Line,subway,IRT Broadway - 7Av,113,114,1..S03R,
+subway_120_302,1904-11-23,96 St - 145 St,https://en.wikipedia.org/wiki/IRT_Broadway–Seventh_Avenue_Line,subway,IRT Broadway - 7Av,120,302,3..N01R,
+subway_107_109,1906-03-12,215 St - Dyckman St,https://en.wikipedia.org/wiki/IRT_Broadway–Seventh_Avenue_Line,subway,IRT Broadway - 7Av,107,109,1..S03R,
+subway_109_113,1906-03-12,"West Side Branch 157th Street - Dyckman Street - 221st Street (168th, 181st and 191st Street stations opened later)",https://en.wikipedia.org/wiki/IRT_Broadway–Seventh_Avenue_Line,subway,IRT Broadway - 7Av,109,113,1..S03R,
+subway_106_107,1907-01-14,Marble Hill-225 St - 215 St,https://en.wikipedia.org/wiki/IRT_Broadway–Seventh_Avenue_Line,subway,IRT Broadway - 7Av,106,107,1..S03R,
+subway_104_106,1907-01-27,231 St - Marble Hill-225 St,https://en.wikipedia.org/wiki/IRT_Broadway–Seventh_Avenue_Line,subway,IRT Broadway - 7Av,104,106,1..S03R,
+subway_101_104,1908-08-01,Van Cortlandt Park-242 St - 231 St,https://en.wikipedia.org/wiki/IRT_Broadway–Seventh_Avenue_Line,subway,IRT Broadway - 7Av,101,104,1..S03R,
+subway_127_128,1917-06-03,Times Sq-42 St - 34 St-Penn Station,https://en.wikipedia.org/wiki/IRT_Broadway–Seventh_Avenue_Line,subway,IRT Broadway - 7Av,127,128,1..S03R,
+subway_128_139,1918-07-01,34 St-Penn Station - Rector St,https://en.wikipedia.org/wiki/IRT_Broadway–Seventh_Avenue_Line,subway,IRT Broadway - 7Av,128,139,1..S03R,
+subway_139_142,1918-07-01,Seventh Avenue Line to South Ferry (the last 400 m into the 2009 terminal follow the approach to the 1918 loop),https://en.wikipedia.org/wiki/IRT_Broadway–Seventh_Avenue_Line,subway,IRT Broadway - 7Av,139,142,1..S03R,
+subway_230_137,1918-07-01,Wall St - Chambers St,https://en.wikipedia.org/wiki/IRT_Broadway–Seventh_Avenue_Line,subway,IRT Clark St,230,137,3..N01R,
+subway_501_213,1941-05-15,Eastchester-Dyre Av - E 180 St,https://en.wikipedia.org/wiki/IRT_Dyre_Avenue_Line,subway,IRT Dyre Av,501,213,5..S08R,
+subway_423_420,1908-01-09,Borough Hall - Bowling Green,https://en.wikipedia.org/wiki/IRT_Eastern_Parkway_Line,subway,IRT Eastern Pky,423,420,4..N06R,
+subway_234_233,1908-05-01,Nevins St - Hoyt St,https://en.wikipedia.org/wiki/IRT_Eastern_Parkway_Line,subway,IRT Eastern Pky,234,233,3..N01R,
+subway_235_423,1908-05-01,Atlantic Av-Barclays Ctr - Borough Hall,https://en.wikipedia.org/wiki/IRT_Eastern_Parkway_Line,subway,IRT Eastern Pky,235,423,4..N06R,
+subway_233_230,1919-04-15,Hoyt St - Wall St,https://en.wikipedia.org/wiki/IRT_Eastern_Parkway_Line,subway,IRT Eastern Pky,233,230,3..N01R,
+subway_239_235,1920-08-23,"Eastern Parkway Line Atlantic Avenue - Utica Avenue (Bergen St, Grand Army Plaza and Eastern Parkway stations opened 10 Oct 1920)",https://en.wikipedia.org/wiki/IRT_Eastern_Parkway_Line,subway,IRT Eastern Pky,239,235,3..N01R,
+subway_239_247,1920-08-23,Franklin Av-Medgar Evers College - Flatbush Av-Brooklyn College,https://en.wikipedia.org/wiki/IRT_Eastern_Parkway_Line,subway,IRT Eastern Pky,239,247,2..S01R,
+subway_250_239,1920-08-23,Crown Hts-Utica Av - Franklin Av-Medgar Evers College,https://en.wikipedia.org/wiki/IRT_Eastern_Parkway_Line,subway,IRT Eastern Pky,250,239,3..N01R,
+subway_254_250,1920-11-22,Junius St - Crown Hts-Utica Av,https://en.wikipedia.org/wiki/IRT_Eastern_Parkway_Line,subway,IRT Eastern Pky,254,250,3..N01R,
+subway_255_254,1920-12-24,Pennsylvania Av - Junius St,https://en.wikipedia.org/wiki/IRT_Eastern_Parkway_Line,subway,IRT Eastern Pky,255,254,3..N01R,
+subway_257_255,1922-10-16,New Lots Av - Pennsylvania Av,https://en.wikipedia.org/wiki/IRT_Eastern_Parkway_Line,subway,IRT Eastern Pky,257,255,3..N01R,
+subway_721_723,1915-06-22,Vernon Blvd-Jackson Av - Grand Central-42 St,https://en.wikipedia.org/wiki/IRT_Flushing_Line,subway,IRT Flushing,721,723,7..S97R,
+subway_720_721,1916-02-15,Hunters Point Av - Vernon Blvd-Jackson Av,https://en.wikipedia.org/wiki/IRT_Flushing_Line,subway,IRT Flushing,720,721,7..S97R,
+subway_719_720,1916-11-05,Court Sq - Hunters Point Av,https://en.wikipedia.org/wiki/IRT_Flushing_Line,subway,IRT Flushing,719,720,7..S97R,
+subway_718_719,1916-11-16,Queensboro Plaza - Court Sq,https://en.wikipedia.org/wiki/IRT_Flushing_Line,subway,IRT Flushing,718,719,7..S97R,
+subway_706_718,1917-04-21,103 St-Corona Plaza - Queensboro Plaza,https://en.wikipedia.org/wiki/IRT_Flushing_Line,subway,IRT Flushing,706,718,7..S97R,
+subway_705_706,1925-10-13,111 St - 103 St-Corona Plaza,https://en.wikipedia.org/wiki/IRT_Flushing_Line,subway,IRT Flushing,705,706,7..S97R,
+subway_723_724,1926-03-22,Grand Central-42 St - 5 Av,https://en.wikipedia.org/wiki/IRT_Flushing_Line,subway,IRT Flushing,723,724,7..S97R,
+subway_724_725,1927-03-14,5 Av - Times Sq-42 St,https://en.wikipedia.org/wiki/IRT_Flushing_Line,subway,IRT Flushing,724,725,7..S97R,
+subway_702_705,1927-05-07,Mets-Willets Point - 111 St,https://en.wikipedia.org/wiki/IRT_Flushing_Line,subway,IRT Flushing,702,705,7..S97R,
+subway_701_702,1928-01-21,Flushing-Main St - Mets-Willets Point,https://en.wikipedia.org/wiki/IRT_Flushing_Line,subway,IRT Flushing,701,702,7..S97R,
+subway_725_726,2015-09-13,7 Subway Extension,https://en.wikipedia.org/wiki/7_Subway_Extension,subway,IRT Flushing,725,726,7..S97R,
+subway_415_406,1917-06-02,149 St-Hostos - Kingsbridge Rd,https://en.wikipedia.org/wiki/IRT_Jerome_Avenue_Line,subway,IRT Jerome Av,415,406,4..N06R,
+subway_406_401,1918-04-15,Kingsbridge Rd - Woodlawn,https://en.wikipedia.org/wiki/IRT_Jerome_Avenue_Line,subway,IRT Jerome Av,406,401,4..N06R,
+subway_213_214,1904-11-26,West Farms Division of 1904 (to 180th Street-Bronx Park); East 180th Street station itself opened 1917,https://en.wikipedia.org/wiki/IRT_White_Plains_Road_Line,subway,IRT Lenox - White Plains Rd,213,214,2..S01R,
+subway_214_220,1904-11-26,West Farms Sq-E Tremont Av - Jackson Av,https://en.wikipedia.org/wiki/IRT_White_Plains_Road_Line,subway,IRT Lenox - White Plains Rd,214,220,2..S01R,
+subway_220_224,1905-07-10,Jackson Av - 135 St,https://en.wikipedia.org/wiki/IRT_White_Plains_Road_Line,subway,IRT Lenox - White Plains Rd,220,224,2..S01R,
+subway_207_213,1917-03-03,219 St - E 180 St,https://en.wikipedia.org/wiki/IRT_White_Plains_Road_Line,subway,IRT Lenox - White Plains Rd,207,213,2..S01R,
+subway_204_207,1917-03-31,Nereid Av - 219 St,https://en.wikipedia.org/wiki/IRT_White_Plains_Road_Line,subway,IRT Lenox - White Plains Rd,204,207,2..S01R,
+subway_222_416,1918-07-17,149 St-Hostos - 138 St-Grand Concourse,https://en.wikipedia.org/wiki/IRT_White_Plains_Road_Line,subway,IRT Lenox - White Plains Rd,222,416,5..S08R,
+subway_201_204,1920-12-13,Wakefield-241 St - Nereid Av,https://en.wikipedia.org/wiki/IRT_White_Plains_Road_Line,subway,IRT Lenox - White Plains Rd,201,204,2..S01R,
+subway_302_301,1968-05-13,145 St - Harlem-148 St,https://en.wikipedia.org/wiki/IRT_White_Plains_Road_Line,subway,IRT Lenox - White Plains Rd,302,301,3..N01R,
+subway_901_902,1904-10-27,Grand Central-42 St - Times Sq-42 St,https://en.wikipedia.org/wiki/42nd_Street_Shuttle,subway,IRT Lexington - Shuttle,901,902,GS.N01R,
+subway_631_632,1904-10-27,original 1904 subway south of Grand Central (today's platforms opened 1918),https://en.wikipedia.org/wiki/Early_history_of_the_IRT_subway,subway,IRT Lexington Av,631,632,6..S01R,
+subway_632_640,1904-10-27,33 St - Brooklyn Bridge-City Hall,https://en.wikipedia.org/wiki/IRT_Lexington_Avenue_Line,subway,IRT Lexington Av,632,640,6..S01R,
+subway_418_640,1905-01-16,Fulton St - Brooklyn Bridge-City Hall,https://en.wikipedia.org/wiki/IRT_Lexington_Avenue_Line,subway,IRT Lexington Av,418,640,4..N06R,
+subway_419_418,1905-06-12,Wall St - Fulton St,https://en.wikipedia.org/wiki/IRT_Lexington_Avenue_Line,subway,IRT Lexington Av,419,418,4..N06R,
+subway_420_419,1905-07-10,Bowling Green - Wall St,https://en.wikipedia.org/wiki/IRT_Lexington_Avenue_Line,subway,IRT Lexington Av,420,419,4..N06R,
+subway_621_415,1918-07-17,125 St - 149 St-Hostos,https://en.wikipedia.org/wiki/IRT_Lexington_Avenue_Line,subway,IRT Lexington Av,621,415,4..N06R,
+subway_621_631,1918-07-17,125 St - Grand Central-42 St,https://en.wikipedia.org/wiki/IRT_Lexington_Avenue_Line,subway,IRT Lexington Av,621,631,6..S01R,
+subway_619_621,1918-08-01,3 Av-138 St - 125 St,https://en.wikipedia.org/wiki/IRT_Pelham_Line,subway,IRT Pelham,619,621,6..S01R,
+subway_613_619,1919-01-07,Hunts Point Av - 3 Av-138 St,https://en.wikipedia.org/wiki/IRT_Pelham_Line,subway,IRT Pelham,613,619,6..S01R,
+subway_608_613,1920-05-30,Parkchester - Hunts Point Av,https://en.wikipedia.org/wiki/IRT_Pelham_Line,subway,IRT Pelham,608,613,6..S01R,
+subway_604_608,1920-10-24,Westchester Sq-E Tremont Av - Parkchester,https://en.wikipedia.org/wiki/IRT_Pelham_Line,subway,IRT Pelham,604,608,6..S01R,
+subway_601_604,1920-12-20,Pelham Bay Park - Westchester Sq-E Tremont Av,https://en.wikipedia.org/wiki/IRT_Pelham_Line,subway,IRT Pelham,601,604,6..S01R,
+el_ninth_Q7567218_Q7303217,1877-04-05,South Ferry - Rector Street,https://en.wikipedia.org/wiki/IRT_Ninth_Avenue_Line,el,Ninth Avenue elevated (IRT Ninth Avenue Line),Q7567218,Q7303217,ninth,1950-12-22
+el_ninth_Q7303217_Q4859954,1874-05-25,Rector Street - Barclay Street,https://en.wikipedia.org/wiki/IRT_Ninth_Avenue_Line,el,Ninth Avenue elevated (IRT Ninth Avenue Line),Q7303217,Q4859954,ninth,1950-12-22
+el_ninth_Q4859954_Q7970508,1870-02-14,Barclay Street - Warren Street,https://en.wikipedia.org/wiki/IRT_Ninth_Avenue_Line,el,Ninth Avenue elevated (IRT Ninth Avenue Line),Q4859954,Q7970508,ninth,1950-12-22
+el_ninth_Q7970508_Q5491869,1873-01-21,Warren Street - Franklin Street,https://en.wikipedia.org/wiki/IRT_Ninth_Avenue_Line,el,Ninth Avenue elevated (IRT Ninth Avenue Line),Q7970508,Q5491869,ninth,1950-12-22
+el_ninth_Q5491869_Q4635444,1873-07-30,Franklin Street - 34th Street,https://en.wikipedia.org/wiki/IRT_Ninth_Avenue_Line,el,Ninth Avenue elevated (IRT Ninth Avenue Line),Q5491869,Q4635444,ninth,1950-12-22
+el_ninth_Q4635444_Q4637816,1875-11-06,34th Street - 42nd Street,https://en.wikipedia.org/wiki/IRT_Ninth_Avenue_Line,el,Ninth Avenue elevated (IRT Ninth Avenue Line),Q4635444,Q4637816,ninth,1950-12-22
+el_ninth_Q4637816_Q4639965,1876-01-18,42nd Street - 50th Street,https://en.wikipedia.org/wiki/IRT_Ninth_Avenue_Line,el,Ninth Avenue elevated (IRT Ninth Avenue Line),Q4637816,Q4639965,ninth,1950-12-22
+el_ninth_Q4639965_Q4644567,1879-06-09,50th Street - 81st Street,https://en.wikipedia.org/wiki/IRT_Ninth_Avenue_Line,el,Ninth Avenue elevated (IRT Ninth Avenue Line),Q4639965,Q4644567,ninth,1950-12-22
+el_ninth_Q4644567_Q4546552,1879-06-21,81st Street - 104th Street,https://en.wikipedia.org/wiki/IRT_Ninth_Avenue_Line,el,Ninth Avenue elevated (IRT Ninth Avenue Line),Q4644567,Q4546552,ninth,1950-12-22
+el_ninth_Q4546552_Q4549625,1879-09-17,104th Street - 140th Street,https://en.wikipedia.org/wiki/IRT_Ninth_Avenue_Line,el,Ninth Avenue elevated (IRT Ninth Avenue Line),Q4546552,Q4549625,ninth,1950-12-22
+el_ninth_Q4549625_Q4550558,1879-12-01,140th Street - 155th Street,https://en.wikipedia.org/wiki/IRT_Ninth_Avenue_Line,el,Ninth Avenue elevated (IRT Ninth Avenue Line),Q4549625,Q4550558,ninth,1950-12-22
+el_sixth_Q4869875_Q7303219,1883-06-05,Battery Place - Rector Street,https://en.wikipedia.org/wiki/IRT_Sixth_Avenue_Line,el,Sixth Avenue elevated (IRT Sixth Avenue Line),Q4869875,Q7303219,sixth,1938-12-04
+el_sixth_Q7303219_Q4639967,1878-06-05,Rector Street - 50th Street,https://en.wikipedia.org/wiki/IRT_Sixth_Avenue_Line,el,Sixth Avenue elevated (IRT Sixth Avenue Line),Q7303219,Q4639967,sixth,1938-12-04
+el_sixth_Q4639967_Q5349091,1881-06-05,50th Street - Eighth Avenue,https://en.wikipedia.org/wiki/IRT_Sixth_Avenue_Line,el,Sixth Avenue elevated (IRT Sixth Avenue Line),Q4639967,-73.98758 40.76537,sixth,1938-12-04
+el_third_Q7567218_Q5087689,1878-08-26,South Ferry - Chatham Square,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q7567218,Q5087689,third,1950-12-22
+el_third_Q5087689_Q4637821,1878-08-26,Chatham Square - 42nd Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q5087689,Q4637821,third,1955-05-12
+el_third_Q4637821_Q4642301,1878-09-16,42nd Street - 67th Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q4637821,Q4642301,third,1955-05-12
+el_third_Q4642301_Q4645155,1878-12-09,67th Street - 89th Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q4642301,Q4645155,third,1955-05-12
+el_third_Q4645155_Q4548652,1878-12-30,89th Street - 129th Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q4645155,Q4548652,third,1955-05-12
+el_third_Q4548652_Q14706135,1886-05-17,129th Street - 133rd Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q4548652,Q14706135,third,1955-05-12
+el_third_Q14706135_Q4549725,1886-05-23,133rd Street - 143rd Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q14706135,Q4549725,third,1955-05-12
+el_third_Q4549725_-73.9176_40.8161,1887-06-16,143rd Street - 149th Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q4549725,-73.9176 40.8161,third,1955-05-12
+el_third_-73.9176_40.8161_Q4550638,1887-07-01,149th Street - 156th Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),-73.9176 40.8161,Q4550638,third,1973-04-29
+el_third_Q4550638_Q4551253,1887-08-07,156th Street - 161st Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q4550638,Q4551253,third,1973-04-29
+el_third_Q4551253_Q4551714,1887-12-25,161st Street - 166th Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q4551253,Q4551714,third,1973-04-29
+el_third_Q4551714_Q4551996,1888-09-02,166th Street - 169th Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q4551714,Q4551996,third,1973-04-29
+el_third_Q4551996_Q5126320,1888-09-19,169th Street - Claremont Parkway,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q4551996,Q5126320,third,1973-04-29
+el_third_Q5126320_Q7838141,1891-07-20,Claremont Parkway - Tremont Avenue – 177th Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q5126320,Q7838141,third,1973-04-29
+el_third_Q7838141_Q5468077,1901-07-01,Tremont Avenue – 177th Street - Fordham Road – 190th Street,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q7838141,Q5468077,third,1973-04-29
+el_third_Q5468077_208,1920-10-04,Fordham Road – 190th Street - Gun Hill Rd,https://en.wikipedia.org/wiki/IRT_Third_Avenue_Line,el,Third Avenue elevated (IRT Third Avenue Line),Q5468077,208,third,1973-04-29
+el_second_Q5087689_Q4640848,1880-03-01,Chatham Square - 57th Street,https://en.wikipedia.org/wiki/IRT_Second_Avenue_Line,el,Second Avenue elevated (IRT Second Avenue Line),Q5087689,Q4640848,second,1942-06-13
+el_second_Q4640848_Q4548652,1880-03-01,57th Street - 129th Street,https://en.wikipedia.org/wiki/IRT_Second_Avenue_Line,el,Second Avenue elevated (IRT Second Avenue Line),Q4640848,Q4548652,second,1940-06-11
+el_cityhall_Q5087689_Q5123191,1879-03-17,Chatham Square - City Hall,https://en.wikipedia.org/wiki/City_Hall_station_(IRT_Second_Avenue_Line),el,City Hall branch of the Second and Third Avenue elevateds,Q5087689,Q5123191,cityhall,1953-12-31
+el_branch34_Q4635447_Q14706146,1880-07-01,34th Street - 34th Street Ferry,https://en.wikipedia.org/wiki/34th_Street_Ferry_station,el,34th Street branch of the Third Avenue elevated,Q4635447,Q14706146,branch34,1930-07-14
+el_branch42_Q4637821_Q5594397,1878-08-26,42nd Street - Grand Central,https://en.wikipedia.org/wiki/Grand_Central_station_(IRT_Third_Avenue_Line),el,42nd Street branch of the Third Avenue elevated,Q4637821,Q5594397,branch42,1923-12-06
+el_queensboro_Q4640848_R09,1917-07-23,57th Street - Queensboro Plaza,https://en.wikipedia.org/wiki/IRT_Second_Avenue_Line,el,Queensboro Bridge branch of the Second Avenue elevated,Q4640848,R09,queensboro,1942-06-13
+el_brooklyn_bridge_Q7137986_Q7416912,1898-06-18,Park Row - Sands Street,https://en.wikipedia.org/wiki/Park_Row_Terminal,el,Brooklyn Bridge elevated tracks (Park Row - Sands Street),Q7137986,Q7416912,brooklyn_bridge,1944-03-05
+el_polo_grounds_Q4550558_Q4754240,1918-07-01,155th Street - Anderson – Jerome Avenue,https://en.wikipedia.org/wiki/IRT_Ninth_Avenue_Line,el,Ninth Avenue elevated extension to Jerome Avenue (Polo Grounds Shuttle),Q4550558,-73.92530 40.83120,polo_grounds,1958-08-31
+el_fulton_Q5508428_Q7061984,1888-04-24,Fulton Ferry - Nostrand Avenue,https://en.wikipedia.org/wiki/BMT_Fulton_Street_Line,el,Fulton Street elevated (BMT Fulton Street Line),Q5508428,Q7061984,fulton,1940-06-01
+el_fulton_Q7061984_Q4709279,1888-05-30,Nostrand Avenue - Albany-Sumner Avenue,https://en.wikipedia.org/wiki/BMT_Fulton_Street_Line,el,Fulton Street elevated (BMT Fulton Street Line),Q7061984,Q4709279,fulton,1940-06-01
+el_fulton_Q4709279_Q7287192,1888-09-20,Albany-Sumner Avenue - Ralph Avenue,https://en.wikipedia.org/wiki/BMT_Fulton_Street_Line,el,Fulton Street elevated (BMT Fulton Street Line),Q4709279,Q7287192,fulton,1940-06-01
+el_fulton_Q7287192_Q7354939,1888-11-16,Ralph Avenue - Rockaway Avenue,https://en.wikipedia.org/wiki/BMT_Fulton_Street_Line,el,Fulton Street elevated (BMT Fulton Street Line),Q7287192,Q7354939,fulton,1940-06-01
+el_fulton_Q7354939_Q7913660,1889-11-18,Rockaway Avenue - Van Siclen Avenue,https://en.wikipedia.org/wiki/BMT_Fulton_Street_Line,el,Fulton Street elevated (BMT Fulton Street Line),Q7354939,Q7913660,fulton,1956-04-26
+el_fulton_Q7913660_Q6555179,1892-02-22,Van Siclen Avenue - Linwood Street,https://en.wikipedia.org/wiki/BMT_Fulton_Street_Line,el,Fulton Street elevated (BMT Fulton Street Line),Q7913660,Q6555179,fulton,1956-04-26
+el_fulton_Q6555179_Q16982184,1892-03-21,Linwood Street - Montauk Avenue,https://en.wikipedia.org/wiki/BMT_Fulton_Street_Line,el,Fulton Street elevated (BMT Fulton Street Line),Q6555179,Q16982184,fulton,1956-04-26
+el_fulton_Q16982184_A59,1894-07-16,Montauk Avenue - 80 St,https://en.wikipedia.org/wiki/BMT_Fulton_Street_Line,el,Fulton Street elevated (BMT Fulton Street Line),Q16982184,A59,fulton,1956-04-26
+el_fifth_Q5508460_Q7401779,1889-07-27,Fulton Street - Saint Marks Avenue,https://en.wikipedia.org/wiki/BMT_Fifth_Avenue_Line,el,Fifth Avenue elevated (BMT Fifth Avenue Line),Q5508460,Q7401779,fifth,1940-05-31
+el_fifth_Q7401779_Q7784962,1889-06-22,Saint Marks Avenue - Third Street,https://en.wikipedia.org/wiki/BMT_Fifth_Avenue_Line,el,Fifth Avenue elevated (BMT Fifth Avenue Line),Q7401779,Q7784962,fifth,1940-05-31
+el_fifth_Q7784962_Q4632320,1889-08-15,Third Street - 25th Street,https://en.wikipedia.org/wiki/BMT_Fifth_Avenue_Line,el,Fifth Avenue elevated (BMT Fifth Avenue Line),Q7784962,Q4632320,fifth,1940-05-31
+el_fifth_Q4632320_Q4635782,1890-05-29,25th Street - 36th Street,https://en.wikipedia.org/wiki/BMT_Fifth_Avenue_Line,el,Fifth Avenue elevated (BMT Fifth Avenue Line),Q4632320,Q4635782,fifth,1940-05-31
+el_fifth_Q4635782_Q4642145,1893-10-01,36th Street - 65th Street Terminal,https://en.wikipedia.org/wiki/BMT_Fifth_Avenue_Line,el,Fifth Avenue elevated (BMT Fifth Avenue Line),Q4635782,Q4642145,fifth,1940-05-31
+el_lexington_Q6948582_J30,1885-05-13,Myrtle Avenue - Gates Av,https://en.wikipedia.org/wiki/BMT_Lexington_Avenue_Line,el,Lexington Avenue elevated (BMT Lexington Avenue Line),Q6948582,J30,lexington,1950-10-13
+el_myrtle_Q4680407_Q6982686,1888-04-10,Adams Street - Navy Street,https://en.wikipedia.org/wiki/BMT_Myrtle_Avenue_Line,el,Myrtle Avenue elevated west of Broadway (BMT Myrtle Avenue Line),Q4680407,Q6982686,myrtle,1944-03-05
+el_myrtle_Q6982686_Q7914431,1888-04-10,Navy Street - Vanderbilt Avenue,https://en.wikipedia.org/wiki/BMT_Myrtle_Avenue_Line,el,Myrtle Avenue elevated west of Broadway (BMT Myrtle Avenue Line),Q6982686,Q7914431,myrtle,1969-10-04
+el_myrtle_Q7914431_Q7971670,1888-12-04,Vanderbilt Avenue - Washington Avenue,https://en.wikipedia.org/wiki/BMT_Myrtle_Avenue_Line,el,Myrtle Avenue elevated west of Broadway (BMT Myrtle Avenue Line),Q7914431,Q7971670,myrtle,1969-10-04
+el_myrtle_Q7971670_M11,1889-04-27,Washington Avenue - Myrtle Av,https://en.wikipedia.org/wiki/BMT_Myrtle_Avenue_Line,el,Myrtle Avenue elevated west of Broadway (BMT Myrtle Avenue Line),Q7971670,M11,myrtle,1969-10-04
+el_jamaica_east_J12_Q4245562,1918-07-03,121 St - Queens Boulevard,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,el,Jamaica Avenue elevated east of 121st Street (BMT Jamaica Line),J12,Q4245562,jamaica_east,1985-04-15
+el_jamaica_east_Q4245562_Q4029120,1918-07-03,Queens Boulevard - 168th Street,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,el,Jamaica Avenue elevated east of 121st Street (BMT Jamaica Line),Q4245562,Q4029120,jamaica_east,1977-09-10
+el_broadway_ferry_M16_Q5307517,1888-06-25,Marcy Av - Driggs Avenue,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,el,Broadway elevated to Broadway Ferry (BMT Jamaica Line),M16,Q5307517,broadway_ferry,1916-07-03
+el_broadway_ferry_Q5307517_Q4972442,1888-07-14,Driggs Avenue - Broadway Ferry,https://en.wikipedia.org/wiki/BMT_Jamaica_Line,el,Broadway elevated to Broadway Ferry (BMT Jamaica Line),Q5307517,Q4972442,broadway_ferry,1916-07-03
+el_culver_shuttle_F29_B12,1919-03-16,Ditmas Av - 9 Av,https://en.wikipedia.org/wiki/Culver_Shuttle,el,Culver Shuttle (BMT Culver Line),F29,B12,culver_shuttle,1975-05-11

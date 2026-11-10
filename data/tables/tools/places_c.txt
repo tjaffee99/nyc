@@ -1,0 +1,136 @@
+# ---------------------------------------------------------------- The Bronx: Lenape places
+bx_wecquaesgeek|Wecquaesgeek|historic|40.8800,-73.9000|1609|1700||X|Wecquaesgeek|Munsee-speaking band of the west Bronx, northern Manhattan and lower Westchester. End year estimated. Label anchor approximate.
+bx_siwanoy|Siwanoy|historic|40.8600,-73.8150|1609|1700||X|Siwanoy|Band of the Long Island Sound shore east of the Bronx River. End year estimated. Label anchor approximate.
+bx_snakapins|Snakapins|historic|40.8100,-73.8530|1609|1643|bx_cornells_neck|X|Snakapins|Siwanoy village on Clason Point. End year estimated.
+bx_ranachqua|Ranachqua|historic|40.8050,-73.9240|1609|1639|bx_broncks_land|X|Mott_Haven,_Bronx|Lenape name of the land Jonas Bronck settled in 1639.
+bx_nipinichsen|Nipinichsen|historic|40.8830,-73.9190|1609|1669||X|Spuyten_Duyvil,_Bronx|Wecquaesgeek fort on the hill above Spuyten Duyvil. End year estimated. Location approximate.
+# ---------------------------------------------------------------- The Bronx: manors, towns, villages
+bx_broncks_land|Bronck's Land|historic|40.8050,-73.9240|1639|1670|bx_morrisania_town|X|Jonas_Bronck|Jonas Bronck's farm of 1639 (Emmaus). End year = purchase by the Morris brothers, 1670.
+bx_morrisania_town|Morrisania|town|40.8250,-73.9080|1670|1874|bx_morrisania|X|Morrisania,_Bronx|Morris estate from 1670, manor 1697; village of Morrisania founded 1848, town 1855; annexed to New York 1874.
+bx_morrisania|Morrisania|neighborhood||1874|9999||X|Morrisania,_Bronx|Neighbourhood after annexation.
+bx_oostdorp|Oostdorp|town|40.8400,-73.8425|1654|1664|bx_westchester|X|Westchester_Square,_Bronx|English settlers under Thomas Pell from 1654; the Dutch called the village Oostdorp.
+bx_westchester|Westchester|town|40.8400,-73.8425|1664|1895|bx_westchester_square|X|Westchester_Square,_Bronx|Village of West Chester, seat of Westchester County 1683-1759; town annexed to New York 1895.
+bx_westchester_square|Westchester Square|neighborhood|40.8400,-73.8425|1895|9999||X|Westchester_Square,_Bronx|The old village green.
+bx_fordham_manor|Fordham|town|40.8610,-73.8905|1671|1874|bx_fordham|X|Fordham,_Bronx|John Archer's manor of 1671; label at the 19th-century village by the railway station (the first village lay near Kingsbridge).
+bx_fordham|Fordham|neighborhood|40.8610,-73.8905|1874|9999||X|Fordham,_Bronx|Neighbourhood after annexation.
+bx_west_farms_town|West Farms|town|40.8405,-73.8795|1663|1874|bx_west_farms|X|West_Farms,_Bronx|Patent of 1663 to Edward Jessup and John Richardson; town 1846-1874.
+bx_west_farms|West Farms|neighborhood|40.8405,-73.8795|1874|9999||X|West_Farms,_Bronx|Neighbourhood after annexation.
+bx_kingsbridge|Kingsbridge|neighborhood|40.8790,-73.9050|1693|9999||X|Kingsbridge,_Bronx|Named for the King's Bridge of 1693; town 1872-1874.
+bx_throgs_neck|Throgs Neck|landscape|40.8180,-73.8050|1642|9999||X|Throggs_Neck|John Throckmorton's settlement of 1642.
+bx_cornells_neck|Cornell's Neck|landscape|40.8100,-73.8530|1646|1793|bx_clason_point|X|Clason_Point,_Bronx|Thomas Cornell's grant of 1646.
+bx_clason_point|Clason Point|neighborhood|40.8100,-73.8530|1793|9999||X|Clason_Point,_Bronx|Named for Isaac Clason, who bought the land in the 1790s; year estimated.
+bx_hunts_point|Hunts Point|neighborhood||1670|9999||X|Hunts_Point,_Bronx|Named for Thomas Hunt, settled about 1670.
+bx_minnefords|Minneford Island|landscape|40.8470,-73.7870|1685|1761|bx_city_island|X|City_Island,_Bronx|Earlier name of City Island. Start year estimated.
+bx_city_island|City Island|neighborhood|40.8470,-73.7870|1761|9999||X|City_Island,_Bronx|Benjamin Palmer's New City Island of 1761.
+bx_mott_haven|Mott Haven|neighborhood||1850|9999||X|Mott_Haven,_Bronx|Jordan L. Mott's ironworks (1828) and village; name established about 1850.
+bx_port_morris|Port Morris|neighborhood||1853|9999||X|Port_Morris,_Bronx|Deep-water port planned by Gouverneur Morris Jr. in the 1850s; year estimated.
+bx_melrose|Melrose|neighborhood||1850|9999||X|Melrose,_Bronx|Surveyed 1850.
+bx_highbridge|Highbridge|neighborhood||1848|9999||X|Highbridge,_Bronx|Named for the aqueduct bridge of 1848.
+bx_tremont|Tremont|neighborhood||1856|9999||X|Tremont,_Bronx|Upper Morrisania was renamed Tremont in the 1850s; year estimated.
+bx_belmont|Belmont|neighborhood||1888|9999||X|Belmont,_Bronx|Streets laid out on the Lorillard estate in the 1880s; year estimated.
+bx_bedford_park|Bedford Park|neighborhood||1884|9999||X|Bedford_Park,_Bronx|Planned suburb of the 1880s; year estimated.
+bx_norwood|Norwood|neighborhood||1889|9999||X|Norwood,_Bronx|Laid out 1889.
+bx_williamsbridge|Williamsbridge|neighborhood||1750|9999||X|Williamsbridge,_Bronx|Named for John Williams' bridge over the Bronx River; start year estimated. Village incorporated 1888.
+bx_wakefield|Wakefield|neighborhood||1889|9999||X|Wakefield,_Bronx|Village of the late 1880s; year estimated.
+bx_woodlawn|Woodlawn Heights|neighborhood||1873|9999||X|Woodlawn_Heights,_Bronx|Laid out 1873 by George Opdyke.
+bx_riverdale|Riverdale|neighborhood||1852|9999||X|Riverdale,_Bronx|Villa suburb founded 1852 with the Hudson River Railroad.
+bx_spuyten_duyvil|Spuyten Duyvil|neighborhood||1850|9999||X|Spuyten_Duyvil,_Bronx|Hilltop village named for the creek; start year estimated.
+bx_fieldston|Fieldston|neighborhood||1909|9999||X|Fieldston,_Bronx|Laid out 1909 on the Delafield estate.
+bx_university_heights|University Heights|neighborhood||1894|9999||X|University_Heights,_Bronx|Named when New York University moved to its Bronx campus, 1894.
+bx_concourse|Concourse|neighborhood||1909|9999||X|Concourse,_Bronx|The Grand Concourse opened 1909.
+bx_the_hub|The Hub|neighborhood|40.8162,-73.9175|1900|9999||X|The_Hub,_Bronx|Shopping centre at 149th Street and Third Avenue; start year estimated.
+bx_longwood|Longwood|neighborhood||1898|9999||X|Longwood,_Bronx|Developed from the late 1890s; year estimated.
+bx_soundview|Soundview|neighborhood||1920|9999||X|Soundview,_Bronx|Year estimated.
+bx_castle_hill|Castle Hill|neighborhood||1700|9999||X|Castle_Hill,_Bronx|Colonial name of the neck; start year estimated.
+bx_unionport|Unionport|neighborhood||1851|9999||X|Unionport,_Bronx|Village laid out 1851.
+bx_van_nest|Van Nest|neighborhood||1872|9999||X|Van_Nest,_Bronx|Named for the railway station; year estimated.
+bx_morris_park|Morris Park|neighborhood||1889|9999||X|Morris_Park,_Bronx|Named for the Morris Park Racecourse (1889-1904).
+bx_catholic_protectory|Catholic Protectory|historic|40.8375,-73.8590|1865|1938|bx_parkchester|X|Parkchester,_Bronx|New York Catholic Protectory, on this site from 1865; sold to Metropolitan Life in 1938.
+bx_parkchester|Parkchester|neighborhood|40.8375,-73.8590|1940|9999||X|Parkchester,_Bronx|Metropolitan Life housing built 1939-1942; first tenants 1940.
+bx_freedomland|Freedomland|historic|40.8700,-73.8300|1960|1964|bx_co_op_city|X|Freedomland_U.S.A.|Theme park open 1960-1964.
+bx_co_op_city|Co-op City|neighborhood|40.8740,-73.8290|1968|9999||X|Co-op_City,_Bronx|First residents December 1968; completed 1973.
+bx_baychester|Baychester|neighborhood||1890|9999||X|Baychester,_Bronx|Year estimated.
+bx_eastchester|Eastchester|neighborhood||1664|9999||X|Eastchester,_Bronx|Southern end of the colonial town of Eastchester (the Ten Farms, 1664).
+bx_pelham_bay|Pelham Bay|neighborhood||1900|9999||X|Pelham_Bay,_Bronx|Named for Thomas Pell's manor (1654/1666); start year of the neighbourhood name estimated.
+bx_country_club|Country Club|neighborhood||1890|9999||X|Country_Club,_Bronx|Named for the Country Club of Westchester; year estimated.
+bx_hart_island|Hart Island|landscape|40.8530,-73.7700|1775|9999||X|Hart_Island|Name on charts from about 1775 (year estimated); bought by the city in 1868 for its potter's field.
+bx_rikers_island|Rikers Island|landscape|40.7910,-73.8830|1664|9999||X|Rikers_Island|Abraham Rycken's island from 1664; enlarged by landfill after the city bought it in 1884.
+bx_north_brother|North Brother Island|landscape|40.8005,-73.8985|1695|9999||X|North_and_South_Brother_Islands_(New_York_City)|De Gesellen under the Dutch; start year estimated. Riverside Hospital 1885-1963.
+# ---------------------------------------------------------------- Staten Island
+si_aquehonga|Aquehonga Manacknong|historic|40.5850,-74.1300|1609|1670||S|Staten_Island|Lenape name of the island; the last Lenape title was bought in 1670.
+si_oude_dorp|Oude Dorp|town|40.5930,-74.0690|1661|1680|si_old_town|S|Old_Town,_Staten_Island|First lasting European settlement, August 1661. End year estimated.
+si_old_town|Old Town|neighborhood|40.5960,-74.0870|1680|9999||S|Old_Town,_Staten_Island|English form; start year estimated.
+si_new_dorp|New Dorp|neighborhood||1671|9999||S|New_Dorp,_Staten_Island|Nieuwe Dorp, founded 1671.
+si_stony_brook|Stony Brook|historic|40.5760,-74.1260|1680|1728||S|Stony_Brook,_Staten_Island|First seat of Richmond County (1683-1728). Start year estimated. Location approximate (Amboy Road near Richmond Road).
+si_cocclestown|Cocclestown|town|40.5712,-74.1456|1700|1728|si_richmond|S|Historic_Richmond_Town|Village named for its oyster and cockle shells. Start year estimated.
+si_richmond|Richmond|town|40.5712,-74.1456|1728|1898|si_richmondtown|S|Historic_Richmond_Town|County seat from 1728 (Richmond Town).
+si_richmondtown|Richmondtown|neighborhood|40.5712,-74.1456|1898|9999||S|Richmondtown,_Staten_Island|Neighbourhood and museum village.
+si_watering_place|The Watering Place|historic|40.6370,-74.0760|1639|1815|si_tompkinsville|S|Tompkinsville,_Staten_Island|Spring where ships took on water. Start year estimated.
+si_tompkinsville|Tompkinsville|neighborhood||1815|9999||S|Tompkinsville,_Staten_Island|Village founded 1815 by Daniel D. Tompkins.
+si_st_george|St. George|neighborhood||1886|9999||S|St._George,_Staten_Island|Named for George Law by Erastus Wiman; ferry terminal opened 1886.
+si_new_brighton|New Brighton|neighborhood||1836|9999||S|New_Brighton,_Staten_Island|New Brighton Association, 1836; village incorporated 1866.
+si_stapleton|Stapleton|neighborhood||1836|9999||S|Stapleton,_Staten_Island|Laid out 1836 and named for William J. Staples.
+si_clifton|Clifton|neighborhood||1837|9999||S|Clifton,_Staten_Island|Laid out 1837.
+si_rosebank|Rosebank|neighborhood||1880|9999||S|Rosebank,_Staten_Island|Year estimated.
+si_arrochar|Arrochar|neighborhood||1880|9999||S|Arrochar,_Staten_Island|Named for W. W. MacFarland's estate of about 1880.
+si_fort_wadsworth|Fort Wadsworth|landscape|40.6050,-74.0560|1865|9999||S|Fort_Wadsworth|Fortified from the Dutch blockhouse of 1663; named Fort Wadsworth in 1865.
+si_south_beach|South Beach|neighborhood||1885|9999||S|South_Beach,_Staten_Island|Resort of the 1880s; year estimated.
+si_midland_beach|Midland Beach|neighborhood||1897|9999||S|Midland_Beach,_Staten_Island|Resort of the late 1890s; year estimated.
+si_dongan_hills|Dongan Hills|neighborhood||1885|9999||S|Dongan_Hills,_Staten_Island|Earlier Garretson's; renamed in the 1880s for Governor Thomas Dongan. Year estimated.
+si_grant_city|Grant City|neighborhood||1867|9999||S|Grant_City,_Staten_Island|Named for Ulysses S. Grant after the Civil War; year estimated.
+si_todt_hill|Todt Hill|landscape|40.6020,-74.1110|1700|9999||S|Todt_Hill|Dutch name of the highest hill on the Atlantic seaboard south of Maine (about 125 m). Start year estimated.
+si_grymes_hill|Grymes Hill|neighborhood||1836|9999||S|Grymes_Hill,_Staten_Island|Named for Suzette Grymes, who settled there in 1836.
+si_factoryville|Factoryville|town|40.6400,-74.1180|1819|1871|si_west_brighton|S|West_New_Brighton,_Staten_Island|Named for the dye works of 1819.
+si_west_brighton|West New Brighton|neighborhood||1871|9999||S|West_New_Brighton,_Staten_Island|Renaming year estimated.
+si_port_richmond|Port Richmond|neighborhood||1836|9999||S|Port_Richmond,_Staten_Island|Earlier Decker's and Mersereau's Ferry; name from the 1830s (year estimated), village incorporated 1866.
+si_mariners_harbor|Mariners Harbor|neighborhood||1845|9999||S|Mariners_Harbor,_Staten_Island|Oystermen's village; year estimated.
+si_port_ivory|Port Ivory|neighborhood||1907|9999||S|Port_Ivory,_Staten_Island|Procter & Gamble plant opened 1907.
+si_linoleumville|Linoleumville|town|40.5930,-74.1880|1873|1930|si_travis|S|Travis,_Staten_Island|Named for the American Linoleum Manufacturing Company plant of 1873.
+si_travis|Travis|neighborhood|40.5930,-74.1880|1930|9999||S|Travis,_Staten_Island|Residents voted to rename the village in 1930.
+si_bulls_head|Bulls Head|neighborhood||1750|9999||S|Bulls_Head,_Staten_Island|Named for a colonial tavern; start year estimated.
+si_new_springville|New Springville|neighborhood||1800|9999||S|New_Springville,_Staten_Island|Earlier Karle's Neck; start year estimated.
+si_prohibition_park|Prohibition Park|historic|40.6200,-74.1330|1887|1907|si_westerleigh|S|Westerleigh,_Staten_Island|Temperance colony founded 1887.
+si_westerleigh|Westerleigh|neighborhood|40.6200,-74.1330|1907|9999||S|Westerleigh,_Staten_Island|Renaming year estimated.
+si_sandy_ground|Sandy Ground|historic|40.5410,-74.2180|1828|9999||S|Sandy_Ground,_Staten_Island|Free Black community; the first land was bought in 1828.
+si_old_blazing_star|Old Blazing Star|historic|40.5550,-74.2130|1750|1837|si_rossville|S|Rossville,_Staten_Island|Ferry landing named for a tavern. Start year estimated.
+si_rossville|Rossville|neighborhood|40.5550,-74.2130|1837|9999||S|Rossville,_Staten_Island|Named for William E. Ross; year estimated.
+si_kreischerville|Kreischerville|town|40.5360,-74.2380|1854|1917|si_charleston|S|Charleston,_Staten_Island|Balthasar Kreischer's brickworks village, from 1854.
+si_charleston|Charleston|neighborhood|40.5360,-74.2380|1917|9999||S|Charleston,_Staten_Island|Renamed during the First World War; year estimated.
+si_tottenville|Tottenville|neighborhood||1869|9999||S|Tottenville,_Staten_Island|Earlier Bentley Manor; named for the Totten family, village incorporated 1869.
+si_pleasant_plains|Pleasant Plains|neighborhood||1860|9999||S|Pleasant_Plains,_Staten_Island|Railway station of 1860.
+si_princes_bay|Prince's Bay|neighborhood||1700|9999||S|Prince's_Bay,_Staten_Island|Colonial name of the bay; start year estimated.
+si_huguenot|Huguenot|neighborhood||1860|9999||S|Huguenot,_Staten_Island|Earlier Bloomingview; year estimated.
+si_annadale|Annadale|neighborhood||1860|9999||S|Annadale,_Staten_Island|Named for Anna Seguine with the railway station of 1860.
+si_eltingville|Eltingville|neighborhood||1873|9999||S|Eltingville,_Staten_Island|Named for the Elting family; year estimated.
+si_great_kills|Great Kills|neighborhood||1865|9999||S|Great_Kills,_Staten_Island|Earlier Clarendon and Giffords; year estimated.
+si_oakwood|Oakwood|neighborhood||1890|9999||S|Oakwood,_Staten_Island|Year estimated.
+si_willowbrook|Willowbrook|neighborhood||1900|9999||S|Willowbrook,_Staten_Island|Year estimated.
+si_graniteville|Graniteville|neighborhood||1850|9999||S|Graniteville,_Staten_Island|Named for its trap-rock quarries; year estimated.
+si_castleton_corners|Castleton Corners|neighborhood||1850|9999||S|Castleton_Corners,_Staten_Island|Named for the town of Castleton; year estimated.
+si_fresh_kills|Fresh Kills|landscape|40.5770,-74.1870|1700|9999||S|Fresh_Kills|Tidal creek and marsh; landfill 1948-2001. Start year estimated.
+si_great_kills_harbor|Great Kills Harbor|landscape|40.5430,-74.1320|1700|9999||S|Great_Kills_Park|Start year estimated.
+si_shooters_island|Shooters Island|landscape|40.6435,-74.1595|1700|9999||S|Shooters_Island|Start year estimated.
+si_hoffman_island|Hoffman Island|landscape|40.5790,-74.0535|1873|9999||S|Hoffman_Island|Artificial quarantine island completed 1873.
+si_swinburne_island|Swinburne Island|landscape|40.5655,-74.0500|1870|9999||S|Swinburne_Island|Artificial quarantine island; year estimated.
+si_wards_point|Ward's Point|landscape|40.4970,-74.2500|1700|9999||S|Ward's_Point|Southern tip of the island and of New York State. Start year estimated.
+# ---------------------------------------------------------------- more landscape names
+ls_inwood_hill|Inwood Hill|landscape|40.8725,-73.9255|1864|9999||M|Inwood_Hill_Park|Earlier Cock Hill; year estimated (with the name Inwood).
+ls_mount_morris|Mount Morris|landscape|40.8045,-73.9440|1839|1973||M|Marcus_Garvey_Park|Dutch Slangberg (Snake Hill); Mount Morris Park opened about 1839-40 and was renamed Marcus Garvey Park in 1973.
+ls_minetta_brook|Minetta Brook|landscape|40.7305,-74.0010|1609|1830||M|Minetta_Creek|Stream through Greenwich Village, covered over in the 1820s; end year estimated.
+ls_harlem_flats|Harlem Plains|landscape|40.8000,-73.9500|1658|1880||M|Harlem|Low plain between the heights and the Harlem River. End year estimated (built over).
+ls_stuyvesant_meadows|Stuyvesant Meadows|landscape|40.7250,-73.9760|1651|1830||M|Alphabet_City,_Manhattan|Salt marsh along the East River, drained and filled in the 1820s-30s; years estimated.
+ls_hallets_point|Hallets Point|landscape|40.7780,-73.9360|1652|9999||Q|Hallets_Point|Named for William Hallett (1652).
+ls_flushing_meadows|Flushing Meadows|landscape|40.7400,-73.8400|1664|9999||Q|Flushing_Meadows–Corona_Park|Tidal marsh of Flushing Creek; start year nominal.
+ls_flushing_creek|Flushing Creek|landscape|40.7620,-73.8380|1664|9999||Q|Flushing_River|Start year nominal.
+ls_rockaway_inlet|Rockaway Inlet|landscape|40.5700,-73.9000|1700|9999|||Rockaway_Inlet|Start year estimated.
+ls_rockaway_point|Rockaway Point|landscape|40.5450,-73.9300|1700|9999||Q|Rockaway_Point,_Queens|The point has grown several kilometres westward since the 18th century; label at today's tip. Start year estimated.
+ls_sheepshead_bay|Sheepshead Bay|landscape|40.5820,-73.9400|1800|9999||B|Sheepshead_Bay_(bay)|Named for the sheepshead fish; start year estimated.
+ls_coney_island_creek|Coney Island Creek|landscape|40.5800,-73.9920|1664|9999||B|Coney_Island_Creek|Once a strait through to Sheepshead Bay; the eastern half was filled by the 1930s. Start year nominal.
+ls_dutch_kills|Dutch Kills|landscape|40.7400,-73.9390|1642|9999||Q|Dutch_Kills|Tributary of Newtown Creek; start year estimated.
+ls_westchester_creek|Westchester Creek|landscape|40.8300,-73.8400|1664|9999||X|Westchester_Creek|Start year nominal.
+ls_pelham_bay|Pelham Bay|landscape|40.8650,-73.7950|1666|9999||X|Pelham_Bay_(bay)|Named for Pelham Manor (1666).
+ls_mosholu|Mosholu|landscape|40.8900,-73.8900|1609|1700|ls_tibbetts_brook|X|Tibbetts_Brook|Lenape name of the brook through Van Cortlandt's land. End year estimated.
+ls_tibbetts_brook|Tibbetts Brook|landscape|40.8900,-73.8900|1700|9999||X|Tibbetts_Brook|Named for George Tippett, settler of 1668; start year estimated.
+ls_mill_rock|Mill Rock|landscape|40.7805,-73.9385|1700|9999||M|Mill_Rock|Great and Little Mill Rock, joined in 1890; start year estimated.
+ls_battle_hill|Battle Hill|landscape|40.6562,-73.9905|1776|9999||B|Battle_Hill_(Brooklyn)|Highest natural point in Brooklyn (67 m), fought over on 27 Aug 1776.
+ls_brooklyn_heights_bluff|Ihpetonga|historic|40.6975,-73.9965|1609|1646||B|Brooklyn_Heights|Lenape name of the bluff of Brooklyn Heights. End year estimated.

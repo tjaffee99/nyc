@@ -203,76 +203,117 @@ def natural_cover(name, g, d, land_now, lake_now):
     return N, known
 
 
-def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet):
-    """Made land. Returns land_year (year a naturally wet cell that is land today became land,
-    NaN elsewhere), N (precise zones repaint the natural cover inside their rings), and
-    a list of extra events (mask, cover, year) for excavations and reservoirs."""
+# precise rings whose inland edge only approximates the old shore: the 1609 layer wins there
+SOFT_INNER = {"mn_er_1_pearl_water", "mn_hr_1_greenwich_washington", "mn_battery_early"}
+
+
+def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet, known):
+    """Made land, cuts and reservoirs from data/manual/fill_zones.csv (rules: fill_README.md).
+
+    Returns land_year (year a naturally wet cell that is land today became land, NaN
+    elsewhere), N (precise rings repaint the natural cover inside them), events
+    [(mask, cover, year array)] for cuts and for water filled and dug out again, and
+    reservoirs [(mask, start, end)].
+
+      * coarse rings only date cells that are land today and were water / marsh / pond in 1609;
+      * precise rings are painted as drawn (the ground inside was water until the fill),
+        except the inland edge of the first bands where the researched 1609 layer says land;
+      * where fill rings overlap, precise beats coarse and then the earliest end wins;
+      * pond_fill and water_fill rings win inside their outline over fill rings;
+      * each ring's land grows from its inland edge outward across its years;
+      * a precise fill ring over today's water makes land that a later excavation ring
+        removes again (Thirteenth Avenue); a coarse excavation needs the 1609 layer to say
+        the ground was land."""
     rows, cols = g["rows"], g["cols"]
-    extra = []
-    wetN = np.isin(N, list(WET | {WETLAND}))
+    events, reservoirs = [], []
+    wet_codes = list(WET | {WETLAND})
+    wetN = np.isin(N, wet_codes)
+    zone = np.full((rows, cols), -1, np.int32)        # index of the ring dating each cell
+    zprec = np.zeros((rows, cols), np.int8)
     zone_start = np.full((rows, cols), np.nan, np.float32)
     zone_end = np.full((rows, cols), np.nan, np.float32)
+    temp_land = np.zeros((rows, cols), bool)          # filled water that is water again today
     p = MANUAL / "fill_zones.csv"
-    n_zone = 0
     z = None
     if p.exists():
         try:
             z = pd.read_csv(p)
         except Exception as e:  # noqa: BLE001 - a file being written
             log(f"terrain {name}: fill_zones.csv unreadable ({e})")
+    n_zone = 0
     if z is not None and len(z):
         z["poly"] = [parse_ring(r) for r in z.ring]
-        z = z[z.poly.notna()]
+        z = z[z.poly.notna()].reset_index(drop=True)
         z["poly"] = [to_merc(q if q.is_valid else q.buffer(0)) for q in z.poly]
-        prec = z.precision.fillna("coarse").astype(str) if "precision" in z else pd.Series("coarse", index=z.index)
-        # coarse zones first (big first), precise zones on top; later start wins inside one class
-        z = z.assign(prec=(prec == "precise").astype(int), area=[q.area for q in z.poly]).sort_values(["prec", "area"], ascending=[True, False])
-        for r in z.itertuples():
+        z["prec"] = (z.precision.fillna("coarse").astype(str) == "precise").astype(int) if "precision" in z else 0
+        order = {"fill": 0, "pond_fill": 1, "water_fill": 1, "excavation": 2, "reservoir": 3}
+        z["ord"] = z.kind.map(order).fillna(9)
+        for zi, r in z.sort_values(["ord", "prec"]).iterrows():
             m = rasterize_on(g, [(r.poly, 1)], fill=0, dtype="uint8").astype(bool)
             if not m.any():
                 continue
-            kind = str(r.kind)
-            ys, ye = float(r.year_start), float(r.year_end)
+            kind, prec = str(r.kind), int(r.prec)
+            ys = float(r.year_start)
+            ye = float(r.year_end) if float(r.year_end) < 9000 else ys
             if kind in ("fill", "pond_fill", "water_fill"):
-                if r.prec:
+                if prec:
                     # the ring says: water (or pond / meadow) here until the fill
-                    was = RESERVOIR if kind == "pond_fill" and not np.isin(N[m], list(WET)).all() else SHALLOW
-                    if kind == "pond_fill":
-                        was = WETLAND
-                    N[m & land_now & ~wetN] = was
-                    wetN |= m & land_now
-                sel = m & land_now & wetN
+                    repaint = m & land_now & ~wetN
+                    if r.zone_id in SOFT_INNER:
+                        repaint &= ~known
+                    N[repaint] = WETLAND if kind == "pond_fill" else SHALLOW
+                    wetN |= repaint
+                    if kind == "fill":
+                        temp_land |= m & ~land_now & ~lake_now
+                sel = m & wetN & (land_now | temp_land)
+                if kind == "fill":
+                    # precise beats coarse; then the earliest end wins
+                    better = (zone < 0) | (prec > zprec) | ((prec == zprec) & (ye < np.nan_to_num(zone_end, nan=1e9)))
+                    sel &= better
+                zone[sel] = zi
+                zprec[sel] = prec
                 zone_start[sel] = ys
-                zone_end[sel] = ye if ye < 9000 else ys
+                zone_end[sel] = ye
                 n_zone += 1
             elif kind == "excavation":
-                sel = m & ~land_now
-                N[sel & np.isin(N, [SHALLOW, DEEP])] = FOREST   # it was land before the cut
-                extra.append((sel, SHALLOW, np.full((rows, cols), ys, np.float32)))
-                wetN &= ~sel
+                cut = m & ~land_now & ~lake_now
+                if prec:
+                    was_land = cut & ~temp_land
+                else:
+                    was_land = cut & known & ~np.isin(N, wet_codes)   # needs the 1609 layer
+                N[was_land & np.isin(N, [SHALLOW, DEEP])] = FOREST
+                wetN &= ~was_land
+                sel = cut & (temp_land | was_land)
+                if sel.any():
+                    events.append((sel, SHALLOW, np.full((rows, cols), ye, np.float32)))
+                    temp_land &= ~cut
+                    n_zone += 1
             elif kind == "reservoir":
                 sel = m & (land_now | lake_now)
-                N[sel & (N == RESERVOIR)] = FOREST
-                extra.append((sel, RESERVOIR, np.full((rows, cols), ys, np.float32)))
-                if ye < 9000:
-                    extra.append((sel, PARK, np.full((rows, cols), ye, np.float32)))
-        log(f"terrain {name}: {n_zone} fill zones applied ({int(np.isfinite(zone_start).sum())} cells dated)")
+                N[sel & (N == RESERVOIR) & ~known] = FOREST
+                reservoirs.append((sel, ys, float(r.year_end)))
+                n_zone += 1
+        log(f"terrain {name}: {n_zone} of {len(z)} zones applied ({int((zone >= 0).sum())} cells dated)")
     else:
         log(f"terrain {name}: no data/manual/fill_zones.csv yet")
+    # filled water that no cut removed and that is water today: not land after all
+    zone[temp_land & ~land_now] = -1
     # (marsh that is still marsh today is not made land)
-    made = wetN & land_now & ~lake_now & ~still_wet
+    made = wetN & ~lake_now & ~still_wet & (land_now | (zone >= 0))
     land_year = np.full((rows, cols), np.nan, np.float32)
     if made.any():
-        # inside a zone the land grows outward from the old shore over the zone's years
-        natural_land = ~np.isin(N, list(WET | {WETLAND}))
+        natural_land = ~np.isin(N, wet_codes)
         dist = ndimage.distance_transform_edt(~natural_land).astype(np.float32)
-        lab, nlab = ndimage.label(made & np.isfinite(zone_start))
-        if nlab:
-            dmax = ndimage.maximum(dist, lab, index=np.arange(1, nlab + 1))
-            dmin = ndimage.minimum(dist, lab, index=np.arange(1, nlab + 1))
-            span = np.maximum(dmax - dmin, 1e-3)
-            k = lab > 0
-            t = (dist[k] - dmin[lab[k] - 1]) / span[lab[k] - 1]
+        k = made & (zone >= 0)
+        if k.any():
+            # each ring's land grows outward from its inland edge over the ring's years
+            lab = zone + 1
+            ids = np.unique(lab[k])
+            dmax = dict(zip(ids, ndimage.maximum(dist, lab, index=ids)))
+            dmin = dict(zip(ids, ndimage.minimum(dist, lab, index=ids)))
+            lo = np.vectorize(dmin.get, otypes=[np.float32])(lab[k])
+            hi = np.vectorize(dmax.get, otypes=[np.float32])(lab[k])
+            t = (dist[k] - lo) / np.maximum(hi - lo, 1e-3)
             land_year[k] = zone_start[k] + t * (zone_end[k] - zone_start[k])
         # made land without a zone: a few years before the first buildings on or near it
         rest = made & ~np.isfinite(land_year)
@@ -280,7 +321,7 @@ def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet):
             uy = nearest_fill(np.where(np.isfinite(urban_y), urban_y, 0).astype(np.float32), np.isfinite(urban_y))
             land_year[rest] = np.clip(uy[rest] - 4.0, YEAR_MIN + 20, 2020)
             log(f"terrain {name}: {int(rest.sum())} made-land cells have no zone: dated 4 years before the buildings around")
-    return land_year, N, extra
+    return land_year, N, events, reservoirs
 
 
 def building_evidence(g):
@@ -396,7 +437,7 @@ def histories(name, g, d, land_only=False):
     N, known = natural_cover(name, g, d, land_now, lake_now)
     built = np.isfinite(urban_y)
     urban_fill = nearest_fill(np.where(built, urban_y, 0).astype(np.float32), built) if built.any() else np.full((rows, cols), 1900.0, np.float32)
-    land_year, N, extra = fill_layers(name, g, N, land_now, lake_now, urban_y, land_now & (wc == 90))
+    land_year, N, extra, reservoirs = fill_layers(name, g, N, land_now, lake_now, urban_y, land_now & (wc == 90), known)
     if land_only:
         return land_year
     park_y, is_park, big_green = park_layers(g, urban_fill)
@@ -429,6 +470,15 @@ def histories(name, g, d, land_only=False):
     for m, cv, yr in extra:
         event(m, cv, yr)
     ground_y = np.where(made, land_year, -np.inf)   # nothing before its ground
+    # reservoirs: water from their year; one that was drained hands the ground to today's
+    # use (park or city) at its end, and nothing else happens there in between
+    in_res = np.zeros((rows, cols), bool)
+    for m, ys, ye in reservoirs:
+        event(m, RESERVOIR, np.full((rows, cols), ys, np.float32))
+        in_res |= m
+        if ye < 9000:
+            city_y = np.where(m, np.fmax(city_y, ye), city_y).astype(np.float32)
+            park_y = np.where(m, np.fmax(park_y, ye), park_y).astype(np.float32)
     # farms: dry natural land that is city, small park or open grass today
     F = farm_years(g, lon, lat, boro)
     farmable = land_now & ~made & np.isin(N, [FOREST, GRASS, SCRUB]) & ~kept_woods & (slope < 0.16)
@@ -444,7 +494,7 @@ def histories(name, g, d, land_only=False):
     event(open_grass & (made | ~np.isin(N, [GRASS, BEACH, DUNES, MARSH, WETLAND])), GRASS, np.fmax(city_y, ground_y + 1.0))
     # parks, cemeteries, greens (lakes made with the park appear with it)
     event(is_park & land_now, PARK, np.fmax(park_y, ground_y + 1.0))
-    made_lake = lake_now & is_park & ~known
+    made_lake = lake_now & is_park & ~known & ~in_res
     N[made_lake] = FOREST
     event(made_lake, RESERVOIR, park_y)
     # woods that grew back on cleared or made ground (not parks: their trees are decorations)

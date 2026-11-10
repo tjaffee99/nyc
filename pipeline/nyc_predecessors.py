@@ -53,6 +53,7 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 import shapely
+import shapely.affinity
 from scipy.spatial import cKDTree
 
 from building_binary import M_BRICK, M_BROWNSTONE, M_DUTCH, M_EARLY, M_FRAME, M_MASONRY, R_FLAT, R_SHINGLE, R_TILE
@@ -304,7 +305,9 @@ def add_predecessors(g):
     snaps, fires = extent_snapshots()
     lo, hi = extent_bounds(xy, snaps)
     start = np.where(np.isfinite(prev_map), prev_map + 0.5 + (my - prev_map - 1.0) * hk, np.nan)
-    a = np.maximum(np.maximum(np.where(np.isfinite(lo), lo, my - 30.0), my - 60.0), SETTLED)
+    # (a snapshot only a few years older than the map is no lower bound: the outlines are
+    # generalised and leave scattered houses out — keep at least a 15-year window)
+    a = np.maximum(np.maximum(np.where(np.isfinite(lo), np.minimum(lo, my - 15.0), my - 30.0), my - 60.0), SETTLED)
     b = np.maximum(my - 1.0, a + 0.5)
     has_hi = np.isfinite(hi) & (hi < b) & (hi > a)
     first_gen = has_hi & (h3 < 0.55)
@@ -377,13 +380,18 @@ def add_predecessors(g):
     out = gpd.GeoDataFrame({"start_year": start, "end_year": end, "height_m": H, "year_confidence": conf_out,
                             "use": np.uint8(0), "raw_year": 0.0, "stories": st, "mat": mat, "roof": roof,
                             "fid_key": v.id.values, "boro": v.boro.values, "year_src": srcs, "name": v.name.values,
-                            "area": v["area"].values, "part_base": 0.0, "doitt_id": v.id.values, "rank": is_doc.astype(int)},
-                           geometry=v.geometry.values, crs=UTM)[~conflict & (end > start + 0.5)].to_crs(4326)
-    out = resolve_overlaps(out)
+                            "area": v["area"].values, "part_base": 0.0, "doitt_id": v.id.values, "rank": is_doc.astype(int) + 1,
+                            "map_year": my},
+                           geometry=v.geometry.values, crs=UTM)[~conflict & (end > start + 0.5)]
+    gen = generate_earlier(out, snaps, fires)
+    if len(gen):
+        out = gpd.GeoDataFrame(pd.concat([out, gen], ignore_index=True), geometry="geometry", crs=UTM)
+    out = resolve_overlaps(out.drop(columns=["map_year"]).to_crs(4326))
     from nyc_buildings import Ground, ring_ground
     gmin, gmean = ring_ground(Ground(), out.geometry.values)
     out = out.assign(height=out.height_m.values + (gmean - gmin) + 1.0, base=gmin - 1.0).drop(columns=["rank"])
-    log(f"predecessors: + {len(out)} vanished structures ({int((out.year_src == 'ohm_documented').sum())} documented; "
+    log(f"predecessors: + {len(out)} vanished structures ({int((out.year_src == 'ohm_documented').sum())} documented, "
+        f"{int((out.year_src == 'generated').sum())} generated; "
         f"{int(conflict.sum())} dropped as redrawn standing buildings; snapshots {len(snaps)}, fires {len(fires)}); "
         f"start {np.percentile(out.start_year, [5, 50, 95]).round(0).tolist()}, end {np.percentile(out.end_year, [5, 50, 95]).round(0).tolist()}; "
         f"standing 1660 {int(((out.start_year <= 1660) & (out.end_year > 1660)).sum())}, 1750 {int(((out.start_year <= 1750) & (out.end_year > 1750)).sum())}, "
@@ -412,9 +420,12 @@ def resolve_overlaps(out):
             continue
         if rank[i] != rank[j]:
             lose, win = (i, j) if rank[i] < rank[j] else (j, i)
-            # the traced structure gives way: it ends when the documented one starts, or goes
+            # the weaker evidence gives way: it ends when the better one starts, starts when
+            # that one is gone, or goes
             if s[lose] < s[win] - 2.0:
                 e[lose] = s[win] - 0.5
+            elif e[lose] > e[win] + 2.0:
+                s[lose] = e[win] + 0.5
             else:
                 drop[lose] = True
             continue
@@ -426,3 +437,122 @@ def resolve_overlaps(out):
     out = out.assign(start_year=s, end_year=e)[~drop]
     log(f"predecessors: {int(drop.sum())} overlapping vanished structures dropped")
     return out
+
+
+# persons per building (dwellings, stores, workshops together), from the counts that exist:
+# 1656 first survey 120 houses / 1,000 people; 1660 Castello Plan ~340 houses / ~1,500;
+# 1766 ~3,200 houses / ~20,000; 1850 census 37,700 dwellings / 515,500 (Manhattan)
+PPB = [(1626, 5.0), (1660, 4.5), (1730, 6.0), (1770, 6.3), (1800, 8.0), (1830, 11.0), (1850, 13.5)]
+
+
+def population_series(area):
+    from common import TABLES
+    p = TABLES / "population.csv"
+    if not p.exists():
+        return None
+    t = pd.read_csv(p)
+    t = t[t.area.astype(str).str.lower().str.strip() == area]
+    y = pd.to_numeric(t.year, errors="coerce").values
+    v = pd.to_numeric(t.population.astype(str).str.replace(",", ""), errors="coerce").values
+    ok = np.isfinite(y) & np.isfinite(v) & (v > 0)
+    if ok.sum() < 3:
+        return None
+    o = np.argsort(y[ok])
+    return y[ok][o], v[ok][o]
+
+
+def generate_earlier(out, snaps, fires):
+    """The buildings before the first atlases, where no outline survives (`procedural`).
+
+    Evidence: the built-up extent snapshots (which blocks were built on, and when), the fire
+    outlines, the census counts, and the lots themselves — the outlines of the 1852-57
+    atlases stand in for the lots of the earlier town (lot lines in the old city mostly
+    predate them). For an atlas structure that the snapshots say is a rebuild (its block was
+    built on before it was), earlier buildings are generated on its outline backwards in
+    time: each lasts 45-105 years, a fire ends what stood in its district, the first one
+    starts between the snapshot that leaves the block out and the first that has it. The
+    set is thinned so the number of buildings standing follows the population counts
+    (persons per building: PPB). Traced and documented structures always win."""
+    if not snaps:
+        return out.iloc[0:0]
+    lots = out[(out.map_year >= 1850) & (out.map_year <= 1860) & (out["rank"] == 1)]
+    if not len(lots):
+        return out.iloc[0:0]
+    cen = lots.geometry.representative_point()
+    xy = np.column_stack([cen.x.values, cen.y.values])
+    lo, hi = extent_bounds(xy, snaps)
+    first_snap = snaps[0][0]
+    pts = shapely.points(xy)
+    fire_at = []
+    for when, poly in fires:
+        shapely.prepare(poly)
+        fire_at.append((when, shapely.contains(poly, pts)))
+    ids = lots.fid_key.values
+    s1 = lots.start_year.values
+    rows = []
+    for k in np.nonzero(np.isfinite(hi) & (s1 > hi + 5.0))[0]:
+        hk, hr = h01(f"g{ids[k]}"), h01(f"r{ids[k]}")
+        # first built on between the snapshot without the block and the first with it; before
+        # the earliest snapshot, during the 35 years before it (and never before the settlement)
+        a = lo[k] if np.isfinite(lo[k]) else max(first_snap - 35.0, SETTLED)
+        first_built = max(a + (hi[k] - a) * h01(f"f{ids[k]}"), SETTLED)
+        cur, gen_i = s1[k], 0
+        while cur > first_built + 4.0 and gen_i < 6:
+            g_end = cur - 0.5
+            life = 45.0 + 60.0 * h01(f"l{ids[k]}{gen_i}")
+            g_start = max(g_end - life, first_built)
+            # a fire in between: this one was built after it, the one before burned
+            for when, inside in fire_at:
+                if inside[k] and g_start < when < g_end - 2.0:
+                    g_start = when + 0.4 + 2.0 * hk
+            rows.append((k, gen_i, g_start, g_end, hr))
+            cur, gen_i = g_start, gen_i + 1
+            for when, inside in fire_at:
+                if inside[k] and abs(cur - when) < 3.0:
+                    cur = when + 0.5   # the next one back ends in the fire
+    if not rows:
+        return out.iloc[0:0]
+    r = pd.DataFrame(rows, columns=["k", "gen", "start", "end", "rank_h"])
+    r["end"] = np.where(r.end - r.start < 1.0, r.start + 1.0, r.end)
+    r["boro"] = lots.boro.values[r.k.values]
+    # thin to the documented number of buildings
+    keep = np.ones(len(r), bool)
+    grid = np.arange(1630, 1851, 10.0)
+    ppb = np.interp(grid, [p[0] for p in PPB], [p[1] for p in PPB])
+    for boro, area in (("1", "manhattan"), ("3", "brooklyn")):
+        sel = (r.boro == boro).values
+        if not sel.any():
+            continue
+        ps = population_series(area)
+        if ps is None:
+            continue
+        target = np.exp(np.interp(grid, ps[0], np.log(ps[1]), left=np.log(ps[1][0]))) / ppb * 1.15
+        target = np.where(grid < ps[0][0], 0.0, target)
+        ob = out[out.boro == boro]
+        have = np.array([((ob.start_year.values <= t) & (ob.end_year.values > t)).sum() for t in grid])
+        cand = np.array([((r.start.values[sel] <= t) & (r.end.values[sel] > t)).sum() for t in grid])
+        frac = np.clip((target - have) / np.maximum(cand, 1), 0.0, 1.0)
+        mid = 0.5 * (r.start.values[sel] + r.end.values[sel])
+        keep[sel] = r.rank_h.values[sel] < np.interp(mid, grid, frac)
+        log(f"predecessors: generated fill {area}: target buildings {dict(zip(grid[::4].astype(int).tolist(), target[::4].round(0).astype(int).tolist()))}, "
+            f"traced standing {dict(zip(grid[::4].astype(int).tolist(), have[::4].tolist()))}, kept share {dict(zip(grid[::4].astype(int).tolist(), frac[::4].round(2).tolist()))}")
+    r = r[keep]
+    if not len(r):
+        return out.iloc[0:0]
+    k = r.k.values
+    geom = shapely.affinity.scale  # earlier buildings were smaller than the atlas ones on the lot
+    polys = [geom(lots.geometry.values[i], 0.88, 0.88, origin="centroid") for i in k]
+    st_y = r.start.values
+    hh = hashes(ids[k], "gh") 
+    area = lots["area"].values[k] * 0.77
+    st = np.where(st_y < 1700, np.where(area < 60, 1.5, 2.0 + (hh < 0.3)),
+                  np.where(st_y < 1790, np.where(area < 60, 2.0, 2.5 + (hh < 0.4)), np.where(area < 50, 2.0, 3.0 + (hh < 0.35))))
+    H = st * 3.1 + 1.0
+    mat = np.where(st_y < 1700, M_DUTCH, np.where((st_y < 1790) & (hh < 0.5), M_EARLY, M_BRICK)).astype(np.uint8)
+    roof = np.where(st_y < 1700, R_TILE, np.where(st_y < 1830, R_SHINGLE, R_FLAT)).astype(np.uint8)
+    key = np.array([f"gen:{ids[i]}:{g}" for i, g in zip(k, r.gen.values)], dtype=object)
+    return gpd.GeoDataFrame({"start_year": st_y, "end_year": r.end.values, "height_m": H, "year_confidence": "procedural",
+                             "use": np.uint8(0), "raw_year": 0.0, "stories": st, "mat": mat, "roof": roof,
+                             "fid_key": key, "boro": r.boro.values, "year_src": "generated", "name": None,
+                             "area": area, "part_base": 0.0, "doitt_id": key, "rank": 0, "map_year": np.nan},
+                            geometry=polys, crs=UTM)

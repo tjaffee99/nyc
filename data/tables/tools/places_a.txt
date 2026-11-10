@@ -1,0 +1,163 @@
+# id|name|tier|lat,lon (blank = Wikipedia article coordinates)|year_start|year_end|replaced_by|borough (M B Q X S, blank = city-wide)|Wikipedia title or URL|note
+# ---------------------------------------------------------------- regions, counties, boroughs
+reg_lenapehoking|Lenapehoking|region|40.7300,-73.9300|1609|1700||​|Lenapehoking|Homeland of the Lenape (Munsee-speaking bands around the harbour). The word is a modern Unami coinage used as the label for the pre-colonial region. End year estimated: by about 1700 most Lenape had been displaced from the area of the five boroughs.
+reg_new_netherland|Nieuw-Nederland|region|40.6700,-74.0400|1624|1664||​|New_Netherland|Dutch West India Company province; first settlers landed 1624, surrendered to England 8 Sep 1664 (briefly restored 1673-74).
+reg_new_york_county|New York County|region|40.7700,-73.9750|1683|1898|reg_manhattan|M|New_York_County|One of the twelve counties created 1 Nov 1683; the county continues (coextensive with the borough), the label hands over to the borough at consolidation.
+reg_manhattan|Manhattan|region|40.7700,-73.9750|1898|9999||M|Manhattan|Borough of Manhattan from the consolidation of 1 Jan 1898.
+reg_kings_county|Kings County|region|40.6450,-73.9500|1683|1898|reg_brooklyn|B|Kings_County,_New_York|County created 1 Nov 1683; coextensive with the City of Brooklyn from 1896 and the borough from 1898 (the county continues).
+reg_brooklyn|Brooklyn|region|40.6450,-73.9500|1898|9999||B|Brooklyn|Borough of Brooklyn from 1 Jan 1898.
+reg_queens_county|Queens County|region|40.7250,-73.8100|1683|1898|reg_queens|Q|Queens|County created 1 Nov 1683; until 1899 it also covered today's Nassau County. Label anchored in the present borough.
+reg_queens|Queens|region|40.7250,-73.8100|1898|9999||Q|Queens|Borough of Queens from 1 Jan 1898 (the western towns of Queens County).
+reg_richmond_county|Richmond County|region|40.5800,-74.1500|1683|1898|reg_richmond_borough|S|Staten_Island|County created 1 Nov 1683 (the county continues).
+reg_richmond_borough|Richmond|region|40.5800,-74.1500|1898|1975|reg_staten_island|S|Staten_Island|Borough of Richmond 1898-1975.
+reg_staten_island|Staten Island|region|40.5800,-74.1500|1975|9999||S|Staten_Island|The Borough of Richmond was renamed the Borough of Staten Island in 1975.
+reg_westchester_county|Westchester County|region|40.8550,-73.8650|1683|1874|reg_annexed_district|X|Westchester_County,_New_York|The mainland north of the Harlem River was part of Westchester County from 1 Nov 1683; label anchored in today's Bronx.
+reg_annexed_district|Annexed District|region|40.8550,-73.8650|1874|1898|reg_bronx|X|The_Bronx|The towns of Kingsbridge, West Farms and Morrisania were annexed to New York City on 1 Jan 1874 (the 23rd and 24th wards, called the Annexed District or North Side); the land east of the Bronx River followed in 1895.
+reg_bronx|The Bronx|region|40.8550,-73.8650|1898|9999||X|The_Bronx|Borough of the Bronx from 1 Jan 1898; Bronx County since 1 Jan 1914.
+# ---------------------------------------------------------------- the city
+mn_new_amsterdam|Nieuw Amsterdam|city|40.7040,-74.0125|1625|1664|mn_new_york_1664|M|New_Amsterdam|Fort and town laid out 1625; municipal rights 2 Feb 1653; surrendered 8 Sep 1664.
+mn_new_york_1664|New York|city|40.7040,-74.0125|1664|1673|mn_new_orange|M|New_Amsterdam|Renamed for the Duke of York after the English takeover, Sep 1664.
+mn_new_orange|New Orange|city|40.7040,-74.0125|1673|1674|mn_new_york_1674|M|New_Orange|Dutch reoccupation Aug 1673 - Nov 1674 (Nieuw-Oranje).
+mn_new_york_1674|New York|city|40.7074,-74.0102|1674|1812|mn_new_york|M|New_York_City|Returned to England by the Treaty of Westminster, Nov 1674. Label at the City Hall on Wall Street (built 1699-1703, later Federal Hall); for 1674-1699 the Stadt Huys stood on Pearl Street 300 m south.
+mn_new_york|New York|city|40.7128,-74.0060|1812|9999||M|New_York_City_Hall|Label at the present City Hall, occupied 1812.
+# ---------------------------------------------------------------- Manhattan: Lenape places
+mn_mannahatta|Manna-hata|landscape|40.7600,-73.9800|1609|1664|mn_manhattan_island|M|Manhattan|Island name as written in Robert Juet's journal of Hudson's voyage, 1609.
+mn_manhattan_island|Manhattan Island|landscape|40.7600,-73.9800|1664|1898||M|Manhattan|English-period island label; ends when the borough label takes over (the island name continues).
+mn_sapokanikan|Sapohanikan|historic|40.7395,-74.0085|1609|1630|mn_noortwyck|M|Sapokanikan|Lenape landing and planting ground on the Hudson near today's Gansevoort Street. End year estimated (Dutch tobacco farms from about 1629-1633).
+mn_werpoes|Werpoes|historic|40.7168,-74.0005|1609|1626||M|Werpoes|Lenape village beside the Collect Pond. End year estimated (the land passed to the Dutch with the 1626 purchase). Location approximate.
+mn_shorakapkok|Shorakapkok|historic|40.8722,-73.9235|1609|1715||M|Shorakkopoch|Lenape (Wecquaesgeek) settlement under Inwood Hill by Spuyten Duyvil Creek. End year estimated: the last Lenape claims to northern Manhattan were settled about 1715.
+mn_konaande_kongh|Konaande Kongh|historic|40.7885,-73.9515|1609|1669||M|Konaande_Kongh|Lenape settlement on the hill near today's 98th Street and Park Avenue. End year estimated. Location approximate.
+mn_nechtanc|Nechtanc|historic|40.7113,-73.9790|1609|1643||M|Nechtanc|Lenape settlement at Corlears Hook; site of the massacre of 25 Feb 1643 in Kieft's War.
+mn_kapsee|Kapsee|historic|40.7015,-74.0150|1609|1626||M|Kapsee|Lenape name for the rocky southern tip of Manhattan (Capske Rocks). End year estimated. Location approximate.
+mn_muscoota|Muscoota|historic|40.8030,-73.9440|1609|1658||M|Harlem|Lenape name for the Harlem flats and river; replaced by the Dutch village. End year estimated = founding of Nieuw Haarlem.
+# ---------------------------------------------------------------- Manhattan: forts, villages, vanished places
+mn_fort_amsterdam|Fort Amsterdam|historic|40.7040,-74.0137|1625|1664|mn_fort_james|M|Fort_Amsterdam|Begun 1625; site of today's Alexander Hamilton Custom House.
+mn_fort_james|Fort James|historic|40.7040,-74.0137|1664|1673|mn_fort_willem_hendrick|M|Fort_Amsterdam|English name 1664-1673.
+mn_fort_willem_hendrick|Fort Willem Hendrick|historic|40.7040,-74.0137|1673|1674|mn_fort_james2|M|Fort_Amsterdam|Dutch reoccupation 1673-74.
+mn_fort_james2|Fort James|historic|40.7040,-74.0137|1674|1689|mn_fort_william|M|Fort_Amsterdam|English again 1674; renamed by Leisler in 1689.
+mn_fort_william|Fort William Henry|historic|40.7040,-74.0137|1689|1702|mn_fort_anne|M|Fort_Amsterdam|Fort William under Leisler 1689-91, then Fort William Henry.
+mn_fort_anne|Fort Anne|historic|40.7040,-74.0137|1702|1714|mn_fort_george|M|Fort_Amsterdam|Named for Queen Anne.
+mn_fort_george|Fort George|historic|40.7040,-74.0137|1714|1790||M|Fort_Amsterdam|Named for George I; demolished 1790 for Government House.
+mn_the_wall|De Wal|historic|40.7069,-74.0113|1653|1699||M|Wall_Street|Palisade across the island built 1653; taken down 1699. The lane along it is Wall Street.
+mn_noortwyck|Noortwyck|historic|40.7335,-74.0050|1630|1713|mn_greenwich_town|M|Greenwich_Village|Dutch name for the farms north of the town (Bossen Bouwerie). Start year estimated.
+mn_greenwich_town|Greenwich|town|40.7335,-74.0050|1713|1825|mn_greenwich_village|M|Greenwich_Village|The name (Grin'wich) is first recorded in Common Council minutes of 1713. A separate village until the city grew around it after the yellow-fever exodus of 1822; end year estimated.
+mn_greenwich_village|Greenwich Village|neighborhood|40.7335,-74.0030|1825|9999||M|Greenwich_Village|Absorbed by the city in the 1820s; start year estimated.
+mn_bowery_village|Bowery Village|town|40.7300,-73.9870|1651|1840||M|St._Mark's_Church_in-the-Bowery|Peter Stuyvesant bought the company's Great Bouwerie in 1651; a village grew around his chapel (St. Mark's Church, 1799). End year estimated (absorbed by the grid).
+mn_nieuw_haarlem|Nieuw Haarlem|town|40.8010,-73.9335|1658|1664|mn_harlem_town|M|Harlem|Village founded by Stuyvesant, 1658; label at the old village by the Harlem River (about 125th Street and First Avenue).
+mn_harlem_town|Harlem|town|40.8010,-73.9335|1664|1873|mn_harlem|M|Harlem|English-period village (an attempt to rename it Lancaster failed). Annexed to the city proper in 1873.
+mn_harlem|Harlem|neighborhood|40.8090,-73.9480|1873|9999||M|Harlem|Neighbourhood label at 125th Street and Lenox Avenue.
+mn_bloomingdale|Bloomingdale|town|40.7965,-73.9705|1703|1880|mn_upper_west_side|M|Bloomingdale_District|Dutch Bloemendaal; the Bloomingdale Road was laid out 1703 and gave its name to the villages along it. End year estimated (the Ninth Avenue elevated arrived 1879).
+mn_upper_west_side|Upper West Side|neighborhood|40.7870,-73.9754|1880|9999||M|Upper_West_Side|Start year estimated (West Side development after the elevated of 1879).
+mn_harsenville|Harsenville|historic|40.7790,-73.9810|1763|1873||M|Harsenville|Hamlet on the Bloomingdale Road around today's 71st Street, named for the Harsen farm (1763). End year estimated.
+mn_manhattanville|Manhattanville|town|40.8160,-73.9580|1806|1880|mn_manhattanville_n|M|Manhattanville,_Manhattan|Village laid out 1806 in the valley at today's 125th Street and Broadway. End of the separate village estimated.
+mn_manhattanville_n|Manhattanville|neighborhood|40.8160,-73.9580|1880|9999||M|Manhattanville,_Manhattan|Start year estimated.
+mn_carmansville|Carmansville|town|40.8320,-73.9440|1840|1890|mn_hamilton_heights|M|Hamilton_Heights,_Manhattan|Village developed by Richard Carman around today's 152nd Street. Start and end years estimated.
+mn_hamilton_heights|Hamilton Heights|neighborhood||1890|9999||M|Hamilton_Heights,_Manhattan|Named for Alexander Hamilton's Grange (1802); start year of the neighbourhood name estimated.
+mn_yorkville_village|Yorkville|town|40.7790,-73.9530|1790|1870|mn_yorkville|M|Yorkville,_Manhattan|Hamlet on the Boston Post Road near today's 86th Street. Start and end years estimated.
+mn_yorkville|Yorkville|neighborhood|40.7770,-73.9500|1870|9999||M|Yorkville,_Manhattan|Start year estimated.
+mn_seneca_village|Seneca Village|historic|40.7848,-73.9690|1825|1857||M|Seneca_Village|Settlement of free Black landowners, first lots sold 1825; cleared for Central Park in 1857.
+mn_five_points|Five Points|historic|40.7144,-73.9998|1820|1897||M|Five_Points,_Manhattan|Slum on the filled Collect Pond. Start year estimated; Mulberry Bend was razed for a park opened 1897.
+mn_collect_pond|Collect Pond|landscape|40.7163,-74.0017|1609|1811||M|Collect_Pond|Fresh-water pond (Dutch Kolck); filled by 1811.
+mn_lispenard_meadows|Lispenard's Meadows|landscape|40.7215,-74.0050|1730|1811||M|Canal_Street_(Manhattan)|Salt marsh west of the Collect, drained by the canal that became Canal Street. Start year estimated (Lispenard family ownership).
+mn_corlears_hook|Corlears Hook|landscape|40.7113,-73.9795|1638|9999||M|Corlears_Hook|Named for Jacobus van Corlaer's plantation. Start year estimated.
+mn_kips_bay|Kips Bay|neighborhood||1655|9999||M|Kips_Bay,_Manhattan|Jacobus Kip's farm of 1655 on an East River cove, later filled; the name passed to the neighbourhood.
+mn_turtle_bay|Turtle Bay|neighborhood||1639|9999||M|Turtle_Bay,_Manhattan|Cove and farm (Deutal Bay) granted 1639; the cove was filled after 1868.
+mn_murray_hill|Murray Hill|neighborhood||1762|9999||M|Murray_Hill,_Manhattan|Robert Murray's farm Inclenberg, about 1762; start year estimated.
+mn_chelsea|Chelsea|neighborhood||1750|9999||M|Chelsea,_Manhattan|Thomas Clarke named his estate Chelsea in 1750; built up from the 1830s.
+mn_gramercy|Gramercy Park|neighborhood||1831|9999||M|Gramercy_Park|Samuel Ruggles laid out the square in 1831 on Crommessie farm.
+mn_bayards_mount|Bayard's Mount|historic|40.7195,-73.9975|1776|1802||M|Bunker_Hill_(Manhattan)|Hill near Grand and Centre streets, fortified 1776 (Bunker Hill); levelled early in the 1800s, end year estimated.
+mn_kleindeutschland|Kleindeutschland|historic|40.7265,-73.9815|1845|1904||M|Little_Germany,_Manhattan|German quarter of the Lower East Side. Start year estimated; declined after the General Slocum disaster of 1904.
+mn_lower_east_side|Lower East Side|neighborhood||1880|9999||M|Lower_East_Side|Start year of the name estimated.
+mn_east_village|East Village|neighborhood||1964|9999||M|East_Village,_Manhattan|Name adopted in the mid-1960s for the northern Lower East Side; year estimated.
+mn_alphabet_city|Alphabet City|neighborhood||1980|9999||M|Alphabet_City,_Manhattan|Nickname from the 1980s; year estimated.
+mn_little_italy|Little Italy|neighborhood||1880|9999||M|Little_Italy,_Manhattan|Italian settlement from the 1880s; year estimated.
+mn_chinatown|Chinatown|neighborhood||1875|9999||M|Chinatown,_Manhattan|Chinese quarter around Mott Street from the 1870s; year estimated.
+mn_nolita|Nolita|neighborhood||1996|9999||M|Nolita|North of Little Italy; name from the mid-1990s, year estimated.
+mn_hells_hundred_acres|Hell's Hundred Acres|historic|40.7230,-74.0000|1950|1962|mn_soho|M|SoHo,_Manhattan|Nickname of the cast-iron loft district before SoHo. Start year estimated.
+mn_soho|SoHo|neighborhood||1962|9999||M|SoHo,_Manhattan|South of Houston; the name comes from Chester Rapkin's 1962 study of the South Houston Industrial Area.
+mn_washington_market|Washington Market|historic|40.7170,-74.0110|1812|1967|mn_tribeca|M|Washington_Market_(Manhattan)|Wholesale market district on the lower west side; the market moved to Hunts Point in 1967.
+mn_tribeca|Tribeca|neighborhood||1973|9999||M|Tribeca|Triangle Below Canal; name from the early 1970s, year estimated.
+mn_noho|NoHo|neighborhood||1976|9999||M|NoHo,_Manhattan|North of Houston; name from the 1970s, year estimated.
+mn_financial_district|Financial District|neighborhood||1900|9999||M|Financial_District,_Manhattan|Start year of the name estimated.
+mn_battery_park_city|Battery Park City|neighborhood||1976|9999||M|Battery_Park_City|Landfill completed 1976; first residents 1982.
+mn_radio_row|Radio Row|historic|40.7112,-74.0118|1921|1966||M|Radio_Row|Electronics district on Cortlandt Street, from 1921; cleared for the World Trade Center in 1966.
+mn_little_syria|Little Syria|historic|40.7075,-74.0143|1880|1946||M|Little_Syria,_Manhattan|Arab quarter on Washington Street. Start year estimated; mostly demolished for the Brooklyn-Battery Tunnel approaches in the 1940s, end year estimated.
+mn_hells_kitchen|Hell's Kitchen|neighborhood||1881|9999||M|Hell's_Kitchen,_Manhattan|The name appears in the New York Times on 22 Sep 1881; also called Clinton since 1959.
+mn_tenderloin|Tenderloin|historic|40.7480,-73.9900|1876|1914||M|Tenderloin,_Manhattan|Vice district named by police captain Alexander Williams in 1876. End year estimated.
+mn_san_juan_hill|San Juan Hill|historic|40.7730,-73.9860|1898|1959|mn_lincoln_square|M|San_Juan_Hill,_Manhattan|Black and Puerto Rican neighbourhood. Start year estimated (named after the 1898 battle); cleared for Lincoln Center from 1959.
+mn_lincoln_square|Lincoln Square|neighborhood||1959|9999||M|Lincoln_Square,_Manhattan|The square was named in 1906; neighbourhood label from the Lincoln Center renewal.
+mn_longacre_square|Longacre Square|historic|40.7580,-73.9855|1872|1904|mn_times_square|M|Times_Square|Carriage-trade district. Start year estimated.
+mn_times_square|Times Square|neighborhood|40.7580,-73.9855|1904|9999||M|Times_Square|Renamed 8 Apr 1904 for the New York Times tower.
+mn_herald_square|Herald Square|neighborhood|40.7497,-73.9877|1894|9999||M|Herald_Square|Named for the New York Herald building of 1894.
+mn_garment_district|Garment District|neighborhood||1920|9999||M|Garment_District,_Manhattan|The industry moved to the west thirties about 1919-1930; year estimated.
+mn_midtown|Midtown|neighborhood|40.7549,-73.9840|1920|9999||M|Midtown_Manhattan|Start year of the name estimated.
+mn_hudson_yards|Hudson Yards|neighborhood|40.7539,-74.0010|2019|9999||M|Hudson_Yards,_Manhattan|Rezoned 2005; the first phase over the rail yard opened 15 Mar 2019.
+mn_flatiron_district|Flatiron District|neighborhood||1985|9999||M|Flatiron_District|Name from the 1980s; year estimated.
+mn_gas_house_district|Gas House District|historic|40.7317,-73.9790|1842|1945|mn_stuyvesant_town|M|Gashouse_District|Named for the gas works that arrived from 1842; razed 1945-47.
+mn_stuyvesant_town|Stuyvesant Town|neighborhood|40.7317,-73.9778|1947|9999||M|Stuyvesant_Town–Peter_Cooper_Village|First tenants 1 Aug 1947.
+mn_tudor_city|Tudor City|neighborhood||1927|9999||M|Tudor_City|Apartment complex built 1925-1932; first buildings opened 1927.
+mn_sutton_place|Sutton Place|neighborhood||1883|9999||M|Sutton_Place,_Manhattan|Named for Effingham Sutton's development of 1875-1883; year estimated.
+mn_upper_east_side|Upper East Side|neighborhood||1890|9999||M|Upper_East_Side|Start year of the name estimated.
+mn_lenox_hill|Lenox Hill|neighborhood||1880|9999||M|Lenox_Hill|Robert Lenox's farm (1818); start year of the neighbourhood name estimated.
+mn_carnegie_hill|Carnegie Hill|neighborhood||1902|9999||M|Carnegie_Hill|Named for Andrew Carnegie's mansion, completed 1902.
+mn_east_harlem|East Harlem|neighborhood||1880|9999||M|East_Harlem|Italian Harlem from the 1880s, El Barrio from the 1940s; start year estimated.
+mn_harlem_heights|Harlem Heights|historic|40.8100,-73.9620|1776|1895|mn_morningside_heights|M|Battle_of_Harlem_Heights|Name of the plateau at the battle of 16 Sep 1776 (also Vandewater or Bloomingdale Heights). End year estimated.
+mn_morningside_heights|Morningside Heights|neighborhood||1895|9999||M|Morningside_Heights|Name established in the 1890s as Columbia, the cathedral and the hospitals moved in; year estimated.
+mn_sugar_hill|Sugar Hill|neighborhood||1925|9999||M|Sugar_Hill,_Manhattan|Name from the 1920s; year estimated.
+mn_fort_washington|Fort Washington|historic|40.8527,-73.9383|1776|1850|mn_washington_heights|M|Fort_Washington_(Manhattan)|Fort built 1776 at the highest natural point of Manhattan (Fort Knyphausen under the British). End of the label estimated.
+mn_washington_heights|Washington Heights|neighborhood||1850|9999||M|Washington_Heights,_Manhattan|Named for the fort of 1776; start year of the neighbourhood name estimated.
+mn_tubby_hook|Tubby Hook|historic|40.8680,-73.9290|1750|1864|mn_inwood|M|Inwood,_Manhattan|Name of the point and hamlet at Dyckman Street on the Hudson. Start year estimated; the name Inwood replaced it in the 1860s.
+mn_inwood|Inwood|neighborhood||1864|9999||M|Inwood,_Manhattan|Renaming year estimated (1860s).
+mn_marble_hill|Marble Hill|neighborhood||1891|9999||M|Marble_Hill,_Manhattan|Named by Darius C. Crosby in 1891; cut off from Manhattan Island by the ship canal in 1895 and joined to the mainland in 1914.
+# ---------------------------------------------------------------- harbour islands (name chains)
+mn_minnehanonck|Minnehanonck|historic|40.7620,-73.9500|1609|1637|mn_varkens_eylandt|M|Roosevelt_Island|Lenape name of today's Roosevelt Island; bought by Wouter van Twiller in 1637.
+mn_varkens_eylandt|Varkens Eylandt|landscape|40.7620,-73.9500|1637|1666|mn_mannings_island|M|Roosevelt_Island|Hog Island under the Dutch.
+mn_mannings_island|Manning's Island|landscape|40.7620,-73.9500|1666|1686|mn_blackwells_island|M|Roosevelt_Island|Captain John Manning's island; start year estimated (granted 1666-1668).
+mn_blackwells_island|Blackwell's Island|landscape|40.7620,-73.9500|1686|1921|mn_welfare_island|M|Roosevelt_Island|Robert Blackwell took over in 1686; the city bought it in 1828 for its prison, asylum and hospitals.
+mn_welfare_island|Welfare Island|landscape|40.7620,-73.9500|1921|1973|mn_roosevelt_island|M|Roosevelt_Island|Renamed 1921.
+mn_roosevelt_island|Roosevelt Island|neighborhood|40.7620,-73.9500|1973|9999||M|Roosevelt_Island|Renamed for Franklin D. Roosevelt in 1973; the new town opened 1975.
+mn_pagganck|Pagganck|historic|40.6895,-74.0168|1609|1624|mn_noten_eylandt|M|Governors_Island|Lenape name (Nut Island).
+mn_noten_eylandt|Noten Eylandt|landscape|40.6895,-74.0168|1624|1664|mn_nutten_island|M|Governors_Island|Landing place of the first settlers, 1624; bought by Van Twiller in 1637.
+mn_nutten_island|Nutten Island|landscape|40.6895,-74.0168|1664|1784|mn_governors_island|M|Governors_Island|English form of the Dutch name; reserved for the royal governors from 1699.
+mn_governors_island|Governors Island|landscape|40.6895,-74.0168|1784|9999||M|Governors_Island|The name became official in 1784.
+mn_great_oyster_island|Great Oyster Island|landscape|40.6900,-74.0450|1630|1667|mn_bedloes_island|M|Liberty_Island|Dutch-period name; start year estimated.
+mn_bedloes_island|Bedloe's Island|landscape|40.6900,-74.0450|1667|1956|mn_liberty_island|M|Liberty_Island|Isaac Bedloe obtained the island in 1667.
+mn_liberty_island|Liberty Island|landscape|40.6900,-74.0450|1956|9999||M|Liberty_Island|Renamed by act of Congress, 1956.
+mn_little_oyster_island|Little Oyster Island|landscape|40.6995,-74.0396|1630|1765|mn_gibbet_island|M|Ellis_Island|Dutch-period name (bought by Michael Paauw 1630).
+mn_gibbet_island|Gibbet Island|landscape|40.6995,-74.0396|1765|1774|mn_ellis_island|M|Ellis_Island|After the hanging of a pirate there in 1765; years estimated.
+mn_ellis_island|Ellis Island|landscape|40.6995,-74.0396|1774|9999||M|Ellis_Island|Samuel Ellis owned the island by 1774; immigration station 1892-1954.
+mn_little_barn_island|Little Barn Island|landscape|40.7950,-73.9220|1637|1772|mn_montresors_island|M|Randalls_and_Wards_Islands|Dutch Barent Eylandt; start year estimated.
+mn_montresors_island|Montresor's Island|landscape|40.7950,-73.9220|1772|1784|mn_randalls_island|M|Randalls_and_Wards_Islands|Bought by the engineer John Montresor in 1772.
+mn_randalls_island|Randalls Island|landscape|40.7950,-73.9220|1784|9999||M|Randalls_and_Wards_Islands|Jonathan Randel bought it in 1784; the city in 1835.
+mn_great_barn_island|Great Barn Island|landscape|40.7840,-73.9300|1637|1807|mn_wards_island|M|Randalls_and_Wards_Islands|Start year estimated.
+mn_wards_island|Wards Island|landscape|40.7840,-73.9300|1807|9999||M|Randalls_and_Wards_Islands|Named for Jaspar and Bartholomew Ward, owners after the Revolution; year estimated.
+# ---------------------------------------------------------------- waters and landscape (city-wide)
+ls_noort_rivier|Noort Rivier|landscape|40.7700,-74.0000|1614|1664|ls_north_river||North_River_(Hudson_River)|Dutch North River (also Mauritius). Start year estimated (Adriaen Block's map of 1614).
+ls_north_river|North River|landscape|40.7700,-74.0000|1664|1900|ls_hudson_river||North_River_(Hudson_River)|Usual name of the lower Hudson into the 19th century. End year estimated; both names overlapped.
+ls_hudson_river|Hudson River|landscape|40.7700,-74.0000|1900|9999|||Hudson_River|Start year of the label estimated.
+ls_oost_rivier|Oost Rivier|landscape|40.7250,-73.9690|1614|1664|ls_east_river||East_River|Start year estimated.
+ls_east_river|East River|landscape|40.7250,-73.9690|1664|9999|||East_River|Tidal strait between the harbour and Long Island Sound.
+ls_hellegat|Hellegat|landscape|40.7790,-73.9370|1614|1664|ls_hell_gate||Hell_Gate|Named by Adriaen Block, 1614.
+ls_hell_gate|Hell Gate|landscape|40.7790,-73.9370|1664|9999|||Hell_Gate|English form; the reefs were blasted 1851-1885.
+ls_harlem_river|Harlem River|landscape|40.8300,-73.9345|1658|9999|||Harlem_River|Named for Nieuw Haarlem (1658); Lenape Muscoota.
+ls_spuyten_duyvil|Spuyten Duyvil Creek|landscape|40.8780,-73.9200|1647|9999|||Spuyten_Duyvil_Creek|Dutch name; start year estimated. Rerouted by the ship canal of 1895, the old loop filled 1914.
+ls_upper_bay|Upper Bay|landscape|40.6680,-74.0450|1664|9999|||Upper_New_York_Bay|Start year nominal: no naming date established.
+ls_the_narrows|The Narrows|landscape|40.6080,-74.0450|1664|9999|||The_Narrows|Dutch Hoofden; start year nominal.
+ls_lower_bay|Lower Bay|landscape|40.5300,-74.0500|1664|9999|||Lower_New_York_Bay|Start year nominal.
+ls_kill_van_kull|Kill Van Kull|landscape|40.6440,-74.1150|1650|9999|||Kill_Van_Kull|Dutch Kill van Kol; start year estimated.
+ls_arthur_kill|Arthur Kill|landscape|40.5700,-74.2100|1650|9999|||Arthur_Kill|From Dutch Achter Kol; start year estimated.
+ls_long_island_sound|Long Island Sound|landscape|40.8300,-73.7700|1664|9999|||Long_Island_Sound|Start year nominal.
+ls_lange_eylandt|Lange Eylandt|landscape|40.6800,-73.8700|1614|1664|ls_long_island||Long_Island|Dutch name; start year estimated (Block's map of 1614).
+ls_long_island|Long Island|landscape|40.6800,-73.8700|1664|9999|||Long_Island|English name (officially Nassau Island from 1693, never in common use).
+ls_staaten_eylandt|Staaten Eylandt|landscape|40.6050,-74.1200|1609|1664|ls_staten_island||Staten_Island|Named for the States General by Hudson's Dutch backers; start year by tradition.
+ls_staten_island|Staten Island|landscape|40.6050,-74.1200|1664|1975|||Staten_Island|Island label until the borough took the name in 1975.
+ls_jamaica_bay|Jamaica Bay|landscape|40.6150,-73.8400|1700|9999|||Jamaica_Bay|Named for the town of Jamaica; start year estimated.
+ls_newtown_creek|Newtown Creek|landscape|40.7330,-73.9430|1665|9999|||Newtown_Creek|Earlier Maspeth Kill; named for Newtown (1665). Start year estimated.
+ls_bronx_river|Bronx River|landscape|40.8500,-73.8770|1639|9999|||Bronx_River|Bronck's River, after Jonas Bronck (1639); Lenape Aquehung.
+ls_hutchinson_river|Hutchinson River|landscape|40.8700,-73.8200|1643|9999|||Hutchinson_River|Named for Anne Hutchinson, killed near it in 1643; start year nominal.
+ls_flushing_bay|Flushing Bay|landscape|40.7800,-73.8550|1664|9999|||Flushing_Bay|Start year nominal.
+ls_gravesend_bay|Gravesend Bay|landscape|40.5950,-74.0150|1645|9999|||Gravesend_Bay|Named for the town (1645).
+ls_little_neck_bay|Little Neck Bay|landscape|40.7900,-73.7650|1664|9999|||Little_Neck_Bay|Start year nominal.
+ls_eastchester_bay|Eastchester Bay|landscape|40.8350,-73.8000|1664|9999|||Eastchester_Bay|Start year nominal.
+ls_raritan_bay|Raritan Bay|landscape|40.4900,-74.1700|1664|9999|||Raritan_Bay|Start year nominal.
+ls_buttermilk_channel|Buttermilk Channel|landscape|40.6870,-74.0100|1776|9999|||Buttermilk_Channel|Start year estimated.
