@@ -43,7 +43,19 @@ MANUAL = {
     # code: (opened, closed, note, source)
     "Q4631436": ("2003-11-15", "", "the Hudson-Bergen Light Rail reached 22nd Street on 15 Nov 2003 (line article)",
                  "https://en.wikipedia.org/wiki/Hudson%E2%80%93Bergen_Light_Rail"),
+    "Q7016633": ("2006-07-17", "", "the light rail stop at Broad Street Station opened with the Broad Street extension on 17 Jul 2006 "
+                 "(its Wikidata item is the railroad station of 1836)", "https://en.wikipedia.org/wiki/Newark_Light_Rail"),
+    "Q135829651": ("1937-07-01", "", "estimated: the City Subway reached Penn Station in 1937 (year only in the line article)",
+                   "https://en.wikipedia.org/wiki/Newark_Light_Rail"),
 }
+# PATH stations OpenStreetMap has no separate station node for: position from the Port Authority's GTFS (stops.txt)
+EXTRA = [
+    # system, code, name, lon, lat, article title, manual (opened, note, source) or None
+    ("path", "path_newport", "Newport", -74.03383, 40.72699, "Newport station (PATH)", None),
+    ("path", "path_newark", "Newark Penn Station", -74.16375, 40.73454, "",
+     ("1937-06-20", "H&M trains moved from Park Place to Newark Penn Station on 20 Jun 1937, the day the realigned line and the new Harrison "
+      "station opened (Harrison station article; the H&M article says mid-1937)", "https://en.wikipedia.org/wiki/Harrison_station_(PATH)")),
+]
 
 
 def system_of(t):
@@ -162,6 +174,16 @@ def main():
             note = "opened: not found - pipeline/transit.py gives it the opening year of its track (estimated)"
         rows.append({"system": sysm, "code": code, "name": t["name"], "opened": op, "closed": "", "note": MARK + note + (f" [{qid}]" if qid else ""),
                      "source": src, "line": lines or (w["lines"] if w is not None else ""), "structure": "", "lon": f"{lon:.6f}", "lat": f"{lat:.6f}"})
+    for sysm, code, name, lon, lat, title, man in EXTRA:
+        if code in have or any(r["system"] == sysm and abs(float(r["lon"]) - lon) < 0.002 and abs(float(r["lat"]) - lat) < 0.0015 for r in rows):
+            continue
+        if man:
+            op, note, src = man
+        else:
+            op, _, note, _ = dates(None, title)
+            src = "https://en.wikipedia.org/wiki/" + title.replace(" ", "_")
+        rows.append({"system": sysm, "code": code, "name": name, "opened": op, "closed": "", "note": MARK + note, "source": src,
+                     "line": "", "structure": "", "lon": f"{lon:.6f}", "lat": f"{lat:.6f}"})
     # ---- stations that are gone (Wikidata)
     for w in wd.to_dict("records"):
         if w["qid"] in have or w["qid"] in seen or not ("railway station" in w["inst"] or "tram stop" in w["inst"] or "metro station" in w["inst"]):

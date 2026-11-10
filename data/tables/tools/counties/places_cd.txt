@@ -1,0 +1,117 @@
+# ================================================================ NASSAU COUNTY
+nas_heemstede|Heemstede|town|@Hempstead (village), New York|1644|1664|nas_hempstead|N|Hempstead (village), NY|English families from Stamford, Connecticut, settled here in 1644 under a patent from Director Kieft of 16 Nov 1644; Heemstede is the Dutch form of the name.
+nas_hempstead|Hempstead|town|@Hempstead (village), New York|1664|9999||N|Hempstead (village), NY|Name switch dated to the English takeover of 1664 (nominal); the Duke's Laws were proclaimed here in 1665. Village incorporated 1853. The town of Hempstead (South Hempstead 1784-1796) covers the south-west of the county.
++N|town|North Hempstead, NY|1784|Town split from Hempstead in 1784, the patriot north against the loyalist south.
+nas_oyster_bay|Oyster Bay|town|@Oyster Bay (hamlet), New York|1653|9999||N|Oyster Bay (hamlet), NY|Bought from the Matinecock sachem Assiapum in 1653 by Peter Wright, Samuel Mayo and William Leverich; the border between New Netherland and New England by the Hartford treaty of 1650.
+nas_musketa_cove|Musketa Cove|town||1668|1834|nas_glen_cove|N|Glen Cove, NY|Plantation of 1668 (Joseph Carpenter and partners) with saw and grist mills.
+nas_glen_cove|Glen Cove|town||1834|9999||N|Glen Cove, NY|Musketa Cove was renamed Glen Cove in 1834; city 1917 (1918 in effect).
+nas_raynortown|Raynortown|town||1659|1853|nas_freeport|N|Freeport, NY|Settled about 1659 by Edward Raynor (Raynor South).
+nas_freeport|Freeport|town||1853|9999||N|Freeport, NY|Renamed Freeport in 1853; village 1892.
+nas_pearsalls|Pearsalls|town||1853|1894|nas_lynbrook|N|Lynbrook, NY|Pearsall's Corners, the crossroads store of the Pearsall family; start estimated.
+nas_lynbrook|Lynbrook|town||1894|9999||N|Lynbrook, NY|Renamed in 1894 by turning the syllables of Brooklyn; village 1911.
+nas_hempstead_harbor_v|Hempstead Harbor|town||1700|1844|nas_roslyn|N|Roslyn, NY|Mill village at the head of the harbour (grist mill of about 1700; Washington stopped here in 1790). Start estimated.
+nas_roslyn|Roslyn|town||1844|9999||N|Roslyn, NY|Hempstead Harbor was renamed Roslyn in 1844; village 1932.
+nas_central_park|Central Park|town||1841|1936|nas_bethpage|N|Bethpage, NY|Station name on the Long Island Rail Road from 1841.
+nas_bethpage|Bethpage|town||1936|9999||N|Bethpage, NY|Central Park was renamed Bethpage in 1936, taking the name of Thomas Powell's Bethpage Purchase of 1695.
+nas_jerusalem|Jerusalem|town||1644|1891|nas_wantagh|N|Wantagh, NY|Settled about 1644 by Robert Jackson and others from Hempstead (Jerusalem, later Ridgewood station).
+nas_wantagh|Wantagh|town||1891|9999||N|Wantagh, NY|Renamed in 1891 for the Montaukett sachem Wantagh.
+nas_island_trees|Island Trees|town||1837|1947|nas_levittown|N|Levittown, NY|Farming hamlet on the Hempstead Plains, named for a stand of pines that stood out like an island; start estimated.
+nas_levittown|Levittown|town||1947|9999||N|Levittown, NY|Levitt and Sons began 2,000 rental houses in 1947 and built 17,447 by 1951; the name Levittown replaced Island Trees at the start of 1948.
++N|town|Garden City, NY|1869|Planned town founded in 1869 by the merchant A. T. Stewart on 7,000 acres of the Hempstead Plains; village 1919.
++N|town|Long Beach, NY|1880|Resort begun in 1880 with the Long Beach Hotel and the railroad; rebuilt by William Reynolds from 1907; village 1913, city 1922.
++N|town|Hicksville, NY|1834|Laid out in 1834 by Valentine Hicks; the Long Island Rail Road's end of track from 1837 to 1841.
++N|town|Mineola, NY|1858|Hempstead Branch station renamed Mineola in 1858; county seat from 1899, village 1906.
++N|town|Rockville Centre, NY|1849|Post office of 1849 named for the Methodist preacher Mordecai "Rock" Smith; village 1893.
++N|town|Valley Stream, NY|1843|Post office named by Robert Pagan in 1843; village 1925.
++N|town|Westbury, NY|1658|Named about 1658 by Edmond Titus for Westbury in Wiltshire; Quaker meeting 1671; village 1932.
++N|town|Sea Cliff, NY|1871|Methodist camp-meeting ground of 1871; village 1883.
++N|town|Jericho, NY|1692|Quaker village on land bought from the Matinecock in 1648 (Lusum); called Jericho from 1692.
++N|town|Manhasset, NY|1840|The head of Cow Neck (Tan Yard) took the name Manhasset in 1840.
++N|town|Port Washington, NY|1857|Cow Bay, the sand-mining and oystering port of Cow Neck, was named Port Washington in 1857.
++N|town|Farmingdale, NY|1845|Hardscrabble was renamed Farmingdale about 1845 by the land developer Ambrose George; village 1904.
++N|town|Massapequa, NY|1889|South Oyster Bay station was renamed Massapequa in 1889 (estimated); Fort Neck of the Marsapeague lies within it.
++N|town|Merrick, NY|1643|Named for the Meroke band; land bought by the Hempstead settlers in 1643.
++N|town|East Meadow, NY|1655|Two surveyors of the town of Hempstead reported in 1655 that the "east meadow" was fit for grazing; common pasture until the 19th century.
++N|town|Oceanside, NY|1890|Christian Hook took the name Oceanside in 1890.
++N|town|Elmont, NY|1882|Foster's Meadow was renamed Elmont in 1882.
++N|town|Syosset, NY|1854|Long Island Rail Road station of 1854.
++N|town|Locust Valley, NY|1856|Buckram was renamed Locust Valley in 1856.
++N|town|Baldwin, Nassau County, NY|1855|Hick's Neck, renamed Baldwinsville in 1855 for Thomas Baldwin's hotel, later Baldwin.
++N|town|Uniondale, NY|1853|Turtle Hook took the name Uniondale in 1853.
++N|town|Franklin Square, NY|1870|Trimming Square, then Washington Square; called Franklin Square from the 1870s, estimated.
++N|town|Seaford, NY|1868|Jerusalem South was named Seaford in 1868 for the Sussex home of the Seaman family.
++N|town|Bellmore, NY|1867|Station of 1867 on the South Side Railroad.
++N|town|Plainview, NY|1885|Manetto Hill took the name Plainview in 1885.
++N|town|Woodmere, NY|1869|Developed from 1869 by Samuel Wood as Woodsburgh; Woodmere from the 1890s.
++N|town|Inwood, NY|1889|North West Point, then Westville; called Inwood from 1889.
++N|town|Roosevelt, NY|1902|Greenwich Point was renamed in 1902 for President Theodore Roosevelt.
++N|town|East Norwich, NY|1862|Norwich, settled in the 1680s by families from Oyster Bay; East Norwich from 1862.
++N|town|Atlantic Beach, NY
++N|town|Baxter Estates, NY
++N|town|Bayville, NY
++N|town|Bellerose, NY
++N|town|Brookville, NY
++N|town|Cedarhurst, NY
++N|town|Centre Island, NY
++N|town|Cove Neck, NY
++N|town|East Hills, NY
++N|town|East Rockaway, NY
++N|town|East Williston, NY
++N|town|Floral Park, NY
++N|town|Flower Hill, NY
++N|town|Great Neck (village), NY
++N|town|Great Neck Estates, NY
++N|town|Great Neck Plaza, NY
++N|town|Hewlett Bay Park, NY
++N|town|Hewlett Harbor, NY
++N|town|Hewlett Neck, NY
++N|town|Island Park, NY
++N|town|Kensington, NY
++N|town|Kings Point, NY
++N|town|Lake Success, NY
++N|town|Lattingtown, NY
++N|town|Laurel Hollow, NY
++N|town|Lawrence, Nassau County, NY
++N|town|Malverne, NY
++N|town|Manorhaven, NY
++N|town|Massapequa Park, NY
++N|town|Matinecock, NY
++N|town|Mill Neck, NY
++N|town|Munsey Park, NY
++N|town|Muttontown, NY
++N|town|New Hyde Park, NY
++N|town|North Hills, NY
++N|town|Old Brookville, NY
++N|town|Old Westbury, NY
++N|town|Oyster Bay Cove, NY
++N|town|Plandome, NY
++N|town|Plandome Heights, NY
++N|town|Plandome Manor, NY
++N|town|Port Washington North, NY
++N|town|Roslyn Estates, NY
++N|town|Roslyn Harbor, NY
++N|town|Russell Gardens, NY
++N|town|Saddle Rock, NY
++N|town|Sands Point, NY
++N|town|South Floral Park, NY
++N|town|Stewart Manor, NY
++N|town|Thomaston, NY
++N|town|Upper Brookville, NY
++N|town|Williston Park, NY
++N|town|Woodsburgh, NY
+nas_marsapeague|Marsapeague|historic||1609|1658||N|Fort Massapeag Archeological Site|Band of the south shore whose palisaded fort stood on Fort Neck. Their sachem Tackapausha sold much of the land to the settlers of Oyster Bay and Hempstead by 1658 (estimated end).
+nas_meroke|Meroke|historic|@Merrick, New York|1609|1643||N|Merrick, NY|Band of the south shore between the Rockaways and Massapequa (Merikoke). End year: the Hempstead purchase of 1643. Location approximate.
+nas_matinecock_lenape|Matinecock|historic|40.8650,-73.6300|1609|1667||N|Matinecock|People of the north shore from Flushing to the Nissequogue; the necks around Musketa Cove and Oyster Bay were theirs. Location approximate (Glen Cove); end year estimated (the Musketa Cove purchase of 1667-68).
+nas_hempstead_plains|Hempstead Plains|landscape|40.7300,-73.5930|1644|9999||N|Hempstead Plains|Sixty thousand acres of natural prairie, the town of Hempstead's common pasture from 1644 and the cradle of American aviation; a few hectares survive.
+nas_hempstead_harbor|Hempstead Harbor|landscape||1664|9999||N|Hempstead Harbor|Bay of the Sound between Cow Neck and Glen Cove; start is nominal.
+nas_cow_bay|Cow Bay|landscape||1664|1907|nas_manhasset_bay|N|Manhasset Bay|Bay west of Cow Neck (the town of Hempstead fenced the neck as a cattle pasture in the 1670s); start is nominal.
+nas_manhasset_bay|Manhasset Bay|landscape||1907|9999||N|Manhasset Bay|Cow Bay was renamed Manhasset Bay in 1907.
+nas_cow_neck|Cow Neck|landscape|40.8300,-73.7000|1670|9999||N|Cow Neck Peninsula|Peninsula between Manhasset Bay and Hempstead Harbor, fenced as the common cattle pasture of Hempstead in the 1670s; start estimated. Also Manhasset Neck.
+nas_great_neck_l|Great Neck|landscape|40.8100,-73.7400|1672|9999||N|Great Neck Peninsula|Madnan's Neck of the first settlers; called Great Neck by the 1670s (estimated).
+nas_oyster_bay_harbor|Oyster Bay Harbor|landscape||1639|9999||N|Oyster Bay (inlet)|Named by the Dutch (Oester Baai) by 1639 for its shellfish.
+nas_jones_beach_island|Jones Beach|landscape||1700|9999||N|Jones Beach Island|Barrier beach named for Major Thomas Jones, who settled at Fort Neck in 1696 and had a whaling station on the beach about 1700; the state park opened in 1929.
+nas_south_oyster_bay|South Oyster Bay|landscape||1700|9999||N|South Oyster Bay|Lagoon behind Jones Beach; start is nominal.
+nas_success_pond|Success Pond|landscape||1700|1927|nas_lake_success_lake|N|Lake Success, NY|Kettle pond on the moraine (Sucut); start is nominal.
+nas_lake_success_lake|Lake Success|landscape||1927|9999||N|Lake Success, NY|The pond is called Lake Success since the village of that name was incorporated; year estimated.
+nas_roosevelt_field|Roosevelt Field|historic||1919|1951||N|Roosevelt Field (airport)|The Hempstead Plains Aerodrome (1911) was named in 1919 for Quentin Roosevelt; Lindbergh took off for Paris here on 20 May 1927. Closed in 1951; the shopping mall opened in 1956.
+nas_mitchel_field|Mitchel Field|historic||1918|1961||N|Mitchel Air Force Base|Army airfield on the Hempstead Plains named in 1918 for Mayor John Purroy Mitchel; closed in 1961.

@@ -38,8 +38,8 @@ BRACKET_SITES = {
     "hunts_point_produce_market": 1967, "hunts_point_meat_market": 1974, "poletti_power_project": 1977,
     "willowbrook_state_school": 1942, "fresh_kills_landfill": 1948,
 }
-# absent-then-drawn brackets are written only where the sheets were also looked at (Rikers Island:
-# the 1977 and 1997 revisions print the new jails in purple)
+# absent-then-drawn brackets are written only where sheets were also looked at (Rikers Island: the
+# 1997 revision prints in purple the jails the 1966 sheet lacks; the 1977 sheet was read by the tool only)
 TWO_SIDED = {"rikers_island_jails"}
 
 

@@ -158,13 +158,18 @@ S("creedmoor_rifle_range", "Creedmoor Rifle Range", "military_base", 1873, 1907,
 S("sunnyside_yard", "Sunnyside Yard", "rail_yard", 1910, 9999, "same", "yard", True, "Sunnyside_Yard",
   "Built 1903-1910 by the Pennsylvania Railroad, completed 1910 (192 acres).",
   lambda: G.union(G.osm("47409597"), G.osm("5d1afcb7")), floor=True)
-_WSY = lambda: G.union(G.osm("d3322ebe"), G.block((-74.0012, 40.7535)))
+_WSY_W = lambda: G.osm("d3322ebe")                    # the open western yard (Eleventh to Twelfth Avenue)
+_WSY_E = lambda: G.block((-74.0012, 40.7535))        # the eastern yard, under Hudson Yards today
+_WSY = lambda: G.union(_WSY_W(), _WSY_E())
 S("thirtieth_street_yard", "30th Street Yard", "rail_yard", 1851, 1987, "same",
   "yard", True, "West_Side_Yard", "The Hudson River Railroad built the 30th Street Yard around 1851 (year estimated: "
   "'around 1851'); the LIRR's West Side Yard took the ground in 1987. Outline: today's yard between 30th and 33rd "
   "Streets, Tenth and Twelfth Avenues.", _WSY, basis="estimated")
 S("west_side_yard", "West Side Yard", "rail_yard", 1987, 9999, "same", "yard", True, "West_Side_Yard",
-  "Opened 1987; decked over for Hudson Yards from 2012.", _WSY)
+  "Opened 1987. Outline: the western yard, still open.", _WSY_W)
+S("west_side_yard_east", "West Side Yard (eastern yard)", "rail_yard", 1987, 2012, "city", "yard", False, "West_Side_Yard",
+  "Opened 1987; decked over for Hudson Yards (end year estimated: the platform was begun about 2012). Outline: "
+  "the street block Tenth to Eleventh Avenue, 30th to 33rd Street.", _WSY_E)
 S("st_johns_park_freight_terminal", "St. John's Park Freight Depot", "rail_yard", 1867, 1927, "city", "paved", True,
   "St._John's_Park", "The park was sold in 1866; construction of the 4-acre depot began 1867 (opened 1868); "
   "demolished 1927 for the Holland Tunnel exit. Outline estimated: hull of today's street blocks of the tunnel exit "

@@ -3,6 +3,7 @@
 D(id, name, start, end, lat, lon, height_m, storeys, material, shape, shape_note, src)
   shape   ("outline", [(lon, lat), ...])        a real outline (traced on the cited map, or a mapped block)
           ("local", cx, cy, [(x, y), ...])      the same, in metres east / north of (cx, cy) as read on the sheet
+          ("traced", file, i)                   polygon i of a tools/trace_ink.py tracing (data/manual/sites/traced/)
           ("circle", lon, lat, radius_m)        a gas holder read on the sheet
           ("rect", w, d, rotation_deg)          no outline known: footprint_m = WxD at lat / lon; w runs east-west
                                                 at 0 and turns clockwise (the convention of pipeline/nyc_extras._rect)
@@ -73,14 +74,13 @@ for k, (lon, lat, r) in enumerate([(-73.978581, 40.734653, 25), (-73.977976, 40.
 # ------------------------------------------------------------------ island institutions
 D("goldwater_memorial_hospital", "Goldwater Memorial Hospital (Welfare Hospital for Chronic Diseases)", 1939, 2014, None,
   None, 20, "", "brick",
-  ("local", -73.9575, 40.7535, [(-16.5, 66), (49.5, 165), (132, 275), (170.5, 297), (225.5, 264), (154, 187), (110, 110),
-                                (49.5, 27.5), (11, 16.5)]),
-  "Opened July 1939, closed 2013 (demolition year 2014 estimated); hull of the chevron pavilions traced on the USGS "
-  "Central Park 1:24,000 sheet of 1966, +-10 m; height estimated.", "Roosevelt_Island")
+  ("traced", "traced/welfare_island_1966.json", 0),
+  "Opened July 1939, closed 2013 (demolition year 2014 estimated); the chevron pavilions as drawn on the USGS "
+  "Central Park 1:24,000 sheet of 1966 (ink vectorised by tools/trace_ink.py), +-10 m; height estimated.", "Roosevelt_Island")
 D("city_hospital_roosevelt_island", "City Hospital (Charity Hospital)", 1861, 1994, None, None, 18, "", "stone",
-  ("local", -73.9575, 40.7535, [(-115.5, -11), (-60.5, 0), (0, -66), (-5.5, -110), (-55, -110), (-121, -49.5)]),
-  "Renwick's hospital completed 1861, closed 1957, demolished 1994; outline traced on the USGS Central Park "
-  "1:24,000 sheet of 1966, +-10 m; height estimated.", "City_Hospital_(Roosevelt_Island)")
+  ("traced", "traced/welfare_island_1966.json", 1),
+  "Renwick's hospital completed 1861, closed 1957, demolished 1994; the main building as drawn on the USGS "
+  "Central Park 1:24,000 sheet of 1966 (ink vectorised by tools/trace_ink.py), +-10 m; height estimated.", "City_Hospital_(Roosevelt_Island)")
 D("blackwells_island_penitentiary", "Blackwell's Island Penitentiary", 1830, 1936, 40.7549, -73.9563, 15, "", "stone",
   ("rect", 180, 18, -60), "Opened 3 August 1830; the inmates left and the jail was demolished by 1936, Goldwater "
   "hospital taking the ground; position, footprint and height estimated.", "Roosevelt_Island")
@@ -90,10 +90,12 @@ D("pearl_street_station", "Pearl Street Station (Edison Electric Illuminating Co
   15, "", "brick", ("rect", 15, 30, -50), "255-257 Pearl Street on a lot of 50 by 100 ft (cited); generating from "
   "4 September 1882, burned 1890 and rebuilt, decommissioned 1895 (end = that year; the building's demolition was "
   "not researched); orientation, height and material estimated.", "Pearl_Street_Station")
-D("waterside_station_buildings", "Waterside Generating Station (Nos. 1 and 2)", 1901, 2007, None, None, 40, "", "brick",
-  ("blocks", [(-73.9719, 40.7455), (-73.9712, 40.7462)]),
-  "No. 1 (38th-39th Street) October 1901, No. 2 (39th-40th Street) November 1906; decommissioned 2005 (demolition "
-  "year estimated); outline: the two street blocks; height estimated.", "Waterside_Generating_Station")
+D("waterside_station_buildings", "Waterside Generating Station (Nos. 1 and 2, switch house)", 1901, 2007, None, None, 40,
+  "", "brick", ("blocks", [(-73.97056, 40.74667)]),
+  "No. 1 (38th-39th Street) October 1901, No. 2 (39th-40th Street) November 1906, offices and switch house on "
+  "40th-41st Street; decommissioned 2005 (demolition year estimated); outline: today's empty superblock between "
+  "First Avenue and the FDR Drive, 38th to 41st Street, which the plant filled (the plant's own walls were not "
+  "traced); height estimated.", "Waterside_Generating_Station")
 D("st_johns_park_freight_depot", "St. John's Park Freight Depot (Hudson River Railroad)", 1868, 1927, 40.7212, -74.0075,
   15, "3", "brick", ("rect", 130, 125, 28), "Four-acre depot on the former park: construction began 1867 (start "
   "1868 estimated: the opening), demolished 1927; footprint from the 4 acres, storeys and height estimated.",

@@ -1,0 +1,168 @@
+# Full form:    id|name|tier|coord|year_start|year_end|replaced_by|county|Wikipedia title|note
+#   coord: blank = coordinates of the cited article; @Title = coordinates of that other article (the green, church, house ...); lat,lon = hand-placed
+#   county: H Hudson, B Bergen, E Essex, U Union, P Passaic, W Westchester, N Nassau, R Rockland, blank = shared
+#   title: ", NJ" / ", NY" stand for ", New Jersey" / ", New York"
+# Compact form: +county|tier|Wikipedia title[|year_start[|note]]   (municipality still in being; year_start blank = year of incorporation read from the article)
+# ================================================================ regions
+reg_new_jersey_1664|New Jersey|region|40.8300,-74.2400|1664|1676|reg_east_jersey||Province of New Jersey|The Duke of York granted the land between the Hudson and the Delaware to Berkeley and Carteret in 1664 and it was named Nova Caesaria or New Jersey. Label hand-placed west of Newark.
+reg_east_jersey|East Jersey|region|40.8300,-74.2400|1676|1702|reg_new_jersey||East Jersey|The Quintipartite Deed of 1676 divided the province; East Jersey (capital Elizabethtown, then Perth Amboy) was reunited with West Jersey as a royal colony in 1702.
+reg_new_jersey|New Jersey|region|40.8300,-74.2400|1702|9999|||Province of New Jersey|Royal province from 1702 (the proprietors surrendered the government), state from 1776.
+hud_bergen_county|Bergen County|region|40.7420,-74.0700|1683|1840|hud_county|H|Bergen County, NJ|One of the four counties of East Jersey created in 1683; until 1840 it reached south to Bergen Point. Label anchored in today's Hudson County.
+hud_county|Hudson County|region|40.7420,-74.0700|1840|9999||H|Hudson County, NJ|Set off from Bergen County on 22 Feb 1840.
+ber_county|Bergen County|region|40.9600,-74.0700|1683|9999||B|Bergen County, NJ|One of the four counties of East Jersey created in 1683; Passaic County was set off in 1837 and Hudson County in 1840.
+ess_county|Essex County|region|40.7900,-74.2500|1683|9999||E|Essex County, NJ|One of the four counties of East Jersey created in 1683; lost Acquackanonk to Passaic County in 1837 and its southern half to Union County in 1857.
+uni_essex_county|Essex County|region|40.6600,-74.3000|1683|1857|uni_county|U|Essex County, NJ|Today's Union County was the southern half of Essex County from 1683. Label anchored in today's Union County.
+uni_county|Union County|region|40.6600,-74.3000|1857|9999||U|Union County, NJ|Set off from Essex County on 19 Mar 1857, the last county created in New Jersey.
+pas_county|Passaic County|region|41.0300,-74.3000|1837|9999||P|Passaic County, NJ|Created on 7 Feb 1837 from Acquackanonk (Essex County) and Pompton, West Milford and part of Saddle River (Bergen County).
+wes_county|Westchester County|region|41.1500,-73.7600|1683|9999||W|Westchester County, NY|One of the twelve counties created on 1 Nov 1683. The label in the city's table sits in the Bronx until 1874; this one is anchored in the present county.
+nas_queens_county|Queens County|region|40.7400,-73.5900|1683|1899|nas_county|N|Queens|Today's Nassau County was the eastern part of Queens County (towns of Hempstead, North Hempstead and Oyster Bay) from 1 Nov 1683. Label anchored in today's Nassau County.
+nas_county|Nassau County|region|40.7400,-73.5900|1899|9999||N|Nassau County, NY|Created on 1 Jan 1899 from the three towns of Queens County left out of Greater New York.
+roc_orange_county|Orange County|region|41.1500,-74.0300|1683|1798|roc_county|R|Orange County, NY|Today's Rockland County was the part of Orange County south of the Highlands from 1 Nov 1683; the county seat was at Tappan. Label anchored in today's Rockland County.
+roc_county|Rockland County|region|41.1500,-74.0300|1798|9999||R|Rockland County, NY|Set off from Orange County on 23 Feb 1798.
+# ================================================================ landscape shared by several counties (id prefix = county of the anchor)
+ber_palisades|The Palisades|landscape|40.9200,-73.9300|1664|9999||B|The Palisades (Hudson River)|Basalt cliffs along the Hudson from Jersey City to Nyack. No naming date found; start is nominal. Label hand-placed on the cliff above Englewood Cliffs.
+ber_hackensack_meadows|Hackensack Meadows|landscape|40.8050,-74.0700|1664|1969|ber_meadowlands||New Jersey Meadowlands|Tidal marsh and white-cedar swamp of the lower Hackensack. Start is nominal; the label hands over when the state created the Hackensack Meadowlands Development Commission in 1969. Shared by Bergen and Hudson counties.
+ber_meadowlands|The Meadowlands|landscape|40.8050,-74.0700|1969|9999|||New Jersey Meadowlands|Name in general use after the Hackensack Meadowlands Development Commission of 1969 (estimated as the hand-over year). Shared by Bergen and Hudson counties.
+hud_achter_kol|Achter Kol|landscape|40.6750,-74.1300|1624|1666|hud_newark_bay||Newark Bay|Dutch name ("behind the ridge") for Newark Bay and the country behind Bergen Neck. Start is nominal (the first years of New Netherland); the English name follows the founding of Newark.
+hud_newark_bay|Newark Bay|landscape|40.6750,-74.1300|1666|9999|||Newark Bay|Named for the town founded on the Passaic in 1666; start is nominal. Shared by Hudson, Essex and Union counties.
+ber_hackensack_river|Hackensack River|landscape|40.9050,-74.0300|1664|9999|||Hackensack River|Named for the Hackensack band of the Lenape; start is nominal. Label at New Bridge.
+pas_passaic_river|Passaic River|landscape|40.8850,-74.1400|1666|9999|||Passaic River|From the Lenape pahsayek, valley; start is nominal. Label on the reach between Paterson and Passaic.
+ess_watchungs|Watchung Mountains|landscape|40.7700,-74.2800|1664|9999|||Watchung Mountains|Three basalt ridges west of Newark, from the Lenape wach unks, high hills; First Mountain was long called Orange Mountain. Start is nominal. Shared by Essex, Union and Passaic counties.
+ber_ramapos|Ramapo Mountains|landscape|41.0900,-74.2400|1700|9999|||Ramapo Mountains|Part of the Highlands along the New Jersey - New York line; start is nominal. Shared by Bergen, Passaic and Rockland counties.
+pas_long_pond|Long Pond|landscape||1700|1860|pas_greenwood_lake||Greenwood Lake|Colonial name of the lake on the state line, dammed and enlarged for the Long Pond ironworks (1766) and the Morris Canal (1830s). Start is nominal; the renaming to Greenwood Lake is dated to about 1860, estimated.
+pas_greenwood_lake|Greenwood Lake|landscape||1860|9999|||Greenwood Lake|Resort-era name of Long Pond; year estimated. Shared by Passaic County and Orange County, New York.
+pas_great_falls|Great Falls|landscape||1680|9999||P|Great Falls (Passaic River)|The 23 m falls of the Passaic, called Totowa Falls or Passaic Falls in colonial accounts; start is nominal. The Society for Establishing Useful Manufactures built its raceways here from 1792.
+roc_tappan_zee|Tappan Zee|landscape|41.0750,-73.8950|1624|9999|||Tappan Zee|Dutch name (zee = sea) for the widest reach of the Hudson, after the Tappan people; start is nominal. Shared by Rockland and Westchester counties.
+roc_haverstraw_bay|Haverstraw Bay|landscape|41.2000,-73.9350|1640|9999|||Haverstraw Bay|From the Dutch haverstroo, oat straw, on maps from 1616; start is nominal. Shared by Rockland and Westchester counties.
+wes_hudson_highlands|Hudson Highlands|landscape|41.3150,-73.9700|1664|9999|||Hudson Highlands|The river's gorge through the Appalachians north of Peekskill and Stony Point; start is nominal. Shared by Westchester, Rockland, Putnam and Orange counties.
+# ================================================================ HUDSON COUNTY
+hud_pavonia|Pavonia|historic||1630|1658||H|Pavonia, New Netherland|Patroonship of Michiel Pauw, bought from the Lenape in 1630; the company took it back in 1637. The settlements were destroyed in Kieft's War (1643) and the Peach War (1655); Stuyvesant repurchased the land in 1658 (end year).
+hud_hopoghan|Hopoghan Hackingh|historic||1609|1630|hud_hoebuck|H|Hoboken, NJ|Lenape name, "land of the tobacco pipe", for the serpentine bluff of Castle Point. End year: the sale to Michiel Pauw, 1630.
+hud_hoebuck|Hoebuck|historic||1630|1784|hud_hoboken_t|H|Hoboken, NJ|Dutch form of the name; Aert van Putten leased the land in 1643 and built the first brewery; the Bayard family estate until it was confiscated and sold to John Stevens in 1784.
+hud_hoboken_t|Hoboken|town||1784|1855|hud_hoboken|H|Hoboken, NJ|John Stevens bought the island in 1784 and laid out the town in 1804; township 1849.
+hud_hoboken|Hoboken|city||1855|9999||H|Hoboken, NJ|Incorporated as a city on 28 Mar 1855.
+hud_aressick|Aressick|historic|@Paulus Hook|1609|1638|hud_paulus_hook|H|Paulus Hook|Lenape name of the sandy point opposite Manhattan, an island at high tide. End year: the grant to Michael Paulez, 1638.
+hud_paulus_hook|Paulus Hook|historic|@Paulus Hook|1638|1804|hud_jersey|H|Paulus Hook|Granted in 1638 to Michael Paulez (Paulusen), Pauw's agent, who kept an occasional ferry and traded with the Lenape; ferry to New York from 1764, fort stormed by Henry Lee in 1779.
+hud_jersey|Jersey|town|@Paulus Hook|1804|1838|hud_jersey_city|H|Jersey City, NJ|The Associates of the Jersey Company laid out the Town of Jersey on Paulus Hook in 1804; City of Jersey 1820.
+hud_jersey_city|Jersey City|city|@Paulus Hook|1838|9999||H|Jersey City, NJ|Reincorporated as Jersey City on 22 Feb 1838; absorbed Van Vorst (1851), Hudson City and Bergen (1870) and Greenville (1873). Label kept at Paulus Hook, the first town.
+hud_paulus_hook_n|Paulus Hook|neighborhood|40.7155,-74.0420|1838|9999||H|Paulus Hook|The old town as a district of Jersey City. Hand-placed 500 m west of the city label.
+hud_ahasimus|Ahasimus|historic|40.7230,-74.0440|1609|1634|hud_harsimus|H|Harsimus|Lenape place on the cove north of Paulus Hook. End year: the homestead built in 1634 by Pauw's superintendent, Cornelis van Vorst. Hand-placed at Harsimus Cove.
+hud_harsimus|Harsimus|town|40.7230,-74.0440|1634|1841|hud_van_vorst|H|Harsimus|Homestead of Cornelis van Vorst, Pauw's superintendent, from 1634; the West India Company's farm, later the Duke's Farm.
+hud_van_vorst|Van Vorst|town|40.7230,-74.0440|1841|1851|hud_harsimus_n|H|Van Vorst Township, NJ|Township formed in 1841 from Bergen Township; annexed by Jersey City in 1851.
+hud_harsimus_n|Harsimus|neighborhood|40.7230,-74.0440|1851|9999||H|Harsimus|District of Jersey City (Harsimus Cove, Hamilton Park, Van Vorst Park).
+hud_gemoenepa|Gemoenepaen|historic||1634|1664|hud_communipaw_t|H|Communipaw|First house of Pavonia built here in 1634 for Jan Evertsen Bout; the Lenape camp nearby was attacked on 25 Feb 1643; village laid out again in 1660. Dutch spelling of a Lenape name.
+hud_communipaw_t|Communipaw|town||1664|1870|hud_communipaw|H|Communipaw|English spelling. Name switch dated to the English takeover of 1664 (nominal). Village of Bergen Township until Bergen joined Jersey City in 1870.
+hud_communipaw|Communipaw|neighborhood||1870|9999||H|Communipaw|District of Jersey City; its shore was filled for the Central Railroad of New Jersey terminal (1864-1889), now Liberty State Park.
+hud_bergen|Bergen|town|@Bergen Square|1660|1870|hud_bergen_square|H|Bergen, New Netherland|Palisaded village laid out in 1660 by order of Stuyvesant, the first permanent town in New Jersey; own court 1661; Town of Bergen 1855, City of Bergen 1868, joined Jersey City in 1870.
+hud_bergen_square|Bergen Square|neighborhood|@Bergen Square|1870|9999||H|Bergen Square|The square of the 1660 village, at Bergen Avenue and Academy Street, as a district of Jersey City.
+hud_hudson_city|Hudson City|town|40.7450,-74.0520|1852|1870|hud_heights|H|Hudson City, NJ|Town of Hudson 1852, Hudson City 1855, on the ridge north of Bergen; joined Jersey City in 1870. Hand-placed on Central Avenue.
+hud_heights|The Heights|neighborhood|40.7450,-74.0520|1870|9999||H|The Heights, Jersey City|The former Hudson City as a district of Jersey City.
+hud_greenville_t|Greenville|town||1863|1873|hud_greenville|H|Greenville, Jersey City|Township set off from Bergen in 1863; annexed by Jersey City in 1873.
+hud_greenville|Greenville|neighborhood||1873|9999||H|Greenville, Jersey City|District of Jersey City.
+hud_journal_square|Journal Square|neighborhood||1923|9999||H|Journal Square|Square created over the Hudson Tubes cut and named in 1923 for the Jersey Journal.
+hud_newport|Newport|neighborhood||1986|9999||H|Newport, Jersey City|Built from 1986 on the former Erie Railroad yards at Pavonia.
+hud_black_tom|Black Tom|historic||1880|1916||H|Black Tom explosion|Island in the bay joined to the shore by a railroad causeway and fill about 1880 (estimated) for the Lehigh Valley's munitions piers; blown up by German agents on 30 Jul 1916. Now part of Liberty State Park.
+hud_constable_hook|Constable Hook|landscape||1646|9999||H|Constable Hook|Granted in 1646 to Jacob Jacobsen Roy, the chief gunner (konstapel) of Fort Amsterdam.
+hud_bergen_point|Bergen Point|landscape||1664|9999||H|Bergen Point|Southern tip of Bergen Neck on the Kill Van Kull; start is nominal.
+hud_bayonne_t|Bayonne|town||1861|1869|hud_bayonne|H|Bayonne, NJ|Township formed in 1861 from Bergen Township (Bergen Point, Centreville, Pamrapo, Saltersville).
+hud_bayonne|Bayonne|city||1869|9999||H|Bayonne, NJ|Incorporated as a city on 10 Mar 1869.
+hud_new_barbadoes_neck|New Barbadoes Neck|landscape|40.7750,-74.1350|1668|1900||H|New Barbadoes Neck|Neck between the Hackensack and the Passaic granted in 1668 to William Sandford of Barbados. End year estimated (the name went out of use). Hand-placed in Kearny.
++H|town|Harrison, NJ|1840|Township set off from Lodi Township when Hudson County was created in 1840; town 1869.
++H|town|Kearny, NJ|1867|Township set off from Harrison in 1867 and named for General Philip Kearny, whose house stood here; town 1898.
++H|town|East Newark, NJ
+hud_snake_hill|Snake Hill|landscape||1664|9999||H|Snake Hill|Diabase knob in the meadows (Slangenbergh, officially Laurel Hill since 1926), the county's almshouse and asylum site 1863-1962; half quarried away. Start is nominal.
++H|town|Secaucus, NJ|1900|Borough set off from North Bergen in 1900, town 1917; farms on the upland island in the meadows from the 1660s.
++H|town|North Bergen, NJ|1843|Township formed in 1843 from the northern part of Bergen Township.
+hud_weehawken|Weehawken|town||1859|9999||H|Weehawken, NJ|Township formed in 1859 from Hoboken and North Bergen. The name (Awiehawken) is Lenape; the duelling ground under the cliff was used from 1798 to 1845 (Hamilton and Burr, 1804).
++H|town|Guttenberg, NJ|1859|Laid out by a German land association and incorporated as a town within North Bergen in 1859.
+hud_west_hoboken|West Hoboken|town|40.7680,-74.0400|1861|1925|hud_union_city|H|West Hoboken, NJ|Township 1861, town 1884; merged with Union Hill on 1 Jun 1925. Hand-placed on Summit Avenue.
+hud_union_hill|Union Hill|town|40.7740,-74.0270|1864|1925|hud_union_city|H|Union Hill, NJ|Town set off from Union Township in 1864; merged with West Hoboken on 1 Jun 1925. Hand-placed near 32nd Street.
+hud_union_city|Union City|city||1925|9999||H|Union City, NJ|Created on 1 Jun 1925 by the merger of West Hoboken and Union Hill.
++H|town|West New York, NJ|1898|Incorporated as a town in 1898, replacing Union Township.
+# ================================================================ BERGEN COUNTY
+ber_achkinheshacky|Achkinheshacky|historic|40.8720,-74.0230|1609|1669||B|Hackensack people|Chief village of the Hackensack band of the Lenape under the sachem Oratam, between Overpeck Creek and the Hackensack. Location approximate. End year estimated: Oratam died about 1667-69 and the land had been sold.
+ber_achter_col|Achter Col|historic|40.8770,-74.0300|1641|1643||B|Achter Col|Colony planted in 1641 by Myndert Myndertsen van der Horst on the Hackensack near today's Bogota, burnt in Kieft's War in 1643. Location approximate.
+ber_new_barbadoes|New Barbadoes|historic|40.8700,-74.0520|1693|1921||B|New Barbadoes Township, NJ|Township from 1693 (in Bergen County from 1710) whose village was Hackensack; renamed the City of Hackensack in 1921. Hand-placed south-west of the green so that the two labels do not collide.
+ber_hackensack|Hackensack|town|@Bergen County Court House|1696|9999||B|Hackensack, NJ|The Dutch church on the Green dates from 1696 and the county courts moved here in 1710; officially New Barbadoes Township until 1921. Burnt by the British in 1780. Label at the court house on the Green.
+ber_english_neighborhood|English Neighborhood|town||1668|1871|ber_ridgefield_t|B|English Neighborhood|Samuel Edsall bought the land between Overpeck Creek and the Hudson in 1668 and it soon became known as the English Neighborhood; it became Ridgefield Township in 1871.
+ber_ridgefield_t|Ridgefield|town||1871|9999||B|Ridgefield, NJ|Ridgefield Township was formed from Hackensack Township in 1871; the borough dates from 1892.
+ber_fort_lee|Fort Lee|town|@Fort Lee Historic Park|1776|9999||B|Fort Lee, NJ|Fort Constitution, built in July 1776 on the Palisades, was renamed for General Charles Lee that autumn and abandoned on 20 Nov 1776; the village kept the name. Borough 1904.
+ber_liberty_pole|Liberty Pole|historic||1766|1859|ber_englewood|B|Englewood, NJ|Tavern and crossroads named for the pole raised at the repeal of the Stamp Act, 1766 (estimated as the start).
+ber_englewood|Englewood|town||1859|9999||B|Englewood, NJ|Named in 1859 when the Northern Railroad of New Jersey opened; township 1871, city 1899.
+ber_godwinville|Godwinville|town||1829|1866|ber_ridgewood|B|Ridgewood, NJ|Village of Franklin Township named in 1829 for the Revolutionary officer Abraham Godwin.
+ber_ridgewood|Ridgewood|town||1866|9999||B|Ridgewood, NJ|Name adopted in 1866; township 1876, village 1894.
+ber_paramus|Paramus|town||1725|9999||B|Paramus, NJ|From the Lenape Perampsepus. The Paramus Reformed congregation dates from 1725 (its church stands just over the line in Ridgewood); borough 1922.
+ber_boiling_springs|Boiling Springs|historic||1800|1881|ber_rutherford|B|Rutherford, NJ|Earlier name of the neighbourhood, from a spring; start estimated.
+ber_rutherford|Rutherford|town||1881|9999||B|Rutherford, NJ|Named for John Rutherfurd; borough formed from Union Township in 1881.
+ber_union|Union|town||1852|1917|ber_lyndhurst|B|Lyndhurst, NJ|Union Township was created in 1852 from the part of Harrison Township, Hudson County, returned to Bergen County.
+ber_lyndhurst|Lyndhurst|town||1917|9999||B|Lyndhurst, NJ|Union Township was renamed Lyndhurst in 1917.
++B|town|Carlstadt, NJ|1851|Founded in 1851 by a German land association led by Carl Klein; borough 1894.
+ber_east_paterson|East Paterson|town||1916|1973|ber_elmwood_park|B|Elmwood Park, NJ|Borough formed from Saddle River Township in 1916.
+ber_elmwood_park|Elmwood Park|town||1973|9999||B|Elmwood Park, NJ|East Paterson was renamed Elmwood Park on 1 Jan 1973.
+ber_delford|Delford|town||1894|1920|ber_oradell|B|Oradell, NJ|Borough of 1894, named from Oradell and New Milford.
+ber_oradell|Oradell|town||1920|9999||B|Oradell, NJ|Delford was renamed Oradell in 1920.
+ber_schraalenburgh|Schraalenburgh|town||1724|1898|ber_dumont|B|Dumont, NJ|Dutch farming neighbourhood ("barren ridge"); its church was organised in 1724 (estimated as the start). Borough 1894.
+ber_dumont|Dumont|town||1898|9999||B|Dumont, NJ|Schraalenburgh was renamed in 1898 for its first mayor, Dumont Clarke.
+ber_new_bridge|New Bridge|historic|@New Bridge Landing|1744|1894|ber_riverside|B|New Bridge Landing|A road was surveyed in 1744 to the narrows of the Hackensack where the "New Bridge" was built; Washington's army crossed it in the retreat of 20 Nov 1776.
+ber_riverside|Riverside|town||1894|1930|ber_river_edge|B|River Edge, NJ|Borough of 1894.
+ber_river_edge|River Edge|town||1930|9999||B|River Edge, NJ|Riverside was renamed River Edge in 1930.
+ber_etna|Etna|town||1903|1909|ber_emerson|B|Emerson, NJ|Borough of 1903 (the neighbourhood was Kinderkamack).
+ber_emerson|Emerson|town||1909|9999||B|Emerson, NJ|Etna was renamed in 1909 for Ralph Waldo Emerson.
+ber_undercliff|Undercliff|town||1894|1899|ber_edgewater|B|Edgewater, NJ|Borough of 1894 under the Palisades.
+ber_edgewater|Edgewater|town||1899|9999||B|Edgewater, NJ|Undercliff was renamed Edgewater in 1899.
++B|town|Closter, NJ|1704|Farms from 1704 (the Vervalen family); borough 1904.
++B|town|Mahwah, NJ|1700|From the Lenape mawewi, meeting place; Blandina Bayard's trading post of about 1700. The township, Hohokus Township from 1849, took the name in 1944.
++B|town|Garfield, NJ|1881|East Passaic was renamed in 1881 for President Garfield; borough 1898, city 1917.
++B|town|Lodi, NJ|1825|Lodi Township was formed in 1825 from New Barbadoes; the borough dates from 1894.
+ber_radburn|Radburn|neighborhood||1929|9999||B|Radburn, NJ|"Town for the motor age" planned by Clarence Stein and Henry Wright; first families moved in in 1929.
++B|town|Allendale, NJ
++B|town|Alpine, NJ
++B|town|Bergenfield, NJ
++B|town|Bogota, NJ
++B|town|Cliffside Park, NJ
++B|town|Cresskill, NJ
++B|town|Demarest, NJ
++B|town|East Rutherford, NJ
++B|town|Englewood Cliffs, NJ
++B|town|Fair Lawn, NJ
++B|town|Fairview, Bergen County, NJ
++B|town|Franklin Lakes, NJ
++B|town|Glen Rock, NJ
++B|town|Harrington Park, NJ
++B|town|Hasbrouck Heights, NJ
++B|town|Haworth, NJ
++B|town|Hillsdale, NJ
++B|town|Ho-Ho-Kus, NJ
++B|town|Leonia, NJ
++B|town|Little Ferry, NJ
++B|town|Maywood, NJ
++B|town|Midland Park, NJ
++B|town|Montvale, NJ
++B|town|Moonachie, NJ
++B|town|New Milford, NJ
++B|town|North Arlington, NJ
++B|town|Northvale, NJ
++B|town|Norwood, NJ
++B|town|Oakland, NJ
++B|town|Old Tappan, NJ
++B|town|Palisades Park, NJ
++B|town|Park Ridge, NJ
++B|town|Ramsey, NJ
++B|town|Ridgefield Park, NJ
++B|town|River Vale, NJ
++B|town|Rochelle Park, NJ
++B|town|Rockleigh, NJ
++B|town|Saddle Brook, NJ
++B|town|Saddle River, NJ
++B|town|South Hackensack, NJ
++B|town|Teaneck, NJ
++B|town|Tenafly, NJ
++B|town|Teterboro, NJ
++B|town|Upper Saddle River, NJ
++B|town|Waldwick, NJ
++B|town|Wallington, NJ|1895|Borough created on 2 Jan 1895 from Lodi and Saddle River townships.
++B|town|Washington Township, Bergen County, NJ
++B|town|Westwood, NJ
++B|town|Wood-Ridge, NJ
++B|town|Woodcliff Lake, NJ
++B|town|Wyckoff, NJ

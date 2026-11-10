@@ -1,0 +1,93 @@
+# ================================================================ ESSEX COUNTY
+ess_newark_t|Newark|town|@Four Corners (Newark)|1666|1836|ess_newark|E|Newark, NJ|Founded in May 1666 by Puritans from the New Haven Colony led by Robert Treat, who bought the land from the Hackensack Lenape; township 1693. Label at Broad and Market streets, the crossing of the 1666 town plan.
+ess_newark|Newark|city|@Four Corners (Newark)|1836|9999||E|Newark, NJ|Incorporated as a city in 1836; absorbed Clinton Township (1902) and Vailsburg (1905).
+ess_ironbound|Ironbound|neighborhood||1900|9999||E|Ironbound|The Down Neck district east of Penn Station, ringed by railroads; the name is dated to about 1900, estimated.
+ess_forest_hill|Forest Hill|neighborhood||1890|9999||E|Forest Hill, Newark|Residential district laid out beside Branch Brook Park from the 1890s; year estimated.
+ess_roseville|Roseville|neighborhood||1860|9999||E|Roseville, Newark|District around the Morris and Essex Railroad's Roseville station; year estimated.
+ess_woodside|Woodside|neighborhood||1871|9999||E|Woodside, Newark|Woodside Township (1869) was divided between Newark and Belleville in 1871.
+ess_vailsburg_t|Vailsburg|town||1894|1905|ess_vailsburg|E|Vailsburg, Newark|Borough set off from South Orange Township in 1894; annexed by Newark on 1 Jan 1905.
+ess_vailsburg|Vailsburg|neighborhood||1905|9999||E|Vailsburg, Newark|District of Newark since the annexation of 1905.
+ess_weequahic|Weequahic|neighborhood||1920|9999||E|Weequahic, Newark|District built up in the 1920s beside Weequahic Park; year estimated. The Lenape name marked the boundary creek between the Hackensack and Raritan bands.
+ess_newark_mountains|Newark Mountains|historic||1678|1780|ess_orange|E|Orange, NJ|The western part of the Newark grant, settled from about 1678 (estimated); the Mountain Society church was organised in 1719.
+ess_orange|Orange|town||1780|9999||E|Orange, NJ|The name Orange was adopted in 1780; township 1806, town 1860, city 1872.
++E|town|East Orange, NJ|1863|Township set off from Orange in 1863; city 1899.
++E|town|West Orange, NJ|1863|Fairmount Township (1862) was enlarged and renamed West Orange in 1863; town 1900.
++E|town|South Orange, NJ|1861|South Orange Township was set off from Clinton and Orange in 1861; the village dates from 1869.
++E|town|Maplewood, NJ|1860|The Morris and Essex Railroad named its station Maplewood about 1860 (estimated); the village was Jefferson Village. South Orange Township took the name in 1922.
+ess_camptown|Camptown|town||1700|1852|ess_irvington|E|Irvington, NJ|Village on the Elizabeth River settled from about 1692; start estimated.
+ess_irvington|Irvington|town||1852|9999||E|Irvington, NJ|Camptown was renamed in 1852 for Washington Irving; village 1874, town 1898.
+ess_wardsesson|Wardsesson|historic||1700|1794|ess_bloomfield|E|Bloomfield, NJ|Northern ward of Newark township (the name survives as Watsessing); start estimated.
+ess_bloomfield|Bloomfield|town|@Bloomfield Green Historic District|1794|9999||E|Bloomfield, NJ|The Presbyterian Society of Bloomfield, formed in 1794, was named for General Joseph Bloomfield (the naming is often dated 1796); its church stands on the Green. Township 1812.
+ess_cranetown|Cranetown|town||1694|1812|ess_west_bloomfield|E|Montclair, NJ|Settled in 1694 by Azariah Crane of Newark.
+ess_west_bloomfield|West Bloomfield|town||1812|1860|ess_montclair|E|Montclair, NJ|Cranetown became the western part of Bloomfield Township in 1812.
+ess_montclair|Montclair|town||1860|9999||E|Montclair, NJ|The name Montclair was adopted in 1860; township set off from Bloomfield in 1868.
+ess_second_river|Second River|town||1700|1797|ess_belleville|E|Belleville, NJ|Dutch settlement at the mouth of the Second River; its Reformed church dates from 1697. Start estimated.
+ess_belleville|Belleville|town||1797|9999||E|Belleville, NJ|Second River was renamed Belleville in 1797; township 1839.
+ess_franklin|Franklin|town||1874|1902|ess_nutley|E|Nutley, NJ|Franklin Township was set off from Belleville in 1874.
+ess_nutley|Nutley|town||1902|9999||E|Nutley, NJ|Franklin was renamed Nutley in 1902, after an estate on the Passaic.
+ess_horseneck|Horseneck|historic|40.8400,-74.2770|1702|1798|ess_caldwell|E|Horseneck Tract|Tract west of the mountains bought from the Lenape in 1702; scene of the land riots of the 1740s.
+ess_caldwell|Caldwell|town||1798|9999||E|Caldwell, NJ|Caldwell Township was formed in 1798 and named for the Reverend James Caldwell; the borough dates from 1892.
++E|town|Livingston, NJ|1813|Township formed in 1813 and named for Governor William Livingston.
++E|town|Millburn, NJ|1857|Township formed in 1857 from the part of Springfield left in Essex County.
+ess_short_hills|Short Hills|neighborhood||1877|9999||E|Short Hills, NJ|Planned suburb begun by Stewart Hartshorn in 1877.
+ess_llewellyn_park|Llewellyn Park|neighborhood||1857|9999||E|Llewellyn Park|Residential park laid out from 1857 by Llewellyn Haskell, the first planned garden suburb in the country.
++E|town|Glen Ridge, NJ
++E|town|Verona, NJ
++E|town|Cedar Grove, NJ
++E|town|Essex Fells, NJ
++E|town|North Caldwell, NJ
++E|town|West Caldwell, NJ
++E|town|Roseland, NJ
++E|town|Fairfield Township, Essex County, NJ
+# ================================================================ UNION COUNTY
+uni_elizabethtown|Elizabethtown|town|@First Presbyterian Church of Elizabeth|1664|1855|uni_elizabeth|U|Elizabeth, NJ|First English settlement in New Jersey: land bought from the Lenape on 28 Oct 1664 by the Elizabethtown Associates; capital of the province until 1686. Label at the Presbyterian church of 1664 on Broad Street.
+uni_elizabeth|Elizabeth|city|@First Presbyterian Church of Elizabeth|1855|9999||U|Elizabeth, NJ|Incorporated as the City of Elizabeth in 1855; county seat of Union County from 1857.
+uni_elizabethport|Elizabethport|neighborhood|40.6490,-74.1850|1835|9999||U|Elizabeth, NJ|Hand-placed. Port on the Arthur Kill laid out about 1835 (estimated), terminus of the Elizabethtown and Somerville Railroad (1839) and of the Singer works (1873).
+uni_connecticut_farms|Connecticut Farms|town||1667|1808|uni_union|U|Connecticut Farms, NJ|Settled in 1667 by families from Connecticut; burnt by the British on 7 Jun 1780.
+uni_union|Union|town||1808|9999||U|Union Township, Union County, NJ|Union Township was set off from Elizabeth in 1808.
+uni_springfield|Springfield|town||1717|9999||U|Springfield Township, Union County, NJ|Settled about 1717 (estimated); township 1793. The British advance on Morristown was stopped here on 23 Jun 1780.
+uni_westfield|Westfield|town||1720|9999||U|Westfield, NJ|The "West Fields" of Elizabethtown, settled about 1720; township 1794, town 1903.
+uni_scotch_plains|Scotch Plains|town||1684|9999||U|Scotch Plains, NJ|Settled in 1684 by Scottish Quakers and Presbyterians; the township (Fanwood Township from 1877) took the name in 1917.
+uni_plainfield|Plainfield|town||1788|9999||U|Plainfield, NJ|Quakers settled the plain in 1684; the Friends moved their meeting house here in 1788; township 1847, city 1869.
+uni_spanktown|Spanktown|town||1750|1804|uni_rahway|U|Rahway, NJ|Colonial name of the village on the Rahway River; start estimated. Skirmish of 5 Jan 1777.
+uni_rahway|Rahway|town||1804|9999||U|Rahway, NJ|Rahway Township was formed in 1804; city 1858.
+uni_turkey|Turkey|town||1737|1759|uni_new_providence|U|New Providence, NJ|Village of the upper Passaic valley (Turkey Town); its Presbyterian church was organised in 1737. End year estimated.
+uni_new_providence|New Providence|town||1759|9999||U|New Providence, NJ|Renamed New Providence, by tradition after the church gallery fell in 1759 without loss of life (other accounts give 1778) - year estimated; township 1809, borough 1899.
+uni_new_orange|New Orange|town||1894|1907|uni_kenilworth|U|Kenilworth, NJ|Industrial town promoted from 1894 by the New Orange Industrial Association.
+uni_kenilworth|Kenilworth|town||1907|9999||U|Kenilworth, NJ|New Orange was incorporated as the borough of Kenilworth in 1907.
++U|town|Summit, NJ|1837|The Morris and Essex Railroad reached "the Summit" of the Short Hills in 1837; township 1869, city 1899.
++U|town|Linden, NJ|1861|Township formed in 1861 from Elizabeth and Rahway; city 1925.
++U|town|Cranford, NJ|1871|Township formed in 1871; the village on the Rahway River was Craneville.
++U|town|Clark, NJ
++U|town|Roselle, NJ
++U|town|Roselle Park, NJ
++U|town|Garwood, NJ
++U|town|Fanwood, NJ
++U|town|Mountainside, NJ
++U|town|Hillside, NJ
++U|town|Berkeley Heights, NJ
++U|town|Winfield Township, NJ
+# ================================================================ PASSAIC COUNTY
+pas_acquackanonk|Acquackanonk|historic||1609|1679|pas_acquackanonk_landing|P|Passaic, NJ|Lenape place and band at the head of tide on the Passaic. End year: the first Dutch purchase of 1679 (the patent of 1684 followed).
+pas_acquackanonk_landing|Acquackanonk Landing|town||1679|1854|pas_passaic_t|P|Passaic, NJ|Dutch village at the head of navigation, bought in 1679 and patented in 1684; Washington crossed the bridge here in the retreat of November 1776.
+pas_passaic_t|Passaic|town||1854|1873|pas_passaic|P|Passaic, NJ|Acquackanonk Landing was renamed Passaic in 1854; village 1869.
+pas_passaic|Passaic|city||1873|9999||P|Passaic, NJ|Incorporated as a city in 1873.
+pas_paterson_t|Paterson|town||1791|1851|pas_paterson|P|Paterson, NJ|Founded in 1791-92 by the Society for Establishing Useful Manufactures at the Great Falls and named for Governor William Paterson; township 1831.
+pas_paterson|Paterson|city||1851|9999||P|Paterson, NJ|Incorporated as a city in 1851.
+pas_clifton_t|Clifton|town||1867|1917|pas_clifton|P|Clifton, NJ|The name Clifton was adopted in 1867 for the village in Acquackanonk Township.
+pas_clifton|Clifton|city||1917|9999||P|Clifton, NJ|Acquackanonk Township became the City of Clifton in 1917.
+pas_pompton|Pompton|historic|40.9930,-74.2830|1609|1695||P|Pompton people|Lenape band and their country at the meeting of the Ramapo, Pequannock and Wanaque rivers. End year: the Pompton purchase of 1695. Location approximate.
++P|town|Pompton Lakes, NJ
++P|town|Ringwood, NJ|1742|The Ringwood Company's ironworks began in 1742; borough 1918.
+pas_west_paterson|West Paterson|town||1914|2009|pas_woodland_park|P|Woodland Park, NJ|Borough formed from Little Falls Township in 1914.
+pas_woodland_park|Woodland Park|town||2009|9999||P|Woodland Park, NJ|West Paterson was renamed Woodland Park on 1 Jan 2009.
++P|town|Wayne, NJ|1847|Township formed in 1847 from Manchester Township and named for General Anthony Wayne.
++P|town|West Milford, NJ|1834|Township formed in 1834 from Pompton Township.
++P|town|Little Falls, NJ|1868|Township formed in 1868 from Acquackanonk Township; settled in 1711.
++P|town|Totowa, NJ
++P|town|Haledon, NJ
++P|town|North Haledon, NJ
++P|town|Prospect Park, NJ
++P|town|Hawthorne, NJ
++P|town|Bloomingdale, NJ
++P|town|Wanaque, NJ

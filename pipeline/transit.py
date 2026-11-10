@@ -51,7 +51,7 @@ from scipy.sparse.csgraph import dijkstra
 from scipy.spatial import cKDTree
 from shapely.geometry import LineString, Point, Polygon, shape
 
-from common import INTERIM, MANUAL, NYC_BBOX, NYC_CRS, OVERTURE_RELEASE, RAW, TABLES, VIEWER_DATA, log, session
+from common import INTERIM, MANUAL, NYC_BBOX, NYC_CRS, OVERTURE_RELEASE, RAW, REGION_BBOX, TABLES, VIEWER_DATA, log, session
 from export_columnar import write_columnar
 
 ORIGIN = (-73.97, 40.73)
@@ -65,6 +65,7 @@ SLOPE = 0.04        # steepest ramp between levels
 TRANSIT = RAW / "transit"
 GTFS_ZIP = RAW / "mta" / "gtfs_subway.zip"
 OHM_URL = "https://overpass-api.openhistoricalmap.org/api/interpreter"
+UA = "NYCThroughTime-research/0.1"
 OHM_QUERY = ('[out:json][timeout:240];(way["railway"]({s},{w},{n},{e});'
              'node["railway"~"station|halt|stop"]({s},{w},{n},{e}););out body geom;')
 
@@ -77,7 +78,30 @@ VEHICLES = {
     "ebart": {"car": [15.65, 2.62, 3.62], "gap": 0.6, "vmax": 20.0, "acc": 1.1, "dwell": 30},
     # Manhattan Railway / BRT elevated cars: about 47 ft x 8 ft 9 in
     "el": {"car": [14.3, 2.67, 3.6], "gap": 0.6, "vmax": 11.0, "acc": 0.6, "dwell": 25},
+    # NJ Transit's light rail car (Kinki Sharyo, 90 ft as delivered): the dimensions are from memory of the
+    # fleet's data sheet - estimated, not cited
+    "lrv": {"car": [27.4, 2.68, 3.7], "gap": 0.8, "vmax": 16.0, "acc": 1.0, "dwell": 20},
 }
+# Rapid transit of the counties: service lines on OpenStreetMap's route relations (one per direction; the
+# centreline is the middle between the two), trains like the subway's. PATH is written as system 'bart'
+# with the A Division car key 'ebart' (PA5 cars are 51 ft, as the IRT's); the two light rail systems as
+# 'muni' with 'lrv'. Headways: PATH from the Port Authority's GTFS (weekday trips), light rail 10 minutes
+# (estimated: NJ Transit's GTFS is behind a login and is not used). Cars per train: PATH 8 on the Newark
+# line (Wikipedia, PATH), 7 elsewhere (estimated); light rail 2 / 1 (estimated).
+RAPID = [
+    # id, name, system, vehicle, cars, headway s (None: GTFS), colour, track set, relations (out, back), GTFS route
+    ("PATH-NWK", "PATH Newark - World Trade Center", "bart", "ebart", 8, None, "d93a30", "path", (1468867, 7943864), "862"),
+    ("PATH-HOB-WTC", "PATH Hoboken - World Trade Center", "bart", "ebart", 7, None, "65c100", "path", (1468847, 7943872), "860"),
+    ("PATH-JSQ-33", "PATH Journal Square - 33rd Street", "bart", "ebart", 7, None, "ff9900", "path", (1468832, 7943925), "861"),
+    ("PATH-HOB-33", "PATH Hoboken - 33rd Street", "bart", "ebart", 7, None, "4d92fb", "path", (1468831, 7943884), "859"),
+    ("HBLR-WS", "Hudson-Bergen Light Rail Tonnelle Avenue - West Side Avenue", "muni", "lrv", 2, 600, "0f6cb7", "lr", (1468928, 9997056), None),
+    ("HBLR-8", "Hudson-Bergen Light Rail Hoboken Terminal - 8th Street", "muni", "lrv", 2, 600, "0f6cb7", "lr", (1378219, 9997058), None),
+    ("NLR-GS", "Newark Light Rail Newark Penn Station - Grove Street", "muni", "lrv", 1, 600, "7b2b83", "lr", (1380716, 9821042), None),
+    ("NLR-BS", "Newark Light Rail Newark Penn Station - Broad Street Station", "muni", "lrv", 1, 600, "7b2b83", "lr", (2634557, 9821064), None),
+]
+RAPID_ROUTES = TRANSIT / "osm" / "osm_routes_region.json"   # data/manual/transit/tools/fetch_region.py
+PATH_GTFS = TRANSIT / "gtfs_path"
+CITY_RING = MANUAL / "transit" / "city_ring.json"            # the five boroughs' outline (for the counties' statistics)
 CARS = {"7": 11, "GS": 6, "FS": 2, "H": 5, "SI": 5, "G": 5, "C": 8, "J": 8, "M": 8, "L": 8}
 # routes with trains; a route with two branches runs two lines at twice the headway each
 LINES = [
@@ -216,7 +240,15 @@ def downloads():
         r = session().post(OHM_URL, data={"data": OHM_QUERY.format(s=lat0, w=lon0, n=lat1, e=lon1)}, timeout=400)
         r.raise_for_status()
         ohm.write_bytes(r.content)
-    return g, ohm
+    ohm_r = TRANSIT / "ohm" / "ohm_rail_region.json"  # the counties (the wider box); also written by tools/fetch_region.py
+    if not ohm_r.exists():
+        lon0, lat0, lon1, lat1 = REGION_BBOX
+        se = session()
+        se.headers["User-Agent"] = UA
+        r = se.post(OHM_URL, data={"data": OHM_QUERY.format(s=lat0, w=lon0, n=lat1, e=lon1)}, timeout=600)
+        r.raise_for_status()
+        ohm_r.write_bytes(r.content)
+    return g, [ohm, ohm_r]
 
 
 # ---------------------------------------------------------------- GTFS
@@ -341,13 +373,18 @@ def year_from(trees, xy, div, reach, tn=None):
     return y
 
 
-def ohm_dated(ohm_file):
-    """OpenHistoricalMap railway ways still standing: sample points with their start year."""
-    P, Y = [], []
-    for w in json.load(open(ohm_file))["elements"]:
+def ohm_dated(ohm_files):
+    """OpenHistoricalMap railway ways still standing: sample points with their start year (the city's
+    download first, then the ways only the region download has)."""
+    P, Y, seen = [], [], set()
+    ways = [w for f in ohm_files for w in json.load(open(f))["elements"]]
+    for w in ways:
         t = w.get("tags", {})
         if w["type"] != "way" or t.get("railway") not in ("subway", "rail", "light_rail") or t.get("end_date") or not t.get("start_date"):
             continue
+        if w["id"] in seen:
+            continue
+        seen.add(w["id"])
         try:
             y = decyear(t["start_date"])
         except ValueError:
@@ -373,6 +410,11 @@ def read_rail(poly):
     shapely.prepare(poly)
     r = r[shapely.intersects(poly, r.geometry.values)].reset_index(drop=True)
     r["name"] = r["name"].fillna("")
+    # PATH: its named tracks, and every rapid transit track on the New Jersey side (the Staten Island
+    # Railway lies south of 40.65)
+    mid = shapely.line_interpolate_point(r.geometry.values, 0.5, normalized=True)
+    nj = (shapely.get_x(mid) < -74.02) & (shapely.get_y(mid) > 40.68)
+    r["is_path"] = (r["class"] == "subway").values & (r["name"].isin(PATH_NAMES).values | nj)
     return r
 
 
@@ -401,7 +443,7 @@ def sample_tracks(r, step=15.0):
         tn |= lev <= -1
         up = (br | (lev >= 1)) & ~tn
         s = {"xy": xy, "f": f, "L": L, "lev": lev, "tn": tn, "up": up, "name": row.name, "cls": row[r.columns.get_loc("class") + 1],
-             "n0": n0, "div": division(row.name)}
+             "n0": n0, "div": division(row.name), "path": bool(getattr(row, "is_path", False))}
         if row.connectors is not None:
             for c in row.connectors:
                 conn[c["connector_id"]].append(n0 + int(round(float(c.get("at") or 0) * (n - 1))))
@@ -449,7 +491,7 @@ def height_profile(segs, conn, n, ground):
 
 
 def subway_tracks(r, ground, trees, ohm):
-    sub = r[(r["class"] == "subway") & ~r["name"].isin(PATH_NAMES)].reset_index(drop=True)
+    sub = r[(r["class"] == "subway") & ~r["is_path"]].reset_index(drop=True)
     segs, conn, n = sample_tracks(sub)
     height_profile(segs, conn, n, ground)
     otree, oy = ohm
@@ -759,58 +801,203 @@ def manual_lines(openings, stations, ground):
 
 
 # ---------------------------------------------------------------- railroads
+def city_poly():
+    """The five boroughs' outline (the map before the counties): what lies outside it is "the counties"."""
+    if CITY_RING.exists():
+        return Polygon(json.loads(CITY_RING.read_text())["ring"]).buffer(0.004)
+    lon0, lat0, lon1, lat1 = NYC_BBOX
+    return Polygon([(lon0, lat0), (lon1, lat0), (lon1, lat1), (lon0, lat1)])
+
+
 def railroad_tracks(r, ground, ohm, openings):
-    """Standing railroad, PATH and light rail tracks inside the map. Dates: a row of
-    transit_openings.csv (system `rail`: line name inside a box) where there is one; else
-    OpenHistoricalMap's dated way at that place; yards and sidings without either take the
-    nearest dated track."""
-    rr = r[r["class"].isin(["standard_gauge", "light_rail", "monorail", "narrow_gauge"])
-           | ((r["class"] == "subway") & r["name"].isin(PATH_NAMES))].reset_index(drop=True)
+    """Standing railroad, PATH and light rail tracks inside the map. Dates, point by point along a track:
+    (1) the first row of transit_openings.csv (system `rail`) that names the track's line (`line`: names
+    separated by `|`, `*` = any) and whose box holds the point; (2) else OpenHistoricalMap's dated way at
+    that place (at least half of the undated points within 20 m of one: its commonest day); (3) else -
+    yards, sidings, lines nobody has dated - the nearest dated track within 400 m (estimated). Tracks
+    with none of the three are left out. Each track carries `sys` (rail / path / hblr / nlr / lr) and each
+    point `src` (1 row, 2 OpenHistoricalMap, 3 nearest)."""
+    rr = r[r["class"].isin(["standard_gauge", "light_rail", "monorail", "narrow_gauge"]) | r["is_path"]].reset_index(drop=True)
     segs, conn, n = sample_tracks(rr, step=20.0)
     height_profile(segs, conn, n, ground)
+    lon, lat = to_ll(np.concatenate([s["xy"] for s in segs]))
+    city = city_poly()
+    shapely.prepare(city)
+    county = ~shapely.contains_xy(city, lon, lat)
     rules = []
     for o in openings[openings.system == "rail"].itertuples():
         box = None
         if o.from_stop and o.to_stop:
             (x0, y0), (x1, y1) = (map(float, v.split()) for v in (o.from_stop, o.to_stop))
             box = (x0, y0, x1, y1)
-        rules.append((o.line, box, decyear(o.opened)))
+        rules.append((None if o.line == "*" else set(o.line.split("|")), box, decyear(o.opened), o.route_id))
     otree, oy = ohm
-    n_rule = n_ohm = 0
+    k0 = 0
     for s in segs:
-        y = np.full(len(s["xy"]), np.nan)
-        lon, lat = to_ll(s["xy"][[len(s["xy"]) // 2]])
-        for name, box, yr in rules:
-            if name not in ("*", s["name"]):
+        k = len(s["xy"])
+        s["lon"], s["lat"], s["county"] = lon[k0:k0 + k], lat[k0:k0 + k], county[k0:k0 + k]
+        k0 += k
+        nj = s["lon"][k // 2] < -74.02
+        lr = s["cls"] == "light_rail" and nj
+        s["sys"] = "path" if s["path"] else ("hblr" if "Hudson" in s["name"] else "nlr" if "Newark" in s["name"] else "lr") if lr else "rail"
+        name = s["name"] or ("PATH" if s["path"] else "")
+        y, src, rid = np.full(k, np.nan), np.zeros(k, np.uint8), np.full(k, -1)
+        for q, (names, box, yr, _) in enumerate(rules):
+            if names is not None and name not in names:
                 continue
-            if box and not (box[0] <= lon[0] <= box[2] and box[1] <= lat[0] <= box[3]):
-                continue
-            y[:] = yr
-            n_rule += 1
-            break
-        if np.isnan(y).all():
-            dd, ii = otree.query(s["xy"], distance_upper_bound=20.0)
-            y = np.where(np.isfinite(dd), oy[np.minimum(ii, len(oy) - 1)], np.nan)
-            if np.isfinite(y).mean() >= 0.5:
-                y[:] = Counter(np.round(y[np.isfinite(y)], 3)).most_common(1)[0][0]
-                n_ohm += 1
-        s["year"] = y
-        s["end"] = np.full(len(y), 9999.0)
-    dated = [s for s in segs if not np.isnan(s["year"]).any()]
-    if dated:
-        t = cKDTree(np.concatenate([s["xy"] for s in dated]))
-        ty = np.concatenate([s["year"] for s in dated])
+            m = np.isnan(y)
+            if box:
+                m &= (s["lon"] >= box[0]) & (s["lon"] <= box[2]) & (s["lat"] >= box[1]) & (s["lat"] <= box[3])
+            y[m], src[m], rid[m] = yr, 1, q
+        miss = np.isnan(y)
+        if miss.any():
+            dd, ii = otree.query(s["xy"][miss], distance_upper_bound=20.0)
+            o = np.where(np.isfinite(dd), oy[np.minimum(ii, len(oy) - 1)], np.nan)
+            if np.isfinite(o).mean() >= 0.5:
+                y[miss] = Counter(np.round(o[np.isfinite(o)], 3)).most_common(1)[0][0]
+                src[miss] = 2
+        s["year"], s["src"], s["rule"] = y, src, rid
+        s["end"] = np.full(k, 9999.0)
+    have = np.concatenate([~np.isnan(s["year"]) for s in segs])
+    if have.any():
+        t = cKDTree(np.concatenate([s["xy"] for s in segs])[have])
+        ty = np.concatenate([s["year"] for s in segs])[have]
         for s in segs:
             miss = np.isnan(s["year"])
             if miss.any():
                 dd, ii = t.query(s["xy"][miss], distance_upper_bound=400.0)
                 ok = np.isfinite(dd)
-                s["year"][np.nonzero(miss)[0][ok]] = ty[ii[ok]]
+                at = np.nonzero(miss)[0][ok]
+                s["year"][at] = ty[ii[ok]]
+                s["src"][at] = 3
     keep = [s for s in segs if not np.isnan(s["year"]).any()]
-    log(f"transit: {len(keep)} railroad track segments ({sum(s['L'] for s in keep) / 1000:.0f} km of track): {n_rule} dated by "
-        f"transit_openings.csv, {n_ohm} from OpenHistoricalMap, {len(keep) - len(dated)} from the nearest dated track, "
-        f"{len(segs) - len(keep)} undated left out")
+    km = defaultdict(float)
+    for s in segs:
+        w = s["L"] / len(s["xy"]) / 1000
+        for c in (False, True):
+            for v in (0, 1, 2, 3):
+                km[(c, v)] += w * float(((s["county"] == c) & (s["src"] == v)).sum())
+    for c in (False, True):
+        log(f"transit: railroad / PATH / light rail track {'in the counties' if c else 'in the city'}: {km[(c, 1)]:.0f} km dated by a row of "
+            f"transit_openings.csv, {km[(c, 2)]:.0f} km by OpenHistoricalMap, {km[(c, 3)]:.0f} km from the nearest dated track, "
+            f"{km[(c, 0)]:.0f} km undated (left out with their track)")
+    county_report(segs, rules, ohm)
     return keep
+
+
+def county_report(segs, rules, ohm):
+    """data/interim/transit/: how the counties' track was dated, line by line; the rows against
+    OpenHistoricalMap's dates; track that opens before its ground (made land; reported, not changed)."""
+    out = INTERIM / "transit"
+    out.mkdir(parents=True, exist_ok=True)
+    rows, chk, gr = defaultdict(lambda: np.zeros(4)), defaultdict(list), defaultdict(lambda: np.zeros(2))
+    otree, oy = ohm
+    try:
+        from ground_rule import land_year_at
+    except Exception as e:  # noqa: BLE001
+        land_year_at = None
+        log(f"transit: ground_rule not available ({e})")
+    for s in segs:
+        c = s["county"]
+        if not c.any():
+            continue
+        w = s["L"] / len(s["xy"]) / 1000
+        for v in range(4):
+            rows[(s["sys"], s["name"])][v] += w * float((c & (s["src"] == v)).sum())
+        m = c & (s["src"] == 1)
+        if m.any():
+            dd, ii = otree.query(s["xy"][m], distance_upper_bound=20.0)
+            ok = np.isfinite(dd)
+            for q, d in zip(s["rule"][m][ok], s["year"][m][ok] - oy[ii[ok]]):
+                chk[rules[q][3]].append(d)
+        if land_year_at is not None:
+            ly = land_year_at(s["lon"], s["lat"])
+            bad = c & np.isfinite(ly) & np.isfinite(s["year"]) & (s["year"] < ly)
+            gr[(s["sys"], s["name"])] += [w * float(bad.sum()), w * float((c & np.isfinite(ly)).sum())]
+    t = pd.DataFrame([{"system": k[0], "line": k[1], "km_row": v[1], "km_ohm": v[2], "km_nearest": v[3], "km_undated": v[0]} for k, v in rows.items()])
+    t.round(2).sort_values("km_nearest", ascending=False).to_csv(out / "county_rail_dating.csv", index=False)
+    c = pd.DataFrame([{"route_id": k, "samples": len(v), "median_row_minus_ohm": float(np.median(v)), "share_within_1y": float((np.abs(v) <= 1).mean()),
+                       "max_abs": float(np.abs(v).max())} for k, v in chk.items()])
+    c.round(3).to_csv(out / "county_rail_ohm_check.csv", index=False)
+    g = pd.DataFrame([{"system": k[0], "line": k[1], "km_before_ground": v[0], "km_on_made_land": v[1]} for k, v in gr.items() if v[1] > 0])
+    g.round(2).sort_values("km_before_ground", ascending=False).to_csv(out / "county_rail_ground.csv", index=False)
+    if len(g):
+        log(f"transit: counties: {g.km_before_ground.sum():.1f} km of track open before its ground of {g.km_on_made_land.sum():.1f} km on made land "
+            f"(data/interim/transit/county_rail_ground.csv; causeways across the marsh are real - reported, not changed)")
+
+
+# ---------------------------------------------------------------- rapid transit of the counties
+def relation_line(rel):
+    """An OpenStreetMap route relation (out body geom) -> its ways joined in order (lon/lat), the largest
+    gap between two consecutive ways (m), the stop positions."""
+    ways = [np.array([(q["lon"], q["lat"]) for q in m["geometry"]]) for m in rel["members"]
+            if m["type"] == "way" and m.get("role", "") in ("", "forward", "backward") and m.get("geometry")]
+    k = np.array([84400.0, 111320.0])
+
+    def d(p, q):
+        return float(np.hypot(*((p - q) * k)))
+
+    line = ways[0]
+    if len(ways) > 1 and min(d(line[0], ways[1][0]), d(line[0], ways[1][-1])) < min(d(line[-1], ways[1][0]), d(line[-1], ways[1][-1])):
+        line = line[::-1]
+    gap = 0.0
+    for w in ways[1:]:
+        if d(line[-1], w[-1]) < d(line[-1], w[0]):
+            w = w[::-1]
+        g = d(line[-1], w[0])
+        gap = max(gap, g)
+        line = np.vstack([line, w[1:] if g < 0.5 else w])
+    stops = np.array([(m["lon"], m["lat"]) for m in rel["members"] if m["type"] == "node" and m.get("role", "").startswith("stop") and "lon" in m])
+    return line, gap, stops
+
+
+def rapid_lines(rr, ground):
+    """Service lines of PATH, the Hudson-Bergen Light Rail and the Newark Light Rail (RAPID) on
+    OpenStreetMap's route relations; heights, tunnels and opening years from the dated tracks."""
+    if not RAPID_ROUTES.exists():
+        log("transit: no OpenStreetMap route relations (tools/fetch_region.py routes): the counties get tracks and stations only")
+        return [], [], []
+    rels = {e["id"]: e for e in json.load(open(RAPID_ROUTES))["elements"] if e["type"] == "relation"}
+    trips = {}
+    if (PATH_GTFS / "trips.txt").exists():
+        t = pd.read_csv(PATH_GTFS / "trips.txt", dtype=str)
+        cal = pd.read_csv(PATH_GTFS / "calendar.txt", dtype=str)
+        wk = set(cal[(cal.monday == "1") & (cal.friday == "1")].service_id)
+        trips = t[t.service_id.isin(wk) & (t.direction_id == "0")].groupby("route_id").size().to_dict()
+    out, geo, grp = [], [], []
+    for lid, name, system, veh, cars, headway, color, tset, (ra, rb), route in RAPID:
+        segs = [s for s in rr if (s["sys"] == "path") == (tset == "path") and s["sys"] != "rail"]
+        if ra not in rels or rb not in rels or not segs:
+            log(f"transit: line {lid}: relation or tracks missing - no trains")
+            continue
+        (la, gap_a, stops), (lb, gap_b, _) = relation_line(rels[ra]), relation_line(rels[rb])
+        A = densify_xy(to_utm(la[:, 0], la[:, 1]), 10.0)
+        B = densify_xy(to_utm(lb[:, 0], lb[:, 1]), 5.0)
+        la_m, lb_m = (float(np.hypot(*np.diff(x, axis=0).T).sum()) for x in (A, B))
+        if max(gap_a, gap_b) > 60 or abs(la_m - lb_m) > 0.15 * la_m:
+            log(f"transit: line {lid}: the route relations do not join up (gaps {gap_a:.0f} / {gap_b:.0f} m, {la_m / 1000:.1f} / {lb_m / 1000:.1f} km) - no trains")
+            continue
+        dd, ii = cKDTree(B).query(A, distance_upper_bound=15.0)
+        off = np.where(np.isfinite(dd)[:, None], (B[np.minimum(ii, len(B) - 1)] - A) / 2, 0.0)
+        off = pd.DataFrame(off).rolling(7, center=True, min_periods=1).mean().values
+        xy = A + off
+        tr = (np.concatenate([s["xy"] for s in segs]), np.concatenate([s["h"] for s in segs]), np.concatenate([s["tn"] for s in segs]),
+              np.concatenate([np.full(len(s["xy"]), q) for q, s in enumerate(segs)]))
+        tr = (*tr, cKDTree(tr[0]))
+        ty = np.concatenate([s["year"] for s in segs])
+        if headway is None:
+            headway = int(round(20 * 3600 / max(trips.get(route, 120), 1) / 30) * 30)
+        spec = {"id": lid, "name": name, "system": system, "veh": veh, "cars": cars, "headway": headway, "color": color, "div": ""}
+
+        def years(pts, tn, tree=tr[4], ty=ty):
+            return median_filter(ty[tree.query(pts)[1]], size=13, mode="nearest")
+
+        sxy = to_utm(stops[:, 0], stops[:, 1]) if len(stops) else np.zeros((0, 2))
+        ol, lxy = build_line(spec, xy, segs, tr, ground, years, list(sxy), veh)
+        out.append(ol)
+        geo.append(lxy)
+        grp.append(tset)
+    return out, geo, grp
 
 
 def former_railroads(ground):

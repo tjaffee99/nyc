@@ -84,7 +84,9 @@ def main():
       "EVIDENCE ONLY - do not apply it beyond the rows already in the building table |")
     A("| `tools/` | `sites_def.py`, `sites_def2.py` (the sites), `buildings_def.py`, `demolished_def.py`, `build.py`, "
       "`build_buildings.py`, `build_demolished.py`, `readme.py`; `geom.py` (outlines), `fetch_wp.py` + `wp_titles.txt` + "
-      "`wp_facts.py` (source text), `topo.py`, `date_editions.py`, `run_editions.py` (USGS editions), `audit.py` |")
+      "`wp_facts.py` (source text), `topo.py`, `trace_ink.py`, `date_editions.py`, `run_editions.py`, "
+      "`validate_brackets.py` (USGS editions), `audit.py` |")
+    A("| `traced/` | outlines vectorised from USGS sheets (`trace_ink.py`) |")
     A("\nDownloads are in `data/raw/sites/` (`wp/` article text, `usgs/` sheet crops and metadata), scratch in "
       "`data/interim/sites/` (`audit.csv`, `editions/`). Rebuild (a few minutes; `run_editions.py` about 30 minutes "
       "cold, each process under 1 GB):\n")
@@ -131,8 +133,9 @@ def main():
       f"is written out as rows ({len(ks)} `site_stamp:` rows, all in " + ", ".join(sorted(set(ks.id.str.split(":").str[1]))) +
       "), because the pipeline's floor does not reach recorded years.\n")
     A("**Structures that are gone** (`demolished_def.py`): outlines of Fort Lafayette, the two Elmhurst gas holders, "
-      "five holders of the Gas House District, Goldwater Memorial Hospital and City Hospital were read on USGS 1:24,000 "
-      "sheets in a metre grid (`topo.py render`; NAD27 by PROJ's three-parameter shift, +-10 m); Waterside is its two "
+      "five holders of the Gas House District were read on USGS 1:24,000 sheets in a metre grid (`topo.py render`), "
+      "Goldwater Memorial Hospital and City Hospital are the sheet's own ink, vectorised (`trace_ink.py`, "
+      "`traced/welfare_island_1966.json`); NAD27 by PROJ's three-parameter shift, +-10 m; Waterside is its two "
       "street blocks; the rest are rectangles from cited or estimated dimensions.\n")
     A("### What the map brackets are worth\n")
     A("`date_editions.py` reads every footprint of a site on each USGS 1:24,000 edition (1947 editions from 1940-42 "
@@ -154,7 +157,8 @@ def main():
       f"{km.id.str.split(':').str[1].nunique()} isolated civil campuses and plants founded after 1925 ({len(km)} rows): "
       f"{len(km) - two} footprints drawn on the first sheet after the site's founding take the founding year (the true "
       f"year lies between the founding and that sheet), and {two} absent-then-drawn brackets on Rikers Island, where the "
-      "sheets were also looked at (the 1977 and 1997 revisions print the new jails in purple). These rows could not be "
+      "1966 and 1997 sheets were also looked at (the 1997 revision prints jails that the 1966 sheet lacks in purple; "
+      "the 1977 photorevision, which carries six of the eight brackets, was read by the tool only). These rows could not be "
       "checked against records - no building in those sites has an independent year inside a bracket - and all say "
       "\"estimated\". Everything else stays in `edition_brackets.csv` as readings, not dates.\n")
     A("## Sites\n")

@@ -263,44 +263,79 @@ def pixel_layers(g, valid):
 
 
 # ----------------------------------------------------------------------------- registration
-REG_R = 8       # search radius, pixels (7 m)
-REG_Z = 4.0     # the peak must stand this many sigmas above the rest of the search window
-REG_MIN = 150   # buildings needed
+REG_R = 8          # search radius, pixels (7 m)
+REG_MIN_PX = 12000  # outline pixels a group needs
+REG_Q = 2          # quadrants per side of a block (each 1024 px = 930 m)
 
 
-def estimate_offset(G, valid, geoms, use):
-    """Shift (dx, dy) in pixels by which the photograph is displaced against today's outlines.
-    The mean (locally normalised) gradient magnitude along the outlines of the buildings
-    thought to stand (`use`) is computed for every shift within +-REG_R pixels; the peak is
-    taken when it is clear (REG_Z sigmas above the window, not on its border), else no shift is
-    applied. Returns dx, dy, z of the peak."""
+def estimate_offsets(G, valid, geoms, use, cx, cy):
+    """Shift (dx, dy), in pixels, by which the photograph is displaced against today's outlines,
+    for every footprint (centre cx, cy in array pixels).
+
+    The mean (locally normalised) gradient magnitude along the outlines of the buildings thought
+    to stand (`use`) is computed for every shift within +-REG_R pixels: its peak is where the
+    roof edges of the photograph fall on the outlines. The buildings are split into two halves
+    at random and a peak counts only when both halves find it (within a pixel, not on the border
+    of the search window) - the chance that two noise peaks agree is about 3 %. A quadrant of
+    the block (930 m) uses its own peak when it has one, else the block's, else no shift.
+    Returns dx, dy (arrays) and level (2 = quadrant, 1 = block, 0 = none)."""
     import shapely
     from rasterio import features
     from scipy import ndimage as ndi
-    if use.sum() < REG_MIN:
-        return 0.0, 0.0, 0.0
-    O = features.rasterize([(b, 1) for b in shapely.boundary(geoms[use])], out_shape=G.shape, fill=0,
-                           dtype="uint8", all_touched=True)
+    n = len(geoms)
+    dx = np.zeros(n)
+    dy = np.zeros(n)
+    level = np.zeros(n, "int8")
+    ids = np.flatnonzero(use)
+    if len(ids) < 100:
+        return dx, dy, level
+    half = np.random.default_rng(0).integers(0, 2, n)
+    O = features.rasterize([(b, int(i) + 1) for b, i in zip(shapely.boundary(geoms[ids]), ids)], out_shape=G.shape, fill=0,
+                           dtype="int32", all_touched=True)
     O[~valid] = 0
     idx = np.flatnonzero(O.ravel())
-    if len(idx) < 5000:
-        return 0.0, 0.0, 0.0
-    if len(idx) > 300000:
-        idx = idx[:: len(idx) // 300000 + 1]
+    if len(idx) < REG_MIN_PX:
+        return dx, dy, level
+    if len(idx) > 400000:
+        idx = idx[:: len(idx) // 400000 + 1]
+    H, W = G.shape
+    py, px = np.divmod(idx, W)
+    qs = NB * TILE // REG_Q
+    quad = np.clip((py - MARGIN) // qs, 0, REG_Q - 1) * REG_Q + np.clip((px - MARGIN) // qs, 0, REG_Q - 1)
+    grp = quad * 2 + half[O.ravel()[idx] - 1]
+    ng = REG_Q * REG_Q * 2
+    cnt = np.bincount(grp, minlength=ng)
     Gn = (G / (ndi.uniform_filter(G, 41) + 0.02)).ravel()
-    W = G.shape[1]
     R = REG_R
-    surf = np.zeros((2 * R + 1, 2 * R + 1))
-    for dy in range(-R, R + 1):
-        for dx in range(-R, R + 1):
-            surf[dy + R, dx + R] = Gn[np.clip(idx + dy * W + dx, 0, Gn.size - 1)].mean()
-    k = np.unravel_index(surf.argmax(), surf.shape)
-    rest = surf.copy()
-    rest[max(0, k[0] - 2):k[0] + 3, max(0, k[1] - 2):k[1] + 3] = np.nan
-    zc = float((surf.max() - np.nanmedian(rest)) / (np.nanstd(rest) + 1e-9))
-    if zc < REG_Z or k[0] in (0, 2 * R) or k[1] in (0, 2 * R):
-        return 0.0, 0.0, zc
-    return float(k[1] - R), float(k[0] - R), zc
+    surf = np.zeros((ng, 2 * R + 1, 2 * R + 1))
+    for ddy in range(-R, R + 1):
+        for ddx in range(-R, R + 1):
+            surf[:, ddy + R, ddx + R] = np.bincount(grp, weights=Gn[np.clip(idx + ddy * W + ddx, 0, Gn.size - 1)], minlength=ng)
+
+    def agreed(a, b, na, nb):
+        if na < REG_MIN_PX / 2 or nb < REG_MIN_PX / 2:
+            return None
+        ka = np.unravel_index(a.argmax(), a.shape)
+        kb = np.unravel_index(b.argmax(), b.shape)
+        if max(abs(ka[0] - kb[0]), abs(ka[1] - kb[1])) > 1:
+            return None
+        k = np.unravel_index((a + b).argmax(), a.shape)
+        if k[0] in (0, 2 * R) or k[1] in (0, 2 * R):
+            return None
+        return float(k[1] - R), float(k[0] - R)
+
+    blk = agreed(surf[0::2].sum(0), surf[1::2].sum(0), cnt[0::2].sum(), cnt[1::2].sum())
+    fq = np.clip((cy - MARGIN) // qs, 0, REG_Q - 1).astype(int) * REG_Q + np.clip((cx - MARGIN) // qs, 0, REG_Q - 1).astype(int)
+    for q in range(REG_Q * REG_Q):
+        o = agreed(surf[2 * q], surf[2 * q + 1], cnt[2 * q], cnt[2 * q + 1])
+        lv = 2
+        if o is None:
+            o, lv = blk, 1
+        if o is None:
+            continue
+        m = fq == q
+        dx[m], dy[m], level[m] = o[0], o[1], lv
+    return dx, dy, level
 
 
 # ----------------------------------------------------------------------------- features
@@ -472,7 +507,7 @@ def process_block_year(year: int, bx: int, by: int, apply_offset: bool = True):
     if blk is None:
         cols = {f: np.full(len(res), np.nan, "float32") for f in names}
         cols["cover"][:] = 0
-        dx = dy = ngood = 0.0
+        dx = dy = level = np.zeros(len(df))
     else:
         g, valid, x0, y0 = blk
         cut = PAD * TILE - MARGIN
@@ -481,18 +516,198 @@ def process_block_year(year: int, bx: int, by: int, apply_offset: bool = True):
         valid = blank_mask(g, valid)
         P = pixel_layers(g, valid)
         geoms = shapely.transform(df.geom_px.values, lambda c: c - np.array([x0, y0], "float64"))
-        dx = dy = ngood = 0.0
+        dx = np.zeros(len(df))
+        dy = np.zeros(len(df))
+        level = np.zeros(len(df), "int8")
         if apply_offset:
             use = (df.start_year.values <= year - 1) & (df.area.values > 60)
-            dx, dy, ngood = estimate_offset(P["G"], valid, geoms, use)     # ngood: z of the peak
-            if dx or dy:
-                geoms = shapely.transform(geoms, lambda c: c + np.array([dx, dy]))
+            cen = shapely.centroid(geoms)
+            dx, dy, level = estimate_offsets(P["G"], valid, geoms, use, shapely.get_x(cen), shapely.get_y(cen))
+            if level.any():
+                xy = shapely.get_coordinates(geoms)
+                rep = shapely.get_num_coordinates(geoms)
+                xy = xy + np.column_stack([np.repeat(dx, rep), np.repeat(dy, rep)])
+                geoms = shapely.set_coordinates(geoms.copy(), xy)
         f = block_features(g, valid, P, geoms)
         cols = {name: f[name][inblock].astype("float32") for name in names}
-    cols["offx"] = np.full(len(res), dx, "float32")
-    cols["offy"] = np.full(len(res), dy, "float32")
-    cols["reg_z"] = np.full(len(res), ngood, "float32")
+    cols["offx"] = dx[inblock].astype("float32")
+    cols["offy"] = dy[inblock].astype("float32")
+    cols["reg_level"] = np.asarray(level)[inblock].astype("int8")
     return pd.concat([res, pd.DataFrame(cols)], axis=1)
+
+
+# ----------------------------------------------------------------------------- "certainly no building" outlines
+# Recorded years say where a building certainly stood (it is older than the photograph) but
+# hardly ever where none stood: a later building often replaced an earlier one on the same
+# outline, and the assessor's later years are themselves doubtful. Outlines that certainly held
+# no building are made instead: real footprints of ordinary size moved onto the carriageway of
+# the nearest street (turned to run along it), where the photograph shows the street - or the
+# field that was there before the street. They train and test the "no building" side.
+OVERTURE_DIR = RAW / "overture"
+_roads = None
+SYN_PER_BLOCK = 600
+
+
+def road_lines():
+    """Overture street centre lines (no motorways) in global pixel coordinates, with an STRtree."""
+    global _roads
+    if _roads is None:
+        import duckdb
+        import shapely
+        d = sorted(OVERTURE_DIR.glob("*/roads_local.parquet"))[-1].parent
+        con = duckdb.connect()
+        rows = con.execute(f"select ST_AsWKB(geometry) from '{d}/roads_local.parquet' where class in ('residential', 'unclassified')").fetchall()
+        rows += con.execute(f"select ST_AsWKB(geometry) from '{d}/roads_region.parquet' where class in ('tertiary', 'secondary')").fetchall()
+        g = shapely.from_wkb([bytes(r[0]) for r in rows])
+        g = g[shapely.get_type_id(g) == 1]
+
+        def tr(c):
+            x, y = lonlat_to_pixel(c[:, 0], c[:, 1])
+            return np.column_stack([x, y])
+        g = shapely.transform(g, tr)
+        _roads = (shapely.STRtree(g), g)
+    return _roads
+
+
+def street_outlines(geoms, area_m2, seed):
+    """Footprints moved onto the nearest street (global pixel coordinates). Returns the new
+    geometries and the index of the footprint each was made from."""
+    import shapely
+    from shapely import affinity
+    tree, lines = road_lines()
+    rng = np.random.default_rng(seed)
+    cand = np.flatnonzero((area_m2 >= 40) & (area_m2 <= 400))
+    if len(cand) == 0:
+        return np.array([], dtype=object), np.array([], dtype=int)
+    cand = rng.choice(cand, min(len(cand), SYN_PER_BLOCK * 2), replace=False)
+    cen = shapely.centroid(geoms[cand])
+    pairs = tree.query_nearest(cen, max_distance=70.0, all_matches=False)
+    out, src = [], []
+    for k, li in zip(pairs[0], pairs[1]):
+        gm = geoms[cand[k]]
+        line = lines[li]
+        d = shapely.line_locate_point(line, cen[k])
+        pt = shapely.line_interpolate_point(line, d)
+        a = shapely.line_interpolate_point(line, max(d - 3, 0))
+        b = shapely.line_interpolate_point(line, min(d + 3, line.length))
+        if a.equals(b):
+            continue
+        street = math.atan2(b.y - a.y, b.x - a.x)
+        r = np.asarray(shapely.minimum_rotated_rectangle(gm).exterior.coords)
+        e1, e2 = r[1] - r[0], r[2] - r[1]
+        l1, l2 = math.hypot(*e1), math.hypot(*e2)
+        if min(l1, l2) > 11 or max(l1, l2) > 33:           # must fit the street: 10 m wide, 30 m long
+            continue
+        e = e1 if l1 >= l2 else e2
+        rot = street - math.atan2(e[1], e[0])
+        c = cen[k]
+        g2 = affinity.translate(affinity.rotate(gm, rot, origin=(c.x, c.y), use_radians=True), pt.x - c.x, pt.y - c.y)
+        out.append(g2)
+        src.append(cand[k])
+    if not out:
+        return np.array([], dtype=object), np.array([], dtype=int)
+    out = np.array(out, dtype=object)
+    src = np.array(src)
+    # not on a real footprint, not on each other
+    real = shapely.STRtree(geoms)
+    hit = np.unique(real.query(out, predicate="intersects")[0])
+    keep = np.ones(len(out), bool)
+    keep[hit] = False
+    st = shapely.STRtree(out)
+    i, j = st.query(out, predicate="intersects")
+    for a_, b_ in zip(i, j):
+        if a_ < b_ and keep[a_]:
+            keep[b_] = False
+    out, src = out[keep], src[keep]
+    return out[:SYN_PER_BLOCK], src[:SYN_PER_BLOCK]
+
+
+def synthetic_path(year: int, bx: int, by: int) -> Path:
+    return WORK / "synthetic" / str(year) / f"{bx}_{by}.parquet"
+
+
+def process_block_synthetic(year: int, bx: int, by: int):
+    """Features of the street outlines of one block (same code path as the real footprints: the
+    real footprints are rasterised with them, so rings exclude today's buildings in both)."""
+    import pandas as pd
+    import shapely
+    df = block_footprints(bx, by, pad_tiles=MARGIN / TILE)
+    blk = load_block(year, bx, by)
+    if len(df) < 50 or blk is None:
+        return None
+    lo0, la0, lo1, la1 = block_lonlat(bx, by)
+    inblock = ((df.lon >= lo0) & (df.lon < lo1) & (df.lat >= la0) & (df.lat < la1)).values
+    g, valid, x0, y0 = blk
+    cut = PAD * TILE - MARGIN
+    g, valid = g[cut:-cut, cut:-cut], valid[cut:-cut, cut:-cut]
+    x0, y0 = x0 + cut, y0 + cut
+    valid = blank_mask(g, valid)
+    P = pixel_layers(g, valid)
+    gpx = df.geom_px.values
+    syn, src = street_outlines(gpx[inblock], df.area.values[inblock], seed=bx * 100003 + by)
+    if len(syn) == 0:
+        return None
+    src = np.flatnonzero(inblock)[src]
+    allg = np.concatenate([gpx, syn])
+    geoms = shapely.transform(allg, lambda c: c - np.array([x0, y0], "float64"))
+    use = np.zeros(len(allg), bool)
+    use[:len(df)] = (df.start_year.values <= year - 1) & (df.area.values > 60)
+    cen = shapely.centroid(geoms)
+    dx, dy, level = estimate_offsets(P["G"], valid, geoms, use, shapely.get_x(cen), shapely.get_y(cen))
+    if level.any():
+        xy = shapely.get_coordinates(geoms)
+        rep = shapely.get_num_coordinates(geoms)
+        geoms = shapely.set_coordinates(geoms.copy(), xy + np.column_stack([np.repeat(dx, rep), np.repeat(dy, rep)]))
+    f = block_features(g, valid, P, geoms)
+    n0 = len(df)
+    cols = {name: f[name][n0:].astype("float32") for name in FEATS + GEOM + ["cover"]}
+    res = pd.DataFrame(cols)
+    res.insert(0, "doitt_id", ["syn_" + s_ for s_ in df.doitt_id.values[src]])
+    res["boro"] = df.boro.values[src]
+    c = shapely.centroid(syn)
+    res["px"] = shapely.get_x(c)
+    res["py"] = shapely.get_y(c)
+    res["bx"] = np.int32(bx)
+    res["by"] = np.int32(by)
+    return res
+
+
+def _syn_job(job):
+    year, bx, by = job
+    out = synthetic_path(year, bx, by)
+    if out.exists():
+        return job, 0
+    res = process_block_synthetic(year, bx, by)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    if res is None:
+        import pandas as pd
+        res = pd.DataFrame({"doitt_id": []})
+    tmp = out.with_suffix(".part")
+    res.to_parquet(tmp)
+    tmp.rename(out)
+    return job, len(res)
+
+
+def step_synthetic(workers: int = 3, n_blocks: int = 110):
+    """Street outlines for a fixed sample of blocks (every borough), both years."""
+    from multiprocessing import Pool
+    t = tile_list()
+    rng = np.random.default_rng(11)
+    jobs = []
+    for boro in BORO_ORDER:
+        bl = sorted(set(zip(t[t.bboro == boro].bx, t[t.bboro == boro].by)))
+        size = t[t.bboro == boro].groupby(["bx", "by"]).n.sum()
+        bl = [b for b in bl if size[b] > 8000]            # blocks with at least ~2,000 footprints
+        rng.shuffle(bl)
+        for b in bl[: max(8, n_blocks * len(bl) // 220)]:
+            jobs += [(year, int(b[0]), int(b[1])) for year in YEARS]
+    jobs = [j for j in jobs if not synthetic_path(*j).exists()]
+    log(f"synthetic: {len(jobs)} block-years to do")
+    with Pool(workers) as pool:
+        for k, (job, n) in enumerate(pool.imap_unordered(_syn_job, jobs)):
+            if k % 20 == 0:
+                log(f"  {k}/{len(jobs)} {job} {n} outlines")
+    log("synthetic: done")
 
 
 def feature_path(year: int, bx: int, by: int) -> Path:
@@ -795,5 +1010,7 @@ if __name__ == "__main__":
             step_tiles()
         elif st == "features":
             step_features()
+        elif st == "synthetic":
+            step_synthetic()
         elif st == "features-follow":
-            step_features(workers=2, follow=True)
+            step_features(workers=3, follow=True)

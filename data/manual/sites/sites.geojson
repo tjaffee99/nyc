@@ -8073,20 +8073,119 @@
 "ground": "yard",
 "label": true,
 "source_url": "https://en.wikipedia.org/wiki/West_Side_Yard",
-"note": "Opened 1987; decked over for Hudson Yards from 2012.",
+"note": "Opened 1987. Outline: the western yard, still open.",
 "date_basis": "text",
 "floor": false,
-"area_ha": 10.3,
-"lon": -74.00271,
-"lat": 40.754325
+"area_ha": 6.3,
+"lon": -74.003995,
+"lat": 40.75489
 },
 "geometry": {
 "type": "Polygon",
 "coordinates": [
 [
 [
--74.001702,
-40.754689
+-74.005105,
+40.75614
+],
+[
+-74.001798,
+40.754742
+],
+[
+-74.001522,
+40.75459
+],
+[
+-74.000642,
+40.753902
+],
+[
+-74.00008,
+40.753603
+],
+[
+-74.000183,
+40.753463
+],
+[
+-74.000482,
+40.753531
+],
+[
+-74.000938,
+40.753583
+],
+[
+-74.001363,
+40.753577
+],
+[
+-74.002634,
+40.753714
+],
+[
+-74.003955,
+40.753962
+],
+[
+-74.005844,
+40.754748
+],
+[
+-74.005837,
+40.755032
+],
+[
+-74.005736,
+40.75526
+],
+[
+-74.005105,
+40.75614
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "west_side_yard_east",
+"name": "West Side Yard (eastern yard)",
+"kind": "rail_yard",
+"start_year": 1987,
+"end_year": 2012,
+"after": "city",
+"ground": "yard",
+"label": false,
+"source_url": "https://en.wikipedia.org/wiki/West_Side_Yard",
+"note": "Opened 1987; decked over for Hudson Yards (end year estimated: the platform was begun about 2012). Outline: the street block Tenth to Eleventh Avenue, 30th to 33rd Street.",
+"date_basis": "text",
+"floor": false,
+"area_ha": 5.8,
+"lon": -74.001728,
+"lat": 40.753598
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-74.002922,
+40.754521
+],
+[
+-74.002305,
+40.754265
+],
+[
+-74.002163,
+40.75425
+],
+[
+-74.002058,
+40.754305
 ],
 [
 -74.001629,
@@ -8105,36 +8204,8 @@
 40.753276
 ],
 [
--74.003401,
-40.753863
-],
-[
--74.003955,
-40.753962
-],
-[
--74.005844,
-40.754748
-],
-[
--74.005854,
-40.754831
-],
-[
--74.005837,
-40.755032
-],
-[
--74.005736,
-40.75526
-],
-[
--74.005105,
-40.75614
-],
-[
--74.001702,
-40.754689
+-74.002922,
+40.754521
 ]
 ]
 ]
@@ -10538,98 +10609,60 @@
 "ground": "paved",
 "label": true,
 "source_url": "https://en.wikipedia.org/wiki/Waterside_Generating_Station",
-"note": "No. 1 (38th-39th Street) began operating October 1901, No. 2 (39th-40th) November 1906; decommissioned 2005 and demolished. Outline: the street blocks First Avenue - FDR Drive, 38th to 41st Street.",
+"note": "No. 1 (38th-39th Street) began operating October 1901, No. 2 (39th-40th) November 1906; decommissioned 2005 and demolished. Outline: today's empty superblock First Avenue - FDR Drive, 38th to 41st Street.",
 "date_basis": "text",
 "floor": false,
-"area_ha": 3.8,
+"area_ha": 2.8,
 "lon": -73.970153,
 "lat": 40.746983
 },
 "geometry": {
-"type": "MultiPolygon",
+"type": "Polygon",
 "coordinates": [
 [
 [
+-73.969687,
+40.747894
+],
+[
+-73.968866,
+40.747552
+],
+[
+-73.96877,
+40.747558
+],
+[
+-73.969426,
+40.746756
+],
+[
+-73.970433,
+40.745783
+],
+[
+-73.971591,
+40.746265
+],
+[
+-73.970901,
+40.74721
+],
+[
+-73.970695,
+40.74745
+],
+[
+-73.970399,
+40.747668
+],
+[
+-73.970024,
+40.747813
+],
 [
 -73.969687,
-40.7479
-],
-[
--73.968869,
-40.74756
-],
-[
--73.968764,
-40.747556
-],
-[
--73.96942,
-40.746753
-],
-[
--73.970429,
-40.745778
-],
-[
--73.971596,
-40.746261
-],
-[
--73.970906,
-40.747213
-],
-[
--73.970698,
-40.747456
-],
-[
--73.970401,
-40.747675
-],
-[
--73.970027,
-40.747819
-],
-[
--73.969687,
-40.7479
-]
-]
-],
-[
-[
-[
--73.971274,
-40.744525
-],
-[
--73.97258,
-40.745066
-],
-[
--73.972128,
-40.745693
-],
-[
--73.970918,
-40.745195
-],
-[
--73.97121,
-40.744792
-],
-[
--73.971252,
-40.744681
-],
-[
--73.971243,
-40.744572
-],
-[
--73.971274,
-40.744525
-]
+40.747894
 ]
 ]
 ]

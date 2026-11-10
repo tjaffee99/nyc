@@ -47,7 +47,7 @@ OUT_DIR = MANUAL / "farmsteads"
 HTMC = "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/PDF/"
 UA = "NYCThroughTime-research/0.1"
 DPI = 600                       # render resolution (the scans are 599-600 ppi)
-DETECTOR_VERSION = 3
+DETECTOR_VERSION = 4
 
 # id: (file under HTMC, quadrangle, scale, print year, survey year the sheet shows, collar text, period)
 # Survey years were read off the collars (data/manual/farmsteads/README.md); the catalogue's
@@ -265,6 +265,8 @@ def detect_tile(rgb, thr, thr_loose):
     comps  = connected ink at the loose threshold: what a core is attached to (nothing, a letter, the road net)"""
     from scipy import ndimage as ndi
     mx = rgb.max(-1)
+    sat = mx.astype(np.int16) - rgb.min(-1)                      # black ink is grey; dark brown index contours and dark blue streams are not
+    blue = ndi.uniform_filter(((rgb[..., 2].astype(np.int16) - rgb[..., 0] > 25) & (rgb[..., 2] > 110)).astype(np.float32), 41)
     ink = mx < thr
     inkL = mx < thr_loose
     core = ndi.binary_opening(ink, _disc(CORE_R))
@@ -301,7 +303,7 @@ def detect_tile(rgb, thr, thr_loose):
         iy, ix = sl[0].start + ys[len(ys) // 2], sl[1].start + xs[len(xs) // 2]
         cores.append({"k": k, "sl": sl, "area": a, "L": L, "W": Wd, "fill": fill, "cls": cls,
                       "row": sl[0].start + cy, "col": sl[1].start + cx, "cid": int(lab_ink[iy, ix]),
-                      "dark": float(mx[sl][m].mean())})
+                      "dark": float(mx[sl][m].mean()), "sat": float(sat[sl][m].mean())})
     cls_of = np.array(["x"] + [c["cls"] for c in cores])
     is_mark = (cls_of == "mark")[lab_core]
     mark_halo = ndi.binary_dilation(is_mark, s8, iterations=3)
@@ -375,6 +377,12 @@ def detect_tile(rgb, thr, thr_loose):
             ctx = "network"
         iy, ix = int(round(c["row"])), int(round(c["col"]))
         body = int(body_area[lab_body[iy, ix]]) if lab_body[iy, ix] else c["area"]
+        if c["sat"] > 38:
+            keep, why = False, "colour"
+        ys_, xs_ = np.clip(iy + np.array([0, -20, 20, 0, 0]), 0, H - 1), np.clip(ix + np.array([0, 0, 0, -20, 20]), 0, W - 1)
+        b5 = blue[ys_, xs_]
+        if keep and b5[0] >= 0.25 and b5[1:].min() >= 0.15:
+            keep, why = False, "water"                 # lettering and soundings in open water (a building on the shore has dry ground on one side)
         if keep and at_hole[c["k"]]:
             keep, why = False, "counter"               # the blob borders a closed counter: a letter (or a rail ladder)
         if keep and c["cls"] == "mark" and body > 2.0 * c["area"] + 15:
@@ -401,7 +409,7 @@ def detect_tile(rgb, thr, thr_loose):
             if keep and line >= 0.84:
                 keep, why = False, "line"
         out.append({"col": round(float(c["col"]), 1), "row": round(float(c["row"]), 1), "area": c["area"], "L": round(c["L"], 1),
-                    "W": round(c["W"], 1), "fill": round(c["fill"], 2), "cls": c["cls"], "ctx": ctx, "dark": round(c["dark"]),
+                    "W": round(c["W"], 1), "fill": round(c["fill"], 2), "cls": c["cls"], "ctx": ctx, "dark": round(c["dark"]), "sat": round(c["sat"]),
                     "thin": round(thin / aC, 2), "line": round(line, 2), "keep": keep, "why": why})
     return out
 
@@ -591,7 +599,9 @@ def align(sh: "Sheet", lines, win=240, search=12):
         model = [[round(float(E.mean()), 2), 0.0, 0.0], [round(float(N.mean()), 2), 0.0, 0.0]]
         info["model"], info["rms_m"] = "constant", round(rms0, 1)
     info.update({"used": int(keep.sum()), "sharp": int(len(good)), "rms_constant_m": round(rms0, 1),
-                 "mean_shift_m": [round(float(E.mean()), 1), round(float(N.mean()), 1)]})
+                 "mean_shift_m": [round(float(E.mean()), 1), round(float(N.mean()), 1)],
+                 # per window: page x, page y (px), shift east, north (m), peak sharpness
+                 "window_shifts_m": [[round(float(w[0] * 4)), round(float(w[1] * 4)), round(float(w[2] * cell), 1), round(float(-w[3] * cell), 1), round(float(w[4]), 2)] for w in wins]})
     return model, info
 
 

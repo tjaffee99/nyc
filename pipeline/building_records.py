@@ -425,7 +425,8 @@ def standing_records(c, rep):
         from {csv('historic')} where "LAST_STATUS_TYPE" = 'Demolition' and try_cast("DEMOLITION YEAR" as int) > 0
         group by 1""").df()
     allr = allr.merge(pluto, on="bbl", how="left").merge(demo, on="bbl", how="left")
-    confirmed = ((allr.pluto_year - allr.ry).abs() <= 2) | (allr.first_demolition <= allr.ry + 1)
+    confirmed = (((allr.pluto_year.astype("float64") - allr.ry).abs() <= 2).fillna(False)
+                 | (allr.first_demolition.astype("float64") <= allr.ry + 1).fillna(False))
 
     strong = (allr.p_src == "assessor") & (allr.p_conf == "exact") & (allr.p_raw > 0)
     lpc = allr.p_src.isin(["lpc", "known"])
@@ -439,11 +440,21 @@ def standing_records(c, rep):
     dec[far & ~confirmed] = "skip:unconfirmed_new_building"
     dec[lpc] = "skip:lpc"
     dec[strong & (diff.abs() <= 1)] = "skip:agrees"
-    later = strong & dob & (diff >= 2) & (diff <= 10)
+    # the assessor's year is this building's when it is not older than the job's permit (or within ten years)
+    same = allr.py.isna() | (allr.p_raw >= allr.py - 1) if "py" in allr else True
+    later = strong & dob & (diff >= 2) & (same | (diff <= 10))
+    repl = strong & dob & (diff > 10) & ~same
     dec[later & allr.kind.str.startswith("first_co")] = "write:first_co_later"
     dec[later & (allr.kind == "signoff")] = "skip:signoff_later"
-    dec[strong & dob & (diff > 10) & confirmed] = "write:replaced_building"
-    dec[strong & dob & (diff > 10) & ~confirmed] = "skip:unconfirmed_new_building"
+    # a sign-off later than the assessor's year is written when OTI records a demolition on the lot after
+    # the assessor's year and no later than the sign-off: the assessor's year is the permit's, not the building's
+    dl = c.execute(f"""select "BASE_BBL" bbl, try_cast("DEMOLITION YEAR" as int) dy from {csv('historic')}
+        where "LAST_STATUS_TYPE" = 'Demolition' and try_cast("DEMOLITION YEAR" as int) > 0""").df()
+    cand = allr.loc[later & (allr.kind == "signoff"), ["bbl", "p_raw", "ry"]].reset_index().merge(dl, on="bbl")
+    hit = cand[(cand.dy > cand.p_raw) & (cand.dy <= cand.ry)]["index"].unique()
+    dec[hit] = "write:signoff_after_demolition"
+    dec[repl & confirmed] = "write:replaced_building"
+    dec[repl & ~confirmed] = "skip:unconfirmed_new_building"
     dec[strong & dob & (diff <= -2)] = "skip:assessor_later"
     dec[strong & (allr.src == "nycha") & (diff.abs() >= 2)] = "write:nycha_differs"
     dec[strong & (allr.src == "ll84") & (diff.abs() >= 2)] = "skip:ll84_vs_assessor"
@@ -493,6 +504,11 @@ def standing_records(c, rep):
                 "off_by_10plus": round(float((dd.abs() >= 10).mean()), 3),
                 "median": float(dd.median()), "p10": float(dd.quantile(0.1)), "p90": float(dd.quantile(0.9))}
     rep["quality_record_minus_assessor_year"] = q
+    dd = allr[strong & dob & allr.py.notna()]
+    rep["assessor_year_minus_permit_year"] = {int(k_): int(v) for k_, v in
+                                              (dd.p_raw - dd.py).clip(-4, 6).value_counts().sort_index().items()}
+    rep["record_year_minus_permit_year"] = {k_: {int(a_): int(v) for a_, v in (g_.ry - g_.py).clip(-1, 8).value_counts().sort_index().items()}
+                                            for k_, g_ in dd.groupby("kind")}
     hq = {}
     weak = allr.p_src.fillna("").str.startswith("heap")
     for k, g in allr[weak & (allr.kind != "ll84")].groupby("kind"):
@@ -772,8 +788,15 @@ def demolished(c, heaps, rep):
             "note": "; ".join(notes) or None,
         }
         mp = shapely.geometry.mapping(gm)
-        feats.append({"type": "Feature", "properties": props,
-                      "geometry": {"type": mp["type"], "coordinates": _round(mp["coordinates"])}})
+        mp = {"type": mp["type"], "coordinates": _round(mp["coordinates"])}
+        chk = shapely.geometry.shape(mp)
+        if not chk.is_valid:  # rounding to 1e-6 degrees closed a sliver
+            chk = shapely.buffer(chk, 0)
+            if chk.is_empty or chk.geom_type not in ("Polygon", "MultiPolygon"):
+                continue
+            mp = shapely.geometry.mapping(chk)
+            mp = {"type": mp["type"], "coordinates": _round(mp["coordinates"])}
+        feats.append({"type": "Feature", "properties": props, "geometry": mp})
     OUT_DEMO.parent.mkdir(parents=True, exist_ok=True)
     with open(OUT_DEMO, "w") as f:
         f.write('{"type":"FeatureCollection","name":"demolished_footprints","features":[\n')

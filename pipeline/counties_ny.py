@@ -55,7 +55,11 @@ PARCEL_FIELDS = ("OBJECTID,COUNTY_NAME,MUNI_NAME,SWIS,CITYTOWN_NAME,PRINT_KEY,SB
 PAGE = 2000  # OBJECTIDs per request
 # NYS ITS Geospatial Services, "NYS Building Footprints" (county planimetrics collected for NYSERDA; no heights)
 STATE_FP = "https://gisservices.its.ny.gov/arcgis/rest/services/BuildingFootprints/FeatureServer/2/query"
-FILL_OVERLAP = 0.10  # a state footprint fills a gap if Overture's footprints cover less than this share of it
+# a state footprint fills a gap if Overture's footprints cover less than this share of it and less than FILL_AREA m2
+FILL_OVERLAP = 0.10
+FILL_AREA = 5.0
+# NYS ITS Geospatial Services, "NYS Civil Boundaries" (layer 6 cities and towns, 7 villages)
+CIVIL = "https://gisservices.its.ny.gov/arcgis/rest/services/NYS_Civil_Boundaries/FeatureServer"
 # State Historic Preservation Office, Cultural Resource Information System: inventoried buildings
 CRIS_USN = "https://services.arcgis.com/1xFZPtKn1wKC6POA/arcgis/rest/services/Building_USN_Points/FeatureServer/2/query"
 UTM = "EPSG:32618"  # common.NYC_CRS
@@ -188,6 +192,53 @@ def download_cris(key):
     log(f"cris {name}: {total} inventoried buildings in the county's box")
 
 
+def download_civil(key):
+    """City, town and village outlines of the county (NYS Civil Boundaries)."""
+    name = COUNTIES[key][0]
+    for layer, what in ((6, "cities_towns"), (7, "villages")):
+        f = CACHE / "civil" / f"{name}_{what}.geojson"
+        if f.exists():
+            continue
+        f.parent.mkdir(parents=True, exist_ok=True)
+        d = get_json(f"{CIVIL}/{layer}/query", {"where": f"COUNTY LIKE '%{name}%'", "outFields": "*", "outSR": 4326,
+                                                 "geometryPrecision": 6, "f": "geojson"})
+        f.write_text(json.dumps(d))
+        log(f"civil {name}: {len(d['features'])} {what}")
+
+
+def muni_outlines(key, g):
+    """One outline per municipality of the built file (a village; a town outside its villages; a
+    city) with the share of its main homes that carry a year -> ny_<county>_munis.geojson.
+    The pieces are named by the footprints inside them, not by matching names."""
+    import geopandas as gpd
+    import shapely
+    name = COUNTIES[key][0]
+    fs = [CACHE / "civil" / f"{name}_{w}.geojson" for w in ("cities_towns", "villages")]
+    if not all(f.exists() for f in fs):
+        return
+    towns, villages = (gpd.read_file(f).to_crs(UTM) for f in fs)
+    towns = towns[towns.COUNTY.fillna("").str.contains(name)]
+    vu = shapely.union_all(villages.geometry.values) if len(villages) else None
+    rest = towns.geometry.difference(vu) if vu is not None else towns.geometry
+    pieces = gpd.GeoDataFrame(geometry=list(villages.geometry.values) + [x for x in rest.values if not x.is_empty], crs=UTM)
+    pieces = pieces.explode(index_parts=False).reset_index(drop=True)
+    pieces = pieces[pieces.area > 1e4].reset_index(drop=True)
+    pts = gpd.GeoDataFrame({"muni": g.muni.values}, geometry=gpd.points_from_xy(g.lon, g.lat), crs=4326).to_crs(UTM)
+    j = gpd.sjoin(pts[pts.muni != ""], pieces, predicate="within")
+    pieces["muni"] = j.groupby("index_right").muni.agg(lambda v: v.value_counts().index[0]).reindex(pieces.index)
+    out = pieces.dropna(subset=["muni"]).dissolve("muni").reset_index()
+    st = g.groupby("muni").agg(footprints=("id", "size"), with_year=("year_raw", "count"), muni_year_share=("muni_year_share", "first"),
+                               town=("town", lambda v: v.value_counts().index[0])).reset_index()
+    out = out.merge(st, on="muni", how="left")
+    out["dated"] = np.where(out.muni_year_share >= 0.9, "yes", np.where(out.muni_year_share >= 0.5, "partly", "no"))
+    out["county"] = name
+    out["geometry"] = out.geometry.simplify(5).to_crs(4326)
+    out = out.set_crs(4326, allow_override=True)
+    f = OUT / f"ny_{key}_munis.geojson"
+    f.write_text(out.to_json(drop_id=True))
+    log(f"munis {name}: {len(out)} outlines -> {f.name} ({out.dated.value_counts().to_dict()})")
+
+
 # ---------------------------------------------------------------------------------------------
 # build
 
@@ -235,7 +286,8 @@ def in_county(g, poly):
 
 def load_footprints(key):
     """Overture footprints whose inner point lies in the county, >= MIN_AREA m2, and the State's
-    footprints where Overture has none (Overture's footprints cover < FILL_OVERLAP of the outline)."""
+    footprints where Overture has none (Overture's footprints cover < FILL_OVERLAP of the outline
+    and < FILL_AREA m2: neighbours that touch)."""
     import duckdb
     import geopandas as gpd
     import shapely
@@ -269,10 +321,12 @@ def load_footprints(key):
                       gpd.GeoDataFrame({"oi": np.arange(len(g))}, geometry=ou.values, crs=UTM), predicate="intersects")
         inter = shapely.area(shapely.intersection(su.values[j.si.values], ou.values[j.oi.values]))
         cover = pd.Series(inter).groupby(j.si.values).sum().reindex(np.arange(len(st))).fillna(0).values / st.area_m2.values
-        fill = st[cover < FILL_OVERLAP]
+        fill = st[(cover < FILL_OVERLAP) & (cover * st.area_m2.values < FILL_AREA)]
         n_fill = len(fill)
         add = gpd.GeoDataFrame({"id": "nysbf:" + fill.OBJECTID.astype(int).astype(str), "name": None, "height": np.nan,
-                                "num_floors": np.nan, "source_dataset": "NYS " + fill.SOURCEDATE.fillna("").astype(str).str[-4:],
+                                "num_floors": np.nan,
+                                "source_dataset": np.where(fill.NYSGEO_SOURCE.fillna("").eq("NYSERDA"),
+                                                           "NYS " + fill.SOURCEDATE.fillna("").astype(str).str[-4:], "NYS microsoft"),
                                 "area_m2": fill.area_m2.values}, geometry=fill.geometry.values, crs=4326)
         g = gpd.GeoDataFrame(pd.concat([g, add], ignore_index=True), geometry="geometry", crs=4326)
         log(f"footprints {name}: the State's layer has {n_state} of {MIN_AREA} m2 or more; {n_fill} stand where Overture has none -> added, {len(g)} in all")
@@ -328,6 +382,12 @@ def parcel_stacks(par):
     if len(m):
         st.loc[sorted(multi), "yr"] = m.groupby("stk").yr.apply(mode_or_nan)
         st.loc[sorted(multi), "PROP_CLASS"] = m.groupby("stk").PROP_CLASS.apply(lambda s: mode_or_nan(s) if s.notna().any() else None)
+    # the assessing unit is the city or town (SWIS digits 1-4); a city and a town can share a name (Rye)
+    unit = st.SWIS.fillna("").astype(str).str[:4]
+    nm = st.CITYTOWN_NAME.fillna("").astype(str)
+    shared = nm.map(pd.DataFrame({"n": nm, "u": unit}).drop_duplicates().groupby("n").u.nunique()) > 1
+    kindname = np.where(pd.to_numeric(unit.str[2:4], errors="coerce").fillna(99) < 20, " (city)", " (town)")
+    st["CITYTOWN_NAME"] = np.where(shared, nm + kindname, nm)
     st["members"] = par.stk.value_counts().reindex(st.index).values
     st["parea"] = st.geometry.area.values
     return gpd.GeoDataFrame(st, geometry="geometry", crs=par.crs).reset_index()
@@ -545,13 +605,15 @@ def build(key):
     share = mm.groupby("muni").ok.mean()
     muni_share = pd.Series(muni).fillna("").map(share).fillna(0.0).round(3).values
     ll = fp.geometry.representative_point()
+    height = fp.height.values.astype(float)
+    height = np.where(height > 0, height, np.nan)   # Overture carries a few zero heights
     out = gpd.GeoDataFrame({
         "id": fp.id.values,
         "county": name,
         "muni": pd.Series(muni).fillna("").values,
         "town": pd.Series(town).fillna("").values,
-        "height_m": fp.height.values.astype(float),
-        "height_src": np.where(fp.height.notna().values, "overture", ""),
+        "height_m": height,
+        "height_src": np.where(np.isfinite(height), "overture", ""),
         "floors": fp.num_floors.values.astype(float),
         "year_raw": year,
         "year_src": np.where(np.isfinite(year), "nys_parcels_2025", ""),
@@ -578,6 +640,7 @@ def build(key):
     out.to_parquet(f.with_suffix(".part"), index=False)
     f.with_suffix(".part").rename(f)
     report(key, out, heap_rows, county_heaps, counts)
+    muni_outlines(key, out)
     return out
 
 
@@ -770,6 +833,7 @@ def main(argv):
             if download_parcels(key):
                 download_state_footprints(key)
                 download_cris(key)
+                download_civil(key)
         if cmd in ("build", "all"):
             build(key)
         if cmd in ("check", "all"):

@@ -29,6 +29,11 @@ def main():
         elif sh[0] == "local":
             cx, cy = sh[1], sh[2]
             ring = [(cx + x / G.kx(cy), cy + y / G.KY) for x, y in sh[3]]
+        elif sh[0] == "traced":
+            import json
+            t = json.loads((HERE.parent / sh[1]).read_text())
+            o = next(q for q in t["polys"] if q["i"] == sh[2])
+            ring = [(t["cx"] + x / G.kx(t["cy"]), t["cy"] + y / G.KY) for x, y in o["ring"][:-1]]
         elif sh[0] == "circle":
             ring = list(G.circle(sh[1], sh[2], sh[3], 24).exterior.coords)[:-1]
         elif sh[0] == "blocks":

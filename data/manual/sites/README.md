@@ -6,11 +6,12 @@ Forts, navy yards, bases, rail yards, gasworks, power plants, refineries, shipya
 
 | file | what |
 |---|---|
-| `sites.geojson` | 121 site features (one per site and name period), WGS84 |
+| `sites.geojson` | 122 site features (one per site and name period), WGS84 |
 | `../../tables/known_building_dates.sites.csv` | 130 rows: 13 researched years of standing buildings (text), 28 years from USGS map editions (`site_map:` ids, estimated), 50 lot-stamp fixes (`site_stamp:` ids, estimated), 39 site floors (`site_floor:` ids, not dates) |
 | `../../tables/notable_demolished.sites.csv` | 24 structures that are gone (11 with an outline, the rest as `footprint_m` + `rotation_deg`) |
 | `edition_brackets.csv` | every footprint read on the USGS editions (1645 rows, 52 sites): EVIDENCE ONLY - do not apply it beyond the rows already in the building table |
-| `tools/` | `sites_def.py`, `sites_def2.py` (the sites), `buildings_def.py`, `demolished_def.py`, `build.py`, `build_buildings.py`, `build_demolished.py`, `readme.py`; `geom.py` (outlines), `fetch_wp.py` + `wp_titles.txt` + `wp_facts.py` (source text), `topo.py`, `date_editions.py`, `run_editions.py` (USGS editions), `audit.py` |
+| `tools/` | `sites_def.py`, `sites_def2.py` (the sites), `buildings_def.py`, `demolished_def.py`, `build.py`, `build_buildings.py`, `build_demolished.py`, `readme.py`; `geom.py` (outlines), `fetch_wp.py` + `wp_titles.txt` + `wp_facts.py` (source text), `topo.py`, `trace_ink.py`, `date_editions.py`, `run_editions.py`, `validate_brackets.py` (USGS editions), `audit.py` |
+| `traced/` | outlines vectorised from USGS sheets (`trace_ink.py`) |
 
 Downloads are in `data/raw/sites/` (`wp/` article text, `usgs/` sheet crops and metadata), scratch in `data/interim/sites/` (`audit.csv`, `editions/`). Rebuild (a few minutes; `run_editions.py` about 30 minutes cold, each process under 1 GB):
 
@@ -41,7 +42,7 @@ Features overlap on purpose where a site was renamed (Fort Columbus / Fort Jay, 
 
 **Site floors**: one `site_floor:<site id>` row per site whose outline is a mapped one and whose founding is from text: no building inside the outline predates the founding. Meant for estimated years only (LPC and recorded years stand: Governors Island, Fort Totten and Welfare Island keep buildings older than a later name). Where the assessor's year is the lot's year stamped on the site's buildings and older than the site, the floor is written out as rows (50 `site_stamp:` rows, all in fort_tilden), because the pipeline's floor does not reach recorded years.
 
-**Structures that are gone** (`demolished_def.py`): outlines of Fort Lafayette, the two Elmhurst gas holders, five holders of the Gas House District, Goldwater Memorial Hospital and City Hospital were read on USGS 1:24,000 sheets in a metre grid (`topo.py render`; NAD27 by PROJ's three-parameter shift, +-10 m); Waterside is its two street blocks; the rest are rectangles from cited or estimated dimensions.
+**Structures that are gone** (`demolished_def.py`): outlines of Fort Lafayette, the two Elmhurst gas holders, five holders of the Gas House District were read on USGS 1:24,000 sheets in a metre grid (`topo.py render`), Goldwater Memorial Hospital and City Hospital are the sheet's own ink, vectorised (`trace_ink.py`, `traced/welfare_island_1966.json`); NAD27 by PROJ's three-parameter shift, +-10 m; Waterside is its two street blocks; the rest are rectangles from cited or estimated dimensions.
 
 ### What the map brackets are worth
 
@@ -52,11 +53,11 @@ Features overlap on purpose where a site was renamed (Fort Columbus / Fort Jay, 
 * The 1947 editions fill built-up blocks solid black and rail-yard track fans read as buildings, so *drawn* is not evidence for a single footprint there (seen on the Coney Island and 207th Street yards).
 * `tools/validate_brackets.py` prints these numbers.
 
-So the brackets are **not** used as the Bay project used them. `build_buildings.py` writes a map year only for 7 isolated civil campuses and plants founded after 1925 (28 rows): 20 footprints drawn on the first sheet after the site's founding take the founding year (the true year lies between the founding and that sheet), and 8 absent-then-drawn brackets on Rikers Island, where the sheets were also looked at (the 1977 and 1997 revisions print the new jails in purple). These rows could not be checked against records - no building in those sites has an independent year inside a bracket - and all say "estimated". Everything else stays in `edition_brackets.csv` as readings, not dates.
+So the brackets are **not** used as the Bay project used them. `build_buildings.py` writes a map year only for 7 isolated civil campuses and plants founded after 1925 (28 rows): 20 footprints drawn on the first sheet after the site's founding take the founding year (the true year lies between the founding and that sheet), and 8 absent-then-drawn brackets on Rikers Island, where the 1966 and 1997 sheets were also looked at (the 1997 revision prints jails that the 1966 sheet lacks in purple; the 1977 photorevision, which carries six of the eight brackets, was read by the tool only). These rows could not be checked against records - no building in those sites has an independent year inside a bracket - and all say "estimated". Everything else stays in `edition_brackets.csv` as readings, not dates.
 
 ## Sites
 
-121 features: 21 rail_yard, 13 hospital_campus, 12 fort, 12 factory, 10 terminal, 10 asylum, 9 landfill, 8 military_base, 7 other, 7 shipyard, 4 power_plant, 2 gasworks, 2 refinery, 2 prison, 1 navy_yard, 1 quarry. Start years: 113 from text, 8 estimated, 0 from map brackets. End years: 80 sites have ended, 11 of those years are estimated. Outlines: 88 mapped, 33 estimated.
+122 features: 22 rail_yard, 13 hospital_campus, 12 fort, 12 factory, 10 terminal, 10 asylum, 9 landfill, 8 military_base, 7 other, 7 shipyard, 4 power_plant, 2 gasworks, 2 refinery, 2 prison, 1 navy_yard, 1 quarry. Start years: 114 from text, 8 estimated, 0 from map brackets. End years: 81 sites have ended, 12 of those years are estimated. Outlines: 89 mapped, 33 estimated.
 
 | id | name | kind | years | estimated | outline | source (en.wikipedia.org/wiki/...) |
 |---|---|---|---|---|---|---|
@@ -97,6 +98,7 @@ So the brackets are **not** used as the Bay project used them. `build_buildings.
 | `sunnyside_yard` | Sunnyside Yard | rail_yard | 1910- | - | OpenStreetMap | Sunnyside_Yard |
 | `thirtieth_street_yard` | 30th Street Yard | rail_yard | 1851-1987 | start | OpenStreetMap | West_Side_Yard |
 | `west_side_yard` | West Side Yard | rail_yard | 1987- | - | OpenStreetMap | West_Side_Yard |
+| `west_side_yard_east` | West Side Yard (eastern yard) | rail_yard | 1987-2012 | end | street blocks | West_Side_Yard |
 | `st_johns_park_freight_terminal` | St. John's Park Freight Depot | rail_yard | 1867-1927 | outline | estimated | St._John's_Park |
 | `sixtieth_street_yard` | 60th Street Yard | rail_yard | 1880-1975 | start, end, outline | estimated | Riverside_South,_Manhattan |
 | `bay_ridge_65th_street_yard` | Bay Ridge Yard | rail_yard | 1876- | - | OpenStreetMap | 65th_Street_Yard |
@@ -117,7 +119,7 @@ So the brackets are **not** used as the Bay project used them. `build_buildings.
 | `harlem_river_yard` | Harlem River Yard | rail_yard | 1991- | outline | estimated | Harlem_River_Intermodal_Yard |
 | `elmhurst_gas_tanks` | Elmhurst gas tanks | gasworks | 1910-1996 | - | OpenStreetMap | Elmhurst_gas_tanks |
 | `gashouse_district` | Gas House District | gasworks | 1842-1945 | outline | estimated | Stuyvesant_Town%E2%80%93Peter_Cooper_Village |
-| `waterside_station` | Waterside Generating Station | power_plant | 1901-2005 | - | street blocks | Waterside_Generating_Station |
+| `waterside_station` | Waterside Generating Station | power_plant | 1901-2005 | - | OpenStreetMap | Waterside_Generating_Station |
 | `east_river_station` | East River Generating Station | power_plant | 1926- | - | OpenStreetMap | East_River_Generating_Station |
 | `ravenswood_station` | Ravenswood Generating Station | power_plant | 1963- | - | OpenStreetMap | Ravenswood_Generating_Station |
 | `poletti_power_project` | Charles Poletti Power Project (Astoria 6) | power_plant | 1977-2010 | - | OpenStreetMap | Charles_Poletti_Power_Project |
@@ -222,11 +224,11 @@ Map years (`site_map:<site>:<BIN>`): rikers_island_jails 8, bronx_state_hospital
 | `gashouse_district_holder_3` | Gas holder, Gas House District (Consolidated Gas) | 1890-1945 | outline | 30 | Holder symbol read on the USGS Brooklyn 1:24,000 sheet of 1947 (photographs 1940), +-15 m and generalised; start year estimated (the district's tanks date from 1842 on and were many 'by the late 19th century'), end year estimated (clearance for Stuyvesant Town, 1945); height estimated. |
 | `gashouse_district_holder_4` | Gas holder, Gas House District (Consolidated Gas) | 1890-1945 | outline | 30 | Holder symbol read on the USGS Brooklyn 1:24,000 sheet of 1947 (photographs 1940), +-15 m and generalised; start year estimated (the district's tanks date from 1842 on and were many 'by the late 19th century'), end year estimated (clearance for Stuyvesant Town, 1945); height estimated. |
 | `gashouse_district_holder_5` | Gas holder, Gas House District (Consolidated Gas) | 1890-1945 | outline | 30 | Holder symbol read on the USGS Brooklyn 1:24,000 sheet of 1947 (photographs 1940), +-15 m and generalised; start year estimated (the district's tanks date from 1842 on and were many 'by the late 19th century'), end year estimated (clearance for Stuyvesant Town, 1945); height estimated. |
-| `goldwater_memorial_hospital` | Goldwater Memorial Hospital (Welfare Hospital for Chronic Diseases) | 1939-2014 | outline | 20 | Opened July 1939, closed 2013 (demolition year 2014 estimated); hull of the chevron pavilions traced on the USGS Central Park 1:24,000 sheet of 1966, +-10 m; height estimated. |
-| `city_hospital_roosevelt_island` | City Hospital (Charity Hospital) | 1861-1994 | outline | 18 | Renwick's hospital completed 1861, closed 1957, demolished 1994; outline traced on the USGS Central Park 1:24,000 sheet of 1966, +-10 m; height estimated. |
+| `goldwater_memorial_hospital` | Goldwater Memorial Hospital (Welfare Hospital for Chronic Diseases) | 1939-2014 | outline | 20 | Opened July 1939, closed 2013 (demolition year 2014 estimated); the chevron pavilions as drawn on the USGS Central Park 1:24,000 sheet of 1966 (ink vectorised by tools/trace_ink.py), +-10 m; height estimated. |
+| `city_hospital_roosevelt_island` | City Hospital (Charity Hospital) | 1861-1994 | outline | 18 | Renwick's hospital completed 1861, closed 1957, demolished 1994; the main building as drawn on the USGS Central Park 1:24,000 sheet of 1966 (ink vectorised by tools/trace_ink.py), +-10 m; height estimated. |
 | `blackwells_island_penitentiary` | Blackwell's Island Penitentiary | 1830-1936 | 180x18 m, -60.0 deg | 15 | Opened 3 August 1830; the inmates left and the jail was demolished by 1936, Goldwater hospital taking the ground; position, footprint and height estimated. |
 | `pearl_street_station` | Pearl Street Station (Edison Electric Illuminating Company) | 1882-1895 | 15x30 m, -50.0 deg | 15 | 255-257 Pearl Street on a lot of 50 by 100 ft (cited); generating from 4 September 1882, burned 1890 and rebuilt, decommissioned 1895 (end = that year; the building's demolition was not researched); orientation, height and material estimated. |
-| `waterside_station_buildings` | Waterside Generating Station (Nos. 1 and 2) | 1901-2007 | outline | 40 | No. 1 (38th-39th Street) October 1901, No. 2 (39th-40th Street) November 1906; decommissioned 2005 (demolition year estimated); outline: the two street blocks; height estimated. |
+| `waterside_station_buildings` | Waterside Generating Station (Nos. 1 and 2, switch house) | 1901-2007 | outline | 40 | No. 1 (38th-39th Street) October 1901, No. 2 (39th-40th Street) November 1906, offices and switch house on 40th-41st Street; decommissioned 2005 (demolition year estimated); outline: today's empty superblock between First Avenue and the FDR Drive, 38th to 41st Street, which the plant filled (the plant's own walls were not traced); height estimated. |
 | `st_johns_park_freight_depot` | St. John's Park Freight Depot (Hudson River Railroad) | 1868-1927 | 130x125 m, 28.0 deg | 15 | Four-acre depot on the former park: construction began 1867 (start 1868 estimated: the opening), demolished 1927; footprint from the 4 acres, storeys and height estimated. |
 | `havemeyers_elder_refinery_1856` | Havemeyers & Elder sugar refinery (first) | 1856-1882 | 100x60 m, 28.0 deg | 25 | First Williamsburg refinery of 1856, replaced by the complex built 1882-83 on the west side of Kent Avenue between South 2nd and South 6th Streets; footprint, height and material estimated. |
 | `admirals_row` | Admiral's Row (ten officers' houses, Brooklyn Navy Yard) | 1864-2016 | 220x25 m, 8.0 deg | 12 | Ten houses built between 1864 and 1901, demolished 2016 but for one; the footprint is the row along Flushing Avenue: position, extent, storeys and height estimated. |

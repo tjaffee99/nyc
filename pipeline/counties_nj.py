@@ -477,7 +477,8 @@ def _norm(s):
 
 
 def join_wikidata(g, key, outline):
-    """year_hist / hist_src / hist_nrhp / hist_name per footprint, from a Wikidata item that
+    """year_wd / wd_id / hist_name per footprint (and year_hist / hist_nrhp where the item is on
+    the National Register), from a Wikidata item that
       - is on the National Register of Historic Places (P649) and is an architectural structure, or
       - has a class that is a building by Wikidata's class tree and by its label (a skyscraper,
         a church building, a house: yes; a school, a museum, a hospital, a company: no - their
@@ -515,7 +516,7 @@ def join_wikidata(g, key, outline):
         if ys and ok and not it["gone"] and it["pt"] and it["label"]:
             rows.append((it["qid"], it["label"], min(ys), it["nrhp"], it["pt"][0], it["pt"][1]))
     w = pd.DataFrame(rows, columns=["qid", "label", "year", "nrhp", "lon", "lat"])
-    res = pd.DataFrame({"year_hist": np.nan, "hist_src": "", "hist_nrhp": "", "hist_name": ""}, index=g.index)
+    res = pd.DataFrame({"year_hist": np.nan, "year_wd": np.nan, "wd_id": "", "hist_nrhp": "", "hist_name": ""}, index=g.index)
     stats = {"wikidata_items_dated_buildings_in_box": len(w)}
     if not len(w):
         return res, stats
@@ -543,8 +544,9 @@ def join_wikidata(g, key, outline):
     m = m.join(w, on="w")
     m["reg"] = (m.nrhp != "").astype(int)
     m = m.sort_values(["fp", "how", "reg", "year"], ascending=[True, True, False, True]).drop_duplicates("fp")
-    res.loc[m.fp.values, "year_hist"] = m.year.values.astype(float)
-    res.loc[m.fp.values, "hist_src"] = ("wikidata:" + m.qid).values
+    res.loc[m.fp.values, "year_wd"] = m.year.values.astype(float)
+    res.loc[m.fp.values, "year_hist"] = m.year.where(m.reg == 1).values.astype(float)
+    res.loc[m.fp.values, "wd_id"] = m.qid.values
     res.loc[m.fp.values, "hist_name"] = m.label.values
     res.loc[m.fp.values, "hist_nrhp"] = m.nrhp.values
     stats["wikidata_matched_inside"] = int((m.how == 0).sum())
@@ -597,10 +599,10 @@ def build(key: str, outline):
         "floors": g.floors, "floors_src": g.floors_src,
         "year_raw": g.year_raw, "year_src": g.year_src, "heap": g.heap, "heap_county": g.heap_county,
         "secondary": g.secondary,
-        "prop_class": g.PROP_CLASS.fillna(""), "use": g.use, "year_hist": g.year_hist, "hist_src": g.hist_src,
-        "hist_nrhp": g.hist_nrhp,
+        "prop_class": g.PROP_CLASS.fillna(""), "use": g.use, "year_hist": g.year_hist,
         "name": g.name.fillna("").where(g.name.fillna("") != "", g.hist_name),
         # beyond the brief: for the building stage and for checking
+        "hist_nrhp": g.hist_nrhp, "year_wd": g.year_wd, "wd_id": g.wd_id,
         "area_m2": g.area_m2, "lot_buildings": g.lot_buildings, "condo_units": g.condo_units,
         "year_spread": g.year_spread,
         "footprint_src": g.source_dataset.map(FOOTPRINT_SRC).fillna("overture"), "osm_id": g.osm_id.fillna(""),
@@ -613,10 +615,20 @@ def build(key: str, outline):
 
 
 def _agreement(d):
-    diff = (d.year_raw - d.year_hist).abs()
+    diff = (d.year_raw - d.year_wd).abs()
     return {"n": int(len(d)), "within_2": int((diff <= 2).sum()), "within_10": int((diff <= 10).sum()),
-            "tax_year_later_by_over_10": int(((d.year_raw - d.year_hist) > 10).sum()),
-            "tax_year_earlier_by_over_10": int(((d.year_hist - d.year_raw) > 10).sum())}
+            "tax_year_later_by_over_10": int(((d.year_raw - d.year_wd) > 10).sum()),
+            "tax_year_earlier_by_over_10": int(((d.year_wd - d.year_raw) > 10).sum())}
+
+
+def _lot_coverage(par, g):
+    """How complete the footprints are, measured against the tax list: residential lots
+    (class 2, not a condominium unit, improvement value > 0) with at least one footprint."""
+    p = par[(par.PROP_CLASS == "2") & (par.PCLQCODE.fillna("").str.strip() == "") & (par.IMPRVT_VAL > 0)]
+    lots = (p.PCL_MUN.fillna("") + "_" + p.PCLBLOCK.fillna("") + "_" + p.PCLLOT.fillna("")).drop_duplicates()
+    have = lots.isin(set(g.lot.values))
+    return {"improved_residential_lots": int(len(lots)), "improved_residential_lots_with_footprint": int(have.sum()),
+            "share_improved_residential_lots_with_footprint": round(float(have.mean()), 4)}
 
 
 def make_report(key, out, g, par, stats, heaps_county, heaps_muni):
@@ -667,10 +679,11 @@ def make_report(key, out, g, par, stats, heaps_county, heaps_muni):
         "decades_main_buildings_not_heap": {int(k): int(v) for k, v in dec_real.items()},
         "by_class": {k: [int(v.n), int(v.with_year)] for k, v in cls.sort_values("n", ascending=False).iterrows()},
         "by_municipality": {k: [int(v.n), int(v.with_year), int(v.on_heap), int(v.either)] for k, v in mun.iterrows()},
-        "with_year_hist": int(out.year_hist.notna().sum()),
-        "year_hist_without_tax_year": int((out.year_hist.notna() & ~has).sum()),
-        "year_hist_vs_tax_year_not_heap": _agreement(out[out.year_hist.notna() & has & ~either]),
-        "year_hist_vs_tax_year_heap": _agreement(out[out.year_hist.notna() & has & either]),
+        "with_year_hist": int(out.year_hist.notna().sum()), "with_year_wd": int(out.year_wd.notna().sum()),
+        "year_wd_without_tax_year": int((out.year_wd.notna() & ~has).sum()),
+        "year_wd_vs_tax_year_not_heap": _agreement(out[out.year_wd.notna() & has & ~either]),
+        "year_wd_vs_tax_year_heap": _agreement(out[out.year_wd.notna() & has & either]),
+        **_lot_coverage(par, g),
         "geometry_invalid": int((~out.geometry.is_valid).sum()),
         "year_min": float(y.min()), "year_max": float(y.max()),
     }

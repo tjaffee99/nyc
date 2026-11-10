@@ -1,0 +1,112 @@
+# ================================================================ WESTCHESTER COUNTY
+wes_wiechquaesgeck|Wiechquaesgeck|historic|41.0130,-73.8750|1609|1682||W|Wecquaesgeek|Munsee band of the east bank of the Hudson from the Bronx to the Pocantico; their chief village stood at the mouth of Wicker's Creek at today's Dobbs Ferry. End year estimated (the land sales to Frederick Philipse, 1681-82).
+wes_nappeckamack|Nappeckamack|historic|@Philipse Manor Hall State Historic Site|1609|1646|wes_colen_donck|W|Yonkers, NY|Lenape village at the mouth of the Nepperhan (Saw Mill River). End year: Van der Donck's grant of 1646.
+wes_colen_donck|Colen Donck|historic|@Philipse Manor Hall State Historic Site|1646|1672|wes_yonkers_t|W|Colen Donck|Patroonship granted in 1646 to Adriaen van der Donck, the Jonkheer whose title became "Yonkers"; he built a saw mill on the Nepperhan and died in 1655. End year estimated: the land was sold off from 1672 (Frederick Philipse and partners).
+wes_yonkers_t|Yonkers|town|@Philipse Manor Hall State Historic Site|1672|1872|wes_yonkers|W|Yonkers, NY|"The Yonkers plantation", Lower Mills of Philipsburg Manor from 1693 (Philipse Manor Hall, begun about 1682); Town of Yonkers 1788, village 1855. Start estimated.
+wes_yonkers|Yonkers|city|@Philipse Manor Hall State Historic Site|1872|9999||W|Yonkers, NY|Incorporated as a city in 1872 (the southern part of the town, Kingsbridge, went to New York City in 1874).
+wes_philipsburg|Philipsburg Manor|historic|@Philipsburg Manor House|1693|1779||W|Philipsburg Manor|Manor of Frederick Philipse, chartered in 1693, from Spuyten Duyvil to the Croton River; confiscated from the Loyalist Frederick Philipse III in 1779 and sold to its tenants. Label at the Upper Mills.
+wes_cortlandt_manor|Manor of Cortlandt|historic|@Van Cortlandt Manor|1697|1788|wes_cortlandt|W|Van Cortlandt Manor|Manor of Stephanus van Cortlandt, chartered in 1697, from the Croton River to the Highlands. End year: the towns of 1788. Label at the manor house on the Croton.
+wes_cortlandt|Cortlandt|town||1788|9999||W|Cortlandt, NY|Town created in 1788 from the manor.
+wes_quarropas|Quarropas|historic|41.0340,-73.7630|1609|1683|wes_white_plains_t|W|White Plains, NY|Lenape name ("white marshes") of the plain. End year: the purchase by men of Rye in 1683.
+wes_white_plains_t|White Plains|town|41.0340,-73.7630|1683|1916|wes_white_plains|W|White Plains, NY|Bought from the Weckquaeskeck by settlers from Rye in 1683; county seat from 1759; battle of 28 Oct 1776; village 1866. Hand-placed on Broadway at the old court house site.
+wes_white_plains|White Plains|city|41.0340,-73.7630|1916|9999||W|White Plains, NY|Incorporated as a city in 1916.
+wes_new_rochelle_t|New Rochelle|town||1688|1899|wes_new_rochelle|W|New Rochelle, NY|Founded in 1688 by Huguenot refugees on 6,000 acres bought from John Pell; village 1857.
+wes_new_rochelle|New Rochelle|city||1899|9999||W|New Rochelle, NY|Incorporated as a city in 1899.
+wes_peningo|Peningo|historic|40.9810,-73.6845|1609|1660|wes_hastings|W|Rye, NY|Lenape name of the neck between the Sound and Blind Brook. End year: the purchase of 1660.
+wes_hastings|Hastings|historic|40.9810,-73.6845|1660|1665|wes_rye|W|Rye, NY|First settlement of 1660 by men from Greenwich, begun on Manursing Island; then part of Connecticut.
+wes_rye|Rye|town|40.9810,-73.6845|1665|9999||W|Rye, NY|Hastings and the mainland plantation were joined as Rye in 1665; ceded to New York in 1683 (finally 1700); village 1904, city 1942. Hand-placed at the Square House on the Post Road.
+wes_manor_pelham|Manor of Pelham|historic||1666|1788|wes_pelham|W|Pelham Manor|Thomas Pell bought the land from the Siwanoy in 1654; the manor was patented in 1666. End year: the towns of 1788.
+wes_pelham|Pelham|town||1788|9999||W|Pelham, NY|Town created in 1788; City Island and Pelham Bay went to New York City in 1895.
+wes_siwanoy|Siwanoy|historic|40.9400,-73.7700|1609|1700||W|Siwanoy|Munsee band of the Sound shore from Hell Gate to Norwalk. Location approximate (shore of New Rochelle); end year estimated.
+wes_eastchester|Eastchester|town||1664|9999||W|Eastchester (town), NY|Settled in 1664 by ten families from Fairfield, Connecticut; town 1788. The first village stood around St. Paul's Church, now in Mount Vernon.
+wes_mount_vernon_t|Mount Vernon|town||1851|1892|wes_mount_vernon|W|Mount Vernon, NY|Planned in 1850-51 by the Industrial Home Association No. 1 of New York workingmen; village 1853.
+wes_mount_vernon|Mount Vernon|city||1892|9999||W|Mount Vernon, NY|Incorporated as a city in 1892.
+wes_saw_pit|Saw Pit|town||1732|1837|wes_port_chester|W|Port Chester, NY|Landing on the Byram River where boats were built; the name is recorded from 1732.
+wes_port_chester|Port Chester|town||1837|9999||W|Port Chester, NY|Saw Pit was renamed Port Chester in 1837; village 1868.
+wes_sintsink|Sint Sinck|historic|41.1590,-73.8680|1609|1685||W|Sintsink|Munsee band of the shore between the Pocantico and the Croton. End year: the sale to Frederick Philipse, 1685. Location approximate (Ossining waterfront).
+wes_sing_sing|Sing Sing|town||1813|1901|wes_ossining|W|Ossining (village), NY|Incorporated in 1813, the first village in Westchester County; the state prison opened in 1826.
+wes_ossining|Ossining|town||1901|9999||W|Ossining (village), NY|Sing Sing was renamed Ossining in 1901 to set the village apart from the prison.
+wes_kitchawank|Kitchawank|historic|41.1920,-73.8790|1609|1682||W|Kitchawank|Location approximate (the neck of Croton Point). Munsee band of the Croton River; their fortified village stood at the neck of Croton Point (Senasqua). End year estimated: the land sales of the 1680s.
+wes_croton_point|Croton Point|landscape||1700|9999||W|Croton Point|Peninsula in the Hudson (Senasqua, later Teller's Point); start is nominal.
+wes_dearman|Dearman|town||1850|1854|wes_irvington|W|Irvington, NY|Village laid out on the Dearman farm about 1850 (estimated) at the new railroad station.
+wes_irvington|Irvington|town||1854|9999||W|Irvington, NY|Dearman was renamed in 1854 for Washington Irving of Sunnyside; village 1872.
+wes_north_tarrytown|North Tarrytown|town|@Old Dutch Church of Sleepy Hollow|1874|1996|wes_sleepy_hollow|W|Sleepy Hollow, NY|The Upper Mills of Philipsburg (Beekmantown) were incorporated as North Tarrytown in 1874.
+wes_sleepy_hollow|Sleepy Hollow|town|@Old Dutch Church of Sleepy Hollow|1996|9999||W|Sleepy Hollow, NY|North Tarrytown voted in 1996 to take the name of Irving's legend. Label at the Old Dutch Church (1685).
+wes_stephentown|Stephentown|town||1788|1808|wes_somers|W|Somers, NY|Town created in 1788.
+wes_somers|Somers|town||1808|9999||W|Somers, NY|Stephentown was renamed in 1808 for the naval officer Richard Somers.
++W|town|Tarrytown, NY|1645|The first Dutch house is recorded in 1645; tenant farms of Philipsburg Manor from the 1680s; Major Andre was captured here in 1780; village 1870.
++W|town|Dobbs Ferry, NY|1698|Named for the ferry kept by the Dobbs family from about 1698; village 1873.
++W|town|Peekskill, NY|1684|Named for Jan Peeck, who traded on the creek in the 1650s; Ryck's Patent 1684; village 1816, city 1940.
++W|town|Mamaroneck, NY|1661|John Richbell bought the land from the Siwanoy in 1661; town 1788.
++W|town|Bedford (town), NY|1680|Bought and settled in 1680 by men from Stamford, Connecticut; in New York from 1700.
++W|town|Scarsdale, NY|1701|Manor of Scarsdale granted to Caleb Heathcote in 1701; town 1788.
++W|town|Harrison, NY|1696|Harrison's Purchase, granted to John Harrison and partners in 1696; town 1788.
++W|town|Greenburgh, NY|1788|Town created in 1788.
++W|town|Mount Pleasant, NY|1788|Town created in 1788.
++W|town|Yorktown, NY|1788|Town created in 1788.
++W|town|North Salem, NY|1788|Town created in 1788.
++W|town|Pound Ridge, NY|1788|Town created in 1788.
++W|town|North Castle, NY|1788|Town created in 1788; the district of North Castle dates from 1736.
++W|town|New Castle, NY|1791|Town set off from North Castle in 1791.
++W|town|Lewisboro, NY|1840|The town of Salem (1788), South Salem from 1806, was renamed Lewisboro in 1840.
++W|town|Chappaqua, NY|1753|Quaker settlement around the meeting house of 1753.
++W|town|Hastings-on-Hudson, NY
++W|town|Ardsley, NY
++W|town|Elmsford, NY|1910|Village incorporated in 1910 (Storm's Bridge of the Revolution).
++W|town|Pleasantville, NY
++W|town|Briarcliff Manor, NY
++W|town|Croton-on-Hudson, NY
++W|town|Buchanan, NY|1928|Village incorporated in 1928.
++W|town|Mount Kisco, NY|1875|Village incorporated in 1875 around the Harlem Railroad station; coterminous town since 1978.
++W|town|Larchmont, NY|1891|Village incorporated in 1891.
++W|town|Pelham Manor, NY|1891|Village incorporated in 1891.
++W|town|Bronxville, NY
++W|town|Tuckahoe (village), NY
++W|town|Rye Brook, NY|1982|Village incorporated in 1982 from the unincorporated part of the town of Rye.
++W|town|Katonah, NY|1897|The village was moved to its present site in 1897, before the old one was flooded by the Cross River arm of the Croton reservoirs.
++W|town|Armonk, NY|1851|Hamlet of North Castle (Mile Square); the name Armonk is dated to the 1850s, estimated.
+wes_kensico|Kensico Reservoir|landscape||1885|9999||W|Kensico Reservoir|First dam on the Bronx River 1885; the present Kensico Dam was finished in 1917 and drowned the village of Kensico.
+wes_croton_lake|Croton Lake|landscape|41.2280,-73.8300|1842|1906|wes_new_croton_reservoir|W|Old Croton Dam|Lake behind the Old Croton Dam, finished in 1842 for the city's first aqueduct.
+wes_new_croton_reservoir|New Croton Reservoir|landscape|41.2280,-73.8300|1906|9999||W|New Croton Reservoir|The New Croton (Cornell) Dam, built 1892-1906, raised the lake over the old dam.
+# ================================================================ ROCKLAND COUNTY
+roc_tappan_lenape|Tappan|historic|@Tappan Historic District|1609|1686|roc_tappan|R|Tappan people|Munsee band of the west bank from the Palisades to Haverstraw. End year: the Tappan Patent of 1686.
+roc_tappan|Tappan|town|@Tappan Historic District|1686|9999||R|Tappan, NY|Tappan Patent of 24 Mar 1686 to sixteen Dutch families from Manhattan; seat of Orange County until 1798; Major Andre was tried and hanged here in 1780.
++R|town|Orangetown, NY|1686|Town of the Tappan patentees, organised by 1686 and recognised as a town in 1788.
+roc_rumachenanck|Rumachenanck|historic||1609|1666|roc_haverstraw|R|Haverstraw, NY|Munsee band of Haverstraw Bay (the "Haverstroo" of Dutch maps from 1616). End year: the first purchase, 1666.
+roc_haverstraw|Haverstraw|town||1666|9999||R|Haverstraw (village), NY|Land bought from the Lenape in 1666 (De Harte patent); precinct 1719, town 1788; brickmaking from 1815. The village was incorporated as Warren in 1854 and renamed Haverstraw in 1874.
++R|town|Clarkstown, NY|1791|Town set off from Haverstraw in 1791.
+roc_new_hampstead|New Hampstead|town||1791|1828|roc_ramapo|R|Ramapo, NY|Town set off from Haverstraw in 1791 (Hampstead from 1797).
+roc_ramapo|Ramapo|town||1828|9999||R|Ramapo, NY|The town of Hampstead was renamed Ramapo in 1828.
++R|town|Stony Point, NY|1865|Town set off from Haverstraw in 1865; the fort on the point was stormed by Anthony Wayne on 16 Jul 1779.
++R|town|Nyack, NY|1675|Farms from 1675 (Harmanus Dows Tallman); steamboat landing and shoe town; village 1872, reincorporated 1883.
+roc_tappan_slote|Tappan Slote|town||1700|1839|roc_piermont|R|Piermont, NY|Landing of Tappan at the mouth of the Sparkill; start estimated.
+roc_piermont|Piermont|town||1839|9999||R|Piermont, NY|Renamed in 1839 for the mile-long pier of the New York and Erie Railroad, whose eastern terminus it was from 1841 to 1852; village 1850.
+roc_snedens_landing|Sneden's Landing|town||1745|1870|roc_palisades|R|Palisades, NY|West landing of the ferry to Dobbs Ferry, kept by the Sneden family from about 1745 (estimated).
+roc_palisades|Palisades|town||1870|9999||R|Palisades, NY|The hamlet's post office took the name Palisades about 1870 (estimated); Sneden's Landing remains the name of the riverside.
+roc_new_antrim|New Antrim|town||1773|1796|roc_suffern|R|Suffern, NY|John Suffern settled at the mouth of the Ramapo pass in 1773 and named the place for his Irish home.
+roc_suffern|Suffern|town||1796|9999||R|Suffern, NY|Renamed for the Suffern family; year estimated. Village 1896.
++R|town|New City, NY|1798|County seat of Rockland since the county was created in 1798.
++R|town|Spring Valley, NY|1842|Named in 1842 for the Erie Railroad's stop; village 1902.
++R|town|Pearl River, NY|1872|Station of 1872 on the New Jersey and New York Railroad; the hamlet was Muddy Creek.
++R|town|Nanuet, NY|1856|Clarkstown station of the Erie, renamed in 1856 for the sachem Nannawitt.
+roc_doodletown|Doodletown|town||1762|1965||R|Doodletown, NY|Hamlet behind Dunderberg settled about 1762; bought out by the Palisades Interstate Park Commission, the last residents left in 1965.
++R|town|Upper Nyack, NY
++R|town|South Nyack, NY
++R|town|Grand View-on-Hudson, NY
++R|town|West Haverstraw, NY
++R|town|Pomona, NY
++R|town|Hillburn, NY
++R|town|Sloatsburg, NY
++R|town|Airmont, NY
++R|town|Chestnut Ridge, NY
++R|town|Montebello, NY
++R|town|Wesley Hills, NY
++R|town|New Hempstead, NY
++R|town|New Square, NY
++R|town|Kaser, NY
+roc_verdrietige_hoek|Verdrietige Hoek|landscape||1624|1700|roc_hook_mountain|R|Hook Mountain|Dutch sailors' name ("tedious point") for the headland where the wind fails; start is nominal.
+roc_hook_mountain|Hook Mountain|landscape||1700|9999||R|Hook Mountain|English name; the year is nominal. Quarried until the Palisades Interstate Park bought it in 1911-20.
+roc_stony_point_l|Stony Point|landscape|@Stony Point Battlefield|1664|9999||R|Stony Point Battlefield|Rocky point commanding King's Ferry; start is nominal. Lighthouse 1826.
+roc_high_tor|High Tor|landscape||1700|9999||R|High Tor State Park|Highest summit of the Palisades ridge (254 m) above Haverstraw; start is nominal.
+roc_rockland_lake|Rockland Lake|landscape||1835|9999||R|Rockland Lake State Park|Quaspeck Pond, renamed Rockland Lake when the Knickerbocker Ice Company began cutting ice here in the 1830s; year estimated.
+roc_bear_mountain|Bear Mountain|landscape||1700|9999||R|Bear Mountain (Hudson Highlands)|Summit (391 m) at the south gate of the Highlands, Bear Hill on colonial maps; start is nominal.

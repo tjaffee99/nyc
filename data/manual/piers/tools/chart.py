@@ -185,7 +185,10 @@ def run(cid):
         k0 = ref["k"] * ref["frame_w"] / (x1 - x0)
         best = search(np.arange(ref["angle"] - 1.5, ref["angle"] + 1.51, 0.5), k0 * 1.015 ** np.arange(-5, 6))
     else:
-        best = search(list(np.arange(-12, 12.1, 2)) + list(np.arange(21, 37.1, 2)), 6.0 * 1.04 ** np.arange(0, 38))
+        ks = 10.0 * 1.04 ** np.arange(0, 16)          # 1:10,000 scanned at 300-500 dpi
+        best = search([-4, -2, 0, 2, 4], ks)
+        if best[0] < 0.25:
+            best = search(list(np.arange(-12, 12.1, 2)) + list(np.arange(21, 37.1, 2)), 6.0 * 1.04 ** np.arange(0, 38))
         best = search(np.arange(best[1] - 1.5, best[1] + 1.51, 0.5), best[2] * 1.01 ** np.arange(-4, 5))
     sc, ang, k, ix, iy, rshape = best
     if not refp.exists() and sc > 0.2:
@@ -244,8 +247,9 @@ def run(cid):
     del core2, er, t2, l2
     px_m = math.sqrt(abs(A.a * A.e - A.b * A.d)) * UNIT_M
     meta.update(affine=[A.a, A.b, A.c, A.d, A.e, A.f], px_m=round(px_m, 3), rotation_deg=round(math.degrees(math.atan2(A.d, A.a)), 3), fit=res)
-    ll = [WM.transform(*(A * p), direction="INVERSE") for p in ((x0, y1), (x1, y0))]
-    meta["bbox"] = dict(minX=ll[0][0], minY=ll[0][1], maxX=ll[1][0], maxY=ll[1][1])
+    ll = np.array([WM.transform(*(A * p), direction="INVERSE") for p in ((x0, y0), (x1, y0), (x0, y1), (x1, y1))])
+    meta["bbox"] = dict(minX=float(ll[:, 0].min()), minY=float(ll[:, 1].min()), maxX=float(ll[:, 0].max()), maxY=float(ll[:, 1].max()))
+    meta["corners"] = [[float(a), float(b)] for a, b in ll]
 
     w_today = features.rasterize([(p, 1) for p in to_px(wpolys, A)], out_shape=(H, W), transform=rasterio.Affine.identity(), fill=0, dtype="uint8").astype(bool)
     gm = json.load(open(E.ROOT / "data/interim/grid_detail_meta.json"))
@@ -256,7 +260,9 @@ def run(cid):
     later = ly_s > year
     del ly, ly_s
     info = dict(edition=meta["edition"], quad=meta["quad"])
-    E.analyse(land, quad, ink, later, w_today, A, "EPSG:3857", geo, fn, info, meta, False, px_m, UNIT_M)
+    # piers are land-tinted on the later editions and hatched on white on the earlier ones: dense ink counts as well
+    nonwater = (land | (ndimage.uniform_filter(dark.astype("float32"), 9) > 0.3)) & quad
+    E.analyse(nonwater, quad, ink, later, w_today, A, "EPSG:3857", geo, fn, info, meta, False, px_m, UNIT_M)
     print("   ", cid, "tint", meta["tint_means"], "coarse", meta["coarse_score"], meta["coarse_angle"], "px_m", meta["px_m"], "rot", meta["rotation_deg"], res, flush=True)
 
 

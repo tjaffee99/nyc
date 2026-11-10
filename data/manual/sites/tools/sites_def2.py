@@ -15,8 +15,8 @@ S("gashouse_district", "Gas House District", "gasworks", 1842, 1945, "city", "pa
   lambda: G.union(G.osm("8a300ebe"), G.osm("4aaa8de6")))
 S("waterside_station", "Waterside Generating Station", "power_plant", 1901, 2005, "vacant", "paved", True,
   "Waterside_Generating_Station", "No. 1 (38th-39th Street) began operating October 1901, No. 2 (39th-40th) "
-  "November 1906; decommissioned 2005 and demolished. Outline: the street blocks First Avenue - FDR Drive, 38th to "
-  "41st Street.", lambda: G.block((-73.9712, 40.7462), (-73.9719, 40.7455), (-73.9707, 40.7470)))
+  "November 1906; decommissioned 2005 and demolished. Outline: today's empty superblock First Avenue - FDR Drive, "
+  "38th to 41st Street.", lambda: G.block((-73.97056, 40.74667)))
 S("east_river_station", "East River Generating Station", "power_plant", 1926, 9999, "same", "paved", True,
   "East_River_Generating_Station", "New York Edison plant at East 14th Street, operating from 23 November 1926.",
   lambda: G.osm("f836436a"), floor=True)
