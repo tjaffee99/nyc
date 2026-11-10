@@ -1,0 +1,546 @@
+{
+ "total": {
+  "layer": "manhattan_midtown_1897",
+  "plates": 11,
+  "buildings": 19249,
+  "frame": 1687,
+  "brick": 17524,
+  "stone": 12,
+  "gasholders": 26,
+  "on_today": 1274,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 11.2
+ },
+ "plates": [
+  {
+   "plate": "8217",
+   "image": "1516786",
+   "name": "Part of Section 4 : New York City.",
+   "gcps": 20,
+   "model": "tps",
+   "cv_rms": 1.4,
+   "mpp": 0.249,
+   "n": 2091,
+   "frame": 469,
+   "brick": 1550,
+   "stone": 0,
+   "coincide": 157,
+   "share": 0.078,
+   "corrected": true,
+   "paper": [
+    84.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.07,
+    -0.62
+   ],
+   "off_median_m": 1.6,
+   "street": null,
+   "bld": {
+    "plate": "8217",
+    "n": 2091,
+    "windows": 25,
+    "shift_median": [
+     -0.06,
+     0.05
+    ],
+    "fit_residual_m": 0.74,
+    "agree": 24,
+    "kind": "affine"
+   },
+   "sheet": "image 1516786",
+   "clipped": 0,
+   "lettering_dropped": 23,
+   "water_dropped": 39,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 2022,
+   "duplicates_dropped": 5,
+   "status": "ok"
+  },
+  {
+   "plate": "900019",
+   "image": "1516787",
+   "name": "Plate 19: Part of Sections 3 & 4 [bounded by W. 47th Street, Eighth Avenue, W. 36th Street",
+   "gcps": 30,
+   "model": "poly2",
+   "cv_rms": 2.6,
+   "mpp": 0.246,
+   "n": 2462,
+   "frame": 226,
+   "brick": 1407,
+   "stone": 0,
+   "coincide": 113,
+   "share": 0.069,
+   "corrected": true,
+   "paper": [
+    84.0,
+    0.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.05,
+    0.21
+   ],
+   "off_median_m": 1.84,
+   "street": null,
+   "bld": {
+    "plate": "900019",
+    "n": 2464,
+    "windows": 23,
+    "shift_median": [
+     0.2,
+     0.02
+    ],
+    "fit_residual_m": 0.79,
+    "agree": 22,
+    "kind": "affine"
+   },
+   "sheet": "19",
+   "clipped": 801,
+   "lettering_dropped": 6,
+   "water_dropped": 12,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 1643,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "8209",
+   "image": "1516778",
+   "name": "[Plate 25: Bounded by W. 75th Street, Central Park West (8th Avenue), W. 64th Street and (",
+   "gcps": 30,
+   "model": "poly2",
+   "cv_rms": 1.2,
+   "mpp": 0.247,
+   "n": 1856,
+   "frame": 106,
+   "brick": 1539,
+   "stone": 1,
+   "coincide": 161,
+   "share": 0.098,
+   "corrected": true,
+   "paper": [
+    81.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.05,
+    -0.42
+   ],
+   "off_median_m": 1.51,
+   "street": null,
+   "bld": {
+    "plate": "8209",
+    "n": 1856,
+    "windows": 30,
+    "shift_median": [
+     -0.13,
+     0.05
+    ],
+    "fit_residual_m": 0.71,
+    "agree": 30,
+    "kind": "affine"
+   },
+   "sheet": "25",
+   "clipped": 0,
+   "lettering_dropped": 137,
+   "water_dropped": 68,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 1650,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "8212",
+   "image": "1516781",
+   "name": "[Plate 21: Bounded by Lexington Avenue, E. 57th Street, Avenue A, E. 54th Street, First Av",
+   "gcps": 49,
+   "model": "poly2",
+   "cv_rms": 1.2,
+   "mpp": 0.252,
+   "n": 2703,
+   "frame": 170,
+   "brick": 2450,
+   "stone": 0,
+   "coincide": 111,
+   "share": 0.042,
+   "corrected": true,
+   "paper": [
+    80.0,
+    0.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -0.19,
+    -0.14
+   ],
+   "off_median_m": 1.8,
+   "street": null,
+   "bld": {
+    "plate": "8212",
+    "n": 2703,
+    "windows": 23,
+    "shift_median": [
+     -0.17,
+     0.02
+    ],
+    "fit_residual_m": 1.35,
+    "agree": 22,
+    "kind": "affine"
+   },
+   "sheet": "21",
+   "clipped": 0,
+   "lettering_dropped": 29,
+   "water_dropped": 45,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 2626,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "8211",
+   "image": "1516780",
+   "name": "Plate 27: Bounded by E. 64th Street, Second Avenue, East River (Avenue A), E. 57th Street,",
+   "gcps": 38,
+   "model": "poly2",
+   "cv_rms": 1.1,
+   "mpp": 0.251,
+   "n": 1390,
+   "frame": 170,
+   "brick": 1117,
+   "stone": 0,
+   "coincide": 108,
+   "share": 0.084,
+   "corrected": true,
+   "paper": [
+    81.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.51,
+    -0.31
+   ],
+   "off_median_m": 1.87,
+   "street": null,
+   "bld": {
+    "plate": "8211",
+    "n": 1390,
+    "windows": 23,
+    "shift_median": [
+     -0.16,
+     0.17
+    ],
+    "fit_residual_m": 0.72,
+    "agree": 23,
+    "kind": "affine"
+   },
+   "sheet": "27",
+   "clipped": 0,
+   "lettering_dropped": 32,
+   "water_dropped": 67,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 1290,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "8214",
+   "image": "1516783",
+   "name": "[Plate 29: Bounded by Second Avenue, e. 84th Street, Avenue B, E. 79th Street, Avenue A (E",
+   "gcps": 38,
+   "model": "poly2",
+   "cv_rms": 1.3,
+   "mpp": 0.25,
+   "n": 1359,
+   "frame": 210,
+   "brick": 1105,
+   "stone": 0,
+   "coincide": 173,
+   "share": 0.132,
+   "corrected": true,
+   "paper": [
+    83.0,
+    0.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.09,
+    -0.46
+   ],
+   "off_median_m": 1.76,
+   "street": null,
+   "bld": {
+    "plate": "8214",
+    "n": 1359,
+    "windows": 39,
+    "shift_median": [
+     -0.19,
+     0.06
+    ],
+    "fit_residual_m": 0.67,
+    "agree": 33,
+    "kind": "affine"
+   },
+   "sheet": "29",
+   "clipped": 0,
+   "lettering_dropped": 22,
+   "water_dropped": 22,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 1315,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "8213",
+   "image": "1516782",
+   "name": "[Plate 28: Bounded by Fifth Avenue, E. 80th Street, Second Avenue, and E. 84th Street.]",
+   "gcps": 90,
+   "model": "tps",
+   "cv_rms": 1.2,
+   "mpp": 0.249,
+   "n": 1873,
+   "frame": 49,
+   "brick": 1639,
+   "stone": 1,
+   "coincide": 155,
+   "share": 0.092,
+   "corrected": true,
+   "paper": [
+    79.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.22,
+    -0.23
+   ],
+   "off_median_m": 2.17,
+   "street": null,
+   "bld": {
+    "plate": "8213",
+    "n": 1874,
+    "windows": 66,
+    "shift_median": [
+     -0.12,
+     0.02
+    ],
+    "fit_residual_m": 0.96,
+    "agree": 65,
+    "kind": "affine"
+   },
+   "sheet": "28",
+   "clipped": 1,
+   "lettering_dropped": 30,
+   "water_dropped": 149,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 1689,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "8219",
+   "image": "1516788",
+   "name": "Part of Sections 3, 4 & 5 : New York City.",
+   "gcps": 38,
+   "model": "poly2",
+   "cv_rms": 1.3,
+   "mpp": 0.246,
+   "n": 2137,
+   "frame": 57,
+   "brick": 1164,
+   "stone": 0,
+   "coincide": 21,
+   "share": 0.017,
+   "corrected": true,
+   "paper": [
+    77.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.69,
+    -0.32
+   ],
+   "off_median_m": 4.47,
+   "street": null,
+   "bld": {
+    "plate": "8219",
+    "n": 2137,
+    "windows": 44,
+    "shift_median": [
+     0.22,
+     0.21
+    ],
+    "fit_residual_m": 1.79,
+    "agree": 39,
+    "kind": "affine"
+   },
+   "sheet": "image 1516788",
+   "clipped": 847,
+   "lettering_dropped": 6,
+   "water_dropped": 61,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 1221,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "8215",
+   "image": "1516784",
+   "name": "Part of Section 5 : New York City.",
+   "gcps": 34,
+   "model": "tps",
+   "cv_rms": 1.3,
+   "mpp": 0.248,
+   "n": 2335,
+   "frame": 26,
+   "brick": 2107,
+   "stone": 9,
+   "coincide": 71,
+   "share": 0.033,
+   "corrected": true,
+   "paper": [
+    80.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.04,
+    -0.84
+   ],
+   "off_median_m": 2.74,
+   "street": null,
+   "bld": {
+    "plate": "8215",
+    "n": 2335,
+    "windows": 32,
+    "shift_median": [
+     0.08,
+     0.09
+    ],
+    "fit_residual_m": 0.99,
+    "agree": 28,
+    "kind": "affine"
+   },
+   "sheet": "image 1516784",
+   "clipped": 0,
+   "lettering_dropped": 51,
+   "water_dropped": 137,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 2142,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "8216",
+   "image": "1516785",
+   "name": "Part of Section 3 : New York City.",
+   "gcps": 18,
+   "model": "tps",
+   "cv_rms": 1.5,
+   "mpp": 0.248,
+   "n": 2482,
+   "frame": 131,
+   "brick": 2095,
+   "stone": 1,
+   "coincide": 41,
+   "share": 0.018,
+   "corrected": true,
+   "paper": [
+    75.0,
+    0.0,
+    15.0
+   ],
+   "off_median_vec": [
+    -0.59,
+    -1.51
+   ],
+   "off_median_m": 2.58,
+   "street": null,
+   "bld": {
+    "plate": "8216",
+    "n": 2482,
+    "windows": 21,
+    "shift_median": [
+     -0.1,
+     -0.07
+    ],
+    "fit_residual_m": 0.71,
+    "agree": 18,
+    "kind": "affine"
+   },
+   "sheet": "image 1516785",
+   "clipped": 0,
+   "lettering_dropped": 155,
+   "water_dropped": 96,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 2227,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "8210",
+   "image": "1516779",
+   "name": "[Plate 26: Bounded by W. 86th Street, Central Park West (8th Avenue), W. 75th Street and H",
+   "gcps": 37,
+   "model": "tps",
+   "cv_rms": 1.1,
+   "mpp": 0.251,
+   "n": 1552,
+   "frame": 73,
+   "brick": 1351,
+   "stone": 0,
+   "coincide": 163,
+   "share": 0.114,
+   "corrected": true,
+   "paper": [
+    79.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.24,
+    -0.78
+   ],
+   "off_median_m": 1.81,
+   "street": null,
+   "bld": {
+    "plate": "8210",
+    "n": 1552,
+    "windows": 57,
+    "shift_median": [
+     0.46,
+     -0.33
+    ],
+    "fit_residual_m": 0.93,
+    "agree": 41,
+    "kind": "affine"
+   },
+   "sheet": "26",
+   "clipped": 5,
+   "lettering_dropped": 19,
+   "water_dropped": 104,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 1424,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  }
+ ]
+}

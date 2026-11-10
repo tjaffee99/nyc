@@ -54,6 +54,10 @@ sys.path.insert(0, str(ROOT / "data" / "manual" / "extents" / "tools"))  # warp.
 import warp  # noqa: E402
 import streets as S  # noqa: E402
 
+# control points made here, for plates that are not in the Map Warper dump (same record format as the dump's;
+# the extents tools keep their own file of this kind, which is not used or changed here)
+warp.OWN = HERE / "gcps_own.json"
+
 Image.MAX_IMAGE_PIXELS = None
 RAW = ROOT / "data" / "raw" / "atlas" / "nypl_u"
 WORK = ROOT / "data" / "interim" / "atlas"
@@ -134,7 +138,8 @@ def paper_colour(img, inside=None):
 
 
 def classes(img, paper, st, lab_all=None):
-    """uint8 per pixel: 0 other, 1 ink, 2 frame fill, 3 brick fill, 4 stone (grey) fill, 5 orange band."""
+    """uint8 per pixel: 0 other, 1 ink, 2 frame fill, 3 brick fill, 4 stone (grey) fill, 5 orange band,
+    6 pale blue (iron: gasholders - and the water wash; city plates with a `blue` setting only)."""
     H = img.shape[0]
     out = np.zeros(img.shape[:2], np.uint8)
     for r0 in range(0, H, 1024):
@@ -152,6 +157,10 @@ def classes(img, paper, st, lab_all=None):
             k = st["stone"]
             dL = L - paper[0]
             c[(np.abs(da) < k["da_abs"]) & (db > k["db_min"]) & (db < k["db_max"]) & (dL > k["dL_min"]) & (dL < k["dL_max"])] = 4
+        if st.get("blue"):
+            k = st["blue"]
+            dL = L - paper[0]
+            c[(db < k["db_max"]) & (db > k["db_min"]) & (da > k["da_min"]) & (da < k["da_max"]) & (dL > k["dL_min"]) & (dL < k["dL_max"])] = 6
         k = st["brick"]
         c[(da > k["da_min"]) & (db < k["db_max"]) & (L > k["L_min"])] = 3
         out[r0:r0 + 1024] = c
@@ -271,7 +280,7 @@ def fills_rows(c, line, st, inside):
     filled in. Each connected piece of fill between walls is a building; its material is the pigment that prevails;
     a small grey piece against a rose one is that house's stone front and is joined to it."""
     ink = (c == 1) | line
-    fill = ((c == 2) | (c == 3) | (c == 4)) & inside
+    fill = ((c == 2) | (c == 3) | (c == 4) | (c == 6)) & inside
     thin = ink & ~_dil(_open(c == 1, 3), 1)
     lab, n = ndi.label(thin, structure=SQ3)
     if n:
@@ -290,11 +299,16 @@ def fills_rows(c, line, st, inside):
     idx = np.arange(1, n + 1)
     edge = g & ~ndi.binary_erosion(g, CROSS)
     share = ndi.sum(edge & _dil(ink, 2), lab, idx) / np.maximum(ndi.sum(edge, lab, idx), 1)
-    counts = np.stack([ndi.sum(c == k, lab, idx) for k in (2, 3, 4)], 1)
-    kind = np.argmax(counts, 1)                      # 0 frame, 1 brick, 2 stone
+    counts = np.stack([ndi.sum(c == k, lab, idx) for k in (2, 3, 4, 6)], 1)
+    kind = np.argmax(counts, 1)                      # 0 frame, 1 brick, 2 stone, 3 iron (pale blue)
     area = counts.sum(1)
     ok = np.zeros(n + 1, bool)
     ok[1:] = share >= st["outline"]
+    if st.get("outline_big"):
+        # a large, wide fill (a church, a depot, a factory) is a building with less of its outline found: bold
+        # lettering stands on it and the wash is uneven (St Patrick's Cathedral came out with 48 %)
+        rmax = ndi.maximum(ndi.distance_transform_edt(g), lab, idx)
+        ok[1:] |= (area >= st["big_px"]) & (rmax >= st["big_r"]) & (share >= st["outline_big"])
     lab = np.where(ok[lab], lab, 0)
     # stone fronts: a small grey piece joins the rose piece it lies against
     isbrick = np.zeros(n + 1, bool)
@@ -320,7 +334,7 @@ def fills_rows(c, line, st, inside):
         m = lab[y, x] == dst
         m2 = ndi.binary_closing(m, np.ones((7, 7), bool)) & (lab[y, x] == 0)
         lab[y, x][m2] = dst
-    return lab, np.array(["frame", "brick", "stone"], object)[kind]
+    return lab, np.array(["frame", "brick", "stone", "iron"], object)[kind]
 
 
 def label_polygons(lab, min_px, max_px):
@@ -768,7 +782,7 @@ def trace_window(P, full, inside, paper, win, core=None):
                         cand5 = _open((c == 5) & ins, st["core_frame"])
         if cand5 is not None:
             cand5 = _open((c == 5) & ins, st["core_frame"])
-    fillc = (c == 2) | (c == 3) | (c == 4)
+    fillc = (c == 2) | (c == 3) | (c == 4) | (c == 6)
     cand = _open(fillc & ins, 3)
     if cand5 is not None:
         cand |= cand5
@@ -1051,6 +1065,22 @@ def export(layer, max_off=8.0):
     spec = layers()[layer]
     feats, cov, rep = [], [], []
     acc = []                                                  # accepted polygons (local metres)
+    mx = dict(STYLES[spec["style"]], **spec.get("style_override", {}))["max_m2"]
+    # optional clip of the layer: north of a line (two lon / lat points, west then east) and outside the
+    # coverage of other layers of the same atlas (so that no building is in two layers)
+    clip = None
+    if spec.get("clip"):
+        c_ = spec["clip"]
+        clip = sg.box(-1e7, -1e7, 1e7, 1e7)
+        if c_.get("north_of"):
+            a_, b_ = [np.array(S.local(*pt)) for pt in c_["north_of"]]
+            u_ = (b_ - a_) / np.hypot(*(b_ - a_))
+            n_ = np.array([-u_[1], u_[0]])
+            clip = sg.Polygon([a_ - 2e4 * u_, b_ + 2e4 * u_, b_ + 2e4 * u_ + 4e4 * n_, a_ - 2e4 * u_ + 4e4 * n_])
+        for other in c_.get("outside_layers", []):
+            oc = json.loads((OUT / f"{other}_coverage.geojson").read_text())
+            og = [shapely.transform(sg.shape(f_["geometry"]), lambda c: np.column_stack(S.local(c[:, 0], c[:, 1]))) for f_ in oc["features"]]
+            clip = clip.difference(shapely.union_all(og).buffer(0))
     for pl in spec["plates"]:
         f = WORK / layer / f"{pl['id']}.pkl"
         if pl.get("skip"):
@@ -1067,6 +1097,9 @@ def export(layer, max_off=8.0):
             continue
         polys = [wkb.loads(o["geom"]) for o in d["items"]]
         keep = np.ones(len(polys), bool)
+        if clip is not None and polys:
+            keep &= shapely.contains(clip, shapely.centroid(np.asarray(polys, object)))
+            st["clipped"] = int((~keep).sum())
         if acc and polys:
             tree = shapely.STRtree(acc)
             i, j = tree.query(polys, predicate="intersects")
@@ -1076,12 +1109,25 @@ def export(layer, max_off=8.0):
                 keep[i[inter > 0.3 * small]] = False
         # grey ("stone") outlines: bold block numbers and street lettering print in the same grey and come out as
         # small ragged pieces; a stone building is kept only if it is 80 m2 or more and fills 60 % of its rectangle
-        lettering = 0
+        # ... and is 6 m wide or more (the grey strip of a row's stone fronts, grey lines along tracks and kerbs).
+        # Pale blue ("iron") outlines are gasholders when round - about as long as wide, filling 60-90 % of their
+        # rectangle (a circle fills 79 %), 250 m2 or more; every other blue outline is water between piers.
+        lettering, water = 0, 0
         for k, (o, g) in enumerate(zip(d["items"], polys)):
-            if keep[k] and o["material"] == "stone" and (g.area < 80.0 or g.area < 0.6 * g.minimum_rotated_rectangle.area):
+            if not keep[k] or o["material"] not in ("stone", "iron"):
+                continue
+            r_ = g.minimum_rotated_rectangle
+            xy_ = np.asarray(r_.exterior.coords)
+            e1_, e2_ = np.hypot(*(xy_[1] - xy_[0])), np.hypot(*(xy_[2] - xy_[1]))
+            w_, l_ = min(e1_, e2_), max(e1_, e2_)
+            fr_ = g.area / max(r_.area, 1e-9)
+            if o["material"] == "stone" and (g.area < 80.0 or fr_ < 0.6 or w_ < 6.0):
                 keep[k] = False
                 lettering += 1
-        st["lettering_dropped"] = lettering
+            elif o["material"] == "iron" and not (g.area >= 250.0 and l_ <= 1.3 * w_ and 0.6 <= fr_ <= 0.9):
+                keep[k] = False
+                water += 1
+        st["lettering_dropped"], st["water_dropped"] = lettering, water
         # county plates: pieces of carmine property band read as brick are ragged or long; a brick building is
         # kept only if it is 50 m2 or more and fills 75 % of its rectangle
         # ... and pieces of orange band read as frame are long and narrow or hook-shaped: a frame outline under
@@ -1130,14 +1176,15 @@ def export(layer, max_off=8.0):
             if not keep[k]:
                 continue
             ll, g = _written(g.simplify(0.25))
-            if g is None or not (15.0 <= g.area <= 5000.0):
+            if g is None or not (15.0 <= g.area <= mx):
                 continue
             acc.append(g)
             feats.append(dict(type="Feature", properties=dict(
-                id=f"{spec['source']}_{pl['sheet']}_{k}", map_year=spec["map_year"], material=o["material"],
+                id=f"{spec['source']}_{pl['sheet']}_{k}", map_year=spec["map_year"],
+                material="" if o["material"] == "iron" else o["material"], kind="gasholder" if o["material"] == "iron" else "building",
                 source=spec["source"], sheet=pl["sheet"], plate=int(pl["id"]), area_m2=round(g.area, 1),
                 on_today=bool(o.get("iou", 0) > 0.5), today_cover=round(o.get("cover", 0.0), 2)), geometry=sg.mapping(ll)))
-        st["exported"], st["duplicates_dropped"], st["status"] = len(feats) - n0, int((~keep).sum()) - lettering - washed - bands, "ok"
+        st["exported"], st["duplicates_dropped"], st["status"] = len(feats) - n0, int((~keep).sum()) - lettering - water - washed - bands - st.get("clipped", 0), "ok"
         for m_ in ("frame", "brick", "stone"):
             st[m_] = sum(f["properties"]["material"] == m_ for f in feats[n0:])
         st["coincide"] = sum(f["properties"]["on_today"] for f in feats[n0:])
@@ -1145,6 +1192,12 @@ def export(layer, max_off=8.0):
         rep.append(st)
         if d.get("mask"):
             m = wkb.loads(d["mask"]).simplify(0.5)
+            if clip is not None:
+                m = m.intersection(clip)
+                if m.is_empty:
+                    continue
+                if m.geom_type not in ("Polygon", "MultiPolygon"):
+                    m = shapely.union_all([q for q in m.geoms if q.geom_type in ("Polygon", "MultiPolygon")])
             cov.append(dict(type="Feature", properties=dict(
                 layer=layer, map_year=spec["map_year"], source=spec["source"], sheet=pl["sheet"], plate=int(pl["id"]),
                 buildings=len(feats) - n0, registration_m=st.get("off_median_m"), coincide_share=st.get("share"),
@@ -1161,15 +1214,16 @@ def export(layer, max_off=8.0):
     # checks on the written layer
     g = np.asarray(acc, object)
     area = shapely.area(g) if len(g) else np.array([])
-    union = shapely.union_all([wkb.loads(pickle.load(open(WORK / layer / f"{c['properties']['plate']}.pkl", "rb"))["mask"]) for c in cov]) if cov else None
+    union = shapely.union_all([shapely.transform(sg.shape(c["geometry"]), lambda q: np.column_stack(S.local(q[:, 0], q[:, 1]))) for c in cov]).buffer(0) if cov else None
     inside = shapely.contains(union.buffer(1.0), shapely.centroid(g)) if (union is not None and len(g)) else np.array([])
     tot = dict(layer=layer, plates=len(cov), buildings=len(feats),
                frame=sum(f["properties"]["material"] == "frame" for f in feats),
                brick=sum(f["properties"]["material"] == "brick" for f in feats),
                stone=sum(f["properties"]["material"] == "stone" for f in feats),
+               gasholders=sum(f["properties"]["kind"] == "gasholder" for f in feats),
                on_today=sum(f["properties"]["on_today"] for f in feats),
                invalid=int((~shapely.is_valid(g)).sum()) if len(g) else 0,
-               area_out_of_range=int(((area < 15) | (area > 5000)).sum()), outside_coverage=int((~inside).sum()),
+               area_out_of_range=int(((area < 15) | (area > mx)).sum()), outside_coverage=int((~inside).sum()),
                coverage_km2=round(union.area / 1e6, 2) if union is not None else 0)
     (OUT / f"{layer}_stats.json").write_text(json.dumps(dict(total=tot, plates=rep), indent=1))
     print(json.dumps(tot))

@@ -65,7 +65,17 @@ def load():
         # New York's rolls publish no year at all for some municipalities (22 of Westchester's
         # 43: Mount Vernon, Greenburgh, Peekskill ...; data/research/counties_ny.md). Their
         # buildings are not drawn: a year for them could only be generated.
-        if "muni_year_share" in g:
+        # Where the roll has none (22 of Westchester's 43 municipalities), a year comes from
+        # <file>_estimates.parquet (counties_ny_estimates.py: the census's count of homes by
+        # decade built per block group, spread by the town's growth — an estimate, and marked
+        # so). Without that file those municipalities are left out rather than given a year.
+        ep = f.with_name(f.stem + "_estimates.parquet")
+        if ep.exists():
+            e = pd.read_parquet(ep).drop_duplicates("id").set_index("id")
+            g["year_est"] = pd.to_numeric(e.year_est.reindex(g["id"].values).values, errors="coerce")
+            g["est_basis"] = e.basis.reindex(g["id"].values).values if "basis" in e else None
+            log(f"counties: {f.name}: {int(g.year_est.notna().sum())} footprints carry an estimated year ({ep.name})")
+        elif "muni_year_share" in g:
             n0 = len(g)
             g = g[pd.to_numeric(g.muni_year_share, errors="coerce").fillna(0) >= MIN_YEAR_SHARE]
             if len(g) < n0:
@@ -142,6 +152,13 @@ def main():
     est, src2 = fill_estimates(xy, rec_for_nb, raw, heap | secondary, H, keys, src.copy())
     year = np.where(np.isfinite(year), year, est)
     src = np.where(src == "", src2, src).astype(object)
+    # no year on the roll at all: the modelled estimate beats "like the nearest recorded building"
+    if "year_est" in g:
+        ye = pd.to_numeric(g.year_est, errors="coerce").values.astype(float)
+        use_est = np.isfinite(ye) & ~np.isfinite(raw) & ~hist_ok
+        year = np.where(use_est, ye, year)
+        src = np.where(use_est, "modelled", src).astype(object)
+        log(f"counties: {int(use_est.sum())} footprints without a roll year take the modelled estimate")
     year = np.clip(year, YEAR_MIN, 2029.0)
     conf = np.where(np.isin(src, ["parcel", "historic_register"]), "exact", "estimated").astype(object)
     log(f"counties: {n} footprints: {pd.Series(src).str.split(':').str[0].value_counts().to_dict()}")

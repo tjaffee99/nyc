@@ -1,0 +1,750 @@
+{
+ "kings_towns_1890": {
+  "map_year": 1890,
+  "atlas": "Robinson's atlas of Kings County, New York (E. Robinson, 1890; entered 1889), scale 300 ft to the inch",
+  "source": "robinson_kings_1890",
+  "style": "robinson_300ft",
+  "plates": [
+   {
+    "id": 8526,
+    "sheet": "1"
+   },
+   {
+    "id": 8527,
+    "sheet": "2"
+   },
+   {
+    "id": 8528,
+    "sheet": "3"
+   },
+   {
+    "id": 8529,
+    "sheet": "4"
+   },
+   {
+    "id": 8530,
+    "sheet": "5"
+   },
+   {
+    "id": 8531,
+    "sheet": "6"
+   },
+   {
+    "id": 8532,
+    "sheet": "7"
+   },
+   {
+    "id": 8533,
+    "sheet": "8"
+   },
+   {
+    "id": 8534,
+    "sheet": "9"
+   },
+   {
+    "id": 8535,
+    "sheet": "10"
+   },
+   {
+    "id": 8536,
+    "sheet": "11"
+   },
+   {
+    "id": 8537,
+    "sheet": "12"
+   },
+   {
+    "id": 8538,
+    "sheet": "13"
+   },
+   {
+    "id": 8539,
+    "sheet": "14"
+   },
+   {
+    "id": 8540,
+    "sheet": "15"
+   },
+   {
+    "id": 8541,
+    "sheet": "16"
+   },
+   {
+    "id": 8542,
+    "sheet": "17"
+   },
+   {
+    "id": 8543,
+    "sheet": "18"
+   },
+   {
+    "id": 8544,
+    "sheet": "19"
+   },
+   {
+    "id": 8545,
+    "sheet": "20"
+   },
+   {
+    "id": 8546,
+    "sheet": "21"
+   },
+   {
+    "id": 8547,
+    "sheet": "22"
+   },
+   {
+    "id": 8548,
+    "sheet": "23"
+   },
+   {
+    "id": 8549,
+    "sheet": "24"
+   },
+   {
+    "id": 8550,
+    "sheet": "25",
+    "skip": "the Map Warper control points place the plate about 6 km east of the streets its title names; no reliable match to today's streets was found (needs hand control points)"
+   },
+   {
+    "id": 8551,
+    "sheet": "26"
+   },
+   {
+    "id": 8552,
+    "sheet": "27"
+   },
+   {
+    "id": 8553,
+    "sheet": "28"
+   },
+   {
+    "id": 8554,
+    "sheet": "29"
+   },
+   {
+    "id": 8555,
+    "sheet": "30"
+   },
+   {
+    "id": 8556,
+    "sheet": "31",
+    "skip": "3 control points; the street match finds the fit 15 m out (median) and no consistent correction"
+   }
+  ],
+  "source_url": "https://digitalcollections.nypl.org/ (Robinson's atlas of Kings County, New York, 1890; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)"
+ },
+ "harlem_1897": {
+  "map_year": 1897,
+  "atlas": "Atlas of the city of New York, Manhattan Island. From actual surveys and official plans by George W. and Walter S. Bromley (G. W. Bromley & Co., Philadelphia, 1897)",
+  "source": "bromley_manhattan_1897",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 8224,
+    "sheet": "image 1516793",
+    "name": "Part of Secions 5 & 6."
+   },
+   {
+    "id": 8225,
+    "sheet": "31",
+    "name": "[Plate 31: Bounded by Second Avenue, E. 101st Street, East River, Avenue B and and E. 84th Street.]"
+   },
+   {
+    "id": 8226,
+    "sheet": "32",
+    "name": "[Plate 32: Bounded by E. 108th Street, East River, E. 101st Street, Second Avenue, E. 97th Street and (Central"
+   },
+   {
+    "id": 8230,
+    "sheet": "36",
+    "name": "Plate 36: Bounded by W. 97th Street, Central Park West, W. 86th Street, and (Hudson River) Riverside Drive."
+   },
+   {
+    "id": 8227,
+    "sheet": "image 1516796",
+    "name": "Part of Section 6 : New York City."
+   },
+   {
+    "id": 8231,
+    "sheet": "37",
+    "name": "[Plate 37: Bounded by W. 108th Street, Central Park West, W. 97th Street and (Hudson River) Riverside Drive.]"
+   },
+   {
+    "id": 8228,
+    "sheet": "34",
+    "name": "[Plate 34: Bounded by Lenox Avenue, W. 125th Street, Third Avenue, E. 108th Street, Fifth Avenue and (Central "
+   },
+   {
+    "id": 8186,
+    "sheet": "38",
+    "name": "Plate 38: Bounded by (Hudson River) Riverside Park/Drive, W. 125th Street, 9th Avenue, W. 123rd Street, 10th A"
+   },
+   {
+    "id": 8202,
+    "sheet": "image 1516771",
+    "name": "Part of Section 6: New York City."
+   },
+   {
+    "id": 8188,
+    "sheet": "40",
+    "name": "Plate 40: Bounded by W. 136th Street, Fifth Avenue, W. 125th Street, and Convent Avenue."
+   },
+   {
+    "id": 8187,
+    "sheet": "image 1516756",
+    "name": "Part of Section 7: New York City."
+   },
+   {
+    "id": 8201,
+    "sheet": "42",
+    "name": "Plate 42: Bounded by W. 147th Street, Hudson River, Madison Avenue, W. 136th Street, and Avenue St. Nicholas."
+   },
+   {
+    "id": 8204,
+    "sheet": "image 1516773",
+    "name": "Part of Sections 6, 7 & 8: New York City."
+   },
+   {
+    "id": 8205,
+    "sheet": "image 1516774",
+    "name": "Part of Section 8: New York City."
+   }
+  ],
+  "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the city of New York, Manhattan Island, 1897; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)"
+ },
+ "bronx_23rd_ward_1887": {
+  "map_year": 1887,
+  "atlas": "Atlas of the city of New York: from official records, private plans & actual surveys, compiled under the direction of E. Robinson and R. H. Pidgeon; the 23rd Ward (E. Robinson, New York, 1887)",
+  "source": "robinson_23rd_ward_1887",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 8625,
+    "sheet": "1"
+   },
+   {
+    "id": 8626,
+    "sheet": "2"
+   },
+   {
+    "id": 8627,
+    "sheet": "3"
+   },
+   {
+    "id": 8628,
+    "sheet": "4"
+   },
+   {
+    "id": 8629,
+    "sheet": "5"
+   },
+   {
+    "id": 8631,
+    "sheet": "7"
+   },
+   {
+    "id": 8632,
+    "sheet": "8"
+   },
+   {
+    "id": 8633,
+    "sheet": "9"
+   },
+   {
+    "id": 8634,
+    "sheet": "10"
+   },
+   {
+    "id": 8635,
+    "sheet": "11"
+   },
+   {
+    "id": 8636,
+    "sheet": "12"
+   },
+   {
+    "id": 8637,
+    "sheet": "13"
+   },
+   {
+    "id": 8638,
+    "sheet": "14"
+   },
+   {
+    "id": 8639,
+    "sheet": "15"
+   },
+   {
+    "id": 8640,
+    "sheet": "16",
+    "skip": "control points inconsistent (cross-validated 27 m) and no street match to check or correct the fit"
+   },
+   {
+    "id": 8641,
+    "sheet": "17"
+   },
+   {
+    "id": 8642,
+    "sheet": "18"
+   },
+   {
+    "id": 8643,
+    "sheet": "19"
+   },
+   {
+    "id": 8644,
+    "sheet": "20",
+    "skip": "control points inconsistent (cross-validated 173 m) and no street match to check or correct the fit"
+   },
+   {
+    "id": 8645,
+    "sheet": "21"
+   }
+  ],
+  "source_url": "https://digitalcollections.nypl.org/ (Robinson & Pidgeon, Atlas of the city of New York, 23rd Ward, 1887; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "style_override": {
+   "frame": {
+    "db_min": 4.5,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 84
+   },
+   "outline": 0.35,
+   "wash_cool": -3.0,
+   "street_min_q": 0.25,
+   "street_win_m": 300.0
+  },
+  "frame_yellow": true
+ },
+ "manhattan_midtown_1897": {
+  "map_year": 1897,
+  "atlas": "Atlas of the city of New York, Manhattan Island. From actual surveys and official plans by George W. and Walter S. Bromley (G. W. Bromley & Co., Philadelphia, 1897)",
+  "source": "bromley_manhattan_1897",
+  "style": "bromley_city",
+  "style_override": {
+   "max_m2": 20000.0,
+   "outline_big": 0.3,
+   "big_px": 4800,
+   "big_r": 16,
+   "stone": {
+    "da_abs": 5.5,
+    "db_min": -9.0,
+    "db_max": 0.5,
+    "dL_min": -28.0,
+    "dL_max": -9.0
+   },
+   "blue": {
+    "db_max": -5.5,
+    "db_min": -16.0,
+    "da_min": -6.0,
+    "da_max": 3.0,
+    "dL_min": -22.0,
+    "dL_max": -4.0
+   }
+  },
+  "plates": [
+   {
+    "id": 8217,
+    "sheet": "image 1516786"
+   },
+   {
+    "id": 900019,
+    "sheet": "19"
+   },
+   {
+    "id": 8209,
+    "sheet": "25"
+   },
+   {
+    "id": 8212,
+    "sheet": "21"
+   },
+   {
+    "id": 8211,
+    "sheet": "27"
+   },
+   {
+    "id": 8214,
+    "sheet": "29"
+   },
+   {
+    "id": 8213,
+    "sheet": "28"
+   },
+   {
+    "id": 8219,
+    "sheet": "image 1516788"
+   },
+   {
+    "id": 8215,
+    "sheet": "image 1516784"
+   },
+   {
+    "id": 8216,
+    "sheet": "image 1516785"
+   },
+   {
+    "id": 8210,
+    "sheet": "26"
+   }
+  ],
+  "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the city of New York, Manhattan Island, 1897; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "clip": {
+   "north_of": [
+    [
+     -73.999183,
+     40.759516
+    ],
+    [
+     -73.97087,
+     40.747591
+    ]
+   ],
+   "outside_layers": [
+    "harlem_1897"
+   ]
+  }
+ },
+ "bronx_south_1921": {
+  "map_year": 1921,
+  "atlas": "Atlas of the borough of the Bronx, city of New York, Sections 9, 10, 11, 12 & 13: from actual surveys and official plans (G. W. Bromley & Co., Philadelphia, 1921)",
+  "source": "bromley_bronx_1921",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the borough of the Bronx, Sections 9-13, 1921; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 9462,
+    "sheet": "1"
+   },
+   {
+    "id": 9463,
+    "sheet": "2"
+   },
+   {
+    "id": 9464,
+    "sheet": "3"
+   },
+   {
+    "id": 9465,
+    "sheet": "4"
+   },
+   {
+    "id": 9466,
+    "sheet": "5"
+   },
+   {
+    "id": 9467,
+    "sheet": "6"
+   },
+   {
+    "id": 9468,
+    "sheet": "7"
+   },
+   {
+    "id": 9469,
+    "sheet": "8"
+   },
+   {
+    "id": 9470,
+    "sheet": "9"
+   },
+   {
+    "id": 9471,
+    "sheet": "10"
+   },
+   {
+    "id": 9472,
+    "sheet": "11"
+   },
+   {
+    "id": 9473,
+    "sheet": "12"
+   },
+   {
+    "id": 9474,
+    "sheet": "13"
+   },
+   {
+    "id": 9475,
+    "sheet": "14"
+   },
+   {
+    "id": 9476,
+    "sheet": "15"
+   },
+   {
+    "id": 9477,
+    "sheet": "16"
+   },
+   {
+    "id": 9478,
+    "sheet": "17"
+   },
+   {
+    "id": 9479,
+    "sheet": "18"
+   },
+   {
+    "id": 9480,
+    "sheet": "19"
+   },
+   {
+    "id": 9481,
+    "sheet": "20"
+   },
+   {
+    "id": 9482,
+    "sheet": "21"
+   },
+   {
+    "id": 9483,
+    "sheet": "22"
+   },
+   {
+    "id": 9484,
+    "sheet": "23"
+   },
+   {
+    "id": 9485,
+    "sheet": "24"
+   },
+   {
+    "id": 9486,
+    "sheet": "25"
+   },
+   {
+    "id": 9487,
+    "sheet": "26"
+   },
+   {
+    "id": 9488,
+    "sheet": "27"
+   },
+   {
+    "id": 9489,
+    "sheet": "28"
+   },
+   {
+    "id": 9490,
+    "sheet": "29"
+   },
+   {
+    "id": 9491,
+    "sheet": "30"
+   },
+   {
+    "id": 9492,
+    "sheet": "31"
+   },
+   {
+    "id": 9493,
+    "sheet": "33"
+   },
+   {
+    "id": 9494,
+    "sheet": "34"
+   },
+   {
+    "id": 9495,
+    "sheet": "35"
+   },
+   {
+    "id": 9496,
+    "sheet": "36"
+   },
+   {
+    "id": 9497,
+    "sheet": "37"
+   },
+   {
+    "id": 9498,
+    "sheet": "38"
+   },
+   {
+    "id": 9499,
+    "sheet": "39"
+   },
+   {
+    "id": 9500,
+    "sheet": "40"
+   },
+   {
+    "id": 9501,
+    "sheet": "41"
+   },
+   {
+    "id": 9502,
+    "sheet": "42"
+   },
+   {
+    "id": 9503,
+    "sheet": "43"
+   },
+   {
+    "id": 9504,
+    "sheet": "44"
+   },
+   {
+    "id": 9505,
+    "sheet": "45"
+   },
+   {
+    "id": 9506,
+    "sheet": "46"
+   },
+   {
+    "id": 9507,
+    "sheet": "47"
+   },
+   {
+    "id": 9508,
+    "sheet": "49"
+   },
+   {
+    "id": 9509,
+    "sheet": "48"
+   },
+   {
+    "id": 9510,
+    "sheet": "50"
+   },
+   {
+    "id": 9511,
+    "sheet": "51"
+   },
+   {
+    "id": 9512,
+    "sheet": "52"
+   },
+   {
+    "id": 9513,
+    "sheet": "53"
+   },
+   {
+    "id": 9514,
+    "sheet": "54"
+   },
+   {
+    "id": 9515,
+    "sheet": "55"
+   },
+   {
+    "id": 9516,
+    "sheet": "56"
+   },
+   {
+    "id": 9517,
+    "sheet": "57"
+   },
+   {
+    "id": 9518,
+    "sheet": "58"
+   },
+   {
+    "id": 9519,
+    "sheet": "59"
+   },
+   {
+    "id": 9520,
+    "sheet": "60"
+   },
+   {
+    "id": 9521,
+    "sheet": "61"
+   },
+   {
+    "id": 9522,
+    "sheet": "62"
+   },
+   {
+    "id": 9523,
+    "sheet": "63"
+   },
+   {
+    "id": 9524,
+    "sheet": "64"
+   },
+   {
+    "id": 9525,
+    "sheet": "65"
+   },
+   {
+    "id": 9526,
+    "sheet": "66"
+   },
+   {
+    "id": 9527,
+    "sheet": "67"
+   },
+   {
+    "id": 9528,
+    "sheet": "68"
+   },
+   {
+    "id": 9529,
+    "sheet": "69"
+   },
+   {
+    "id": 9530,
+    "sheet": "70"
+   },
+   {
+    "id": 9531,
+    "sheet": "71"
+   },
+   {
+    "id": 9532,
+    "sheet": "72"
+   },
+   {
+    "id": 9533,
+    "sheet": "73"
+   },
+   {
+    "id": 9534,
+    "sheet": "74"
+   },
+   {
+    "id": 9535,
+    "sheet": "75"
+   },
+   {
+    "id": 9536,
+    "sheet": "76"
+   },
+   {
+    "id": 9537,
+    "sheet": "77"
+   },
+   {
+    "id": 9538,
+    "sheet": "78"
+   },
+   {
+    "id": 9539,
+    "sheet": "79"
+   },
+   {
+    "id": 9540,
+    "sheet": "80"
+   },
+   {
+    "id": 9541,
+    "sheet": "81"
+   },
+   {
+    "id": 9542,
+    "sheet": "82"
+   },
+   {
+    "id": 9543,
+    "sheet": "83"
+   },
+   {
+    "id": 9588,
+    "sheet": "32"
+   }
+  ]
+ }
+}

@@ -126,6 +126,13 @@ def source_label(src: str) -> str:
         return f"not yet on the {src[-4:]} aerial photograph: built after it (the assessor's rounded year is earlier)"
     if src.startswith("evidence_by:topo"):
         return f"drawn on the USGS map surveyed in {src[-4:]}: built by then"
+    if src == "modelled":
+        return "no public construction year: estimated from the census's count of homes by decade built in the block and the town's growth"
+    if src.startswith("gapfill"):
+        ev = src.split(":", 1)[1] if ":" in src else ""
+        what = {"aerial1924": "the 1924 aerial photograph shows a building here", "aerial1951": "the 1951 aerial photograph shows a building here",
+                "aerial1924+1951": "the 1924 and 1951 aerial photographs show a building here"}.get(ev, "maps of the time show this ground built on")
+        return f"generated: {what}; no outline survives (lot-sized outline, years estimated)"
     if src == "parcel":
         return "property tax record (parcel year)"
     if src == "parcel_secondary":

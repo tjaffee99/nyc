@@ -1,0 +1,1441 @@
+{
+ "kings_towns_1890": {
+  "map_year": 1890,
+  "atlas": "Robinson's atlas of Kings County, New York (E. Robinson, 1890; entered 1889), scale 300 ft to the inch",
+  "source": "robinson_kings_1890",
+  "style": "robinson_300ft",
+  "plates": [
+   {
+    "id": 8526,
+    "sheet": "1"
+   },
+   {
+    "id": 8527,
+    "sheet": "2"
+   },
+   {
+    "id": 8528,
+    "sheet": "3"
+   },
+   {
+    "id": 8529,
+    "sheet": "4"
+   },
+   {
+    "id": 8530,
+    "sheet": "5"
+   },
+   {
+    "id": 8531,
+    "sheet": "6"
+   },
+   {
+    "id": 8532,
+    "sheet": "7"
+   },
+   {
+    "id": 8533,
+    "sheet": "8"
+   },
+   {
+    "id": 8534,
+    "sheet": "9"
+   },
+   {
+    "id": 8535,
+    "sheet": "10"
+   },
+   {
+    "id": 8536,
+    "sheet": "11"
+   },
+   {
+    "id": 8537,
+    "sheet": "12"
+   },
+   {
+    "id": 8538,
+    "sheet": "13"
+   },
+   {
+    "id": 8539,
+    "sheet": "14"
+   },
+   {
+    "id": 8540,
+    "sheet": "15"
+   },
+   {
+    "id": 8541,
+    "sheet": "16"
+   },
+   {
+    "id": 8542,
+    "sheet": "17"
+   },
+   {
+    "id": 8543,
+    "sheet": "18"
+   },
+   {
+    "id": 8544,
+    "sheet": "19"
+   },
+   {
+    "id": 8545,
+    "sheet": "20"
+   },
+   {
+    "id": 8546,
+    "sheet": "21"
+   },
+   {
+    "id": 8547,
+    "sheet": "22"
+   },
+   {
+    "id": 8548,
+    "sheet": "23"
+   },
+   {
+    "id": 8549,
+    "sheet": "24"
+   },
+   {
+    "id": 8550,
+    "sheet": "25",
+    "skip": "the Map Warper control points place the plate about 6 km east of the streets its title names; no reliable match to today's streets was found (needs hand control points)"
+   },
+   {
+    "id": 8551,
+    "sheet": "26"
+   },
+   {
+    "id": 8552,
+    "sheet": "27"
+   },
+   {
+    "id": 8553,
+    "sheet": "28"
+   },
+   {
+    "id": 8554,
+    "sheet": "29"
+   },
+   {
+    "id": 8555,
+    "sheet": "30"
+   },
+   {
+    "id": 8556,
+    "sheet": "31",
+    "skip": "3 control points; the street match finds the fit 15 m out (median) and no consistent correction"
+   }
+  ],
+  "source_url": "https://digitalcollections.nypl.org/ (Robinson's atlas of Kings County, New York, 1890; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)"
+ },
+ "harlem_1897": {
+  "map_year": 1897,
+  "atlas": "Atlas of the city of New York, Manhattan Island. From actual surveys and official plans by George W. and Walter S. Bromley (G. W. Bromley & Co., Philadelphia, 1897)",
+  "source": "bromley_manhattan_1897",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 8224,
+    "sheet": "image 1516793",
+    "name": "Part of Secions 5 & 6."
+   },
+   {
+    "id": 8225,
+    "sheet": "31",
+    "name": "[Plate 31: Bounded by Second Avenue, E. 101st Street, East River, Avenue B and and E. 84th Street.]"
+   },
+   {
+    "id": 8226,
+    "sheet": "32",
+    "name": "[Plate 32: Bounded by E. 108th Street, East River, E. 101st Street, Second Avenue, E. 97th Street and (Central"
+   },
+   {
+    "id": 8230,
+    "sheet": "36",
+    "name": "Plate 36: Bounded by W. 97th Street, Central Park West, W. 86th Street, and (Hudson River) Riverside Drive."
+   },
+   {
+    "id": 8227,
+    "sheet": "image 1516796",
+    "name": "Part of Section 6 : New York City."
+   },
+   {
+    "id": 8231,
+    "sheet": "37",
+    "name": "[Plate 37: Bounded by W. 108th Street, Central Park West, W. 97th Street and (Hudson River) Riverside Drive.]"
+   },
+   {
+    "id": 8228,
+    "sheet": "34",
+    "name": "[Plate 34: Bounded by Lenox Avenue, W. 125th Street, Third Avenue, E. 108th Street, Fifth Avenue and (Central "
+   },
+   {
+    "id": 8186,
+    "sheet": "38",
+    "name": "Plate 38: Bounded by (Hudson River) Riverside Park/Drive, W. 125th Street, 9th Avenue, W. 123rd Street, 10th A"
+   },
+   {
+    "id": 8202,
+    "sheet": "image 1516771",
+    "name": "Part of Section 6: New York City."
+   },
+   {
+    "id": 8188,
+    "sheet": "40",
+    "name": "Plate 40: Bounded by W. 136th Street, Fifth Avenue, W. 125th Street, and Convent Avenue."
+   },
+   {
+    "id": 8187,
+    "sheet": "image 1516756",
+    "name": "Part of Section 7: New York City."
+   },
+   {
+    "id": 8201,
+    "sheet": "42",
+    "name": "Plate 42: Bounded by W. 147th Street, Hudson River, Madison Avenue, W. 136th Street, and Avenue St. Nicholas."
+   },
+   {
+    "id": 8204,
+    "sheet": "image 1516773",
+    "name": "Part of Sections 6, 7 & 8: New York City."
+   },
+   {
+    "id": 8205,
+    "sheet": "image 1516774",
+    "name": "Part of Section 8: New York City."
+   }
+  ],
+  "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the city of New York, Manhattan Island, 1897; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)"
+ },
+ "bronx_23rd_ward_1887": {
+  "map_year": 1887,
+  "atlas": "Atlas of the city of New York: from official records, private plans & actual surveys, compiled under the direction of E. Robinson and R. H. Pidgeon; the 23rd Ward (E. Robinson, New York, 1887)",
+  "source": "robinson_23rd_ward_1887",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 8625,
+    "sheet": "1"
+   },
+   {
+    "id": 8626,
+    "sheet": "2"
+   },
+   {
+    "id": 8627,
+    "sheet": "3"
+   },
+   {
+    "id": 8628,
+    "sheet": "4"
+   },
+   {
+    "id": 8629,
+    "sheet": "5"
+   },
+   {
+    "id": 8631,
+    "sheet": "7"
+   },
+   {
+    "id": 8632,
+    "sheet": "8"
+   },
+   {
+    "id": 8633,
+    "sheet": "9"
+   },
+   {
+    "id": 8634,
+    "sheet": "10"
+   },
+   {
+    "id": 8635,
+    "sheet": "11"
+   },
+   {
+    "id": 8636,
+    "sheet": "12"
+   },
+   {
+    "id": 8637,
+    "sheet": "13"
+   },
+   {
+    "id": 8638,
+    "sheet": "14"
+   },
+   {
+    "id": 8639,
+    "sheet": "15"
+   },
+   {
+    "id": 8640,
+    "sheet": "16",
+    "skip": "control points inconsistent (cross-validated 27 m) and no street match to check or correct the fit"
+   },
+   {
+    "id": 8641,
+    "sheet": "17"
+   },
+   {
+    "id": 8642,
+    "sheet": "18"
+   },
+   {
+    "id": 8643,
+    "sheet": "19"
+   },
+   {
+    "id": 8644,
+    "sheet": "20",
+    "skip": "control points inconsistent (cross-validated 173 m) and no street match to check or correct the fit"
+   },
+   {
+    "id": 8645,
+    "sheet": "21"
+   }
+  ],
+  "source_url": "https://digitalcollections.nypl.org/ (Robinson & Pidgeon, Atlas of the city of New York, 23rd Ward, 1887; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "style_override": {
+   "frame": {
+    "db_min": 4.5,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 84
+   },
+   "outline": 0.35,
+   "wash_cool": -3.0,
+   "street_min_q": 0.25,
+   "street_win_m": 300.0
+  },
+  "frame_yellow": true
+ },
+ "manhattan_midtown_1897": {
+  "map_year": 1897,
+  "atlas": "Atlas of the city of New York, Manhattan Island. From actual surveys and official plans by George W. and Walter S. Bromley (G. W. Bromley & Co., Philadelphia, 1897)",
+  "source": "bromley_manhattan_1897",
+  "style": "bromley_city",
+  "style_override": {
+   "max_m2": 20000.0,
+   "outline_big": 0.3,
+   "big_px": 4800,
+   "big_r": 16,
+   "stone": {
+    "da_abs": 5.5,
+    "db_min": -9.0,
+    "db_max": 0.5,
+    "dL_min": -28.0,
+    "dL_max": -9.0
+   },
+   "blue": {
+    "db_max": -5.5,
+    "db_min": -16.0,
+    "da_min": -6.0,
+    "da_max": 3.0,
+    "dL_min": -22.0,
+    "dL_max": -4.0
+   }
+  },
+  "plates": [
+   {
+    "id": 8217,
+    "sheet": "image 1516786"
+   },
+   {
+    "id": 900019,
+    "sheet": "19"
+   },
+   {
+    "id": 8209,
+    "sheet": "25"
+   },
+   {
+    "id": 8212,
+    "sheet": "21"
+   },
+   {
+    "id": 8211,
+    "sheet": "27"
+   },
+   {
+    "id": 8214,
+    "sheet": "29"
+   },
+   {
+    "id": 8213,
+    "sheet": "28"
+   },
+   {
+    "id": 8219,
+    "sheet": "image 1516788"
+   },
+   {
+    "id": 8215,
+    "sheet": "image 1516784"
+   },
+   {
+    "id": 8216,
+    "sheet": "image 1516785"
+   },
+   {
+    "id": 8210,
+    "sheet": "26"
+   }
+  ],
+  "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the city of New York, Manhattan Island, 1897; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "clip": {
+   "north_of": [
+    [
+     -73.999183,
+     40.759516
+    ],
+    [
+     -73.97087,
+     40.747591
+    ]
+   ],
+   "outside_layers": [
+    "harlem_1897"
+   ]
+  }
+ },
+ "brooklyn_downtown_1887": {
+  "map_year": 1887,
+  "atlas": "Insurance Maps of the City of Brooklyn, vol. 2 (Sanborn-Perris Map Co., 1887), NYPL Atlas 66",
+  "source": "sanborn_brooklyn_1887_v2",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 19213,
+    "sheet": "V2-31",
+    "name": "Brooklyn V. 2, Double Page Plate No. 31 [Map bounded by Clark St., Hicks St., Joralemon St., East River]"
+   },
+   {
+    "id": 19231,
+    "sheet": "V2-49",
+    "name": "Brooklyn V. 2, Double Page Plate No. 49 [Map bounded by Lafayette Ave., Navy St., De Kalb Ave., Carlton Ave.]"
+   },
+   {
+    "id": 19240,
+    "sheet": "V2-58",
+    "name": "Brooklyn V. 2, Double Page Plate No. 58 [Map bounded by Classon Ave., Atlantic Ave., St.James Place, Gates St."
+   },
+   {
+    "id": 19239,
+    "sheet": "V2-57",
+    "name": "Brooklyn V. 2, Double Page Plate No. 57 [Map bounded by Classon Ave., Gates Ave., St. James Place, De Kalb Ave"
+   },
+   {
+    "id": 19237,
+    "sheet": "V2-55",
+    "name": "Brooklyn V. 2, Double Page Plate No. 55 [Map bounded by Classon Ave., Myrtle Ave., Ryerson St., Flushing Ave.]"
+   },
+   {
+    "id": 19232,
+    "sheet": "V2-50",
+    "name": "Brooklyn V. 2, Double Page Plate No. 50 [Map bounded by Atlantic Ave., 3rd Ave., Lafayette Ave., Portland Ave."
+   },
+   {
+    "id": 19235,
+    "sheet": "V2-53",
+    "name": "Brooklyn V. 2, Double Page Plate No. 53 [Map bounded by Greene Ave., Carlton Ave., De Kalb Ave., St. James Pla"
+   },
+   {
+    "id": 19230,
+    "sheet": "V2-48",
+    "name": "Brooklyn V. 2, Double Page Plate No. 48 [Map bounded by De Kalb Ave., Washington Park, Myrtle Ave., Washington"
+   },
+   {
+    "id": 19229,
+    "sheet": "V2-47",
+    "name": "Brooklyn V. 2, Double Page Plate No. 47 [Map bounded by Vanderbilt Ave., Myrtle Ave., N.Oxford St., Flushing A"
+   },
+   {
+    "id": 19228,
+    "sheet": "V2-46",
+    "name": "Brooklyn V. 2, Double Page Plate No. 46 [Map bounded by N. Oxford St., Myrtle Ave., Navy St., Flushing Ave.]"
+   },
+   {
+    "id": 19227,
+    "sheet": "V2-45",
+    "name": "Brooklyn V. 2, Double Page Plate No. 45 [Map bounded by De Kalb Ave., Fulton St., Duffield St., Myrtle Ave., C"
+   },
+   {
+    "id": 19225,
+    "sheet": "V2-43",
+    "name": "Brooklyn V. 2, Double Page Plate No. 43 [Map bounded by Duffield St., Hoyt St., State St., Boerum Place, Pearl"
+   },
+   {
+    "id": 19214,
+    "sheet": "V2-32",
+    "name": "Brooklyn V. 2, Double Page Plate No. 32 [Map bounded by Hicks St., Clark St., East River, Fulton St.]"
+   },
+   {
+    "id": 19217,
+    "sheet": "V2-35",
+    "name": "Brooklyn V. 2, Double Page Plate No. 35 [Map bounded by Water St., Bridge St., East River, Little St.]"
+   },
+   {
+    "id": 19216,
+    "sheet": "V2-34",
+    "name": "Brooklyn V. 2, Double Page Plate No. 34 [Map bounded by Water St., Main St., East River, Bridge St.]"
+   },
+   {
+    "id": 19215,
+    "sheet": "V2-33",
+    "name": "Brooklyn V. 2, Double Page Plate No. 33 [Map bounded by Washington St., Middagh St., Sands St., Fulton St., Ea"
+   },
+   {
+    "id": 19223,
+    "sheet": "V2-41",
+    "name": "Brooklyn V. 2, Double Page Plate No. 41 [Map bounded by Bridge St., Myrtle Ave., Washington St., Nassau St.]"
+   },
+   {
+    "id": 19224,
+    "sheet": "V2-42",
+    "name": "Brooklyn V. 2, Double Page Plate No. 42 [Map bounded by Navy St., Myrtle St., Bridge St., Nassau St.]"
+   },
+   {
+    "id": 19222,
+    "sheet": "V2-40",
+    "name": "Brooklyn V. 2, Double Page Plate No. 40 [Map bounded by Pearl St., Boerum Place, State St., Clinton St., Pierr"
+   },
+   {
+    "id": 19221,
+    "sheet": "V2-39",
+    "name": "Brooklyn V. 2, Double Page Plate No. 39 [Map bounded by Clinton St., State St., Columbia St., Hicks St., Pierr"
+   },
+   {
+    "id": 19220,
+    "sheet": "V2-38",
+    "name": "Brooklyn V. 2, Double Page Plate No. 38 [Map bounded by Washington St., Pierrepont St., Hicks St., Middagh St."
+   },
+   {
+    "id": 19219,
+    "sheet": "V2-37",
+    "name": "Brooklyn V. 2, Double Page Plate No. 37 [Map bounded by Bridge St., Nassau St., Washington St., Water St.]"
+   },
+   {
+    "id": 19218,
+    "sheet": "V2-36",
+    "name": "Brooklyn V. 2, Double Page Plate No. 36 [Map bounded by Navy St., Nassau St., Bridge St., Water St.]"
+   },
+   {
+    "id": 19236,
+    "sheet": "V2-54",
+    "name": "Brooklyn V. 2, Double Page Plate No. 54 [Map bounded by Ryerson St., Myrtle Ave., Vanderbilt Ave., Flushing Av"
+   },
+   {
+    "id": 19234,
+    "sheet": "V2-52",
+    "name": "Brooklyn V. 2, Double Page Plate No. 52 [Map bounded by St. James Place., Atlantic Ave., Clermont Ave., Greene"
+   },
+   {
+    "id": 19233,
+    "sheet": "V2-51",
+    "name": "Brooklyn V. 2, Double Page Plate No. 51 [Map bounded by Clermont Ave., Atlantic Ave., S.Portland Ave., Lafayet"
+   },
+   {
+    "id": 19226,
+    "sheet": "V2-44",
+    "name": "Brooklyn V. 2, Double Page Plate No. 44 [Map bounded by State St., Hoyt St., De Kalb Ave., Navy St., 3rd Ave.]"
+   }
+  ]
+ },
+ "brooklyn_southwest_1886": {
+  "map_year": 1886,
+  "atlas": "Insurance Maps of the City of Brooklyn, vol. 1 (Sanborn-Perris Map Co., 1886), NYPL Atlas 63",
+  "source": "sanborn_brooklyn_1886_v1",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 19127,
+    "sheet": "V1-11",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 11 [Map bounded by Henry St., Erie Basin, Halleck St.]"
+   },
+   {
+    "id": 19145,
+    "sheet": "V1-29",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 29 [Map bounded by 20th St., Gowanus Bay, 15th St., 3rd Ave.]"
+   },
+   {
+    "id": 19128,
+    "sheet": "V1-12",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 12 [Map bounded by Clinton St., Halleck St., Columbia St., Church St.]"
+   },
+   {
+    "id": 19140,
+    "sheet": "V1-24",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 24 [Map bounded by 3rd Ave., Butler St., Bond St., State St.]"
+   },
+   {
+    "id": 19138,
+    "sheet": "V1-22",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 22 [Map bounded by Bond St., 2nd St., Smith St., Butler St.]"
+   },
+   {
+    "id": 19136,
+    "sheet": "V1-20",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 20 [Map bounded by Cowanus Bay, Henry St., Halleck St.]"
+   },
+   {
+    "id": 19134,
+    "sheet": "V1-18",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 18 [Map bounded by Smith St., W.9th St., Clinton St., 1st Pl.]"
+   },
+   {
+    "id": 19133,
+    "sheet": "V1-17",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 17 [Map bounded by Smith St., 1st Pl., Clinton St., Harrison St., Butler"
+   },
+   {
+    "id": 19132,
+    "sheet": "V1-16",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 16 [Map bounded by Smith St., Butler St., Harrison St., Clinton St., Sta"
+   },
+   {
+    "id": 19123,
+    "sheet": "V1-7",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 7 [Map bounded by Richards St., Partition St., Conover St., Imlay St., V"
+   },
+   {
+    "id": 19122,
+    "sheet": "V1-6",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 6 [Map bounded by Richards St., New York Bay, Conover St., Partition St."
+   },
+   {
+    "id": 19121,
+    "sheet": "V1-5",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 5 [Map bounded by Conover St., New York Bay, Sullivan St.]"
+   },
+   {
+    "id": 19139,
+    "sheet": "V1-23",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 23 [Map bounded by Bond St., Butler St., Smith St., State St.]"
+   },
+   {
+    "id": 19118,
+    "sheet": "V1-2",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 2 [Map bounded by Columbia St., President St., East River, Warren St.]"
+   },
+   {
+    "id": 19117,
+    "sheet": "V1-1",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 1 [Map bounded by Columbia St., Warren St., East River, Joralemon St.]"
+   },
+   {
+    "id": 19141,
+    "sheet": "V1-25",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 25 [Map bounded by 3rd Ave., 1st St., Bond St., Butler St.]"
+   },
+   {
+    "id": 19137,
+    "sheet": "V1-21",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 21 [Map bounded by Bond St., Gowanus Canal, Smith St., 2nd St.]"
+   },
+   {
+    "id": 19135,
+    "sheet": "V1-19",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 19 [Map bounded by Gowanus Canal, Halleck St., Clinton St., W.9th St.]"
+   },
+   {
+    "id": 19142,
+    "sheet": "V1-26",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 26 [Map bounded by 3rd Ave., 7th St., 5th St., Bond St., 1st St.]"
+   },
+   {
+    "id": 19126,
+    "sheet": "V1-10",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 10 [Map bounded by Columbia St., Erie Basin, Richards St., Dikeman St., "
+   },
+   {
+    "id": 19125,
+    "sheet": "V1-9",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 9 [Map bounded by Columbia St., Bay St., Dikeman St., Richards St., Dele"
+   },
+   {
+    "id": 19130,
+    "sheet": "V1-14",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 14 [Map bounded by Clinton St., Summit St., Columbia St., Harrison St.]"
+   },
+   {
+    "id": 19124,
+    "sheet": "V1-8",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 8 [Map bounded by Columbia St., Verona St., Imlay St., President St.]"
+   },
+   {
+    "id": 19129,
+    "sheet": "V1-13",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 13 [Map bounded by Clinton St., Church St., Columbia St., Summit St., 1s"
+   },
+   {
+    "id": 19120,
+    "sheet": "V1-4",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 4 [Map bounded by Imlay St., Sullivan St., Buttermilk Channel, Atlantic "
+   },
+   {
+    "id": 19131,
+    "sheet": "V1-15",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 15 [Map bounded by Clinton St., Harrison St., Columbia St., State St.]"
+   },
+   {
+    "id": 19144,
+    "sheet": "V1-28",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 28 [Map bounded by 15th St., Hamilton Ave., Gowanus Canal, 10th St., 3rd"
+   },
+   {
+    "id": 19143,
+    "sheet": "V1-27",
+    "name": "Brooklyn, V. 1, Double Page Plate No. 27 [Map bounded by 10th St., Gowanus Canal, 5th St., 3rd Ave.]"
+   }
+  ]
+ },
+ "brooklyn_williamsburg_1887": {
+  "map_year": 1887,
+  "atlas": "Insurance Maps of the City of Brooklyn, vol. 3 (Sanborn-Perris Map Co., 1887), NYPL Atlas 69",
+  "source": "sanborn_brooklyn_1887_v3",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 19316,
+    "sheet": "V3-65",
+    "name": "Brooklyn V. 3, Double Page Plate No. 65 [Map bounded by De Kalb Ave., Classon Ave., Myrtle Ave., Spencer St.]"
+   },
+   {
+    "id": 19314,
+    "sheet": "V3-63",
+    "name": "Brooklyn V. 3, Double Page Plate No. 63 [Map bounded by Wythe Ave., Flushing Ave., Willabout Canal, Roass St.]"
+   },
+   {
+    "id": 19313,
+    "sheet": "V3-62",
+    "name": "Brooklyn V. 3, Double Page Plate No. 62 [Map bounded by Willabout Canal, Flushing Ave., Washington Ave.]"
+   },
+   {
+    "id": 19333,
+    "sheet": "V3-82",
+    "name": "Brooklyn V. 3, Double Page Plate No. 82 [Map bounded by Varet St., Gerry St., Harrison Ave., Gwinnett St., Boe"
+   },
+   {
+    "id": 19331,
+    "sheet": "V3-80",
+    "name": "Brooklyn V. 3, Double Page Plate No. 80 [Map bounded by Marcy Ave., Hooper St., Broadway, Gwinnett St.]"
+   },
+   {
+    "id": 19330,
+    "sheet": "V3-79",
+    "name": "Brooklyn V. 3, Double Page Plate No. 79 [Map bounded by Broadway, Hooper St., S.3rd St., Stagg St., Lorimer St"
+   },
+   {
+    "id": 19329,
+    "sheet": "V3-78",
+    "name": "Brooklyn V. 3, Double Page Plate No. 78 [Map bounded by Marcy Ave., Roebling St., S.3rd St., Hooper St.]"
+   },
+   {
+    "id": 19328,
+    "sheet": "V3-77",
+    "name": "Brooklyn V. 3, Double Page Plate No. 77 [Map bounded by Roebling St., Division Ave., Berry St., S.3rd St.]"
+   },
+   {
+    "id": 19327,
+    "sheet": "V3-76",
+    "name": "Brooklyn V. 3, Double Page Plate No. 76 [Map bounded by Ross St., Wythe Ave., Division Ave.]"
+   },
+   {
+    "id": 19326,
+    "sheet": "V3-75",
+    "name": "Brooklyn V. 3, Double Page Plate No. 75 [Map bounded by Penn St., Wythe Ave., Ross St., Marcy Ave.]"
+   },
+   {
+    "id": 19325,
+    "sheet": "V3-74",
+    "name": "Brooklyn V. 3, Double Page Plate No. 74 [Map bounded by Gwinnett St., Wallabout St., Wythe Ave., Penn St., Mar"
+   },
+   {
+    "id": 19324,
+    "sheet": "V3-73",
+    "name": "Brooklyn V. 3, Double Page Plate No. 73 [Map bounded by Nostrand Ave., Myrtle Ave., Bedford Ave., Wallabout St"
+   },
+   {
+    "id": 19323,
+    "sheet": "V3-72",
+    "name": "Brooklyn V. 3, Double Page Plate No. 72 [Map bounded by Myrtle Ave., Nostrand Ave., Hopkins St., Tompkins Ave."
+   },
+   {
+    "id": 19322,
+    "sheet": "V3-71",
+    "name": "Brooklyn V. 3, Double Page Plate No. 71 [Map bounded by Myrtle Ave., Tompkins Ave., Hopkins St., Sumner Ave.]"
+   },
+   {
+    "id": 19321,
+    "sheet": "V3-70",
+    "name": "Brooklyn V. 3, Double Page Plate No. 70 [Map bounded by Bushwick Ave., Wall St., Myrtle Ave., Sumner Ave., Yat"
+   },
+   {
+    "id": 19320,
+    "sheet": "V3-69",
+    "name": "Brooklyn V. 3, Double Page Plate No. 69 [Map bounded by De Kalb Ave., Lewis Ave., Myrtle Ave., Broadway]"
+   },
+   {
+    "id": 19319,
+    "sheet": "V3-68",
+    "name": "Brooklyn V. 3, Double Page Plate No. 68 [Map bounded by De Kalb Ave., Throop Ave., Myrtle Ave., Lewis Ave.]"
+   },
+   {
+    "id": 19318,
+    "sheet": "V3-67",
+    "name": "Brooklyn V. 3, Double Page Plate No. 67 [Map bounded by De Kalb Ave., Marcy Ave., Myrtle Ave., Throop Ave.]"
+   },
+   {
+    "id": 19310,
+    "sheet": "V3-59",
+    "name": "Brooklyn V. 3, Double Page Plate No. 59 [Map bounded by Wythe Ave., 3rd St., Berry St., S.5th St., East River,"
+   },
+   {
+    "id": 19334,
+    "sheet": "V3-83",
+    "name": "Brooklyn V. 3, Double Page Plate No. 83 [Map bounded by Hopkins St., Delmonico Place, Tompkins Ave., Harrison "
+   },
+   {
+    "id": 19317,
+    "sheet": "V3-66",
+    "name": "Brooklyn V. 3, Double Page Plate No. 66 [Map bounded by De Kalb Ave., Spencer St., Myrtle Ave., Marcy Ave.]"
+   },
+   {
+    "id": 19315,
+    "sheet": "V3-64",
+    "name": "Brooklyn V. 3, Double Page Plate No. 64 [Map bounded by Bedford Ave., Myrtle Ave., Classon Ave., Wallabout St."
+   },
+   {
+    "id": 19311,
+    "sheet": "V3-60",
+    "name": "Brooklyn V. 3, Double Page Plate No. 60 [Map bounded by S.5th St., Berry St., Division Ave., East River]"
+   },
+   {
+    "id": 19332,
+    "sheet": "V3-81",
+    "name": "Brooklyn V. 3, Double Page Plate No. 81 [Map bounded by Hopkins St., Nostrand Ave., Gwinnett St., Harrison Ave"
+   },
+   {
+    "id": 19335,
+    "sheet": "V3-84",
+    "name": "Brooklyn V. 3, Double Page Plate No. 84 [Map bounded by Bushwick Ave., Flushing Ave., Graham Ave., Boerum St.]"
+   },
+   {
+    "id": 19312,
+    "sheet": "V3-61",
+    "name": "Brooklyn V. 3, Double Page Plate No. 61 [Map bounded by Division Ave., Wythe Ave., Ross St., East River]"
+   }
+  ]
+ },
+ "brooklyn_greenpoint_1887": {
+  "map_year": 1887,
+  "atlas": "Insurance Maps of the City of Brooklyn, vol. 4 (Sanborn-Perris Map Co., 1887), NYPL Atlas 74",
+  "source": "sanborn_brooklyn_1887_v4",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 19486,
+    "sheet": "V4-92",
+    "name": "Brooklyn V. 4, Double Page Plate No.92 [Map bounded by Newtown Creek, Calyer St., Whale Creek Canal]"
+   },
+   {
+    "id": 19497,
+    "sheet": "V4-103",
+    "name": "Brooklyn V. 4, Double Page Plate No.103 [Map bounded by Driggs St., S. 3rd St., Wythe Ave., N. 5th St.]"
+   },
+   {
+    "id": 19484,
+    "sheet": "V4-90",
+    "name": "Brooklyn V. 4, Double Page Plate No.90 [Map bounded by Eagle St., Franklin St., Pink St., Newtown Creek, Oakla"
+   },
+   {
+    "id": 19498,
+    "sheet": "V4-104",
+    "name": "Brooklyn V. 4, Double Page Plate No.104 [Map bounded by S. 3rd St., Driggs St., N. 4th St., Ainslie St., Keap "
+   }
+  ]
+ },
+ "brooklyn_bedstuy_1888": {
+  "map_year": 1888,
+  "atlas": "Insurance Maps of the City of Brooklyn, vol. 5 (Sanborn-Perris Map Co., 1888), NYPL Atlas 77",
+  "source": "sanborn_brooklyn_1888_v5",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 19587,
+    "sheet": "V5-122",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 122 [Map bounded by Broadway, Chauncey St., Saratoga Ave.]"
+   },
+   {
+    "id": 19586,
+    "sheet": "V5-121",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 121 [Map bounded by Saratoga Ave., Fulton St., Ralph Ave., Macon St.]"
+   },
+   {
+    "id": 19585,
+    "sheet": "V5-120",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 120 [Map bounded by Broadway, Saratoga Ave., Halsey St., Ralph Ave., Qui"
+   },
+   {
+    "id": 19580,
+    "sheet": "V5-115",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 115 [Map bounded by McDonough St., Throop Ave., Putnam Ave., Lewis Ave.]"
+   },
+   {
+    "id": 19599,
+    "sheet": "V5-134",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 134 [Map bounded by Lexington Ave., Lewis Ave., De Kalb Ave., Reid Ave.]"
+   },
+   {
+    "id": 19596,
+    "sheet": "V5-131",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 131 [Map bounded by Lexington Ave., Bedford Ave., De Kalb Ave., Marcy Av"
+   },
+   {
+    "id": 19594,
+    "sheet": "V5-129",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 129 [Map bounded by Jefferson Ave., Reid Ave., Quincy St., Ralph Ave.]"
+   },
+   {
+    "id": 19578,
+    "sheet": "V5-113",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 113 [Map bounded by Fulton St., Marcy Ave., McDonough St., Throop Ave., "
+   },
+   {
+    "id": 19597,
+    "sheet": "V5-132",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 132 [Map bounded by Lexington Ave., Marcy Ave., De Kalb Ave., Throop Ave"
+   },
+   {
+    "id": 19583,
+    "sheet": "V5-118",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 118 [Map bounded by Fulton St., Reid Ave., Decatur St., Ralph Ave.]"
+   },
+   {
+    "id": 19577,
+    "sheet": "V5-112",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 112 [Map bounded by Fulton Ave., Bedford Ave., Putnam Ave., Marcy Ave.]"
+   },
+   {
+    "id": 19579,
+    "sheet": "V5-114",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 114 [Map bounded by McDonough St., Marcy Ave., Putnam Ave., Throop Ave.]"
+   },
+   {
+    "id": 19600,
+    "sheet": "V5-135",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 135 [Map bounded by Quincy St., Reid Ave., Kosciusko St., Broadway, Reid"
+   },
+   {
+    "id": 19588,
+    "sheet": "V5-123",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 123 [Map bounded by Rackaway Ave., Fulton St., Saratoga Ave., Chauncey S"
+   },
+   {
+    "id": 19589,
+    "sheet": "V5-124",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 124 [Map bounded by Broadway, Sackman St., Fulton St., Rockaway Ave., Ch"
+   },
+   {
+    "id": 19592,
+    "sheet": "V5-127",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 127 [Map bounded by Putnam Ave., Throop Ave., Lexington Ave., Lewis Ave."
+   },
+   {
+    "id": 19591,
+    "sheet": "V5-126",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 126 [Map bounded by Putnam Ave., Marcy Ave., Lexington Ave., Throop Ave."
+   },
+   {
+    "id": 19582,
+    "sheet": "V5-117",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 117 [Map bounded by Fulton St., Lewis Ave., McDonough St., Reid Ave.]"
+   },
+   {
+    "id": 19595,
+    "sheet": "V5-130",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 130 [Map bounded by Bedford Ave., Gates Ave., Classon Ave., De Kalb Ave."
+   },
+   {
+    "id": 19598,
+    "sheet": "V5-133",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 133 [Map bounded by Lexington Ave., Throop Ave., De Kalb Ae., Lewis Ave."
+   },
+   {
+    "id": 19593,
+    "sheet": "V5-128",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 128 [Map bounded by Putnam Ave., Lewis Ave., Lexington Ave., Reid Ave.]"
+   },
+   {
+    "id": 19581,
+    "sheet": "V5-116",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 116 [Map bounded by McDonough St., Lewis Ave., Putnam Ave., Reid Ave.]"
+   },
+   {
+    "id": 19590,
+    "sheet": "V5-125",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 125 [Map bounded by Putnam Ave., Bedford Ave., Lexington Ave., Marcy Ave"
+   },
+   {
+    "id": 19576,
+    "sheet": "V5-111",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 111 [Map bounded by Bedford Ave., Fulton St., Classon Ave., Gates Ave.]"
+   },
+   {
+    "id": 19584,
+    "sheet": "V5-119",
+    "name": "Brooklyn, V. 5, Double Page Plate No. 119 [Map bounded by Decatur St., Reid Ave., Jefferson Ave., Ralph Ave.]"
+   }
+  ]
+ },
+ "brooklyn_bushwick_1888": {
+  "map_year": 1888,
+  "atlas": "Insurance Maps of the City of Brooklyn, vol. 9 (Sanborn-Perris Map Co., 1888), NYPL Atlas 89",
+  "source": "sanborn_brooklyn_1888_v9",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 19999,
+    "sheet": "V9-259",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 259 [Map bounded by Palmetto St., Central Ave., Greene Ave., Irving Ave."
+   },
+   {
+    "id": 19996,
+    "sheet": "V9-256",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 256 [Map bounded by Harman St., Broadway, Cedar St., Central Ave.]"
+   },
+   {
+    "id": 19987,
+    "sheet": "V9-247",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 247 [Map bounded by Randolph St., Varick Ave., Meadow St., Seneca Ave.]"
+   },
+   {
+    "id": 19995,
+    "sheet": "V9-255",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 255 [Map bounded by De Kalb Ave., Central Ave., Jefferson St., Irving Av"
+   },
+   {
+    "id": 20000,
+    "sheet": "V9-260",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 260 [Map bounded by St. Nicholas Ave., Jacob St., Irving Ave., Bleecker "
+   },
+   {
+    "id": 20007,
+    "sheet": "V9-267",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 267 [Map bounded by Covert Ave., Bleecker St., Irving Ave., Flushing Ave"
+   },
+   {
+    "id": 27645,
+    "sheet": "V9-265",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 265 [Map bounded by Cementery of the Evergreens, Broadway, Furman Ave.]"
+   },
+   {
+    "id": 19991,
+    "sheet": "V9-251",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 251 [Map bounded by Bogart St., Melrose St., Bushwick Ave., Moore St.]"
+   },
+   {
+    "id": 19998,
+    "sheet": "V9-258",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 258 [Map bounded by Linden St., Broadway, Harman St., Central Ave.]"
+   },
+   {
+    "id": 20006,
+    "sheet": "V9-266",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 266 [Map bounded by Irving Ave., Pilling St., Central Ave., Palmetto St."
+   },
+   {
+    "id": 19984,
+    "sheet": "V9-244",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 244 [Map bounded by Newtown Creek, Meadow St., Stewart Ave., Maspeth Ave"
+   },
+   {
+    "id": 20005,
+    "sheet": "V9-265",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 265 [Map bounded by Cementery of the Evergreens, Broadway, Furman Ave.]"
+   },
+   {
+    "id": 19973,
+    "sheet": "V9-233",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 233 [Map bounded by New Town Creek, Nassau Ave., Sutton St., Vail St.]"
+   },
+   {
+    "id": 20004,
+    "sheet": "V9-264",
+    "name": "Brooklyn, V. 9, Double Page Plate No. 264 [Map bounded by Furman Ave., Broadway, Cooper Ave., Central Ave.]"
+   }
+  ]
+ },
+ "brooklyn_crownheights_1888": {
+  "map_year": 1888,
+  "atlas": "Insurance Maps of the City of Brooklyn, vol. 7 (Sanborn-Perris Map Co., 1888), NYPL Atlas 83",
+  "source": "sanborn_brooklyn_1888_v7",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 19734,
+    "sheet": "V7-G",
+    "name": "Brooklyn, V. 7, Double Page Plate No. G [Map bounded by Martense St., Bedford Ave., Clarkson Ave.]"
+   },
+   {
+    "id": 19735,
+    "sheet": "V7-H",
+    "name": "Brooklyn, V. 7, Double Page Plate No. H [Map bounded by Clarkson Ave., Bedford Ave., Rulip St.]"
+   },
+   {
+    "id": 19733,
+    "sheet": "V7-F",
+    "name": "Brooklyn, V. 7, Double Page Plate No. F [Map bounded by Butler St., Locust St. Or Bedford Ave., Martense St., "
+   },
+   {
+    "id": 19732,
+    "sheet": "V7-E",
+    "name": "Brooklyn, V. 7, Double Page Plate No. E [Map bounded by Butler St., Rogers Ave.]"
+   },
+   {
+    "id": 19728,
+    "sheet": "V7-A",
+    "name": "Brooklyn, V. 7, Double Page Plate No. A [Map bounded by Malbone St., Flatbush Ave., Crown St., Bedford Ave.]"
+   },
+   {
+    "id": 19726,
+    "sheet": "V7-191",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 191 [Map bounded by Schenectady Ave., Malbone St., Albany Ave., Parkway]"
+   },
+   {
+    "id": 19724,
+    "sheet": "V7-189",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 189 [Map bounded by Brooklyn Ave., Malbone St., Nostrand Ave., Parkway]"
+   },
+   {
+    "id": 19722,
+    "sheet": "V7-187",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 187 [Map bounded by Crown St., Classon Ave., Parkway, Bedford Ave.]"
+   },
+   {
+    "id": 19720,
+    "sheet": "V7-185",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 185 [Map bounded by Hopkinson Ave., Belmont Ave., Howard Ave., St. Marks"
+   },
+   {
+    "id": 19715,
+    "sheet": "V7-180",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 180 [Map bounded by Kingston Ave., Parkway, New York Ave., St. Marks Ave"
+   },
+   {
+    "id": 19711,
+    "sheet": "V7-176",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 176 [Map bounded by Park Place, Classon Ave., Dean St., Bedford Ave.]"
+   },
+   {
+    "id": 19710,
+    "sheet": "V7-175",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 175 [Map bounded by Broadway, East New York Ave., Sackman St., Somers St"
+   },
+   {
+    "id": 19704,
+    "sheet": "V7-169",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 169 [Map bounded by Troy Ave., St. Marks Ave., Kingston Ave., Fulton St."
+   },
+   {
+    "id": 19706,
+    "sheet": "V7-171",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 171 [Map bounded by Buffalo Ave., St. Marks Ave., Utica Ave., Fulton Sst"
+   },
+   {
+    "id": 19725,
+    "sheet": "V7-190",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 190 [Map bounded by Albany Ave., Malbone St., Brooklyn Ave., Parkway]"
+   },
+   {
+    "id": 19721,
+    "sheet": "V7-186",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 186 [Map bounded by East New York Ave., Hopkinson Ave., Dean St.]"
+   },
+   {
+    "id": 19716,
+    "sheet": "V7-181",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 181 [Map bounded by Troy Ave., Parkway, Kingston Ave., St. Marks Ave.]"
+   },
+   {
+    "id": 19712,
+    "sheet": "V7-177",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 177 [Map bounded by Park Place, Bedford Ave., Dean St., New York Ave.]"
+   },
+   {
+    "id": 19718,
+    "sheet": "V7-183",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 183 [Map bounded by Buffalo Ave., Parkway, Utica Ave., St. Marks Ave.]"
+   },
+   {
+    "id": 19713,
+    "sheet": "V7-178",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 178 [Map bounded by Parkway, Classon Ave., Park Place, Bedford Ave.]"
+   },
+   {
+    "id": 19708,
+    "sheet": "V7-173",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 173 [Map bounded by Hopkinson Ave., St. Marks Ave., Howard Ave., Fulton "
+   },
+   {
+    "id": 19714,
+    "sheet": "V7-179",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 179 [Map bounded by Parkway, Bedford Ave., Park Place, New York Ave.]"
+   },
+   {
+    "id": 19719,
+    "sheet": "V7-184",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 184 [Map bounded by Howard Ave., Parkway, Buffalo Ave., St. Marks Ave.]"
+   },
+   {
+    "id": 19707,
+    "sheet": "V7-172",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 172 [Map bounded by Howard Ave., St. Marks Ave., Buffalo Ave., Fulton St"
+   },
+   {
+    "id": 19723,
+    "sheet": "V7-188",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 188 [Map bounded by Nostrand Ave., Montgomery St., Bedford Ave., Parkway"
+   },
+   {
+    "id": 19730,
+    "sheet": "V7-C",
+    "name": "Brooklyn, V. 7, Double Page Plate No. C [Map bounded by Bedford Ave., Ridgewood St., Caton St., Ocean Ave., Fe"
+   },
+   {
+    "id": 19709,
+    "sheet": "V7-174",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 174 [Map bounded by Dean St., Hopkinson Ave., Fulton St., Sackman St.]"
+   },
+   {
+    "id": 19731,
+    "sheet": "V7-D",
+    "name": "Brooklyn, V. 7, Double Page Plate No. D [Map bounded by Bedford Ave., Looust St., Burler St., Avenue A, Ocecan"
+   },
+   {
+    "id": 19701,
+    "sheet": "V7-166",
+    "name": "Brooklyn, V. 7, Double Page Plate No. 166 [Map bounded by Dean St., Classon Ave., Fulton St., Bedford Ave.]"
+   }
+  ]
+ },
+ "brooklyn_browns_1887": {
+  "map_year": 1887,
+  "atlas": "Insurance Maps of the City of Brooklyn, vol. 8 (Sanborn-Perris Map Co., 1887), NYPL Atlas 86",
+  "source": "sanborn_brooklyn_1887_v8",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 19825,
+    "sheet": "V8-196",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 196 [Map bounded by Powell St., Belmont Ave., Osborn St., Jamaica Ave.]"
+   },
+   {
+    "id": 19823,
+    "sheet": "V8-194",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 194 [Map bounded by Osborn St., Sutter Ave., Hopkinson Ave., Jamaica Ave"
+   },
+   {
+    "id": 19840,
+    "sheet": "V8-211",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 211 [Map bounded by Shepherd Ave., Glenmore Ave., Warwick St., Arlington"
+   },
+   {
+    "id": 19841,
+    "sheet": "V8-212",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 212 [Map bounded by Shepherd Ave., Blake Ave., Warwick St., Glenmore Ave"
+   },
+   {
+    "id": 19847,
+    "sheet": "V8-218",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 218 [Map bounded by Market St., Fulton Ave., Norwood Ave., Jamaica Ave.]"
+   },
+   {
+    "id": 19839,
+    "sheet": "V8-210",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 210 [Map bounded by Essex St., Arlington Ave., Warwick St., Highland Blv"
+   },
+   {
+    "id": 19843,
+    "sheet": "V8-214",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 214 [Map bounded by Norwood Ave., Ridgewood Ave., Linwood Ave., Highland"
+   },
+   {
+    "id": 19846,
+    "sheet": "V8-217",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 217 [Map bounded by Logan St., Dumont Ave., Shepherd Ave., Eastern Parkw"
+   },
+   {
+    "id": 19828,
+    "sheet": "V8-199",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 199 [Map bounded by Williams Ave., Eastern Parkway, Powell St., Jamaica "
+   },
+   {
+    "id": 19830,
+    "sheet": "V8-201",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 201 [Map bounded by New Jersey Ave., Liberty Ave., Williams Ave., Highla"
+   },
+   {
+    "id": 19845,
+    "sheet": "V8-216",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 216 [Map bounded by Logan St., Eastern Parkway, Shepherd Ave., Atlantic "
+   },
+   {
+    "id": 30226,
+    "sheet": "V8-195",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 195 [Map bounded by Osborn St., Newport St., Rockway Ave., Hopkinson Ave"
+   },
+   {
+    "id": 19849,
+    "sheet": "V8-220",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 220 [Map bounded by Market Ave., Sutter Ave., Logan St., Liberty Ave.]"
+   },
+   {
+    "id": 19848,
+    "sheet": "V8-219",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 219 [Map bounded by Market St., Liberty Ave., Logan St., Fulton Ave.]"
+   },
+   {
+    "id": 19842,
+    "sheet": "V8-213",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 213 [Map bounded by Shepherd Ave., Hegman Ave., Warwick St., Blake Ave.]"
+   },
+   {
+    "id": 19844,
+    "sheet": "V8-215",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 215 [Map bounded by Logan St., Atlantic Ave., Essex St., Ridgewood Ave.]"
+   },
+   {
+    "id": 19836,
+    "sheet": "V8-207",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 207 [Map bounded by Warwick St., Eastern Parkway, Van Sicklen Ave., Fult"
+   },
+   {
+    "id": 19837,
+    "sheet": "V8-208",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 208 [Map bounded by Warwick St., Dumont Ave., Van Sicklen Ave., Eastern "
+   },
+   {
+    "id": 19838,
+    "sheet": "V8-209",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 209 [Map bounded by New Lots Ave., Wyona St., Dumont Ave., Warwick St.]"
+   },
+   {
+    "id": 19835,
+    "sheet": "V8-206",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 206 [Map bounded by Warwick St., Fulton Ave., Van Sicklen Ave., Highland"
+   },
+   {
+    "id": 19834,
+    "sheet": "V8-205",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 205 [Map bounded by Van Sicklen Ave., Dumont Ave., New Jersy Ave., Belmo"
+   },
+   {
+    "id": 19833,
+    "sheet": "V8-204",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 204 [Map bounded by Van Sicklen Ave., Belmont Ave., New Jersey Ave., Atl"
+   },
+   {
+    "id": 19832,
+    "sheet": "V8-203",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 203 [Map bounded by Van Sicklen Ave., Atlantic Ave., New Jersey Ave., Hi"
+   },
+   {
+    "id": 19831,
+    "sheet": "V8-202",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 202 [Map bounded by New Jersey Ave., Sutter Ave., Williams Ave., Liberty"
+   },
+   {
+    "id": 19829,
+    "sheet": "V8-200",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 200 [Map bounded by Williams Ave., Dumont Ave., Powell St., Eastern Park"
+   },
+   {
+    "id": 19826,
+    "sheet": "V8-197",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 197 [Map bounded by Powell St., Dumont Ave., Osborn St., Belmont Ave.]"
+   },
+   {
+    "id": 19827,
+    "sheet": "V8-198",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 198 [Map bounded by Powell St., Newport St., Osborn St., Dumont Ave.]"
+   },
+   {
+    "id": 19824,
+    "sheet": "V8-195",
+    "name": "Brooklyn, V. 8, Double Page Plate No. 195 [Map bounded by Osborn St., Newport St., Rockway Ave., Hopkinson Ave"
+   }
+  ]
+ },
+ "brooklyn_parkslope_1888": {
+  "map_year": 1888,
+  "atlas": "Insurance Maps of the City of Brooklyn, vol. 6 (Sanborn-Perris Map Co., 1888), NYPL Atlas 80",
+  "source": "sanborn_brooklyn_1888_v6",
+  "style": "bromley_city",
+  "plates": [
+   {
+    "id": 19684,
+    "sheet": "V6-152",
+    "name": "Brooklyn, V. 6, Double Page Plate No. 152 [Map bounded by 9th Ave., 10th St., 7th Ave., 2nd St.]"
+   },
+   {
+    "id": 19683,
+    "sheet": "V6-151",
+    "name": "Brooklyn, V. 6, Double Page Plate No. 151 [Map bounded by 9th Ave., 2nd St., 7th Ave., Lincoln Place]"
+   },
+   {
+    "id": 19681,
+    "sheet": "V6-149",
+    "name": "Brooklyn, V. 6, Double Page Plate No. 149 [Map bounded by Prospect Place, Carlton Ave., Atlantic Ave., Underhi"
+   },
+   {
+    "id": 19676,
+    "sheet": "V6-146",
+    "name": "Brooklyn, V. 6, Double Page Plate No. 146 [Map bounded by 7th Ave., 11th St., 5th Ave., 5th St.]"
+   },
+   {
+    "id": 19675,
+    "sheet": "V6-145",
+    "name": "Brooklyn, V. 6, Double Page Plate No. 145 [Map bounded by 7th Ave., 5th St., 5th Ave., Carroll St.]"
+   },
+   {
+    "id": 19673,
+    "sheet": "V6-143",
+    "name": "Brooklyn, V. 6, Double Page Plate No. 143 [Map bounded by Prospect Place, 5th Ave., Atlantic Ave., Carlton Ave"
+   },
+   {
+    "id": 19671,
+    "sheet": "V6-142A",
+    "name": "Brooklyn, V. 6, Double Page Plate No. 142A [Map bounded by 5th Ave., 48th St., 3rd Ave., 40th St.]"
+   },
+   {
+    "id": 19698,
+    "sheet": "V6-165",
+    "name": "Brooklyn, V. 6, Double Page Plate No. 165 [Map bounded by 59th St., New York Bay, 54th St., 3rd Ave.]"
+   },
+   {
+    "id": 19688,
+    "sheet": "V6-155",
+    "name": "Brooklyn, V. 6, Double Page Plate No. 155 [Map bounded by Prospect Place, Underhill Ave., Atlantic Ave., Class"
+   },
+   {
+    "id": 19682,
+    "sheet": "V6-150",
+    "name": "Brooklyn, V. 6, Double Page Plate No. 150 [Map bounded by Lincoln Place, 7th Ave., Prospect Place]"
+   },
+   {
+    "id": 19689,
+    "sheet": "V6-156",
+    "name": "Brooklyn, V. 6, Double Page Plate No. 156 [Map bounded by Eastern Parkway, Underhill Ave., Prospect Place, Cla"
+   }
+  ]
+ }
+}

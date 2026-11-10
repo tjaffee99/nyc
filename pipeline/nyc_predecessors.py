@@ -58,7 +58,7 @@ from scipy.spatial import cKDTree
 
 from building_binary import (M_BARK, M_BRICK, M_BROWNSTONE, M_DUTCH, M_EARLY, M_FRAME, M_MASONRY, R_FLAT, R_SHINGLE, R_TILE,
                              R_WALL)
-from common import MANUAL, NYC_CRS, RAW, YEAR_MIN, log
+from common import INTERIM, MANUAL, NYC_CRS, RAW, YEAR_MIN, log
 
 UTM = NYC_CRS
 BI = RAW / "nypl" / "building-inspector.objects.ndjson"
@@ -145,7 +145,7 @@ def load_structures():
     import nyc_extras
     extra = []
     for fn in (nyc_extras.early_sites, nyc_extras.notable, nyc_extras.demolished, nyc_extras.atlas_layers,
-               nyc_extras.farmsteads):
+               nyc_extras.farmsteads, nyc_extras.gapfill):
         try:
             extra += fn()
         except Exception as e:  # noqa: BLE001
@@ -254,6 +254,20 @@ def add_predecessors(g):
     t = load_structures()
     gu = gpd.GeoDataFrame({"start": g.start_year.values, "src": g.year_src.values, "area": g["area"].values},
                           geometry=g.geometry.to_crs(UTM).values, crs=UTM)
+    n_city = len(gu)
+    # Structures outside the city (Hudson County's traced atlases, the fill there) are held
+    # against the counties' standing buildings (county_buildings.py), which are taken as
+    # they are: a county building is never re-dated from here (it counts as recorded).
+    outside = t[t.boro == ""]
+    cbp = INTERIM / "county_buildings.parquet"
+    if len(outside) > 50 and cbp.exists():
+        b = outside.to_crs(4326).total_bounds
+        cb = gpd.read_parquet(cbp, columns=["start_year", "area", "geometry"]).cx[b[0] - 0.01:b[2] + 0.01, b[1] - 0.01:b[3] + 0.01]
+        if len(cb):
+            cu = gpd.GeoDataFrame({"start": cb.start_year.values, "src": "assessor", "area": cb["area"].values},
+                                  geometry=cb.geometry.to_crs(UTM).values, crs=UTM)
+            gu = gpd.GeoDataFrame(pd.concat([gu, cu], ignore_index=True), geometry="geometry", crs=UTM)
+            log(f"predecessors: {len(cu)} county buildings stand under the {len(outside)} structures outside the city")
     # ---- survivors: the traced outline is a building that stands today
     ii, jj, inter = overlaps(t.geometry.values, gu)
     df = pd.DataFrame({"i": ii, "j": jj, "inter": inter})
@@ -286,7 +300,7 @@ def add_predecessors(g):
     conf[redate.j.values] = "estimated"
     src[redate.j.values] = "on_map"
     g = g.assign(start_year=start, year_confidence=conf, year_src=src)
-    gu["start"] = start
+    gu.iloc[:n_city, gu.columns.get_loc("start")] = start
     # also not drawn: an outline inside a standing building recorded as older than the map (a wing of it)
     inside_old = set(df.i[df.traced & (df.fa >= 0.6) & df.texact & (df.tstart <= df.my + 2)])
     keep = np.array([k not in surv_i and k not in inside_old for k in range(len(t))])
@@ -505,8 +519,9 @@ def add_predecessors(g):
     lenape = early_site & (v.mat_doc.values == "bark")
     srcs = np.where(lenape, "lenape_site", np.where(pre == "early", "early_site", np.where(pre == "notable", "lost_researched",
             np.where(pre == "demo", "city_demolition", np.where(is_doc, "ohm_documented",
+            np.where(pre == "gap", "gapfill:" + v.id.str.split(":").str[1].values,
             np.where(pre == "farm", "farmstead",
-            np.where(pre == "ohm", "map_", np.where(pre == "atlas", "traced_", "atlas_")).astype(object) + v.map_year.astype(str).values))))))
+            np.where(pre == "ohm", "map_", np.where(pre == "atlas", "traced_", "atlas_")).astype(object) + v.map_year.astype(str).values)))))))
     conf_out = np.where(is_doc & documented_start, "exact", "estimated").astype(object)
     cd = v.conf_doc.values
     has_cd = np.array([isinstance(c, str) and c != "" for c in cd])
