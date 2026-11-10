@@ -159,6 +159,16 @@ def main():
         use_est = np.isfinite(ye) & ~np.isfinite(raw) & ~hist_ok
         year = np.where(use_est, ye, year)
         src = np.where(use_est, "modelled", src).astype(object)
+        # The census has one open bin "1939 or earlier", and the estimator spreads it along the
+        # town's population curve — which ignores that old houses were pulled down (it had
+        # 3,000 of today's Westchester buildings standing before 1800). Each building keeps its
+        # rank; the ages follow the county's RECORDED pre-1940 buildings.
+        for c in np.unique(county[use_est]):
+            m = use_est & (county == c) & (year < 1940)
+            ref = np.sort(year[(county == c) & (src == "parcel") & (year < 1940)])
+            if m.sum() > 50 and len(ref) > 500:
+                rk = (pd.Series(year[m]).rank(method="first").values - 0.5) / m.sum()
+                year[m] = np.quantile(ref, rk)
         log(f"counties: {int(use_est.sum())} footprints without a roll year take the modelled estimate")
     year = np.clip(year, YEAR_MIN, 2029.0)
     conf = np.where(np.isin(src, ["parcel", "historic_register"]), "exact", "estimated").astype(object)

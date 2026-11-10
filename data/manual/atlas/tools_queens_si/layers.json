@@ -609,7 +609,8 @@
    {
     "id": 15744,
     "sheet": "4",
-    "name": "Queens, Vol. 3, Double Page Plate No. 4; Part of ward Three College Point. [Map bounded by"
+    "name": "Queens, Vol. 3, Double Page Plate No. 4; Part of ward Three College Point. [Map bounded by",
+    "skip": "control points 92 m out, no street match: unplaced"
    },
    {
     "id": 15745,
@@ -644,12 +645,14 @@
    {
     "id": 15751,
     "sheet": "11",
-    "name": "Queens, Vol. 3, Double Page Plate No. 11; Part of Ward Three Flushing. [Map bounded by Bay"
+    "name": "Queens, Vol. 3, Double Page Plate No. 11; Part of Ward Three Flushing. [Map bounded by Bay",
+    "skip": "9 outlines, control points 78 m out: unplaced"
    },
    {
     "id": 15752,
     "sheet": "12",
-    "name": "Queens, Vol. 3, Double Page Plate No. 12; Part of Ward Three Whitestone; [Map bounded by 1"
+    "name": "Queens, Vol. 3, Double Page Plate No. 12; Part of Ward Three Whitestone; [Map bounded by 1",
+    "skip": "3 control points, no street match, no survivors: unplaced"
    },
    {
     "id": 15753,
@@ -659,12 +662,14 @@
    {
     "id": 15754,
     "sheet": "14",
-    "name": "Queens, Vol. 3, Double Page Plate No. 14; Part of ward Three Whitestone; [Map bounded by 1"
+    "name": "Queens, Vol. 3, Double Page Plate No. 14; Part of ward Three Whitestone; [Map bounded by 1",
+    "skip": "control points 32 m out, no street match: unplaced"
    },
    {
     "id": 15755,
     "sheet": "15",
-    "name": "Queens, Vol. 3, Double Page Plate No. 15; Part of ward Three Whitestone; [Map bounded by 1"
+    "name": "Queens, Vol. 3, Double Page Plate No. 15; Part of ward Three Whitestone; [Map bounded by 1",
+    "skip": "control points 2.2 km out: unplaced"
    },
    {
     "id": 15756,
@@ -684,12 +689,14 @@
    {
     "id": 15759,
     "sheet": "19",
-    "name": "Queens, Vol. 3, Double Page Plate No. 19; Part of ward Three Flushing; [Map bounded by Str"
+    "name": "Queens, Vol. 3, Double Page Plate No. 19; Part of ward Three Flushing; [Map bounded by Str",
+    "skip": "overview plate at 1.1 m per pixel (Flushing, ward 3): houses are a few pixels, not traceable; no street match"
    },
    {
     "id": 15760,
     "sheet": "20",
-    "name": "Queens, Vol. 3, Double Page Plate No. 20; Part of ward Three Sub Plan No. 1; [Map bounded "
+    "name": "Queens, Vol. 3, Double Page Plate No. 20; Part of ward Three Sub Plan No. 1; [Map bounded ",
+    "skip": "overview plate at 1.1 m per pixel: not traceable; no street match"
    },
    {
     "id": 15761,
@@ -2148,7 +2155,8 @@
    {
     "id": 15625,
     "sheet": "37",
-    "name": "Queens, Vol. 1, Double Page Plate No. 37; Part of Ward 5; Farrockaway; [Remsen Ave., Henry"
+    "name": "Queens, Vol. 1, Double Page Plate No. 37; Part of Ward 5; Farrockaway; [Remsen Ave., Henry",
+    "skip": "3 control points, street match fails (23 m off, no consensus): unplaced"
    },
    {
     "id": 15626,
@@ -2163,7 +2171,8 @@
    {
     "id": 15628,
     "sheet": "40",
-    "name": "Queens, Vol. 1, Double Page Plate No. 40; Part of Ward 5; Farrockaway; [map bounded by Jam"
+    "name": "Queens, Vol. 1, Double Page Plate No. 40; Part of Ward 5; Farrockaway; [map bounded by Jam",
+    "skip": "2 outlines: nothing to place"
    }
   ],
   "style_override": {

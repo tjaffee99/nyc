@@ -14,7 +14,8 @@
    {
     "id": 26194,
     "sheet": "3",
-    "name": "Jersey City, V. 1, Double Page Plate No. 3 [Map bounded by Jersey Ave., 11th St., Provost St., 2nd St.] / comp"
+    "name": "Jersey City, V. 1, Double Page Plate No. 3 [Map bounded by Jersey Ave., 11th St., Provost St., 2nd St.] / comp",
+    "skip": "unverified: 4 control points (cross-validated 6 m), no building match, only 5 outlines coincide with a standing footprint"
    },
    {
     "id": 26195,
@@ -29,7 +30,8 @@
    {
     "id": 26197,
     "sheet": "6",
-    "name": "Jersey City, V. 1, Double Page Plate No. 6 [Map bounded by Provost St., Ferry St., Hudson River, Morgan St., H"
+    "name": "Jersey City, V. 1, Double Page Plate No. 6 [Map bounded by Provost St., Ferry St., Hudson River, Morgan St., H",
+    "skip": "unverified: 7 control points (cross-validated 5.9 m), 3 coinciding outlines, no building match"
    },
    {
     "id": 26199,
@@ -119,12 +121,14 @@
    {
     "id": 26217,
     "sheet": "26",
-    "name": "Jersey City, V. 1, Double Page Plate No. 26 [Map bounded by New York bay] / compiled under the direction of an"
+    "name": "Jersey City, V. 1, Double Page Plate No. 26 [Map bounded by New York bay] / compiled under the direction of an",
+    "skip": "control points inconsistent (cross-validated 9594 m), nothing standing to check"
    },
    {
     "id": 26218,
     "sheet": "27",
-    "name": "Jersey City, V. 1, Double Page Plate No. 27 [Map bounded by Morris Canal, Sussex St., Hudson River, New York B"
+    "name": "Jersey City, V. 1, Double Page Plate No. 27 [Map bounded by Morris Canal, Sussex St., Hudson River, New York B",
+    "skip": "unverified: control-point fit only (cross-validated 7.3 m); the 2 coinciding outlines sit 6.8 m off"
    },
    {
     "id": 26219,
@@ -134,7 +138,8 @@
    {
     "id": 26220,
     "sheet": "29",
-    "name": "Jersey City, V. 1, Double Page Plate No. 29 [Map bounded by Dungan Ave., Olean Ave., West Side Ave., Boyed Ave"
+    "name": "Jersey City, V. 1, Double Page Plate No. 29 [Map bounded by Dungan Ave., Olean Ave., West Side Ave., Boyed Ave",
+    "skip": "control points inconsistent (cross-validated 21 m), 9 coinciding outlines, no building match"
    },
    {
     "id": 26221,
@@ -169,12 +174,14 @@
    {
     "id": 26230,
     "sheet": "39",
-    "name": "Jersey City, V. 1, Double Page Plate No. 39 [Map bounded by New York Bay, Kill Von Kull, E. 22nd St.] / compil"
+    "name": "Jersey City, V. 1, Double Page Plate No. 39 [Map bounded by New York Bay, Kill Von Kull, E. 22nd St.] / compil",
+    "skip": "unverified: control-point fit only (cross-validated 9.1 m), no outline coincides with a standing footprint"
    },
    {
     "id": 26231,
     "sheet": "40",
-    "name": "Jersey City, V. 1, Double Page Plate No. 40 [Map bounded by E. 40th St., New York Bay, E. 21st St.] / compiled"
+    "name": "Jersey City, V. 1, Double Page Plate No. 40 [Map bounded by E. 40th St., New York Bay, E. 21st St.] / compiled",
+    "skip": "unverified: control-point fit only (42 points, cross-validated 3.9 m), no outline coincides with a standing footprint (Bayonne industrial shore)"
    }
   ],
   "style_override": {
@@ -233,7 +240,19 @@
     "sheet": "29",
     "name": "Jersey City, V. 1, Double Page Plate No. 29 [Map bounded by Prior St., S. 7th St., Colgate St., Mill Creek]"
    }
-  ]
+  ],
+  "style_override": {
+   "core": 12,
+   "wall_px": 240,
+   "hole_px": 500,
+   "front_px": 2500,
+   "frame": {
+    "db_min": 5.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 92
+   }
+  }
  },
  "hudson_jersey_city_1873": {
   "map_year": 1873,
@@ -257,7 +276,19 @@
     "sheet": "31",
     "name": "Jersey City, V. 4, Double Page Plate No. 31 [Map bounded by Webster Ave., South St., Paterson and New York Pla"
    }
-  ]
+  ],
+  "style_override": {
+   "core": 12,
+   "wall_px": 240,
+   "hole_px": 500,
+   "front_px": 2500,
+   "frame": {
+    "db_min": 6.5,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 92
+   }
+  }
  },
  "hudson_hoboken_1887": {
   "map_year": 1887,
@@ -276,6 +307,18 @@
     "sheet": "3",
     "name": "Hudson County, V. 8, Double Page Plate No. 3 [Map bounded by Kerrigan Ave., Charles St., Courtland St., Bergen"
    }
-  ]
+  ],
+  "style_override": {
+   "core": 12,
+   "wall_px": 240,
+   "hole_px": 500,
+   "front_px": 2500,
+   "frame": {
+    "db_min": 5.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 92
+   }
+  }
  }
 }

@@ -1128,8 +1128,8 @@ def export(layer, max_off=8.0):
                 keep[k] = False
                 water += 1
         st["lettering_dropped"], st["water_dropped"] = lettering, water
-        # slivers (Queens / Staten Island): a long thin outline (under 3 m wide, over 4 times as long, or under
-        # 4 m wide and over 14 m long) lying along a street or a lot line is the street tint or a band, not a house
+        # slivers (Queens / Staten Island): a long thin outline (under 3 m wide and over 4 times as long, under
+        # 4.5 m wide and over 14 m long, or over 30 m long and over 6 times as long as wide) lying along a street or a lot line is the street tint or a band, not a house
         slivers = 0
         for k, g in enumerate(polys):
             if not keep[k]:
@@ -1137,7 +1137,7 @@ def export(layer, max_off=8.0):
             xy_ = np.asarray(g.minimum_rotated_rectangle.exterior.coords)
             e1_, e2_ = np.hypot(*(xy_[1] - xy_[0])), np.hypot(*(xy_[2] - xy_[1]))
             w_, l_ = min(e1_, e2_), max(e1_, e2_)
-            if (w_ < 3.0 and l_ > 4 * w_) or (w_ < 4.0 and l_ > 14.0):
+            if (w_ < 3.0 and l_ > 4 * w_) or (w_ < 4.5 and l_ > 14.0) or (l_ > 30.0 and l_ > 6 * w_):
                 keep[k] = False
                 slivers += 1
         st["sliver_dropped"] = slivers
