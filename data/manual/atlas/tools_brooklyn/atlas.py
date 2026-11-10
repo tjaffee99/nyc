@@ -531,6 +531,21 @@ def wash_raster(img, paper, f, cool=None):
     return out
 
 
+def empty_raster(img, paper, f):
+    """Sanborn plates tint no streets: the streets are the paper left blank between the blocks (lines, fills and
+    lettering mark the blocks). Share of blank per reduced pixel, read on every second pixel."""
+    H, W = img.shape[:2]
+    g = f // 2
+    sub = img[:H - H % f:2, :W - W % f:2]
+    out = np.zeros((H // f, W // f), np.float32)
+    for r0 in range(0, sub.shape[0], 512 * g):
+        lab = rgb2lab(sub[r0:r0 + 512 * g])
+        dL, da, db = lab[..., 0] - paper[0], lab[..., 1] - paper[1], lab[..., 2] - paper[2]
+        w = (dL < -7) | (db > 5) | (da > 2.5) | (db < -4)
+        out[r0 // g:r0 // g + w.shape[0] // g] = 1.0 - w.reshape(w.shape[0] // g, g, w.shape[1] // g, g).mean((1, 3))
+    return out
+
+
 def window_shifts(P, f=4, win_m=400.0, search_m=30.0, min_q=0.4, F=None):
     """Where the plate's street wash sits best on today's streets, window by window:
     rows (u, v, du, dv, q) in full-resolution pixels (the map content at u, v belongs at u + du, v + dv)."""
@@ -538,8 +553,10 @@ def window_shifts(P, f=4, win_m=400.0, search_m=30.0, min_q=0.4, F=None):
     if F is None:
         img = P.img()
         paper = paper_colour(img, P.inside(img.shape[:2]))
-        F = wash_raster(img, paper, f, P.style.get("wash_cool"))
-        F = ndi.gaussian_filter(F, 1.0)  # the whole sheet: what lies outside the Map Warper mask is map all the same
+        if P.style.get("street_empty"):
+            F = ndi.gaussian_filter(empty_raster(img, paper, f), 4.0)
+        else:
+            F = ndi.gaussian_filter(wash_raster(img, paper, f, P.style.get("wash_cool")), 1.0)  # the whole sheet: what lies outside the Map Warper mask is map all the same
         P._wash = F
     R = street_raster(P, F.shape, f)
     k = P.m.src_mpp * f
@@ -608,7 +625,7 @@ def refine(layer, pid, verbose=True, min_q=None, win_m=None, init_t=None):
     if init_t is not None:
         rep["located_shift_m"] = [round(float(v)) for v in init_t]
     wash = None
-    for k, search in enumerate((30.0, 15.0)):
+    for k, search in enumerate(P.style.get("street_search", (30.0, 15.0))):
         sh = window_shifts(P, search_m=search, min_q=q, win_m=win, F=wash)
         wash = P._wash if wash is None else wash
         if k == 0:
@@ -1093,6 +1110,10 @@ def export(layer, max_off=8.0):
         st = dict(d["stats"], sheet=pl["sheet"])
         if st.get("coincide", 0) >= 5 and st.get("off_median_m", 0) > max_off:
             st["status"] = "rejected: standing buildings %.1f m from their footprints" % st["off_median_m"]
+            rep.append(st)
+            continue
+        if spec.get("require_match") and not st.get("corrected") and st.get("cv_rms", 99) > spec["require_match"]:
+            st["status"] = "left out: no street or building match, control points CV rms %.1f m" % st.get("cv_rms", 99)
             rep.append(st)
             continue
         polys = [wkb.loads(o["geom"]) for o in d["items"]]

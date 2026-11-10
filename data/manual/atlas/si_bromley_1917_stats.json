@@ -1,0 +1,622 @@
+{
+ "total": {
+  "layer": "si_bromley_1917",
+  "plates": 5,
+  "buildings": 2989,
+  "frame": 2858,
+  "brick": 131,
+  "stone": 0,
+  "gasholders": 0,
+  "on_today": 232,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 3.84
+ },
+ "plates": [
+  {
+   "plate": "15367",
+   "image": "1646236",
+   "name": "Part of Ward 1. [Map bound by Castleton Ave, N.      \r\nBurgher Ave (Burgher), Cary Ave, Be",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 12.1,
+   "mpp": 0.231,
+   "n": 861,
+   "frame": 830,
+   "brick": 23,
+   "stone": 0,
+   "coincide": 88,
+   "share": 0.103,
+   "corrected": true,
+   "paper": [
+    76.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.37,
+    0.07
+   ],
+   "off_median_m": 1.19,
+   "street": null,
+   "bld": {
+    "plate": "15367",
+    "n": 861,
+    "windows": 27,
+    "shift_median": [
+     0.08,
+     0.13
+    ],
+    "fit_residual_m": 0.96,
+    "agree": 27,
+    "kind": "affine"
+   },
+   "sheet": "image 1646236",
+   "lettering_dropped": 6,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 853,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "15368",
+   "image": "1646237",
+   "name": "Part of Ward 1. [Map bound by Palmers Run, Spring St,\r\nPost Ave, Greenleaf Ave, Forest Ave",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 11.2,
+   "mpp": 0.231,
+   "n": 265,
+   "frame": 254,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 7,
+   "share": 0.027,
+   "corrected": false,
+   "paper": [
+    76.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.98,
+    -1.04
+   ],
+   "off_median_m": 1.52,
+   "sheet": "image 1646237",
+   "lettering_dropped": 7,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 256,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "15369",
+   "image": "1646238",
+   "name": "Part of Ward 3. [Map bound by Richmond Ave, Albion   \r\nPL, Washington PL, Simonson PL, Cat",
+   "gcps": 11,
+   "model": "affine",
+   "cv_rms": 6.6,
+   "mpp": 0.154,
+   "n": 494,
+   "frame": 473,
+   "brick": 10,
+   "stone": 0,
+   "coincide": 93,
+   "share": 0.193,
+   "corrected": true,
+   "paper": [
+    77.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.21,
+    -0.07
+   ],
+   "off_median_m": 1.24,
+   "street": null,
+   "bld": {
+    "plate": "15369",
+    "n": 494,
+    "windows": 16,
+    "shift_median": [
+     0.1,
+     0.15
+    ],
+    "fit_residual_m": 0.56,
+    "agree": 15,
+    "kind": "affine"
+   },
+   "sheet": "image 1646238",
+   "lettering_dropped": 10,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 483,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "15370",
+   "image": "1646239",
+   "name": "Part of Ward 3. [Map bound by Richmond Ave, Richmond \r\nTerrace, Pierhead and Bulkhead Line",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 7.0,
+   "mpp": 0.154,
+   "n": 635,
+   "frame": 559,
+   "brick": 32,
+   "stone": 0,
+   "coincide": 39,
+   "share": 0.066,
+   "corrected": true,
+   "paper": [
+    75.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.03,
+    -0.08
+   ],
+   "off_median_m": 0.91,
+   "street": null,
+   "bld": {
+    "plate": "15370",
+    "n": 635,
+    "windows": 14,
+    "shift_median": [
+     0.26,
+     0.06
+    ],
+    "fit_residual_m": 0.63,
+    "agree": 11,
+    "kind": "affine"
+   },
+   "sheet": "image 1646239",
+   "lettering_dropped": 40,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 591,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "15371",
+   "sheet": "image 1646240",
+   "status": "not traced"
+  },
+  {
+   "plate": "15372",
+   "sheet": "image 1646241",
+   "status": "not traced"
+  },
+  {
+   "plate": "15373",
+   "sheet": "image 1646242",
+   "status": "not traced"
+  },
+  {
+   "plate": "15375",
+   "sheet": "image 1646244",
+   "status": "not traced"
+  },
+  {
+   "plate": "15377",
+   "sheet": "image 1646246",
+   "status": "not traced"
+  },
+  {
+   "plate": "15378",
+   "sheet": "image 1646247",
+   "status": "not traced"
+  },
+  {
+   "plate": "15379",
+   "sheet": "image 1646248",
+   "status": "not traced"
+  },
+  {
+   "plate": "15380",
+   "sheet": "image 1646249",
+   "status": "not traced"
+  },
+  {
+   "plate": "15381",
+   "sheet": "image 1646250",
+   "status": "not traced"
+  },
+  {
+   "plate": "15382",
+   "sheet": "image 1646251",
+   "status": "not traced"
+  },
+  {
+   "plate": "15383",
+   "sheet": "image 1646252",
+   "status": "not traced"
+  },
+  {
+   "plate": "15384",
+   "sheet": "image 1646253",
+   "status": "not traced"
+  },
+  {
+   "plate": "15385",
+   "sheet": "image 1646254",
+   "status": "not traced"
+  },
+  {
+   "plate": "15386",
+   "sheet": "image 1646255",
+   "status": "not traced"
+  },
+  {
+   "plate": "15387",
+   "sheet": "image 1646256",
+   "status": "not traced"
+  },
+  {
+   "plate": "15388",
+   "sheet": "image 1646257",
+   "status": "not traced"
+  },
+  {
+   "plate": "15389",
+   "sheet": "image 1646258",
+   "status": "not traced"
+  },
+  {
+   "plate": "15390",
+   "sheet": "image 1646259",
+   "status": "not traced"
+  },
+  {
+   "plate": "15391",
+   "sheet": "image 1646260",
+   "status": "not traced"
+  },
+  {
+   "plate": "15392",
+   "sheet": "image 1646261",
+   "status": "not traced"
+  },
+  {
+   "plate": "15393",
+   "sheet": "image 1646262",
+   "status": "not traced"
+  },
+  {
+   "plate": "15394",
+   "sheet": "image 1646263",
+   "status": "not traced"
+  },
+  {
+   "plate": "15395",
+   "sheet": "image 1646264",
+   "status": "not traced"
+  },
+  {
+   "plate": "15399",
+   "sheet": "image 1646268",
+   "status": "not traced"
+  },
+  {
+   "plate": "15400",
+   "sheet": "image 1646269",
+   "status": "not traced"
+  },
+  {
+   "plate": "15401",
+   "sheet": "image 1646270",
+   "status": "not traced"
+  },
+  {
+   "plate": "15402",
+   "sheet": "image 1646271",
+   "status": "not traced"
+  },
+  {
+   "plate": "15403",
+   "sheet": "image 1646272",
+   "status": "not traced"
+  },
+  {
+   "plate": "15404",
+   "sheet": "image 1646273",
+   "status": "not traced"
+  },
+  {
+   "plate": "15405",
+   "sheet": "image 1646274",
+   "status": "not traced"
+  },
+  {
+   "plate": "15406",
+   "sheet": "image 1646275",
+   "status": "not traced"
+  },
+  {
+   "plate": "15407",
+   "sheet": "image 1646276",
+   "status": "not traced"
+  },
+  {
+   "plate": "15408",
+   "sheet": "image 1646277",
+   "status": "not traced"
+  },
+  {
+   "plate": "15409",
+   "sheet": "image 1646278",
+   "status": "not traced"
+  },
+  {
+   "plate": "15410",
+   "sheet": "image 1646279",
+   "status": "not traced"
+  },
+  {
+   "plate": "15411",
+   "sheet": "image 1646280",
+   "status": "not traced"
+  },
+  {
+   "plate": "15412",
+   "sheet": "image 1646281",
+   "status": "not traced"
+  },
+  {
+   "plate": "15413",
+   "sheet": "image 1646282",
+   "status": "not traced"
+  },
+  {
+   "plate": "15414",
+   "sheet": "image 1646283",
+   "status": "not traced"
+  },
+  {
+   "plate": "15415",
+   "sheet": "image 1646284",
+   "status": "not traced"
+  },
+  {
+   "plate": "15416",
+   "sheet": "image 1646285",
+   "status": "not traced"
+  },
+  {
+   "plate": "15417",
+   "sheet": "image 1646286",
+   "status": "not traced"
+  },
+  {
+   "plate": "15418",
+   "sheet": "image 1646287",
+   "status": "not traced"
+  },
+  {
+   "plate": "15419",
+   "sheet": "image 1646288",
+   "status": "not traced"
+  },
+  {
+   "plate": "15420",
+   "sheet": "image 1646289",
+   "status": "not traced"
+  },
+  {
+   "plate": "15421",
+   "sheet": "image 1646290",
+   "status": "not traced"
+  },
+  {
+   "plate": "15422",
+   "sheet": "image 1646291",
+   "status": "not traced"
+  },
+  {
+   "plate": "15423",
+   "sheet": "image 1646292",
+   "status": "not traced"
+  },
+  {
+   "plate": "15424",
+   "sheet": "image 1646293",
+   "status": "not traced"
+  },
+  {
+   "plate": "15425",
+   "sheet": "image 1646294",
+   "status": "not traced"
+  },
+  {
+   "plate": "15426",
+   "sheet": "image 1646295",
+   "status": "not traced"
+  },
+  {
+   "plate": "15427",
+   "sheet": "image 1646296",
+   "status": "not traced"
+  },
+  {
+   "plate": "15428",
+   "sheet": "image 1646297",
+   "status": "not traced"
+  },
+  {
+   "plate": "15429",
+   "sheet": "image 1646298",
+   "status": "not traced"
+  },
+  {
+   "plate": "15430",
+   "sheet": "image 1646299",
+   "status": "not traced"
+  },
+  {
+   "plate": "15432",
+   "sheet": "image 1646301",
+   "status": "not traced"
+  },
+  {
+   "plate": "15433",
+   "sheet": "image 1646302",
+   "status": "not traced"
+  },
+  {
+   "plate": "15434",
+   "sheet": "image 1646303",
+   "status": "not traced"
+  },
+  {
+   "plate": "15435",
+   "sheet": "image 1646304",
+   "status": "not traced"
+  },
+  {
+   "plate": "15436",
+   "sheet": "image 1646305",
+   "status": "not traced"
+  },
+  {
+   "plate": "15437",
+   "sheet": "image 1646306",
+   "status": "not traced"
+  },
+  {
+   "plate": "15438",
+   "sheet": "image 1646307",
+   "status": "not traced"
+  },
+  {
+   "plate": "15439",
+   "sheet": "image 1646308",
+   "status": "not traced"
+  },
+  {
+   "plate": "15440",
+   "sheet": "image 1646309",
+   "status": "not traced"
+  },
+  {
+   "plate": "15441",
+   "sheet": "image 1646310",
+   "status": "not traced"
+  },
+  {
+   "plate": "15442",
+   "sheet": "image 1646311",
+   "status": "not traced"
+  },
+  {
+   "plate": "15443",
+   "sheet": "image 1646312",
+   "status": "not traced"
+  },
+  {
+   "plate": "15444",
+   "sheet": "image 1646313",
+   "status": "not traced"
+  },
+  {
+   "plate": "15445",
+   "sheet": "image 1646314",
+   "status": "not traced"
+  },
+  {
+   "plate": "15449",
+   "sheet": "image 1646318",
+   "status": "not traced"
+  },
+  {
+   "plate": "15450",
+   "sheet": "image 1646319",
+   "status": "not traced"
+  },
+  {
+   "plate": "15451",
+   "sheet": "image 1646320",
+   "status": "not traced"
+  },
+  {
+   "plate": "15452",
+   "image": "1646321",
+   "name": "Part of Ward 1. [Map bound by Pierhead Line, Richmond\r\nTerrace, Nicholas St, St. Marks PL,",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 12.3,
+   "mpp": 0.229,
+   "n": 850,
+   "frame": 742,
+   "brick": 64,
+   "stone": 0,
+   "coincide": 5,
+   "share": 0.006,
+   "corrected": false,
+   "paper": [
+    73.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -1.26,
+    -0.41
+   ],
+   "off_median_m": 1.38,
+   "sheet": "image 1646321",
+   "lettering_dropped": 38,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 806,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "15453",
+   "sheet": "image 1646322",
+   "status": "not traced"
+  },
+  {
+   "plate": "15454",
+   "sheet": "image 1646323",
+   "status": "not traced"
+  },
+  {
+   "plate": "15455",
+   "sheet": "image 1646324",
+   "status": "not traced"
+  },
+  {
+   "plate": "15456",
+   "sheet": "image 1646325",
+   "status": "not traced"
+  },
+  {
+   "plate": "15457",
+   "sheet": "image 1646326",
+   "status": "not traced"
+  },
+  {
+   "plate": "15458",
+   "sheet": "image 1646327",
+   "status": "not traced"
+  },
+  {
+   "plate": "15459",
+   "sheet": "image 1646328",
+   "status": "not traced"
+  }
+ ]
+}

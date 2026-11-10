@@ -9,7 +9,7 @@ What the atlas does not give (years of construction and demolition, heights) is 
 |---|---|---|---|
 | `kings_towns_1890.geojson` | *Robinson's atlas of Kings County, New York* (E. Robinson, 1890), 29 of its 31 plates | the county towns before they joined Brooklyn: Flatbush, New Utrecht (Bay Ridge, Fort Hamilton, Bath Beach, Bensonhurst), Gravesend (the village, Coney Island, Sheepshead Bay), Flatlands (Canarsie in part) | 6,914 (6,795 frame, 119 brick) |
 | `harlem_1897.geojson` | *Atlas of the city of New York, Manhattan Island* (G. W. & W. S. Bromley, 1897), the 15 plates north of 84th / 86th St (one of them, plate 35, georeferenced here) | Yorkville north of 84th St, East Harlem, the Upper West Side from 86th St, Morningside Heights, Harlem, Manhattanville, Hamilton Heights, Washington Heights to about 190th St | 19,925 (3,114 frame, 16,805 brick, 6 stone) |
-| `manhattan_midtown_1897.geojson` | the same atlas, 11 plates (one of them, plate 19, georeferenced here) | Manhattan from 40th St to 84th / 86th St, river to river: Hell's Kitchen, Lincoln Square, the Upper West Side to 86th St, Midtown, Turtle Bay, the Upper East Side, Yorkville to 84th St | 19,244 (1,687 frame, 17,524 brick, 7 stone, 26 gasholders) |
+| `manhattan_midtown_1897.geojson` | the same atlas, 11 plates (one of them, plate 19, georeferenced here) | Manhattan from 40th St to 84th / 86th St, river to river: Hell's Kitchen, Lincoln Square, the Upper West Side to 86th St, Midtown, Turtle Bay, the Upper East Side, Yorkville to 84th St | 19,321 (1,696 frame, 17,594 brick, 7 stone, 24 gasholders) |
 | `bronx_23rd_ward_1887.geojson` | *Atlas of the city of New York … 23rd Ward* (E. Robinson & R. H. Pidgeon, 1887), 18 of 21 plates (plate 6 is not in the dump; 16 and 20 left out) | the Bronx south of about 170th St: Mott Haven, Port Morris, Melrose, Morrisania, Hunts Point, Highbridge, Claremont | 5,456 (4,498 frame, 924 brick, 34 stone) |
 
 Each layer has a `<layer>_coverage.geojson` (one polygon per plate read) and a `<layer>_stats.json` (the
@@ -274,26 +274,26 @@ are not read (only fills).
 
 The same Bromley atlas of 1897 as `harlem_1897`, for the band from 40th St to the Harlem layer's edge at
 84th / 86th St, river to river: plates 19, 21, 25, 26, 27, 28, 29 and four plates the Map Warper titles only call
-"Part of Section ..." (image ids in the table); 0.25 m per pixel. 19,244 outlines (1,687 frame, 17,524 brick, 7
-stone, 26 gasholders), 11.2 km2. The layer is cut at the line of 40th St (today's centreline) and at the
-coverage of `harlem_1897`, so no building is in both layers (1,654 outlines traced south of 40th St or inside
+"Part of Section ..." (image ids in the table); 0.25 m per pixel. 19,321 outlines (1,696 frame, 17,594 brick, 7
+stone, 24 gasholders), 11.2 km2. The layer is cut at the line of 40th St (today's centreline) and at the
+coverage of `harlem_1897`, so no building is in both layers (1,599 outlines traced south of 40th St or inside
 the Harlem coverage are left out).
 
 <!-- TABLE manhattan_midtown_1897 -->
 | sheet | Map Warper id | NYPL image | control points (fit, CV rms m) | m / px | street match: windows agreeing, shift found m, left m | building match: windows, residual m | buildings (frame / brick / stone) | on a standing footprint (IoU > 0.5) | their median offset m | status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| image 1516786 | 8217 | 1516786 | 20 (tps, 1.4) | 0.249 | none | affine: 24, 0.74 | 2022 (469 / 1550 / 0) | 157 (8 %) | 1.6 | ok |
-| 19 | 900019 | 1516787 | 30 (poly2, 2.6) | 0.246 | none | affine: 22, 0.79 | 1643 (226 / 1407 / 0) | 113 (7 %) | 1.84 | ok |
-| 25 | 8209 | 1516778 | 30 (poly2, 1.2) | 0.247 | none | affine: 30, 0.71 | 1649 (106 / 1539 / 0) | 161 (10 %) | 1.51 | ok |
-| 21 | 8212 | 1516781 | 49 (poly2, 1.2) | 0.252 | none | affine: 22, 1.35 | 2626 (170 / 2450 / 0) | 111 (4 %) | 1.8 | ok |
-| 27 | 8211 | 1516780 | 38 (poly2, 1.1) | 0.251 | none | affine: 23, 0.72 | 1290 (170 / 1117 / 0) | 108 (8 %) | 1.87 | ok |
-| 29 | 8214 | 1516783 | 38 (poly2, 1.3) | 0.25 | none | affine: 33, 0.67 | 1315 (210 / 1105 / 0) | 173 (13 %) | 1.76 | ok |
-| 28 | 8213 | 1516782 | 90 (tps, 1.2) | 0.249 | none | affine: 65, 0.96 | 1688 (49 / 1639 / 0) | 155 (9 %) | 2.17 | ok |
-| image 1516788 | 8219 | 1516788 | 38 (poly2, 1.3) | 0.246 | none | affine: 39, 1.79 | 1221 (57 / 1164 / 0) | 21 (2 %) | 4.47 | ok |
-| image 1516784 | 8215 | 1516784 | 34 (tps, 1.3) | 0.248 | none | affine: 28, 0.99 | 2139 (26 / 2107 / 6) | 71 (3 %) | 2.74 | ok |
-| image 1516785 | 8216 | 1516785 | 18 (tps, 1.5) | 0.248 | none | affine: 18, 0.71 | 2227 (131 / 2095 / 1) | 41 (2 %) | 2.58 | ok |
-| 26 | 8210 | 1516779 | 37 (tps, 1.1) | 0.251 | none | affine: 41, 0.93 | 1424 (73 / 1351 / 0) | 163 (11 %) | 1.81 | ok |
-| **all** | | | | | | | **19244** (1687 / 17524 / 7) | 1274 (7 %) | | 11 plates, 11.2 km2 |
+| image 1516786 | 8217 | 1516786 | 20 (tps, 1.4) | 0.249 | none | affine: 22, 0.7 | 2030 (472 / 1554 / 0) | 154 (8 %) | 1.59 | ok |
+| 19 | 900019 | 1516787 | 30 (poly2, 2.6) | 0.246 | none | affine: 18, 0.72 | 1641 (226 / 1407 / 0) | 116 (7 %) | 1.87 | ok |
+| 25 | 8209 | 1516778 | 30 (poly2, 1.2) | 0.247 | none | affine: 33, 0.7 | 1658 (109 / 1547 / 0) | 167 (10 %) | 1.54 | ok |
+| 21 | 8212 | 1516781 | 49 (poly2, 1.2) | 0.252 | none | affine: 22, 1.4 | 2634 (172 / 2457 / 0) | 111 (4 %) | 1.76 | ok |
+| 27 | 8211 | 1516780 | 38 (poly2, 1.1) | 0.251 | none | affine: 24, 0.65 | 1293 (169 / 1121 / 0) | 113 (9 %) | 1.9 | ok |
+| 29 | 8214 | 1516783 | 38 (poly2, 1.3) | 0.25 | none | affine: 39, 0.89 | 1317 (210 / 1107 / 0) | 160 (12 %) | 1.82 | ok |
+| 28 | 8213 | 1516782 | 90 (tps, 1.2) | 0.249 | none | affine: 63, 0.85 | 1702 (49 / 1653 / 0) | 158 (9 %) | 2.1 | ok |
+| image 1516788 | 8219 | 1516788 | 38 (poly2, 1.3) | 0.246 | none | affine: 40, 1.62 | 1225 (57 / 1167 / 0) | 22 (2 %) | 4.59 | ok |
+| image 1516784 | 8215 | 1516784 | 34 (tps, 1.3) | 0.248 | none | affine: 31, 1.0 | 2156 (28 / 2122 / 6) | 71 (3 %) | 2.71 | ok |
+| image 1516785 | 8216 | 1516785 | 18 (tps, 1.5) | 0.248 | none | affine: 20, 0.79 | 2238 (131 / 2106 / 1) | 43 (2 %) | 2.68 | ok |
+| 26 | 8210 | 1516779 | 37 (tps, 1.1) | 0.251 | none | affine: 47, 1.0 | 1427 (73 / 1353 / 0) | 201 (14 %) | 1.79 | ok |
+| **all** | | | | | | | **19321** (1696 / 17594 / 7) | 1316 (7 %) | | 11 plates, 11.19 km2 |
 <!-- /TABLE manhattan_midtown_1897 -->
 
 **Plate 19** (W 36th-47th St, Eighth Av to the Hudson: Hell's Kitchen's 40s, the gas works) **is not in the Map
@@ -305,21 +305,22 @@ crossings. Cross-validated 2.6 m (2nd-order fit), then the building match as on 
 "mask" is the block of ground its title names, from today's centrelines.
 
 **Registration.** Every plate was fitted on its standing buildings (three passes); the window residual of the
-last pass is 0.67-1.79 m. Outlines that coincide with a footprint of today sit 1.51-4.47 m (median
+last pass is 0.65-1.62 m. Outlines that coincide with a footprint of today sit 1.54-4.59 m (median
 centre distance) from it. The weakest plate is "image 1516788" (Eighth Av to Park Av, 40th-47th St: Times Square
 and Grand Central, where almost nothing of 1897 stands): 21 coinciding outlines, 4.5 m - much of that is the
 difference between a traced part and today's whole building, but the plate has the least to hold it.
 
-**How much coincides.** 7 % of the outlines reach IoU 0.5 with a footprint of today (2-13 % by
-plate), 40 % lie on pre-war footprints for four fifths of their area or more, 47 % for less than a fifth.
+**How much coincides.** 7 % of the outlines reach IoU 0.5 with a footprint of today (2-14 % by
+plate), 40 % lie on pre-war footprints for four fifths of their area or more, 48 % for less than a fifth.
 
 **Settings that differ from `harlem_1897`** (`layers.json`): outlines up to 20,000 m2 (armouries, car depots,
-Grand Central Depot, breweries, slaughterhouses: 91 outlines over 2,000 m2, 10 over 5,000 m2); a large,
+Grand Central Depot, breweries, slaughterhouses: 90 outlines over 2,000 m2, 10 over 5,000 m2); a large,
 wide fill needs only 30 % of its outline (St Patrick's Cathedral came out with 48 % under its bold lettering and
 was missing); the grey of stone is read a little lighter; pale blue round outlines of 250 m2 or more are
 **gasholders** (`kind = gasholder`, `material` empty) - every other pale blue outline is water between piers and
-is dropped (800); a stone outline must be 200 m2, 6 m wide and less than four times as long as wide (the grey
-strip of a row's stone fronts otherwise comes out as a building; 515 grey pieces dropped, mostly lettering).
+is dropped (103; pale blue counts as fill only where it is 25 pixels wide, so that the blue-crayon strokes
+on the NYPL copy do not hang tails on the houses they cross); a stone outline must be 200 m2, 6 m wide and less than four times as long as wide (the grey
+strip of a row's stone fronts otherwise comes out as a building; 255 grey pieces dropped, mostly lettering).
 
 **Looked at** (plate crops with the outlines drawn on them, 150 m windows unless said):
 * Hell's Kitchen, W 52nd-53rd St between Tenth and Eleventh Av: about 60 buildings drawn, about 55 covered by
@@ -342,13 +343,14 @@ strip of a row's stone fronts otherwise comes out as a building; 515 grey pieces
 * The stock yards and slaughterhouses at W 58th-61st St, West End Av (300 m): Eastman's Dressed Beef Co. and
   the two large brick buildings of the next block are single outlines; the empty block of the Union Stock Yards
   has nothing; no tracks or lot lines came out as buildings.
-* All 26 gasholders, all 7 stone outlines and the 32 largest other outlines, one by one: the gasholders are
+* The gasholders (26 at the time; 24 in the layer as written, after pale blue was limited to wide fills), all 7 stone outlines and the 32 largest other outlines, one by one: the gasholders are
   gasholders (one cut in half by the sheet fold); the stone outlines are St Patrick's and its two houses, three
   churches and one institution; of the 32 large outlines 31 are single buildings or works (armouries, depots,
   breweries, slaughterhouses, the Foundling Asylum, the Normal College, a grain elevator) and one is a row of
   about fifteen houses on E 41st St run together.
-The first six windows were looked at before the last re-trace (which changed the handling of large, grey and
-blue fills only); they were not looked at again.
+The windows were looked at on earlier runs of the layer; after the last re-trace (which changed the handling
+of large, grey and blue fills only) the first Hell's Kitchen window and the Queensboro window were looked at
+again on the layer as written and are as described.
 
 **Churches.** Most churches on these plates are drawn rose (brick) or yellow (frame) and are traced as such,
 often ragged under their lettering. Grey (stone) buildings are few: seven are in the layer. Sixteen grey outlines

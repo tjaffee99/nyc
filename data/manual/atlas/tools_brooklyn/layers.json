@@ -567,8 +567,17 @@
     "dL_min": -22.0,
     "dL_max": -4.0
    },
-   "front_px": 0
-  }
+   "front_px": 0,
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    60.0,
+    25.0,
+    12.0
+   ]
+  },
+  "require_match": 8.0
  },
  "brooklyn_southwest_1886": {
   "map_year": 1886,
@@ -736,8 +745,17 @@
     "dL_min": -22.0,
     "dL_max": -4.0
    },
-   "front_px": 0
-  }
+   "front_px": 0,
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    60.0,
+    25.0,
+    12.0
+   ]
+  },
+  "require_match": 8.0
  },
  "brooklyn_williamsburg_1887": {
   "map_year": 1887,
@@ -895,8 +913,17 @@
     "dL_min": -22.0,
     "dL_max": -4.0
    },
-   "front_px": 0
-  }
+   "front_px": 0,
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    60.0,
+    25.0,
+    12.0
+   ]
+  },
+  "require_match": 8.0
  },
  "brooklyn_greenpoint_1887": {
   "map_year": 1887,
@@ -944,8 +971,17 @@
     "dL_min": -22.0,
     "dL_max": -4.0
    },
-   "front_px": 0
-  }
+   "front_px": 0,
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    60.0,
+    25.0,
+    12.0
+   ]
+  },
+  "require_match": 8.0
  },
  "brooklyn_bedstuy_1888": {
   "map_year": 1888,
@@ -1098,8 +1134,17 @@
     "dL_min": -22.0,
     "dL_max": -4.0
    },
-   "front_px": 0
-  }
+   "front_px": 0,
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    60.0,
+    25.0,
+    12.0
+   ]
+  },
+  "require_match": 8.0
  },
  "brooklyn_bushwick_1888": {
   "map_year": 1888,
@@ -1197,8 +1242,17 @@
     "dL_min": -22.0,
     "dL_max": -4.0
    },
-   "front_px": 0
-  }
+   "front_px": 0,
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    60.0,
+    25.0,
+    12.0
+   ]
+  },
+  "require_match": 8.0
  },
  "brooklyn_crownheights_1888": {
   "map_year": 1888,
@@ -1371,8 +1425,17 @@
     "dL_min": -22.0,
     "dL_max": -4.0
    },
-   "front_px": 0
-  }
+   "front_px": 0,
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    60.0,
+    25.0,
+    12.0
+   ]
+  },
+  "require_match": 8.0
  },
  "brooklyn_browns_1887": {
   "map_year": 1887,
@@ -1540,8 +1603,17 @@
     "dL_min": -22.0,
     "dL_max": -4.0
    },
-   "front_px": 0
-  }
+   "front_px": 0,
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    60.0,
+    25.0,
+    12.0
+   ]
+  },
+  "require_match": 8.0
  },
  "brooklyn_parkslope_1888": {
   "map_year": 1888,
@@ -1624,7 +1696,16 @@
     "dL_min": -22.0,
     "dL_max": -4.0
    },
-   "front_px": 0
-  }
+   "front_px": 0,
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    60.0,
+    25.0,
+    12.0
+   ]
+  },
+  "require_match": 8.0
  }
 }

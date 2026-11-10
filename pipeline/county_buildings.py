@@ -52,6 +52,7 @@ def built_counties():
 
 def load():
     files = sorted(SRC.glob("n[jy]_*.parquet")) + sorted(SRC.glob("ct_*.parquet")) if SRC.exists() else []
+    files = [f for f in files if not f.stem.endswith("_estimates")]   # (read beside their county's file, below)
     keep = built_counties()
     if os.environ.get("COUNTIES"):   # test run: only these (names, comma-separated)
         keep = set(os.environ["COUNTIES"].split(","))

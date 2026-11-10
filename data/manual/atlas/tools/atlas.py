@@ -286,6 +286,12 @@ def fills_rows(c, line, st, inside):
     filled in. Each connected piece of fill between walls is a building; its material is the pigment that prevails;
     a small grey piece against a rose one is that house's stone front and is joined to it."""
     ink = (c == 1) | line
+    if (c == 6).any():
+        # pale blue counts as fill only where it is 25 pixels wide (a gasholder is 70 or more): the blue-crayon
+        # strokes on the NYPL copy are the same colour and would hang tails on the houses they cross
+        # (the width is taken on blue and grey together: a pale holder is a speckle of the two classes)
+        b6, b46 = c == 6, (c == 6) | (c == 4)
+        c = np.where(b6 & ~(_dil(_open(b46, 25), 13) & b46), 0, c).astype(c.dtype)
     fill = ((c == 2) | (c == 3) | (c == 4) | (c == 6)) & inside
     thin = ink & ~_dil(_open(c == 1, 3), 1)
     lab, n = ndi.label(thin, structure=SQ3)
@@ -307,6 +313,9 @@ def fills_rows(c, line, st, inside):
     share = ndi.sum(edge & _dil(ink, 2), lab, idx) / np.maximum(ndi.sum(edge, lab, idx), 1)
     counts = np.stack([ndi.sum(c == k, lab, idx) for k in (2, 3, 4, 6)], 1)
     kind = np.argmax(counts, 1)                      # 0 frame, 1 brick, 2 stone, 3 iron (pale blue)
+    # grey or blue: iron where a quarter of the grey-blue pixels are blue (grey stone has next to none)
+    isgb = kind >= 2
+    kind = np.where(isgb, np.where(counts[:, 3] >= 0.25 * np.maximum(counts[:, 2] + counts[:, 3], 1), 3, 2), kind)
     area = counts.sum(1)
     ok = np.zeros(n + 1, bool)
     ok[1:] = share >= st["outline"]
@@ -1117,8 +1126,9 @@ def export(layer, max_off=8.0):
         # small ragged pieces; a stone building is kept only if it is 80 m2 or more and fills 60 % of its rectangle
         # ... and, where the layer sets them (`stone_min_m2`, `stone_min_width_m`, `stone_max_aspect`), is large,
         # wide and compact enough not to be the grey strip of a row's stone fronts or a grey line along a kerb.
-        # Pale blue ("iron") outlines are gasholders when round - about as long as wide, filling 60-90 % of their
-        # rectangle (a circle fills 79 %), 250 m2 or more; every other blue outline is water between piers.
+        # Pale blue ("iron") outlines are gasholders when round - 250 m2 or more, filling 85 % of their convex hull,
+        # the hull as compact as a circle to 88 % (4 pi area / perimeter^2; a square has 79 %); every other blue
+        # outline is water between piers, a blue-tinted yard or a crayon mark.
         lettering, water = 0, 0
         for k, (o, g) in enumerate(zip(d["items"], polys)):
             if not keep[k] or o["material"] not in ("stone", "iron"):
@@ -1132,9 +1142,12 @@ def export(layer, max_off=8.0):
                                              or l_ >= spec.get("stone_max_aspect", 1e9) * w_):
                 keep[k] = False
                 lettering += 1
-            elif o["material"] == "iron" and not (g.area >= 250.0 and l_ <= 1.3 * w_ and 0.6 <= fr_ <= 0.9):
-                keep[k] = False
-                water += 1
+            elif o["material"] == "iron":
+                h_ = g.convex_hull
+                round_ = (g.area >= 250.0 and g.area >= 0.85 * h_.area and 4 * np.pi * h_.area >= 0.88 * h_.length ** 2)
+                if not round_:
+                    keep[k] = False
+                    water += 1
         st["lettering_dropped"], st["water_dropped"] = lettering, water
         # county plates: pieces of carmine property band read as brick are ragged or long; a brick building is
         # kept only if it is 50 m2 or more and fills 75 % of its rectangle

@@ -3,5 +3,5 @@
 cd "$(dirname "$0")/../../../.." || exit 1
 for L in "$@"; do
   .venv/bin/python -I data/manual/atlas/tools_brooklyn/atlas.py fetch $L
-  sh data/manual/atlas/tools_brooklyn/run_city.sh $L 2
+  sh data/manual/atlas/tools_brooklyn/run_city.sh $L 2 street
 done
