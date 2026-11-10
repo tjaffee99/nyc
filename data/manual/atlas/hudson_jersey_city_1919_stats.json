@@ -2,16 +2,17 @@
  "total": {
   "layer": "hudson_jersey_city_1919",
   "plates": 27,
-  "buildings": 34800,
-  "frame": 29367,
-  "brick": 5370,
+  "buildings": 34668,
+  "frame": 29276,
+  "brick": 5329,
   "stone": 63,
   "gasholders": 0,
   "on_today": 4188,
   "invalid": 0,
   "area_out_of_range": 0,
   "outside_coverage": 0,
-  "coverage_km2": 37.03
+  "coverage_km2": 37.03,
+  "overlap_dropped": 132
  },
  "plates": [
   {

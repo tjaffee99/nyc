@@ -485,3 +485,352 @@ as it was copied, with a note at its head: nothing of it runs here; the atlas tr
 
 A trace takes about a minute of processor time per plate and under 1 GB (the plate is read in tiles, and only
 around fills).
+
+## Queens and Staten Island (`tools_queens_si/`, added 2026-11)
+
+Five layers from NYPL's Hyde (Queens, 1901 / 1907) and Bromley (Staten Island, 1917) plates, traced with a copy of the
+tool (`tools_queens_si/`, work in `data/interim/atlas_queens_si/`, scans shared in `data/raw/atlas/nypl_u/`). All are NOT complete
+inside their coverage (about 65-90 % of the drawn houses found, see below); absence is not evidence of an empty lot.
+`map_year` is the publication year of the volume as catalogued by NYPL (Hyde vol. 2 / 3 / 1 1901; vol. 1 1907; Bromley Richmond 1917);
+the survey dates on the collars were not read. Not added to `COMPLETE`.
+
+| layer | atlas (plate scale ~160 ft to the inch, 0.15-0.30 m per pixel) | area | buildings |
+|---|---|---|---|
+| `queens_lic_1901` | Atlas of the borough of Queens, vol. 2, First and second wards (1901): 21 of 30 plates | Hunters Point, Ravenswood, Dutch Kills, Astoria, Steinway, Woodside, Winfield, Elmhurst, Corona, Maspeth, Laurel Hill, East Williamsburgh (Newtown) | 10,933 (9,705 frame, 1,228 brick) |
+| `queens_jamaica_1901` | same atlas, vol. 1, Fourth and fifth wards (1901): 7 of 9 plates | Jamaica centre and its neighbourhoods; 1 plate of Far Rockaway | 3,779 (3,473 frame, 306 brick) |
+| `queens_flushing_1901` | same atlas, vol. 3, Third ward (1901): 14 of 21 plates | Flushing ward outside the village centre (the centre is on overview plates 19 and 20 at 1.1 m per pixel: not traced) | 3,490 (3,400 frame, 90 brick) |
+| `queens_rockaway_1907` | same atlas, vol. 1 (1907): 5 of 7 plates (32, 34, 35, 38, 39; plate 40 has 2 outlines, 37 is unplaced) | Far Rockaway / Rockaway | 2,026 (2,004 frame, 22 brick) |
+| `staten_island_north_1917` | Atlas of the city of New York, borough of Richmond (G. W. Bromley, 1917): 19 of 84 plates | St George and Stapleton (plates 15450-15454), Port Richmond, West and Mariners Harbor (Ward 3 plates 15367-15373, 15399-15404, 15433, 15442-15445) | 8,844 (8,294 frame, 548 brick, 2 stone) |
+
+Sources: NYPL Map Division scans (public domain) `https://images.nypl.org/index.php?id=<imageId>&t=u`; control points and masks: NYC Space/Time
+Directory Map Warper dump (CC0). Plate ids in the layers' `plate` property are Map Warper ids; `sheet` is the plate number, or `image <id>`
+where the Map Warper title has none (all Staten Island plates). `storeys` not read (the plates print them). `source` ids: `queens_wards12_1901`,
+`queens_wards45_1901`, `queens_ward3_1901`, `queens_wards45_1907`, `bromley_richmond_1917`.
+
+### What was changed in the copy of the tool
+
+* `style_override` for these atlases: frame fill `db_min` 5 (the scans are dark and the wash is weak: the Bronx setting), outline share 0.40; Hyde plates
+  also without the `stone` class (the grey of tracks, rail and street lettering read as stone). Thresholds are in pixels: plates at 0.15 m per pixel were not tuned separately.
+* `refine_buildings` takes `--search` (12 m control-point errors need 14 m, then 6 m) and `--q`; scripts `run_chain.sh` (Staten Island: trace, coarse
+  and fine building match), `run_hyde.sh` (Queens: street match, trace, fine building match), `run_rev.sh`.
+* Hyde's plates tint the streets, so the street match of `refine` works (found 5-17 m of shift on the Queens plates, 1-2 m left); Bromley's Richmond plates
+  do not, so only the building match (survivors) can register them: it found 14-19 windows, shifts of up to 5 m, residual 0.5-1.4 m.
+* `export` drops slivers: an outline under 3 m wide and 4 times as long, under 4.5 m wide and over 14 m long, or over 30 m long and 6 times as long as wide
+  (street tint, property bands and rail read as buildings along roads; the count per layer was not recorded: 385 outlines on the first Long Island City pass). `final_checks.py` (after `export`) removes outlines
+  whose centre lies outside the coverage and overlaps (over 30 % of the smaller), and writes the checks into `total.final_checks` of the stats file.
+* `apply_skips.py`: Staten Island plates are kept only if the building match corrected them or at least 5 outlines sit on standing footprints within 3 m.
+  `skip` reasons for Queens plates were written by hand (control points off by 13-2,200 m and no street match).
+
+### Checks
+
+* Numeric, all five layers (`final_checks.py`): all polygons valid, 15-5,000 m2, ids unique, centres inside coverage (1 stray centre in Jamaica and 0 elsewhere removed),
+  no pair overlapping by more than 30 % of the smaller outline; 8-51 pairs per layer touch or overlap slightly (a few tenths of a m2: shared walls drawn twice).
+* Registration: per plate in the tables below. Outlines that coincide with a standing footprint (IoU > 0.5; the share is low because the places were replaced,
+  and because ragged outlines rarely reach IoU 0.5) sit a median 0.5-2.8 m from it on every plate used (the largest single plate: 2.8 m). No kept plate has survivors more than 3 m off.
+* By eye (windows of 260-420 m with the exported outlines over the plate, `atlas.py overlay ... --final`): 
+  * Hunters Point, `queens_lic_1901` plate 15730 (rows of frame and brick houses, factories): about 70 % of the drawn buildings found; some merged into one outline, a few
+    outlines in pieces, a band of false outlines along the railway edge before the sliver filter was added (not seen again after it).
+  * Astoria / Woolsey St, plate 15737: about 75 %; false slivers along tinted streets (reduced by the sliver filter); the brick of Public School found.
+  * Corona, plate 15712: about 85 % of frame houses, outlines good, standing buildings coincide; a few outbuildings missed.
+  * Dutch Kills fields, plate 15705, and Newtown meadows, plate 15717: nearly empty on the plate; nothing false seen, 2 houses missed.
+  * Bradley Ave, plate 15733 (first, unfiltered test): ragged outlines, about 50 %, the grey railroad wash read as stone (this is why `stone` is off for Hyde).
+  * Jamaica, plates 17261 and 17263: about 85 %, rows traced as single buildings; one long false brick strip on a property line before the final sliver rule.
+  * Rockaway, plate 15620: houses found (about 80 %); false long outlines along Ave. and Lane edges before the final sliver rule (checked only before it).
+  * Flushing ward, plate 15748: about 80 %; a few false strips on a dotted lot line.
+  * Staten Island, Port Richmond, plate 15370: about 90 %, registration good, houses traced separately; small outbuildings missed.
+  * Staten Island, plates 15451 (Stapleton / Tompkinsville), 15450 (St George, Tompkinsville Ave), 15454, 15373: about 85-90 %; the dark rose-grey brick houses are often missed; ragged false pieces
+    here and there (plate 15454, the lots by First St); pale lot washes are traced as buildings now and then.
+  The windows were looked at before the final sliver rule on Queens plates 15620, 17263 and 15748 (numeric checks were rerun, the pictures not). Never looked at by eye: Queens
+  plates 15731, 15734-15736, 15704, 15706, 15708-15711, 15717 elsewhere, 15720-15721, 15741-15743, 15745-15750, 15753, 15756-15758, 15761, 17262, 17264, 17270-17271, 17282,
+  15622, 15623, 15626, 15627; Staten Island plates other than the five named above. Plates 15735, 15731 and others of Hunters Point / Long Island City were not looked at.
+* Known failures: row houses sometimes one outline or in pieces; brick of dark tone missed; false outlines on street tint and lot washes; the cross-validation of the control points is
+  3-17 m on most plates (the registration is the street match or the survivors, not the control points); coincidence share is no measure of recall.
+
+### Left untraced, and with what
+
+* Staten Island (Bromley 1917, 84 plates): 19 used; 56 were traced but left out because nothing verifies their registration (control points 7-23 m off, no street tint to
+  match, fewer than 5 outlines on standing footprints: Wards 4 and 5 - Tottenville, Prince's Bay, Great Kills, Eltingville, Rossville - and many of the Ward 1-3 plates
+  between Stapleton and Port Richmond, mostly rural or marsh); 9 not traced (run stopped). A hand-made control point set or a street-line match would place the left-out plates
+  (their traces are in `data/interim/atlas_queens_si/si_bromley_1917/`, `skip` reasons in `tools_queens_si/layers.json`).
+  Other atlases for the island: Bromley 1907 / Hyde 1907 (`si_1907`: 34 plates at county scale, configured in `layers.json`, not run), Sanborn 1898 (76 plates "Atlas 160"), Beers 1874 (26 plates, small scale).
+* Queens: Flushing village (overview plates only: Bromley 1909 plates at 300 ft per inch, 47 plates, configured as `queens_bromley_1909`, not run), College Point, Whitestone, Woodhaven, Richmond Hill, Ozone Park, Hollis
+  (Hyde 1907 vol. 1 plates 13-31, `queens_hyde_1907_jamaica`: 41 plates fetched, not traced), Ravenswood / Astoria plates of vol. 2 1907 (`queens_hyde_1907_lic`: 48 plates, not fetched), Rockaway Beach and Arverne (plates 33, 36, 40 and the Rockaway peninsula
+  of Hyde 1907; Wolverton 1891 plate 13 is Arverne), the unplaced Hyde 1901 plates 15732, 15707, 15714, 15716, 15719, 15722-15725 (Newtown, Maspeth, Glendale, Middle Village).
+  Hunters Point and Astoria are covered by 1901 only (a 1907 state exists on plates 15669 ff.).
+
+#### queens_lic_1901
+
+10933 buildings (9705 frame, 1228 brick, 0 stone), coverage 30.69 km2, 21 plates used; on a standing footprint (IoU > 0.5): 477; dropped by the final checks: 0 centre outside coverage, 0 overlapping; overlapping pairs left 0, touching / slightly overlapping pairs 51.
+
+| sheet | plate | outlines | registration | street match: windows / shift found / left (m) | building match residual (m) | coincide (n, share) | median offset of those (m) | cross-val. of control points (m) |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 15730 | 1015 | street match + building match | 6 / 7.9 / 2.8 | 0.81 | 85 (0.084) | 1.29 | 2.6 |
+| 2 | 15731 | 385 | street match | 22 / 10.0 / 1.3 | - | 6 (0.016) | 1.53 | 7.2 |
+| 4 | 15733 | 335 | street match + building match | 15 / 10.6 / 1.0 | 2.16 | 11 (0.033) | 1.91 | 18.1 |
+| 5 | 15734 | 136 | street match | 25 / 4.6 / 1.2 | - | 2 (0.015) | 1.51 | 33.4 |
+| 6 | 15735 | 659 | street match + building match | 22 / 5.8 / 2.3 | 1.2 | 34 (0.052) | 1.42 | 13.3 |
+| 7 | 15736 | 932 | street match | 23 / 12.0 / 1.3 | - | 14 (0.015) | 1.41 | 3.3 |
+| 8 | 15737 | 1114 | street match | 19 / 11.7 / 1.3 | - | 40 (0.036) | 1.36 | 2.3 |
+| 9 | 15704 | 833 | street match | 29 / 9.6 / 1.6 | - | 34 (0.041) | 1.66 | 0.0 |
+| 10 | 15705 | 552 | street match + building match | 17 / 9.5 / 1.6 | 1.81 | 32 (0.058) | 1.55 | 4.8 |
+| 11 | 15706 | 250 | street match | 22 / 5.6 / 1.1 | - | 17 (0.068) | 1.62 | 0.0 |
+| 13 | 15708 | 241 | street match | 16 / 16.8 / 2.2 | - | 3 (0.012) | 1.06 | 13.1 |
+| 14 | 15709 | 180 | street match | 20 / 6.1 / 1.2 | - | 5 (0.028) | 2.09 | 11.4 |
+| 15 | 15710 | 473 | street match | 6 / 6.6 / 1.4 | - | 4 (0.008) | 1.21 | 21.4 |
+| 16 | 15711 | 524 | street match | 22 / 9.5 / 0.8 | - | 42 (0.08) | 1.45 | 24.5 |
+| 17 | 15712 | 834 | street match | 29 / 5.4 / 1.4 | - | 34 (0.041) | 1.53 | 2.6 |
+| 20 | 15715 | 591 | street match + building match | 14 / 5.2 / 2.2 | 1.51 | 22 (0.037) | 1.61 | 6.5 |
+| 22 | 15717 | 475 | street match | 14 / 7.4 / 1.5 | - | 26 (0.055) | 1.44 | 4.8 |
+| 23 | 15718 | 761 | street match + building match | 32 / 16.8 / 2.4 | 1.78 | 40 (0.053) | 2.22 | 4.8 |
+| 25 | 15720 | 293 | street match | 17 / 5.3 / 1.5 | - | 19 (0.065) | 1.74 | 2.7 |
+| 26 | 15721 | 188 | control points only | - / - / - | - | 2 (0.011) | 1.17 | 2.4 |
+| image 1693974 | 15713 | 162 | street match | 9 / 5.4 / 1.3 | - | 5 (0.031) | 1.52 | 19.3 |
+
+Left out:
+
+* plate 15732 (sheet 3): control points 38.7 m (cross-validation) and the street match found only 2 windows: unplaced
+* plate 15707 (sheet 12): no street match (2 windows) and 19 outlines: unplaced
+* plate 15714 (sheet 19): control points 55 m out, no street match: unplaced
+* plate 15716 (sheet 21): no street match, 16 m control points: unplaced
+* plate 15719 (sheet 24): no street match, control points 13 m out: unplaced
+* plate 15722 (sheet 27): no street match, control points 16 m out: unplaced
+* plate 15723 (sheet 28): control points 93 m out, no street match: unplaced
+* plate 15724 (sheet 29): control points 52 m out, no street match: unplaced
+* plate 15725 (sheet 30): no street match, control points 14.5 m out: unplaced
+
+#### queens_jamaica_1901
+
+3779 buildings (3473 frame, 306 brick, 0 stone), coverage 11.7 km2, 7 plates used; on a standing footprint (IoU > 0.5): 153; dropped by the final checks: 1 centre outside coverage, 0 overlapping; overlapping pairs left 0, touching / slightly overlapping pairs 11.
+
+| sheet | plate | outlines | registration | street match: windows / shift found / left (m) | building match residual (m) | coincide (n, share) | median offset of those (m) | cross-val. of control points (m) |
+|---|---|---|---|---|---|---|---|---|
+| 2 | 17261 | 661 | street match + building match | 23 / 12.1 / 1.6 | 0.5 | 75 (0.113) | 1.46 | 38.4 |
+| 3 | 17262 | 697 | street match + building match | 38 / 12.4 / 2.2 | 0.34 | 19 (0.027) | 1.43 | 27.2 |
+| 4 | 17263 | 861 | street match | 33 / 8.4 / 2.0 | - | 41 (0.048) | 1.35 | 32.0 |
+| 5 | 17264 | 477 | street match | 28 / 9.4 / 1.1 | - | 12 (0.025) | 1.23 | 26.5 |
+| 11 | 17270 | 373 | street match | 25 / 3.3 / 1.2 | - | 1 (0.003) | 1.23 | 8.0 |
+| 12 | 17271 | 286 | street match | 25 / 7.7 / 1.2 | - | 2 (0.007) | 2.13 | 5.5 |
+| 23 | 17282 | 424 | street match | 20 / 5.3 / 1.7 | - | 3 (0.007) | 1.95 | 7.3 |
+
+Left out:
+
+* plate 17260 (sheet 1): control points 100 m out and no street match: unplaced
+* plate 17279 (sheet 20): control points 25 m out, no street match, no outline on a standing building: unplaced
+
+#### queens_flushing_1901
+
+3490 buildings (3400 frame, 90 brick, 0 stone), coverage 18.63 km2, 14 plates used; on a standing footprint (IoU > 0.5): 50; dropped by the final checks: 0 centre outside coverage, 0 overlapping; overlapping pairs left 0, touching / slightly overlapping pairs 14.
+
+| sheet | plate | outlines | registration | street match: windows / shift found / left (m) | building match residual (m) | coincide (n, share) | median offset of those (m) | cross-val. of control points (m) |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 15741 | 54 | street match | 15 / 10.9 / 0.6 | - | 3 (0.056) | 1.62 | 12.0 |
+| 2 | 15742 | 276 | street match | 23 / 8.1 / 0.8 | - | 4 (0.014) | 1.99 | 29.0 |
+| 3 | 15743 | 336 | street match | 17 / 6.5 / 1.1 | - | 3 (0.009) | 0.58 | 0.0 |
+| 5 | 15745 | 440 | street match + building match | 15 / 14.5 / 1.1 | 0.79 | 2 (0.005) | 2.61 | 26.4 |
+| 6 | 15746 | 126 | street match | 16 / 2.9 / 2.1 | - | 0 (0.0) | None | 16.4 |
+| 7 | 15747 | 380 | street match | 29 / 8.2 / 1.6 | - | 2 (0.005) | 1.53 | 11.6 |
+| 8 | 15748 | 652 | street match | 22 / 9.2 / 1.4 | - | 25 (0.038) | 1.73 | 5.4 |
+| 9 | 15749 | 173 | street match | 20 / 4.6 / 0.7 | - | 1 (0.006) | 2.1 | 13.6 |
+| 10 | 15750 | 30 | street match | 11 / 2.7 / 0.5 | - | 0 (0.0) | None | 56.0 |
+| 13 | 15753 | 368 | street match | 19 / 7.2 / 1.5 | - | 4 (0.011) | 2.74 | 3.6 |
+| 16 | 15756 | 143 | street match | 20 / 5.8 / 2.4 | - | 2 (0.014) | 2.28 | 0.0 |
+| 17 | 15757 | 142 | street match | 8 / 20.5 / 2.5 | - | 0 (0.0) | None | 28.8 |
+| 18 | 15758 | 228 | street match | 21 / 3.1 / 1.0 | - | 0 (0.0) | None | 21.1 |
+| 21 | 15761 | 142 | street match | 9 / 10.1 / 1.3 | - | 4 (0.028) | 1.47 | 9.7 |
+
+Left out:
+
+* plate 15744 (sheet 4): control points 92 m out, no street match: unplaced
+* plate 15751 (sheet 11): 9 outlines, control points 78 m out: unplaced
+* plate 15752 (sheet 12): 3 control points, no street match, no survivors: unplaced
+* plate 15754 (sheet 14): control points 32 m out, no street match: unplaced
+* plate 15755 (sheet 15): control points 2.2 km out: unplaced
+* plate 15759 (sheet 19): overview plate at 1.1 m per pixel (Flushing, ward 3): houses are a few pixels, not traceable; no street match
+* plate 15760 (sheet 20): overview plate at 1.1 m per pixel: not traceable; no street match
+
+#### queens_rockaway_1907
+
+2026 buildings (2004 frame, 22 brick, 0 stone), coverage 9.13 km2, 5 plates used; on a standing footprint (IoU > 0.5): 29; dropped by the final checks: 0 centre outside coverage, 0 overlapping; overlapping pairs left 0, touching / slightly overlapping pairs 8.
+
+| sheet | plate | outlines | registration | street match: windows / shift found / left (m) | building match residual (m) | coincide (n, share) | median offset of those (m) | cross-val. of control points (m) |
+|---|---|---|---|---|---|---|---|---|
+| 32 | 15620 | 499 | street match | 14 / 5.6 / 1.1 | - | 5 (0.01) | 1.69 | 219.5 |
+| 34 | 15622 | 426 | street match | 15 / 6.3 / 1.4 | - | 5 (0.012) | 1.82 | 52.7 |
+| 35 | 15623 | 162 | street match | 13 / 14.9 / 1.8 | - | 0 (0.0) | None | 15.5 |
+| 38 | 15626 | 638 | street match | 18 / 17.0 / 1.9 | - | 7 (0.011) | 2.56 | 0.0 |
+| 39 | 15627 | 301 | street match + building match | 16 / 6.5 / 2.1 | 0.66 | 12 (0.04) | 1.09 | 5.3 |
+
+Left out:
+
+* plate 15625 (sheet 37): 3 control points, street match fails (23 m off, no consensus): unplaced
+* plate 15628 (sheet 40): 2 outlines: nothing to place
+
+#### staten_island_north_1917
+
+8844 buildings (8294 frame, 548 brick, 2 stone), coverage 14.4 km2, 19 plates used; on a standing footprint (IoU > 0.5): 557; dropped by the final checks: 0 centre outside coverage, 0 overlapping; overlapping pairs left 0, touching / slightly overlapping pairs 28.
+
+| sheet | plate | outlines | registration | street match: windows / shift found / left (m) | building match residual (m) | coincide (n, share) | median offset of those (m) | cross-val. of control points (m) |
+|---|---|---|---|---|---|---|---|---|
+| image 1646236 | 15367 | 838 | building match | - / - / - | 0.96 | 88 (0.105) | 1.19 | 12.1 |
+| image 1646237 | 15368 | 251 | control points only | - / - / - | - | 7 (0.028) | 1.52 | 11.2 |
+| image 1646238 | 15369 | 483 | building match | - / - / - | 0.56 | 93 (0.193) | 1.24 | 6.6 |
+| image 1646239 | 15370 | 581 | building match | - / - / - | 0.63 | 39 (0.067) | 0.91 | 7.0 |
+| image 1646240 | 15371 | 640 | building match | - / - / - | 0.77 | 20 (0.031) | 1.16 | 7.8 |
+| image 1646241 | 15372 | 571 | building match | - / - / - | 1.45 | 9 (0.016) | 1.79 | 11.2 |
+| image 1646242 | 15373 | 608 | building match | - / - / - | 0.54 | 44 (0.072) | 1.05 | 7.7 |
+| image 1646268 | 15399 | 346 | building match | - / - / - | 0.61 | 7 (0.02) | 1.83 | 5.0 |
+| image 1646269 | 15400 | 341 | building match | - / - / - | 1.07 | 14 (0.041) | 1.21 | 10.1 |
+| image 1646270 | 15401 | 402 | building match | - / - / - | 1.46 | 15 (0.037) | 1.45 | 14.9 |
+| image 1646273 | 15404 | 305 | building match | - / - / - | 0.53 | 11 (0.036) | 1.65 | 16.7 |
+| image 1646302 | 15433 | 214 | building match | - / - / - | 0.16 | 2 (0.009) | 0.49 | 8.1 |
+| image 1646311 | 15442 | 267 | control points only | - / - / - | - | 5 (0.019) | 2.25 | 15.2 |
+| image 1646313 | 15444 | 213 | control points only | - / - / - | - | 7 (0.033) | 1.32 | 15.8 |
+| image 1646314 | 15445 | 295 | building match | - / - / - | 0.9 | 19 (0.064) | 1.74 | 11.0 |
+| image 1646319 | 15450 | 491 | building match | - / - / - | 0.47 | 71 (0.145) | 1.23 | 11.8 |
+| image 1646320 | 15451 | 567 | building match | - / - / - | 0.14 | 73 (0.129) | 1.33 | 13.5 |
+| image 1646321 | 15452 | 787 | control points only | - / - / - | - | 5 (0.006) | 1.38 | 12.3 |
+| image 1646323 | 15454 | 644 | building match | - / - / - | 0.7 | 28 (0.043) | 1.31 | 5.3 |
+
+Left out: 65 plates (listed with their reasons in `staten_island_north_1917_stats.json` and as `skip` in `tools_queens_si/layers.json`): the Staten Island plates whose registration nothing verifies (see above) and plates not traced (not reached).
+
+
+## Hudson County, New Jersey (`hudson_*` layers, `tools_hudson/`)
+
+Traced with a copy of the tool (`tools_hudson/atlas.py`: its footprints are `county_buildings.parquet` for Hudson County,
+written to `data/interim/atlas_hudson/hudson_footprints.parquet`; scratch under `data/interim/atlas_hudson/`). Same format
+and the same warnings as the layers above. Nothing is generated; the files are not complete inside their coverage.
+
+| layer | atlas | area | buildings |
+|---|---|---|---|
+| `hudson_jersey_city_1919.geojson` | *Atlas of Jersey City, N.J.*, vol. 1 (G. M. Hopkins Co., 1919), 100 ft to the inch, 27 of its 40 plates | Jersey City: downtown (Paulus Hook is not covered, see below), Van Vorst, Harsimus, the Heights, Journal Square, Bergen-Lafayette, Communipaw, Greenville; Hoboken is not in this atlas | 34,668 (29,276 frame, 5,329 brick, 63 stone) |
+| `hudson_hoboken_1891.geojson` | Sanborn / Brush *Insurance maps of Hudson County*, vol. 7, Hoboken, 1891 (LoC, 50 ft to the inch), plates 8, 9, 10 | Hoboken between Garden and River Streets, 2nd to 11th Streets (about 0.5 km2) | 357 (91 frame, 265 brick, 1 stone) |
+| `hudson_heights_1873.geojson` | Spielmann & Brush, *Insurance maps of Jersey City*, 1873, vol. 4 plate 31 (NYPL) | Hudson City / the Heights: Webster, New York, Palisade Avenues, Griffith to South Streets | 252 (244 frame) |
+| `hudson_heights_1887.geojson` | Chas. B. Brush, *Insurance maps of Hudson County*, vol. 8 plate 3 (NYPL) | Jersey City Heights, Summit Ave / Paterson Plank Road | 176 (175 frame) |
+
+`map_year` is the atlas's date (1919, 1891, 1873, 1887). Hopkins 1919 shows the city as revised to 1919 (a building on it stood by 1919);
+the Sanborn / Brush plates of 1891 carry copyright lines 1873, 1887 and 1891 (the sheet is a revision of the 1873 survey).
+Materials: pink = `brick`, yellow = `frame`, blue / grey = `stone`; the green fill (outbuildings, shown on the Hopkins plates) is not exported.
+
+### Source survey (what exists for Hudson County)
+1. **Georeferenced in the NYPL Map Warper dump** (CC0 control points; NYPL scans public domain): Hopkins, *Atlas of Jersey City* vol. 1,
+   1919 (plates 1, 3-6, 8-13, 15-32, 36-40 = 34 plates; 2, 7, 14, 33-35 are not in the dump); Spielmann & Brush, *Insurance maps of Jersey City*
+   vol. 1, 1866 (8 plates: 2, 5, 9, 11, 16, 17, 19, 29; hand-drawn, 3-5 control points; one tried and left out, see below) and vol. 4, 1873 (plates
+   29, 30, 31); Brush, *Insurance maps of Hudson County* vol. 8, 1887 (plates 2, 3); Hopkins's county atlas 1873 (plates "Jersey City",
+   "Jersey City Pier", "Weehawken township": small scale, not used). **Not in the dump**: Hoboken, Bayonne, Union City / West Hoboken, West New York,
+   Weehawken, North Bergen, Secaucus, Harrison, Kearny (no Hopkins 1873 / 1908, Bromley, Fowler or Spielmann & Brush Hoboken plate was found by title
+   or by bounding box (-74.17..-73.98, 40.64..40.82)).
+2. **Not georeferenced, public domain, Library of Congress Sanborn collection** (`https://www.loc.gov/collections/sanborn-maps/`, IIIF images
+   `https://tile.loc.gov/image-services/iiif/...`, 5,600 x 8,150 px per half page, 50 ft to the inch, double plates split in L / R halves, rights: public domain),
+   Hudson County, sanborn05511: vol. 1-2 1885 (Jersey City, 72 sheets each), vol. 11 1887, **vol. 7 1891 (Hoboken, 28 plates)**, vols. 3-6 1896 and 9-10 1898
+   (Jersey City, Bayonne), vol. 8 1900 (Weehawken, West Hoboken, Union, West New York, Guttenberg, North Bergen, Secaucus), vols. 1-2 1906 and 3-6, 8-10 1910-12
+   (Jersey City, Union Hill, Bayonne), Harrison / Kearny / East Newark 1907 (sanborn05501_001, 78 sheets), then 1918-24 single sheets, 1936-38, 1950-51 revisions.
+   About 1,300 plates for 1885-1912. They are the way to Hoboken, Bayonne, Union City, Harrison and Paulus Hook / Exchange Place before 1919.
+3. Not looked at: Rutgers' Historical Maps of New Jersey, Princeton, NYPL's un-georeferenced Hudson County volumes.
+
+**Registration without control points works** (tried on three Hoboken plates, `tools_hudson/loc_register.py`): the two halves are joined; the
+pixel positions of 8-10 street intersections are read off a 14 % preview, their ground positions come from today's street centrelines (Overture, `streets.py`)
+and an affine fit leaves 0.2-4 m (median about 1.3 m); the building match against the standing footprints then moves the plate by a further 1.3-1.8 m. In Hoboken's
+regular grid this needs two calls per plate (one look, one spec). The same tracing settings serve Sanborn colours (pink / yellow / blue-grey).
+
+### Registration, per plate
+The Map Warper control points are the first fit (4-56 points, cross-validated 1-15 m); `refine_buildings` then matches the traced outlines to today's footprints of
+pre-war buildings and corrects the plate by 2-5 m on most plates (the control-point fits were 3-5 m out in the same direction on most Jersey City plates).
+There is no street tint on these atlases, so no street match. **Rule applied here**: a plate is kept if at least 10 outlines coincide with a standing footprint
+(IoU > 0.5) with a median centre offset under 4 m, or its control points cross-validate at about 3 m or better; otherwise it is left out and listed.
+Left out: Hopkins plates 3, 6, 26, 27, 29, 39, 40 and Spielmann & Brush 1873 plates 29, 32, Brush 1887 plate 2 (reasons in the tables). Hopkins plates 10, 13, 18, 29-31 (sheets 10, 13, 18, 22 and similar, with 3-5 control points) have no building match and keep the control-point fit; they are verified only by 11-14 coinciding outlines each (median offsets 1.2-2.8 m), which is thin. Hoboken plate 8 has 5 coinciding outlines only: it rests on the street-intersection fit plus a 4-window building match.
+
+### Tables
+<!-- TABLE hudson_jersey_city_1919 -->
+| sheet | Map Warper id | control points (fit, CV rms m) | m / px | building match | buildings (frame / brick / stone) | on a standing footprint (IoU > 0.5) | their median offset m | status |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 26192 | 40 (tps, 3.0) | 0.11 | shift: 8 windows, 1.19 m | 600 (324 / 275 / 1) | 35 (6 %) | 1.95 | ok |
+| 3 | 26194 | | | | 0 | | | left out: unverified: 4 control points (cross-validated 6 m), no building match, only 5 outlines coincide with a standing footprint |
+| 4 | 26195 | 8 (affine, 8.3) | 0.111 | affine: 17 windows, 0.52 m | 1011 (769 / 242 / 0) | 218 (22 %) | 1.19 | ok |
+| 5 | 26196 | 5 (affine, 7.4) | 0.11 | shift: 4 windows, 0.77 m | 234 (120 / 114 / 0) | 12 (5 %) | 1.54 | ok |
+| 6 | 26197 | | | | 0 | | | left out: unverified: 7 control points (cross-validated 5.9 m), 3 coinciding outlines, no building match |
+| 8 | 26199 | 10 (affine, 6.8) | 0.111 | shift: 5 windows, 0.45 m | 850 (702 / 146 / 2) | 48 (6 %) | 1.35 | ok |
+| 9 | 26200 | 4 (affine, 2.2) | 0.167 | affine: 23 windows, 0.27 m | 1020 (786 / 230 / 4) | 67 (7 %) | 1.39 | ok |
+| 10 | 26201 | 4 (affine, 8.5) | 0.146 | none | 1335 (1054 / 272 / 9) | 14 (1 %) | 1.15 | ok |
+| 11 | 26202 | 4 (affine, 5.7) | 0.165 | affine: 54 windows, 1.01 m | 2648 (2282 / 362 / 4) | 677 (26 %) | 1.32 | ok |
+| 12 | 26203 | 5 (affine, 2.8) | 0.161 | affine: 19 windows, 0.69 m | 2314 (2084 / 229 / 1) | 176 (8 %) | 1.45 | ok |
+| 13 | 26204 | 5 (affine, 1.0) | 0.171 | none | 1689 (1434 / 255 / 0) | 11 (1 %) | 1.94 | ok |
+| 15 | 26206 | 11 (affine, 15.2) | 0.166 | affine: 44 windows, 0.95 m | 2216 (1844 / 371 / 1) | 371 (17 %) | 1.28 | ok |
+| 16 | 26207 | 32 (tps, 4.1) | 0.166 | affine: 42 windows, 2.05 m | 2127 (1789 / 338 / 0) | 219 (10 %) | 1.54 | ok |
+| 17 | 26208 | 6 (affine, 3.4) | 0.167 | affine: 32 windows, 0.98 m | 955 (690 / 265 / 0) | 108 (11 %) | 1.52 | ok |
+| 18 | 26209 | 3 (affine, 0.0) | 0.169 | none | 1232 (1054 / 169 / 9) | 11 (1 %) | 2.84 | ok |
+| 19 | 26210 | 17 (affine, 4.7) | 0.169 | affine: 20 windows, 0.84 m | 980 (839 / 134 / 7) | 178 (18 %) | 1.25 | ok |
+| 20 | 26211 | 18 (affine, 3.7) | 0.168 | affine: 43 windows, 1.21 m | 2217 (1961 / 255 / 1) | 333 (15 %) | 1.37 | ok |
+| 21 | 26212 | 16 (tps, 5.9) | 0.168 | affine: 34 windows, 1.5 m | 1802 (1510 / 292 / 0) | 233 (13 %) | 1.3 | ok |
+| 22 | 26213 | 4 (affine, 5.6) | 0.167 | affine: 46 windows, 0.75 m | 1559 (1331 / 228 / 0) | 353 (23 %) | 1.21 | ok |
+| 23 | 26214 | 4 (affine, 3.2) | 0.165 | affine: 14 windows, 0.65 m | 896 (818 / 78 / 0) | 162 (18 %) | 1.2 | ok |
+| 24 | 26215 | 24 (affine, 3.3) | 0.166 | shift: 9 windows, 0.47 m | 538 (467 / 68 / 3) | 133 (25 %) | 1.2 | ok |
+| 25 | 26216 | 4 (affine, 7.0) | 0.224 | affine: 11 windows, 0.49 m | 669 (594 / 75 / 0) | 99 (15 %) | 1.33 | ok |
+| 26 | 26217 | | | | 0 | | | left out: control points inconsistent (cross-validated 9594 m), nothing standing to check |
+| 27 | 26218 | | | | 0 | | | left out: unverified: control-point fit only (cross-validated 7.3 m); the 2 coinciding outlines sit 6.8 m off |
+| 28 | 26219 | 19 (affine, 6.5) | 0.222 | shift: 8 windows, 0.43 m | 682 (545 / 137 / 0) | 101 (15 %) | 1.47 | ok |
+| 29 | 26220 | | | | 0 | | | left out: control points inconsistent (cross-validated 21 m), 9 coinciding outlines, no building match |
+| 30 | 26221 | 11 (affine, 1.9) | 0.223 | affine: 12 windows, 0.54 m | 750 (668 / 82 / 0) | 78 (10 %) | 1.45 | ok |
+| 31 | 26222 | 4 (affine, 420.8) | 0.218 | none | 596 (521 / 75 / 0) | 14 (2 %) | 1.53 | ok |
+| 32 | 26223 | 12 (affine, 5.7) | 0.222 | shift: 4 windows, 0.6 m | 519 (443 / 75 / 1) | 55 (11 %) | 0.96 | ok |
+| 36 | 26227 | 15 (affine, 4.7) | 0.22 | affine: 18 windows, 0.67 m | 3541 (3184 / 355 / 2) | 342 (10 %) | 1.5 | ok |
+| 37 | 26228 | 56 (tps, 3.8) | 0.221 | affine: 41 windows, 1.35 m | 1426 (1282 / 139 / 5) | 124 (9 %) | 1.55 | ok |
+| 38 | 26229 | 12 (tps, 2.6) | 0.219 | shift: 6 windows, 1.01 m | 394 (272 / 109 / 13) | 16 (4 %) | 1.87 | ok |
+| 39 | 26230 | | | | 0 | | | left out: unverified: control-point fit only (cross-validated 9.1 m), no outline coincides with a standing footprint |
+| 40 | 26231 | | | | 0 | | | left out: unverified: control-point fit only (42 points, cross-validated 3.9 m), no outline coincides with a standing footprint (Bayonne industrial shore) |
+<!-- /TABLE hudson_jersey_city_1919 -->
+
+Hoboken 1891:
+
+| sheet | Map Warper id | control points (fit, CV rms m) | m / px | building match | buildings (frame / brick / stone) | on a standing footprint (IoU > 0.5) | their median offset m | status |
+|---|---|---|---|---|---|---|---|---|
+| 8 | 91010008 | 8 (affine, 2.0) | 0.099 | none | 108 (41 / 67 / 0) | 5 (5 %) | 1.74 | ok |
+| 9 | 91010009 | 10 (affine, 1.8) | 0.1 | none | 162 (44 / 117 / 1) | 29 (18 %) | 1.26 | ok |
+| 10 | 91010010 | 10 (poly2, 1.9) | 0.099 | none | 87 (6 / 81 / 0) | 8 (9 %) | 2.18 | ok |
+
+Heights 1873:
+
+| sheet | Map Warper id | control points (fit, CV rms m) | m / px | building match | buildings (frame / brick / stone) | on a standing footprint (IoU > 0.5) | their median offset m | status |
+|---|---|---|---|---|---|---|---|---|
+| 29 | 28490 | | | | 0 | | | left out: unverified: 4 control points cross-validate at 32 m, only 6 outlines coincide with a standing footprint |
+| 30 | 28491 | 4 (affine, 266.3) | 0.069 | none | 252 (244 / 6 / 2) | 16 (6 %) | 2.31 | ok |
+| 31 | 28492 | | | | 0 | | | left out: unverified: 22 control points but cross-validated 9.9 m, 2 coinciding outlines, no building match |
+
+Heights 1887:
+
+| sheet | Map Warper id | control points (fit, CV rms m) | m / px | building match | buildings (frame / brick / stone) | on a standing footprint (IoU > 0.5) | their median offset m | status |
+|---|---|---|---|---|---|---|---|---|
+| 2 | 26155 | | | | 0 | | | left out: unverified: 3 control points (no cross-validation possible), no outline coincides with a standing footprint |
+| 3 | 26156 | 5 (affine, 1.3) | 0.068 | none | 176 (175 / 1 / 0) | 1 (1 %) | 0.84 | ok |
+
+Spielmann & Brush 1866 (NYPL, hand-drawn): plates 28496, 28497, 28499, 28500 were traced and yielded 6-12 outlines each out of dozens drawn (pale
+hand colours, lots not divided by lines, large unbroken fills), none coinciding with a standing footprint and the control points either 3 (no cross-validation)
+or cross-validated 16 m: **no 1866 layer was made.**
+
+### Checks
+* Numeric, on the final files (read back with shapely, UTM 18N): all polygons valid; areas 15-5,000 m2; ids unique; every centre inside its layer's coverage; no two
+  outlines of a layer overlap by more than 1 m2 (the export left 155 pairs on the Hopkins plates where two plates' masks overlap or a house was cut in two;
+  `tools_hudson/dedupe.py` dropped the smaller of each pair: 132 outlines). Share on a standing footprint (IoU > 0.5): Hopkins 12 % (4,187), Hoboken 12 %, Heights 1873 6 %, 1887 0.6 %.
+  The median offset of those outlines is 1.0-2.2 m on every kept plate (Hopkins 0.96-1.95 m), well under the 4 m limit.
+* By eye (overlay crops, `atlas.py overlay ... [--final]`): Hopkins plate 1 (Henderson / Washington St, 160 m, with the first and with the final settings),
+  plate 11 (Griffith St), plate 20 (Oak St), plate 37, plate 16 (Summit area), Spielmann & Brush 1873 plate 31 and Brush 1887 plate 3 (one window each), Hoboken
+  plates 8 and 10 (150-170 m each). On the Hopkins windows about 90-95 % of the drawn buildings are traced (rows come out house by house), outlines are ragged where lot
+  numbers are written over a yellow house, a few pale yellow outhouses are missed, a few pieces of lettering and the book gutter make false slivers; the green fill
+  (outbuildings) is not exported. In the first window the pale Hopkins yellow was missed by the Bromley threshold (most of the yellow buildings in the window, not counted): `db_min` 9 -> 6.5 fixed it.
+  On the 1873 and 1887 windows nearly all drawn buildings are traced (1887: all but a few, the plate is mostly empty ground in 1887; 1873: about 90 %; these two windows were judged roughly, not counted). On the Hoboken
+  windows about 85 % of the drawn buildings are traced, but **runs of attached houses come out as one outline** (a row of 3-8 houses; the Sanborn lot lines are thinner than Hopkins's); the
+  Hoboken layer therefore has about 120 outlines per plate where 400 lots are drawn.
+* Not looked at by eye: 22 of the 27 Hopkins plates (all except 1, 11, 16, 20, 37), Hoboken plate 9, the north and south ends of every plate. No window was checked for outlines on ground the
+  fill-zone file dates later than the map year (the Hopkins atlas shows the filled waterfront as built; the loader will have to check each outline against the land year).
+
+### Known failures
+Rows merged on the Sanborn plates (above); the pale yellow of some Hopkins sheets is close to the paper's tone, so frame buildings on faded plates may be under-read (not measured);
+the book gutter (a dark stripe) cuts Hoboken's outlines at the centre; gasholders and circular tanks are not traced; plates whose control points are unverifiable were left out, which
+removes Bayonne's shore, much of Greenville / Constable Hook (Hopkins plates 39, 40), and the Jersey City waterfront terminals (plates 6, 26, 27); Hopkins plates 2, 7, 14, 33-35 are not
+in the Map Warper dump at all. The 1919 file is 34 MB (coordinates to 6 decimals).
+
+### What remains and how
+* Hoboken: 25 further plates of vol. 7 (1891) and the same city in 1896-1912, Bayonne (vols. 9-10, 1898 / 1912), Union Hill, West Hoboken, Weehawken, West New York, Harrison and Kearny
+  (1900, 1907, 1910): each a double plate, registered with `loc_register.py` by street intersections and then `trace` / `refine_buildings` / `export` / `dedupe.py`. In the regular grids this
+  is 2-3 calls per plate; the pier plates 1-6 have no streets and need a corner of the grid on the plate. Rows merged: tune `wall_px`, `line_depth` for the thin Sanborn lot lines.
+* Downtown Jersey City before 1919 (Paulus Hook, Exchange Place, Pavonia / Erie terminals): Sanborn 1885 / 1896 / 1906 (vols. 1-2, 3-4) the same way; the 1866 NYPL plates are hand-drawn and not traceable by colour.
+* Hopkins 1919 plates 2, 7, 14, 33-35 (and the plates left out) need hand control points (street intersections) as above.

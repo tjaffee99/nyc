@@ -356,15 +356,63 @@ def gapfill():
     return rows
 
 
+# traced layers that failed the lead's check (data/manual/atlas/README.md has each layer's own checks)
+ATLAS_SKIP = {"hudson_heights_1887": "one plate placed by control points alone; 30 % of its outlines lie within 8 m of a street line"}
+_streets = None
+
+
+def _street_tree():
+    """(STRtree, lines in UTM) of today's street centre lines (Overture), or None."""
+    global _streets
+    if _streets is None:
+        try:
+            parts = []
+            for f in ("roads_local", "roads_region"):
+                r = pd.read_parquet(RAW / "overture" / "2026-10-21.0" / f"{f}.parquet", columns=["geometry"])
+                parts.append(shapely.from_wkb(r.geometry.values))
+            ln = np.concatenate(parts)
+            b = shapely.bounds(ln)
+            ln = ln[(b[:, 0] > -74.3) & (b[:, 2] < -73.65) & (b[:, 1] > 40.47) & (b[:, 3] < 40.95)]
+            ln = gpd.GeoSeries(ln, crs=4326).to_crs(UTM).values
+            _streets = (shapely.STRtree(ln), ln)
+        except Exception as e:  # noqa: BLE001
+            log(f"extras: street lines not read ({type(e).__name__}: {e})")
+            _streets = False
+    return _streets or None
+
+
 def atlas_layers():
     """Rows (UTM) from data/manual/atlas/<area>_<year>.geojson (not the *_coverage files)."""
     d = MANUAL / "atlas"
     rows = []
     colour = {"brick": "pink", "frame": "yellow", "stone": "blue"}
+    streets = _street_tree()
     for p in sorted(d.glob("*_[0-9][0-9][0-9][0-9].geojson")) if d.exists() else []:
+        if p.stem in ATLAS_SKIP:
+            log(f"extras: atlas layer {p.name} not used ({ATLAS_SKIP[p.stem]})")
+            continue
         g = gpd.read_file(p).to_crs(UTM)
         year = int(p.stem.rsplit("_", 1)[1])
         n0 = len(rows)
+        # a sliver lying in a roadway of today is a tracing fault (street tint, a lot band, a
+        # sheet edge), not a building: most of its area within 5 m of a street's centre line
+        if streets is not None and len(g):
+            tree, lines = streets
+            qi, li = tree.query(g.geometry.values, predicate="intersects")
+            on = np.zeros(len(g))
+            if len(qi):
+                strip = shapely.buffer(lines[li], 5.0, cap_style="flat")
+                np.add.at(on, qi, shapely.area(shapely.intersection(g.geometry.values[qi], strip)))
+            # (only the sliver-shaped ones: where the grid was cut through farms after the map,
+            # a real farmhouse can stand in a roadway of today)
+            mrr = shapely.minimum_rotated_rectangle(g.geometry.values)
+            c = np.array([np.asarray(q.exterior.coords)[:4] for q in mrr])
+            e1, e2 = np.hypot(*(c[:, 1] - c[:, 0]).T), np.hypot(*(c[:, 2] - c[:, 1]).T)
+            wd, lg = np.minimum(e1, e2), np.maximum(e1, e2)
+            bad = (on > 0.6 * g.geometry.area.values) & ((wd < 5.5) | (lg > 3.5 * wd))
+            if bad.any():
+                log(f"extras: {int(bad.sum())} outlines of {p.name} lie in a roadway and are left out")
+            g = g[~bad]
         for i, r in enumerate(g.itertuples()):
             geom = r.geometry
             if geom is None or geom.is_empty:

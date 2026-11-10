@@ -1,0 +1,1424 @@
+{
+ "total": {
+  "layer": "brooklyn_downtown_1887",
+  "plates": 21,
+  "buildings": 11295,
+  "frame": 4327,
+  "brick": 6905,
+  "stone": 63,
+  "gasholders": 0,
+  "on_today": 1303,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 4.34
+ },
+ "plates": [
+  {
+   "plate": "19213",
+   "image": "1809030",
+   "name": "Brooklyn V. 2, Double Page Plate No. 31 [Map bounded by Clark St., Hicks St., Joralemon St",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 4.8,
+   "mpp": 0.103,
+   "n": 303,
+   "frame": 83,
+   "brick": 198,
+   "stone": 15,
+   "coincide": 77,
+   "share": 0.26,
+   "corrected": true,
+   "paper": [
+    86.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.18,
+    -0.04
+   ],
+   "off_median_m": 1.45,
+   "street": null,
+   "bld": {
+    "plate": "19213",
+    "n": 303,
+    "windows": 6,
+    "shift_median": [
+     -3.26,
+     1.28
+    ],
+    "fit_residual_m": 0.48,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V2-31",
+   "lettering_dropped": 3,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 296,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "19231",
+   "image": "1809048",
+   "name": "Brooklyn V. 2, Double Page Plate No. 49 [Map bounded by Lafayette Ave., Navy St., De Kalb ",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 7.8,
+   "mpp": 0.103,
+   "n": 234,
+   "frame": 31,
+   "brick": 202,
+   "stone": 0,
+   "coincide": 65,
+   "share": 0.279,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -2.16,
+    -0.86
+   ],
+   "off_median_m": 2.46,
+   "sheet": "V2-49",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 233,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19240",
+   "image": "1809057",
+   "name": "Brooklyn V. 2, Double Page Plate No. 58 [Map bounded by Classon Ave., Atlantic Ave., St.Ja",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 9.2,
+   "mpp": 0.104,
+   "n": 571,
+   "frame": 203,
+   "brick": 366,
+   "stone": 0,
+   "coincide": 149,
+   "share": 0.262,
+   "corrected": true,
+   "paper": [
+    86.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.37,
+    0.31
+   ],
+   "off_median_m": 1.35,
+   "street": {
+    "plate": "19240",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 9,
+    "model": "affine",
+    "cv_rms": 9.2,
+    "mpp": 0.104,
+    "windows": 6,
+    "shift_median": [
+     -4.0,
+     4.2
+    ],
+    "shift_abs_median": 5.8,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 2.2,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 3.5,
+    "after_windows": 6,
+    "after_abs_median": 3.5
+   },
+   "bld": {
+    "plate": "19240",
+    "n": 571,
+    "windows": 9,
+    "shift_median": [
+     -0.08,
+     2.47
+    ],
+    "fit_residual_m": 1.23,
+    "agree": 9,
+    "kind": "shift"
+   },
+   "sheet": "V2-58",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 569,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19239",
+   "image": "1809056",
+   "name": "Brooklyn V. 2, Double Page Plate No. 57 [Map bounded by Classon Ave., Gates Ave., St. Jame",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 15.9,
+   "mpp": 0.104,
+   "n": 598,
+   "frame": 183,
+   "brick": 412,
+   "stone": 0,
+   "coincide": 134,
+   "share": 0.225,
+   "corrected": true,
+   "paper": [
+    89.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.14,
+    0.16
+   ],
+   "off_median_m": 1.07,
+   "street": {
+    "plate": "19239",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 15.9,
+    "mpp": 0.104,
+    "windows": 5,
+    "shift_median": [
+     -5.6,
+     1.4
+    ],
+    "shift_abs_median": 5.8,
+    "kind": "shift",
+    "agree": 5,
+    "fit_residual_m": 3.0,
+    "kind2": "shift",
+    "agree2": 4,
+    "fit_residual2_m": 1.0,
+    "after_windows": 4,
+    "after_abs_median": 1.0
+   },
+   "bld": {
+    "plate": "19239",
+    "n": 598,
+    "windows": 6,
+    "shift_median": [
+     -0.11,
+     0.18
+    ],
+    "fit_residual_m": 0.26,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "V2-57",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 595,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19237",
+   "image": "1809054",
+   "name": "Brooklyn V. 2, Double Page Plate No. 55 [Map bounded by Classon Ave., Myrtle Ave., Ryerson",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 5.4,
+   "mpp": 0.101,
+   "n": 376,
+   "frame": 321,
+   "brick": 55,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.005,
+   "corrected": false,
+   "paper": [
+    90.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -3.13,
+    -0.99
+   ],
+   "off_median_m": 3.37,
+   "sheet": "V2-55",
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 3.37 m; control points CV rms 5.4 m)"
+  },
+  {
+   "plate": "19232",
+   "image": "1809049",
+   "name": "Brooklyn V. 2, Double Page Plate No. 50 [Map bounded by Atlantic Ave., 3rd Ave., Lafayette",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 15.0,
+   "mpp": 0.102,
+   "n": 444,
+   "frame": 58,
+   "brick": 383,
+   "stone": 0,
+   "coincide": 59,
+   "share": 0.134,
+   "corrected": true,
+   "paper": [
+    90.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    0.06,
+    -0.68
+   ],
+   "off_median_m": 1.24,
+   "street": {
+    "plate": "19232",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 7,
+    "model": "affine",
+    "cv_rms": 15.0,
+    "mpp": 0.102,
+    "windows": 4,
+    "shift_median": [
+     -5.1,
+     7.6
+    ],
+    "shift_abs_median": 9.3,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 1.6,
+    "kind2": "shift",
+    "agree2": 5,
+    "fit_residual2_m": 1.1,
+    "after_windows": 5,
+    "after_abs_median": 1.1
+   },
+   "bld": {
+    "plate": "19232",
+    "n": 444,
+    "windows": 6,
+    "shift_median": [
+     -0.28,
+     0.49
+    ],
+    "fit_residual_m": 0.76,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "V2-50",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 441,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "19235",
+   "image": "1809052",
+   "name": "Brooklyn V. 2, Double Page Plate No. 53 [Map bounded by Greene Ave., Carlton Ave., De Kalb",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 5.6,
+   "mpp": 0.102,
+   "n": 394,
+   "frame": 62,
+   "brick": 330,
+   "stone": 0,
+   "coincide": 25,
+   "share": 0.064,
+   "corrected": true,
+   "paper": [
+    87.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.15,
+    0.31
+   ],
+   "off_median_m": 1.22,
+   "street": {
+    "plate": "19235",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 8,
+    "model": "affine",
+    "cv_rms": 5.6,
+    "mpp": 0.102,
+    "windows": 6,
+    "shift_median": [
+     -1.4,
+     -2.1
+    ],
+    "shift_abs_median": 3.7,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 3.2,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 2.7,
+    "after_windows": 6,
+    "after_abs_median": 2.7
+   },
+   "bld": {
+    "plate": "19235",
+    "n": 394,
+    "windows": 7,
+    "shift_median": [
+     -2.13,
+     2.24
+    ],
+    "fit_residual_m": 1.64,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "V2-53",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 392,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19230",
+   "image": "1809047",
+   "name": "Brooklyn V. 2, Double Page Plate No. 48 [Map bounded by De Kalb Ave., Washington Park, Myr",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 7.5,
+   "mpp": 0.103,
+   "n": 586,
+   "frame": 129,
+   "brick": 457,
+   "stone": 0,
+   "coincide": 132,
+   "share": 0.225,
+   "corrected": true,
+   "paper": [
+    90.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -0.22,
+    0.29
+   ],
+   "off_median_m": 1.77,
+   "street": {
+    "plate": "19230",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 6,
+    "model": "affine",
+    "cv_rms": 7.5,
+    "mpp": 0.103,
+    "windows": 6,
+    "shift_median": [
+     -5.9,
+     6.0
+    ],
+    "shift_abs_median": 8.7,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 1.2,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 1.0,
+    "after_windows": 6,
+    "after_abs_median": 1.0
+   },
+   "bld": {
+    "plate": "19230",
+    "n": 586,
+    "windows": 8,
+    "shift_median": [
+     1.0,
+     -0.69
+    ],
+    "fit_residual_m": 1.29,
+    "agree": 8,
+    "kind": "shift"
+   },
+   "sheet": "V2-48",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 586,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19229",
+   "image": "1809046",
+   "name": "Brooklyn V. 2, Double Page Plate No. 47 [Map bounded by Vanderbilt Ave., Myrtle Ave., N.Ox",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 5.7,
+   "mpp": 0.102,
+   "n": 744,
+   "frame": 499,
+   "brick": 242,
+   "stone": 0,
+   "coincide": 39,
+   "share": 0.053,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.23,
+    -0.56
+   ],
+   "off_median_m": 1.41,
+   "street": null,
+   "bld": {
+    "plate": "19229",
+    "n": 744,
+    "windows": 4,
+    "shift_median": [
+     0.04,
+     -1.8
+    ],
+    "fit_residual_m": 1.03,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "V2-47",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 741,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19228",
+   "image": "1809045",
+   "name": "Brooklyn V. 2, Double Page Plate No. 46 [Map bounded by N. Oxford St., Myrtle Ave., Navy S",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 15.0,
+   "mpp": 0.104,
+   "n": 655,
+   "frame": 306,
+   "brick": 349,
+   "stone": 0,
+   "coincide": 7,
+   "share": 0.011,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    0.76,
+    0.33
+   ],
+   "off_median_m": 1.76,
+   "sheet": "V2-46",
+   "status": "left out: not placed reliably (no street or building match; 7 outlines on standing footprints, median offset 1.76 m; control points CV rms 15.0 m)"
+  },
+  {
+   "plate": "19227",
+   "image": "1809044",
+   "name": "Brooklyn V. 2, Double Page Plate No. 45 [Map bounded by De Kalb Ave., Fulton St., Duffield",
+   "gcps": 10,
+   "model": "affine",
+   "cv_rms": 6.1,
+   "mpp": 0.104,
+   "n": 833,
+   "frame": 490,
+   "brick": 335,
+   "stone": 1,
+   "coincide": 1,
+   "share": 0.001,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.32,
+    2.21
+   ],
+   "off_median_m": 2.23,
+   "street": {
+    "plate": "19227",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 10,
+    "model": "affine",
+    "cv_rms": 6.1,
+    "mpp": 0.104,
+    "windows": 6,
+    "shift_median": [
+     -7.4,
+     0.2
+    ],
+    "shift_abs_median": 7.5,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 1.6,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 2.3,
+    "after_windows": 6,
+    "after_abs_median": 2.3
+   },
+   "sheet": "V2-45",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 826,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "19225",
+   "image": "1809042",
+   "name": "Brooklyn V. 2, Double Page Plate No. 43 [Map bounded by Duffield St., Hoyt St., State St.,",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 8.1,
+   "mpp": 0.103,
+   "n": 428,
+   "frame": 104,
+   "brick": 316,
+   "stone": 4,
+   "coincide": 9,
+   "share": 0.021,
+   "corrected": true,
+   "paper": [
+    87.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.54,
+    0.25
+   ],
+   "off_median_m": 1.52,
+   "street": {
+    "plate": "19225",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 7,
+    "model": "affine",
+    "cv_rms": 8.1,
+    "mpp": 0.103,
+    "windows": 5,
+    "shift_median": [
+     -4.2,
+     1.4
+    ],
+    "shift_abs_median": 4.4,
+    "kind": "shift",
+    "agree": 5,
+    "fit_residual_m": 0.4,
+    "kind2": "shift",
+    "agree2": 5,
+    "fit_residual2_m": 0.7,
+    "after_windows": 5,
+    "after_abs_median": 0.7
+   },
+   "bld": {
+    "plate": "19225",
+    "n": 428,
+    "windows": 4,
+    "shift_median": [
+     -1.29,
+     2.53
+    ],
+    "fit_residual_m": 1.42,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "V2-43",
+   "lettering_dropped": 4,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 424,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19214",
+   "image": "1809031",
+   "name": "Brooklyn V. 2, Double Page Plate No. 32 [Map bounded by Hicks St., Clark St., East River, ",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 7.1,
+   "mpp": 0.1,
+   "n": 368,
+   "frame": 106,
+   "brick": 235,
+   "stone": 15,
+   "coincide": 45,
+   "share": 0.126,
+   "corrected": true,
+   "paper": [
+    87.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.06,
+    -0.16
+   ],
+   "off_median_m": 1.42,
+   "street": null,
+   "bld": {
+    "plate": "19214",
+    "n": 368,
+    "windows": 3,
+    "shift_median": [
+     -0.1,
+     1.19
+    ],
+    "fit_residual_m": 1.12,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "V2-32",
+   "lettering_dropped": 6,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 356,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "19217",
+   "image": "1809034",
+   "name": "Brooklyn V. 2, Double Page Plate No. 35 [Map bounded by Water St., Bridge St., East River,",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 18.8,
+   "mpp": 0.104,
+   "n": 350,
+   "frame": 131,
+   "brick": 219,
+   "stone": 0,
+   "coincide": 9,
+   "share": 0.026,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.45,
+    0.12
+   ],
+   "off_median_m": 2.35,
+   "sheet": "V2-35",
+   "status": "left out: not placed reliably (no street or building match; 9 outlines on standing footprints, median offset 2.35 m; control points CV rms 18.8 m)"
+  },
+  {
+   "plate": "19216",
+   "image": "1809033",
+   "name": "Brooklyn V. 2, Double Page Plate No. 34 [Map bounded by Water St., Main St., East River, B",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 33.2,
+   "mpp": 0.109,
+   "n": 268,
+   "frame": 156,
+   "brick": 109,
+   "stone": 3,
+   "coincide": 1,
+   "share": 0.004,
+   "corrected": false,
+   "paper": [
+    86.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.23,
+    1.14
+   ],
+   "off_median_m": 1.16,
+   "sheet": "V2-34",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.16 m; control points CV rms 33.2 m)"
+  },
+  {
+   "plate": "19215",
+   "image": "1809032",
+   "name": "Brooklyn V. 2, Double Page Plate No. 33 [Map bounded by Washington St., Middagh St., Sands",
+   "gcps": 10,
+   "model": "affine",
+   "cv_rms": 20.4,
+   "mpp": 0.1,
+   "n": 308,
+   "frame": 125,
+   "brick": 163,
+   "stone": 5,
+   "coincide": 3,
+   "share": 0.01,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    5.5,
+    0.24
+   ],
+   "off_median_m": 7.33,
+   "street": {
+    "plate": "19215",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 10,
+    "model": "affine",
+    "cv_rms": 20.4,
+    "mpp": 0.1,
+    "windows": 5,
+    "shift_median": [
+     -2.9,
+     7.8
+    ],
+    "shift_abs_median": 8.3,
+    "kind": "shift",
+    "agree": 5,
+    "fit_residual_m": 2.9,
+    "kind2": "shift",
+    "agree2": 4,
+    "fit_residual2_m": 3.9,
+    "after_windows": 4,
+    "after_abs_median": 3.9
+   },
+   "bld": {
+    "plate": "19215",
+    "n": 308,
+    "windows": 4,
+    "shift_median": [
+     -2.7,
+     2.8
+    ],
+    "fit_residual_m": 1.71,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "V2-33",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 293,
+   "duplicates_dropped": 14,
+   "status": "ok"
+  },
+  {
+   "plate": "19223",
+   "image": "1809040",
+   "name": "Brooklyn V. 2, Double Page Plate No. 41 [Map bounded by Bridge St., Myrtle Ave., Washingto",
+   "gcps": 10,
+   "model": "affine",
+   "cv_rms": 6.4,
+   "mpp": 0.103,
+   "n": 687,
+   "frame": 446,
+   "brick": 241,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.001,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    6.51,
+    -0.58
+   ],
+   "off_median_m": 6.53,
+   "sheet": "V2-41",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 6.53 m; control points CV rms 6.4 m)"
+  },
+  {
+   "plate": "19224",
+   "image": "1809041",
+   "name": "Brooklyn V. 2, Double Page Plate No. 42 [Map bounded by Navy St., Myrtle St., Bridge St., ",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 48.7,
+   "mpp": 0.109,
+   "n": 959,
+   "frame": 623,
+   "brick": 327,
+   "stone": 0,
+   "coincide": 14,
+   "share": 0.015,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.08,
+    -0.43
+   ],
+   "off_median_m": 2.05,
+   "sheet": "V2-42",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 950,
+   "duplicates_dropped": 6,
+   "status": "ok"
+  },
+  {
+   "plate": "19222",
+   "image": "1809039",
+   "name": "Brooklyn V. 2, Double Page Plate No. 40 [Map bounded by Pearl St., Boerum Place, State St.",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 14.4,
+   "mpp": 0.102,
+   "n": 426,
+   "frame": 74,
+   "brick": 320,
+   "stone": 20,
+   "coincide": 45,
+   "share": 0.109,
+   "corrected": true,
+   "paper": [
+    90.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -0.5,
+    0.08
+   ],
+   "off_median_m": 1.73,
+   "street": {
+    "plate": "19222",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 8,
+    "model": "affine",
+    "cv_rms": 14.4,
+    "mpp": 0.102,
+    "windows": 4,
+    "shift_median": [
+     -5.5,
+     -0.2
+    ],
+    "shift_abs_median": 5.5,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 1.5,
+    "kind2": "shift",
+    "agree2": 4,
+    "fit_residual2_m": 2.1,
+    "after_windows": 4,
+    "after_abs_median": 2.2
+   },
+   "bld": {
+    "plate": "19222",
+    "n": 426,
+    "windows": 6,
+    "shift_median": [
+     0.06,
+     1.85
+    ],
+    "fit_residual_m": 0.91,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V2-40",
+   "lettering_dropped": 8,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 414,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "19221",
+   "image": "1809038",
+   "name": "Brooklyn V. 2, Double Page Plate No. 39 [Map bounded by Clinton St., State St., Columbia S",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 3.7,
+   "mpp": 0.104,
+   "n": 573,
+   "frame": 17,
+   "brick": 552,
+   "stone": 0,
+   "coincide": 179,
+   "share": 0.315,
+   "corrected": true,
+   "paper": [
+    87.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.18,
+    -0.47
+   ],
+   "off_median_m": 1.65,
+   "street": {
+    "plate": "19221",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 6,
+    "model": "affine",
+    "cv_rms": 3.7,
+    "mpp": 0.104,
+    "windows": 6,
+    "shift_median": [
+     -4.8,
+     -5.0
+    ],
+    "shift_abs_median": 6.6,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 1.1,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 1.7,
+    "after_windows": 6,
+    "after_abs_median": 1.6
+   },
+   "bld": {
+    "plate": "19221",
+    "n": 573,
+    "windows": 8,
+    "shift_median": [
+     1.02,
+     2.23
+    ],
+    "fit_residual_m": 1.05,
+    "agree": 8,
+    "kind": "shift"
+   },
+   "sheet": "V2-39",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 569,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "19220",
+   "image": "1809037",
+   "name": "Brooklyn V. 2, Double Page Plate No. 38 [Map bounded by Washington St., Pierrepont St., Hi",
+   "gcps": 10,
+   "model": "affine",
+   "cv_rms": 13.6,
+   "mpp": 0.104,
+   "n": 598,
+   "frame": 138,
+   "brick": 452,
+   "stone": 2,
+   "coincide": 46,
+   "share": 0.078,
+   "corrected": true,
+   "paper": [
+    86.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.61,
+    0.23
+   ],
+   "off_median_m": 1.59,
+   "street": null,
+   "bld": {
+    "plate": "19220",
+    "n": 598,
+    "windows": 7,
+    "shift_median": [
+     -3.43,
+     0.59
+    ],
+    "fit_residual_m": 0.81,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V2-38",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 592,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "19219",
+   "image": "1809036",
+   "name": "Brooklyn V. 2, Double Page Plate No. 37 [Map bounded by Bridge St., Nassau St., Washington",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 5.4,
+   "mpp": 0.103,
+   "n": 748,
+   "frame": 474,
+   "brick": 267,
+   "stone": 1,
+   "coincide": 2,
+   "share": 0.003,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -1.54,
+    0.41
+   ],
+   "off_median_m": 1.79,
+   "street": {
+    "plate": "19219",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 5.4,
+    "mpp": 0.103,
+    "windows": 5,
+    "shift_median": [
+     -1.8,
+     1.2
+    ],
+    "shift_abs_median": 2.4,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 1.0,
+    "kind2": "shift",
+    "agree2": 5,
+    "fit_residual2_m": 1.0,
+    "after_windows": 5,
+    "after_abs_median": 1.0
+   },
+   "sheet": "V2-37",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 742,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "19218",
+   "image": "1809035",
+   "name": "Brooklyn V. 2, Double Page Plate No. 36 [Map bounded by Navy St., Nassau St., Bridge St., ",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 5.3,
+   "mpp": 0.102,
+   "n": 732,
+   "frame": 497,
+   "brick": 235,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    84.0,
+    -2.0,
+    11.0
+   ],
+   "sheet": "V2-36",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 5.3 m)"
+  },
+  {
+   "plate": "19236",
+   "image": "1809053",
+   "name": "Brooklyn V. 2, Double Page Plate No. 54 [Map bounded by Ryerson St., Myrtle Ave., Vanderbi",
+   "gcps": 11,
+   "model": "poly2",
+   "cv_rms": 2.5,
+   "mpp": 0.104,
+   "n": 571,
+   "frame": 316,
+   "brick": 249,
+   "stone": 0,
+   "coincide": 97,
+   "share": 0.172,
+   "corrected": true,
+   "paper": [
+    87.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.55,
+    -0.3
+   ],
+   "off_median_m": 1.27,
+   "street": {
+    "plate": "19236",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 11,
+    "model": "poly2",
+    "cv_rms": 2.5,
+    "mpp": 0.104,
+    "windows": 4,
+    "shift_median": [
+     3.8,
+     -27.5
+    ],
+    "shift_abs_median": 27.7,
+    "kind": "shift",
+    "agree": 4,
+    "fit_residual_m": 1.1,
+    "kind2": "shift",
+    "agree2": 5,
+    "fit_residual2_m": 1.9,
+    "after_windows": 6,
+    "after_abs_median": 2.1
+   },
+   "sheet": "V2-54",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 565,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "19234",
+   "image": "1809051",
+   "name": "Brooklyn V. 2, Double Page Plate No. 52 [Map bounded by St. James Place., Atlantic Ave., C",
+   "gcps": 12,
+   "model": "tps",
+   "cv_rms": 2.9,
+   "mpp": 0.103,
+   "n": 508,
+   "frame": 135,
+   "brick": 368,
+   "stone": 0,
+   "coincide": 138,
+   "share": 0.274,
+   "corrected": true,
+   "paper": [
+    90.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -0.34,
+    0.17
+   ],
+   "off_median_m": 0.99,
+   "street": {
+    "plate": "19234",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 12,
+    "model": "tps",
+    "cv_rms": 2.9,
+    "mpp": 0.103,
+    "windows": 5,
+    "shift_median": [
+     -0.0,
+     0.4
+    ],
+    "shift_abs_median": 0.8,
+    "kind": "shift",
+    "agree": 5,
+    "fit_residual_m": 0.6,
+    "kind2": "shift",
+    "agree2": 5,
+    "fit_residual2_m": 0.9,
+    "after_windows": 5,
+    "after_abs_median": 0.9
+   },
+   "bld": {
+    "plate": "19234",
+    "n": 508,
+    "windows": 12,
+    "shift_median": [
+     0.48,
+     -0.1
+    ],
+    "fit_residual_m": 0.5,
+    "agree": 12,
+    "kind": "affine"
+   },
+   "sheet": "V2-52",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 503,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19233",
+   "image": "1809050",
+   "name": "Brooklyn V. 2, Double Page Plate No. 51 [Map bounded by Clermont Ave., Atlantic Ave., S.Po",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 6.5,
+   "mpp": 0.105,
+   "n": 564,
+   "frame": 239,
+   "brick": 322,
+   "stone": 0,
+   "coincide": 31,
+   "share": 0.055,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    1.16,
+    -0.3
+   ],
+   "off_median_m": 2.2,
+   "street": {
+    "plate": "19233",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 9,
+    "model": "affine",
+    "cv_rms": 6.5,
+    "mpp": 0.105,
+    "windows": 6,
+    "shift_median": [
+     -0.6,
+     -0.1
+    ],
+    "shift_abs_median": 2.3,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 2.4,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 2.3,
+    "after_windows": 6,
+    "after_abs_median": 2.2
+   },
+   "bld": {
+    "plate": "19233",
+    "n": 564,
+    "windows": 7,
+    "shift_median": [
+     0.24,
+     -0.87
+    ],
+    "fit_residual_m": 1.9,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "V2-51",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 561,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "19226",
+   "image": "1809043",
+   "name": "Brooklyn V. 2, Double Page Plate No. 44 [Map bounded by State St., Hoyt St., De Kalb Ave.,",
+   "gcps": 10,
+   "model": "affine",
+   "cv_rms": 5.4,
+   "mpp": 0.103,
+   "n": 654,
+   "frame": 238,
+   "brick": 409,
+   "stone": 0,
+   "coincide": 13,
+   "share": 0.02,
+   "corrected": true,
+   "paper": [
+    90.0,
+    -1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -0.33,
+    0.56
+   ],
+   "off_median_m": 2.48,
+   "street": {
+    "plate": "19226",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 10,
+    "model": "affine",
+    "cv_rms": 5.4,
+    "mpp": 0.103,
+    "windows": 6,
+    "shift_median": [
+     0.1,
+     0.3
+    ],
+    "shift_abs_median": 1.5,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 1.6,
+    "kind2": "shift",
+    "agree2": 6,
+    "fit_residual2_m": 1.5,
+    "after_windows": 6,
+    "after_abs_median": 1.5
+   },
+   "sheet": "V2-44",
+   "lettering_dropped": 3,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 647,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  }
+ ]
+}

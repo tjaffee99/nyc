@@ -373,6 +373,39 @@ def add_predecessors(g):
     has_hi = np.isfinite(hi) & (hi < b - 5.0) & (hi > a)
     first_gen = has_hi & (h3 < 0.55)
     est = np.where(first_gen, a + (hi - a) * hk, np.where(has_hi, hi + (b - hi) * hk, a + (b - a) * np.sqrt(hk)))
+    # Where neither an earlier complete map nor an extent snapshot bounds the start (the
+    # Bronx before 1889, Queens, Staten Island, Hudson County), the buildings a map shows
+    # went up as the place grew: their starts follow the borough's or county's census
+    # population up to the map year (a place with half its people by 1880 has half its
+    # buildings by then), the ground nearest the old centres first. Estimated.
+    free = np.isnan(start) & ~np.isfinite(lo) & ~has_hi & (v.cls.values == "traced")
+    if free.any():
+        from common import TABLES
+        area_of = {"1": "manhattan", "2": "bronx", "3": "brooklyn", "4": "queens", "5": "staten_island", "": "hudson"}
+        cx, cy = [], []
+        for f in ("places.csv", "places_counties.csv"):
+            if (TABLES / f).exists():
+                pl = pd.read_csv(TABLES / f)
+                pl = pl[pl.tier.isin(["city", "town", "neighborhood", "historic"]) & (pd.to_numeric(pl.year_start, errors="coerce") < 1900)]
+                pp = gpd.GeoSeries(gpd.points_from_xy(pl.lon, pl.lat), crs=4326).to_crs(UTM)
+                cx += list(pp.x.values)
+                cy += list(pp.y.values)
+        dc = cKDTree(np.column_stack([cx, cy])).query(xy, k=1)[0] if cx else np.zeros(n)
+        boro_v = v.boro.values
+        n_g = 0
+        for bcode, aname in area_of.items():
+            ps = population_series(aname)
+            for y_map in np.unique(my[free & (boro_v == bcode)]):
+                m = free & (boro_v == bcode) & (my == y_map)
+                if ps is None or m.sum() < 20:
+                    continue
+                grid = np.arange(max(SETTLED, y_map - 90.0), y_map, 1.0)
+                cum = np.exp(np.interp(grid, ps[0], np.log(ps[1]), left=np.log(ps[1][0]) - 3.0))
+                cum = np.maximum.accumulate(cum / cum[-1])
+                u = 0.65 * (pd.Series(dc[m]).rank(method="first").values - 0.5) / m.sum() + 0.35 * hk[m]
+                est[m] = np.minimum(np.interp(u, cum, grid), y_map - 1.0)
+                n_g += int(m.sum())
+        log(f"predecessors: {n_g} traced outlines without an earlier map or extent are dated along their borough's or county's growth")
     start = np.where(np.isnan(start), est, start)
     # a building the city removed in recent decades (nyc_extras.demolished) without a recorded
     # year: the assessor's rounded year spread over five years, else the years of the standing
@@ -612,10 +645,10 @@ PPB = [(1626, 5.0), (1660, 4.5), (1730, 6.0), (1770, 6.3), (1800, 8.0), (1830, 1
 
 def population_series(area):
     from common import TABLES
-    p = TABLES / "population.csv"
-    if not p.exists():
+    parts = [pd.read_csv(p) for p in (TABLES / "population.csv", TABLES / "population_counties.csv") if p.exists()]
+    if not parts:
         return None
-    t = pd.read_csv(p)
+    t = pd.concat(parts, ignore_index=True)
     t = t[t.area.astype(str).str.lower().str.strip() == area]
     y = pd.to_numeric(t.year, errors="coerce").values
     v = pd.to_numeric(t.population.astype(str).str.replace(",", ""), errors="coerce").values

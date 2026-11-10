@@ -1112,8 +1112,8 @@ def export(layer, max_off=8.0):
             st["status"] = "rejected: standing buildings %.1f m from their footprints" % st["off_median_m"]
             rep.append(st)
             continue
-        if spec.get("require_match") and not st.get("corrected") and st.get("cv_rms", 99) > spec["require_match"]:
-            st["status"] = "left out: no street or building match, control points CV rms %.1f m" % st.get("cv_rms", 99)
+        if spec.get("require_match") and not st.get("corrected") and not (st.get("coincide", 0) >= 10 and st.get("off_median_m", 99) <= 4.0):
+            st["status"] = "left out: not placed reliably (no street or building match; %d outlines on standing footprints, median offset %s m; control points CV rms %.1f m)" % (st.get("coincide", 0), st.get("off_median_m"), st.get("cv_rms", 99))
             rep.append(st)
             continue
         polys = [wkb.loads(o["geom"]) for o in d["items"]]

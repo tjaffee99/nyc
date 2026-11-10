@@ -1558,102 +1558,122 @@
    {
     "id": 15375,
     "sheet": "image 1646244",
-    "name": "Part of Wards 1 & 3. [Map bound by Union Ave, Maple Ave, Van Pelt Ave, Van Name Ave, Simon"
+    "name": "Part of Wards 1 & 3. [Map bound by Union Ave, Maple Ave, Van Pelt Ave, Van Name Ave, Simon",
+    "skip": "registration not verified (control points only, cross-validation 10.5 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15377,
     "sheet": "image 1646246",
-    "name": "Part of Ward 1. [Map bound by Egbert Ave, Brookside Ave, Forest Ave, Clove Road, Purcell S"
+    "name": "Part of Ward 1. [Map bound by Egbert Ave, Brookside Ave, Forest Ave, Clove Road, Purcell S",
+    "skip": "registration not verified (control points only, cross-validation 7.7 m; 1 outlines on standing footprints, median offset 1.68 m)"
    },
    {
     "id": 15378,
     "sheet": "image 1646247",
-    "name": "Part of Wards 1 & 2. [Map bound by Dongan Ave, Fairview Ave, Knox PL (1st St), Slosson Ave"
+    "name": "Part of Wards 1 & 2. [Map bound by Dongan Ave, Fairview Ave, Knox PL (1st St), Slosson Ave",
+    "skip": "registration not verified (control points only, cross-validation 11.3 m; 2 outlines on standing footprints, median offset 1.42 m)"
    },
    {
     "id": 15379,
     "sheet": "image 1646248",
-    "name": "Part of Ward 2. [Map bound by Ocean Terrace, Little Clove Road, Seneca Ave, Schohaire St, "
+    "name": "Part of Ward 2. [Map bound by Ocean Terrace, Little Clove Road, Seneca Ave, Schohaire St, ",
+    "skip": "registration not verified (control points only, cross-validation 19.9 m; 1 outlines on standing footprints, median offset 0.47 m)"
    },
    {
     "id": 15380,
     "sheet": "image 1646249",
-    "name": "Part of Ward 2. [Map bound by Ridge Ave, Prospect Ave, Ocean Terrace, Douglas Road, Richmo"
+    "name": "Part of Ward 2. [Map bound by Ridge Ave, Prospect Ave, Ocean Terrace, Douglas Road, Richmo",
+    "skip": "registration not verified (control points only, cross-validation 25.5 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15381,
     "sheet": "image 1646250",
-    "name": "Part of Ward 2. [Map bound by Area PL, Franklin PL, Norwalk Ave, Todt Hill Road, Ocean Ter"
+    "name": "Part of Ward 2. [Map bound by Area PL, Franklin PL, Norwalk Ave, Todt Hill Road, Ocean Ter",
+    "skip": "registration not verified (control points only, cross-validation 12.9 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15382,
     "sheet": "image 1646251",
-    "name": "Part of Ward 2. [Map bound by Todt Hill Road, New York Ave, Benedict Ave (Atlantic Ave), C"
+    "name": "Part of Ward 2. [Map bound by Todt Hill Road, New York Ave, Benedict Ave (Atlantic Ave), C",
+    "skip": "registration not verified (control points only, cross-validation 88.3 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15383,
     "sheet": "image 1646252",
-    "name": "Part of Ward 2. [Map bound by Moravian Cemetery, Todt Hill Road, Flagg (Prospect Ave) PL, "
+    "name": "Part of Ward 2. [Map bound by Moravian Cemetery, Todt Hill Road, Flagg (Prospect Ave) PL, ",
+    "skip": "registration not verified (control points only, cross-validation 7.2 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15384,
     "sheet": "image 1646253",
-    "name": "Part of Ward 3. [Map bound by London Road, Meisner Ave, Rockland Ave (Egbert), Richmond Ro"
+    "name": "Part of Ward 3. [Map bound by London Road, Meisner Ave, Rockland Ave (Egbert), Richmond Ro",
+    "skip": "registration not verified (control points only, cross-validation 15.7 m; 0 outlines on standing footprints, median offset 0.64 m)"
    },
    {
     "id": 15385,
     "sheet": "image 1646254",
-    "name": "Part of Wards 2 & 3. [Map bound by Rockland Ave (Saw Mill RD), Bradley Ave (Manor RD), Was"
+    "name": "Part of Wards 2 & 3. [Map bound by Rockland Ave (Saw Mill RD), Bradley Ave (Manor RD), Was",
+    "skip": "registration not verified (control points only, cross-validation 15.1 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15386,
     "sheet": "image 1646255",
-    "name": "Part of Wards 1 & 2. [Map bound by Buchanan Ave, Willow Brook RD, Roosevelt Ave, Mann Ave,"
+    "name": "Part of Wards 1 & 2. [Map bound by Buchanan Ave, Willow Brook RD, Roosevelt Ave, Mann Ave,",
+    "skip": "registration not verified (control points only, cross-validation 24.4 m; 3 outlines on standing footprints, median offset 1.53 m)"
    },
    {
     "id": 15387,
     "sheet": "image 1646256",
-    "name": "Part of Wards 1, 2 & 3. [Map bound by Forest Hill Road (Fort Richmond), Willow Brook Road "
+    "name": "Part of Wards 1, 2 & 3. [Map bound by Forest Hill Road (Fort Richmond), Willow Brook Road ",
+    "skip": "registration not verified (control points only, cross-validation 31.2 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15388,
     "sheet": "image 1646257",
-    "name": "Part of Ward 3. [Map bound by Attorney St, Essex St, Lambert St, Center St, Spring St, De "
+    "name": "Part of Ward 3. [Map bound by Attorney St, Essex St, Lambert St, Center St, Spring St, De ",
+    "skip": "registration not verified (control points only, cross-validation 18.9 m; 2 outlines on standing footprints, median offset 2.13 m)"
    },
    {
     "id": 15389,
     "sheet": "image 1646258",
-    "name": "Part of Ward 3. [Map bound by Richmond Turnpike, Darcys Lane, Willow Brook Road (Gun Facto"
+    "name": "Part of Ward 3. [Map bound by Richmond Turnpike, Darcys Lane, Willow Brook Road (Gun Facto",
+    "skip": "registration not verified (control points only, cross-validation 15.6 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15390,
     "sheet": "image 1646259",
-    "name": "Part of Ward 3. [Map bound by Forest Hill Road (Old Mill Road), Richmond Hill Road, Klondi"
+    "name": "Part of Ward 3. [Map bound by Forest Hill Road (Old Mill Road), Richmond Hill Road, Klondi",
+    "skip": "registration not verified (control points only, cross-validation 5.6 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15391,
     "sheet": "image 1646260",
-    "name": "Part of Ward 3. [Map bound by Richmond Creek, Fresh Kills, Springville Flaak, Springville "
+    "name": "Part of Ward 3. [Map bound by Richmond Creek, Fresh Kills, Springville Flaak, Springville ",
+    "skip": "registration not verified (control points only, cross-validation 105.4 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15392,
     "sheet": "image 1646261",
-    "name": "Part of Ward 3. [Map bound by Little Fresh Kills, Richmond Turnpike, Burying Hill Road, Ca"
+    "name": "Part of Ward 3. [Map bound by Little Fresh Kills, Richmond Turnpike, Burying Hill Road, Ca",
+    "skip": "registration not verified (control points only, cross-validation 45.2 m; 1 outlines on standing footprints, median offset 6.09 m)"
    },
    {
     "id": 15393,
     "sheet": "image 1646262",
-    "name": "Part of Ward 3. [Map bound by River Road (Water St), Chelsea Road, Bloomfield Ave (Decker "
+    "name": "Part of Ward 3. [Map bound by River Road (Water St), Chelsea Road, Bloomfield Ave (Decker ",
+    "skip": "registration not verified (control points only, cross-validation 22.5 m; 1 outlines on standing footprints, median offset 1.06 m)"
    },
    {
     "id": 15394,
     "sheet": "image 1646263",
-    "name": "Part of Ward 3. [Map bound by Sedge Pond, Old Place Creek, Western Ave, Washington Ave, Jo"
+    "name": "Part of Ward 3. [Map bound by Sedge Pond, Old Place Creek, Western Ave, Washington Ave, Jo",
+    "skip": "registration not verified (control points only, cross-validation 0.0 m; 1 outlines on standing footprints, median offset 2.11 m)"
    },
    {
     "id": 15395,
     "sheet": "image 1646264",
-    "name": "Part of Ward 3. [Map bound by State Line, Richmond Terrace (Shore RD), Arlington Ave, Balt"
+    "name": "Part of Ward 3. [Map bound by State Line, Richmond Terrace (Shore RD), Arlington Ave, Balt",
+    "skip": "registration not verified (control points only, cross-validation 59.5 m; 1 outlines on standing footprints, median offset 2.31 m)"
    },
    {
     "id": 15399,
@@ -1673,12 +1693,14 @@
    {
     "id": 15402,
     "sheet": "image 1646271",
-    "name": "Part of Ward 4. [Map bound by The Narrows, Lower New York Bay, Richmond Ave, Tompkins Ave,"
+    "name": "Part of Ward 4. [Map bound by The Narrows, Lower New York Bay, Richmond Ave, Tompkins Ave,",
+    "skip": "registration not verified (control points only, cross-validation 16.2 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15403,
     "sheet": "image 1646272",
-    "name": "Part of Ward 4. [Map bound by Richmond Road, Vanderbilt Ave, Tompkins Ave (Centre St), Cli"
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Vanderbilt Ave, Tompkins Ave (Centre St), Cli",
+    "skip": "registration not verified (control points only, cross-validation 15.3 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15404,
@@ -1688,137 +1710,164 @@
    {
     "id": 15405,
     "sheet": "image 1646274",
-    "name": "Part of Ward 4. [Map bound by Mosel Ave, Staten Island Rail Road, Rockwell Ave, Pennsylvan"
+    "name": "Part of Ward 4. [Map bound by Mosel Ave, Staten Island Rail Road, Rockwell Ave, Pennsylvan",
+    "skip": "registration not verified (control points only, cross-validation 19.5 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15406,
     "sheet": "image 1646275",
-    "name": "Part of Ward 4. [Map bound by Fingerboard Road, Sherman Ave, Grant Ave, Tompkins Ave, Rich"
+    "name": "Part of Ward 4. [Map bound by Fingerboard Road, Sherman Ave, Grant Ave, Tompkins Ave, Rich",
+    "skip": "registration not verified (control points only, cross-validation 26.8 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15407,
     "sheet": "image 1646276",
-    "name": "Part of Ward 4. [Map bound by Richmond Ave, Sea Ave (Sand), Seaside Boulevard, Lower New Y"
+    "name": "Part of Ward 4. [Map bound by Richmond Ave, Sea Ave (Sand), Seaside Boulevard, Lower New Y",
+    "skip": "registration not verified (control points only, cross-validation 8.6 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15408,
     "sheet": "image 1646277",
-    "name": "Part of Ward 4. [Map bound by Staten Island Rail Road, Fingerboard Road, Old Town Road, Sc"
+    "name": "Part of Ward 4. [Map bound by Staten Island Rail Road, Fingerboard Road, Old Town Road, Sc",
+    "skip": "registration not verified (control points only, cross-validation 10.2 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15409,
     "sheet": "image 1646278",
-    "name": "Part of Ward 4. [Map bound by Richmond Road, Baltic Ave, Hanover Ave (Main), Neckar Ave, W"
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Baltic Ave, Hanover Ave (Main), Neckar Ave, W",
+    "skip": "registration not verified (control points only, cross-validation 4.6 m; 1 outlines on standing footprints, median offset 1.56 m)"
    },
    {
     "id": 15410,
     "sheet": "image 1646279",
-    "name": "Part of Ward 4. [Map bound by Richmond Road, Old Town Road, Wilson Ave, Cornelia St, Pelto"
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Old Town Road, Wilson Ave, Cornelia St, Pelto",
+    "skip": "registration not verified (control points only, cross-validation 5.4 m; 1 outlines on standing footprints, median offset 1.89 m)"
    },
    {
     "id": 15411,
     "sheet": "image 1646280",
-    "name": "Part of Ward 4. [Map bound by Scott Ave, Old Town Road, South Field Beach Rail Road, New C"
+    "name": "Part of Ward 4. [Map bound by Scott Ave, Old Town Road, South Field Beach Rail Road, New C",
+    "skip": "registration not verified (control points only, cross-validation 24.1 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15412,
     "sheet": "image 1646281",
-    "name": "Part of Ward 4. [Map bound by Liberty Ave, Seaview Ave, Scotland Ave, New Creek, South Fie"
+    "name": "Part of Ward 4. [Map bound by Liberty Ave, Seaview Ave, Scotland Ave, New Creek, South Fie",
+    "skip": "registration not verified (control points only, cross-validation 33.5 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15413,
     "sheet": "image 1646282",
-    "name": "Part of Ward 4. [Map bound by Richmond Road, Stobe Ave (Jackson Ave), South Side Boulevard"
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Stobe Ave (Jackson Ave), South Side Boulevard",
+    "skip": "registration not verified (control points only, cross-validation 22.4 m; 1 outlines on standing footprints, median offset 3.04 m)"
    },
    {
     "id": 15414,
     "sheet": "image 1646283",
-    "name": "Part of Ward 4. [Map bound by Franklin Ave, 6th St, Maple Ave, Midland Beach, Lower New Yo"
+    "name": "Part of Ward 4. [Map bound by Franklin Ave, 6th St, Maple Ave, Midland Beach, Lower New Yo",
+    "skip": "registration not verified (control points only, cross-validation 43.5 m; 2 outlines on standing footprints, median offset 2.26 m)"
    },
    {
     "id": 15415,
     "sheet": "image 1646284",
-    "name": "Part of Ward 4. [Map bound by Amboy Road, Bishop Ave, Dale Ave, Dorothea PL, Grace RD, Ric"
+    "name": "Part of Ward 4. [Map bound by Amboy Road, Bishop Ave, Dale Ave, Dorothea PL, Grace RD, Ric",
+    "skip": "registration not verified (control points only, cross-validation 10.6 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15416,
     "sheet": "image 1646285",
-    "name": "Part of Ward 4. [Map bound by New Dorp Lane, New Dorp Beach, Lower New York Bay, Old Mill "
+    "name": "Part of Ward 4. [Map bound by New Dorp Lane, New Dorp Beach, Lower New York Bay, Old Mill ",
+    "skip": "registration not verified (control points only, cross-validation 9.8 m; 1 outlines on standing footprints, median offset 1.75 m)"
    },
    {
     "id": 15417,
     "sheet": "image 1646286",
-    "name": "Part of Ward 4. [Map bound by Oak Ave, Mill Road, Kissam Ave, Lower New York Bay, Brook Av"
+    "name": "Part of Ward 4. [Map bound by Oak Ave, Mill Road, Kissam Ave, Lower New York Bay, Brook Av",
+    "skip": "registration not verified (control points only, cross-validation 6.3 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15418,
     "sheet": "image 1646287",
-    "name": "Part of Ward 4. [Map bound by Amboy Road, Cedarview Ave, Oak Ave, South Side Boulevard, 9t"
+    "name": "Part of Ward 4. [Map bound by Amboy Road, Cedarview Ave, Oak Ave, South Side Boulevard, 9t",
+    "skip": "registration not verified (control points only, cross-validation 17.4 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15419,
     "sheet": "image 1646288",
-    "name": "Part of Ward 4. [Map bound by Richmond Road, Grand St, Clarke Ave, Amboy Road, Tysens St, "
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Grand St, Clarke Ave, Amboy Road, Tysens St, ",
+    "skip": "registration not verified (control points only, cross-validation 8.6 m; 3 outlines on standing footprints, median offset 2.86 m)"
    },
    {
     "id": 15420,
     "sheet": "image 1646289",
-    "name": "Part of Ward 4. [Map bound by Center St, Clarke Ave, St. Agnes Cemetery, Amboy Road, State"
+    "name": "Part of Ward 4. [Map bound by Center St, Clarke Ave, St. Agnes Cemetery, Amboy Road, State",
+    "skip": "registration not verified (control points only, cross-validation 10.3 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15421,
     "sheet": "image 1646290",
-    "name": "Part of Wards 4 & 5. [Map bound by Ocean View Cemetery, Staten Island Rail Road, Amboy Roa"
+    "name": "Part of Wards 4 & 5. [Map bound by Ocean View Cemetery, Staten Island Rail Road, Amboy Roa",
+    "skip": "registration not verified (control points only, cross-validation 6.9 m; 4 outlines on standing footprints, median offset 1.78 m)"
    },
    {
     "id": 15422,
     "sheet": "image 1646291",
-    "name": "Nelson Ave, Cleveland Ave, 2nd St, Madison TER, Great Kills RD, South Side Boulevard, Cole"
+    "name": "Nelson Ave, Cleveland Ave, 2nd St, Madison TER, Great Kills RD, South Side Boulevard, Cole",
+    "skip": "registration not verified (control points only, cross-validation 250.1 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15423,
     "sheet": "image 1646292",
-    "name": "Part of Wards 4 & 5. [Map bound by Linderwood Ave, Nelson Ave, Crescent Beach, Lower New Y"
+    "name": "Part of Wards 4 & 5. [Map bound by Linderwood Ave, Nelson Ave, Crescent Beach, Lower New Y",
+    "skip": "registration not verified (control points only, cross-validation 28.8 m; 1 outlines on standing footprints, median offset 0.92 m)"
    },
    {
     "id": 15424,
     "sheet": "image 1646293",
-    "name": "Part of Wards 4 & 5. [Map bound by Richmond Ave, (Eltingville Ave), South Side Boulevard, "
+    "name": "Part of Wards 4 & 5. [Map bound by Richmond Ave, (Eltingville Ave), South Side Boulevard, ",
+    "skip": "registration not verified (control points only, cross-validation 8.4 m; 1 outlines on standing footprints, median offset 1.12 m)"
    },
    {
     "id": 15425,
     "sheet": "image 1646294",
-    "name": "Part of Ward 5. [Map bound by Sheldon Ave, Jefferson Boulevard, Rathbun Ave, Arden Ave (Wa"
+    "name": "Part of Ward 5. [Map bound by Sheldon Ave, Jefferson Boulevard, Rathbun Ave, Arden Ave (Wa",
+    "skip": "registration not verified (control points only, cross-validation 19.0 m; 1 outlines on standing footprints, median offset 2.18 m)"
    },
    {
     "id": 15426,
     "sheet": "image 1646295",
-    "name": "Part of Ward 5. [Map bound by Barclay Ave, Raritan Bay, Poillon Ave (Harrison Ave), Arbutu"
+    "name": "Part of Ward 5. [Map bound by Barclay Ave, Raritan Bay, Poillon Ave (Harrison Ave), Arbutu",
+    "skip": "registration not verified (control points only, cross-validation 0.0 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15427,
     "sheet": "image 1646296",
-    "name": "Part of Ward 5. [Map bound by Arbutus Ave (Broadway), Arbutus Lake, 5th St, Raritan Bay, S"
+    "name": "Part of Ward 5. [Map bound by Arbutus Ave (Broadway), Arbutus Lake, 5th St, Raritan Bay, S",
+    "skip": "registration not verified (control points only, cross-validation 9.1 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15428,
     "sheet": "image 1646297",
-    "name": "Part of Ward 5. [Map bound by Maguire Ave, Ramona Ave, Lamont Ave, Ionia Ave, Edgegrove Av"
+    "name": "Part of Ward 5. [Map bound by Maguire Ave, Ramona Ave, Lamont Ave, Ionia Ave, Edgegrove Av",
+    "skip": "registration not verified (control points only, cross-validation 17.6 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15429,
     "sheet": "image 1646298",
-    "name": "Part of Ward 5. [Map bound by Holton St, Henry St, Seguine Ave, William St, Melville St, W"
+    "name": "Part of Ward 5. [Map bound by Holton St, Henry St, Seguine Ave, William St, Melville St, W",
+    "skip": "registration not verified (control points only, cross-validation 5.9 m; 2 outlines on standing footprints, median offset 3.15 m)"
    },
    {
     "id": 15430,
     "sheet": "image 1646299",
-    "name": "Part of Ward 5. [Map bound by Amboy Road, Bedell St (Seguine RD). Sharrot Ave (Pleasant Pl"
+    "name": "Part of Ward 5. [Map bound by Amboy Road, Bedell St (Seguine RD). Sharrot Ave (Pleasant Pl",
+    "skip": "registration not verified (control points only, cross-validation 43.9 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15432,
     "sheet": "image 1646301",
-    "name": "Part of Ward 5. [Map bound by Page sty (Beach), Raritan Bay, Surf Ave, Rockaway St, Belmon"
+    "name": "Part of Ward 5. [Map bound by Page sty (Beach), Raritan Bay, Surf Ave, Rockaway St, Belmon",
+    "skip": "registration not verified (control points only, cross-validation 22.9 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15433,
@@ -1828,22 +1877,26 @@
    {
     "id": 15434,
     "sheet": "image 1646303",
-    "name": "Part of Ward 5. [Map bound by Pierhead And Bulkhead Line, Barnard Ave (James St), Amboy Ro"
+    "name": "Part of Ward 5. [Map bound by Pierhead And Bulkhead Line, Barnard Ave (James St), Amboy Ro",
+    "skip": "registration not verified (control points only, cross-validation 10.4 m; 3 outlines on standing footprints, median offset 1.66 m)"
    },
    {
     "id": 15435,
     "sheet": "image 1646304",
-    "name": "Part of Ward 5. [Map bound by Arthur Kill, Arthur Kill Road (Fresh Kills RD), Richmond Val"
+    "name": "Part of Ward 5. [Map bound by Arthur Kill, Arthur Kill Road (Fresh Kills RD), Richmond Val",
+    "skip": "registration not verified (control points only, cross-validation 9.2 m; 1 outlines on standing footprints, median offset 19.29 m)"
    },
    {
     "id": 15436,
     "sheet": "image 1646305",
-    "name": "Part of Ward 5. [Map bound by Gifford Lane, Staten Island Rail Road, Richmond Ave (Bridge "
+    "name": "Part of Ward 5. [Map bound by Gifford Lane, Staten Island Rail Road, Richmond Ave (Bridge ",
+    "skip": "registration not verified (control points only, cross-validation 39.5 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15437,
     "sheet": "image 1646306",
-    "name": "Part of Ward 5. [Map bound by Arthur Kill Road (Fresh Kills RD), Arden Ave (Washington), C"
+    "name": "Part of Ward 5. [Map bound by Arthur Kill Road (Fresh Kills RD), Arden Ave (Washington), C",
+    "skip": "registration not verified (control points only, cross-validation 28.2 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15438,
@@ -1873,7 +1926,8 @@
    {
     "id": 15443,
     "sheet": "image 1646312",
-    "name": "Part of Ward 1. [Map bound by Bement Ave, Harvest Ave, Revere Ave (Laurel Ave), University"
+    "name": "Part of Ward 1. [Map bound by Bement Ave, Harvest Ave, Revere Ave (Laurel Ave), University",
+    "skip": "registration not verified (control points only, cross-validation 18.7 m; 0 outlines on standing footprints)"
    },
    {
     "id": 15444,
@@ -1888,7 +1942,8 @@
    {
     "id": 15449,
     "sheet": "image 1646318",
-    "name": "Part of Ward 1. [Map bound by Richmond Terrace (Bay St), Pierhead Line, Hyatt St, St. Mark"
+    "name": "Part of Ward 1. [Map bound by Richmond Terrace (Bay St), Pierhead Line, Hyatt St, St. Mark",
+    "skip": "registration not verified (control points only, cross-validation 24.7 m; 4 outlines on standing footprints, median offset 1.79 m)"
    },
    {
     "id": 15450,
@@ -1908,7 +1963,8 @@
    {
     "id": 15453,
     "sheet": "image 1646322",
-    "name": "Part of Ward 1. [Map bound by Greenwood Ave, Ridgewood PL, Castleton Ave, Brighton Ave, Th"
+    "name": "Part of Ward 1. [Map bound by Greenwood Ave, Ridgewood PL, Castleton Ave, Brighton Ave, Th",
+    "skip": "registration not verified (control points only, cross-validation 8.8 m; 2 outlines on standing footprints, median offset 1.63 m)"
    },
    {
     "id": 15454,

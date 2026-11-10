@@ -1,0 +1,121 @@
+{
+ "total": {
+  "layer": "hudson_hoboken_1891",
+  "plates": 3,
+  "buildings": 357,
+  "frame": 91,
+  "brick": 265,
+  "stone": 1,
+  "gasholders": 0,
+  "on_today": 42,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 0.53,
+  "overlap_dropped": 0
+ },
+ "plates": [
+  {
+   "plate": "91010008",
+   "image": "loc_hob1891_0008",
+   "name": "Sanborn / Brush insurance maps, Hoboken, 1891 (Hudson Co. vol. 7), plate 0008",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 2.0,
+   "mpp": 0.099,
+   "n": 123,
+   "frame": 41,
+   "brick": 67,
+   "stone": 0,
+   "coincide": 5,
+   "share": 0.046,
+   "corrected": false,
+   "paper": [
+    69.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.82,
+    1.36
+   ],
+   "off_median_m": 1.74,
+   "sheet": "8",
+   "lettering_dropped": 15,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 108,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "91010009",
+   "image": "loc_hob1891_0009",
+   "name": "Sanborn / Brush insurance maps, Hoboken, 1891 (Hudson Co. vol. 7), plate 0009",
+   "gcps": 10,
+   "model": "affine",
+   "cv_rms": 1.8,
+   "mpp": 0.1,
+   "n": 174,
+   "frame": 44,
+   "brick": 117,
+   "stone": 1,
+   "coincide": 29,
+   "share": 0.179,
+   "corrected": false,
+   "paper": [
+    72.0,
+    0.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.18,
+    0.54
+   ],
+   "off_median_m": 1.26,
+   "sheet": "9",
+   "lettering_dropped": 12,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 162,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "91010010",
+   "image": "loc_hob1891_0010",
+   "name": "Sanborn / Brush insurance maps, Hoboken, 1891 (Hudson Co. vol. 7), plate 0010",
+   "gcps": 10,
+   "model": "poly2",
+   "cv_rms": 1.9,
+   "mpp": 0.099,
+   "n": 96,
+   "frame": 6,
+   "brick": 81,
+   "stone": 0,
+   "coincide": 8,
+   "share": 0.092,
+   "corrected": false,
+   "paper": [
+    67.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -1.63,
+    1.64
+   ],
+   "off_median_m": 2.18,
+   "sheet": "10",
+   "lettering_dropped": 9,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 87,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  }
+ ]
+}

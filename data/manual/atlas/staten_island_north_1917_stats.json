@@ -1,0 +1,1237 @@
+{
+ "total": {
+  "layer": "staten_island_north_1917",
+  "plates": 19,
+  "buildings": 8844,
+  "frame": 8294,
+  "brick": 548,
+  "stone": 2,
+  "gasholders": 0,
+  "on_today": 557,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 14.4,
+  "final_checks": {
+   "buildings": 8844,
+   "dropped_centre_outside_coverage": 0,
+   "dropped_overlapping": 0,
+   "invalid": 0,
+   "area_out_of_range": 0,
+   "duplicate_ids": 0,
+   "overlapping_pairs_left": 0,
+   "touching_or_slightly_overlapping_pairs": 28,
+   "on_today": 557,
+   "frame": 8294,
+   "brick": 548,
+   "stone": 2,
+   "total_footprint_km2": 0.487
+  }
+ },
+ "plates": [
+  {
+   "plate": "15367",
+   "image": "1646236",
+   "name": "Part of Ward 1. [Map bound by Castleton Ave, N.      \r\nBurgher Ave (Burgher), Cary Ave, Be",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 12.1,
+   "mpp": 0.231,
+   "n": 861,
+   "frame": 815,
+   "brick": 23,
+   "stone": 0,
+   "coincide": 88,
+   "share": 0.105,
+   "corrected": true,
+   "paper": [
+    76.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.37,
+    0.07
+   ],
+   "off_median_m": 1.19,
+   "street": null,
+   "bld": {
+    "plate": "15367",
+    "n": 861,
+    "windows": 27,
+    "shift_median": [
+     0.08,
+     0.13
+    ],
+    "fit_residual_m": 0.96,
+    "agree": 27,
+    "kind": "affine"
+   },
+   "sheet": "image 1646236",
+   "lettering_dropped": 6,
+   "water_dropped": 0,
+   "sliver_dropped": 15,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 838,
+   "duplicates_dropped": 15,
+   "status": "ok",
+   "exported_final": 838
+  },
+  {
+   "plate": "15368",
+   "image": "1646237",
+   "name": "Part of Ward 1. [Map bound by Palmers Run, Spring St,\r\nPost Ave, Greenleaf Ave, Forest Ave",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 11.2,
+   "mpp": 0.231,
+   "n": 265,
+   "frame": 249,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 7,
+   "share": 0.028,
+   "corrected": false,
+   "paper": [
+    76.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.98,
+    -1.04
+   ],
+   "off_median_m": 1.52,
+   "sheet": "image 1646237",
+   "lettering_dropped": 7,
+   "water_dropped": 0,
+   "sliver_dropped": 5,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 251,
+   "duplicates_dropped": 5,
+   "status": "ok",
+   "exported_final": 251
+  },
+  {
+   "plate": "15369",
+   "image": "1646238",
+   "name": "Part of Ward 3. [Map bound by Richmond Ave, Albion   \r\nPL, Washington PL, Simonson PL, Cat",
+   "gcps": 11,
+   "model": "affine",
+   "cv_rms": 6.6,
+   "mpp": 0.154,
+   "n": 494,
+   "frame": 473,
+   "brick": 10,
+   "stone": 0,
+   "coincide": 93,
+   "share": 0.193,
+   "corrected": true,
+   "paper": [
+    77.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.21,
+    -0.07
+   ],
+   "off_median_m": 1.24,
+   "street": null,
+   "bld": {
+    "plate": "15369",
+    "n": 494,
+    "windows": 16,
+    "shift_median": [
+     0.1,
+     0.15
+    ],
+    "fit_residual_m": 0.56,
+    "agree": 15,
+    "kind": "affine"
+   },
+   "sheet": "image 1646238",
+   "lettering_dropped": 10,
+   "water_dropped": 0,
+   "sliver_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 483,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "exported_final": 483
+  },
+  {
+   "plate": "15370",
+   "image": "1646239",
+   "name": "Part of Ward 3. [Map bound by Richmond Ave, Richmond \r\nTerrace, Pierhead and Bulkhead Line",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 7.0,
+   "mpp": 0.154,
+   "n": 635,
+   "frame": 549,
+   "brick": 32,
+   "stone": 0,
+   "coincide": 39,
+   "share": 0.067,
+   "corrected": true,
+   "paper": [
+    75.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.03,
+    -0.08
+   ],
+   "off_median_m": 0.91,
+   "street": null,
+   "bld": {
+    "plate": "15370",
+    "n": 635,
+    "windows": 14,
+    "shift_median": [
+     0.26,
+     0.06
+    ],
+    "fit_residual_m": 0.63,
+    "agree": 11,
+    "kind": "affine"
+   },
+   "sheet": "image 1646239",
+   "lettering_dropped": 40,
+   "water_dropped": 0,
+   "sliver_dropped": 10,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 581,
+   "duplicates_dropped": 12,
+   "status": "ok",
+   "exported_final": 581
+  },
+  {
+   "plate": "15371",
+   "image": "1646240",
+   "name": "Part of Ward 3. [Map bound by Nicholas Ave, Richmond \r\nTerrace, Pierhead and Bulkhead Line",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 7.8,
+   "mpp": 0.153,
+   "n": 664,
+   "frame": 622,
+   "brick": 18,
+   "stone": 0,
+   "coincide": 20,
+   "share": 0.031,
+   "corrected": true,
+   "paper": [
+    75.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.05,
+    -0.17
+   ],
+   "off_median_m": 1.16,
+   "street": null,
+   "bld": {
+    "plate": "15371",
+    "n": 664,
+    "windows": 12,
+    "shift_median": [
+     -0.24,
+     -0.26
+    ],
+    "fit_residual_m": 0.77,
+    "agree": 7,
+    "kind": "shift"
+   },
+   "sheet": "image 1646240",
+   "lettering_dropped": 4,
+   "water_dropped": 0,
+   "sliver_dropped": 17,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 640,
+   "duplicates_dropped": 17,
+   "status": "ok",
+   "exported_final": 640
+  },
+  {
+   "plate": "15372",
+   "image": "1646241",
+   "name": "Part of Ward 3. [Map bound by Winant St (Monroe),    \r\nRichmond Terrace, Pierhead & Bulkhe",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 11.2,
+   "mpp": 0.23,
+   "n": 613,
+   "frame": 546,
+   "brick": 25,
+   "stone": 0,
+   "coincide": 9,
+   "share": 0.016,
+   "corrected": true,
+   "paper": [
+    76.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.3,
+    -0.77
+   ],
+   "off_median_m": 1.79,
+   "street": null,
+   "bld": {
+    "plate": "15372",
+    "n": 613,
+    "windows": 4,
+    "shift_median": [
+     -1.23,
+     2.33
+    ],
+    "fit_residual_m": 1.45,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "image 1646241",
+   "lettering_dropped": 32,
+   "water_dropped": 0,
+   "sliver_dropped": 9,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 571,
+   "duplicates_dropped": 9,
+   "status": "ok",
+   "exported_final": 571
+  },
+  {
+   "plate": "15373",
+   "image": "1646242",
+   "name": "Part of Ward 3. [Map bound by Union Ave, Staten      \r\nIsland Rapid Transit R.R., De Hart ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 7.7,
+   "mpp": 0.23,
+   "n": 637,
+   "frame": 583,
+   "brick": 25,
+   "stone": 0,
+   "coincide": 44,
+   "share": 0.072,
+   "corrected": true,
+   "paper": [
+    78.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.09,
+    -0.08
+   ],
+   "off_median_m": 1.05,
+   "street": null,
+   "bld": {
+    "plate": "15373",
+    "n": 637,
+    "windows": 16,
+    "shift_median": [
+     0.2,
+     0.01
+    ],
+    "fit_residual_m": 0.54,
+    "agree": 14,
+    "kind": "affine"
+   },
+   "sheet": "image 1646242",
+   "lettering_dropped": 10,
+   "water_dropped": 0,
+   "sliver_dropped": 13,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 608,
+   "duplicates_dropped": 13,
+   "status": "ok",
+   "exported_final": 608
+  },
+  {
+   "plate": "15375",
+   "sheet": "image 1646244",
+   "status": "left out: registration not verified (control points only, cross-validation 10.5 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15377",
+   "sheet": "image 1646246",
+   "status": "left out: registration not verified (control points only, cross-validation 7.7 m; 1 outlines on standing footprints, median offset 1.68 m)"
+  },
+  {
+   "plate": "15378",
+   "sheet": "image 1646247",
+   "status": "left out: registration not verified (control points only, cross-validation 11.3 m; 2 outlines on standing footprints, median offset 1.42 m)"
+  },
+  {
+   "plate": "15379",
+   "sheet": "image 1646248",
+   "status": "left out: registration not verified (control points only, cross-validation 19.9 m; 1 outlines on standing footprints, median offset 0.47 m)"
+  },
+  {
+   "plate": "15380",
+   "sheet": "image 1646249",
+   "status": "left out: registration not verified (control points only, cross-validation 25.5 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15381",
+   "sheet": "image 1646250",
+   "status": "left out: registration not verified (control points only, cross-validation 12.9 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15382",
+   "sheet": "image 1646251",
+   "status": "left out: registration not verified (control points only, cross-validation 88.3 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15383",
+   "sheet": "image 1646252",
+   "status": "left out: registration not verified (control points only, cross-validation 7.2 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15384",
+   "sheet": "image 1646253",
+   "status": "left out: registration not verified (control points only, cross-validation 15.7 m; 0 outlines on standing footprints, median offset 0.64 m)"
+  },
+  {
+   "plate": "15385",
+   "sheet": "image 1646254",
+   "status": "left out: registration not verified (control points only, cross-validation 15.1 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15386",
+   "sheet": "image 1646255",
+   "status": "left out: registration not verified (control points only, cross-validation 24.4 m; 3 outlines on standing footprints, median offset 1.53 m)"
+  },
+  {
+   "plate": "15387",
+   "sheet": "image 1646256",
+   "status": "left out: registration not verified (control points only, cross-validation 31.2 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15388",
+   "sheet": "image 1646257",
+   "status": "left out: registration not verified (control points only, cross-validation 18.9 m; 2 outlines on standing footprints, median offset 2.13 m)"
+  },
+  {
+   "plate": "15389",
+   "sheet": "image 1646258",
+   "status": "left out: registration not verified (control points only, cross-validation 15.6 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15390",
+   "sheet": "image 1646259",
+   "status": "left out: registration not verified (control points only, cross-validation 5.6 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15391",
+   "sheet": "image 1646260",
+   "status": "left out: registration not verified (control points only, cross-validation 105.4 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15392",
+   "sheet": "image 1646261",
+   "status": "left out: registration not verified (control points only, cross-validation 45.2 m; 1 outlines on standing footprints, median offset 6.09 m)"
+  },
+  {
+   "plate": "15393",
+   "sheet": "image 1646262",
+   "status": "left out: registration not verified (control points only, cross-validation 22.5 m; 1 outlines on standing footprints, median offset 1.06 m)"
+  },
+  {
+   "plate": "15394",
+   "sheet": "image 1646263",
+   "status": "left out: registration not verified (control points only, cross-validation 0.0 m; 1 outlines on standing footprints, median offset 2.11 m)"
+  },
+  {
+   "plate": "15395",
+   "sheet": "image 1646264",
+   "status": "left out: registration not verified (control points only, cross-validation 59.5 m; 1 outlines on standing footprints, median offset 2.31 m)"
+  },
+  {
+   "plate": "15399",
+   "image": "1646268",
+   "name": "Part of Ward 4. [Map bound by Vanderbilt Ave,        \r\nPierhead Line, North St, Front St, ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 5.0,
+   "mpp": 0.151,
+   "n": 379,
+   "frame": 320,
+   "brick": 26,
+   "stone": 0,
+   "coincide": 7,
+   "share": 0.02,
+   "corrected": true,
+   "paper": [
+    75.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    1.25,
+    -0.24
+   ],
+   "off_median_m": 1.83,
+   "street": null,
+   "bld": {
+    "plate": "15399",
+    "n": 379,
+    "windows": 8,
+    "shift_median": [
+     -1.07,
+     0.03
+    ],
+    "fit_residual_m": 0.61,
+    "agree": 5,
+    "kind": "shift"
+   },
+   "sheet": "image 1646268",
+   "lettering_dropped": 19,
+   "water_dropped": 0,
+   "sliver_dropped": 12,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 346,
+   "duplicates_dropped": 12,
+   "status": "ok",
+   "exported_final": 346
+  },
+  {
+   "plate": "15400",
+   "image": "1646269",
+   "name": "Part of Ward 4. [Map bound by Chestnut Ave, Bay St   \r\n(New York Ave), Sylvaton Ter., Edge",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 10.1,
+   "mpp": 0.15,
+   "n": 367,
+   "frame": 307,
+   "brick": 34,
+   "stone": 0,
+   "coincide": 14,
+   "share": 0.041,
+   "corrected": true,
+   "paper": [
+    75.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.05,
+    -0.52
+   ],
+   "off_median_m": 1.21,
+   "street": null,
+   "bld": {
+    "plate": "15400",
+    "n": 367,
+    "windows": 5,
+    "shift_median": [
+     0.38,
+     0.26
+    ],
+    "fit_residual_m": 1.07,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "image 1646269",
+   "lettering_dropped": 5,
+   "water_dropped": 0,
+   "sliver_dropped": 17,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 341,
+   "duplicates_dropped": 17,
+   "status": "ok",
+   "exported_final": 341
+  },
+  {
+   "plate": "15401",
+   "image": "1646270",
+   "name": "Part of Ward 4. [Map bound by Maryland Ave, New York \r\nBay, Harbor View Place, Bay St (New",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 14.9,
+   "mpp": 0.152,
+   "n": 428,
+   "frame": 389,
+   "brick": 13,
+   "stone": 0,
+   "coincide": 15,
+   "share": 0.037,
+   "corrected": true,
+   "paper": [
+    76.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.1,
+    0.22
+   ],
+   "off_median_m": 1.45,
+   "street": null,
+   "bld": {
+    "plate": "15401",
+    "n": 428,
+    "windows": 9,
+    "shift_median": [
+     0.49,
+     -0.44
+    ],
+    "fit_residual_m": 1.46,
+    "agree": 7,
+    "kind": "shift"
+   },
+   "sheet": "image 1646270",
+   "lettering_dropped": 13,
+   "water_dropped": 0,
+   "sliver_dropped": 9,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 402,
+   "duplicates_dropped": 9,
+   "status": "ok",
+   "exported_final": 402
+  },
+  {
+   "plate": "15402",
+   "sheet": "image 1646271",
+   "status": "left out: registration not verified (control points only, cross-validation 16.2 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15403",
+   "sheet": "image 1646272",
+   "status": "left out: registration not verified (control points only, cross-validation 15.3 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15404",
+   "image": "1646273",
+   "name": "Part of Ward 4. [Map bound by Steuben St, Mosel Ave, \r\nClove Ave, Richmond Road]",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 16.7,
+   "mpp": 0.153,
+   "n": 324,
+   "frame": 292,
+   "brick": 13,
+   "stone": 0,
+   "coincide": 11,
+   "share": 0.036,
+   "corrected": true,
+   "paper": [
+    76.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.3,
+    0.9
+   ],
+   "off_median_m": 1.65,
+   "street": null,
+   "bld": {
+    "plate": "15404",
+    "n": 324,
+    "windows": 5,
+    "shift_median": [
+     0.1,
+     0.13
+    ],
+    "fit_residual_m": 0.53,
+    "agree": 5,
+    "kind": "shift"
+   },
+   "sheet": "image 1646273",
+   "lettering_dropped": 14,
+   "water_dropped": 0,
+   "sliver_dropped": 4,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 305,
+   "duplicates_dropped": 4,
+   "status": "ok",
+   "exported_final": 305
+  },
+  {
+   "plate": "15405",
+   "sheet": "image 1646274",
+   "status": "left out: registration not verified (control points only, cross-validation 19.5 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15406",
+   "sheet": "image 1646275",
+   "status": "left out: registration not verified (control points only, cross-validation 26.8 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15407",
+   "sheet": "image 1646276",
+   "status": "left out: registration not verified (control points only, cross-validation 8.6 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15408",
+   "sheet": "image 1646277",
+   "status": "left out: registration not verified (control points only, cross-validation 10.2 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15409",
+   "sheet": "image 1646278",
+   "status": "left out: registration not verified (control points only, cross-validation 4.6 m; 1 outlines on standing footprints, median offset 1.56 m)"
+  },
+  {
+   "plate": "15410",
+   "sheet": "image 1646279",
+   "status": "left out: registration not verified (control points only, cross-validation 5.4 m; 1 outlines on standing footprints, median offset 1.89 m)"
+  },
+  {
+   "plate": "15411",
+   "sheet": "image 1646280",
+   "status": "left out: registration not verified (control points only, cross-validation 24.1 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15412",
+   "sheet": "image 1646281",
+   "status": "left out: registration not verified (control points only, cross-validation 33.5 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15413",
+   "sheet": "image 1646282",
+   "status": "left out: registration not verified (control points only, cross-validation 22.4 m; 1 outlines on standing footprints, median offset 3.04 m)"
+  },
+  {
+   "plate": "15414",
+   "sheet": "image 1646283",
+   "status": "left out: registration not verified (control points only, cross-validation 43.5 m; 2 outlines on standing footprints, median offset 2.26 m)"
+  },
+  {
+   "plate": "15415",
+   "sheet": "image 1646284",
+   "status": "left out: registration not verified (control points only, cross-validation 10.6 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15416",
+   "sheet": "image 1646285",
+   "status": "left out: registration not verified (control points only, cross-validation 9.8 m; 1 outlines on standing footprints, median offset 1.75 m)"
+  },
+  {
+   "plate": "15417",
+   "sheet": "image 1646286",
+   "status": "left out: registration not verified (control points only, cross-validation 6.3 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15418",
+   "sheet": "image 1646287",
+   "status": "left out: registration not verified (control points only, cross-validation 17.4 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15419",
+   "sheet": "image 1646288",
+   "status": "left out: registration not verified (control points only, cross-validation 8.6 m; 3 outlines on standing footprints, median offset 2.86 m)"
+  },
+  {
+   "plate": "15420",
+   "sheet": "image 1646289",
+   "status": "left out: registration not verified (control points only, cross-validation 10.3 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15421",
+   "sheet": "image 1646290",
+   "status": "left out: registration not verified (control points only, cross-validation 6.9 m; 4 outlines on standing footprints, median offset 1.78 m)"
+  },
+  {
+   "plate": "15422",
+   "sheet": "image 1646291",
+   "status": "left out: registration not verified (control points only, cross-validation 250.1 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15423",
+   "sheet": "image 1646292",
+   "status": "left out: registration not verified (control points only, cross-validation 28.8 m; 1 outlines on standing footprints, median offset 0.92 m)"
+  },
+  {
+   "plate": "15424",
+   "sheet": "image 1646293",
+   "status": "left out: registration not verified (control points only, cross-validation 8.4 m; 1 outlines on standing footprints, median offset 1.12 m)"
+  },
+  {
+   "plate": "15425",
+   "sheet": "image 1646294",
+   "status": "left out: registration not verified (control points only, cross-validation 19.0 m; 1 outlines on standing footprints, median offset 2.18 m)"
+  },
+  {
+   "plate": "15426",
+   "sheet": "image 1646295",
+   "status": "left out: registration not verified (control points only, cross-validation 0.0 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15427",
+   "sheet": "image 1646296",
+   "status": "left out: registration not verified (control points only, cross-validation 9.1 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15428",
+   "sheet": "image 1646297",
+   "status": "left out: registration not verified (control points only, cross-validation 17.6 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15429",
+   "sheet": "image 1646298",
+   "status": "left out: registration not verified (control points only, cross-validation 5.9 m; 2 outlines on standing footprints, median offset 3.15 m)"
+  },
+  {
+   "plate": "15430",
+   "sheet": "image 1646299",
+   "status": "left out: registration not verified (control points only, cross-validation 43.9 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15432",
+   "sheet": "image 1646301",
+   "status": "left out: registration not verified (control points only, cross-validation 22.9 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15433",
+   "image": "1646302",
+   "name": "Part of Ward 5. [Map bound by Sleight Ave, Rockaway  \r\nSt, Surf Ave, Bulkhead Line, Amboy ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 8.1,
+   "mpp": 0.305,
+   "n": 401,
+   "frame": 198,
+   "brick": 15,
+   "stone": 1,
+   "coincide": 2,
+   "share": 0.009,
+   "corrected": true,
+   "paper": [
+    77.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.16,
+    -0.2
+   ],
+   "off_median_m": 0.49,
+   "street": null,
+   "bld": {
+    "plate": "15433",
+    "n": 401,
+    "windows": 4,
+    "shift_median": [
+     0.13,
+     0.05
+    ],
+    "fit_residual_m": 0.16,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "image 1646302",
+   "lettering_dropped": 179,
+   "water_dropped": 0,
+   "sliver_dropped": 6,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 214,
+   "duplicates_dropped": 6,
+   "status": "ok",
+   "exported_final": 214
+  },
+  {
+   "plate": "15434",
+   "sheet": "image 1646303",
+   "status": "left out: registration not verified (control points only, cross-validation 10.4 m; 3 outlines on standing footprints, median offset 1.66 m)"
+  },
+  {
+   "plate": "15435",
+   "sheet": "image 1646304",
+   "status": "left out: registration not verified (control points only, cross-validation 9.2 m; 1 outlines on standing footprints, median offset 19.29 m)"
+  },
+  {
+   "plate": "15436",
+   "sheet": "image 1646305",
+   "status": "left out: registration not verified (control points only, cross-validation 39.5 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15437",
+   "sheet": "image 1646306",
+   "status": "left out: registration not verified (control points only, cross-validation 28.2 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15438",
+   "sheet": "image 1646307",
+   "status": "not traced"
+  },
+  {
+   "plate": "15439",
+   "sheet": "image 1646308",
+   "status": "not traced"
+  },
+  {
+   "plate": "15440",
+   "sheet": "image 1646309",
+   "status": "not traced"
+  },
+  {
+   "plate": "15441",
+   "sheet": "image 1646310",
+   "status": "not traced"
+  },
+  {
+   "plate": "15442",
+   "image": "1646311",
+   "name": "Part of Ward 2. [Map bound by Richmond Turnpike,     \r\nAustin PL, Occident Ave, St. Pauls ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 15.2,
+   "mpp": 0.229,
+   "n": 290,
+   "frame": 237,
+   "brick": 30,
+   "stone": 0,
+   "coincide": 5,
+   "share": 0.019,
+   "corrected": false,
+   "paper": [
+    76.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.41,
+    1.01
+   ],
+   "off_median_m": 2.25,
+   "sheet": "image 1646311",
+   "lettering_dropped": 21,
+   "water_dropped": 0,
+   "sliver_dropped": 2,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 267,
+   "duplicates_dropped": 2,
+   "status": "ok",
+   "exported_final": 267
+  },
+  {
+   "plate": "15443",
+   "sheet": "image 1646312",
+   "status": "left out: registration not verified (control points only, cross-validation 18.7 m; 0 outlines on standing footprints)"
+  },
+  {
+   "plate": "15444",
+   "image": "1646313",
+   "name": "Part of Ward 1. [Map bound by Castleton Ave, Forest  \r\nAve (Brighton), Greenwood Ave, Univ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 15.8,
+   "mpp": 0.232,
+   "n": 225,
+   "frame": 208,
+   "brick": 5,
+   "stone": 0,
+   "coincide": 7,
+   "share": 0.033,
+   "corrected": false,
+   "paper": [
+    77.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -1.17,
+    -0.42
+   ],
+   "off_median_m": 1.32,
+   "sheet": "image 1646313",
+   "lettering_dropped": 7,
+   "water_dropped": 0,
+   "sliver_dropped": 4,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 213,
+   "duplicates_dropped": 4,
+   "status": "ok",
+   "exported_final": 213
+  },
+  {
+   "plate": "15445",
+   "image": "1646314",
+   "name": "Part of Ward 1. [Map bound by Kissel Ave, Richmond   \r\nTerrace, Pierhead and Bulkhead Line",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 11.0,
+   "mpp": 0.232,
+   "n": 316,
+   "frame": 261,
+   "brick": 34,
+   "stone": 0,
+   "coincide": 19,
+   "share": 0.064,
+   "corrected": true,
+   "paper": [
+    77.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.33,
+    0.44
+   ],
+   "off_median_m": 1.74,
+   "street": null,
+   "bld": {
+    "plate": "15445",
+    "n": 316,
+    "windows": 9,
+    "shift_median": [
+     -0.62,
+     0.07
+    ],
+    "fit_residual_m": 0.9,
+    "agree": 9,
+    "kind": "shift"
+   },
+   "sheet": "image 1646314",
+   "lettering_dropped": 16,
+   "water_dropped": 0,
+   "sliver_dropped": 4,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 295,
+   "duplicates_dropped": 4,
+   "status": "ok",
+   "exported_final": 295
+  },
+  {
+   "plate": "15449",
+   "sheet": "image 1646318",
+   "status": "left out: registration not verified (control points only, cross-validation 24.7 m; 4 outlines on standing footprints, median offset 1.79 m)"
+  },
+  {
+   "plate": "15450",
+   "image": "1646319",
+   "name": "Part of Ward 1. [Map bound by Fort PL, St. Marks PL  \r\n(Tompkins Ave), Hyatt St, Borough P",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 11.8,
+   "mpp": 0.15,
+   "n": 520,
+   "frame": 412,
+   "brick": 79,
+   "stone": 0,
+   "coincide": 71,
+   "share": 0.145,
+   "corrected": true,
+   "paper": [
+    76.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.21,
+    -0.1
+   ],
+   "off_median_m": 1.23,
+   "street": null,
+   "bld": {
+    "plate": "15450",
+    "n": 520,
+    "windows": 11,
+    "shift_median": [
+     0.24,
+     -0.04
+    ],
+    "fit_residual_m": 0.47,
+    "agree": 8,
+    "kind": "shift"
+   },
+   "sheet": "image 1646319",
+   "lettering_dropped": 19,
+   "water_dropped": 0,
+   "sliver_dropped": 9,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 491,
+   "duplicates_dropped": 9,
+   "status": "ok",
+   "exported_final": 491
+  },
+  {
+   "plate": "15451",
+   "image": "1646320",
+   "name": "Part of Ward 1. [Map bound by Brighton Ave, York Ave,\r\nPauw St (Centre St), Jersey St, Taf",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 13.5,
+   "mpp": 0.15,
+   "n": 574,
+   "frame": 516,
+   "brick": 51,
+   "stone": 0,
+   "coincide": 73,
+   "share": 0.129,
+   "corrected": true,
+   "paper": [
+    76.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.11,
+    -0.05
+   ],
+   "off_median_m": 1.33,
+   "street": null,
+   "bld": {
+    "plate": "15451",
+    "n": 574,
+    "windows": 13,
+    "shift_median": [
+     -0.09,
+     0.04
+    ],
+    "fit_residual_m": 0.14,
+    "agree": 10,
+    "kind": "affine"
+   },
+   "sheet": "image 1646320",
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "sliver_dropped": 2,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 567,
+   "duplicates_dropped": 2,
+   "status": "ok",
+   "exported_final": 567
+  },
+  {
+   "plate": "15452",
+   "image": "1646321",
+   "name": "Part of Ward 1. [Map bound by Pierhead Line, Richmond\r\nTerrace, Nicholas St, St. Marks PL,",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 12.3,
+   "mpp": 0.229,
+   "n": 850,
+   "frame": 723,
+   "brick": 64,
+   "stone": 0,
+   "coincide": 5,
+   "share": 0.006,
+   "corrected": false,
+   "paper": [
+    73.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -1.26,
+    -0.41
+   ],
+   "off_median_m": 1.38,
+   "sheet": "image 1646321",
+   "lettering_dropped": 38,
+   "water_dropped": 0,
+   "sliver_dropped": 19,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 787,
+   "duplicates_dropped": 22,
+   "status": "ok",
+   "exported_final": 787
+  },
+  {
+   "plate": "15453",
+   "sheet": "image 1646322",
+   "status": "left out: registration not verified (control points only, cross-validation 8.8 m; 2 outlines on standing footprints, median offset 1.63 m)"
+  },
+  {
+   "plate": "15454",
+   "image": "1646323",
+   "name": "Part of Ward 2. [Map bound by Richmond Turnpike,     \r\nArriette St, Bulkhead Line, Bay St ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 5.3,
+   "mpp": 0.229,
+   "n": 691,
+   "frame": 594,
+   "brick": 49,
+   "stone": 1,
+   "coincide": 28,
+   "share": 0.043,
+   "corrected": true,
+   "paper": [
+    74.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.36,
+    0.07
+   ],
+   "off_median_m": 1.31,
+   "street": null,
+   "bld": {
+    "plate": "15454",
+    "n": 691,
+    "windows": 14,
+    "shift_median": [
+     0.14,
+     -0.09
+    ],
+    "fit_residual_m": 0.7,
+    "agree": 11,
+    "kind": "affine"
+   },
+   "sheet": "image 1646323",
+   "lettering_dropped": 33,
+   "water_dropped": 0,
+   "sliver_dropped": 13,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 644,
+   "duplicates_dropped": 13,
+   "status": "ok",
+   "exported_final": 644
+  },
+  {
+   "plate": "15455",
+   "sheet": "image 1646324",
+   "status": "not traced"
+  },
+  {
+   "plate": "15456",
+   "sheet": "image 1646325",
+   "status": "not traced"
+  },
+  {
+   "plate": "15457",
+   "sheet": "image 1646326",
+   "status": "not traced"
+  },
+  {
+   "plate": "15458",
+   "sheet": "image 1646327",
+   "status": "not traced"
+  },
+  {
+   "plate": "15459",
+   "sheet": "image 1646328",
+   "status": "not traced"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "total": {
+  "layer": "hudson_heights_1873",
+  "plates": 1,
+  "buildings": 252,
+  "frame": 244,
+  "brick": 6,
+  "stone": 2,
+  "gasholders": 0,
+  "on_today": 16,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 0.21
+ },
+ "plates": [
+  {
+   "plate": "28490",
+   "sheet": "29",
+   "status": "left out: unverified: 4 control points cross-validate at 32 m, only 6 outlines coincide with a standing footprint"
+  },
+  {
+   "plate": "28491",
+   "image": "3989939",
+   "name": "Jersey City, V. 4, Double Page Plate No. 30 [Map bounded by Webster Ave., Griffith St., Pa",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 266.3,
+   "mpp": 0.069,
+   "n": 290,
+   "frame": 244,
+   "brick": 6,
+   "stone": 2,
+   "coincide": 16,
+   "share": 0.063,
+   "corrected": false,
+   "paper": [
+    78.0,
+    3.0,
+    12.0
+   ],
+   "off_median_vec": [
+    -0.71,
+    0.21
+   ],
+   "off_median_m": 2.31,
+   "sheet": "30",
+   "lettering_dropped": 33,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 252,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "28492",
+   "sheet": "31",
+   "status": "left out: unverified: 22 control points but cross-validated 9.9 m, 2 coinciding outlines, no building match"
+  }
+ ]
+}

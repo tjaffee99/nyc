@@ -254,9 +254,9 @@
    }
   }
  },
- "hudson_jersey_city_1873": {
+ "hudson_heights_1873": {
   "map_year": 1873,
-  "atlas": "Insurance maps of Jersey City, N.J., 1873, vol. 4 (Spielmann & Brush)",
+  "atlas": "Insurance maps of Jersey City, N.J., 1873, vol. 4, plate 31 (Spielmann & Brush): Hudson City, Webster / New York / Palisade Avenues",
   "source": "spielmann_brush_jersey_city_1873",
   "style": "bromley_city",
   "source_url": "https://digitalcollections.nypl.org/ (Insurance maps of Jersey City, N.J., 1873; NYPL Map Division, public domain); control points: Map Warper dump (CC0)",
@@ -264,7 +264,8 @@
    {
     "id": 28490,
     "sheet": "29",
-    "name": "Jersey City, V. 4, Double Page Plate No. 29 [Map bounded by Central Ave., Bowers St., Webster Ave., Franklin S"
+    "name": "Jersey City, V. 4, Double Page Plate No. 29 [Map bounded by Central Ave., Bowers St., Webster Ave., Franklin S",
+    "skip": "unverified: 4 control points cross-validate at 32 m, only 6 outlines coincide with a standing footprint"
    },
    {
     "id": 28491,
@@ -274,7 +275,8 @@
    {
     "id": 28492,
     "sheet": "31",
-    "name": "Jersey City, V. 4, Double Page Plate No. 31 [Map bounded by Webster Ave., South St., Paterson and New York Pla"
+    "name": "Jersey City, V. 4, Double Page Plate No. 31 [Map bounded by Webster Ave., South St., Paterson and New York Pla",
+    "skip": "unverified: 22 control points but cross-validated 9.9 m, 2 coinciding outlines, no building match"
    }
   ],
   "style_override": {
@@ -290,9 +292,9 @@
    }
   }
  },
- "hudson_hoboken_1887": {
+ "hudson_heights_1887": {
   "map_year": 1887,
-  "atlas": "Insurance maps of Hudson County, New Jersey, vol. 8 (Chas. B. Brush, 1887)",
+  "atlas": "Insurance maps of Hudson County, New Jersey, vol. 8, plate 3 (Chas. B. Brush, 1887): Jersey City Heights, Summit Ave / Paterson Plank Rd",
   "source": "brush_hudson_1887",
   "style": "bromley_city",
   "source_url": "https://digitalcollections.nypl.org/ (Insurance maps of Hudson County, New Jersey, 1887; NYPL Map Division, public domain); control points: Map Warper dump (CC0)",
@@ -300,7 +302,8 @@
    {
     "id": 26155,
     "sheet": "2",
-    "name": "Hudson County, V. 8, Double Page Plate No. 2 [Map bounded by Summit Ave., Courtland St., Spring St., Paterson "
+    "name": "Hudson County, V. 8, Double Page Plate No. 2 [Map bounded by Summit Ave., Courtland St., Spring St., Paterson ",
+    "skip": "unverified: 3 control points (no cross-validation possible), no outline coincides with a standing footprint"
    },
    {
     "id": 26156,
@@ -320,5 +323,41 @@
     "L_max": 92
    }
   }
+ },
+ "hudson_hoboken_1891": {
+  "map_year": 1891,
+  "atlas": "Insurance maps of Hudson County, New Jersey, vol. 7: Hoboken (Spielmann & Brush 1873, Chas. B. Brush 1887, Sanborn-Perris Map Co. 1891), 50 ft to the inch",
+  "source": "sanborn_hoboken_1891",
+  "style": "bromley_city",
+  "source_url": "https://www.loc.gov/item/sanborn05511_007/ (Library of Congress, Sanborn Maps Collection, public domain); control points made here from street intersections",
+  "style_override": {
+   "core": 12,
+   "wall_px": 240,
+   "hole_px": 500,
+   "front_px": 2500,
+   "frame": {
+    "db_min": 6.5,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 92
+   }
+  },
+  "plates": [
+   {
+    "id": 91010008,
+    "sheet": "8",
+    "name": "Hoboken plate 8"
+   },
+   {
+    "id": 91010009,
+    "sheet": "9",
+    "name": "Hoboken plate 9"
+   },
+   {
+    "id": 91010010,
+    "sheet": "10",
+    "name": "Hoboken plate 10"
+   }
+  ]
  }
 }

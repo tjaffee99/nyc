@@ -1,0 +1,57 @@
+{
+ "total": {
+  "layer": "hudson_heights_1887",
+  "plates": 1,
+  "buildings": 176,
+  "frame": 175,
+  "brick": 1,
+  "stone": 0,
+  "gasholders": 0,
+  "on_today": 1,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 0.2
+ },
+ "plates": [
+  {
+   "plate": "26155",
+   "sheet": "2",
+   "status": "left out: unverified: 3 control points (no cross-validation possible), no outline coincides with a standing footprint"
+  },
+  {
+   "plate": "26156",
+   "image": "3989894",
+   "name": "Hudson County, V. 8, Double Page Plate No. 3 [Map bounded by Kerrigan Ave., Charles St., C",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 1.3,
+   "mpp": 0.068,
+   "n": 177,
+   "frame": 175,
+   "brick": 1,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.006,
+   "corrected": false,
+   "paper": [
+    90.0,
+    1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    0.78,
+    -0.33
+   ],
+   "off_median_m": 0.84,
+   "sheet": "3",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 176,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  }
+ ]
+}
