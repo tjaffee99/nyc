@@ -567,14 +567,18 @@ def _fresh_connection():
     _con = None            # a DuckDB connection does not survive a fork
 
 
-def step_lots(workers=3, only=None, reverse=False):
+def step_lots(workers=3, only=None, reverse=False, middle=False, budget_s=None):
     from multiprocessing import Pool
     LOTS.mkdir(parents=True, exist_ok=True)
     jobs = [j for j in (only or blocks_todo()) if not lots_path(*j).exists()]
     if reverse:                     # a second run can work from the other end (`lots-reverse`)
         jobs = jobs[::-1]
+    if middle:                      # ... and a third from the middle outwards (`lots-middle [seconds]`), one process
+        m_ = len(jobs) // 2
+        jobs = [j for pair in zip(jobs[m_:], jobs[m_ - 1::-1]) for j in pair] + jobs[2 * m_:]
     if _con is not None:
         _con.close()
+    _fresh_connection()
     log(f"lots: {len(jobs)} blocks to cut and score, {workers} workers")
     t0 = time.time()
     done = n = bad = 0
@@ -586,6 +590,8 @@ def step_lots(workers=3, only=None, reverse=False):
         pool = Pool(workers, initializer=_fresh_connection, maxtasksperchild=8)
         it = pool.imap_unordered(do_block, jobs)
     for job, k, dt in it:
+        if budget_s and time.time() - t0 > budget_s:
+            break
         done += 1
         n += max(k, 0)
         bad += k == -2
@@ -1657,6 +1663,10 @@ if __name__ == "__main__":
         elif a == "lots-reverse":
             step_snapshot()
             step_lots(workers=2, reverse=True)
+        elif a == "lots-middle":
+            step_snapshot()
+            step_lots(workers=1, middle=True, budget_s=float(args[1]) if len(args) > 1 else None)
+            break
         elif a == "ink":
             step_snapshot()
             step_ink()
