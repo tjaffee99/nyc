@@ -1,0 +1,377 @@
+[
+ {
+  "id": "esb",
+  "at": [
+   -73.985705,
+   40.748453
+  ],
+  "shift": {
+   "zmin": 17,
+   "dv": 2.6
+  },
+  "zmax": 320,
+  "base_from_foot": true
+ },
+ {
+  "id": "chrysler",
+  "at": [
+   -73.975366,
+   40.751644
+  ],
+  "align": true,
+  "clip": true,
+  "zmax": 199,
+  "merge": 4,
+  "base_from_foot": true
+ },
+ {
+  "id": "onewtc",
+  "at": [
+   -74.013174,
+   40.713009
+  ],
+  "osm": false
+ },
+ {
+  "id": "wtc7",
+  "at": [
+   -74.012075,
+   40.713414
+  ],
+  "osm": false
+ },
+ {
+  "id": "wtc3",
+  "at": [
+   -74.01166,
+   40.710978
+  ],
+  "osm": false
+ },
+ {
+  "id": "wtc4",
+  "at": [
+   -74.011994,
+   40.710316
+  ],
+  "osm": false
+ },
+ {
+  "id": "woolworth",
+  "at": [
+   -74.008315,
+   40.712451
+  ],
+  "zmax": 194,
+  "base_from_foot": true
+ },
+ {
+  "id": "flatiron",
+  "at": [
+   -73.989652,
+   40.741016
+  ],
+  "osm": false
+ },
+ {
+  "id": "rock30",
+  "at": [
+   -73.979651,
+   40.759166
+  ],
+  "zmax": 245,
+  "base_from_foot": true
+ },
+ {
+  "id": "metlife_tower",
+  "at": [
+   -73.987358,
+   40.741276
+  ],
+  "osm": false
+ },
+ {
+  "id": "wall40",
+  "at": [
+   -74.009731,
+   40.707024
+  ],
+  "zmax": 230,
+  "merge": 6,
+  "tol": 1.0,
+  "base_from_foot": true
+ },
+ {
+  "id": "pine70",
+  "at": [
+   -74.007723,
+   40.706481
+  ],
+  "zmax": 252.4,
+  "merge": 4,
+  "tol": 1.0,
+  "base_from_foot": true
+ },
+ {
+  "id": "citigroup",
+  "at": [
+   -73.969938,
+   40.75838
+  ],
+  "osm": false
+ },
+ {
+  "id": "park432",
+  "at": [
+   -73.971802,
+   40.761511
+  ],
+  "osm": false,
+  "bins": [
+   1035787
+  ]
+ },
+ {
+  "id": "vanderbilt1",
+  "at": [
+   -73.97855,
+   40.752973
+  ],
+  "base_from_foot": true,
+  "zmax": 396.5
+ },
+ {
+  "id": "cpt",
+  "at": [
+   -73.981011,
+   40.76643
+  ],
+  "zmax": 472.4
+ },
+ {
+  "id": "w57_111",
+  "at": [
+   -73.97756,
+   40.764957
+  ],
+  "zmax": 435.3
+ },
+ {
+  "id": "hy30",
+  "at": [
+   -74.00091,
+   40.753522
+  ],
+  "keep": 0,
+  "clip": true,
+  "merge": 4,
+  "zmax": 387.1
+ },
+ {
+  "id": "boa",
+  "at": [
+   -73.984707,
+   40.755566
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "nyt",
+  "at": [
+   -73.989691,
+   40.755922
+  ],
+  "clip": true,
+  "zmax": 232,
+  "base_from_foot": true
+ },
+ {
+  "id": "spruce8",
+  "at": [
+   -74.005612,
+   40.710907
+  ],
+  "zmax": 265.2,
+  "base_from_foot": true
+ },
+ {
+  "id": "hearst",
+  "at": [
+   -73.983624,
+   40.766572
+  ],
+  "osm": false
+ },
+ {
+  "id": "leonard56",
+  "at": [
+   -74.0063,
+   40.717657
+  ],
+  "osm": false
+ },
+ {
+  "id": "hy10",
+  "at": [
+   -74.001525,
+   40.752686
+  ],
+  "zmax": 267.6,
+  "base_from_foot": true
+ },
+ {
+  "id": "vessel",
+  "at": [
+   -74.002161,
+   40.753807
+  ],
+  "bins": [
+   1090967
+  ],
+  "anchor_union": true,
+  "osm": false
+ },
+ {
+  "id": "un_secretariat",
+  "at": [
+   -73.968101,
+   40.748928
+  ],
+  "osm": false
+ },
+ {
+  "id": "lever",
+  "at": [
+   -73.972873,
+   40.759615
+  ]
+ },
+ {
+  "id": "seagram",
+  "at": [
+   -73.971977,
+   40.758387
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "metlife_bldg",
+  "at": [
+   -73.976653,
+   40.753522
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "municipal",
+  "at": [
+   -74.003634,
+   40.712968
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "parkrow",
+  "at": [
+   -74.007777,
+   40.71118
+  ],
+  "osm": false
+ },
+ {
+  "id": "nylife",
+  "at": [
+   -73.985584,
+   40.742754
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "williamsburgh",
+  "at": [
+   -73.977718,
+   40.685517
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "courtsq",
+  "at": [
+   -73.943869,
+   40.747013
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "un_ga",
+  "at": [
+   -73.967464,
+   40.749842
+  ],
+  "zmax": 25
+ },
+ {
+  "id": "rc_international",
+  "at": [
+   -73.977617,
+   40.75914
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "rc_1rock",
+  "at": [
+   -73.978904,
+   40.757989
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "rc_1270",
+  "at": [
+   -73.979837,
+   40.760062
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "rc_10rock",
+  "at": [
+   -73.979707,
+   40.758363
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "rc_50rock",
+  "at": [
+   -73.978626,
+   40.759553
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "rc_british",
+  "at": [
+   -73.977797,
+   40.758586
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "rc_maison",
+  "at": [
+   -73.978023,
+   40.758277
+  ],
+  "base_from_foot": true
+ },
+ {
+  "id": "rc_radiocity",
+  "at": [
+   -73.979276,
+   40.759826
+  ],
+  "base_from_foot": true
+ }
+]
