@@ -429,7 +429,17 @@ def add_predecessors(g):
     gen = generate_earlier(out, snaps, fires)
     if len(gen):
         out = gpd.GeoDataFrame(pd.concat([out, gen], ignore_index=True), geometry="geometry", crs=UTM)
-    out = resolve_overlaps(out.drop(columns=["map_year"]).to_crs(4326))
+    out = out.drop(columns=["map_year"]).to_crs(4326)
+    # nothing stands before its ground (ground_rule.py): traced, documented and generated alike
+    from ground_rule import earliest_start
+    es = earliest_start(out.geometry.values, out.height_m.values.astype(float))
+    wet = np.isfinite(es) & (out.start_year.values < es)
+    st2 = np.where(wet, es + 0.5 * hashes(out.fid_key.values, "gr"), out.start_year.values)
+    gone = st2 > out.end_year.values - 1.0
+    log(f"predecessors: {int(wet.sum())} vanished structures moved to after their ground was made, "
+        f"{int((wet & gone).sum())} of them dropped (the ground came after they were gone)")
+    out = out.assign(start_year=st2)[~(wet & gone)]
+    out = resolve_overlaps(out)
     from nyc_buildings import Ground, ring_ground
     gmin, gmean = ring_ground(Ground(), out.geometry.values)
     out = out.assign(height=out.height_m.values + (gmean - gmin) + 1.0, base=gmin - 1.0).drop(columns=["rank"])

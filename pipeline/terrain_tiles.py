@@ -332,6 +332,16 @@ def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet, known):
             uy = nearest_fill(np.where(np.isfinite(urban_y), urban_y, 0).astype(np.float32), np.isfinite(urban_y))
             land_year[rest] = np.clip(uy[rest] - 4.0, YEAR_MIN + 20, 2020)
             log(f"terrain {name}: {int(rest.sum())} made-land cells have no zone: dated 4 years before their first use")
+    # evidence that the ground was there earlier (ground_rule.py): a landmark record, a
+    # researched row or an outline on a dated map moves a cell's land year back; so do two
+    # recorded assessor years against a dated zone, or one where the year was a fallback guess
+    from ground_rule import EVIDENCE_LEAD, evidence_on
+    sy, w1, w2 = evidence_on(g)
+    lim = np.fmin(sy, np.where(zone >= 0, w2, w1)) - EVIDENCE_LEAD
+    adj = made & np.isfinite(lim) & (land_year > lim)
+    if adj.any():
+        land_year[adj] = np.maximum(lim[adj], YEAR_MIN + 1.0)
+        log(f"terrain {name}: {int(adj.sum())} made-land cells dated earlier by buildings recorded or mapped on them")
     return land_year, N, events, reservoirs
 
 

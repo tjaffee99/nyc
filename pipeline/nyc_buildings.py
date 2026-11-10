@@ -296,26 +296,19 @@ def known_dates(g, year, conf, src):
     return year, conf, src, end
 
 
-def land_check(g, year, src):
-    """Nothing stands before its ground: the land-year grid (land.py) is the year each ~29 m
-    cell became dry land. Researched and LPC dates stand (the fill zones are coarser than they are)."""
-    p = INTERIM / "grid_detail_landyear.npy"
-    if not p.exists():
-        log("buildings: no land-year grid yet (land.py) - made land not checked")
-        return year
-    from terrain_grid import grid_def
-    gd = grid_def("detail")
-    ly = np.load(p)
-    rp = g.geometry.representative_point()
-    X = np.radians(rp.x.values) * 6378137.0
-    Y = 6378137.0 * np.log(np.tan(np.pi / 4 + np.radians(rp.y.values) / 2))
-    c = np.clip(np.rint((X - gd["X0"]) / gd["res"]).astype(int), 0, gd["cols"] - 1)
-    r = np.clip(np.rint((gd["Y0"] - Y) / gd["res"]).astype(int), 0, gd["rows"] - 1)
-    land = ly[r, c]
-    fix = np.isfinite(land) & (year < land) & ~np.isin(src, ["known", "lpc"])
-    out = year.copy()
-    out[fix] = land[fix] + 0.5 + 3.0 * np.array([h01(f"f{k}") for k in np.nonzero(fix)[0]])
-    log(f"buildings: {int(fix.sum())} buildings moved to the year their ground was made")
+def land_check(geoms, start, src, height, keys):
+    """Nothing stands before its ground (ground_rule.py): a building starts no earlier than
+    the latest land year of any cell under its outline, plus the terrain's blend and its own
+    construction time. Researched and LPC dates stand: the terrain takes them as evidence
+    that the ground was there (ground_rule.write_evidence)."""
+    from ground_rule import earliest_start
+    es = earliest_start(geoms, height)
+    early = np.isfinite(es) & (start < es)
+    fix = early & ~np.isin(src, ["known", "lpc"])
+    out = start.copy()
+    out[fix] = es[fix] + 1.5 * np.array([h01(f"f{k}") for k in np.asarray(keys)[fix]])
+    log(f"buildings: {int(fix.sum())} buildings moved to after their ground was made; "
+        f"{int((early & ~fix).sum())} with a landmark / researched year stand on ground the land grid dates later")
     return out
 
 
@@ -537,9 +530,9 @@ def build():
     pluto = load_pluto()
     lpc = load_lpc()
     year, raw, conf, end, src, xy = assign_years(g, pluto, lpc)
-    year = land_check(g, year, src)
     start = row_timing(xy, year, g.doitt_id.values)
     start = np.where(src == "known", year, start)
+    start = land_check(g.geometry.values, start, src, g.height_m.fillna(7.0).values.astype(float), g.doitt_id.values)
     start = np.minimum(start, 2029.9)   # under construction today (also when its made land is dated later)
     g = g.assign(start_year=start, end_year=end, year_confidence=conf, raw_year=raw, year_src=src)
     bbl = g.pluto_bbl.fillna("").astype(str).values
@@ -638,7 +631,35 @@ def report(g):
     log(f"buildings: confidence {out['confidence']}; busiest years {top[:6]}")
 
 
+def evidence():
+    """Dated outlines that prove the ground under them existed (ground_rule.write_evidence):
+    landmark records and researched rows (strong), recorded assessor years (weak), and the
+    outlines traced from dated maps (strong, at the map's year). Run before
+    `terrain_tiles.py land`."""
+    from ground_rule import write_evidence
+    g = load_footprints()
+    year, raw, conf, end, src, xy = assign_years(g, load_pluto(), load_lpc())
+    rec = np.isin(src, ["lpc", "known", "assessor"])
+    geoms = [g.geometry.values[rec]]
+    years = [year[rec]]
+    strong = [np.isin(src[rec], ["lpc", "known"])]
+    try:
+        from nyc_predecessors import load_structures
+        t = load_structures()
+        ty = np.where(t.cls.values == "traced", t.map_year.values.astype(float), t.start_doc.values.astype(float))
+        geoms.append(t.geometry.to_crs(4326).values)
+        years.append(ty)
+        strong.append(np.ones(len(t), bool))
+    except Exception as e:  # noqa: BLE001
+        log(f"buildings: traced layers not used as ground evidence ({e})")
+    write_evidence(np.concatenate([np.asarray(a, dtype=object) for a in geoms]), np.concatenate(years), np.concatenate(strong))
+
+
 def main():
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "evidence":
+        evidence()
+        return
     g = build()
     try:
         from nyc_predecessors import add_predecessors

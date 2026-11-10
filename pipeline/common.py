@@ -36,6 +36,13 @@ OVERTURE_RELEASE = "2026-10-21.0"
 # The map: the five boroughs of New York City. One box (lon_min, lat_min, lon_max, lat_max)
 # for the terrain grids and every bounding-box download; the outline itself is extent.py.
 NYC_BBOX = (-74.29, 40.47, -73.67, 40.94)
+# The wider map: the city and the inner ring of counties around it (those for which real
+# construction years exist; see CLAUDE.md "Counties"). One box for the region terrain grid
+# and the region extracts; the 29 m detail grid stays on NYC_BBOX.
+REGION_BBOX = (-74.52, 40.47, -73.40, 41.38)
+# state + county FIPS -> name (candidates; extent.py keeps the ones that were built)
+REGION_COUNTIES = {"34017": "Hudson", "34003": "Bergen", "34013": "Essex", "34039": "Union", "34031": "Passaic",
+                   "36119": "Westchester", "36059": "Nassau", "36087": "Rockland"}
 # year the slider starts: Hudson's Half Moon enters the harbour
 YEAR_MIN = 1609
 # metric CRS for all distance / area work

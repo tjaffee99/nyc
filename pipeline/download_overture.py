@@ -147,6 +147,34 @@ def region_extract(name: str, refetch: bool = False):
     log(f"overture {name}: {n} rows -> {out}")
 
 
+def region_buildings():
+    """Every Overture footprint of the wider box (common.REGION_BBOX) with a centre point,
+    for the counties around the city: data/raw/overture/<release>/region_building.parquet
+    (id, subtype, class, name, height, num_floors, source_dataset, lon, lat, WKB geometry)."""
+    from common import REGION_BBOX as RB
+    out = RAW / "overture" / RELEASE / "region_building.parquet"
+    if out.exists():
+        log("overture region_building: cached")
+        return
+    con = duckdb.connect()
+    con.execute("INSTALL httpfs; LOAD httpfs; INSTALL spatial; LOAD spatial; SET memory_limit='5GB'; SET threads=4;")
+    con.execute("CREATE OR REPLACE SECRET overture (TYPE s3, PROVIDER config, KEY_ID '', SECRET '', REGION 'us-west-2');")
+    src = f"s3://overturemaps-us-west-2/release/{RELEASE}/theme=buildings/type=building/*"
+    stage = out.with_name("_stage_region_building.parquet")
+    con.execute(f"""
+    COPY (
+      SELECT id, subtype, class, names.primary AS name, height, num_floors, has_parts,
+             sources[1].dataset AS source_dataset,
+             (bbox.xmin + bbox.xmax) / 2 AS lon, (bbox.ymin + bbox.ymax) / 2 AS lat, geometry
+      FROM read_parquet('{src}', hive_partitioning=1)
+      WHERE bbox.xmin < {RB[2]} AND bbox.xmax > {RB[0]} AND bbox.ymin < {RB[3]} AND bbox.ymax > {RB[1]}
+    ) TO '{stage}' (FORMAT parquet, ROW_GROUP_SIZE 50000);""")
+    import os
+    os.replace(stage, out)
+    n = con.execute(f"SELECT count(*) FROM '{out}'").fetchone()[0]
+    log(f"overture region_building: {n} rows -> {out}")
+
+
 def freeways():
     region_extract("freeways")
 
@@ -161,6 +189,9 @@ def local_roads():
 
 if __name__ == "__main__":
     import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "region_buildings":
+        region_buildings()
+        sys.exit(0)
     if len(sys.argv) > 1 and sys.argv[1] == "local_roads":
         local_roads()
         sys.exit(0)

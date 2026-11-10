@@ -9,7 +9,8 @@ region-buildings/13 tiles — and checks:
   4. no two buildings on one spot at the same time (centroid of one inside the other's
      outline while both stand; OSM building parts of one footprint are stacked on purpose
      and are skipped by their shared key prefix);
-  5. nothing stands before its ground (land-year grid), with the share of buildings on made land.
+  5. nothing stands before its ground (ground_rule.py: every cell under the outline, plus the
+     terrain's blend and the construction time).
 
 Writes data/interim/reports/audit.json and prints a summary; exit code 1 if a hard check fails.
 """
@@ -23,6 +24,7 @@ import shapely
 
 from common import INTERIM, VIEWER_DATA, YEAR_MIN, log
 from export_columnar import read_bayt
+from ground_rule import earliest_start
 
 NOW = 2030.0
 
@@ -55,6 +57,8 @@ def main():
     files = [f for f in files if f.exists()]
     start, end, conf = [], [], []
     overlaps = 0
+    before_ground = 0
+    wet_examples = []
     standing_pairs = 0
     checked = 0
     worst = []
@@ -64,6 +68,16 @@ def main():
         ok = np.array([p is not None and p.is_valid and not p.is_empty for p in s["poly"]])
         polys = s["poly"][ok]
         st, en, base, h = s["start"][ok], s["end"][ok], s["base"][ok], s["height"][ok]
+        # nothing before its ground (ground_rule.py): the whole outline, blend and construction time
+        # (the stored height includes the plinth: a slightly longer construction time, on the safe side)
+        es = earliest_start(polys, np.maximum(h - 2.0, 3.0))
+        wet = np.isfinite(es) & (st < es - 0.75)
+        before_ground += int(wet.sum())
+        if wet.any() and len(wet_examples) < 8:
+            k = int(np.nonzero(wet)[0][0])
+            c0 = shapely.centroid(polys[k])
+            wet_examples.append({"file": str(f.relative_to(VIEWER_DATA)), "lon": round(float(shapely.get_x(c0)), 6),
+                                 "lat": round(float(shapely.get_y(c0)), 6), "start": round(float(st[k]), 1), "ground_ok_from": round(float(es[k]), 1)})
         cen = shapely.centroid(polys)
         tree = shapely.STRtree(polys)
         i, j = tree.query(cen, predicate="within")
@@ -103,13 +117,14 @@ def main():
         "spike_years": spikes,
         "overlapping_pairs": overlaps, "overlap_examples": worst, "checked_for_overlap": checked,
         "nested_standing_pairs": standing_pairs,
+        "before_their_ground": before_ground, "before_ground_examples": wet_examples,
         "standing_by_year": {str(t): int(((start <= t) & (end > t)).sum()) for t in (1650, 1700, 1750, 1800, 1850, 1875, 1900, 1925, 1950, 1975, 2000, 2026)},
     }
     p = INTERIM / "reports" / "audit.json"
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(out, indent=1))
     log(f"audit: {out['buildings']} buildings in {out['files']} files; confidence {out['confidence']}; "
-        f"start>=end {out['start_ge_end']}; out of range {out['out_of_range']}; spike years {[s['year'] for s in spikes]}; "
+        f"start>=end {out['start_ge_end']}; out of range {out['out_of_range']}; before their ground {before_ground}; spike years {[s['year'] for s in spikes]}; "
         f"overlapping pairs {overlaps} of {checked} checked (+ {standing_pairs} nested pairs in today's footprints); standing {out['standing_by_year']}")
     if out["start_ge_end"] or out["out_of_range"]:
         sys.exit(1)

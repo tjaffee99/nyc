@@ -43,6 +43,44 @@ Read `CLAUDE.md` first (what the project is, the owner's rules, the conventions)
   `lpc_historic_districts.geojson`; `data/raw/mta/gtfs_subway.zip`;
   `data/raw/nypl/building-inspector.objects.ndjson` (1850s atlas footprints).
 
+## Also on disk since the first round (2026-11)
+
+- `data/interim/nyc_buildings.parquet` — every building as built: today's footprints and
+  ~100 k vanished ones (GeoParquet, EPSG:4326): `bin`, `doitt_id`, `name`, `boro` ("1".."5"),
+  `start_year`, `end_year` (9999 = standing), `year_confidence`, `year_src` (`lpc`, `assessor`,
+  `heap_about+spread`, `heap_by+neighbours`, `neighbours`, `on_map`, `atlas_1857`, `map_1660`,
+  `ohm_documented`, `generated` …), `raw_year` (the assessor's year, 0 if none), `height_m`,
+  `bldgclass`, `area`. `data/interim/nyc_building_points.parquet` is the light version (lon,
+  lat, start_year, end_year, area_m2, height, boro, conf). Both are rewritten by every rebuild:
+  if a read fails, wait a minute and retry.
+- `data/interim/grid_detail_landyear.npy` (+ `grid_detail_meta.json`, `pipeline/terrain_grid.grid_def`)
+  — the year each ~29 m cell of made land became land (NaN: always land, or water today);
+  `grid_detail_covers.npy` / `grid_detail_years.npy` — the cover history per cell
+  (`pipeline/terrain_tiles.COVER_NAMES`). `pipeline/nyc_buildings.Ground` samples ground elevation.
+- `data/manual/natural/` (the 1609 layer and its tools, incl. the georeferenced USGS sheets'
+  list `usgs_sheets.json`), `data/manual/fill_zones.csv`, `data/manual/extents/` (built-up
+  snapshots, tools for NYPL / LoC / USGS maps incl. the NYPL Map Warper control-point dump),
+  `data/manual/ohm/`, `data/manual/transit/`, `data/manual/routes.csv`, `data/tables/*.csv`.
+- `data/raw/overture/2026-10-21.0/region_building.parquet` — every Overture footprint of the
+  wider box (-74.52, 40.47, -73.40, 41.38): id, subtype, class, name, height, num_floors,
+  source_dataset, lon, lat (centre), WKB geometry. About 5 M rows: query windows with DuckDB.
+- County outlines: `data/raw/tiger/tl_2024_us_county.zip` (STATEFP + COUNTYFP).
+
+## Standard hand-over formats (so the lead can wire parts in without reading your code)
+
+- A researched year for a standing building: a row in `data/tables/known_building_dates.csv`
+  — `id,name,lat,lon,bin,start_year,end_year,source_url,note` (`bin` = the city's Building
+  Identification Number when you have it, else the point must lie inside the footprint;
+  "estimated" in the note if it is one). Several agents append to this file: write your rows
+  to `data/tables/known_building_dates.<your-part>.csv` in the same format and the lead merges.
+- A documented building that is gone: `data/tables/notable_demolished.<your-part>.csv` —
+  `id,name,start_year,end_year,lat,lon,height_m,storeys,material,outline,shape_note,source_url`
+  where `outline` is `lon lat; lon lat; …` (the real outline) or empty with
+  `footprint_m` = `WxD` and `rotation_deg` columns added (a rectangle at lat / lon).
+- Traced map layers: `data/manual/atlas/<area>_<map year>.geojson`, one polygon per building,
+  properties `map_year`, `material` (`brick` | `frame` | `stone` | ``), `storeys` (if the map
+  gives them), `source`, `sheet`.
+
 ## Final report (your last message)
 
 Short and factual: files written (paths, row counts), what was checked and how, what was not
