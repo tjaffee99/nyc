@@ -1060,7 +1060,7 @@ def export(layer, max_off=8.0):
                 lettering += 1
         st["lettering_dropped"] = lettering
         # county plates: pieces of carmine property band read as brick are ragged or long; a brick building is
-        # kept only if it is 50 m2 or more and fills 80 % of its rectangle
+        # kept only if it is 50 m2 or more and fills 75 % of its rectangle
         # ... and pieces of orange band read as frame are long and narrow or hook-shaped: a frame outline under
         # 5 m wide and 4.5 times as long, or one under 400 m2 filling less than 45 % of its rectangle, is dropped
         bands = 0
@@ -1070,7 +1070,7 @@ def export(layer, max_off=8.0):
                     continue
                 r = g.minimum_rotated_rectangle
                 if o["material"] == "brick":
-                    bad = g.area < 50.0 or g.area < 0.8 * r.area
+                    bad = g.area < 50.0 or g.area < 0.75 * r.area
                 else:
                     xy = np.asarray(r.exterior.coords)
                     e1, e2 = np.hypot(*(xy[1] - xy[0])), np.hypot(*(xy[2] - xy[1]))
@@ -1099,7 +1099,7 @@ def export(layer, max_off=8.0):
             g = g.simplify(0.25)
             if not g.is_valid:
                 g = g.buffer(0)
-            if g.is_empty or g.geom_type != "Polygon":
+            if g.is_empty or g.geom_type != "Polygon" or not (15.0 <= g.area <= 5000.0):
                 continue
             acc.append(g)
             feats.append(dict(type="Feature", properties=dict(

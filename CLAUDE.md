@@ -34,15 +34,19 @@ Every feature is a geometry with a lifespan:
 
 ## Scope
 
-- **Now:** the five boroughs. Manhattan carries the deepest history (made land, what stood
-  before, landmarks); the other boroughs have today's buildings with their years and heights
-  and whatever history has been researched so far (see "Status").
-- **Later:** the rest of the metropolitan area (the owner's list: Westchester, Rockland, Putnam,
-  Suffolk, Nassau, Ulster, Dutchess, Orange, Sullivan NY; Bergen, Hudson, Passaic, Middlesex,
-  Monmouth, Ocean, Somerset, Essex, Union, Morris, Sussex, Hunterdon, Mercer NJ; Greater
-  Bridgeport and Western Connecticut planning regions; Pike PA). Not started: it needs
-  construction years per county (NJ MOD-IV, NY county rolls, CT towns), and the owner prefers
-  an accurate city to a thin region.
+- **Now:** the five boroughs, and seven counties around them: Hudson, Bergen, Essex, Union and
+  Passaic (New Jersey), Westchester and Rockland (New York) — `data/manual/extent_counties.json`.
+  Manhattan carries the deepest history; the counties have today's buildings with their
+  parcel years, the landscape of 1609, made land, streets, railroads, parks and labels, and
+  nothing vanished. The owner's priority order for accuracy: Manhattan > the other boroughs >
+  the inner suburbs > the outer suburbs.
+- **Not on the map, and why:** Nassau publishes no construction years in bulk; 22 of
+  Westchester's 43 municipalities publish none either (their ground and streets are drawn,
+  their buildings are not: `county_buildings.MIN_YEAR_SHARE`). The rest of the metropolitan
+  area (the owner's list: Putnam, Suffolk, Ulster, Dutchess, Orange, Sullivan NY; Middlesex,
+  Monmouth, Ocean, Somerset, Morris, Sussex, Hunterdon, Mercer NJ; Greater Bridgeport, Western
+  Connecticut and New Haven; Pike PA) is not started. New Jersey's tax list (MOD-IV) covers
+  every county of the state; the binding limits are the size of the published site and cost.
 
 ## Repo layout
 
@@ -75,7 +79,13 @@ cd viewer && node scripts/check-years.cjs http://localhost:5173/   # headless bo
 ```
 
 `audit.py` must report 0 for start >= end and out of range; overlapping pairs and nested
-pairs in the city's own footprints are reported, not failed. After a deploy run the second
+pairs in the city's own footprints are reported, not failed; "before their ground" should be 0
+(if it is not, run `terrain_tiles.py land`, the two building stages and `terrain_tiles.py`
+again: decision 22). The whole chain in order, one stage at a time (about 25 minutes):
+`nyc_buildings.py evidence` → `terrain_tiles.py land` → `nyc_buildings.py` →
+`county_buildings.py` → `street_trees.py build` → `airports.py` → `terrain_tiles.py` →
+`ground_detail.py` → `roads.py` (+ `check`) → `transit.py` → `cities.py` → `nyc_extras.py` →
+`audit.py`. Other jobs on the machine get killed for memory while it runs, and it them. After a deploy run the second
 command against https://nyc.theojaffee.net/ and compare a file's checksum with `viewer/dist`.
 
 ## Working conventions
@@ -124,14 +134,17 @@ command against https://nyc.theojaffee.net/ and compare a file's checksum with `
 
 ## Pipeline stages (pipeline/, one script per stage; see Makefile)
 
-`download_nyc` · `download_overture` → `footprints_raw` → `extent` → `terrain_grid` →
-`nyc_buildings` (+ `nyc_predecessors`) → `terrain_tiles` → `cities`, `transit`, `roads`,
-`ground_detail`, `airports` → `audit` (invariants on the built files) → `deploy`.
+`download_nyc` · `download_overture` (+ `region`, `region_buildings`) → `footprints_raw` →
+`extent` → `terrain_grid` → committed inputs refreshed by their own stages (`ohm_nyc`,
+`aerial_presence`, `topo_farmsteads`, `building_records`, `counties_nj`, `counties_ny`) →
+`nyc_buildings evidence` → `terrain_tiles land` → `nyc_buildings` (+ `nyc_predecessors`,
+`nyc_extras`) → `county_buildings` → `street_trees` → `airports` → `terrain_tiles` →
+`ground_detail`, `roads`, `transit`, `cities`, `nyc_extras` (site labels) → `audit` → `deploy`.
 Tools: `footprint_at.py` (footprints around a point, in the landmark kit's local metres).
 
-Not yet ported from the Bay copy (kept as reference, they do not run): `sf_predecessors.py`,
+Not ported from the Bay copy (kept as reference, they do not run): `sf_predecessors.py`,
 `region_predecessors.py` (extent fill, clearance corridors), `sanborn_trace.py`,
-`topo_farmsteads.py`, `lidar_parts.py`, `ohm_import.py`, `geocode.py`.
+`lidar_parts.py`, `ohm_import.py`, `geocode.py`.
 
 ## Status and decisions log
 
@@ -246,24 +259,91 @@ Not yet ported from the Bay copy (kept as reference, they do not run): `sf_prede
     city already stood is city ground first; undated greens take the year of the buildings
     standing around them today.
 
-## What is not done (as of 2026-11)
+22. **Nothing stands before its ground** (`ground_rule.py`): a building starts no earlier
+    than the latest land year of any cell its outline touches, plus the terrain's 2.5-year
+    blend and its own construction time. The other direction is evidence: landmark and
+    researched dates, outlines traced from dated maps and (two of them) recorded assessor or
+    parcel years move a cell's land year back (`nyc_buildings.py evidence`, before
+    `terrain_tiles.py land`). The full terrain run reuses the land years of the `land` run,
+    so buildings and ground agree by construction. A building that waits for its ground is
+    marked `estimated`. Piers are exempt.
+23. **Evidence for years, beyond the assessor** (all in `nyc_buildings.py`; popups say which):
+    - *Aerial photographs of 1924 and 1951* (`data/manual/aerial`, `aerial_presence.py`): a
+      probability per footprint that a building stood on its outline. "Stood" moves a
+      placeholder year earlier only outside Manhattan and outside dense blocks (elsewhere the
+      photograph may show a predecessor); "open ground" moves it later, except in open
+      country and on Staten Island. A year pushed later is spread over five years.
+    - *Tenement classes* (`data/manual/records/year_bounds.csv`): old-law by April 1901,
+      new-law 1901-1929; a recorded year that breaks its class by three years is a placeholder.
+    - *City records* (`known_building_dates.records.csv`): first certificates of occupancy,
+      housing authority completion dates; owner-reported years are `estimated`.
+    - *Placeholders*: "1931" is a bound ("by 1931"), like 1899 / 1901; a year stamped on five
+      or more buildings of an institutional lot, and a year the Department of Finance flags,
+      are `estimated`.
+    - *Not used as evidence*: a later-dated footprint under an 1890s map mark (a coincidence
+      four times in five).
+24. **What stood before, additions** (`nyc_extras.py` → `nyc_predecessors.py`): the city's
+    retired footprints (42,000 buildings removed 1996-2026, each with its removal year; the
+    replacement is re-dated to after it when its own year was an estimate); atlas layers
+    traced for this map (`data/manual/atlas`: Harlem 1897, the Bronx's 23rd ward 1887, Kings
+    County's towns 1890); the building marks of the 1889 / 1897 USGS sheets as farmsteads
+    (position real, outline generated: `procedural`); documented lost buildings of the forts
+    and works (`notable_demolished.sites.csv`).
+25. **Lenape settlements and the colony's outlying farms** (`data/tables/early_nyc.csv`, notes
+    in `data/research/early_nyc.md`): 179 researched sites. The site and its dates are from
+    Bolton, Parker, Danckaerts and the Manatus map; the number of dwellings is from a source in
+    12 rows and estimated elsewhere; where each dwelling of a cluster stands is generated
+    (`procedural`, kept off the water and marsh of 1609; Lenape dwellings are drawn at twice
+    their size). Rows that still stand date the standing footprint.
+26. **Piers** (`data/manual/piers`): decks and sheds as low platforms over the water, from the
+    USGS sheets and charts. None is dated before 1888 (the first sheet), so the port of the
+    canal era has no piers.
+27. **Military and industrial sites** (`data/manual/sites`): 122 sites with outline, years and
+    ground. Yards and works are city ground from their founding, forts and asylum grounds
+    open grass; buildings inside a site flagged `floor` are not older than it; labels in
+    tier `site`.
+28. **Street and park trees** (`street_trees.py`, `data/research/street_trees.md`): the city's
+    inventory, 884 k trees; 13 % carry a planting date, the rest are dated from the trunk
+    by species (`estimated`). The terrain draws no canopy tree on a cell that holds one.
+29. **Farms, woods and parks** (`terrain_tiles.py`; a model, `estimated`): clearing spreads from
+    the colonial settlements, later on steep ground (which becomes pasture); steep ground and
+    a fifth of the rest (woodlots) stay wooded; today's woods outside parks are second growth
+    on fields given up 1882-1937; parks and cemeteries are cleared with their neighbours and
+    turn to park when laid out (they are not islands of the forest of 1609); the planting
+    grounds beside the Lenape settlements are fields from the start.
+30. **Colours** (`nyc_buildings.materials`): where the rules leave a choice it is made once
+    per tax block, class and decade, and once per complex for lots with several buildings;
+    glazed white brick only from 1950.
+31. **The counties** (`county_buildings.py`, own tile set `data/county-buildings`): Overture and
+    state footprints with parcel years (`counties_nj.py`: MOD-IV; `counties_ny.py`: the state's
+    parcel layer), placeholder years detected per county / assessing unit, the city's
+    estimator and ground rule. Landscape of 1609: `data/manual/natural/counties`; made land:
+    `data/manual/fill_zones_counties.csv` (coarse rings only date ground the 1609 layer says
+    was wet; reservoirs turn today's water cells to water at their year). Streets, highways,
+    railroads, PATH and light rail, parks, golf courses, airfields, labels, population:
+    the city's stages on the wider box (`common.REGION_BBOX`), each with county rows in its
+    tables. The fine terrain grid still covers only the city box: beyond it the ground is
+    58 m cells.
+32. **Story mode** (`viewer/src/story.ts`, `data/tables/story.csv`): a guided tour — 106 stops,
+    about half an hour — that flies from stop to stop, eases the year, shows a caption and
+    turns the camera; a stop can let the years run. `?story` starts it at load.
 
-- **Above 86th St and outside downtown Brooklyn nothing vanished is drawn** before today's
-  buildings: no traced atlas exists in the data for Harlem, the Bronx, most of Brooklyn,
-  Queens, Staten Island. Candidates: Bromley / Robinson atlases on the NYPL dump (same
-  tooling as `data/manual/extents/tools`), the 1924 and 1951 aerials (maps.nyc.gov tiles),
-  farmsteads from the 1890s USGS sheets (`topo_farmsteads.py`, not ported).
-- **Lenape settlements are labels only**; no dwellings are drawn.
-- **Street trees** (the 2015 census, 680 k trees) are not used; today's trees stand on
-  WorldCover canopy pixels.
+## What is not done (as of 2026-11-10, end of the second round)
+
+- **The tenement generation in the cleared districts.** Lincoln Square has no traced source
+  for 1880-1955; East Harlem and the South Bronx have one atlas year each (1897, 1887) and
+  nothing between it and the projects. A vanished building with nothing on its spot still
+  ends when the big building beside it went up — an estimate, not a researched clearance.
+- **Outside lower Manhattan, downtown Brooklyn and the three new atlas areas nothing vanished
+  is drawn** except removed buildings since 1996, farmstead marks and the researched sites.
+- **Piers before 1888**, and piers as part of the terrain (narrower than a cell).
+- **The counties' history**: no vanished buildings, no landmarks; Westchester's 22 undated
+  municipalities and Nassau have no buildings; the Hudson shore north of Hastings rests on the
+  soil survey alone; the Newark Bay Bridge and the Pulaski Skyway are drawn too low.
+- **Landmarks**: no new models in this round; some forts and works are plain documented boxes.
+- **Removed trees** are not drawn (the viewer has no end year for trees).
 - **LiDAR massing** (`lidar_parts.py`, not ported): towers without OSM parts are flat extrusions.
-- **Researched building dates** (`data/tables/known_building_dates.csv`) do not exist yet:
-  exempt and institutional buildings carry the assessor's (often heaped) year.
-- **Clearance dates** (Lincoln Center, Stuyvesant Town, public housing superblocks, bridge and
-  tunnel approaches): a vanished building with nothing on its spot ends when the big
-  building beside it went up — an estimate, not a researched clearance.
-- **Piers** are not in the terrain (narrower than a cell) and not drawn as structures.
-- **The rest of the metropolitan area** (see Scope).
-- Not checked on a real GPU: nothing was looked at on screen in this environment (software
-  rendering times out). Checks were numeric (`audit.py`, the agents' per-part checks) and a
-  headless boot at eight years / views without console errors.
+- **The Harlem USGS sheet's registration** in the city's 1609 layer may be off by tens of
+  metres at Hart Island (found by the counties' agent, not corrected).
+- Not checked on a real GPU: nothing was looked at on screen in this environment. Checks were
+  numeric (`audit.py`, each part's own checks) and a headless boot without console errors.
