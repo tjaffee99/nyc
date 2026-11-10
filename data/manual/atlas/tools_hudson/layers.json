@@ -1,409 +1,181 @@
 {
- "kings_towns_1890": {
-  "map_year": 1890,
-  "atlas": "Robinson's atlas of Kings County, New York (E. Robinson, 1890; entered 1889), scale 300 ft to the inch",
-  "source": "robinson_kings_1890",
-  "style": "robinson_300ft",
-  "plates": [
-   {
-    "id": 8526,
-    "sheet": "1"
-   },
-   {
-    "id": 8527,
-    "sheet": "2"
-   },
-   {
-    "id": 8528,
-    "sheet": "3"
-   },
-   {
-    "id": 8529,
-    "sheet": "4"
-   },
-   {
-    "id": 8530,
-    "sheet": "5"
-   },
-   {
-    "id": 8531,
-    "sheet": "6"
-   },
-   {
-    "id": 8532,
-    "sheet": "7"
-   },
-   {
-    "id": 8533,
-    "sheet": "8"
-   },
-   {
-    "id": 8534,
-    "sheet": "9"
-   },
-   {
-    "id": 8535,
-    "sheet": "10"
-   },
-   {
-    "id": 8536,
-    "sheet": "11"
-   },
-   {
-    "id": 8537,
-    "sheet": "12"
-   },
-   {
-    "id": 8538,
-    "sheet": "13"
-   },
-   {
-    "id": 8539,
-    "sheet": "14"
-   },
-   {
-    "id": 8540,
-    "sheet": "15"
-   },
-   {
-    "id": 8541,
-    "sheet": "16"
-   },
-   {
-    "id": 8542,
-    "sheet": "17"
-   },
-   {
-    "id": 8543,
-    "sheet": "18"
-   },
-   {
-    "id": 8544,
-    "sheet": "19"
-   },
-   {
-    "id": 8545,
-    "sheet": "20"
-   },
-   {
-    "id": 8546,
-    "sheet": "21"
-   },
-   {
-    "id": 8547,
-    "sheet": "22"
-   },
-   {
-    "id": 8548,
-    "sheet": "23"
-   },
-   {
-    "id": 8549,
-    "sheet": "24"
-   },
-   {
-    "id": 8550,
-    "sheet": "25",
-    "skip": "the Map Warper control points place the plate about 6 km east of the streets its title names; no reliable match to today's streets was found (needs hand control points)"
-   },
-   {
-    "id": 8551,
-    "sheet": "26"
-   },
-   {
-    "id": 8552,
-    "sheet": "27"
-   },
-   {
-    "id": 8553,
-    "sheet": "28"
-   },
-   {
-    "id": 8554,
-    "sheet": "29"
-   },
-   {
-    "id": 8555,
-    "sheet": "30"
-   },
-   {
-    "id": 8556,
-    "sheet": "31",
-    "skip": "3 control points; the street match finds the fit 15 m out (median) and no consistent correction"
-   }
-  ],
-  "source_url": "https://digitalcollections.nypl.org/ (Robinson's atlas of Kings County, New York, 1890; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)"
- },
- "harlem_1897": {
-  "map_year": 1897,
-  "atlas": "Atlas of the city of New York, Manhattan Island. From actual surveys and official plans by George W. and Walter S. Bromley (G. W. Bromley & Co., Philadelphia, 1897)",
-  "source": "bromley_manhattan_1897",
+ "hudson_jersey_city_1919": {
+  "map_year": 1919,
+  "atlas": "Atlas of Jersey City, N.J., Vol. 1 (G. M. Hopkins Co., 1919)",
+  "source": "hopkins_jersey_city_1919",
   "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Hopkins, Atlas of Jersey City, vol. 1, 1919; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
   "plates": [
    {
-    "id": 8224,
-    "sheet": "image 1516793",
-    "name": "Part of Secions 5 & 6."
+    "id": 26192,
+    "sheet": "1",
+    "name": "Jersey City, V. 1, Double Page Plate No. 1 [Map bounded by Erie St., 2nd St., Washington St., Sussex St., Grov"
    },
    {
-    "id": 8225,
-    "sheet": "31",
-    "name": "[Plate 31: Bounded by Second Avenue, E. 101st Street, East River, Avenue B and and E. 84th Street.]"
+    "id": 26194,
+    "sheet": "3",
+    "name": "Jersey City, V. 1, Double Page Plate No. 3 [Map bounded by Jersey Ave., 11th St., Provost St., 2nd St.] / comp"
    },
    {
-    "id": 8226,
-    "sheet": "32",
-    "name": "[Plate 32: Bounded by E. 108th Street, East River, E. 101st Street, Second Avenue, E. 97th Street and (Central"
+    "id": 26195,
+    "sheet": "4",
+    "name": "Jersey City, V. 1, Double Page Plate No. 4 [Map bounded by Division St., 12th St., Jersey Ave., 2nd St.] / com"
    },
    {
-    "id": 8230,
-    "sheet": "36",
-    "name": "Plate 36: Bounded by W. 97th Street, Central Park West, W. 86th Street, and (Hudson River) Riverside Drive."
+    "id": 26196,
+    "sheet": "5",
+    "name": "Jersey City, V. 1, Double Page Plate No. 5 [Map bounded by Washington St., Morgan St., Hudson River, Morris Ca"
    },
    {
-    "id": 8227,
-    "sheet": "image 1516796",
-    "name": "Part of Section 6 : New York City."
+    "id": 26197,
+    "sheet": "6",
+    "name": "Jersey City, V. 1, Double Page Plate No. 6 [Map bounded by Provost St., Ferry St., Hudson River, Morgan St., H"
    },
    {
-    "id": 8231,
-    "sheet": "37",
-    "name": "[Plate 37: Bounded by W. 108th Street, Central Park West, W. 97th Street and (Hudson River) Riverside Drive.]"
+    "id": 26199,
+    "sheet": "8",
+    "name": "Jersey City, V. 1, Double Page Plate No. 8 [Map bounded by Prior St., 3rd St., Monmouth St., Grand St.] / comp"
    },
    {
-    "id": 8228,
-    "sheet": "34",
-    "name": "[Plate 34: Bounded by Lenox Avenue, W. 125th Street, Third Avenue, E. 108th Street, Fifth Avenue and (Central "
+    "id": 26200,
+    "sheet": "9",
+    "name": "Jersey City, V. 1, Double Page Plate No. 9 [Map bounded by Summit Ave., Washburn St., Division St., Bright St."
    },
    {
-    "id": 8186,
-    "sheet": "38",
-    "name": "Plate 38: Bounded by (Hudson River) Riverside Park/Drive, W. 125th Street, 9th Avenue, W. 123rd Street, 10th A"
+    "id": 26201,
+    "sheet": "10",
+    "name": "Jersey City, V. 1, Double Page Plate No. 10 [Map bounded by Central Ave., Franklin St., Jersey Ave., 12th St.,"
    },
    {
-    "id": 8202,
-    "sheet": "image 1516771",
-    "name": "Part of Section 6: New York City."
+    "id": 26202,
+    "sheet": "11",
+    "name": "Jersey City, V. 1, Double Page Plate No. 11 [Map bounded by South St., Marshall St., Franklin St., Manhattan A"
    },
    {
-    "id": 8188,
-    "sheet": "40",
-    "name": "Plate 40: Bounded by W. 136th Street, Fifth Avenue, W. 125th Street, and Convent Avenue."
+    "id": 26203,
+    "sheet": "12",
+    "name": "Jersey City, V. 1, Double Page Plate No. 12 [Map bounded by Paterson Plank Rd., Jackson St., South St., Nelson"
    },
    {
-    "id": 8187,
-    "sheet": "image 1516756",
-    "name": "Part of Section 7: New York City."
+    "id": 26204,
+    "sheet": "13",
+    "name": "Jersey City, V. 1, Double Page Plate No. 13 [Map bounded by Liberty Ave., Manhattan Ave., Oakland Ave., Newark"
    },
    {
-    "id": 8201,
-    "sheet": "42",
-    "name": "Plate 42: Bounded by W. 147th Street, Hudson River, Madison Avenue, W. 136th Street, and Avenue St. Nicholas."
+    "id": 26206,
+    "sheet": "15",
+    "name": "Jersey City, V. 1, Double Page Plate No. 15 [Map bounded by West Side Ave., Newark Ave., Summit Ave., Montgome"
    },
    {
-    "id": 8204,
-    "sheet": "image 1516773",
-    "name": "Part of Sections 6, 7 & 8: New York City."
-   },
-   {
-    "id": 8205,
-    "sheet": "image 1516774",
-    "name": "Part of Section 8: New York City."
-   }
-  ],
-  "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the city of New York, Manhattan Island, 1897; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)"
- },
- "bronx_23rd_ward_1887": {
-  "map_year": 1887,
-  "atlas": "Atlas of the city of New York: from official records, private plans & actual surveys, compiled under the direction of E. Robinson and R. H. Pidgeon; the 23rd Ward (E. Robinson, New York, 1887)",
-  "source": "robinson_23rd_ward_1887",
-  "style": "bromley_city",
-  "plates": [
-   {
-    "id": 8625,
-    "sheet": "1"
-   },
-   {
-    "id": 8626,
-    "sheet": "2"
-   },
-   {
-    "id": 8627,
-    "sheet": "3"
-   },
-   {
-    "id": 8628,
-    "sheet": "4"
-   },
-   {
-    "id": 8629,
-    "sheet": "5"
-   },
-   {
-    "id": 8631,
-    "sheet": "7"
-   },
-   {
-    "id": 8632,
-    "sheet": "8"
-   },
-   {
-    "id": 8633,
-    "sheet": "9"
-   },
-   {
-    "id": 8634,
-    "sheet": "10"
-   },
-   {
-    "id": 8635,
-    "sheet": "11"
-   },
-   {
-    "id": 8636,
-    "sheet": "12"
-   },
-   {
-    "id": 8637,
-    "sheet": "13"
-   },
-   {
-    "id": 8638,
-    "sheet": "14"
-   },
-   {
-    "id": 8639,
-    "sheet": "15"
-   },
-   {
-    "id": 8640,
+    "id": 26207,
     "sheet": "16",
-    "skip": "control points inconsistent (cross-validated 27 m) and no street match to check or correct the fit"
+    "name": "Jersey City, V. 1, Double Page Plate No. 16 [Map bounded by Montgomery St., Summit Ave., Crescent Ave., Commun"
    },
    {
-    "id": 8641,
-    "sheet": "17"
+    "id": 26208,
+    "sheet": "17",
+    "name": "Jersey City, V. 1, Double Page Plate No. 17 [Map bounded by Madison Ave., Summit Ave., Balowin Ave., Montgomer"
    },
    {
-    "id": 8642,
-    "sheet": "18"
+    "id": 26209,
+    "sheet": "18",
+    "name": "Jersey City, V. 1, Double Page Plate No. 18 [Map bounded by Van Horne St., Grand St., Monmouth St., Jersey Ave"
    },
    {
-    "id": 8643,
-    "sheet": "19"
+    "id": 26210,
+    "sheet": "19",
+    "name": "Jersey City, V. 1, Double Page Plate No. 19 [Map bounded by Ocean Ave., Bramhall Ave., Bay View Ave.] / compil"
    },
    {
-    "id": 8644,
+    "id": 26211,
     "sheet": "20",
-    "skip": "control points inconsistent (cross-validated 173 m) and no street match to check or correct the fit"
+    "name": "Jersey City, V. 1, Double Page Plate No. 20 [Map bounded by Communipaw Ave., Madison Ave., Clerk St., Orient A"
    },
    {
-    "id": 8645,
-    "sheet": "21"
+    "id": 26212,
+    "sheet": "21",
+    "name": "Jersey City, V. 1, Double Page Plate No. 21 [Map bounded by Orient Ave., Ocean Ave., Woodlawn Ave., West Side "
+   },
+   {
+    "id": 26213,
+    "sheet": "22",
+    "name": "Jersey City, V. 1, Double Page Plate No. 22 [Map bounded by Woodlawn Ave., Ocean Ave., Greenville Ave., Newark"
+   },
+   {
+    "id": 26214,
+    "sheet": "23",
+    "name": "Jersey City, V. 1, Double Page Plate No. 23 [Map bounded by Newark Bay, Greenville Ave., Linden Ave., Ocean Av"
+   },
+   {
+    "id": 26215,
+    "sheet": "24",
+    "name": "Jersey City, V. 1, Double Page Plate No. 24 [Map bounded by Ocean Ave., Linden Ave., Morris Canal, Avenue C] /"
+   },
+   {
+    "id": 26216,
+    "sheet": "25",
+    "name": "Jersey City, V. 1, Double Page Plate No. 25 [Map bounded by Ocean Ave., bay view Ave., New York Bay, Linden Av"
+   },
+   {
+    "id": 26217,
+    "sheet": "26",
+    "name": "Jersey City, V. 1, Double Page Plate No. 26 [Map bounded by New York bay] / compiled under the direction of an"
+   },
+   {
+    "id": 26218,
+    "sheet": "27",
+    "name": "Jersey City, V. 1, Double Page Plate No. 27 [Map bounded by Morris Canal, Sussex St., Hudson River, New York B"
+   },
+   {
+    "id": 26219,
+    "sheet": "28",
+    "name": "Jersey City, V. 1, Double Page Plate No. 28 [Map bounded by Hackensack River, Boyd Ave., West Side Ave., Newar"
+   },
+   {
+    "id": 26220,
+    "sheet": "29",
+    "name": "Jersey City, V. 1, Double Page Plate No. 29 [Map bounded by Dungan Ave., Olean Ave., West Side Ave., Boyed Ave"
+   },
+   {
+    "id": 26221,
+    "sheet": "30",
+    "name": "Jersey City, V. 1, Double Page Plate No. 30 [Map bounded by Newark Ave., West Side Ave., Duncan Ave., Hackensa"
+   },
+   {
+    "id": 26222,
+    "sheet": "31",
+    "name": "Jersey City, V. 1, Double Page Plate No. 31 [Map bounded by Thorne St., Hudson Blvd., Hackensack River, Pen Ho"
+   },
+   {
+    "id": 26223,
+    "sheet": "32",
+    "name": "Jersey City, V. 1, Double Page Plate No. 32 [Map bounded by Secaucus Rd., Nelson Ave., Thorne St., Pen Horn Cr"
+   },
+   {
+    "id": 26227,
+    "sheet": "36",
+    "name": "Jersey City, V. 1, Double Page Plate No. 36 [Map bounded by Newark Bay, E. 24th St., W. 24th St., Avenue E, W."
+   },
+   {
+    "id": 26228,
+    "sheet": "37",
+    "name": "Jersey City, V. 1, Double Page Plate No. 37 [Map bounded by North St., Hobart Ave., Kill Von Kull, Newark Bay]"
+   },
+   {
+    "id": 26229,
+    "sheet": "38",
+    "name": "Jersey City, V. 1, Double Page Plate No. 38 [Map bounded by Avenue E, E. 22nd St., Kill Von Kull, Hobart Ave.]"
+   },
+   {
+    "id": 26230,
+    "sheet": "39",
+    "name": "Jersey City, V. 1, Double Page Plate No. 39 [Map bounded by New York Bay, Kill Von Kull, E. 22nd St.] / compil"
+   },
+   {
+    "id": 26231,
+    "sheet": "40",
+    "name": "Jersey City, V. 1, Double Page Plate No. 40 [Map bounded by E. 40th St., New York Bay, E. 21st St.] / compiled"
    }
-  ],
-  "source_url": "https://digitalcollections.nypl.org/ (Robinson & Pidgeon, Atlas of the city of New York, 23rd Ward, 1887; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
-  "style_override": {
-   "frame": {
-    "db_min": 4.5,
-    "hue": 0.42,
-    "L_min": 50,
-    "L_max": 84
-   },
-   "outline": 0.35,
-   "wash_cool": -3.0,
-   "street_min_q": 0.25,
-   "street_win_m": 300.0
-  },
-  "frame_yellow": true
- },
- "manhattan_midtown_1897": {
-  "map_year": 1897,
-  "atlas": "Atlas of the city of New York, Manhattan Island. From actual surveys and official plans by George W. and Walter S. Bromley (G. W. Bromley & Co., Philadelphia, 1897)",
-  "source": "bromley_manhattan_1897",
-  "style": "bromley_city",
-  "style_override": {
-   "max_m2": 20000.0,
-   "outline_big": 0.3,
-   "big_px": 4800,
-   "big_r": 16,
-   "stone": {
-    "da_abs": 5.5,
-    "db_min": -9.0,
-    "db_max": 0.5,
-    "dL_min": -28.0,
-    "dL_max": -9.0
-   },
-   "blue": {
-    "db_max": -5.5,
-    "db_min": -16.0,
-    "da_min": -6.0,
-    "da_max": 3.0,
-    "dL_min": -22.0,
-    "dL_max": -4.0
-   }
-  },
-  "plates": [
-   {
-    "id": 8217,
-    "sheet": "image 1516786"
-   },
-   {
-    "id": 900019,
-    "sheet": "19"
-   },
-   {
-    "id": 8209,
-    "sheet": "25"
-   },
-   {
-    "id": 8212,
-    "sheet": "21"
-   },
-   {
-    "id": 8211,
-    "sheet": "27"
-   },
-   {
-    "id": 8214,
-    "sheet": "29"
-   },
-   {
-    "id": 8213,
-    "sheet": "28"
-   },
-   {
-    "id": 8219,
-    "sheet": "image 1516788"
-   },
-   {
-    "id": 8215,
-    "sheet": "image 1516784"
-   },
-   {
-    "id": 8216,
-    "sheet": "image 1516785"
-   },
-   {
-    "id": 8210,
-    "sheet": "26"
-   }
-  ],
-  "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the city of New York, Manhattan Island, 1897; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
-  "clip": {
-   "north_of": [
-    [
-     -73.999183,
-     40.759516
-    ],
-    [
-     -73.97087,
-     40.747591
-    ]
-   ],
-   "outside_layers": [
-    "harlem_1897"
-   ]
-  }
+  ]
  }
 }

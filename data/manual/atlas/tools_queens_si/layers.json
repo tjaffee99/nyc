@@ -405,5 +405,332 @@
     "harlem_1897"
    ]
   }
+ },
+ "queens_lic_1901": {
+  "map_year": 1901,
+  "atlas": "Atlas of the borough of Queens, city of New York, vol. 2: First and second wards, Long Island City and Newtown (1901; publisher as catalogued by NYPL)",
+  "source": "queens_wards12_1901",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Queens vol. 2 1901; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 15730,
+    "sheet": "1",
+    "name": "Queens, Vol. 2, Double Page Plate No. 1; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15731,
+    "sheet": "2",
+    "name": "Queens, Vol. 2, Double Page Plate No. 2; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15732,
+    "sheet": "3",
+    "name": "Queens, Vol. 2, Double Page Plate No. 3; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15733,
+    "sheet": "4",
+    "name": "Queens, Vol. 2, Double Page Plate No. 4; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15734,
+    "sheet": "5",
+    "name": "Queens, Vol. 2, Double Page Plate No. 5; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15735,
+    "sheet": "6",
+    "name": "Queens, Vol. 2, Double Page Plate No. 6; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15736,
+    "sheet": "7",
+    "name": "Queens, Vol. 2, Double page plate No. 7; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15737,
+    "sheet": "8",
+    "name": "Queens, Vol. 2, Double Page Plate No. 8; Part of Long Island City Ward One ( Part of Old W"
+   },
+   {
+    "id": 15704,
+    "sheet": "9",
+    "name": "Queens, Vol. 2, Double Page Plate No. 9; Part of Long Island City Ward One (Part of Old Wa"
+   },
+   {
+    "id": 15705,
+    "sheet": "10",
+    "name": "Queens, Vol. 2, Double Page Plate No. 10; Part of Long Island City ward One (Part of Old W"
+   },
+   {
+    "id": 15706,
+    "sheet": "11",
+    "name": "Queens, Vol. 2, Double Page Plate No. 11; Part of Long Island City Ward One (Part of Old W"
+   },
+   {
+    "id": 15707,
+    "sheet": "12",
+    "name": "Queens, Vol. 2, Double Page Plate No. 12; Part of Ward Two North Wood Side; [Map bounded b"
+   },
+   {
+    "id": 15708,
+    "sheet": "13",
+    "name": "Queens, Vol. 2, Double Page Plate No. 13; Part of Ward two Woodside; [Map bounded by Jacks"
+   },
+   {
+    "id": 15709,
+    "sheet": "14",
+    "name": "Queens, Vol. 2, Double Page Plate No. 14; Part of Ward Two Winfield; [Map bounded by Worth"
+   },
+   {
+    "id": 15710,
+    "sheet": "15",
+    "name": "Queens, Vol. 2, Double Page Plate No. 15; Part of Ward Two Elmhurst; [Map bounded by Divis"
+   },
+   {
+    "id": 15711,
+    "sheet": "16",
+    "name": "Queens, Vol. 2, Double Page Plate No. 16; Part of Ward Two Corona and Louona Park; [Map bo"
+   },
+   {
+    "id": 15712,
+    "sheet": "17",
+    "name": "Queens, Vol. 2, Double Page Plate No. 17; Part of Ward Two Corona; [Map bounded by Flushin"
+   },
+   {
+    "id": 15714,
+    "sheet": "19",
+    "name": "Queens, Vol. 2, Double Page Plate No. 19; Part of Ward Two Nassau Heights and Newtown Heig"
+   },
+   {
+    "id": 15715,
+    "sheet": "20",
+    "name": "Queens, Vol. 2, Double Page Plate No. 20; Part of Ward Two Maspeth; [Map bounded by Mauric"
+   },
+   {
+    "id": 15716,
+    "sheet": "21",
+    "name": "Queens, Vol. 2, Double Page Plate No. 21; Part od Ward Two Laurel Hill; [Map bounded by Ne"
+   },
+   {
+    "id": 15717,
+    "sheet": "22",
+    "name": "Queens, Vol. 2, Double Page Plate No. 22; Part of Ward Two Melvina; Maspeth, Linden Hill, "
+   },
+   {
+    "id": 15718,
+    "sheet": "23",
+    "name": "Queens, Vol. 2, Double Page Plate No. 23; Part of Ward Two East Williamsburgh; [Map bounde"
+   },
+   {
+    "id": 15719,
+    "sheet": "24",
+    "name": "Queens, Vol. 2, Double Page Plate No. 24; Part of Ward Two East Williamsburgh (Evergreen, "
+   },
+   {
+    "id": 15720,
+    "sheet": "25",
+    "name": "Queens, Vol. 2, Double Page Plate No. 25; Part of Ward Two Clendale and St. James Park; [M"
+   },
+   {
+    "id": 15721,
+    "sheet": "26",
+    "name": "Queens, Vol. 2, Double Page Plate No. 26; Part of Ward Two Middle Village; [Map bounded by"
+   },
+   {
+    "id": 15722,
+    "sheet": "27",
+    "name": "Queens, Vol. 2, Double Page Plate No. 27; Part of Ward Two St. Williamburgh; [Map bounded "
+   },
+   {
+    "id": 15723,
+    "sheet": "28",
+    "name": "Queens, Vol. 2, Double Page Plate No. 28; Part of Ward Two Newtown, Corona, Hopedale and R"
+   },
+   {
+    "id": 15724,
+    "sheet": "29",
+    "name": "Queens, Vol.2, Double Page Plate No. 29; Part of Ward Two Newtown (East Williamsburgh, Mel"
+   },
+   {
+    "id": 15725,
+    "sheet": "30",
+    "name": "Queens, Vol. 2, Double Page Plate No. 30; Part of Ward Two Newtown, Trains Meadow, Wood Si"
+   },
+   {
+    "id": 15713,
+    "sheet": "image 1693974",
+    "name": "Queens, Vol. 2, Part of Ward Two Corona Park; [Map bounded by Corona Ave., Mill Creek, Wal"
+   }
+  ]
+ },
+ "queens_flushing_1901": {
+  "map_year": 1901,
+  "atlas": "Atlas of the borough of Queens, city of New York, vol. 3: Third ward, Flushing (1901)",
+  "source": "queens_ward3_1901",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Queens vol. 3 1901; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 15741,
+    "sheet": "1",
+    "name": "Queens, Vol. 3, Double Page Plate No. 1; Part of ward Three College Point. [Map bounded by"
+   },
+   {
+    "id": 15742,
+    "sheet": "2",
+    "name": "Queens, Vol. 3, Double Page Plate No. 2; Part of ward Three College Point. [Map bounded by"
+   },
+   {
+    "id": 15743,
+    "sheet": "3",
+    "name": "Queens, Vol. 3, Double Page Plate No. 3; Part of Ward Three College Point. [Map bounded by"
+   },
+   {
+    "id": 15744,
+    "sheet": "4",
+    "name": "Queens, Vol. 3, Double Page Plate No. 4; Part of ward Three College Point. [Map bounded by"
+   },
+   {
+    "id": 15745,
+    "sheet": "5",
+    "name": "Queens, Vol. 3, Double Page Plate No. 5; Part of ward Three Flushing. [Map bounded by Lind"
+   },
+   {
+    "id": 15746,
+    "sheet": "6",
+    "name": "Queens, Vol. 3, Double Page Plate No. 6; Part of ward Three Sub Plan; [Map bounded by Flus"
+   },
+   {
+    "id": 15747,
+    "sheet": "7",
+    "name": "Queens, Vol. 3, Double Page Plate No. 7; Part of ward Three Flushing. [Map bounded by Cong"
+   },
+   {
+    "id": 15748,
+    "sheet": "8",
+    "name": "Queens, Vol. 3, Double Page Plate No. 8; Part of Ward Three Flushing. [Map bounded by Madi"
+   },
+   {
+    "id": 15749,
+    "sheet": "9",
+    "name": "Queens, Vol. 3, Double Page Plate No. 9; Part of Ward Three Flushing. [Map bounded by Sanf"
+   },
+   {
+    "id": 15750,
+    "sheet": "10",
+    "name": "Queens, Vol. 3, Double Page Plate No. 10; Sub Plan Creedmoor. [Map bounded by Pistol Ave.,"
+   },
+   {
+    "id": 15751,
+    "sheet": "11",
+    "name": "Queens, Vol. 3, Double Page Plate No. 11; Part of Ward Three Flushing. [Map bounded by Bay"
+   },
+   {
+    "id": 15752,
+    "sheet": "12",
+    "name": "Queens, Vol. 3, Double Page Plate No. 12; Part of Ward Three Whitestone; [Map bounded by 1"
+   },
+   {
+    "id": 15753,
+    "sheet": "13",
+    "name": "Queens, Vol. 3, Double Page Plate No. 13; Part of Ward Three Whitestone; [Map bounded by 1"
+   },
+   {
+    "id": 15754,
+    "sheet": "14",
+    "name": "Queens, Vol. 3, Double Page Plate No. 14; Part of ward Three Whitestone; [Map bounded by 1"
+   },
+   {
+    "id": 15755,
+    "sheet": "15",
+    "name": "Queens, Vol. 3, Double Page Plate No. 15; Part of ward Three Whitestone; [Map bounded by 1"
+   },
+   {
+    "id": 15756,
+    "sheet": "16",
+    "name": "Queens, Vol. 3, Double Page Plate No. 16; Part of ward Three Bayside; [Map bounded by Bell"
+   },
+   {
+    "id": 15757,
+    "sheet": "17",
+    "name": "Queens, Vol. 3, Double Page Plate No. 17; Part of ward Three Bayside; [Map bounded by Titu"
+   },
+   {
+    "id": 15758,
+    "sheet": "18",
+    "name": "Queens, Vol. 3, Double Page Plate No. 18; Part of ward Three Bayside; [Map bounded by Croc"
+   },
+   {
+    "id": 15759,
+    "sheet": "19",
+    "name": "Queens, Vol. 3, Double Page Plate No. 19; Part of ward Three Flushing; [Map bounded by Str"
+   },
+   {
+    "id": 15760,
+    "sheet": "20",
+    "name": "Queens, Vol. 3, Double Page Plate No. 20; Part of ward Three Sub Plan No. 1; [Map bounded "
+   },
+   {
+    "id": 15761,
+    "sheet": "21",
+    "name": "Queens, Vol. 3, Double Page Plate No. 21; Part of ward Three Sub Plan; [Map bounded by Lit"
+   }
+  ]
+ },
+ "queens_jamaica_1901": {
+  "map_year": 1901,
+  "atlas": "Atlas of the borough of Queens, city of New York, vol. 1: Fourth and fifth wards, Jamaica and Rockaway (1901)",
+  "source": "queens_wards45_1901",
+  "style": "bromley_city",
+  "source_url": "https://digitalcollections.nypl.org/ (Queens vol. 1 1901; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 17260,
+    "sheet": "1",
+    "name": "Queens, V. 1, Double Page Plate No. 1; Part of Jamaica, Ward 4; [Map bounded by Forest Par"
+   },
+   {
+    "id": 17261,
+    "sheet": "2",
+    "name": "Queens, V. 1, Double Page Plate No. 2; Part of Jamaica, Ward 4; [Map bounded by Pitkin Pl."
+   },
+   {
+    "id": 17262,
+    "sheet": "3",
+    "name": "Queens, V. 1, Double Page Plate No. 3; Part of Jamaica, Ward 4; [Map bounded by Atlantic A"
+   },
+   {
+    "id": 17263,
+    "sheet": "4",
+    "name": "Queens, V. 1, Double Page Plate No. 4; Part of Jamaica, Ward 4; [Map bounded by Magnolia A"
+   },
+   {
+    "id": 17264,
+    "sheet": "5",
+    "name": "Queens, V. 1, Double Page Plate No. 5; Part of Jamaica, Ward 4; [Map bounded by Maple Grov"
+   },
+   {
+    "id": 17270,
+    "sheet": "11",
+    "name": "Queens, V. 1, Double Page Plate No. 11; Part of Jamaica, Ward 4; [Map bounded by Harvard A"
+   },
+   {
+    "id": 17271,
+    "sheet": "12",
+    "name": "Queens, V. 1, Double Page Plate No. 12; Part of Jamaica, Ward 4; [Map bounded by Hillside,"
+   },
+   {
+    "id": 17279,
+    "sheet": "20",
+    "name": "Queens, V. 1, Double Page Plate No. 20; Part of Jamaica, Ward 4; [Map bounded by Plaza, Oc"
+   },
+   {
+    "id": 17282,
+    "sheet": "23",
+    "name": "Queens, V. 1, Double Page Plate No. 23; Part of Far Rockaway, Ward 5; [Map bounded by Corn"
+   }
+  ]
  }
 }
