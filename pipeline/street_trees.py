@@ -33,7 +33,7 @@ Planting year, best first (the `source` column of the outputs says which):
   3 diameter    no equation for the species in Queens: its genus' median there, else the
                 species / genus in Indianapolis, Charlotte or Minneapolis, else the median
                 of all Queens species                                          -> estimated
-  (no planting date and no usable trunk: left out, about 400 trees — the Bay's "ten years
+  (no planting date and no usable trunk: left out, about 600 trees — the Bay's "ten years
   after the street" put park trees of Lower Manhattan in 1668)
 The trunk is the one the 2015 census measured where the ForMS record is that census tree
 (same spot within 1.5 m, record of the census period), at the census date; else ForMS's, at

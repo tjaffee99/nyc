@@ -384,7 +384,7 @@ def heap_evidence(heaps, year, unit, x, y, kind, tracts=True, cell=400.0):
     number an equal draw from the unit's buildings dated within 15 years occupies. A
     placeholder year is scattered like its era (ratio near 1); a subdivision or a condominium
     complex finished in one year sits in a few cells. With `tracts`, a flagged year after 1945
-    with a ratio under 0.5 is such a development and is NOT a heap."""
+    with at least 30 buildings and a ratio under 0.5 is such a development and is NOT a heap."""
     rows = []
     cid = (np.floor(x / cell).astype(np.int64) << 32) + np.floor(y / cell).astype(np.int64)
     rng = np.random.default_rng(1609)
@@ -400,7 +400,7 @@ def heap_evidence(heaps, year, unit, x, y, kind, tracts=True, cell=400.0):
             spread = np.nan
             if len(era) >= len(h):
                 spread = len(np.unique(h)) / float(np.mean([len(np.unique(rng.choice(era, len(h), replace=False))) for _ in range(7)]))
-            tract = bool(tracts and v > 1945 and spread < 0.5)
+            tract = bool(tracts and v > 1945 and len(h) >= 30 and spread < 0.5)
             rows.append({"town": b, "kind": kind, "year": int(v), "n": int(len(h)), "median_neighbours": med,
                          "strength": round(len(h) / max(med, 1.0), 1), "spread": None if np.isnan(spread) else round(spread, 2),
                          "heap": not tract})
@@ -507,7 +507,7 @@ def build(key):
     heap_rows = []
     for k, need in (("homes", heap_min), ("other", heap_min_other)):
         my = np.where(kind == k, main_year, np.nan)
-        heap_rows += heap_evidence(find_heaps(my, unit, need), my, unit, pt.x.values, pt.y.values, k, tracts=k == "homes")
+        heap_rows += heap_evidence(find_heaps(my, unit, need), my, unit, pt.x.values, pt.y.values, k)
     county_heaps = {k: sorted(int(v) for v in find_heaps(np.where(kind == k, main_year, np.nan), np.full(len(fp), name), need)[name])
                     for k, need in (("homes", heap_min), ("other", heap_min_other))}
     heap = np.zeros(len(fp), bool)
