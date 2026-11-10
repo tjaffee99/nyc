@@ -117,8 +117,8 @@ command against https://nyc.theojaffee.net/ and compare a file's checksum with `
 - Tiled layers stay alive across zoom (hidden, not removed) or everything blinks.
 
 **Hosting and machine limits**
-- GitHub Pages cancels a deployment whose file sync runs over ten minutes: keep the site well
-  under ~400 MB. After `make deploy`, confirm the live site by comparing a file's checksum — a
+- GitHub Pages cancels a deployment whose file sync runs over ten minutes: on this site that
+  happens somewhere between 104 and 147 MB (decision 33: the Pages part stays under 100 MB). After `make deploy`, confirm the live site by comparing a file's checksum — a
   pushed deploy is not a published one.
 - The build machine has 16 GB: run heavy stages one at a time, process big arrays in chunks.
 - Headless screenshots do not work on the build machine (software rendering times out). Verify
@@ -327,6 +327,18 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
 32. **Story mode** (`viewer/src/story.ts`, `data/tables/story.csv`): a guided tour — 106 stops,
     about half an hour — that flies from stop to stop, eases the year, shows a caption and
     turns the camera; a stop can let the years run. `?story` starts it at load.
+
+33. **Split hosting** (`pipeline/deploy.py`, `viewer/src/remote.ts`). With the counties the
+    build is 194 MB. GitHub Pages cancelled its deployment twice at 147 MB (the sync ran past
+    ten minutes; the upload itself took six seconds) and publishes 80-104 MB in about a
+    minute. So the whole build is pushed to `gh-pages`, a Jekyll `exclude` written by
+    `deploy.py` leaves the three heaviest tile sets out of the Pages build
+    (`data/region-buildings`, `data/county-buildings`, `tiles/terrain/13`: 115 MB), and the
+    published page reads those from the branch through `raw.githubusercontent.com` (cross-
+    origin reads are allowed; JSON arrives as text/plain; the repository must stay public).
+    Local builds read everything locally. That host is not a content network and limits
+    requests per visitor: if the site gets real traffic, move the tile sets to proper storage.
+    Keep the Pages part under 100 MB.
 
 ## What is not done (as of 2026-11-10, end of the second round)
 
