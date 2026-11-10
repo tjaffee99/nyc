@@ -518,6 +518,20 @@ def lenape_fields(lon, lat):
     return m
 
 
+_MADE = {}   # per grid: the made-land cells of the last histories() run
+
+
+def made_land_year(name, covers, years):
+    """The land-year grid the ground rule reads: the year each MADE-LAND cell turns to land
+    in the cover history. Not the vanished streams (a line one cell wide: a stylisation) and
+    not today's wetland: there the ground changes when the city arrives, which is dated from
+    the buildings themselves — a building made to wait for that would push it later, pass
+    after pass."""
+    ly = land_year_of(covers, years)
+    ly[~_MADE[name]] = np.nan
+    return ly
+
+
 def histories(name, g, d, land_only=False, reuse_land=True):
     rows, cols = g["rows"], g["cols"]
     lon, lat = lonlat_of(g)
@@ -591,6 +605,7 @@ def histories(name, g, d, land_only=False, reuse_land=True):
         events.append((cover.astype(np.uint8), yr))
 
     made = np.isfinite(land_year)
+    _MADE[name] = made
     event(made, FILL, land_year)
     for m, cv, yr in extra:
         event(m, cv, yr)
@@ -1084,7 +1099,7 @@ def main():
             # the one the viewer shows), recomputed from the evidence and the buildings on disk
             g, d = load_grid(name)
             covers, years = histories(name, g, d, reuse_land=False)[:2]
-            np.save(INTERIM / f"grid_{name}_landyear.npy", land_year_of(covers, years))
+            np.save(INTERIM / f"grid_{name}_landyear.npy", made_land_year(name, covers, years))
         return
     meta = {}
     for name, zooms, step in (("region", [8, 9, 10, 11, 12, 13], 2), ("detail", [14], 2)):
@@ -1095,7 +1110,7 @@ def main():
         deco = decorations(name, g, covers, years, elev, urban_y, park_y, wood_y)
         write_tiles(name, g, covers, years, elev, deco, zooms)
         write_elevation_lookup(name, g, elev, step)
-        np.save(INTERIM / f"grid_{name}_landyear.npy", land_year_of(covers, years))
+        np.save(INTERIM / f"grid_{name}_landyear.npy", made_land_year(name, covers, years))
         np.save(INTERIM / f"grid_{name}_covers.npy", covers)
         np.save(INTERIM / f"grid_{name}_years.npy", years)
         meta[name] = {"z": g["z"], "tx0": g["tx0"], "ty0": g["ty0"], "tx1": g["tx1"], "ty1": g["ty1"], "zooms": zooms}
