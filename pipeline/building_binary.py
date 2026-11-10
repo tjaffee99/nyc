@@ -131,9 +131,23 @@ def source_label(src: str) -> str:
                 "group and the town's growth (typically within about 20 years; not a record)")
     if src.startswith("gapfill"):
         ev = src.split(":", 1)[1] if ":" in src else ""
-        what = {"aerial1924": "the 1924 aerial photograph shows a building here", "aerial1951": "the 1951 aerial photograph shows a building here",
-                "aerial1924+1951": "the 1924 and 1951 aerial photographs show a building here"}.get(ev, "maps of the time show this ground built on")
-        return f"generated: {what}; no outline survives (lot-sized outline, years estimated)"
+        says = []
+        ext = [p for p in ev.split("+") if p.startswith("extent")]
+        if ext:
+            says.append(f"the built-up area of the {ext[0][6:]} map covers this block")
+        if "usgs1897" in ev:
+            says.append("the USGS map of 1898 shows this ground built up")
+        if "usgs194" in ev:
+            says.append("the USGS map of the 1940s draws this block front as built")
+        if "parcel" in ev or "neighbourhood" in ev:
+            says.append("the lot's building is much younger than the neighbourhood around it")
+        if "1924+1951" in ev:
+            says.append("the 1924 and 1951 aerial photographs show a building on this lot")
+        elif "aerial1924" in ev:
+            says.append("the 1924 aerial photograph shows a building on this lot")
+        elif "aerial1951" in ev:
+            says.append("the 1951 aerial photograph shows a building on this lot")
+        return "generated: " + ("; ".join(says) or "maps of the time show this ground built on") + " (no outline survives: lot-sized outline, years estimated)"
     if src == "parcel":
         return "property tax record (parcel year)"
     if src == "parcel_secondary":

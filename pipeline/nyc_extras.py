@@ -331,11 +331,11 @@ def gapfill():
     data/interim/gapfill/gapfill.parquet): lot-sized outlines where a photograph or a map
     shows built-on ground and no outline survives. Generated, marked `procedural`, and the
     first to give way to anything real."""
-    p = INTERIM / "gapfill" / "gapfill.parquet"
+    files = sorted((INTERIM / "gapfill").glob("gapfill*.parquet")) if (INTERIM / "gapfill").exists() else []
     rows = []
-    if not p.exists():
+    if not files:
         return rows
-    g = gpd.read_parquet(p).to_crs(UTM)
+    g = gpd.GeoDataFrame(pd.concat([gpd.read_parquet(f).to_crs(UTM) for f in files], ignore_index=True), geometry="geometry", crs=UTM)
     sy = pd.to_numeric(g.start_year, errors="coerce").values
     ey = pd.to_numeric(g.end_year, errors="coerce").values
     hm = pd.to_numeric(g.height_m, errors="coerce").values if "height_m" in g else np.full(len(g), np.nan)
@@ -352,7 +352,7 @@ def gapfill():
         rows.append({"id": f"gap:{ev[k]}:{ids[k]}", "map_year": int(ey[k]) - 1, "boro": "", "colors": "yellow" if mat[k] == "frame" else "pink",
                      "name": None, "start_doc": sy[k], "end_doc": ey[k], "h_doc": h, "cls": "documented", "conf_doc": "procedural",
                      "mat_doc": mat[k], "geometry": geom})
-    log(f"extras: {len(rows)} generated buildings from the evidence-driven fill (gapfill.parquet)")
+    log(f"extras: {len(rows)} generated buildings from the evidence-driven fill ({', '.join(f.name for f in files)})")
     return rows
 
 
