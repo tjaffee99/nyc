@@ -1,0 +1,50 @@
+{{Short description|Skyscraper in New Haven, Connecticut}}
+{{Use American English|date=February 2025}}
+{{Infobox building
+| name                = Kline Tower
+| image               = Kline Biology Tower (54106005346).jpg
+| image_size          = 200px
+| caption             = Kline Biology Tower on Science Hill.
+| location            = 219 Prospect Street <br/>[[New Haven]], [[Connecticut]] 06511
+| coordinates         = {{coord|41.3172|-72.9224|display=inline,title}}
+| status              = Complete
+| roof                = {{convert|250|ft|m|abbr=on}}
+| floor_count         = 16
+| references          = <ref>{{Cite web |url=https://www.emporis.com/buildings/126827 |archive-url=https://web.archive.org/web/20160307021518/https://www.emporis.com/buildings/126827 |url-status=usurped |archive-date=March 7, 2016 |title=Emporis building ID 126827 |work=[[Emporis]]}}</ref>
+| building_type       = University
+| cost                = $12 million<ref>[https://www.nytimes.com/1966/10/29/archives/yale-dedicates-biology-tower.html?sq=kline%2520biology%2520tower&scp=3&st=cse Kline Biology Tower, New York Times]</ref>
+| construction_start_date = 1962
+| est_completion      = 1966
+| floor_area          = 
+| developer           = [[Yale University]]
+| architect           = [[Philip Johnson]]
+| main_contractor     = 
+| structural_engineer = 
+}}
+
+'''Kline Tower''' is a [[skyscraper]] in [[New Haven]], [[Connecticut]]. Formerly '''Kline Biology Tower''', this building is currently the tallest on the [[Yale University]] campus and the [[List of tallest buildings in New Haven| sixth-tallest building]] in New Haven.<ref name=infonh>[http://infonewhaven.com/77941?highlight=tower Infonewhaven.com]{{dead link|date=December 2017 |bot=InternetArchiveBot |fix-attempted=yes }}</ref><ref>[http://skyscraperpage.com/diagrams/?cityID=225 Skyscraperpage.com]</ref> It was the tallest building in the city from 1966 to 1969, and was designed by [[Philip Johnson]],<ref name=infonh/> who also designed the nearby—and architecturally related—Kline Geology and Chemistry Laboratories.<ref>[http://www.yale.edu/architectureofyale/Kline-Biology.html yale.edu] {{webarchive|url=https://web.archive.org/web/20130131082710/http://www.yale.edu/architectureofyale/Kline-Biology.html |date=2013-01-31 }}</ref>
+
+The building was previously home to the Yale Department of Biology. On September 22, 2023, the building was rededicated as Kline Tower, with “Biology” no longer in its name. It now houses the Yale departments of Astronomy, Mathematics, and Statistics and Data Science, as well as part of the department of Physics and the Yale Institute for Foundations of Data Science (FDS). The department of Biology, which formerly was in the building and was reflected in its previous name (Kline Biology Tower), is now housed nearby in Yale’s new Science Building.<ref>{{Cite web |last=Locklear |first=Mallory |date=2023-09-29 |title=Reimagined Kline Tower promotes connections, collaboration |url=https://news.yale.edu/2023/09/29/reimagined-kline-tower-promotes-connections-collaboration |access-date=2024-07-01 |website=YaleNews |language=en}}</ref>
+
+==See also==
+* [[List of tallest buildings in Connecticut]]
+* [[List of tallest buildings in New Haven]]
+
+==References==
+{{reflist}}
+
+{{s-start}}
+{{succession box
+| before=[[Southern New England Telephone Company Administration Building]]
+| title= [[List of tallest buildings in New Haven| Tallest Building in New Haven]]
+| years=1966&ndash;1969 ({{convert|76|m|yd}})
+| after=[[Knights of Columbus Building (New Haven, Connecticut)| Knights of Columbus Building]]
+}}
+{{s-end}}
+
+[[Category:Yale University buildings and structures]]
+[[Category:Towers completed in 1966]]
+[[Category:Skyscrapers in New Haven, Connecticut]]
+[[Category:Modernist architecture in Connecticut]]
+[[Category:Brutalist architecture in Connecticut]]
+[[Category:University and college academic buildings in the United States]]

@@ -1,0 +1,90 @@
+{{Short description|Rock ridge in Connecticut, US}}
+{{About|the mountainous ridge in New Haven, Connecticut|the neighborhood named after the ridge|East Rock (neighborhood)}}
+{{Use American English|date=January 2026}}
+{{Use mdy dates|date=January 2025}}
+{{Infobox mountain
+| name = East Rock
+| image = Eastrock01.jpg
+| image_caption = East Rock
+| elevation_ft = 366
+| elevation_ref = 
+| prominence = 
+| listing = 
+| location = [[New Haven, Connecticut|New Haven]], [[Hamden, Connecticut|Hamden]]
+| range = [[Metacomet Ridge]]
+| coordinates = {{Coord|41|19|38|N|72|54|17|W|type:mountain}}
+| type = [[Fault-block]]; [[igneous]]
+| age = 200 Ma
+| last_eruption = 
+| first_ascent = 
+| easiest_route = Auto road
+}}
+
+<!-- ELEVATIONS: before changing elevations, carefully check primary USGS maps; do not relay on feature name lookup on USBGN or secondary sources -->
+'''East Rock''' of south-central [[Connecticut]], United States, with a high point of {{convert|366|ft}}, is a {{convert|1.4|mi|0|adj=on}} long [[trap rock]] ridge located primarily in the [[East Rock, New Haven|neighborhood of East Rock]] on the north side of the city of [[New Haven, Connecticut|New Haven]]. A prominent landscape feature and a popular outdoor recreation area with cliffs that rise {{convert|300|ft}} over the city below, East Rock is part of the narrow, linear [[Metacomet Ridge]] that extends from [[Long Island Sound]] near New Haven, north through the [[Connecticut River Valley]] of [[Massachusetts]] to the [[Vermont]] border.<ref name="EF">Farnsworth, Elizabeth J. [http://www.mmmtrail.org/NaturalResourcesAssessmentFinal.pdf "Metacomet-Mattabesett Trail Natural Resource Assessment."] {{webarchive|url=https://web.archive.org/web/20070807215610/http://mmmtrail.org/NaturalResourcesAssessmentFinal.pdf |date=2007-08-07 }}, 2004. PDF file. Cited Nov. 20, 2007.</ref><ref name="D">DeLorme Topo 6.0. Mapping Software. DeLorme, Yarmouth, Maine</ref> East Rock is the central feature of [[East Rock Park]], a municipal park owned by the city of New Haven along the New Haven-Hamden town line.
+
+==Geography==
+<!-- ELEVATIONS: before changing elevations, carefully check primary USGS maps; do not relay on feature name lookup on USBGN or secondary sources -->
+[[File:East Rock.jpg|thumb|right|East Rock with its eponymous neighborhood below]]
+East Rock, located in [[New Haven, Connecticut|New Haven]] and [[Hamden, Connecticut]], is {{convert|1.4|mi}} long by {{convert|0.5|mi|m}} wide at its widest point, although steepness of the terrain make the actual land area much larger. Beside the high point, East Rock has three other distinct peaks: Whitney Peak, {{convert|300|ft}}, a sharp-sided pinnacle on the north side of the ridge; Indian Head, {{convert|310|ft}}, just south of the high point; and Snake Rock, {{convert|205|ft}}, the southern buttress of the ridge.
+
+Whitney Peak and [[Lake Whitney (Connecticut)|Lake Whitney]] (located at the western base of the mountain behind the dammed [[Mill River (Quinnipiac River)|Mill River]]) are named after [[Eli Whitney]], the inventor of the [[cotton gin]] and a former New Haven resident. The [[Eli Whitney Museum]], a museum and workshop with hands-on projects and exhibits on Eli Whitney and A. C. Gilbert, is located at the base of the dam.
+[[Image:East Rock, New Haven.jpg|thumb|right|''East Rock, New Haven,'' an 1872 [[steel engraving|engraving]] showing the [[Mill River (Quinnipiac River)|Mill River]], with New Haven in the distance]]
+
+On the summit of East Rock, clearly visible for miles below, is the {{convert|112|ft|m|adj=on}} [[Soldiers and Sailors Monument (New Haven)|Soldiers and Sailors Monument]].  The monument honors the residents of New Haven who gave their lives in the [[American Revolutionary War]], the [[War of 1812]], the [[Mexican–American War|Mexican War]], and the [[American Civil War|Civil War]].<ref name="C">[http://www.cityofnewhaven.com/Parks/ParksInformation/eastrockpark.asp#directions City of New Haven] {{Webarchive|url=https://web.archive.org/web/20071221054030/http://www.cityofnewhaven.com/Parks/ParksInformation/eastrockpark.asp#directions |date=2007-12-21 }}. cited Dec. 22, 2007.</ref>
+
+[[File:East rock winter.jpg|thumb|left|View south from East Rock in winter.]]
+
+East Rock is located entirely within the 425-acre (172&nbsp;ha) [[East Rock Park]], managed by the city of New Haven, which maintains a seasonal automobile road that climbs to the summit of the ridge, a network of trails, an environmental center, and a rose garden. A number of recreation facilities are located at the southwest base of the ridge; these are also managed by the city. The ridge is completely surrounded by the urban neighborhoods of New Haven and its metropolitan extension into south Hamden. East Rock lends its name to the nearby upscale [[East Rock (neighborhood)|East Rock neighborhood]] of New Haven, known for its [[Queen Anne style architecture in the United States|Queen Anne]] and [[Victorian architecture]]. [[U.S. Route 5]] borders the east side of East Rock while [[Interstate 91]] crosses below Snake Rock to the south.
+
+The Metacomet Ridge extends west from East Rock as series of smaller, unnoteworthy traprock outcrops to [[West Rock Ridge]]; it extends east over another series of traprock outcrops to [[Saltonstall Mountain]] and [[Peter's Rock]]. The west side of East Rock drains into the Mill River thence to New Haven Harbor and Long Island Sound; the east side into the [[Quinnipiac River]], thence to New Haven Harbor and Long Island Sound. Both rivers abut the base of the mountain.<ref name="D"/><ref name="P">{{cite web|title=Map of East Rock Park|url=http://cityofnewhaven.com/Parks/ParksInformation/media/2008EastRockMap.pdf|publisher=City of New Haven, Connecticut|access-date=March 5, 2012}}</ref>
+
+==Geology==
+[[Image:East Rock from SSS Hall, October 17, 2008.jpg|thumb|The trap rock cliffs of East Rock]]
+East Rock is a [[fault-block]] ridge formed 200 million years ago during the [[Triassic]] and [[Jurassic]] periods and is composed of [[trap rock]], known as [[basalt]], if [[extrusive]], or [[diabase]], if [[Intrusive rock|intrusive]]. East Rock, being intrusive, is diabase. Diabase is a dark colored rock, but the iron within it weathers to a rusty brown when exposed to the air, lending the ledges a distinct reddish appearance. Diabase frequently breaks into octagonal and pentagonal columns, creating a unique "postpile" appearance. Huge slopes made of fractured diabase [[scree]] are visible beneath many of the ledges of East Rock. These diabase cliffs are the product of [[lava]] intrusions hundreds of feet deep that welled up through faults creating [[sill (geology)|sill]]s during the [[rifting]] apart of [[North America]] from [[Eurasia]] and [[Africa]] over a period of 20 million years. Erosion and glacial abrasion over the subsequent 200 million years wore away the weaker sedimentary layers, under which the sill had intruded, at a faster rate than the diabase, leaving the abruptly tilted edges of the diabase sheets exposed, creating the distinct linear ridge and dramatic cliff faces visible today.<ref>[[Raymo, Chet]] and [[Raymo, Maureen E.]] ''Written in Stone: A Geologic History of the Northeastern United States''. Globe Pequot, Chester, Connecticut, 1989.</ref><ref>{{cite web|title=Geology of Connecticut|url=http://www.yale.edu/ynhti/curriculum/units/1995/5/95.05.01.x.html|publisher=Yale-New Haven Teachers Institute}}</ref>
+
+==Ecosystem==
+East Rock hosts a combination of [[microclimate]]s unusual in [[New England]]. Dry, hot upper ridges support [[oak savanna]]s, often dominated by [[chestnut oak]] and a variety of understory grasses and ferns. [[Juniperus virginiana|Eastern red cedar]], a dry-loving species, clings to the barren edges of cliffs. Cooler north facing backslopes tend to support extensive stands of [[Tsuga canadensis|eastern hemlock]] interspersed with the [[oak-hickory forest]] species more common in the surrounding lowlands. Narrow ravines crowded with hemlock block sunlight, creating damp, cooler growing conditions with associated cooler climate plant species. Talus slopes are especially rich in nutrients and support a number of calcium-loving plants uncommon in eastern Connecticut.<ref name="EF"/><ref>[http://www.connix.com/~harry/twep.htm The Traprock Wilderness Recovery Strategy] {{webarchive|url=https://web.archive.org/web/20070816185019/http://www.connix.com/~harry/twep.htm |date=2007-08-16 }}. Cited Dec. 13, 2007</ref>
+
+East Rock is also an important seasonal [[birds of prey|raptor]] migration path.<ref name="EF"/>
+
+==Recreation==
+[[Image:Eastrock02.JPG|left|thumb|180px|Soldiers and Sailors Monument]]East Rock is a popular outdoor recreation destination among residents and visitors of the greater New Haven region. Views from the clifftops span metropolitan New Haven, Long Island Sound, and [[Long Island]].<ref name="P"/>
+
+[[East Rock Park]] is open year-round to hikers and walkers. The automobile road is open April 1 to November 1, 8 a.m. to sunset and November 1 to March 31, Friday, Saturday, Sunday, and holidays, 8 a.m. to 4 p.m., weather permitting. Activities permitted in the park include [[hiking]], [[snowshoeing]], [[cross-country skiing]], [[picnicking]], [[bicycling]] (on roads and city-designated mountain bike trails only), [[boating]] (on the Mill River), [[bird watching]], and [[dog walking]]. [[Rock climbing]], [[human swimming|swimming]], and [[alcoholic beverage]]s are prohibited. A number of hiking trails traverse the ridge, most notably the Giant Steps Trail which ascends to the summit at a near-vertical pitch from the south. At the foot of the mountain are located football, baseball, and soccer fields, tennis courts, basketball courts, and playgrounds. The Trowbridge Environmental Center is open Thursdays and Fridays from 10:00 am to 5:00 pm, and at least one Saturday a month for public programs; it offers displays and information about the geology and ecosystem of East Rock. The Pardee Rose Garden and Greenhouse features roses and other flowering plants from spring to fall, and is a popular place to shoot wedding pictures.
+
+The naturalist landscaping and other aspects of the park led to its being listed on the [[National Register of Historic Places]] in 1997.<ref name="nris">{{NRISref|2009a}}</ref>
+
+==See also==
+{{Portal|Connecticut}}
+* [[East Rock (neighborhood)]]
+* '''Adjacent summits:'''
+{| border="1" cellpadding="2" cellspacing="0"
+! < West !! East > !! East >
+|-
+| align="center" width="120pt" |[[Image:Frederic Edwin Church - West Rock, New Haven.jpg|center|thumb|120px|[[West Rock Ridge]]]]||align="center" width="120pt"| [[Image:Saltonstall_Mountain_on_Right_of_Lake_Saltonstall_with_fishing_boat.jpg|thumb|100px|center|[[Saltonstall Mountain]]]]||[[Image:Hermitage.jpg|thumb|100px|center|[[Peter's Rock]]]]
+|-
+|}
+
+==References==
+{{Reflist}}
+
+==External links==
+{{Commons category}}
+* [https://www.newhavenct.gov/civicax/filebank/blobdload.aspx?blobid=25147 City of New Haven map of East Rock Park] {{Webarchive|url=https://web.archive.org/web/20180421162803/https://www.newhavenct.gov/civicax/filebank/blobdload.aspx?blobid=25147 |date=April 21, 2018 }}
+* [http://www.cityofnewhaven.com/Parks/ParksInformation/eastrockpark.asp City of New Haven East Rock Park page] {{Webarchive|url=https://web.archive.org/web/20071221054030/http://www.cityofnewhaven.com/Parks/ParksInformation/eastrockpark.asp |date=2007-12-21 }}
+* [http://www.cityofnewhaven.com/ City of New Haven] {{Webarchive|url=https://web.archive.org/web/20100325214619/http://www.cityofnewhaven.com/ |date=2010-03-25 }}
+* [https://web.archive.org/web/20070629135154/http://www.ct.gov/dep/cwp/view.asp?a=2716&q=325276&depNav_GID=1650 West Rock State Park]
+* [http://www.friendsofeastrockpark.org/map.php East Rock Park  in & out] {{Webarchive|url=https://web.archive.org/web/20090422161859/http://friendsofeastrockpark.org/map.php |date=2009-04-22 }}
+* New Haven Mayor's Office - [http://www.cityofnewhaven.com/Mayor/angelofpeace.asp A Brief History of the Angel of Peace and the New Haven Soldiers’ and Sailors’ Monument]
+*[https://archive.org/stream/onfourrocksnewh00danagoog#page/n6/mode/2up/search/rock+street/On the Four Rocks of the New Haven James Dwight Dana 1891]
+
+{{Mountains of Connecticut}}
+
+[[Category:Hamden, Connecticut]]
+[[Category:Metacomet Ridge]]
+[[Category:Landforms of New Haven County, Connecticut]]
+[[Category:Mountains of Connecticut]]
+[[Category:Tourist attractions in New Haven County, Connecticut]]
+[[Category:Geography of New Haven, Connecticut]]
+[[Category:Tourist attractions in New Haven, Connecticut]]

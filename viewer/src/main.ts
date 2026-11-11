@@ -233,7 +233,7 @@ function updateOverlays() {
   if (document.activeElement !== slider || state.playing) slider.value = String(state.year);
   const c = map.getCenter();
   const pop = localPopulationAt(state.year, c.lng, c.lat, map.getZoom());
-  popValue.textContent = pop == null ? '—' : Math.round(pop.value).toLocaleString('en-US');
+  popValue.textContent = pop == null || !Number.isFinite(pop.value) ? '—' : Math.round(pop.value).toLocaleString('en-US');
   popArea.textContent = pop == null ? '' : pop.label;
 }
 

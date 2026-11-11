@@ -1,0 +1,113 @@
+{{Short description|Primary auditorium at Yale University}}
+{{Distinguish|Wolseley Hall|Wolsey Hall, Oxford}}
+{{Infobox venue
+| name                   = 
+| native_name            = 
+| native_name_lang       = 
+| nickname               = 
+| logo_image             = 
+| logo_size              = 
+| logo_upright           = 
+| logo_alt               = 
+| logo_caption           = 
+| image                  = Woolsey Hall - Yale University (54106457850).jpg
+| image_size             = 
+| image_upright          = 
+| image_alt              = 
+| image_caption          = (2024)
+| image_map              = 
+| map_size               = 
+| map_alt                = 
+| map_caption            = 
+| pushpin_map            = 
+| pushpin_map_size       = 
+| pushpin_caption        = 
+| pushpin_label_position = 
+| pushpin_relief         = 
+| fullname               = 
+| former_names           = 
+| address                = 
+| city                   = New Haven, Connecticut
+| country                = Unites States
+| location               = 
+| coordinates            = <!-- {{Coord|LAT|LON|type:landmark|display=inline,title}} -->
+| height                 = <!-- {{cvt|...|ft|m}} or {{cvt|...|m|ft}} -->
+| public_transit         = 
+| parking                = 
+| owner                  = Yale University
+| operator               = 
+| designation            = 
+| type                   = Auditorium
+| event                  = 
+| seating_type           = 
+| suites                 = 
+| capacity               = 2,650
+| record_attendance      = 
+| dimensions             = 
+| current_use            = 
+| production             = 
+| groundbreaking         = 
+| built                  = 
+| opened                 = {{Start date|1901}} 
+| renovated              = 
+| expanded               = 
+| closed                 = 
+| demolished             = 
+| rebuilt                = 
+| years_active           = 
+| cost                   = 
+| architectural_style    = 
+| architect              = [[Carrère and Hastings]]
+| builder                = 
+| project_manager        = 
+| structural_engineer    = 
+| services_engineer      = 
+| general_contractor     = 
+| main_contractors       = 
+| tenants                = 
+| website                = {{URL|https://woolsey.yale.edu/}} 
+| embedded               = 
+}}
+[[File:Woolsey Hall.jpg|thumb|Woolsey Hall, Yale University]]
+
+'''Woolsey Hall''' is the primary [[auditorium]] at [[Yale University]], located on the campus' [[Hewitt Quadrangle]] in [[New Haven, Connecticut]]. It was built as part of the Bicentennial Buildings complex that includes the Memorial Rotunda and the University Commons for the Yale bicentennial celebration in 1901, and was designed by the Beaux-Arts architectural firm [[Carrère and Hastings]]. With approximately 2,650 seats,<ref>{{cite book |last=Carroll |first=Richard C. |title=Buildings and Grounds of Yale University |year=1979 |publisher=Yale University}}</ref><ref>{{cite web |title=Woolsey Hall |website=Yale School of Music |publisher=Yale University |url=http://music.yale.edu/concerts/venues/woolsey/ |access-date=12 May 2015}}</ref> it is the university's largest auditorium and hosts concerts, performances, and university ceremonies including the annual freshman convocation, senior baccalaureate, and presidential inaugurations.  The building is named for [[Theodore Dwight Woolsey]], [[List of Presidents of Yale University|President of Yale]] from 1846 through 1871.<ref name=Puerto>[https://books.google.com/books?id=gx_hdstJWiIC&dq=for+whom+is+woolsey+hall+named&pg=PA74 "Teutonic Constitutionalism - the Role of Ethno-Juridical Discourse in the Spanish–American War"], by Mark S. Weiner, in ''Foreign in a Domestic Sense: Puerto Rico, American Expansion, and the Constitution'', edited by Christina Duffy Burnett and Burke Marshall; published June 29, 2001, by [[Duke University Press]]</ref>
+
+==History==
+During the 19th century, Yale became one of the largest higher education institutions in the world, establishing seven graduate and professional schools in addition to the  [[Yale College|undergraduate college]] founded in 1701. Although Yale was nominally organized as a university in 1887, its constituent schools remained mostly independent of the university administration, and they lacked any shared facilities. In 1896, as one of several initiatives to unify the new university, Yale President [[Timothy Dwight V]] proposed the construction of a central dining hall and auditorium, for which the university would need to raise $1.5 to $2 million.{{sfn|Kelley|1974|pp=318}}
+
+The task of construction fell to the administration of [[Arthur Twining Hadley]], who became president 1899, two years before the university bicentennial. The position of the buildings was selected as a central node between the [[Old Campus (Yale University)|Old Campus]] of Yale College and the [[Sheffield Scientific School]], positioning the new university buildings as separate from the dominant College and partial to no school in particular.{{sfn|Pinnell|1999|pp=115}}
+
+Succeeding [[Battell Chapel]] as the university's largest assembly space, the new hall was the university's first secular auditorium,{{sfn|Pinnell|1999|pp=115}} coinciding with Hadley's appointment as the first non-ordained person to lead the university.{{sfn|Kelley|1974|pp=315–16}} In 1910, a seat on the first balcony was made extra large to accommodate Yale's ultimate "big man on campus," trustee and alumnus [[William Howard Taft]].<ref>{{cite news |last=Cruce |first=Valerie |title=A President's Custom Seat Still Best in the House |newspaper=New York Times |date=19 November 2000 |url=https://www.nytimes.com/2000/11/19/nyregion/a-president-s-custom-seat-still-best-in-the-house.html |access-date=11 May 2015}}</ref><ref>{{cite magazine |last=Alden Branch |first=Mark |title=Big Man on Campus |date=March 2013 |magazine=Yale Alumni Magazine |url=https://www.yalealumnimagazine.com/articles/3632/big-man-on-campus |access-date=11 May 2015}}</ref>
+
+==Design and features==
+"The architects were [[Carrère and Hastings]], who a decade later designed the [[New York Public Library]].<ref>{{cite book |last1=Ossman |first1=Laurie |last2=Ewing |first2=Heather |year=2011 |title=Carrère and Hastings, The Masterworks |publisher=Rizzoli |isbn=9780847835645}}</ref> Built in a [[Beaux Arts (architecture)|Beaux Arts]] style that contrasted with the university's more somber Victorian [[Gothic Revival]] taste in the late 19th century, the new building was considered by critics to be overreaching and gaudy.{{sfn|Pinnell|1999|pp=115}}
+
+The ornately decorated hall is home to the [[Newberry Memorial Organ]], one of the most renowned  Symphonic organs in the world. This hall serves as the main performance venue for the [[New Haven Symphony Orchestra]], the Yale Bands, the [[Yale Symphony Orchestra]], the Yale Philharmonia, the [[Yale Glee Club]], and many smaller, student-run ensembles such as ''a cappella'' singing groups.
+
+Woolsey Hall's murals represent the ideal of a classical education and include images of the nine muses and the goddess Athena. They reflect the age when Yale was an all-male college. The Hall is entered via the Memorial Rotunda, a vestibule containing memorials to sons of Yale who lost their lives in all American wars from the Revolutionary War to the Vietnam War."<ref>{{Cite web | url=https://www.tparents.org/Library/Unification/Talks1/Connery/Connery-160212.pdf | title=Woolsey Hall at Yale University and its war memorial | website=www.tparents.org}}</ref>
+
+"The hall's lack of draperies, carpeting and upholstered seats all contribute to its acoustics for organ performance, though the acoustics work far more in favor of the organ than for other sounds. Woolsey Hall predates any major studies within the field of acoustics, so aside from its large size, rectangular shape, hard surfaces and high vaulted ceiling, it has no peculiar architectural properties that contribute positively to its sound. Choral singers are sometimes hampered by Woolsey's muddy resonance, which easily obscures text and delicate timbres, and can also make it difficult to hear oneself on stage."<ref>{{cite web | url=https://mahlerfoundation.org/mahler/locations/america/new-haven/woolsey-hall/ | title=Woolsey Hall | date=9 February 2016 }}</ref>
+
+==See also==
+{{Commons category|Woolsey_Hall|Woolsey Hall}}
+*[[List of concert halls]]
+
+==References==
+===Notes===
+{{Reflist|30em}}
+
+===Bibliography===
+*{{cite book |last=Kelley |first=Brooks Mather |title=Yale: A History |publisher=Yale University Press |location=New Haven |year=1974 |isbn=9780300078435 }}
+*{{cite book |last=Pinnell |first=Patrick |title=The Campus Guide: Yale University |publisher=Princeton University Press |year=1999 }}
+
+{{Carrère and Hastings}}
+{{Authority control}}
+{{Coord|41|18|40|N|72|55|33|W|type:landmark|display=title}}
+
+[[Category:Yale University buildings and structures]]
+[[Category:Music venues in Connecticut]]
+[[Category:Tourist attractions in New Haven, Connecticut]]
+[[Category:Carrère and Hastings buildings]]
+[[Category:Beaux-Arts architecture in Connecticut]]
+[[Category:Woolsey family|+]]
+[[Category:1901 establishments in Connecticut]]

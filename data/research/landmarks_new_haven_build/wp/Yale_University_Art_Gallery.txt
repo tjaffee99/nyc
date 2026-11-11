@@ -1,0 +1,131 @@
+{{Short description|Museum in New Haven, Connecticut}}
+{{Use American English|date=January 2026}}
+{{Use mdy dates|date=March 2021}}
+{{Infobox museum
+| name           = Yale University Art Gallery
+| image          = Yale University Art Gallery exterior.jpg
+| caption        = Yale University Art Gallery's Louis Kahn Building (left) is connected to the Old Yale Art Gallery (right)
+| established    = {{Start date|1832|df=y}} <!-- {{Start date|YYYY|MM|DD|df=y}} -->
+| dissolved      = <!-- {{End date|YYYY|MM|DD|df=y}} -->
+| location       = 1111 Chapel Street, [[New Haven, Connecticut]], US
+| coordinates    = {{Coord|41.308459|-72.930985|region:US_CT|display=inline,title}}
+| type           = [[Art museum]]
+| director       = Stephanie Wiles since 2018
+| public_transit = {{bus icon}} [[File:CTtransit logo.png|16px|link=Connecticut Transit New Haven]] 237, 238, 241, 243, 246, 254, 255
+| website        = {{URL|http://artgallery.yale.edu/|artgallery.yale.edu}}
+}}
+The '''Yale University Art Gallery''' ('''YUAG''') is an  [[art museum]] in [[New Haven, Connecticut]].<ref>{{cite web|url=http://www.buildings.yale.edu/property.aspx?id=26|title=Yale University Art Gallery – 1953|website=www.building.yale.edu|archive-url=https://web.archive.org/web/20130830040549/http://www.buildings.yale.edu/property.aspx?id=26|archive-date=August 30, 2013|access-date=22 August 2016}}</ref> It houses a major encyclopedic collection of art in several interconnected buildings on the campus of [[Yale University]]. Although it embraces all cultures and periods, the gallery emphasizes early [[Italian Renaissance painting]], [[African sculpture]], and [[modern art]]. It is the oldest university art museum in the Western Hemisphere.<ref>{{cite web |url=https://www.thecoopergroupct.com/portfolio/project-five-l2x8m-nry38-jnndf-ykejp |title=Yale University Art Gallery |access-date=October 10, 2024 |archive-date=October 10, 2024 |archive-url=https://web.archive.org/web/20241010030430/https://www.thecoopergroupct.com/portfolio/project-five-l2x8m-nry38-jnndf-ykejp |url-status=live }}</ref>
+
+==History==
+===19th century===
+The gallery was founded in 1832 when [[Patriot (American Revolution)|patriot]] artist [[John Trumbull]] donated over 100 [[painting]]s of the [[American Revolution]] to [[Yale University|Yale College]] and designed the original picture gallery.<ref name="YUAG-Arch">{{cite web |title=Architecture |url=https://artgallery.yale.edu/about/architecture |website=Yale University Art Gallery |publisher=Yale University |access-date=2021-02-25 |archive-date=August 27, 2013 |archive-url=https://web.archive.org/web/20130827100914/https://artgallery.yale.edu/about/architecture |url-status=live }}</ref><ref name="picasso pr">{{cite web |title=Special Exhibit Examines Dynamic Relationship Between the Art of Pablo Picasso and Writing |url=http://artgallery.yale.edu/pdf/0109_picasso.pdf|website=webgallery.yale.edu|publisher=Yale University Art Gallery press release |access-date=August 22, 2016|archive-url=https://web.archive.org/web/20120304214036/http://artgallery.yale.edu/pdf/0109_picasso.pdf|archive-date=March 4, 2012}}</ref> This gallery housed a collection of paintings by [[John Trumbull]], including [[The Death of General Warren at the Battle of Bunker's Hill, June 17, 1775|''Battle of Bunker Hill'']], [[The Death of General Montgomery in the Attack on Quebec, December 31, 1775|''Death of Montgomery before Quebec'']], ''[[Surrender of Lord Cornwallis]]'', and [[Declaration of Independence (painting)|''Declaration of Independence'']].<ref>{{Cite book |last=Verrill |first=G. E. (George Elliot) |url=http://archive.org/details/ancestrylifework00verr |title=The ancestry, life and work of Addison E. Verrill of Yale University |date=1958 |publisher=Santa Barbara, Calif., Pacific Coast Pub. Co |others=Allen County Public Library Genealogy Center}}</ref> This building on the university's [[Old Campus]] was razed in 1901.<ref>[http://www.facilities.yale.edu/Campus/Building1.asp?lstBldg=2520&submit1=Continue Yale Art Gallery, Yale Buildings and Grounds]{{dead link|date=August 2016}}</ref>
+
+Street Hall, designed by [[Peter Bonnett Wight]], was opened as the Yale School of the Fine Arts in 1866, and included exhibition galleries on the second floor. The exterior was in a neo-Gothic style, with an appearance influenced by 13th-century Venetian palaces. These spaces are the oldest ones still in use as part of the Yale University Art Gallery.<ref name="YUAG-Arch" />
+
+===20th century===
+A new building, designed by [[Yale University]] architect [[Egerton Swartwout]], was completed in 1928. This building features a deliberately eclectic mix of Romanesque, Gothic and Classical features, with cornices, a pitched slate roof, and large windows set within stone arches, and was connected to Street Hall by an enclosed bridge over High Street. It was ultimately known as the "Old Yale Art Gallery" to contrast it with the modernist expansion added a couple of decades later.<ref name="YUAG-Arch" />
+[[File:Sculpture Hall Yale University Art Gallery 1.JPG|thumb|Ancient [[Ancient Greek art|Greek]] and [[Roman art|Roman]] art in the Sculpture Hall in the Old Yale Art Gallery.]]
+
+The gallery's modernist main building, built from 1947 to 1953, was among the first designed by [[Louis Kahn]], who taught architecture at Yale<ref name=":1" />("Kahn played a major role in Yale's own artistic development. And Yale in turn would give Kahn the commission that transformed his career as an architect.")<ref name="Wiseman">{{cite book|last1=Wiseman|first1=Carter|title=Louis I. Kahn: Beyond Time and Style|publisher=W.W. Norton & Company|year=2007|isbn=978-0-393-73165-1|edition=First|location=[[New York City|New York]]}}</ref> [[Philip L. Goodwin]] was the original architect for the building, but he had to drop out due to health reasons and the project was then given to Kahn.<ref>{{Cite web |last=Kimball |first=Roger |date=June 1990 |title=How to build a museum: the example of Louis Kahn |work=The New Criterion |url=https://newcriterion.com/article/how-to-build-a-museum-the-example-of-louis-kahn/ |access-date=2025-05-16 |language=en-US |archive-date=October 4, 2025 |archive-url=https://web.archive.org/web/20251004143406/https://newcriterion.com/article/how-to-build-a-museum-the-example-of-louis-kahn/ |url-status=live }}</ref>
+[[File:Yale-University-Art-Gallery-New-Haven-Connecticut-04-2014b.jpg|thumb|View of the [[Louis Kahn]]-designed galleries]]
+
+Although the Art Gallery with steel structure and reinforced concrete may seem simple to the eye, it was designed in a rigorous process.<ref>{{Cite book|last=Tyng|first=Alexandrea|title=Beginnings: Louis Kahn's Philosophy of Architecture|publisher=[[Wiley (publisher)|John Wiley and Sons]]|year=1984|isbn=978-0-471-86586-5|location=[[New York City|New York]]|oclc=757290973}}</ref> Kahn and [[Anne Tyng]], the first woman licensed as an architect in the state of Pennsylvania<ref>{{cite web|url=http://www.daniel.grahamfoundation.org/system/grants/documents/28/original/Tyng_Chronology_Final_SR.pdf|title=Anne Tyng: Inhabiting Geometry|last1=Schaffner|first1=Ingrid|access-date=3 November 2019|archive-date=August 31, 2021|archive-url=https://web.archive.org/web/20210831204322/http://www.daniel.grahamfoundation.org/system/grants/documents/28/original/Tyng_Chronology_Final_SR.pdf|url-status=live}}</ref> and an employee of Kahn's independent practice, "devised a slab that was to be poured into metal forms in the shape of three-sided pyramids. When the forms were removed, they left a thick mass of concrete imprinted with tetrahedral openings."<ref name="Wiseman" /> The triangular ceiling of the gallery was designed by Tyng, who was fascinated by geometry and [[octet-truss]] construction.<ref>{{Cite book|last1=Marcus|first1=George|title=The Houses of Louis Kahn|last2=Whitaker|first2=William|publisher=Yale University Press|year=2013|isbn=978-0-300-17118-1|location=[[New Haven, Connecticut|New Haven]]}}</ref>
+
+Kahn's addition "was...a box...of glass, steel, concrete, and tiny beige bricks", and had none of the features of the earlier galleries. One critic said that Kahn's building "could have scarcely have been distinguished from a [[Woolco]] discount store in a shopping center", and that the interior looked like an "underground parking garage".<ref name="Wolfe">{{Cite book|last=Wolfe|first=Tom|title=From Bauhaus to Our House|publisher=[[Picador (imprint)|Picador]]|year=1981|isbn=978-0-312-42914-0|location=[[New York City|New York]]}}</ref>{{rp|50}}
+
+In 1998, the gallery began a major renovation and expansion. A renovation of the 1953 building was completed in December 2006 by [[Polshek Partnership Architects]], who returned many spaces to Kahn's original vision.
+
+===21st century===
+The project was completed on December 12, 2012, at a cost of $135 million, under then-director [[Jock Reynolds]].<ref name=":1">Antiques Magazine, November–December 2012, 108-109.</ref><ref name="McGrath">{{cite news|last1=McGrath|first1=Charles|date=December 6, 2012|title=A King of Art With the Midas Touch|work=The New York Times|url=https://www.nytimes.com/2012/12/09/arts/design/jock-reynolds-transformative-director-of-yale-art-gallery.html|access-date=February 25, 2021|archive-date=August 27, 2017|archive-url=https://web.archive.org/web/20170827155541/http://www.nytimes.com/2012/12/09/arts/design/jock-reynolds-transformative-director-of-yale-art-gallery.html|url-status=live}}</ref> The expanded space totals {{Cvt|69,975|sqft}}.<ref>{{Cite web |last=McManus |first=David |date=2012-12-10 |title=Yale University Art Gallery, New Haven Building |url=https://www.e-architect.com/boston/yale-university-art-gallery |access-date=2022-05-18 |website=e-architect |language=en-GB |archive-date=September 25, 2022 |archive-url=https://web.archive.org/web/20220925200928/https://www.e-architect.com/boston/yale-university-art-gallery |url-status=live }}</ref>
+
+In December 2011, the museum announced an $11 million gift from alumnus [[Stephen Susman]], to create additional art exhibition galleries in a newly created fourth floor atop the Old Yale Art Gallery building.<ref name="West">{{cite news |last1=West |first1=Melanie Grayce |title=Gallery Gift Inspired by Free Drinks |url=https://www.wsj.com/articles/SB10001424052970203513604577143131822052566 |access-date=2021-02-25 |work=The Wall Street Journal |date=6 January 2012 |archive-date=August 12, 2018 |archive-url=https://web.archive.org/web/20180812022241/https://www.wsj.com/articles/SB10001424052970203513604577143131822052566 |url-status=live }}</ref><ref>{{cite web |url=https://news.yale.edu/2011/12/21/yale-university-art-gallery-announces-11-million-gift-name-new-exhibition-spaces |title=Yale University Art Gallery announces $11 million gift to name new exhibition spaces |work=Yale News |date=2011-12-21 |access-date=2020-05-24 |archive-date=September 19, 2015 |archive-url=https://web.archive.org/web/20150919110245/http://news.yale.edu/2011/12/21/yale-university-art-gallery-announces-11-million-gift-name-new-exhibition-spaces |url-status=live }}</ref> The expansion was completed in 2012, and included space for a rooftop sculpture garden.<ref name="YUAG-Arch" /><ref name="Nopany">{{cite web |last1=Nopany |first1=Urvi |last2=Stephenson |first2=Tapley |title=With $11 mil donation, YUAG reopening on schedule |url=https://yaledailynews.com/blog/2012/01/10/with-11-mil-donation-yuag-reopening-on-schedule/ |website=Yale Daily News |date=January 10, 2012 |access-date=2021-02-25 |language=en |archive-date=January 26, 2021 |archive-url=https://web.archive.org/web/20210126191943/https://yaledailynews.com/blog/2012/01/10/with-11-mil-donation-yuag-reopening-on-schedule/ |url-status=dead }}</ref>
+
+== Gallery ==
+<gallery>
+File:Quentin Massys - A Bagpiper - ILE1981.9.2 - Yale University Art Gallery.jpg|''A bagpiper'', an early 16th century portrait by [[Quentin Massys]]
+File:GeorgeWashingtonByRobertField.jpg|''Miniature of George Washington'', an 1800 miniature portrait of [[George Washington]] by [[Robert Field (painter)|Robert Field]]
+File:Hero and Leander by Peter Paul Rubens.jpeg|''Hero and Leander'', a portrait by [[Peter Paul Rubens]]
+File:The Death of General Montgomery in the Attack on Quebec December 31 1775.jpeg|''[[The Death of General Montgomery in the Attack on Quebec, December 31, 1775]]'', a 1786 portrait by [[John Trumbull]]
+File:General George Washington at Trenton by John Trumbull.jpeg|''[[General George Washington at Trenton]]'', [[John Trumbull]], 1792
+File:Parau Parau Whispered Words by Paul Gauguin 1892.jpeg|''Parau Parau (Whispered Words)'', an 1892 portrait by [[Paul Gauguin]]
+File:Van Gogh - The Night Café (1888).jpg|''[[The Night Café]]'', an 1888 portrait by [[Vincent van Gogh]]<ref name="yag">{{Cite web|title=Yale University Art Gallery &#124;|url=https://artgallery.yale.edu/|access-date=2022-05-11|website=artgallery.yale.edu}}</ref>
+File:The Knife Grinder Principle of Glittering by Kazimir Malevich.jpeg|''[[The Knifegrinder (Malevich)|The Knifegrinder]]'', a 1913 portrait by [[Kazimir Malevich]]
+File:Builders of Ships by George Bellows 1916.jpeg|''Builders of Ships'', a 1916 portrait by [[George Bellows]]
+File:Joseph Stella, 1919-20, Brooklyn Bridge, oil on canvas, 215.3 x 194.6 cm, Yale University Art Gallery.jpg|''Brooklyn Bridge'', a 1920 portrait of the [[Brooklyn Bridge]] by [[Joseph Stella]]
+File:Monumental Urn - Yale University Art Gallery.jpg|[[Nero's Urn]] (60-64 AD)
+File:Myoson - The Death of the Buddha Sakyamuni (Nehan-zu) - 2005.58.1a-b - Yale University Art Gallery.jpg|[[The Final Death of the Buddha Sakyamuni|''The Final Death of the Buddha Sakyamuni'']], by Myoson ([[Kamakura period]])
+</gallery>
+{| class="wikitable"
+|+
+|[[File:20240917 yale.jpg|left|thumb|A lion relief from the processional way, [[Babylon]], Iraq.]]
+|[[File:20240917 gerasa.jpg|thumb|A mosaic from [[Jerash|Gerasa]], Jordan.|left]]
+|[[File:20240917 mithraeumb.jpg|thumb|A [[mithraeum]] from [[Dura-Europos]], Syria.|left]]
+|-
+|[[File:20240917 cassone.jpg|thumb|[[Cassone]] clothing chest painted by [[Paolo Uccello]].|left]]
+|[[File:20240917 gallery.jpg|thumb|A gallery with "Society Woman's Cloth (Gold)" by [[El Anatsui]], left. |left]]
+|[[File:20240917 holbeinc.jpg|thumb|"Portrait of a Hanseatic Merchant" by [[Hans Holbein the Younger]].|left]]
+|}
+
+== Collection ==
+The encyclopedic collections of the gallery number more than 300,000 objects ranging in date from ancient times to the present day. The permanent collection includes:<ref name=yag/>
+* [[African Art]]: more than 1,000 objects in wood, metal, ivory, and ceramic
+* American [[Decorative art|Decorative Arts]]: approximately 18,000 objects in silver, glass, wood, porcelain, and textile with an emphasis on the colonial and early federal periods
+* American [[Paintings]] and [[Sculpture]]: more than 2,500 paintings, 500 sculptures, and 300 miniatures from before the mid-twentieth century including paintings by [[Benjamin West]], [[John Singleton Copley]], [[Albert Bierstadt]], [[Frederic Church]], [[Frederic Remington]], [[Thomas Eakins]], [[Winslow Homer]], [[George Bellows]], [[John Singer Sargent]], [[Edwin Austin Abbey]], [[Arthur Dove]], [[Elizabeth Goodridge]], and [[Edward Hopper]], and sculptures by [[Hezekiah Augur]], [[Hiram Powers]], [[Horatio Greenough]], [[William Henry Rinehart]], [[Chauncey Ives]], [[Alexander Archipenko]], and [[Alexander Calder]]
+* [[Ancient Art]]: more than 13,000 objects from the [[Near East]], [[Egypt]], [[Greece]], [[Etruria]], and [[Rome]] dating from the [[Neolithic]] to the early [[Byzantine]]
+* Art of the Ancient Americas: [[Maya civilization|Mayan]] and [[Olmec]] figurines, vessels and sculptures
+* [[History of Eastern art|Asian Art]]: more than 8,000 objects including sculpture, textiles, paintings, costume, ceramics, and calligraphy from China, Japan, Korea, Afghanistan and more. Featured works range from the [[ukiyo-e]] woodblock prints of [[Utamaro|Kitagawa Utamaro]] and [[Koryūsai|Isoda Koryūsai]] to contemporary ceramics by artists including [[Tatsuzō Shimaoka]]<ref>{{cite web |title=Shimaoka Tatsuzō: Works in the Collection |url=https://artgallery.yale.edu/collection?f%5B0%5D=creator%3AArtist%3A%20Shimaoka%20Tatsuz%C5%8D%20%28Japanese%2C%201919%E2%80%932007%29 |publisher=[[Yale University Art Gallery]] |access-date=8 June 2026}}</ref> and [[Yoshimi Futamura]].<ref>{{cite web |title=Vasque (Basin) |url=https://artgallery.yale.edu/collections/objects/133508 |publisher=[[Yale University Art Gallery]] |access-date=8 June 2026 |archive-date=June 8, 2026 |archive-url=https://web.archive.org/web/20260608145642/https://artgallery.yale.edu/collections/objects/133508 |url-status=live }}</ref>
+* [[Coin]]s and [[Medal]]s
+* Early [[Western art history|European Art]]
+* [[Modern art|Modern]] and [[Contemporary Art]]: including paintings and sculpture by [[Josef Albers]], [[Edgar Degas]], [[Marcel Duchamp]], [[Alberto Giacometti]], [[Jean Metzinger]], [[Joan Miró]], [[Piet Mondrian]], [[Pablo Picasso]], [[Mark Rothko]], and [[Roy Lichtenstein]]
+* [[Printmaking|Prints]], Drawings, and [[Photograph]]s
+
+In 2005, the museum announced that it had acquired 1,465 [[Gelatin silver process|gelatin silver prints]] by the influential American landscape photographer [[Robert Adams (photographer)|Robert Adams]]. In 2009, the museum mounted an exhibition of its extensive collection of [[Picasso]] paintings and drawings, in collaboration with the [[Nasher Museum of Art]] at [[Duke University]].<ref name="picasso pr"/> For the first time, portions of the [[Yale University Library]]'s [[Gertrude Stein]] writing archives were displayed next to relevant drawings from Picasso.<ref name="picasso pr"/>
+
+In April 2022, the museum surrendered 13 South Asian artifacts, valued at more than $1 million, as part of art looting investigation.<ref>{{cite news |last1=Mashberg |first1=Tom |title=Yale Museum Surrenders Items as Part of Art Looting Investigation |url=https://www.nytimes.com/2022/04/01/arts/design/yale-art-looting-investigation.html |access-date=11 May 2022 |work=[[The New York Times]] |date=1 April 2022 |archive-date=April 3, 2022 |archive-url=https://web.archive.org/web/20220403022348/https://www.nytimes.com/2022/04/01/arts/design/yale-art-looting-investigation.html |url-status=live }}</ref>
+
+==Programs==
+As an affiliate of Yale University, the gallery offers education programs for university students, New Haven schools, and the general public. Two such programs are: the Gallery Guide program, founded in 1998, which trains undergraduate students to lead tours at the museum; and the Wurtele Gallery Teachers, established in 2006, which include Yale graduate students from all school and backgrounds, who give curricula-informed tours to K-12 audiences.<ref>{{cite web|last1=Tom|first1=Sullivan|title=Student gallery guides help illuminate Yale's art collections|url=http://yaledailynews.com/blog/2003/01/15/student-gallery-guides-help-illuminate-yales-art-collections/|website=Yale Daily News|date=January 15, 2003|access-date=April 10, 2015|archive-date=January 25, 2021|archive-url=https://web.archive.org/web/20210125053952/https://yaledailynews.com/blog/2003/01/15/student-gallery-guides-help-illuminate-yales-art-collections/|url-status=dead}}</ref>
+
+The museum is a member of the [[North American Reciprocal Museums]] program, but charges no admission.<ref name="McGrath"/>
+
+==Management==
+{{expand section|Description of governance and relationship to Yale University|date=February 2021}}
+From 1946 to 1948, [[George Heard Hamilton]] was associate director at Yale University Art Gallery.
+
+In July 2018, Stephanie Wiles became the Henry J. Heinz II Director of the Yale University Art Gallery.<ref>{{cite web |url=https://news.yale.edu/2018/03/28/stephanie-wiles-cornell-named-next-director-yale-art-gallery |title=Stephanie Wiles of Cornell named next director of the Yale Art Gallery |work=Yale News |date=2018-03-28 |access-date=2020-05-24 |archive-date=September 4, 2018 |archive-url=https://web.archive.org/web/20180904041341/https://news.yale.edu/2018/03/28/stephanie-wiles-cornell-named-next-director-yale-art-gallery |url-status=live }}</ref>
+
+== See also ==
+
+* [[Yale Center for British Art]]
+
+==References==
+{{reflist}}
+
+==External links==
+{{Commons and category|Yale University Art Gallery}}
+* {{official website}}
+
+{{Yale|state=expanded}}
+{{John Trumbull}}
+{{Louis Kahn}}
+{{authority control}}
+
+[[Category:1832 establishments in Connecticut]]
+[[Category:African art museums in the United States]]
+[[Category:Art museums and galleries established in 1953]]
+[[Category:Art museums and galleries in Connecticut]]
+[[Category:Art museums and galleries established in 1832]]
+[[Category:Asian art museums in the United States]]
+[[Category:Collection of the Yale University Art Gallery]]
+[[Category:Decorative arts museums in the United States]]
+[[Category:Economy of New Haven, Connecticut]]
+[[Category:Institutions accredited by the American Alliance of Museums]]
+[[Category:Louis Kahn buildings]]
+[[Category:Mesoamerican art museums in the United States]]
+[[Category:Modernist architecture in Connecticut]]
+[[Category:Museums in New Haven, Connecticut]]
+[[Category:Museums of American art]]
+[[Category:Museums of the ancient Near East in the United States]]
+[[Category:Museums of ancient Rome in the United States]]
+[[Category:University museums in Connecticut]]
+[[Category:Yale University buildings and structures]]

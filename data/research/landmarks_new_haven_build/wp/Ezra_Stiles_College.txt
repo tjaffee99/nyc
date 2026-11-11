@@ -1,0 +1,163 @@
+{{Short description|Residential college at Yale University}}
+{{more citations needed|date=September 2017}}
+{{Use American English|date=September 2025}}
+{{Infobox residential college
+| name = Ezra Stiles College
+| type = [[Residential colleges of Yale University|Residential college at Yale University]]
+| image = EzraStilesshield.png
+| image_size = 150px
+| caption = [[Coat of arms]] of Ezra Stiles College
+| shield =
+| university = [[Yale University]]
+| colors = Black, Gold
+| nickname = Stilesians
+| mascot = A. Bartlett Giamatti Memorial Moose
+| latin_motto =
+| english_motto =
+| named_for = [[Ezra Stiles]]
+| established = 1961
+| sister_college = [[Currier House (Harvard College)|Currier House, Harvard]]<br />[[Queens' College, Cambridge]]
+| head = Michael Koelle
+| dean = Murphy Temple
+| undergraduates = 478 (2013-2014)
+| location = 19 Tower Parkway
+| coordinates = {{coord|41.3125|-72.9306|type:edu_globe:earth_region:US-CT|display=inline,title}}
+| website = {{URL|http://ezrastiles.yalecollege.yale.edu/}}
+}}
+
+'''Ezra Stiles College''' is one of the fourteen [[residential colleges of Yale University|residential colleges]] at [[Yale University]] in [[New Haven, Connecticut]]. Built in 1961 and designed by [[Eero Saarinen]],<ref>{{cite web|url=http://ezrastiles.yalecollege.yale.edu/about-ezra-stiles|title=About Ezra Stiles - Ezra Stiles College|website=ezrastiles.yalecollege.yale.edu}}</ref> the college is named after [[Ezra Stiles]], the seventh President of Yale. Architecturally, it is known for its lack of right angles between walls in the living areas. It sits next to [[Morse College]].
+
+==Origin==
+In his report on the 1955–56 academic year, Yale President [[A. Whitney Griswold]] announced his intention to add at least one residential college to Yale's two-decade-old system. "We have the colleges so full that community life, discipline, education, even sanitation are suffering," he said.<ref name="auto">{{cite web |url= https://morse.yalecollege.yale.edu/about-us|title= About Us|author=<!--Not stated--> |website= morse.yalecollege.yale.edu/about-us|access-date= May 10, 2019}}</ref> After several years of speculation about the possibility of four or five new colleges, the university confirmed the construction of two new colleges in spring 1959, choosing [[Eero Saarinen]] ([[Yale School of Architecture]] '34) as the project architect and the Old York Square behind the [[Yale Graduate School|Graduate School]] as the site. The Old Dominion Foundation, established by [[Paul Mellon]] ([[Yale College]] '29), provided funding for the construction of Stiles and Morse, calling for the building of two "radically different" residential colleges in order to reduce over-crowding.<ref name="auto"/>
+
+==Design==
+[[File:Ezra_Stiles_College_Courtyard.jpg|thumb|250px|Courtyard of the college, with [[Payne Whitney Gymnasium]] in background]]
+The college is built of rubble masonry in the style of pre-Gothic [[Tuscany|Tuscan]] towers, similar to those in the medieval [[Italian hill town]] of [[San Gimignano]]. Many architecture critics regard the college as a "masterpiece of American architecture,"<ref>{{Cite web|title=Yale Ezra Stiles College Restoration Progress|url=https://grandlight.com/yale-university-ezra-stiles-college-lighting-restoration-progress/|access-date=2020-06-08|website=Grand Light|language=en-US}}</ref><ref>{{Cite book|last=Yale Daily News.|url=http://worldcat.org/oclc/1035649863|title=The Insider's guide to the colleges, 2006|date=2005|publisher=St. Martin's Griffin|oclc=1035649863}}</ref> though it is considered one of the "ugly ducklings" of Yale.<ref>{{cite web|url=http://www.yaleherald.com/archive/xix/2.24.95/news/saarinen.html|title=Renovations abandon Saarinen's philosophy|website=www.yaleherald.com|access-date=2014-02-04|archive-url=https://web.archive.org/web/20130517005615/http://www.yaleherald.com/archive/xix/2.24.95/news/saarinen.html|archive-date=2013-05-17|url-status=dead}}</ref> The college consists of many single rooms and suites, and in a modern attempt to capture the spirit of Gothic architecture, Saarinen eliminated all right angles from the living areas.
+
+Stiles' adjacent "twin" residential college [[Morse College|Morse]] is architecturally similar, was built at the same time, and has an adjoining dining room with a common kitchen. Architecturally, Morse and Stiles differ from older colleges by having more private space per student and the lowest ratio of natural light aperture to wall surface.
+
+[[Eero Saarinen|Saarinen]] wrote in a description of the architectural plans: "Somehow, the architecture had to declare them as colleges, not dormitories."<ref>{{Cite web|title=About Ezra Stiles {{!}} Ezra Stiles College|url=https://ezrastiles.yalecollege.yale.edu/about-ezra-stiles|website=ezrastiles.yalecollege.yale.edu|access-date=2020-05-16}}</ref> [[Eero Saarinen|Saarinen]] continued: "We have made the buildings polygonal—their shapes derived in order to provide the diversity of student rooms, to answer the needs of the site, and to give variety and sequence of spatial experiences in the courts. We conceived of these colleges as citadels of earthy, monolithic masonry - buildings where masonry walls would be dominant and whose interiors of stone, oak, and plaster would carry out the spirit of strength and simplicity. Since handicraft methods are anachronistic, we found a new technological method for making these walls: these are 'modern' masonry walls made without masons."<ref>{{Cite journal|last=Saarinen|first=Eero|date=1961|title=Eero Saarinen|journal=Perspecta|volume=7|pages=29–42|doi=10.2307/1566864|jstor=1566864|issn=0079-0958}}</ref>
+
+Because none of the interior walls make right angles, many of Stiles' dorm rooms are furnished with built-in desks and bookshelves. The college was once heated by a system that warmed the stone floors, but maintenance troubles led Yale to abandon it and install radiators.
+
+The back of the Yale University bookstore acts as a wall in the courtyard.<ref>{{Cite web|title=Morse and Ezra Stiles Colleges {{!}}|url=http://newhavenmodern.org/morse-and-ezra-stiles-colleges|website=New Haven Modern Architecture - New Haven Preservation Trust|language=en|access-date=2020-05-16}}</ref>
+
+In fall 2010, the refurbishment of adjoining Morse College gave Stiles students access to a new gym, dance studio, and the Underground Crescent Theater. Work on Stiles itself began in summer 2010, and was complete by August 2011. Among other things, it added suites to the college and refurbished several massive lighting fixtures designed by UCLA sculptor [[Oliver Andrews]], meant to be abstract and contemporary versions of "the sort of thing you'd find in an ancient castle".<ref>{{cite web |url=http://lightrestoration.com/blog/2010/10/286yale-ezra-stiles.html |title=Yale Ezra Stiles College lighting restoration in progress; AE1 fixtures complete - Grand Light |access-date=2010-10-13 |url-status=dead |archive-url=https://web.archive.org/web/20110713204915/http://lightrestoration.com/blog/2010/10/286yale-ezra-stiles.html |archive-date=2011-07-13 }} Yale Ezra Stiles College lighting restoration in progress; AE1 fixtures complete</ref>
+
+==Student life==
+[[File:Courtyard, Ezra Stiles College, New Haven CT.jpg|thumb|Courtyard of Ezra Stiles College]]
+The mascot is the [[A. Bartlett Giamatti]] Memorial [[Moose]]. Ezra Stiles students presented the college with the taxidermy moose head in 1972 when they found out that the then College Master A. Bartlett Giamatti would be leaving the role with instructions not to hang his picture in the college, as had been the custom.<ref>{{cite news |last1=Henry |first1=Diane |title=18th Leader of Yale |url=https://www.nytimes.com/1977/12/21/archives/18th-leader-of-yale-angelo-bartlett-giamatti.html |access-date=21 August 2020 |work=New York Times |date=December 21, 1977}}</ref> Giamatti in 1977 became [[Yale]]'s youngest president, and in 1989 was named [[Commissioner of Baseball]]. Giamatti's son, actor [[Paul Giamatti]], lived in the Head of College's House on the Ezra Stiles College grounds from birth through age five. The moose appears on much of the Ezra Stiles apparel and is part of the Ezra Stiles cheer.<ref>{{cite web |title=Ezra Stiles Merchandise |url=https://ezrastiles.yalecollege.yale.edu/head-college-office/ezra-stiles-merchandise |access-date=20 August 2020}}</ref>
+
+Stiles has had success in Yale's [http://www.yale.edu/intramurals intramural sports] program, winning the Tyng Cup &mdash; presented to the residential college with the best intramural sports performance &mdash; in 1964, 1988, 1990, 1991, 1992, 1994, 1995, 2003, 2004, 2005, and 2025.<ref>{{cite web|url=http://www.yale.edu/intramurals/pasttyng.htm|title=Archives<!-- Bot generated title -->|url-status=dead|archive-url=https://web.archive.org/web/20090419031140/http://www.yale.edu/intramurals/pasttyng.htm|archive-date=2009-04-19}}</ref> This 11-cup total places Stiles just one behind leader [[Timothy Dwight College]]. Stiles' 2025 championship broke a 20-year drought and culminated in a parade from Pauli Murray College back to Stiles<ref>{{Cite web|url=https://ezrastiles.yale.edu/about/event-highlights|title=Event Highlights &#124; Ezra Stiles College|website=ezrastiles.yale.edu}}</ref>.
+
+Ezra Stiles and Morse used to co-host an annual Casino Night since the early 1990s, until it was shut down due to legal concerns. A formal affair, the event featured casino-style games and live music.<ref>{{cite news |last1=Yee |first1=Vivian |title=In blow to tradition, Casino Night canceled over legal concerns |url=https://yaledailynews.com/blog/2008/11/08/in-blow-to-tradition-casino-night-canceled-over-legal-concerns/ |access-date=21 August 2020 |work=Yale Daily News |date=November 8, 2009}}</ref> Stilesians also host an annual "Medieval (K)night." For one night in April, the dining hall is transformed into a medieval banquet hall, and students enjoy medieval fare and dramatic re-enactments of "Beowulf" and dragon battles after besieging and pillaging rival colleges.<ref>{{cite web |title=Medieval (K)night |url=https://ezrastiles.yalecollege.yale.edu/about-ezra-stiles/medieval-knight |website=Ezra Stiles College |publisher=Yale College |access-date=21 August 2020}}</ref> In addition to raiding other colleges, Stiles has historically also pranked their fellow residential colleges. In 2019, the "Morse" banner in the Morse dining hall was edited overnight to read "Moose". While the culprits were never caught, Stilesians were the prime suspects.<ref>{{cite web |last1=Alden Branch |first1=Mark |title=Moose code |url=https://yalealumnimagazine.com/blog_posts/3107-moose-code |website=Yale Alumni Magazine |access-date=21 August 2020}}</ref>
+
+The college is well known for a robust arts community, maintaining a student-run art gallery, and holding "Stiles Arts Week" for over 40 years. During Arts Week, the college hosts study breaks and activities which have included painting pots for succulents, workshops in stop-motion animation, and open mic nights. For Arts Week 2020, the week kicked off with a 12-hour knitting marathon called "The Great Knit."<ref>{{cite web |title=Clubs and Committees |url=https://ezrastiles.yalecollege.yale.edu/about-ezra-stiles/clubs-and-committees |website=Ezra Stiles College |publisher=Yale College |access-date=21 August 2020}}</ref> Recently Arts Week has included the Stiles Student Film Festival, a formal affair featuring films from all Yale students regardless of major or residential college affiliation. Arts Week culminates in a "classical brunch," in which Stiles musicians perform classical music during brunch.<ref>{{cite news |last1=Turner |first1=Rianna |title=Stiles Film Festival to screen student-produced films |url=https://yaledailynews.com/blog/2019/02/06/stiles-film-festival-to-screen-student-produced-films/ |access-date=21 August 2020 |work=Yale Daily News |date=February 6, 2019}}</ref>
+
+==Heads and deans==
+{{col-begin|width=auto}}
+{{col-break}}
+{| class="wikitable"
+! Heads of Ezra Stiles College !! Term
+|-
+| [[Richard B. Sewall]] || 1959<ref>Correct date, though three years before the opening of the college. See {{cite news|title=Richard Sewall dies, was first master of Ezra Stiles College|url=http://www.yale.edu/opa/arc-ybc/v31.n27/story17.html|access-date=July 8, 2016|work=Yale Bulletin and Calendar|issue=27|publisher=Yale University|date=April 25, 2003|volume=31|url-status=dead|archive-url=https://web.archive.org/web/20160625041805/http://www.yale.edu/opa/arc-ybc/v31.n27/story17.html|archive-date=June 25, 2016}}</ref>–1970
+|-
+| [[A. Bartlett Giamatti]] || 1970–1972
+|-
+| [[Hans Wilhelm Frei]] || 1972–1980
+|-
+| [[Heinrich von Staden (historian)|Heinrich von Staden]] || 1980–1986
+|-
+| [[Traugott Lawler]] || 1986–1995
+|-
+| [[Paul Fry (professor)|Paul Fry]] || 1995–2002
+|-
+| Traugott Lawler || 2002–2003 (Acting)
+|-
+| [[Stuart B. Schwartz]] || 2003–2008
+|-
+| [[Stephen Pitti]] <small>(''as'' Head of college ''after April 27, 2016'')</small>|| 2008–2020
+|-
+| Alicia Schmidt Camacho || 2020–2025 <ref>{{cite web |url=https://news.yale.edu/2020/04/17/alicia-schmidt-camacho-appointed-head-ezra-stiles-college |website=YaleNews |access-date=21 August 2020 | title=Alicia Schmidt Camacho appointed head of Ezra Stiles College|date=17 April 2020 }}</ref>
+|-
+|Michael Koelle || 2025– present <ref>{{cite web |title=Michael Koelle named next head of Ezra Stiles College |url=https://news.yale.edu/2025/04/08/michael-koelle-named-next-head-ezra-stiles-college |website=Yale News |access-date=20 December 2025}}</ref>
+|}
+{{col-break}}
+{| class="wikitable"
+! Deans of Ezra Stiles College !! Term
+|-
+| John Wilkinson || 1963–1964
+|-
+| Ernest Thompson || 1964–1973
+|-
+| Herbert Atherton || 1973–1982
+|-
+| Rita Brackman ||  1982–1991
+|-
+| Mary Peckham || 1991–1992
+|-
+| Susan Rieger || 1992–2002
+|-
+| Jennifer Wood || 2002–2010
+|-
+| Camille Lizarribar || 2010–2016
+|-
+|Michelle Morgan || 2016 (Interim)
+|-
+| Nilakshi Parndigamage || 2016–2020<ref>{{cite news|last1=Sweedler|first1=Maya|title=Parndigamage '06 named new Stiles dean|url=http://yaledailynews.com/blog/2016/05/05/parndigamage-06-named-new-stiles-dean/|access-date=July 8, 2016|work=Yale Daily News|date=May 5, 2016}}</ref>
+|-
+| Murphy Temple || 2020–present<ref>{{Cite web | url=https://yaledailynews.com/blog/2020/04/03/stiles-dean-settles-into-a-student-less-college/ | title=Stiles dean settles into a student-less college| date=3 April 2020}}</ref>
+|}
+{{col-end}}In 2016, the title of "Master" was changed to "Head of College".<ref>{{Cite web|url=https://yaledailynews.com/blog/2016/04/28/master-to-become-head-of-college/|title="Master" to become "head of college" {{!}} Yale Daily News|website=yaledailynews.com|date=28 April 2016 |language=en-US|access-date=2018-10-24}}</ref>
+
+==Notable alumni==
+*[[Akhil Amar]], constitutional law professor (ES '80)<ref name=":0" />
+*[[Anne Barnard]], journalist, [[The New York Times]] (ES '92)<ref name=":0" />
+*[[Ellen Barry (journalist)|Ellen Barry]], Chief International Correspondent, [[The New York Times]] (ES '92)<ref name=":0" />
+*[[Frances Beinecke]], environmentalist (ES '71)<ref name=":0" />
+*[[Paul Bremer]], director and proconsul of post-war [[Iraq]] [[Coalition Provisional Authority]] (ES '63)<ref name=":0" />
+*[[Jack Dalrymple]], former [[Governor of North Dakota]] (ES '70)<ref name=":0" />
+*[[Dan Froomkin]], political columnist and blogger, ''[[The Washington Post]]'' (ES '85)<ref name=":0" />
+*[[David Gergen]], presidential advisor and political commentator (ES '63)<ref name=":0" />
+*[[Sara Gilbert]], actress (ES '97)<ref name=":0" />
+*[[Rob Glaser]], technology executive (ES '84){{citation needed|date=August 2024}}
+*[[Paul Goldberger]], architecture critic (ES '72)<ref name=":0" />
+*[[Mark Harris (journalist)|Mark Harris]], journalist and author (ES '85){{citation needed|date=August 2024}}
+*[[George Hickenlooper]], filmmaker (ES '86){{citation needed|date=August 2024}}
+*[[Mitch Kapor]], founder, [[Lotus Development]] Corp. (ES '71)<ref name=":0" />
+*[[Robert G. Kaiser]], associate editor, ''[[The Washington Post]]'' (ES '64)<ref name=":0" />
+*[[Lloyd Kaufman]], director, producer, and owner of [[Troma]] Entertainment. (ES '69)<ref name=":0" />
+*[[Brett Kavanaugh]], Associate Justice of the Supreme Court of the United States. (ES '87)<ref name=":0" />
+*[[Zoe Kazan]], actress and writer (ES '05)<ref name=":0" />
+*[[Phil LaMarr]], actor and comedian (ES '89)<ref name=":0" />
+*[[Mark Linn-Baker]], actor (ES '79)<ref name=":0" />
+*[[Rebecca Miller]], filmmaker and writer (ES '84)<ref name=":0" />
+*[[Edward Norton]], actor (ES '91)<ref name=":0" />
+*[[Barrington Daniels Parker Jr.]], federal appellate judge (ES '65)<ref name=":0">{{Cite web | url=https://ezrastiles.yalecollege.yale.edu/about-ezra-stiles/notable-alumni | title=Notable Alumni &#124; Ezra Stiles College}}</ref>
+*[[Nathaniel Persily]], law professor (ES '92)<ref name=":0" />
+*[[Alexandra Robbins]], journalist and author (ES '98)<ref name=":0" />
+*[[Rick Jaffa and Amanda Silver|Amanda Silver]], screenwriter and film producer (ES '85){{citation needed|date=August 2024}}
+*[[Hampton Sides]], historian, author and journalist (ES '84){{citation needed|date=August 2024}}
+*[[Robert Simonds]], film producer and entertainment executive (ES '85){{citation needed|date=August 2024}}
+*[[Lamar Smith]], U.S. congressman from [[Texas]] (ES '69)<ref name=":0" />
+*[[Tom Steyer]], hedge fund manager, philanthropist, and environmentalist (ES '79)<ref name=":0" />
+*[[Alex Timbers]], writer/director and founder of Les Freres Corbusier (ES '01)<ref name=":0" />
+*[[Jessica Tuck]], actress (ES '86){{citation needed|date=August 2024}}
+*[[Sheldon Whitehouse]], U.S. Senator from [[Rhode Island]] (ES '78)<ref name=":0" />
+*[[Bob Woodward]], asst. managing editor and political reporter, ''[[The Washington Post]]'' (ES '65)<ref name=":0" />
+*[[John Yarmuth]], U.S. Congressman from [[Kentucky]] (ES '69)<ref name=":0" />
+
+==References==
+{{Reflist}}
+
+==External links==
+{{Commons category|Ezra Stiles College}}
+*[http://ezrastiles.yalecollege.yale.edu/ Official website of Ezra Stiles College, Yale]
+
+{{Yale}}
+{{Eero Saarinen}}
+{{Authority control}}
+
+[[Category:Eero Saarinen buildings and structures]]
+[[Category:Modernist architecture in Connecticut]]
+[[Category:Residential colleges of Yale University]]

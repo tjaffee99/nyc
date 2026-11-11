@@ -1,0 +1,36 @@
+{{Short description|Skyscraper in New Haven, Connecticut}}
+{{Use American English|date=September 2025}}
+{{Infobox building
+|name                = 195 Church Street
+|image               = 195 Church Street cropped, New Haven.jpg
+|caption             = 195 Church Street in October of 2007
+|coordinates         = {{coord|41|18|28|N|72|55|25|W|display=inline,title}}
+|pushpin_map         = Connecticut#USA
+|status              = Complete
+|roof                = {{convert|270|ft|m|abbr=on}}
+|floor_count         = 18
+|completion_date     = 1974
+|architectural_style = [[Postmodern]]
+|architect           = William Pederson
+}}
+
+'''195 Church Street''' (Formerly the '''New Haven Savings Bank Tower''') is a {{convert|270|ft|m|abbr=on}} tall [[postmodern]] skyscraper in [[Downtown New Haven]], Connecticut, US. It was built in 1974 and has 18 floors.<ref>{{Cite web|url=http://skyscraperpage.com/cities/?buildingID=40852|title=New Haven Savings Bank, New Haven - SkyscraperPage.com|website=skyscraperpage.com}}</ref><ref>{{Cite web|url=https://www.skydb.net/building/423356314/195-church-street-new-haven/|title=195 Church Street in New Haven - SKYDB}}</ref><ref>{{cite web | title=Building Details | url=https://nhba.yale.edu/building?id=157 }}</ref> At the time of its completion, it was the [[List of tallest buildings in New Haven|second tallest building]] in the city. As of January 2026, it is the [[List of tallest buildings in New Haven|fifth tallest building]] in the city. Notable tenants include [[KeyBank]], [[Raymond James Financial]], and [[SLR Consulting]].<ref>https://usearch.com/property/195-church-st-new-haven-ct#tenants</ref>
+
+The building has a cafe on the first floor which opened in 2023, which replaced a [[Starbucks]] that closed in 2020 due to the [[COVID-19 pandemic]].<ref>{{Cite web|url=https://www.fepocafe.com/|title=HOME|website=Fepo}}</ref><ref>{{cite web | title=Church Street Starbucks Shuttered | url=https://www.newhavenindependent.org/article/starbucks_closes }}</ref>
+
+[[File:195 Church Street a.jpg|left|thumb|195 Church Street viewed from the corner of Elm and Church Street.]]
+
+==See also==
+* [[List of tallest buildings in Connecticut]]
+* [[List of tallest buildings in New Haven]]
+
+==References==
+{{reflist}}
+
+{{New Haven skyscrapers}}
+
+[[Category:1974 establishments in Connecticut]]
+[[Category:Skyscraper office buildings in Connecticut]]
+[[Category:Skyscrapers in New Haven, Connecticut]]
+[[Category:Postmodern architecture in the United States]]
+[[Category:Office buildings completed in 1974]]

@@ -1,0 +1,66 @@
+{{Short description|Skyscraper in New Haven, Connecticut}}
+{{Use American English|date=February 2025}}
+{{Infobox building
+|name                    = 360 State Street
+|image                   = 360 State Street, New Haven, Connecticut.jpg
+|location                = 360 State Street<br>[[New Haven]], [[Connecticut]]
+|former_name             = Shartenberg Site Tower I
+|coordinates             = {{coord|41.3047|-72.9230|region:US-CT_type:landmark|display=it}}
+|status                  = Complete
+|roof                    = {{convert|103|m|abbr=on}}
+|floor_count             = 31
+|building_type           = Rental apartments
+|cost                    = US$180 million
+|construction_start_date = December 1, 2008
+|topped_out_date         = December 11, 2009 <ref>{{cite web|last=Galvan |first=Eva |url=http://www.yaledailynews.com/crosscampus/2009/12/11/360-state-celebrates-construction-benchmark/ |title=360 State celebrates construction benchmark |work=Yale Daily News |date=11 December 2009 |access-date=3 April 2013}}</ref>
+|completion_date         = 2010
+|floor_area              = {{convert|700000|sqft|abbr=on}}
+|developer               = Becker + Becker Associates
+|architect               = Becker + Becker Associates<br>Schuman, Lichtenstein, Claman & Efron
+|main_contractor         = [[Suffolk Construction Co.]]
+|structural_engineer     = [[DeSimone Consulting Engineers]]
+|references              = <ref>{{ctbuh|12200}}</ref><ref>{{Cite web |url=https://www.emporis.com/buildings/281722 |archive-url=https://web.archive.org/web/20160306014608/https://www.emporis.com/buildings/281722 |url-status=usurped |archive-date=March 6, 2016 |title=Emporis building ID 281722 |work=[[Emporis]]}}</ref><ref>{{skyscraperpage|64053}}</ref>
+}}
+
+'''360 State Street''' is a {{convert|338|ft|m|adj=on}} residential [[skyscraper]] completed in 2010 in [[New Haven, Connecticut]]. It is the [[List of tallest buildings in New Haven|second-tallest building]] in the city, and the largest apartment building in the state.<ref>{{cite web |url=http://newyork.construction.com/features/archive/2009/06_C_360_State_Street.asp |title=360 State Street |work=New York Construction |access-date=4 June 2011}}</ref><ref>{{cite web|last=Bass |first=Paul |url=http://www.newhavenindependent.org/index.php/archives/entry/dig_out_that_downturn/ |title=Dig Out That Downturn |work=New Haven Independent |date=1 December 2008 |access-date=2011-04-06}}</ref> DeSimone Consulting Engineers were the structural engineers on the building and it won the 2009 New York Construction – Top Project of the Year.<ref>{{Cite web|title = 360 State Street - DeSimone|url = http://www.de-simone.com/projects/project/360-state-street/|website = www.de-simone.com|access-date = 2015-12-16}}</ref>
+
+==Description ==
+
+The mixed-use [[Modern architecture|modernist]] building, includes 500 luxury apartments and {{convert|25000|sqft|abbr=on}} of retail space. Designated a "green" building by the [[US Green Building Council]] (USGBC), it is the first residential building in Connecticut to gain [[Leadership in Energy and Environmental Design]] (LEED) Platinum status and includes a rooftop garden and a pool as well as a corner "pocket park" that may be developed as a day care center in the future.<ref>{{cite web | author=Bruce Becker |url=http://www.prnewswire.com/news-releases/leading-the-way-in-green-design-connecticuts-first-leed-platinum-apartment-building-opens-leasing-office-87654877.html |title=Leading the Way in Green Design, Connecticut's First LEED Platinum Apartment Building |work=PRNewswire |date=15 March 2010 |access-date=3 April 2013}}</ref><ref>{{cite web |url=https://www.downtownnewhaven.blogspot.com/2008/04/500-unit-shartenberg-mixed-use.html |title=Design New Haven: 500-unit Shartenberg Mixed-Use Development Progresses |work=Downtown New Haven |date=2009-10-21 |access-date=3 April 2013}}</ref> A full-scale food co-op occupies the building's ground floor.<ref>{{cite web |url=https://www.courant.com/2010/03/09/new-haven-apartment-tower-4700-a-month-penthouse/ |title=New Haven Apartment Tower: $4,700-A-Month Penthouse |work=Hartford Courant |date=2010-03-09 |access-date=2011-04-06}}</ref> 360 State was constructed on the site where [[Shartenberg's Department Store]] stood from 1915 to 1962.<ref>{{cite web|work=Emporis |url=http://www.emporis.com/application/?nav=building&lng=3&id=shartenbergsitetower-newhavenuen-ct-usa |archive-url=https://web.archive.org/web/20110604233145/http://www.emporis.com/application/?nav=building&lng=3&id=shartenbergsitetower-newhavenuen-ct-usa |url-status=usurped |archive-date=June 4, 2011 |title=360 State Street, New Haven, U.S.A. |access-date=3 April 2013}}</ref> The building allows pets except for the common areas of the 6th floor.
+
+== Environmentally friendly features ==
+* 360 State Street was Connecticut's first residence targeting LEED Platinum Certification 
+* 1/2 the [[carbon footprint]] and utility bill of a conventional apartment 
+* [[PureCell System|400 kW fuel cell]] on site produces renewable power <ref>[http://www.wtnh.com/dpp/news/new_haven_cty/New-Haven-360-state-street-gets-'green'-fuel-cell 360 State Street gets 'green' fuel cell ] News8 Wtnh Retrieved Friday, 28 May 2010</ref>
+* Elevators recapture their own energy
+* Electric-car charging stations
+* Zipcars available 
+* Bicycle storage 
+* Built with recycled and local construction materials
+* Recycling rooms on each floor
+* Half-acre green roof with [[rainwater harvesting]] and irrigation system 
+* High-efficiency lighting and occupancy sensors
+* Demand-control ventilation
+* Exhaust-heat energy recovery
+* Location next to State Street train station provides direct access to New York. Nearby Union Station provides travel to [[Boston]], [[Hartford, Connecticut|Hartford]] and [[Washington, D.C.|Washington, DC]]
+
+==See also==
+* [[List of tallest buildings in New Haven]]
+
+==References==
+{{reflist}}
+{{commonscat}}
+
+== External links ==
+*{{official website|http://www.360statestreet.com}}
+
+{{New Haven skyscrapers}}
+
+[[Category:Residential buildings completed in 2008]]
+[[Category:Buildings and structures in New Haven, Connecticut]]
+[[Category:Skyscrapers in New Haven, Connecticut]]
+[[Category:Residential skyscrapers in Connecticut]]
+[[Category:Leadership in Energy and Environmental Design platinum certified buildings]]
+[[Category:Modernist architecture in Connecticut]]
+[[Category:Apartment buildings in Connecticut]]
+[[Category:2008 establishments in Connecticut]]

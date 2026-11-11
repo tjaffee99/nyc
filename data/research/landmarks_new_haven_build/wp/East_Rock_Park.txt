@@ -1,0 +1,81 @@
+{{Use American English|date=January 2025}}
+{{Use mdy dates|date=August 2023}}
+{{Infobox NRHP
+| name         = East Rock Park
+| nrhp_type    = hd
+| nocat        = yes
+| image        = 
+| caption      = 
+| location     = Roughly bounded by State, Davis, Livingston Streets, Park and Mitchell Drives, and Whitney Avenue, [[New Haven, Connecticut]]
+| coordinates  = {{coord|41|19|48|N|72|54|16|W|display=inline,title}}
+| pushpin_map  = Connecticut#USA
+| architect    = Mitchell, Donald Grant; Olmsted Brothers, et al.
+| architecture = Queen Anne, Shingle Style, Tudor Revival
+| added        = April 15, 1997
+| area         = {{convert|427|acre}}
+| ref_num      = 97000299<ref name="nris">{{NRISref|2009a}}</ref>
+}}
+'''East Rock Park''' is a park in the city of [[New Haven, Connecticut|New Haven]] and the town of [[Hamden, Connecticut]], that is operated as a New Haven city park. The park surrounds and includes the mountainous ridge named [[East Rock]] and was developed with naturalistic landscaping. The entire {{convert|427|acre|ha|adj=on}} park is listed on the [[National Register of Historic Places]].
+
+==Description==
+[[Image:Eastrock02.JPG|left|thumb|180px|Soldiers and Sailors Monument]]
+East Rock is a popular outdoor recreation destination among residents and visitors of the greater New Haven region. Views from the clifftops span metropolitan New Haven, Long Island Sound, and [[Long Island]]. The park is open year-round to hikers and walkers. The automobile road is open April 15 to November 1, 8 a.m. to sunset and November 1 to March 31, Friday, Saturday, Sunday, and holidays, 8 a.m. to 4 p.m., weather permitting. Activities permitted in the park include [[hiking]], [[snowshoeing]], [[cross-country skiing]], [[picnicking]], [[bicycling]] (on roads and city-designated mountain bike trails only), [[boating]] (on the Mill River), [[bird watching]], and [[dog walking]]. [[Rock climbing]], [[human swimming|swimming]], and [[alcoholic beverage]]s are prohibited. A number of hiking trails traverse the ridge, most notably the Giant Steps Trail which ascends to the summit at a near-vertical pitch from the south. At the foot of the mountain are located football, baseball, and soccer fields, tennis courts, basketball courts, and playgrounds. The Trowbridge Environmental Center is open Thursdays and Fridays from 10:00 am to 5:00 pm, and at least one Saturday a month for public programs; it offers displays and information about the geology and ecosystem of East Rock. The Pardee Rose Garden and Greenhouse features roses and other flowering plants from spring to fall, and is a popular place to shoot wedding pictures.
+
+The park's layout is the work of [[Donald Grant Mitchell]] and the [[Olmsted Brothers]].<ref name=nrhpinv3/> The covered bridge is named after A. Frederick Oberlin, a local hero of the [[First World War]].
+
+[[Image:Gaff clean up.JPG|thumb|Friends of East Rock, New Haven Graffiti Clean up. The experienced rock climbers of the group rappelled off the rock to get the harder to reach places.]]
+The Friends of East Rock Park organization, founded in 1982, is a community and environmental advocacy group that assists with park maintenance by hosting social events and volunteer work days.<ref>[https://www.friendsofeastrockpark.org Friends of East Rock Park]</ref>
+
+==  National Register of Historic Places ==
+The National Register of Historic Places listing for East Rock Park recognizes six [[contributing buildings]], one other [[contributing structure]], six [[contributing objects]] and one [[contributing site]] The park's historic, contributing elements include:
+*English Gate, {{Circa|1890}}, at View Street, with [[trap rock]]
+*Pardee Rose Garden, 1922, on State Street
+*Bishop Gate, c. 1890, on State Street, with trap rock
+*Director's Residence, c. 1900
+*Sheep Barn, c. 1900, a large [[Colonial style architecture|Colonial]]/[[Shingle Style architecture|Shingle]]-style building
+*Queen Anne Barn, c. 1900
+*Greenhouses, 1920s
+*[[Soldiers' and Sailors' Monument (New Haven)|Soldiers' and Sailors' Monument]], from 1887, a 122-foot monument at the summit
+*Whitney Gate, c. 1890 on Whitney Avenue, with brownstone
+*Walls, c. 1900
+*East Rock Road Bridge, a steel arch span bridge from the 1940s
+There are also a contributing storage shed and a number of non-contributing buildings.<ref name="nrhpinv3">{{cite web|url={{NRHP url|id=97000299}} |title=National Register of Historic Places Inventory-Nomination: East Rock Park |date=July 1996 |author=David F. Ransom and John F. A. Herzan |publisher=National Park Service}} and {{NRHP url|id=97000299|title=''Accompanying 21 photos, most from 1995 and 1996 (photo captions on pages 16-17 of text document)''|photos=y}}</ref>
+
+<gallery mode=packed heights=150>
+Image:Pardee Rose Garden.jpg|Pardee Rose Garden
+Image:East rock 065.JPG|Greenhouses and Learning center at Pardee Rose Gardens
+Image:New Haven East Rock.JPG|Annual cycling race
+Image:Stairs to the top of aEast rock.JPG| The stairs to the top of East Rock
+Image:Hiking Road.JPG|The paved hiking road to the top of East Rock
+Image:East Rock Park new haven082.JPG|View the city and harbor
+Image:East rock 089.JPG|The historic walls on the roadway to the Summit
+Image:Whitney gate.jpg|Whitney Gate
+Image:Rice Field East rock.JPG|Frisbee players at Rice Field. The [[Frisbee]] was invented in New Haven
+Image:2009EastRockCanoeMillRiver.jpg|Canoeing down the Mill River
+</gallery>
+
+== See also ==
+*[[East Rock, New Haven|East Rock (neighborhood)]]
+*[[Cedar Hill (New Haven)]]
+* [[Mill River (Connecticut)]]
+*[[National Register of Historic Places listings in New Haven, Connecticut]]
+*[[National Register of Historic Places listings in New Haven County, Connecticut]]
+
+==References==
+{{Reflist}}
+
+==External links==
+{{Commons category|East Rock Park}}
+*[https://www.newhavenct.gov/Home/Components/FacilityDirectory/FacilityDirectory/10/ East Rock Park - City of New Haven]
+*[http://www.geocaching.com/seek/nearest.aspx?lat=41.3273193&lng=-72.9045461&dist=25 Geocaching in East Rock and the surrounding area]
+
+{{NRHP in New Haven County, Connecticut}}{{Protected areas of Connecticut}}{{Authority control}}
+
+[[Category:Parks in Hamden, Connecticut]]
+[[Category:Parks in New Haven, Connecticut]]
+[[Category:Historic districts in New Haven County, Connecticut]]
+[[Category:Queen Anne architecture in Connecticut]]
+[[Category:Shingle style architecture in Connecticut]]
+[[Category:Historic districts on the National Register of Historic Places in Connecticut]]
+[[Category:Parks on the National Register of Historic Places in Connecticut]]
+[[Category:National Register of Historic Places in New Haven County, Connecticut]]

@@ -1,0 +1,60 @@
+{{Short description|Skyscraper in New Haven, Connecticut}}
+{{Use American English|date=February 2025}}
+{{Infobox building
+|name               = The Union 
+|image              = Union_and_New_Haven_Trust_Building,_New_Haven,_Connecticut.jpg
+|image_size         = 175px
+|caption            = The red-brick Union and New Haven Trust Building as seen from the [[New Haven Green]].
+|highest_region     = New Haven
+|highest_start      = 1927
+|highest_end        = 1938
+|location           = 205 Church Street <br> [[New Haven]], [[Connecticut]] 06510-2100<br>[[United States]]
+|coordinates        = {{coord|41.3085|-72.9238|display=inline,title}}
+|status             = 
+|completion_date    = 1927
+|building_type      = Office
+|floor_count        = 13
+|references         = <ref>{{Cite web |url=https://www.emporis.com/buildings/126852 |archive-url=https://web.archive.org/web/20160507044055/https://www.emporis.com/buildings/126852 |url-status=usurped |archive-date=May 7, 2016 |title=Emporis building ID 126852 |work=[[Emporis]]}}</ref>
+|tip                = {{convert|242|ft|m|abbr=on}}
+|top_floor          = 
+|antenna_spire      = 
+|floor_area         = {{convert|184,480|sqft|m2}}
+|architect          = 
+|owner              = 
+}}
+
+The former Union and New Haven Trust Building, located at '''205 Church Street''' in [[New Haven]], [[Connecticut]], United States, was the tallest building in New Haven when it was constructed in 1927. This [[Georgian (architecture)|Georgian]]-[[Colonial Revival]] [[skyscraper]] was designed by architects [[Cross and Cross (Architects)|Cross and Cross]]. The building, sited on the northeast corner of the historic [[New Haven Green]], changed hands several times over the years. In 2014 it was converted into residences and renamed '''The Union.'''
+
+==History==
+Situated on the corner of Elm and Church streets, the site was the home of Richard Perry in the 1640s, who served as secretary to the General Court of the [[Colony of New Haven]].<ref>[http://www.nhregister.com/articles/2008/12/26/news/a3_newchurch_street.txt Landmark building undergoes repairs- The New Haven Register - Serving New Haven, Connecticut<!-- Bot generated title -->] {{webarchive |url=https://web.archive.org/web/20120312044744/http://www.nhregister.com/articles/2008/12/26/news/a3_newchurch_street.txt |date=March 12, 2012 }}</ref>
+
+The building was constructed for the Union and New Haven Trust Co. during the [[Roaring Twenties]],  designed to reflect the architecture of the Green and its three historic churches. The building's golden [[cupola]] intentionally mirrors that of the Green's United Church.<ref>E. M. Brown, New Haven: A guide to architecture and urban design, Yale University Press, 1976.</ref> The building was the tallest in New Haven when it opened in 1927.<ref name="TheUnion">{{cite web |title=Rich in History |url=https://renttheunion.com/union-story/history/ |website=The Union |publisher=The Union Residences |accessdate=15 August 2020}}</ref>
+
+The Union Trust Company moved its headquarters to Stamford in 1981, but kept a branch on the ground floor. The bank was purchased in 1995 by [[First Union Corporation]], which later took the name of its [[Wachovia]] acquisition and in 2010 merged into [[Wells Fargo]].<ref>{{cite web|url=https://portal.ct.gov/dob/bank-information/bank-information/bank-mergersacquisitions-in-connecticut |title=DOB: Bank Mergers/Acquisitions in Connecticut |access-date=August 12, 2014 |url-status=live |archive-url=https://web.archive.org/web/20141112184923/http://www.ct.gov/dob/cwp/view.asp?a=2228&q=296976 |archive-date=November 12, 2014 }}</ref> The building's ground floor is still occupied by a Wells Fargo branch.<ref>[http://www.newhavenindependent.org/index.php/archives/entry/so_long_officemates._hello_hotel/ So Long, Officemates. Hello Hotel? | New Haven Independent<!-- Bot generated title -->]</ref>
+
+==Apartments==
+On March 28, 2013, Cooper Church LLC, a New York-based developer, purchased the 184,480 square-foot building from Hampshire Hotels & Resorts for $13.5 million. The New Haven Board of Zoning Appeals (BZA) approved Cooper Church’s proposed zoning variances in June 2013. Construction to convert the former office building to 138 studio, one-bedroom, and two-bedroom market rate rental apartments began in April 2014.
+
+[[Image:NorthChurchNewHavenGreen.jpg|left|150px|thumb|United Church with Union and New Haven Trust Building in background; The Union building's [[cupola]] is a tribute to the Church's golden dome.]]
+Leasing at The Union commenced in spring 2015. The building includes 138 studio, one-bedroom, and two-bedroom apartments.<ref>{{cite web |title=The Union – New Haven's Newest Rentals – to Open This Spring |url=https://www.prweb.com/releases/the_union_new_haven_s_newest_rentals_to_open_this_spring/prweb12505291.htm |website=PR Web |access-date=15 August 2020}}</ref>
+{{commonscat|Union and New Haven Trust Building}}
+==References==
+{{reflist}}
+
+{{s-start}}
+{{succession box
+| before=Unknown
+| title= [[List of tallest buildings in New Haven|Tallest Building in New Haven]] 
+| years=1927&mdash;1938<br/><small>50 m</small>
+| after=[[Southern New England Telephone Company Administration Building]]
+}}
+{{s-end}}
+
+{{DEFAULTSORT:Union And New Haven Trust Building}}
+[[Category:Office buildings completed in 1927]]
+[[Category:Buildings and structures in New Haven, Connecticut]]
+[[Category:Skyscraper office buildings in Connecticut]]
+[[Category:Skyscrapers in New Haven, Connecticut]]
+[[Category:Colonial Revival architecture in Connecticut]]
+[[Category:Georgian Revival architecture in Connecticut]]
+[[Category:1927 establishments in Connecticut]]

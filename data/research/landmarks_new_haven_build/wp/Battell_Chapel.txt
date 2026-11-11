@@ -1,0 +1,88 @@
+{{Infobox building
+| name                = Battell Chapel
+| native_name         = 
+| native_name_lang    = 
+| former_names        = 
+| alternate_names     = 
+| etymology           = 
+| status              = 
+| image               = Battell Chapel.jpg
+| image_alt           = 
+| image_size          = 250px
+| caption             = Battell Chapel in 2019
+| pushpin_relief      = 
+| altitude            = 
+| building_type       = 
+| architectural_style = [[High Victorian Gothic]]
+| structural_system   = 
+| material            = 
+| cost                = 
+| ren_cost            = 
+| client              = [[Yale University]]
+| location            = 
+| address             = 400 College Street
+| location_town       = [[New Haven, Connecticut]]
+| location_country    = [[United States]]
+| iso_region          = 
+| groundbreaking_date = 
+| construction_start_date = 1874
+| completion_date     = 1876
+| opened_date         = 
+| inauguration_date   = 
+| relocated_date      = 
+| renovation_date     = 
+| demolished_date     = 
+| destruction_date    = 
+| height              = 
+| diameter            = 
+| circumference       = 
+| architectural       = 
+| roof                = 
+| top_floor           = 
+| other_dimensions    = 
+| floor_count         = 
+| floor_area          = 
+| grounds_area        = 
+| architect           = [[Russell Sturgis|Russell Sturgis, Jr.]]
+| awards              = 
+| designations        = 
+| ren_architect       = 
+| number_of_rooms     = 
+| url                 = 
+| embedded            = 
+| references          = 
+}}
+'''Battell Chapel''' is the largest [[chapel]] of [[Yale University]] in [[New Haven, Connecticut]]. Built in 1874–76, it was funded primarily with gifts from [[Joseph Battell (1806–1874)|Joseph Battell]] and others of his family.  Succeeding two previous chapel buildings on Yale's [[Old Campus]], it provided space for daily chapel services, which were mandatory for [[Yale College]] students until 1926 (all-male, mostly [[Protestant]]).<ref>{{cite web|url= https://chaplain.yale.edu/battell-chapel|title=Battell Chapel - History|publisher=Chaplain’s Office - Yale University}}</ref><ref>{{Cite web |title=Captive congregation |url=https://yalealumnimagazine.org/articles/6164-captive-congregation |access-date=2026-01-20 |website=yalealumnimagazine.org |language=en}}</ref><ref>{{Cite book |last=DEMING |first=CLARENCE |url=https://www.google.com/books/edition/YALE_YESTERDAYS/eBjveLC47KgC?hl=en&gbpv=1&pg=PA16-IA4&printsec=frontcover |title=YALE YESTERDAYS |date=1915 |language=en}}</ref> Together with [[Durfee Hall]] and Farnam Hall, the chapel was part of a program begun in the 1870s to build up the perimeter of [[Old Campus]] and separate it from the rest of the city. These three buildings, all by the same architect, were among the first at Yale to be named for donors rather than function, location, or legislative funding.
+
+Battell Chapel is one of the locations on the [[Connecticut Freedom Trail]].
+
+==Construction==
+The building is a masonry structure of [[brownstone|New Jersey brownstone]], and decorative elements are made of blue Ohio sandstone.<ref name="Kingsley"/> A flat [[coffer|coffered]] ceiling that covers the auditorium is constructed of wooden beams and painted blue with gold leaf. Interior wood paneling and pews are solid oak.<ref name="Kingsley"/>
+
+==Iconography and ornament==
+[[File:Yale Battell Chapel.jpg|thumb|left|Battell Chapel altar]]
+[[File:Stained glass window depicting Seneca, Battell Chapel.jpg|thumb|A window depicting [[Seneca the Younger|Seneca]], by [[Maitland Armstrong]], commemorating [[Thomas Anthony Thacher]]]]
+On the chapel's upper [[pier (architecture)|pier walls]] appear the symbols of the [[Greek Cross]] and the [[Shield of the Trinity]], emphasizing Yale's conservative [[Congregational church|Trinitarianist Congregational]] religious heritage.<ref name="Kingsley">{{cite book |last=Kingsley |first=William L. |chapter=The Battell Chapel |title=Yale College: A Sketch of Its History |editor-last=Kingsley |editor-first=William L. |year=1879 |location=New York |publisher=Henry Holt & Co. |url=https://archive.org/stream/yalecollegesketc12king#page/n47/mode/2up |pages=287–296}}</ref>
+
+The Battell Chapel clock, with chimes consisting of five large bells that rang at each quarter hour, was at one time the clock to which others at Yale was synchronized; however, the chimes have been silent for years.<ref name=Herald>{{cite web|url= http://yaleherald.com/uncategorized/before-our-time-battell-chapels-clock/|title= Before our time: Battell Chapel’s clock|author= Claire Zhang|date= 7 October 2011|work= The Yale Herald|publisher= |accessdate= 26 March 2012|archive-url= https://web.archive.org/web/20121017125724/http://yaleherald.com/uncategorized/before-our-time-battell-chapels-clock/|archive-date= 17 October 2012|url-status= dead}}</ref> The organ was the gift of Joseph Battell's sister, Irene Battell Larned. 
+
+The Apse Memorial Windows were designed by the architect [[Russell Sturgis]] and installed by Slack, Booth & Co. of [[Orange, New Jersey]] in 1876.  At the top of the center window appears the name of an early benefactor of Yale University, [[Elihu Yale]], and around his name are the names of the [[List of Presidents of Yale University|first nine presidents of Yale College]]. Stained-glass windows flanking the nave commemorate benefactors and professors of Yale, many of whom were theologians. These include [[George Berkeley]], [[Jonathan Edwards (theologian)|Jonathan Edwards]], [[Benjamin Silliman]], [[James Luce Kingsley]], [[Chauncey Allen Goodrich|Chauncey A. Goodrich]], [[Nathaniel W. Taylor]], [[Eleazar Thompson Fitch]], [[Denison Olmstead]], [[Edward C. Herrick]], [[William Augustus Larned (professor)|William A. Larned]], [[Anthony D. Stanley]], and [[James Hadley (scholar)|James Hadley]].<ref name="Kingsley"/>
+
+==Current use==
+In the twenty-first century, Battell Chapel is the setting for the Sunday services of the University Church in Yale University, conducted by a Yale Chaplain.  The chapel also serves as a concert hall and is the main performance venue for the Greater New Haven Youth Ensembles of Neighborhood Music School: The Greater New Haven Youth Orchestra, Chamber Orchestra, and Concert Orchestra as well as the Civic Orchestra of New Haven and the Greater New Haven Symphonic Wind Ensemble and Concert Band.
+
+==References==
+*Patrick L. Pinnell, ''The Campus Guide: Yale University'', Princeton Architectural Press, New York, 1999.
+{{reflist}}
+
+==External links==
+{{commons category|Battell Chapel}}
+*[http://www.yale.edu/chaplain/battell_history.html Battell Chapel History]
+*[http://www.yale.edu/chaplain/tour.html Battell Chapel Virtual Tour]
+
+{{coord|41.309|-72.928|display=title}}
+
+[[Category:Religious buildings and structures in Connecticut]]
+[[Category:Churches completed in 1876]]
+[[Category:University and college chapels in the United States]]
+[[Category:Yale University buildings and structures]]

@@ -1,0 +1,118 @@
+{{Short description|Art museum in Connecticut, United States}}
+{{Use mdy dates|date=March 2025}}
+{{Infobox building
+| name             = Yale Center for British Art
+| image            = Yale_Center_for_British_Art_(54106458295).jpg
+| caption          = The Yale Center for British Art at Yale University (2024)
+| mapframe         = yes
+| mapframe-caption = Interactive fullscreen map
+| mapframe-zoom    = 13
+| mapframe-marker  = museum
+| mapframe-wikidata = yes
+| coordinates      = {{Coord|format=dms|display=it}}
+| building_type    = [[Art museum]], Rare Book [[Library]], [[Institute]], [[Art center]]<ref name="YCBA: About">{{citation | title= Yale Center for British Art: About | publisher= ARTINFO | year= 2008 | url= http://www.artinfo.com/galleryguide/19731/6276/about/yale-center-for-british-art-new-haven/ | archive-url= https://web.archive.org/web/20240919075307/http://www.artinfo.com/galleryguide/19731/6276/about/yale-center-for-british-art-new-haven/ | url-status= usurped | archive-date= September 19, 2024 | access-date= 2008-07-30 }}</ref>
+| architectural_style = Modern
+| structural_system = Concrete frame
+| address          = 1080 Chapel Street
+| location         = [[New Haven]], [[Connecticut]]
+| completion_date  = 1974
+| architect        = [[Louis Kahn]]
+| public_transit   = {{bus icon}} [[File:CTtransit logo.png|16px|link=Connecticut Transit New Haven]] 237, 238, 241, 243, 246, 254, 255
+| website          = {{URL|https://britishart.yale.edu/}}
+}}
+The '''Yale Center for British Art''' at [[Yale University]] in central [[New Haven, Connecticut]], United States, houses the largest and most comprehensive collection of [[British art]] outside the [[United Kingdom]].<ref>{{Cite web|url=https://artsandculture.google.com/partner/yale-center-for-british-art|title=Yale Center for British Art|website=Google art and culture}}</ref> The collection of paintings, sculpture, drawings, prints, rare books, and manuscripts reflects the development of British art and culture from the [[Elizabethan era|Elizabethan period]] onward. Its director is currently Martina Droth.<ref>{{Cite web |last=Geldzahler |first=Isabella Sanchez, Alex |date=2025-01-15 |title=Martina Droth appointed new director of Yale Center for British Art |url=https://yaledailynews.com/blog/2025/01/15/martina-droth-appointed-new-director-of-yale-center-for-british-art/ |access-date=2025-04-13 |website=Yale Daily News |language=en}}</ref>
+
+==Creation==
+The center was established by a gift from [[Paul Mellon]] (Yale College Class of 1929) of his British art collection to [[Yale University|Yale]] in 1966, together with an endowment for operations of the center, and funds for a building to house the artworks. The building was designed by [[Louis I. Kahn]] and constructed at the corner of York and Chapel Streets in New Haven, across the street from one of Kahn's earliest buildings,<ref>{{Cite web|url=https://www.theguardian.com/artanddesign/2016/may/11/yale-center-for-british-art-louis-khan-connecticut|title=Yale Center for British Art: deft incisions give Louis Kahn a masterful makeover|last=Wainwright|first=Oliver|date=11 April 2016|website=The Guardian}}</ref> the [[Yale University Art Gallery]], built in 1953.
+
+The Yale Center for British Art was completed after Kahn's death in 1974, and opened to the public on April 15, 1977. The exterior is made of matte steel and reflective glass; the interior is made of [[travertine]] marble, white oak, and Belgian linen. Kahn succeeded in creating intimate galleries where one can view objects in diffused natural light. He wanted to allow in as much daylight as possible, with artificial illumination used only on dark days or in the evening. The building's design, materials, and sky-lit rooms combine to provide an environment for the works of art that is simple and dignified.<ref>{{Cite web|url=https://www.nytimes.com/01/05/2016/arts/design/whispers-of-louis-kahns-vision-at-the-yale-center-for-british-art.html|title=Whispers of Louis Kahn's Vision at the Yale Center for British Art|last=Lesser|first=Wendy|date=28 April 2016|website=The New York Times}}</ref>
+
+The center is affiliated with the [[Paul Mellon Centre for Studies in British Art]] in [[London]], which awards grants and fellowships, publishes academic titles, and sponsors Yale's first credit-granting undergraduate study abroad program, Yale-in-London.<ref>{{Cite web|url=https://theshopsatyale.com/listings/yale-center-for-british-art/|title=Yale Center for British art|website=The shops at Yale}}</ref>
+
+==Collection==
+The collection consists of nearly 2,000 paintings and 200 sculptures, with an emphasis on the period between [[William Hogarth]]'s birth (1697) to [[J. M. W. Turner]]'s death (1851). Other artists represented include [[Thomas Gainsborough]], [[George Stubbs]], [[Joseph Wright of Derby|Joseph Wright]], [[John Constable]], [[Joshua Reynolds]], [[Thomas Lawrence]], [[Francis Danby]], [[Robert Polhill Bevan]], [[Stanley Spencer]], [[Barbara Hepworth]], and [[Ben Nicholson]].
+[[File:YCBA interior1.jpg|thumb|Interior of the fourth floor]]
+[[File:YCBA interior2.jpg|thumb|Fourth floor lobby]]
+
+The collection also has works by artists from Europe and North America who lived and worked in Britain. These include [[Hans Holbein the Younger|Hans Holbein]], [[Peter Paul Rubens]], [[Anthony van Dyck]], [[Canaletto]], [[Johann Zoffany]], [[John Singleton Copley]], [[Benjamin West]], and [[James McNeill Whistler]].
+
+Some areas of emphasis of the collection are small group [[portrait]]s, known as "[[conversation piece]]s", including those by Hogarth, Gainsborough, [[Johan Zoffany]] and [[Arthur Devis (1712-1787)|Arthur Devis]]; landscape paintings by Gainsborough, Richard Wilson, Constable, [[Richard Parkes Bonington]] and Turner; and British sporting and animal paintings, featuring [[George Stubbs]], [[John Wootton]], [[Benjamin Marshall (painter)|Benjamin Marshall]], and [[Alfred Munnings]]. Other genres include marine paintings, represented by Samuel Scott and Charles Brooking; London cityscapes; travel art from India, scenes of [[Shakespeare]]an plays, and portraits of actors.
+
+Sculptors represented include [[Louis-Francois Roubiliac]], [[Joseph Nollekens]], [[Francis Chantrey]], [[Jacob Epstein]], and [[Henry Moore]].
+
+The collection of 20,000 drawings and watercolors and 31,000 prints features British sporting art and figure drawings. It includes works by Hogarth, [[Paul Sandby]], Thomas Rowlandson, [[William Blake]], John Constable, [[Samuel Palmer]], Richard Parkes Bonington, [[John Ruskin]], J. M. W. Turner, [[Walter Sickert]], [[Duncan Grant]], [[Paul Nash (artist)|Paul Nash]], [[Edward Burra]], [[Stanley Spencer]], [[Augustus John]], [[Gwen John]], and the [[Pre-Raphaelites]].
+
+The center's collection of rare books and manuscripts comprises 35,000 volumes, including maps, atlases, sporting books, and archival material of British artists. It also has some 1,300 leaves originating in illustrated [[incunabula]]. The collection also includes a complete set of William Morris's Kelmscott Press publications as well as a growing collection of contemporary artists' books. The core of the collection of illustrated books is the material amassed by Major J. R. Abbey‚ one of the first collectors of British color-plate books, and includes more than 2‚000 volumes describing British life‚ customs‚ scenery‚ and travel during the period 1770–1860. The center's collection also contains a significant number of early maps and atlases.
+
+The four-floor center offers a year-round schedule of exhibitions and educational programs, including films, concerts, lectures, tours, symposia, and family programs. It also provides numerous opportunities for scholarly research, including residential fellowships. Academic resources of the center include the reference library (40,000 volumes) and photo archive, conservation laboratories, and a study room for examining works on paper from the collection.
+
+The center is open to the public free of charge six days a week, and is a member of the [[North American Reciprocal Museums]] program.
+
+==Gallery==
+{{gallery <!--landscape-->
+|width=180 <!--max-->
+|height=150 <!--max-->
+|mode=packed <!--use 100%-->
+|File:Samuel Scott - The Building of Westminster Bridge - Google Art Project.jpg|''[[The Building of Westminster Bridge]]'' by [[Samuel Scott (painter)|Samuel Scott]], 1742
+|File:James Seymour - The Stables and Two Famous Running Horses belonging to His Grace, the Duke of Bolton - Google Art Project.jpg|''The Stables and Two Famous Running Horses belonging to His Grace, the Duke of Bolton'', by [[James Seymour (artist)|James Seymour]], 1747
+|File:Canaletto - St. Paul's Cathedral - Google Art Project.jpg|''[[St. Paul's Cathedral (painting)|St. Paul's Cathedral]]'' by [[Canaletto]], 1754
+|File:George Stubbs - A Lion Attacking a Horse - Google Art Project.jpg|''A Lion Attacking a Horse'', by [[George Stubbs]], 1762
+|File:Richard Wilson - Kew Gardens- The Pagoda and Bridge - Google Art Project.jpg|''[[Kew Gardens: The Pagoda and Bridge]]'' by [[Richard Wilson (painter)|Richard Wilson]], 1762
+|File:William Marlow - Whitehall - Google Art Project.jpg|''[[Whitehall (painting)|Whitehall]]'', by [[William Marlow]], 1775
+|File:Philippe-Jacques de Loutherbourg - Snowdon from Capel Curig - Google Art Project.jpg|''[[Snowdon from Capel Curig]]'' by [[Philip James de Loutherbourg]], 1787
+|File:Philippe-Jacques de Loutherbourg - Visitor to a Moonlit Churchyard - Google Art Project.jpg|''[[Visitor to a Moonlit Churchyard]]'' by [[Philip James de Loutherbourg]], 1790
+|Benjamin West - Gentlemen Fishing - Google Art Project (cropped).jpg|''[[Gentlemen Fishing]]'' by [[Benjamin West]], 1794
+|File:John Bird of Liverpool - Street Scene in Chorley, Lancashire, with a view of Chorley Hall - Google Art Project.jpg|''Street Scene in Chorley, Lancashire, with a view of Chorley Hall'', by John Bird of Liverpool, c. 1795
+|File:William Collins - May Day - Google Art Project.jpg|''[[May Day (painting)|May Day]]'' by [[William Collins (painter)|William Collins]], 1812
+|File:DortorDordrecht.jpg|''[[Dort or Dordrecht: The Dort packet-boat from Rotterdam becalmed]]'', by [[J. M. W. Turner]], c. 1818
+|File:John Constable - Harwich- The Low Lighthouse and Beacon Hill - Google Art Project.jpg|''[[Harwich Lighthouse (painting)|Harwich Lighthouse]]'', by [[John Constable]], 1820
+|File:Richard Parkes Bonington - Fishmarket - Google Art Project.jpg|''[[A Fishmarket near Boulogne]]'' by [[Richard Parkes Bonington]], 1824
+|File:John Constable - Hadleigh Castle, The Mouth of the Thames--Morning after a Stormy Night - Google Art Project.jpg|''[[Hadleigh Castle (painting)|Hadleigh Castle, The Mouth of the Thames – Morning after a Stormy Night]]'', by [[John Constable]], 1829
+|File:John Constable - Sir Richard Steele's Cottage, Hampstead - Google Art Project.jpg|''[[Sir Richard Steele's Cottage, Hampstead]]'', by [[John Constable]], 1832
+|File:Joseph Mallord William Turner - A Paddle-steamer in a Storm - Google Art Project.jpg|''A Paddle-steamer in a Storm'', [[watercolor painting|watercolor]] by [[J. M. W. Turner]], c. 1841
+|File:James McNeill Whistler - Nocturne in Blue and Silver - Google Art Project.jpg|''Nocturne in Blue and Silver'', by [[James Abbott McNeill Whistler]], c. 1872-1878
+}}
+{{gallery <!--portrait-->
+|width=150 <!--max-->
+|height=180 <!--max-->
+|mode=packed <!--use 100%-->
+|File:0 La Paix embrassant l'Abondance - P.P Rubens - Yale center for British Art.JPG|''The Peace embracing the Abundance'', [[Peter Paul Rubens]], c. 1632-1633
+|File:Pieter Jan van Reysschoot - Lovers in a landscape - Google Art Project.jpg|''Lovers in a landscape'', [[Petrus Johannes van Reysschoot]], c. 1740
+|File:Thomas Gainsborough - The Gravenor Family - Google Art Project.jpg|''The Gravenor Family'', by [[Thomas Gainsborough]], 1754
+|File:Thomas Gage John Singleton Copley.jpeg|''[[Portrait of Thomas Gage]]'', by [[John Singleton Copley]], 1768
+|File:Sir Joshua Reynolds - Mrs. Abington as Miss Prue in "Love for Love" by William Congreve - Google Art Project.jpg|''Mrs. Abington as Miss Prue in "Love for Love" by William Congreve'', by [[Sir Joshua Reynolds]], 1771
+|File:Thomas Gainsborough - William Johnstone-Pulteney, Later 5th Baronet - Google Art Project.jpg|''[[Portrait of Sir William Pulteney]]'' by [[Thomas Gainsborough]], 1772
+|File:Madhavrao I Peshwa.png|A portrait of an Indian Premier [[Madhavrao Peshwa]], an 18th-century Noble, Statesman, Premier
+|File:Sir Thomas Lawrence - Benjamin West, P.R.A. - Google Art Project.jpg|''[[Portrait of Benjamin West (Lawrence)|Portrait of Benjamin West]]'', by [[Thomas Lawrence]], 1810
+|File:John Jackson - Antonio Canova - Google Art Project.jpg|''[[Portrait of Antonio Canova]]'', by [[John Jackson (painter)|John Jackson]], 1820
+}}
+
+== See also ==
+
+* [[Yale University Art Gallery]]
+
+==References==
+{{reflist}}
+*[http://www.greatbuildings.com/buildings/Yale_Center_for_British_A.html The Yale Center for British Art at "Great Buildings"] and at [http://www.architectureweek.com/2005/0302/culture_1-1.html Architecture Week] {{Webarchive|url=https://web.archive.org/web/20190810152132/http://www.architectureweek.com/2005/0302/culture_1-1.html |date=August 10, 2019 }}
+
+==External links==
+*{{Official website|https://britishart.yale.edu/}}
+*[https://artsandculture.google.com/partner/yale-center-for-british-art?hl=en Yale Center for British Art] within [[Google Arts & Culture]]
+*{{commons category-inline}}
+
+{{Yale}}
+{{Louis Kahn|state=collapsed}}
+{{authority control}}
+
+{{DEFAULTSORT:Yale Center For British Art}}
+[[Category:British art]]
+[[Category:Louis Kahn buildings]]
+[[Category:Yale University]]
+[[Category:Art museums and galleries established in 1974]]
+[[Category:Modernist architecture in Connecticut]]
+[[Category:University museums in Connecticut]]
+[[Category:Museums in New Haven, Connecticut]]
+[[Category:Art museums and galleries in Connecticut]]
+[[Category:1974 establishments in Connecticut]]
+[[Category:Special collections libraries in the United States]]
+[[Category:Collection of the Yale Center for British Art| ]]

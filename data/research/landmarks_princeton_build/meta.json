@@ -1,0 +1,72 @@
+{
+ "ALEXANDER": {
+  "id": "567b56ec-22a0-4495-b0db-d52e462c2f2e",
+  "area": 1135.5,
+  "nholes": 0
+ },
+ "EAST_PYNE": {
+  "id": "426e2cee-d4c7-4e92-b392-69bb29a4c317",
+  "area": 1943.4,
+  "nholes": 1
+ },
+ "CHANCELLOR": {
+  "id": "9ffc978a-336d-4a1f-a737-043eba6a1f61",
+  "area": 661.1,
+  "nholes": 0
+ },
+ "HOLDER": {
+  "id": "eb015a8f-58d1-4735-9b70-c6c79844fc62",
+  "area": 1826.1,
+  "nholes": 0
+ },
+ "FIRESTONE": {
+  "id": "a680979a-5e96-4e47-a1c9-970559e2a71a",
+  "area": 8526.3,
+  "nholes": 0
+ },
+ "ROBERTSON": {
+  "id": "35939728-f0fb-4e46-ba71-cd9abecac04c",
+  "area": 2095.8,
+  "nholes": 0
+ },
+ "LEWIS": {
+  "id": "97ea1042-fb85-4e29-a84d-1c4c0afb9cf8",
+  "area": 2463.2,
+  "nholes": 0
+ },
+ "FINE": {
+  "id": "76ac0cb7-b92c-4ade-b042-3cb8e15c3f8d",
+  "area": 1922.4,
+  "nholes": 0
+ },
+ "JADWIN": {
+  "id": "e1cca83e-55b8-4632-a9f5-5bda53104bd9",
+  "area": 10907.2,
+  "nholes": 0
+ },
+ "MCCARTER": {
+  "id": "8113c576-30b0-4efd-9184-5b55bdefc890",
+  "area": 2945.3,
+  "nholes": 0
+ },
+ "WHIG": {
+  "id": "73a4015f-d802-434f-bec8-43b142c85891",
+  "area": 435.6,
+  "nholes": 0
+ },
+ "CLIO": {
+  "id": "ed67075a-dadc-498d-be8e-e47eb001aa49",
+  "area": 487.1,
+  "nholes": 0
+ },
+ "ART": {
+  "id": "4e124c10-58f9-47f5-ae43-3f4eac20d794",
+  "area": 7474.4,
+  "nholes": 3
+ },
+ "NPC": {
+  "id": "d3aaadcd-bce5-47a9-96fa-069165d9df64",
+  "area": 1748.2,
+  "nholes": 0
+ }
+}

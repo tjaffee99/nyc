@@ -1,0 +1,45 @@
+{{Short description|Skyscraper in New Haven, Connecticut}}
+{{Use American English|date=February 2025}}
+{{Infobox building
+| name             = Connecticut Financial Center
+| image            = Connecticut Financial Center (54106458175).jpg| image_size = 250 px
+| caption          = The Connecticut Financial Center in 2024 viewed from the [[New Haven Green]] with [[New Haven City Hall|City Hall]] in the foreground.
+| location         = 157 Church Street <br /> [[New Haven]], [[Connecticut]] 06510-2100<br />United States
+| coordinates      = {{coord|41.307222|-72.923889|display=inline,title}}
+| status           = 
+| completion_date  = 1990
+| building_type    = Office
+| floor_count      = 26
+| references       = <ref>{{Cite web |url=https://www.emporis.com/buildings/126844 |archive-url=https://web.archive.org/web/20160507061347/https://www.emporis.com/buildings/126844 |url-status=usurped |archive-date=May 7, 2016 |title=Emporis building ID 126844 |work=[[Emporis]]}}</ref>
+| roof             = {{convert|375|ft|m|abbr=on}}
+| top_floor        = 
+| antenna_spire    = {{convert|383|ft|m|abbr=on}}
+| floor_area       = {{convert|467500|sqft|m2|abbr=on}}
+| architect        = 
+| owner            = 
+}}
+
+The '''Connecticut Financial Center''' is the [[List of tallest buildings in New Haven|tallest building]] in [[New Haven]], [[Connecticut]], United States, and the sixth tallest building in the state.<ref>{{cite web|url=http://skyscraperpage.com/diagrams/?stateID=36 |title=Connecticut Skyscraper Diagram |publisher=SkyscraperPage.com |date= |accessdate=2022-05-02}}</ref><ref>{{cite web|url=http://www.skyscrapercenter.com/building/connecticut-financial-center/9793|title=Connecticut Financial Center | website=     The Skyscraper Center| access-date=2017-06-12}}</ref> It was the first building in [[New Haven]] to be over 328 ft (100 m) tall. The 383 foot [[postmodern architecture|postmodern]] [[skyscraper]] was designed by the Toronto architectural firm Crang and Boake and completed in 1990. It is adjacent to New Haven City Hall facing the [[New Haven Green]] in [[Downtown New Haven]]. Among the current tenants of the building are [[United Illuminating]], [[Bank of America]], [[Merrill Lynch]], the U.S. Attorney’s Office, [[U.S. Bankruptcy Court]], and the Social Security Administration’s Office of Hearings and Appeals.<ref>{{cite web |url=http://www.cityofnewhaven.com/uploads/157%20Church%20Street.pdf |title=Archived copy |accessdate=2010-03-17 |url-status=dead |archiveurl=https://web.archive.org/web/20110605170533/http://www.cityofnewhaven.com/uploads/157%20Church%20Street.pdf |archivedate=2011-06-05 }}</ref> The CFC stands on the former site of the Powell Building, which was New Haven's first skyscraper.<ref>{{cite web|url=http://www.emporis.com/application/?nav=building&lng=3&id=149124 |archive-url=https://web.archive.org/web/20110604233115/http://www.emporis.com/application/?nav=building&lng=3&id=149124 |url-status=usurped |archive-date=June 4, 2011 |title=Powell Building, New Haven &#124; 149124 |publisher=Emporis |date= |accessdate=2022-05-02}}</ref>
+
+==See also==
+*[[List of tallest buildings in Connecticut]]
+*[[List of tallest buildings in New Haven, Connecticut|List of tallest buildings in New Haven]]
+
+==References==
+{{Reflist}}
+
+{{s-start}}
+{{succession box
+| before=[[Knights of Columbus Building (New Haven, Connecticut)|Knights of Columbus Building]]
+| title= [[List of tallest buildings in New Haven|Tallest Building in New Haven]] 
+| years=1990&mdash;Present<br /><small>117m</small>
+| after=None
+}}
+{{s-end}}
+{{Authority control}}
+
+[[Category:1990 establishments in Connecticut]]
+[[Category:Skyscraper office buildings in Connecticut]]
+[[Category:Skyscrapers in New Haven, Connecticut]]
+[[Category:Postmodern architecture in the United States]]
+[[Category:Office buildings completed in 1990]]

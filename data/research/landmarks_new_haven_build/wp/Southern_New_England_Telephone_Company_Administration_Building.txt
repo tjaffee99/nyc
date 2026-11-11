@@ -1,0 +1,68 @@
+{{Short description|Skyscraper in New Haven, Connecticut}}
+{{for|the similarly named Art Deco building in Hartford|Southern New England Telephone Company Building}}
+{{Use American English|date=February 2025}}
+{{Use mdy dates|date=January 2025}}
+{{Infobox building
+|name                    = Southern New England Telephone Company Administration Building
+|alternate_names         = The Eli
+|image                   = The Eli, aka the Southern New England Telephone Company Administration Building.jpg
+|location                = 227 Church Street<br/>[[New Haven, Connecticut|New Haven]] [[Connecticut]]
+|coordinates             = {{coord|41|18|33|N|72|55|25|W|display=inline,title}}
+|pushpin_map             = Connecticut#USA
+|status                  = Complete
+|roof                    = {{convert|196|ft|m|abbr=on}}<ref>[http://skyscraperpage.com/diagrams/?cityID=225 New Haven Skyscraper Diagram - SkyscraperPage.com<!-- Bot generated title -->]</ref>
+|antenna_spire           = {{convert|230|ft|m|abbr=on}}
+|floor_count             = 17
+|building_type           = Mixed-Use
+|cost                    = 
+|construction_start_date = 1937
+|topped_out_date         = 1938
+|est_completion          = 1938
+|floor_area              = {{convert|45720|m2|sqft}}
+|developer               = 
+|architect               = [[Roy W. Foote]], [[Douglas Orr]]
+|architectural_style     = [[Art Deco]]
+|main_contractor         = Dwight Building Company
+|structural_engineer     = 
+|embedded                =
+{{Infobox NRHP
+| embed=yes
+| name = Southern New England Telephone Company Administrative Building
+| added = November 24, 1997
+| ref_num = 97001447<ref name="nris">{{NRISref|2009a}}</ref>
+}}
+}}
+'''The Eli''', formerly the '''Southern New England Telephone Company Administration Building,''' is a skyscraper at 227 Church Street in downtown [[New Haven, Connecticut]].  Completed in 1938, it is the city's finest example of [[Art Deco]] architecture, and was headquarters to the [[Southern New England Telephone Company]] (SNET), which oversaw the building of the state's telephone networks.  Designed by [[Douglas Orr]] and [[Roy W. Foote]], it was added to the [[National Register of Historic Places]] in 1997.<ref name="nris"/>
+
+==Description and history==
+The Eli is located at the junction of Church and Wall Streets in downtown New Haven, one block north of the [[New Haven Green]] in the city's commercial business district.  It has seventeen stories, and is built out of a steel frame whose exterior is clad mainly in Indiana limestone.  A low pink granite wall delineates the property line on Church Street.  It rises as a rectangular monolith for thirteen floors, with the upper stories stepped back in stages.  The two street-facing facades have two-story entrance pavilions that project.  The Art Deco styling includes designs and depictions related to communications, including Classical style human figures wielding lightning bolts.  The interior lobby area, also two stories in height, continues these themes, and is richly finished in a variety of materials.<ref name="nrhpinv3"/>
+
+The former headquarters of the [[Southern New England Telephone Company]] (SNET), the [[Art Deco]] building was completed in 1938, and was the tallest building in the city until 1966 (it is currently the [[List of tallest buildings in New Haven|tenth-tallest building]] in New Haven's skyline). Some 1,200 SNET employees worked in the office building after its completion.  The company was one of New Haven's largest employers, and was responsible for the growth of the telephone system in the entire state.<ref name="nrhpinv3"/> Beginning in 2004, the building was converted to a luxury apartment building and rechristened "The Eli"; it now is home to 142 apartments and two storefronts.<ref>[https://www.nhregister.com/news/article/Former-SNET-building-finds-new-tenants-11661124.php Former SNET building finds new tenants- The New Haven Register - Serving New Haven, Connecticut<!-- Bot generated title -->]</ref><ref>[https://yaledailynews.com/blog/2004/02/25/luxury-apartments-dress-up-downtown-housing-options/ Luxury apartments dress up downtown housing options | Yale Daily News<!-- Bot generated title -->]</ref>
+
+The building is regarded as New Haven's "premier" example of [[Art Deco]] architecture, and displays one of the area's most extensive employment of Stony Creek pink granite.<ref name="nrhpinv3">{{cite web|url={{NRHP url|id=97001447}} |title=National Register of Historic Places Inventory-Nomination: Southern New England Telephone Company Administration Building |date=July 11, 1997 |author=Bruce Clouette and Hoang Tinh |publisher=National Park Service}} and {{NRHP url|id=97001447|title=''Accompanying 12 photos, exterior and interior''|photos=y}}</ref>
+
+==See also==
+*[[National Register of Historic Places listings in New Haven, Connecticut]]
+{{commonscat|Southern New England Telephone Company Administration Building}}
+==References==
+{{reflist}}
+
+{{s-start}}
+{{succession box
+| before = [[Union and New Haven Trust Building]]
+| title = [[List of tallest buildings in New Haven|Tallest Building in New Haven]]
+| years = 1938&ndash;1966<br/><small>60 m</small>
+| after = [[Kline Biology Tower]]
+}}
+{{s-end}}
+{{NRHP in New Haven County, Connecticut}}
+
+[[Category:Office buildings completed in 1938]]
+[[Category:Skyscrapers in New Haven, Connecticut]]
+[[Category:Skyscraper office buildings in Connecticut]]
+[[Category:Art Deco skyscrapers]]
+[[Category:Commercial buildings on the National Register of Historic Places in Connecticut]]
+[[Category:Art Deco architecture in Connecticut]]
+[[Category:Telecommunications buildings on the National Register of Historic Places]]
+[[Category:National Register of Historic Places in New Haven, Connecticut]]
+[[Category:1938 establishments in Connecticut]]

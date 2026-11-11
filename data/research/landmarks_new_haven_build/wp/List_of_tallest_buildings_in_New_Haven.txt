@@ -1,0 +1,550 @@
+{{Short description|None}}
+{{Use American English|date=August 2019}}
+{{Use mdy dates|date=March 2024}}
+[[File:Nhskyline day.jpg|upright=1.35|thumb|The New Haven skyline as seen from [[Lighthouse Point Park]] in 2007 before the completion of [[360 State Street]]]]
+[[New Haven]] is a coastal city located in the [[United States|U.S.]] state of [[Connecticut]].  It has 84 buildings over 100 feet tall. Its tallest building is the [[Connecticut Financial Center]] which stands at 383 feet.
+
+== Map of the tallest buildings ==
+{{OSM Location map
+| coord={{coord|41.3075971|-72.9070461}}
+| float=center| zoom =14
+| width = 1000 |height = 500
+| shape1=n-circle
+| shape-outline1=#000
+| mark-size1=12 
+
+| mark-title1 = [[Connecticut Financial Center]]
+| mark-coord1 = {{coord|41|18|25.92|N|72|55|26.04|W}} | shape-color1=#4b0
+| mark-title2 = [[360 State Street]]
+| mark-coord2 = {{coord|41|18|16.92|N|72|55|22.8|W}} | shape-color2=#06c
+| mark-title3 = [[Knights of Columbus Building (New Haven, Connecticut)|Knights of Columbus Building]]
+| mark-coord3 = {{coord|41|18|9.36|N|72|55|38.64|W}} | shape-color3=#b00
+| mark-title4 = One Century Tower
+| mark-coord4 = {{coord|41|18|36|N|72|55|20|W}} | shape-color4=#4b0
+| mark-title5 = [[195 Church Street]]
+| mark-coord5 = {{coord|41|18|28|N|72|55|25|W}} | shape-color5=#d70
+| mark-title6 = [[Kline Biology Tower]]
+| mark-coord6 = {{coord|41|19|02|N|72|55|21|W}} | shape-color6=#b00
+| mark-title7 = [[Union and New Haven Trust Building]]
+| mark-coord7 = {{coord|41|18|30|N|72|55|25|W}} | shape-color7=#420C09
+| mark-title8 = [[Yale New Haven Hospital|Yale New Haven Hospital Smilow Cancer Center]]
+| mark-coord8 = {{coord|41|18|17|N|72|56|09|W}} | shape-color8=#0ba
+| mark-title9 = [[The Eli]]
+| mark-coord9 = {{coord|41|18|33|N|72|55|23|W}} | shape-color9=#81c
+| mark-title10 = [[St. Mary's Church (New Haven, Connecticut)|St. Mary's Church]]
+| mark-coord10 = {{coord|41|18|43|N|72|55|26|W}} | shape-color10=#E6E9F9
+| mark-title11 = [[Crown Towers (New Haven, Connecticut)|Crown Towers]]
+| mark-coord11 = {{coord|41|18|22|N|72|55|55|W}} | shape-color11=#b00
+| mark-title12 = [[Harkness Tower]]
+| mark-coord12 = {{coord|41|18|33|N|72|55|46|W}} | shape-color12=#420C09
+| mark-title13 = Center Court Apartments
+| mark-coord13 = {{coord|41|18|21|N|72|55|23|W}} | shape-color13=#C8A2CA
+| mark-title14 = 310 Orange Street
+| mark-coord14 = {{coord|41|18|33|N|72|55|18|W}} | shape-color14=#630
+| mark-title15 = Long Wharf Maritime Center I
+| mark-coord15 = {{coord|41|17|51|N|72|54|43|W}} | shape-color15=#dd0
+| mark-title16 = [[Hall of Graduate Studies|Swensen Tower]]
+| mark-coord16 = {{coord|41|18|43|N|72|55|46|W}} | shape-color16=#81c
+| mark-title17 = Omni New Haven Hotel
+| mark-coord17 = {{coord|41|18|20|N|72|55|38|W}} | shape-color17=#b00
+| mark-title18 = Tower One
+| mark-coord18 = {{coord|41|18|03|N|72|55|41|W}} | shape-color18=#d70
+| mark-title19 = 100 College Street
+| mark-coord19 = {{coord|41|18|14|N|72|55|53|W}} | shape-color19=#06c
+| mark-title20 = [[Yale New Haven Children's Hospital]]
+| mark-coord20 = {{coord|41|18|15|N|72|56|11|W}} | shape-color20=#4b0
+| mark-title21 = [[Payne Whitney Gymnasium]]
+| mark-coord21 = {{coord|41|18|49|N|72|55|51|W}} | shape-color21=#81c
+| mark-title22 = [[Pauli Murray College|Bass Tower]]
+| mark-coord22 = {{coord|41|18|55|N|72|55|35|W}} | shape-color22=#06c
+| mark-title23 = 101 College Street
+| mark-coord23 = {{coord|41|18|13|N|72|55|50|W}} | shape-color23=#909
+| mark-title24 = [[Taft Hotel (New Haven)|Taft Apartments]]
+| mark-coord24 = {{coord|41|18|24|N|72|55|43|W}} | shape-color24=#C8A2CA
+| mark-title25 = Center Church On the Green
+| mark-coord25 = {{coord|41|18|28|N|72|55|35|W}} | shape-color25=#E6E9F9
+| mark-title26 = Bella Vista Building E
+| mark-coord26 = {{coord|41|18|53|N|72|52|19|W}} | shape-color26=#d70
+| mark-title27 = Bella Vista Building D
+| mark-coord27 = {{coord|41|18|51|N|72|52|16|W}} | shape-color27=#d70
+| mark-title28 = One Church Street
+| mark-coord28 = {{coord|41|18|13|N|72|55|36|W}} | shape-color28=#b00
+| mark-title29 = Madison Towers
+| mark-coord29 = {{coord|41|18|26|N|72|56|02|W}} | shape-color29=#b00
+| mark-title30 = Bella Vista Building C
+| mark-coord30 = {{coord|41|18|53|N|72|52|16|W}} | shape-color30=#d70
+| mark-title31 = Bella Vista Building A
+| mark-coord31 = {{coord|41|18|58|N|72|52|17|W}} | shape-color31=#d70
+| mark-title32 = Bella Vista Building B
+| mark-coord32 = {{coord|41|18|56|N|72|52|14|W}} | shape-color32=#d70
+| mark-title33 = University Towers
+| mark-coord33 = {{coord|41|18|25|N|72|55|59|W}} | shape-color33=#b00
+| mark-title34 = Executive Building
+| mark-coord34 = {{coord|41|18|34|N|72|55|25|W}} | shape-color34=#d70
+| mark-title35 = Sheffield Sterling Strathcona Hall
+| mark-coord35 = {{coord|41|18|42|N|72|55|31|W}} | shape-color35=#81c
+
+
+
+
+
+| caption = These are the locations of the 35 tallest buildings in [[New Haven]].
+<small>{{flatlist|
+* {{color box|#E6E9F9|1900s and before}}
+* {{color box|#C8A2CA|1910s}}
+* {{color box|#420C09|1920s}}
+* {{color box|#81c|1930s}}
+* {{color box|#509|1940s}}
+* {{color box|#630|1950s}}
+* {{color box|#b00|1960s}}
+* {{color box|#d70|1970s}}
+* {{color box|#dd0|1980s}}
+* {{color box|#4b0|1990s}}
+* {{color box|#0ba|2000s}}
+* {{color box|#06c|2010s}}
+* {{color box|#909|2020s}}
+}}</small>
+| auto-caption=12
+}}
+
+== Tallest buildings ==
+These are the tallest buildings in [[New Haven]], [[Connecticut]] that stand over {{convert|150|ft|m|abbr=on}} tall. Spires and other architectural details are included in the height of a building, however, antennas are excluded.
+
+{{legend|#ddffdd|Tallest building in New Haven upon completion|border=solid 1px #AAAAAA}}
+
+{|class="wikitable sortable" style="text-align:center;"
+|-
+! Rank
+! Name
+! Image
+! Height
+<small>ft (m)</small>
+! Floors
+! Year
+!class="unsortable"| Notes
+|-style="background:#ddffdd"
+| 1
+| [[Connecticut Financial Center]]
+| [[File:Connecticut Financial Center (54106458175).jpg|Connecticut_Financial_Center_(54106458175)|100px]]
+| 383 (117)
+| 26
+| 1990
+| align=left| Currently, the sixth-[[tallest building in Connecticut]]; fourth-tallest in the state upon completion in 1990.<ref>{{Cite web|url=http://skyscraperpage.com/diagrams/?stateID=36|title=Connecticut Skyscraper Diagram - SkyscraperPage.com|website=skyscraperpage.com}}</ref>
+|- 
+| 2
+| [[360 State Street]]
+| [[File:360_State_Street,_New_Haven,_Connecticut.jpg|100px]]
+| 338 (103)
+| 31
+| 2010
+| align=left| Second largest apartment building in Connecticut after [[Park Tower Stamford]].<ref>{{cite web|url=http://www.newhavenindependent.org/index.php/archives/entry/dig_out_that_downturn/|title=Dig Out That Downturn &#124; New Haven Independent|date=December 2008}}</ref>
+|-
+| 3
+| [[Knights of Columbus Building (New Haven, Connecticut)|Knights of Columbus Building]]
+| [[File:Knights of Columbus Building (3487106693).jpg|Knights_of_Columbus_Building_(3487106693)|100px]]
+| 321 (98)
+| 23
+| 1969
+| align=left| World headquarters of the [[Knights of Columbus]] designed by [[Roche-Dinkeloo|Kevin Roche John Dinkeloo and Associates]].
+|- 
+| 4
+| One Century Tower
+| [[File:One Century Tower, New Haven, Connecticut.jpg|Building in New Haven|100px]]
+| 280 (85)
+| 19
+| 1990
+| align=left| Designed by [[César Pelli|Cesar Pelli & Associates]]<ref>{{Cite web| title = One Century Tower: Building Details| work = New Haven Building Archive | access-date = 2025-05-23| url = https://nhba.yale.edu/building?id=26}}</ref>
+|-
+| 5
+| [[195 Church Street]]
+| [[File:195 Church Street, New Haven, Connecticut.jpg|195_Church_Street_cropped,_New_Haven|100px]]
+| 270 (82)
+| 18
+| 1974
+| align=left|
+|-
+| 6
+| [[Kline Biology Tower|Kline Tower]]
+| [[File:Kline Biology Tower (54106005346).jpg|Kline_Biology_Tower_(54106005346)|100px]]
+| 250 (76)
+| 16
+| 1966
+| align=left|  [[List of tallest educational buildings|59th-tallest educational building]] in the world.
+|-
+| 7
+| [[Union and New Haven Trust Building]]
+| [[File:Union and New Haven Trust Building, New Haven, Connecticut.jpg|Union_and_New_Haven_Trust_Building,_New_Haven,_Connecticut|100px]]
+| 242 (74)
+| 12
+| 1928
+| Now known as The Union<ref>{{Cite web|url=https://www.skydb.net/building/411146562/the-union-new-haven/|title=The Union - Building - SKYDB}}</ref>
+|-
+| 8
+| [[Yale New Haven Hospital|Yale New Haven Hospital Smilow Cancer Center]]
+| [[File:Smilow Cancer Hospital, New Haven, Connecticut.jpg|Smilow Cancer Hospital|100px]]
+| 237 (72)
+| 13
+| 2008
+|
+|-
+| 9
+|[[Southern New England Telephone Company Administration Building|The Eli (formerly the SNET Building)]]
+|[[File:The Eli, aka the Southern New England Telephone Company Administration Building.jpg|100px]]
+| 232 (71)
+| 17
+| 1938
+| style="text-align:left;"| Listed on the [[National Register of Historic Places]]. 
+|-
+| 10
+| [[St. Mary's Church (New Haven, Connecticut)|St. Mary's Church]]
+| [[File:St marys new haven.jpg|St_marys_new_haven|100px]]
+| 230 (70)
+| 1
+| 1874
+| Tallest church in [[New Haven]].
+|-
+| 11
+| [[Crown Towers (New Haven, Connecticut)|Crown Towers]]
+| [[File:Crown Towers, New Haven, Connecticut.jpg|Crown Towers|100px]]
+| 222 (68)
+| 22
+| 1967
+| align=left|Tallest residential building in New Haven until the completion of [[360 State Street]]. 
+|-
+| 12
+| [[Harkness Tower]]
+| [[File:Harkness Tower in full.jpg|Harkness Tower|100px]]
+| 216 (66)
+| 9
+| 1921
+| Tallest clock tower in the city. Third tallest building in the [[Yale university]] campus.
+|-
+| 13
+| Center Court Apartments 
+| [[File:Center Court Apartments New Haven.jpg|Building in New Haven|100px]]
+| 215 (66)
+| 13
+| 1916
+|
+|-
+| 14
+| 310 Orange Street
+| [[File:Frontier Building New Haven.jpg|Building in New Haven|100px]]
+| 213 (65)
+| 10
+| 1955
+|
+|-
+| 15
+| Long Wharf Maritime Center I
+| [[File:Long Wharf Maritime Center New Haven 1.jpg|Long_Wharf_Maritime_Center_New_Haven_1|100px]]
+| 209 (63)
+| 15
+| 1985
+|
+|-
+| 16
+| [[Humanities Quadrangle|Swensen Tower]]
+| [[File:Swensen Tower, Yale Humanities Quadrangle.jpg|Swensen Tower|100px]]
+| 208 (63)
+| 14
+| 1932
+| Formerly known as The Hall of Graduate Studies.<ref>{{Cite web|url=https://www.skydb.net/building/91922423/hall-of-graduate-studies-new-haven/|title=Hall of Graduate Studies in New Haven - SKYDB|website=SKYDB}}</ref>
+|-
+| 17
+| Tower One
+| [[File:One Tower New Haven.jpg|Building in New Haven|100px]]
+| 207 (63)
+| 21
+| 1971
+| Also known as the Jewish Community Council Tower.<ref> {{Cite web |title=Tower One - The Skyscraper Center |url=https://www.skyscrapercenter.com/building/tower-one/12208 |access-date=2025-11-26 |website=www.skyscrapercenter.com}} </ref>
+|-
+| 18
+| 100 College Street
+| [[File:100 College Street, New Haven, Connecticut.jpg|100 College Street|100px]]
+| 205 (62)
+| 13
+| 2015
+| 
+|-
+| 19
+| Omni New Haven Hotel
+| [[File:Omni Hotel - New Haven, Connecticut.jpg|Omni_Hotel_-_New_Haven,_Connecticut|100px]]
+| 208 (63)
+| 19
+| 1966
+| style="text-align:left;"| Tallest hotel in New Haven and the fourth-tallest hotel in Connecticut.<ref>{{Cite web |title=Diagrams - SkyscraperPage.com |url=https://skyscraperpage.com/diagrams/?searchID=46348755 |access-date=2025-11-26 |website=skyscraperpage.com}}</ref>
+|-
+| 20
+| [[Yale New Haven Children's Hospital|Yale New Haven Children’s Hospital]]
+| [[File:Yale New Haven Children's Hospital (54106346004).jpg|Yale_New_Haven_Children's_Hospital_(54106346004)|100px]]
+| 201 (61)
+| 10
+| 1993
+|
+|-
+| 21
+| [[Payne Whitney Gymnasium]]
+| [[File:Yale Cathedral of Sweat.JPG|Yale_Cathedral_of_Sweat|100px]]
+| 199 (60)
+| 16
+| 1932
+| Second largest gymnasium in the world.<ref> {{Cite web |title=Payne Whitney Gymnasium, New Haven - SkyscraperPage.com |url=https://skyscraperpage.com/cities/?buildingID=40861 |access-date=2025-11-26 |website=skyscraperpage.com}} </ref>
+|-
+| 22
+| [[Pauli Murray College|Bass Tower]]
+| [[File:MMDA-Photos - 2019-11-08 - Yale Murray College Tower.jpg|MMDA-Photos_-_2019-11-08_-_Yale_Murray_College_Tower|100px]]
+| 196 (58)
+| 
+| 2017
+| Part of the Pauli Murray college.
+|-
+| 23
+| 101 College Street
+| [[File:101 College Street, New Haven, Connecticut.jpg|101_College_Street_New_Haven|100px]]
+| 186 (57)
+| 10
+| 2023
+|
+|-
+| 24
+| [[Taft Hotel (New Haven)|Taft Apartments]]
+| [[File:Taft Apartments New Haven.jpg|Taft_Apartments_New_Haven|100px]]
+| 185 (56)
+| 12
+| 1911
+| 
+|-
+| 25
+| Center Church On The Green
+| [[File:Center Church on the Green 02.jpg|Center_Church_on_the_Green_02|100px]]
+| 184 (56)
+| 1
+| 1812
+| Tallest of the three churches on the green. A crypt lies underneath the church.<ref> {{Cite web |title=Center Church on the Green: Building Details |url=https://nhba.yale.edu/building?id=205 |access-date=2025-11-26 |website=nhba.yale.edu}} </ref>
+|-
+| 26
+| Bella Vista Building E
+| [[File:Bella Vista Building E 1.jpg|Bella_Vista_Building_E_1|100px]]
+| 183 (55)
+| 19
+| 1973
+| Tallest building in the Bella Vista complex.
+|-
+| 27
+| One Church Street
+| [[File:Consulate of Ecuador, New Haven, Connecticut.jpg|Consulate of Ecuador|100px]]
+| 183 (55)
+| 8
+| 1961
+| Houses the Consulate Of [[Ecuador]].<ref> {{Cite web |title=First New Haven National Bank: Building Details |url=https://nhba.yale.edu/building?id=203 |access-date=2025-11-26 |website=nhba.yale.edu}} </ref>
+|-
+| 28
+| Madison Towers
+| [[File:Madison Towers New Haven.jpg|Madison_Towers_New_Haven|100px]]
+| 180 (55)
+| 17
+| 1963
+|
+|-
+| 29
+| Executive Building
+| [[File:Gold Building New Haven.jpg|Gold_Building_New_Haven|100px]]
+| 167 (55)
+| 15
+| 1972
+|
+|-
+| 30
+| Bella Vista Building D
+| [[File:Bella Vista Building D 1.jpg|Bella_Vista_Building_D_1|100px]]
+| 183 (55)
+| 19
+| 1973
+|
+|-
+| 31
+| 900 Chapel Street
+| [[File:900 Chapel Street New Haven.jpg|900_Chapel_Street_New_Haven|100px]]
+| 184 (54)
+| 13
+| 1966
+|
+|-
+| 32
+| Bella Vista Building C
+| [[File:Bella Vista Building C 3.jpg|Bella_Vista_Building_C_3|100px]]
+| 173 (52)
+| 17
+| 1973
+|
+|-
+| 33
+| University Towers
+| [[File:York Street, New Haven.jpg|York_Street,_New_Haven|100px]]
+| 170 (51)
+| 17
+| 1960
+|
+|-
+| 34
+| 300 George Street
+| [[File:300 George Street New Haven 2.jpg|300_George_Street_New_Haven_2|100px]]
+| 152 (51)
+| 10
+| 1960
+|
+|-
+| 35
+| Bella Vista Building A
+| [[File:Bella Vista Building A 2.jpg|Bella_Vista_Building_A_2|100px]]
+| 173 (51)
+| 17
+| 1973
+|
+|-
+| 36
+| Bella Vista Building B
+| [[File:Bella Vista Building B 1.jpg|Bella_Vista_Building_B_1|100px]]
+| 173 (51)
+| 17
+| 1973
+|
+|-
+| 37
+| Lippard Laboratory of Clinical Investigation 
+| [[File:Lippard Labatory of Clinical Investigation.jpg|Building in New Haven|100px]]
+| 154 (50)
+| 11
+| 1965
+|
+|-
+| 38
+| Sheffield Sterling Strathcona Hall
+| [[File:Sheffield-Sterling-Strathcona 2.jpg|Sheffield-Sterling-Strathcona_2|100px]]
+| 166 (50)
+| 10
+| 1932
+|
+|-
+| 39
+| [[Yale New Haven Hospital|Yale New Haven Hospital East Pavilion]] 
+| [[File:Yale New Haven Hospital (54106261403).jpg|Yale_New_Haven_Hospital_(54106261403)|100px]]
+| 165 (50)
+| 12
+| 1953
+| Also referred to as 20 York Street.<ref>{{Cite web|url=https://www.skydb.net/building/206447921/yale-new-haven-hospital-east-pavilion-new-haven/|title=Yale-New Haven Hospital East Pavilion in New Haven - SKYDB|website=SKYDB}}</ref>
+|-
+| 40
+| 54 Meadow Street
+| [[File:54 Meadow Street.jpg|Building in New Haven|100px]]
+| 159 (48)
+| 9
+| 1946
+| Renovated in the late 1980s.<ref>{{Cite web |title=54 Meadow St New Haven, CT 06519 |url=https://www.loopnet.com/Listing/54-Meadow-St-New-Haven-CT/4083378/ |access-date=15 September 2026 |website=Loopnet}}</ref> Also referred to as the Gateway Center.<ref>{{Cite web|url=https://www.skydb.net/building/701160501/gateway-center-new-haven/|title=Gateway Center in New Haven - SKYDB|website=SKYDB}}</ref>
+|-
+| 41
+| Anlyan Center For Medical Research And Education 
+| [[File:Anlyan Center For Medical Research And Education.jpg|Building in New Haven|100px]]
+| 158 (48)
+| 7
+| 2003
+|
+|-
+| 42
+| [[Sterling Memorial Library]]
+| [[File:Yale University Library - Sterling Memorial Library (54105136782).jpg|Yale_University_Library_-_Sterling_Memorial_Library_(54105136782)|100px]]
+| 157 (47)
+| 15
+| 1930
+|
+|-
+| 43
+| 235 Church Street
+| [[File:325 Church Street New Haven.jpg|Building in New Haven (Building is actually listed as 235 Church Street, spelled 325 due to typo)|100px]]
+| 156 (47)
+| 9
+| 1973
+| Known as the New Haven County Courthouse.<ref>{{Cite web|url=https://www.skydb.net/building/436284551/new-haven-county-courthouse-new-haven/|title=New Haven County Courthouse in New Haven - SKYDB|website=SKYDB}}</ref>
+|-
+| 44
+| [[New Haven City Hall]]
+| [[File:New Haven City Hall, October 17, 2008.jpg|New_Haven_City_Hall,_October_17,_2008|100px]]
+| 152 (46)
+| 4
+| 1862
+| Listed on the [[National Register of Historic Places]] since 1975.<ref> {{Cite web |title=National Register Database and Research - National Register of Historic Places (U.S. National Park Service) |url=https://www.nps.gov/subjects/nationalregister/database-research.htm |access-date=2025-11-26 |website=www.nps.gov |language=en}} </ref>
+|-
+| 45
+| [[Crawford Manor|George Crawford Manor]]
+| [[File:NewHavenCT GeorgeCrawfordManor.jpg|NewHavenCT_GeorgeCrawfordManor|100px]]
+| 150 (45)
+| 15
+| 1966
+| Listed on the [[National Register of Historic Places]] since 2015.<ref>{{Cite web|url=https://npgallery.nps.gov/AssetDetail/NRIS/15000113|title=NPGallery Asset Detail|website=npgallery.nps.gov}}</ref>
+|-
+| 46
+| [[Pierson College|Pierson Tower]]
+| [[File:Ezra Stiles College and Pierson College.jpg|Ezra_Stiles_College_and_Pierson_College|100px]]
+| 150 (45)
+| 4
+| 1933
+| Morse College Residential Tower is seen on the far left. 120 ft (36 meters) tall when excluding the spire.
+|-
+|}
+
+== Timeline of tallest buildings ==
+This lists buildings that once held the title of tallest building in [[New Haven, Connecticut]].
+
+{| class="wikitable sortable" style="background:#fafefa"
+|-
+! Name
+! Image
+! Street address
+! Years as<br />tallest
+!Height
+<small>ft (m)</small>
+! Floors
+|-
+| [[Union and New Haven Trust Building]]
+| [[File:Union and New Haven Trust Building, New Haven, Connecticut.jpg|100px]]
+| 205 Church Street
+| align=center|1927–1966
+|242 (74)
+| align=center| 13
+|-
+| [[Kline Biology Tower|Kline Tower]]
+| [[File:Yale Kline Biology Tower.JPG|100px]]
+| {{hs|05.0}}219 Prospect Street
+| align=center|1966–1969
+|251 (76)
+| align=center| 16
+|-
+|  [[Knights of Columbus Building (New Haven, Connecticut)|Knights of Columbus Building]]
+| [[File:Knights of Columbus headquarters.jpg|100px]]
+| {{hs|03.0}}One Columbus Plaza
+| align=center| 1969–1990
+|322 (98)
+| align=center| 23
+|-
+| [[Connecticut Financial Center]]<br />
+| [[File:Connecticut Financial Center, New Haven.jpg|100px]]
+| {{hs|07.0}}157 Church Street
+| align=center| 1990–present
+|383 (117)
+| align=center| 26
+|}
+
+== See also ==
+* [[List of tallest buildings in Hartford]]
+* [[List of tallest buildings in Connecticut]]
+
+== References ==
+{{reflist}}
+
+{{New Haven skyscrapers}}
+{{US tallest buildings lists}}
+
+[[Category:Skyscrapers in New Haven, Connecticut|*]]
+[[Category:Lists of tallest buildings in the United States by populated place|New Haven]]
+[[Category:Lists of buildings and structures in Connecticut|Tallest in New Haven]]

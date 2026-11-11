@@ -1,0 +1,125 @@
+{{Short description|Natural history museum of Yale University in Connecticut, US}}
+{{more footnotes needed|date=April 2023}}
+{{Use mdy dates|date=March 2025}}
+{{Infobox museum
+| name            = Yale Peabody Museum
+| image           = Yale_Peabody_Museum_(54106346944).jpg
+| image_size      = 220
+| caption         = Exterior of Yale Peabody Museum
+| pushpin_map     = USA Connecticut
+| pushpin_caption = New Haven, Connecticut, US
+| coordinates     = {{coord|41.317538|-72.919863|display=inline}}
+| established     = 1866
+| dissolved       = 
+| location        = [[New Haven, Connecticut]], US
+| type            = {{Museum|Natural}} Natural History
+| owner           = [[Yale University]]
+| director        = David Skelly
+| curator         = 
+| public_transit  = {{bus icon}} [[File:CTtransit logo.png|16px|link=Connecticut Transit New Haven]] 228, 229
+| website         = {{URL|peabody.yale.edu}}
+}}
+
+The '''Yale Peabody Museum'''<ref name="PAbout">{{cite web |title=About Us |url=https://peabody.yale.edu/about |website=Yale Peabody Museum |publisher=Yale Peabody Museum of Natural History |access-date=2023-04-18}}</ref> at [[Yale University]] (also known as the '''Peabody Museum of Natural History''' or the '''Yale Peabody Museum of Natural History'''<ref name="PAbout"/>) is one of the oldest, largest, and most prolific university [[List of natural history museums|natural history museums]] in the world. It was founded by the [[philanthropist]] [[George Peabody]] in 1866 at the behest of his nephew [[Othniel Charles Marsh]], an early [[paleontologist]]. The museum is best known for the Great Hall of Dinosaurs, which includes a mounted juvenile ''[[Brontosaurus]]'' and the {{convert|110|ft|m|adj=mid|-long}} mural ''[[The Age of Reptiles]]''. The museum also has permanent exhibits dedicated to [[Human evolution|human]] and [[Mammalian evolution|mammal evolution]]; [[wildlife]] [[diorama]]s; [[Ancient Egypt|Egyptian]] [[Artifact (archaeology)|artifact]]s; local [[bird]]s and [[mineral]]s; and [[Native Americans in the United States|Native Americans]] of [[Connecticut]].
+
+In 2020, the Peabody Museum closed for its "first comprehensive renovation in 90 years."<ref name="PEvolved">{{cite web |title=Envisioning Yale's New Home for Natural History |url=https://peabodyevolved.yale.edu/ |website=Peabody Evolved |publisher=Yale Peabody Museum of Natural History |access-date=2023-04-18}}</ref> It reopened, with more than twice the exhibition space, on March 26, 2024.<ref name="YaleNews">{{cite news |last1=Cummings |first1=Mike |title=Inspiring wonder again: Peabody Museum reopens |url=https://news.yale.edu/2024/03/26/inspiring-wonder-again-peabody-museum-reopens |access-date=30 March 2024 |work=YaleNews |date=26 March 2024 |language=en}}</ref><ref>{{cite news |title=Revitalized Yale Peabody Museum to reopen March 26 |url=https://news.yale.edu/2024/03/11/revitalized-yale-peabody-museum-reopen-march-26 |access-date=30 March 2024 |work=YaleNews |date=11 March 2024 |language=en}}</ref>
+
+==Description==
+[[File:Central Gallery at Yale Peabody Museum.jpg|thumb|Central Gallery, after 2024 renovation]] 
+The Peabody Museum is located at 170 [[Whitney Avenue]] in [[New Haven, Connecticut]], and is staffed by nearly a hundred staff members. The original building was demolished in 1917; it moved to its current location in 1925, and has since expanded to occupy the Peabody Museum, the attached Kline Geology Laboratory, the Class of 1954 Environmental Sciences Center, parts of three additional buildings, and a field station at [[Long Island Sound]]. The museum also owns [[Horse Island, Connecticut|Horse Island]] in the [[Thimble Islands]], which is not open to the public; it is used for experiments. The Class of 1954 Environmental Science Center, completed in 2001 and connected to the museum and the adjacent Kline Geology Laboratory, hosts approximately one-half of the museum's 13 million specimens.{{citation needed|date=April 2023}}
+
+On August 28, 2018, [[Yale University]] announced a contribution of $160 million (equivalent to ${{Inflation|US|160|2018|r=2}} million in {{Inflation/year|US}}) by [[Ed Bass|Edward P. Bass]] towards the cost of the renovation of the museum.<ref name=NytRenovationAnnouncment>{{cite news|title=Yale Receives $160 Million Gift for Peabody Museum|url=https://www.nytimes.com/2018/08/28/arts/design/peabody-museum-yale-gift.html|work=The New York Times|date=28 August 2018 |access-date=28 August 2018|last1=Libbey |first1=Peter }}</ref><ref name=YaleNewsRenovationAnnouncment>{{cite web|title=Edward P. Bass '67 makes lead gift toward renovating Yale Peabody Museum|date=28 August 2018|url=https://news.yale.edu/2018/08/28/edward-p-bass-67-makes-lead-gift-toward-renovating-yale-peabody-museum|publisher=Yale University Office of Public Affairs & Communications|access-date=28 August 2018}}{{Dead link|date=September 2025 |bot=InternetArchiveBot }}</ref> The landmark commitment ranks among the most generous gifts to Yale and is the largest known gift ever made to a natural history museum in the United States,{{citation needed|date=April 2023}} helping to fund the renewal and expansion of the museum.<ref name="PPlan">{{cite web |title=The Plan |url=https://peabodyevolved.yale.edu/the-plan/ |website=Peabody Evolved |publisher=Yale Peabody Museum of Natural History. |access-date=2023-04-15}}</ref>
+
+The galleries were planned to be open through June 30, 2020 (the Great Hall of Dinosaurs was open through January 1, 2020), but had to close in March due to [[COVID-19]] and did not reopen until the conclusion of renovations in 2024.<ref name="PPlan"/><ref name=EvolvedSupport>{{cite web|title=Peabody Evolved: Support|url=http://peabodyevolved.yale.edu/support|publisher=Yale Peabody Museum of Natural History|access-date=28 August 2018}}</ref> The renovation more than doubled the exhibition space, added 10 classrooms, and included a new education center for K-12 students.<ref name="YaleNews"/>
+
+In November 2021, Yale University announced that admission will be free "in perpetuity" once construction is complete.<ref name="YaleFree">{{cite web |title=Renovated Peabody Museum to offer free admission — forever |url=https://news.yale.edu/2021/11/10/renovated-peabody-museum-offer-free-admission-forever |website=YaleNews |publisher=Yale University |access-date=2023-04-18 |language=en |date=10 November 2021}}</ref>
+
+The Peabody has several world-important collections. Perhaps the most notable are the vertebrate paleontology collections which are among the largest, most extensive, and most historically important fossil collections in the United States (see [[Othniel Charles Marsh]], [[R.S. Lull]], [[George Gaylord Simpson]], [[John Ostrom]], [[Elisabeth Vrba]], and [[Jacques Gauthier]]), and the [[Hiram Bingham III|Hiram Bingham]] Collection of [[Incan]] artifacts from [[Machu Picchu]], named for the famous Yale archaeologist who rediscovered the [[Peru]]vian ruin. Also notable are the extensive ornithology collection, one of the largest and most taxonomically inclusive in the world,{{citation needed|date=April 2023}} and the associated William Robertson Coe Ornithology Library, one of the best in the United States. The collection of marine invertebrates is also extensive, having benefitted from the work of prolific invertebrate zoologists including [[Addison Emery Verrill]]. The Yale Herbarium is part of the Peabody Museum.<ref>{{Cite web|url=https://peabody.yale.edu/collections/botany|title=Botany {{!}} Collections|date=2010-11-09|website=Yale Peabody Museum of Natural History|access-date=2020-04-25}}</ref>
+
+Faculty curators for the collections are drawn from Yale's departments of Ecology and Evolutionary Biology, Geology and Geophysics, and Anthropology. Because the departments maintain a strong tradition of hiring faculty to perform collections-based research, especially after the renewed support for organismal biology at Yale under President [[Richard Charles Levin]] and in particular former provost [[Alison Richard]], nearly all of the collections are under active internal use and enjoy continuous and considerable growth.{{citation needed|date=February 2014}}
+
+== ''Torosaurus'' ==
+[[File:Peabody-Torosaurus-0001.jpg|thumb|Full-scale sculpture of ''[[Torosaurus]]'']]
+The museum has erected the first full-scale reproduction of a ''[[Torosaurus]]'' on Whitney Avenue next to the entrance. The 3&nbsp;m (9&nbsp;ft) tall, 7&nbsp;m (21&nbsp;ft) long, 3.33 [[metric ton]] (7,350 [[pound (mass)|lb]]) statue was sculpted in clay and cast in bronze, and set on a 4&nbsp;m (13&nbsp;ft) tall granite base. The reproduction of ''T.&nbsp;latus'' is scientifically faithful of ''T.&nbsp;latus'', and its skin is based on the fossilized skin impressions left by a ''[[Chasmosaurus]]'' (a closely related [[ceratopsid]]).<ref>The ''Torosaurus'' Project.</ref>
+
+==Exhibits==
+[[File:Burke Hall of Dinosaurs at Yale Peabody Museum.jpg|thumb|Burke Hall of Dinosaurs, after 2024 renovation]]
+Permanent exhibits before renovations have included:
+* The Great Hall of Dinosaurs (this exhibit will be in the same place with same mural after renovation) with the skeleton of a ''Brontosaurus''.<ref>{{cite news |author= Kelly Glista |title=Those Old Bones? It Really Is A Brontosaurus |url=http://www.courant.com/news/connecticut/hc-brontosaurus-is-back-0415-20150414-story.html |work=Hartford Courant |date=April 14, 2015 |access-date=2015-04-26 }}</ref><ref name=TMB2015>{{Cite journal | doi = 10.7717/peerj.857| title = A specimen-level phylogenetic analysis and taxonomic revision of Diplodocidae (Dinosauria, Sauropoda)| journal = PeerJ| volume = 3| pages = e857| year = 2015| last1 = Tschopp | first1 = E. | last2 = Mateus | first2 = O. V. | last3 = Benson | first3 = R. B. J. | pmid=25870766 | pmc=4393826| doi-access = free}}{{open access}}</ref>
+** ''[[The Age of Reptiles|The Age of Reptiles Mural]]'' is a {{convert|110|ft|m|adj=mid|-long}} depiction of dinosaurs in their natural habitats. It was painted by [[Rudolph F. Zallinger]], and is located in the Great Hall of Dinosaurs.
+* ''Fossil Fragments: The Riddle of Human Origins'' is a new exhibit dedicated to [[human evolution]].
+* The Birds of Connecticut Hall has 722 specimens, representing more than 300 of the 382 documented species in the state of Connecticut.
+* There are  eleven dioramas in total: three on the ecology of Connecticut with plants and vertebrates,<ref>{{Cite news |last=Appel |first=Allan |date=Apr 25, 2024 |title=Dioramas Go Beyond Dinos |url=https://www.newhavenindependent.org/article/new_peabody_draws_praise |work=New Haven Independent}}</ref> and eight depicting various regions around North America.<ref name="Dunbar, Carl O 1959. pp. 17-28">Dunbar, Carl O. "Recollections on the Renaissance of Peabody Museum Exhibits, 1939–1959." ''Discovery'', vol. 12, no. 1, Fall 1976, pp. 17–28.</ref> They were designed by [[James Perry Wilson]], F. Lee Jaques, and Ralph C. Morrill.{{citation needed|date=April 2023}}<ref name="Dunbar, Carl O 1959. pp. 17-28"/><ref>{{Cite web |title=Wilson, James Perry 1889–1976 |url=https://data.library.amnh.org/archives-authorities/id/amnhp_1002268 |access-date=March 9, 2025 |website=American Museum of Natural History Research Library}}</ref>
+* The Hall of Mammalian Evolution includes ''The Age of Mammals'' mural, also painted by Zallinger.{{citation needed|date=April 2023}}
+* An extensive collection of minerals, primarily from Connecticut
+* Native American artifacts from Connecticut
+* The Hall of Ancient Egyptian Artifacts
+* The museum has displayed one of the longest known preserved [[fulgurite]]s, approximately {{convert|4|m|ft|abbr=on}} in length.<ref name=YBC>{{cite journal|title=New Peabody hall offering high-tech lessons about Earth and space|journal=Yale Bulletin & Calendar|date=June 9, 2006|volume=34|issue=30|url=http://www.yale.edu/opa/arc-ybc/v34.n30/story3.html|access-date=2013-12-26|archive-url=https://web.archive.org/web/20141106212409/http://www.yale.edu/opa/arc-ybc/v34.n30/story3.html|archive-date=November 6, 2014}}</ref>
+
+==Staff==
+{{As of|2024}}, the director of the Peabody Museum is David Skelly, a [[curator]] of [[vertebrate zoology]] and a professor of [[ecology]] in the Department of Ecology & [[Evolutionary Biology]], and the [[Yale School of Forestry & Environmental Studies|School of Forestry and Environmental Studies]]. He was named director in 2014.<ref>{{cite news |title=A Peabody kid becomes the museums director |url=https://yalealumnimagazine.org/articles/3928-a-peabody-kid-becomes-the-museums-director |access-date=30 March 2024 |work=Yale Alumni Magazine |language=en|last=Fellman|first=Bruce}}</ref>
+
+The Peabody Museum has curators representing [[anthropology]], botany, [[entomology]], [[invertebrate]] [[zoology]], invertebrate [[paleontology]], [[vertebrate]] zoology (with individual curators for [[herpetology]], [[ichthyology]], [[mammalogy]], and [[ornithology]]), [[paleobotany]], vertebrate paleontology; [[mineralogy]] and [[meteoritics]]; and historical [[Measuring instrument|scientific instrument]]s.{{citation needed|date=April 2023}}
+
+There are almost 100 full-time and part-time staff, including curators, assistant curators, curators emeriti, curatorial affiliates, and [[Volunteering|volunteer]]s. Curators and assistant curators are also [[Faculty (teaching staff)|faculty]] members in related departments.<ref name=PeabodyStaff>{{cite web|title=Yale Peabody Museum of Natural History: Administrative Staff|url=http://peabody.yale.edu/about-us/administrative-staff|publisher=Yale Peabody Museum of Natural History|access-date=28 August 2018|archive-date=August 27, 2018|archive-url=https://web.archive.org/web/20180827171539/http://peabody.yale.edu/about-us/administrative-staff|url-status=dead}}</ref><ref name=PeabodyCollectionsStaff>{{cite web|title=Yale Peabody Museum of Natural History: Collections Staff|url=http://peabody.yale.edu/collections/collection-contacts|publisher=Yale Peabody Museum of Natural History|access-date=28 August 2018}}</ref>
+
+==History==
+[[File:Original Peabody Museum, Yale University. Architectural sketch by J. Cleaveland Cady.jpg|thumb|Original Peabody Museum (1874)]]
+[[File:Minerological Department Peabody Museum Kingsley II.jpg|thumb|Displays of minerals (c. 1879)]]
+[[File:PostcardNewHavenCTPeabodyMuseum1909postmark.jpg|thumb|right|The museum as shown on a postcard mailed in 1909]]
+[[File:Peabody-ornithology-0002.jpg|thumb|An [[ornithology]] exhibit]]
+[[File:INTERIOR OF PEABODY MUSEUM OF YALE UNIVERSITY, NEW HAVEN, CT.jpg|thumb|The Hall of Dinosaurs includes the mural, ''[[The Age of Reptiles]]'']]
+[[Othniel Charles Marsh]] was an undergraduate and later the Professor of Paleontology at Yale University. His education was paid for by his wealthy uncle [[George Peabody]], who began to donate much of his accumulated wealth to various educational institutions at the end of his life. Marsh and his teams discovered dozens of new genera of dinosaurs and other fossil animals, including ''[[Triceratops]]'', ''[[Brontosaurus]]'', and ''[[Hesperornis]]''.  At the request of Marsh and to house some of his discoveries, Peabody founded Yale's Museum of Natural History in 1866 with a gift of $150,000 (equivalent to ${{Format price|{{Inflation|US|150000|1866}}}} in {{Inflation/year|US}}).{{citation needed|date=April 2023}}
+
+Yale's collection at the time was mostly minerals, collected by the [[geologist]] and [[mineralogist]] [[Benjamin Silliman]]. Marsh was one of the museum's first three curators and when Peabody died in 1869, he used his inheritance to fund expeditions bringing back specimens which greatly increased the museum's collections. His primary interest was [[dinosaur]]s. During the infamous period in paleontological history known as the [[Bone Wars]], he discovered  56 new species of dinosaur and literally shipped tons of fossils back from the [[American Southwest]]. His finds also included fossils of vertebrates and invertebrates, [[fossil trackway|trackway]]s of prehistoric animals; and archaeological and [[ethnology|ethnological]] artifacts.
+
+The museum officially opened to the public in 1876. In 1917, it was demolished and replaced by the [[Harkness Memorial Quadrangle]] dormitory.<ref>{{cite web |title=The Memorial Quadrangles beginnings |url=https://www.yalealumnimagazine.com/articles/4540-the-memorial-quadrangles-beginnings |website=Yale Alumni Magazine |language=en|date=2017|last=Schiff|first=Judith}}</ref>  When [[World War I]] began most of the collections were put in storage until December 1925, when the current building was dedicated.<ref>{{cite web |title=At renovated Peabody Museum, Yale reopens its ‘front door’ to the world |url=https://news.yale.edu/2024/04/18/renovated-peabody-museum-yale-reopens-its-front-door-world |website=Yale News |language=en |date=18 April 2024|last=Cummings|first=Mike}}</ref> The new building had a great, 2-story hall designed specifically to hold Marsh's dinosaurs.
+
+Some other significant events include:
+* In 1930, donation of the [[Harry Payne Bingham]] Oceanographic Collection, including the work of artist [[Wilfrid Swancourt Bronson]].<ref name=PeabodyYale>{{cite web|title=Harry Payne Bingham|url=http://peabody.yale.edu/collections/archives/biography/harry-payne-bingham|website=peabody.yale.edu|publisher=Yale Peabody Museum of Natural History|access-date=30 August 2015}}</ref><ref name=YalePeabodyBronson>{{cite archive |first= |last= |item= |type= |date= |series= |file= |box= |collection=Wilfrid Swancourt Bronson Archives |repository=Yale Peabody Museum of Natural History |institution=Yale University |location= |collection-url=https://archives.yale.edu/repositories/15/resources/11149}}</ref><ref name=Slack>{{cite book|last1=Slack|first1=Nancy G.|title=G. Evelyn Hutchinson and the Invention of Modern Ecology|date=2010|publisher=Yale University Press|isbn=978-0-300-16138-0|page=125 of 457 }}</ref> 
+* In 1931, the mounting of Marsh's ''Brontosaurus'' was finished, after 6 years of work.{{citation needed|date=April 2023}}
+* In 1947, [[Rudolph F. Zallinger]] finished painting dinosaurs in their natural habitats in his {{convert|110|ft|m|adj=mid|-long}} mural ''The Age of Reptiles'', after {{frac|3|1|2}} years of work.
+* In 1959, Bingham Laboratory was completed.{{citation needed|date=April 2023}}
+* In 1963, Kline Geology Laboratory was completed.{{citation needed|date=April 2023}}
+* In 1972, the Birds of Connecticut Hall opened.{{citation needed|date=April 2023}}
+*1985 – The Museum acquired the specimens of [[Princeton University]] following the shutdown of its paleontology program.<ref>{{Cite web|date=2010-11-10|title=Princeton Specimens {{!}} Vertebrate Paleontology : Collections : Yale Peabody Museum of Natural History|url=https://peabody.yale.edu/collections/vertebrate-paleontology/princeton-specimens|access-date=2021-02-24|website=peabody.yale.edu}}</ref>
+* In 2001, the interdisciplinary Class of 1954 Environmental Science Center was constructed on the site of the former Bingham Laboratory. It houses collections space for the museum and laboratory space for several curators.
+* In 2005, the Peabody unveiled its 21-foot life-size bronze sculpture of ''Torosaurus''—one of O.C. Marsh's famed dinosaur discoveries.  The 7,350-pound sculpture sits on a 13-foot, 70-ton base of [[Stony Creek granite]].
+* In 2018, the Peabody announced a $160 million (equivalent to ${{Inflation|US|160|2018|r=2}} million in {{Inflation/year|US}}) transformative gift toward a redefining renovation that will greatly expand its research capabilities, education and collection centers, and its exhibition galleries.
+* In 2020, the great hall closed at the beginning of the year, the rest of the museum closed in March, and many artifacts were transported to West Haven campus in December.<ref name="PPlan"/>
+
+== Education ==
+The Peabody Museum offers a certificate in natural illustration, specializing in comparative anatomy and plant morphology. The certificate includes 336 hours of coursework, along with personal study and the development of a portfolio.<ref>{{cite web | title=Natural Science Illustration Program &#124; Yale Peabody Museum | url=https://peabody.yale.edu/education/adult-programs/nsi }}</ref>
+
+== Popular culture ==
+* The museum was featured in ''[[The Simpsons]]'' episode "[[Burns, Baby Burns]]". In the episode Mr. Burns has had a relationship with Lily Bancroft and produced an illegitimate son (voiced by [[Rodney Dangerfield]]). He is shown in a flashback to 1939 for his 25th graduation class reunion. They make love in the museum, specifically in an exhibit which features [[Inuit]] and penguins.<ref>[[The Simpsons Archive]][http://www.snpp.com/episodes/4F05.html "Burns, Baby Burns"] {{webarchive|url=https://web.archive.org/web/20060115061945/http://www.snpp.com/episodes/4F05.html |date=2006-01-15 }} Retrieved July 8, 2012</ref>
+
+== Footnotes ==
+{{reflist}}
+
+== References ==
+* {{cite web | title = The ''Torosaurus'' Project at the Yale Peabody Museum | publisher = Peabody Museum of Natural History | date = 2005 | url = http://peabody.yale.edu/exhibits/torosaurus-peabody-dinosaur | access-date = 2014-07-09 | archive-date = August 6, 2019 | archive-url = https://web.archive.org/web/20190806023006/http://peabody.yale.edu/exhibits/torosaurus-peabody-dinosaur | url-status = dead }}
+
+==External links==
+{{Commons category|Peabody Museum of Natural History}}
+* [https://peabody.yale.edu/ Peabody Museum of Natural History, Yale University] (official website)
+** [http://peabody.yale.edu/exhibits/age-reptiles-mural ''The Age of Reptiles'' mural] {{Webarchive|url=https://web.archive.org/web/20180929053007/http://peabody.yale.edu/exhibits/age-reptiles-mural |date=September 29, 2018 }}
+
+{{Coord|41.3158|-72.921|display=title}}
+{{Yale}}
+
+{{authority control}}
+
+{{DEFAULTSORT:Peabody Museum Of Natural History}}
+[[Category:Museums in New Haven, Connecticut]]
+[[Category:Natural history museums in Connecticut]]
+[[Category:Yale University buildings and structures]]
+[[Category:Dinosaur museums in the United States]]
+[[Category:Egyptological collections in the United States]]
+[[Category:Pre-Columbian art museums in the United States]]
+[[Category:University museums in Connecticut]]
+[[Category:Paleontology in Connecticut]]
+[[Category:Towers in Connecticut]]
+[[Category:Museums established in 1866]]
+[[Category:1866 establishments in Connecticut]]
+[[Category:Association of Science-Technology Centers member institutions]]

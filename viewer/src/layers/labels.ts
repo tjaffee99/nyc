@@ -15,7 +15,13 @@ import {elevationAt} from './elevation';
 // places.csv (the city), places_counties.csv (the inner counties) and places_outer.csv (the outer
 // counties): same columns
 const files = import.meta.glob(
-  ['../../../data/tables/places.csv', '../../../data/tables/places_counties.csv', '../../../data/tables/places_outer.csv'],
+  [
+    '../../../data/tables/places.csv',
+    '../../../data/tables/places_counties.csv',
+    '../../../data/tables/places_outer.csv',
+    // villages, hamlets and neighbourhoods of the outer counties (pipeline/places_auto.py)
+    '../../../data/tables/places_outer_auto.csv'
+  ],
   {query: '?raw', import: 'default', eager: true}
 ) as Record<string, string>;
 
@@ -30,6 +36,8 @@ const TIERS: Record<string, {zoom: [number, number, number, number]; size: numbe
   region: {zoom: [6, 7, 9.2, 10.2], size: 17, color: [70, 64, 56], priority: 6, caps: true},
   city: {zoom: [7.6, 8.4, 13.2, 14.2], size: 19, color: [40, 36, 31], priority: 5},
   town: {zoom: [9.4, 10.2, 13.8, 14.8], size: 15, color: [50, 45, 39], priority: 4},
+  // villages and hamlets of the outer counties (places_outer_auto.csv)
+  hamlet: {zoom: [11.3, 12, 16, 17], size: 13, color: [60, 54, 47], priority: 2},
   landscape: {zoom: [11, 11.8, 16, 17], size: 14, color: [96, 76, 52], italic: true, priority: 2},
   neighborhood: {zoom: [12.2, 12.9, 16.2, 17.2], size: 15, color: [52, 47, 40], priority: 3, caps: true},
   historic: {zoom: [12.8, 13.4, 16.5, 17.5], size: 14, color: [120, 64, 44], italic: true, priority: 1},

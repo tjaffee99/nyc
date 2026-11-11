@@ -1,0 +1,327 @@
+
+// ====================================================================== Kline Tower (1962-66)
+// Cited: Philip Johnson, 250 ft (76 m) roof, 16 floors, built 1962-66, $12 million, the tallest
+// building on Yale's campus (Wikipedia). Footprint height 77 m.
+// Overture building 8c16abc7-49b1-42e6-b4d6-56f562241192
+const R_kline: V2[] = {R:8c16abc7};
+NEW_HAVEN.push({
+  id: 'kline_tower',
+  name: 'Kline Tower (Kline Biology Tower)',
+  kind: 'tower',
+  built: [1962, 1966.5],
+  end: 9999,
+  anchor: [-72.922549, 41.317239],
+  build: b => {
+    b.color('#8F8272').prism(R_kline, 0, 71);
+    b.color('#7B6F62').prism(scale(R_kline, 0.985, 0.99, 15.5), 71, 76.2);
+    b.color('#6E655A').prism(scale(R_kline, 0.8, 0.85, 15.5), 76.2, 78.0);
+  },
+  replaces: [R_kline],
+  facts: {
+    Built: '1962–1966, Philip Johnson, $12 million; the tallest building in New Haven 1966–69 and still the tallest on Yale’s campus; Kline Biology Tower until 2023',
+    Height: '250 ft (76 m) to the roof, 16 floors',
+    Model: 'plan from the footprint (50 x 24 m); roof cited (76.2 m); the upper band and the rooftop plant (1.8 m) and the brick colour estimated'
+  },
+  sources: [WIKI + 'Kline_Biology_Tower', TALLEST, OVERTURE]
+});
+
+// ====================================================================== Ingalls Rink, "the Whale" (1953-58)
+// Cited: Eero Saarinen, built 1953-58 (opened 3 December 1958), a 90 m reinforced-concrete arch with
+// a cable net and a timber roof, maximum ceiling height 23 m (Wikipedia). Footprint 95 x 60 m.
+// Overture building 246ac9b8-808e-4ad0-884f-e839cbf37273
+const R_ingalls: V2[] = {R:246ac9b8};
+NEW_HAVEN.push({
+  id: 'ingalls_rink',
+  name: 'Ingalls Rink (“the Whale”)',
+  kind: 'building',
+  built: [1953.5, 1958.9],
+  end: 9999,
+  anchor: [-72.925003, 41.31681],
+  build: b => {
+    const kAcross = [1, 0.86, 0.69, 0.49, 0.28, 0.05];
+    const kAlong = [1, 0.995, 0.98, 0.95, 0.9, 0.84];
+    const zs = [4, 9, 14, 18.5, 21.8, 23];
+    b.color('#C4BFB2').prism(R_ingalls, 0, 4, {top: false});
+    b.color('#8E918C').loft(kAcross.map((k, i) => scale(R_ingalls, k, kAlong[i], 11.5)), zs);
+    // the concrete arch along the ridge
+    b.frame(0, 0, 0, 11.5, () => {
+      b.color('#D4D0C4').box(0, 0, 22.2, 1.6, 78, 0.8);
+    });
+  },
+  replaces: [R_ingalls],
+  facts: {
+    Built: '1953–1958 (opened 3 December 1958), Eero Saarinen, $1.5 million: a concrete arch and cable net under a timber roof; seats 3,500; renovated 2009',
+    Height: 'maximum ceiling height 23 m; the main arch is 90 m long',
+    Model: 'plan from the footprint (95 x 60 m); the roof is a lofted hump to the cited ceiling height (23 m, used as the roof height), with a ridge line for the arch; the 4 m wall and the section of the roof estimated'
+  },
+  sources: [WIKI + 'Ingalls_Rink', OVERTURE]
+});
+
+// ====================================================================== Woolsey Hall (1901)
+// Cited: Carrere and Hastings, Beaux-Arts, built for Yale's bicentennial, opened 1901, about 2,650
+// seats (Wikipedia). No height read.
+// Overture building 32000413-42df-414c-8c74-6022016265d2
+const R_woolsey: V2[] = {R:32000413};
+NEW_HAVEN.push({
+  id: 'woolsey_hall',
+  name: 'Woolsey Hall (Yale)',
+  kind: 'building',
+  built: [1899.5, 1901.5],
+  end: 9999,
+  anchor: [-72.926176, 41.311244],
+  build: b => {
+    const lime = '#D2C8B2';
+    b.color(lime).prism(R_woolsey, 0, 18);
+    b.color('#B8AE98').prism(scale(R_woolsey, 1.02, 1.01, 30.3), 18, 19.6);
+    b.color('#6F8577').loft([scale(R_woolsey, 0.98, 0.98, 30.3), scale(R_woolsey, 0.78, 0.9, 30.3), scale(R_woolsey, 0.36, 0.7, 30.3)], [19.6, 24.5, 27.6]);
+    // columned front at the south-west end, a pediment above
+    b.frame(4.5, 7.8, 0, 30.3, () => {
+      b.color('#E4DCCB').box(0, -24.6, 0, 22, 3.2, 0.8);
+      for (let i = 0; i < 6; i++) b.cylinder(-9.6 + i * 3.84, -24.2, 0.7, 0.8, 16.2, 8);
+      b.box(0, -24.2, 16.2, 22.8, 3.2, 1.6);
+      b.color('#CFC5AE').gable(0, -24.2, 22.8, 3.2, 17.8, 3.2, false);
+    });
+  },
+  replaces: [R_woolsey],
+  facts: {
+    Built: '1901 for Yale’s bicentennial (Carrère and Hastings, who designed the New York Public Library a decade later); the university’s largest auditorium, about 2,650 seats',
+    Model: 'plan from the footprint (46 x 36 m); every height (walls 18 m, roof 27.6 m), the green hipped roof and the six-column front on the south-west end estimated; no published height read: LOW'
+  },
+  sources: [WIKI + 'Woolsey_Hall', OVERTURE]
+});
+
+// ====================================================================== Battell Chapel (1874-76)
+// Cited: Russell Sturgis Jr., High Victorian Gothic, completed 1876 (Wikipedia). No height read.
+// Overture building c501f924-19b2-416a-9f9c-587654d85f38
+const R_battell: V2[] = {R:c501f924};
+NEW_HAVEN.push({
+  id: 'battell_chapel',
+  name: 'Battell Chapel (Yale)',
+  kind: 'building',
+  built: [1874.5, 1876.9],
+  end: 9999,
+  anchor: [-72.927581, 41.309421],
+  build: b => {
+    b.color('#A4503C').prism(R_battell, 0, 12);
+    b.frame(3.0, 0.4, 0, 116.7, () => {
+      b.color('#4B4F55').gable(0, 0, 25.8, 42, 12, 11, true);
+      b.color('#A4503C').box(0, 19, 0, 8, 8, 30);
+      b.color('#4B4F55').pyramid(rect(0, 19, 8.6, 8.6), 30, [0, 19, 44]);
+    });
+  },
+  replaces: [R_battell],
+  facts: {
+    Built: '1874–1876 (completed 1876), Russell Sturgis Jr., High Victorian Gothic, polychrome brick and stone; Yale’s college chapel on the Old Campus',
+    Model: 'plan from the footprint (42 x 26 m); every height (walls 12 m, ridge 23 m, tower 44 m) and the position of the tower estimated; no published dimension read: LOW'
+  },
+  sources: [WIKI + 'Battell_Chapel', OVERTURE]
+});
+
+// ====================================================================== Rudolph Hall, the Art and Architecture Building (1958-63)
+// Cited: Paul Rudolph, Brutalist, ribbed bush-hammered concrete, seven storeys with more than 30
+// floor levels, dedicated 8 November 1963 (Wikipedia). No height read.
+// Overture building a499f893-2d87-444c-aabe-a8060ccdbed2
+const R_rudolph: V2[] = {R:a499f893};
+NEW_HAVEN.push({
+  id: 'rudolph_hall',
+  name: 'Rudolph Hall (Art and Architecture Building)',
+  kind: 'building',
+  built: [1958, 1963.85],
+  end: 9999,
+  anchor: [-72.931886, 41.308769],
+  build: b => {
+    b.color('#B3AEA2').prism(R_rudolph, 0, 11);
+    b.color('#A7A296').prism(scale(R_rudolph, 0.74, 0.8, 119.2), 11, 19);
+    b.color('#9C978B').prism(scale(R_rudolph, 0.44, 0.5, 119.2), 19, 28);
+    b.color('#8A857A').prism(scale(R_rudolph, 0.2, 0.24, 119.2), 28, 31);
+  },
+  replaces: [R_rudolph],
+  facts: {
+    Built: 'dedicated 8 November 1963 (Paul Rudolph): one of the earliest and best-known Brutalist buildings in the United States; seven storeys with more than 30 floor levels; named for Rudolph in 2007',
+    Model: 'plan from the footprint (45 x 40 m); the stepped massing and every height (31 m at the tallest tower) estimated, ribbed concrete only as a colour; start of work (1958) estimated: LOW'
+  },
+  sources: [WIKI + 'Rudolph_Hall', OVERTURE]
+});
+
+// ====================================================================== Yale Center for British Art (1969-77)
+// Cited: Louis Kahn (died 1974), four floors, matte steel and reflective glass, opened 15 April 1977
+// (Wikipedia). Height 16.7 m is the footprint's.
+// Overture building 6605d564-c884-4545-a836-933e3a326cf5
+const R_ycba: V2[] = {R:6605d564};
+NEW_HAVEN.push({
+  id: 'yale_center_british_art',
+  name: 'Yale Center for British Art',
+  kind: 'building',
+  built: [1969, 1977.3],
+  end: 9999,
+  anchor: [-72.930861, 41.307896],
+  build: b => {
+    b.color('#B9B5AA').prism(R_ycba, 0, 5.5, {top: false});
+    b.color('#A5ABAE').prism(scale(R_ycba, 0.995, 0.995, 118.6), 5.5, 16.7, {holes: [rotRect(-14, 0, 12, 12, 118.6), rotRect(12, 2, 8, 8, 118.6)]});
+  },
+  replaces: [R_ycba],
+  facts: {
+    Built: 'opened to the public on 15 April 1977; Louis Kahn’s last building (he died in 1974), at York and Chapel streets; four floors, matte steel panels and reflective glass',
+    Height: '16.7 m (the footprint’s height)',
+    Model: 'plan from the footprint (61.6 x 36.6 m); top at the footprint’s 16.7 m; the base band (5.5 m) and the two courtyards (positions and sizes) estimated; start of work (1969) estimated'
+  },
+  sources: [WIKI + 'Yale_Center_for_British_Art', OVERTURE]
+});
+
+// ====================================================================== Pirelli (Armstrong Rubber) Building, today Hotel Marcel (1968-70)
+// Cited: Marcel Breuer and Robert Gatje, nine storeys: a two-storey base, a two-storey air gap with
+// three massive piers and a five-storey upper block; built 1968-70 for the Armstrong Rubber
+// Company, Pirelli's until 1999 (Wikipedia, Hotel Marcel). No height read.
+// Overture building 2ac069d8-b56d-4ce0-95cc-bbee467be17f
+const R_marcel: V2[] = {R:2ac069d8};
+NEW_HAVEN.push({
+  id: 'pirelli_building_hotel_marcel',
+  name: 'Armstrong Rubber (Pirelli) Building, Hotel Marcel',
+  kind: 'building',
+  built: [1968, 1970.5],
+  end: 9999,
+  anchor: [-72.918681, 41.296554],
+  build: b => {
+    b.frame(-2.8, -4.3, 0, 33.8, () => {
+      b.color('#B9B5AA').box(0, 0, 0, 24, 54, 8);
+      // three piers of the air gap
+      for (const y of [-19, 0, 19]) b.color('#C9C5BB').box(0, y, 8, 12, 7, 8);
+      b.color('#CFCBC0').box(0, 0, 16, 27.7, 57.4, 20);
+      b.color('#9E9A90').box(0, 0, 36, 24, 50, 1.4);
+    });
+  },
+  replaces: [R_marcel],
+  facts: {
+    Built: 'built 1968–1970 for the Armstrong Rubber Company (Marcel Breuer and Robert Gatje); Pirelli’s from 1988 to 1999; the Hotel Marcel since 2018; nine storeys of precast concrete',
+    Model: 'plan from the footprint (57 x 28 m); the two-storey base, the two-storey gap on three piers and the five-storey upper block as described; every height (about 4 m a storey, 36 m in all) and the pier sizes estimated: LOW'
+  },
+  sources: [WIKI + 'Hotel_Marcel', OVERTURE]
+});
+
+// ====================================================================== Crown Towers (1967)
+// Cited: 8 High Street, completed 1967, 22 floors, 222 ft (68 m) (Wikipedia); the tallest
+// residential building in New Haven until 360 State Street.
+// Overture building d1084d5f-5af6-4474-bd36-6edfa8da217e
+const R_crown: V2[] = {R:d1084d5f};
+NEW_HAVEN.push({
+  id: 'crown_towers',
+  name: 'Crown Towers',
+  kind: 'tower',
+  built: [1965.5, 1967.5],
+  end: 9999,
+  anchor: [-72.932558, 41.306719],
+  build: b => {
+    b.color('#B7B0A0').prism(R_crown, 0, 4.5);
+    b.color('#A79F8E').prism(scale(R_crown, 0.985, 0.97, 28.3), 4.5, 66);
+    b.color('#8D8678').prism(scale(R_crown, 0.9, 0.9, 28.3), 66, 67.7);
+  },
+  replaces: [R_crown],
+  facts: {
+    Built: 'completed 1967 at 8 High Street; 22 floors; the tallest residential building in New Haven until 360 State Street (2010)',
+    Height: '222 ft (68 m)',
+    Model: 'plan from the footprint (74 x 18 m); top cited (67.7 m = 222 ft); the base and parapet and the colour estimated; start of work (1965.5) estimated'
+  },
+  sources: [WIKI + 'Crown_Towers_(New_Haven,_Connecticut)', TALLEST, OVERTURE]
+});
+
+// ====================================================================== Hall of Graduate Studies, Swensen Tower (1930-32)
+// Cited: James Gamble Rogers, Collegiate Gothic, opened 29 September 1932, a 14-storey tower
+// (208 ft, 63 m in the tallest-buildings list; "a 200-foot tower" in the article) (Wikipedia).
+// Position: the list's coordinate (41 deg 18' 43" N, 72 deg 55' 46" W) put on the Humanities
+// Quadrangle footprint cae0084c-906d-4806-8b76-13786ddd7c70 (anchor -72.929127, 41.312309).
+NEW_HAVEN.push({
+  id: 'swensen_tower_hgs',
+  name: 'Hall of Graduate Studies tower (Swensen Tower)',
+  kind: 'tower',
+  built: [1930, 1932.75],
+  end: 9999,
+  anchor: [-72.929127, 41.312309],
+  build: b => {
+    b.frame(-26, -41, 0, 28.6, () => {
+      const stone = '#A89C86';
+      b.color(stone).box(0, 0, 0, 13, 13, 46);
+      for (const sx of [-1, 1]) for (const sy of [-1, 1]) b.box(sx * 6.5, sy * 6.5, 0, 1.8, 1.8, 49);
+      b.color('#B6AA93').box(0, 0, 46, 11, 11, 11);
+      for (const sx of [-1, 1]) for (const sy of [-1, 1]) {
+        b.color('#B6AA93').box(sx * 5.1, sy * 5.1, 57, 1.6, 1.6, 3.4);
+        b.color('#5E6A66').pyramid(rect(sx * 5.1, sy * 5.1, 1.8, 1.8), 60.4, [sx * 5.1, sy * 5.1, 62.6]);
+      }
+      b.color('#5E6A66').pyramid(rect(0, 0, 9.6, 9.6), 57, [0, 0, 63.4]);
+    });
+  },
+  facts: {
+    Built: 'opened 29 September 1932 as the Hall of Graduate Studies (James Gamble Rogers, Collegiate Gothic); the tower was named for David Swensen in 2015; the quadrangle reopened as the Humanities Quadrangle in 2021',
+    Height: '208 ft (63 m), 14 floors (the article says "a 200-foot tower")',
+    Model: 'top cited (63.4 m = 208 ft); the tower’s plan (13 m square), stages, corner turrets and roof, and its position (about ±20 m, from a coordinate to the second) estimated: LOW'
+  },
+  sources: [WIKI + 'Humanities_Quadrangle', TALLEST]
+});
+
+// ====================================================================== New Haven Coliseum (1968-72, imploded 2007)
+// Cited: Kevin Roche (Roche-Dinkeloo); construction 1968, completed 1972, first event 4 October 1972;
+// 11,497 seats; 4.5 acres (18,000 m2) of land; the parking garage was built on top of the arena;
+// closed 1 September 2002; imploded 20 January 2007 (Wikipedia). Coordinate 41.302490, -72.925454.
+// No footprint is left in the modern data: the plan and heights are estimated.
+NEW_HAVEN.push({
+  id: 'new_haven_coliseum',
+  name: 'New Haven Veterans Memorial Coliseum',
+  kind: 'building',
+  built: [1968, 1972.75],
+  end: 2007.05,
+  anchor: [-72.925454, 41.30249],
+  build: b => {
+    b.frame(0, 0, 0, 28, () => {
+      b.color('#9A968D').prism(roundedPlan(120, 92), 0, 14);
+      // the garage decks on top: four levels of open concrete floors
+      for (let k = 0; k < 4; k++) {
+        b.color('#B1ADA3').prism(roundedPlan(116, 88), 14 + k * 3.6, 14 + k * 3.6 + 0.7);
+        b.color('#7F7B73').prism(roundedPlan(116, 88), 14.7 + k * 3.6, 17.6 + k * 3.6, {top: false});
+      }
+      b.color('#B1ADA3').prism(roundedPlan(116, 88), 28.4, 29.1);
+    });
+  },
+  facts: {
+    Built: 'construction began 1968, completed 1972 (Kevin Roche of Roche-Dinkeloo, who also designed the Knights of Columbus tower beside it): 11,497 seats, the parking garage built on top of the arena',
+    Gone: 'closed 1 September 2002; imploded 20 January 2007',
+    Model: 'position from Wikipedia’s coordinate; the plan (120 x 92 m, inside the 4.5-acre site) and every height (arena 14 m, garage to 29 m) estimated, no plan or height read: LOW'
+  },
+  sources: [WIKI + 'New_Haven_Coliseum']
+});
+
+// ====================================================================== Soldiers and Sailors Monument, East Rock (1886-87)
+// Cited: neoclassical design by Moffit and Doyle, red granite shaft, an observatory and bronze
+// statuary, the Angel of Peace on top; work began 1886, dedicated 17 June 1887; 112 ft (34 m)
+// (the East Rock article; East Rock Park says 122 ft) on the 366 ft summit; inscribed on its
+// south-west, south-east, north-east and north-west faces (Wikipedia). Coordinate 41.32725, -72.90462.
+NEW_HAVEN.push({
+  id: 'soldiers_sailors_monument_east_rock',
+  name: 'Soldiers’ and Sailors’ Monument (East Rock)',
+  kind: 'monument',
+  built: [1886, 1887.46],
+  end: 9999,
+  anchor: [-72.90462, 41.32725],
+  build: b => {
+    b.frame(0, 0, 0, 45, () => {
+      b.color('#9C968C').box(0, 0, 0, 20, 20, 0.8).box(0, 0, 0.8, 16.4, 16.4, 0.8).box(0, 0, 1.6, 13, 13, 0.8);
+      b.color('#B0A99B').box(0, 0, 2.4, 9.2, 9.2, 7);
+      b.color('#5F6F5A');
+      for (const sx of [-1, 1]) for (const sy of [-1, 1]) b.box(sx * 5.6, sy * 5.6, 2.4, 2.4, 2.4, 3.4);
+      b.color('#9C3B34').frustum(0, 0, 3.0, 2.2, 9.4, 26.4, 8);
+      b.color('#B0A99B').box(0, 0, 26.4, 6.6, 6.6, 1.2);
+      b.color('#B0A99B').box(0, 0, 27.6, 4.6, 4.6, 2.2);
+      b.color('#5F6F5A').frustum(0, 0, 1.3, 0.7, 29.8, 33.2, 8);
+      b.pyramid(circle(0, 0, 0.7, 8), 33.2, [0, 0, 34.1]);
+    });
+  },
+  facts: {
+    Built: 'work began 1886, dedicated 17 June 1887 before 175,000 people (Moffit and Doyle; bronzes cast by the Ames Manufacturing Company); it honours New Haven’s dead of the Revolution, 1812, the Mexican and Civil wars',
+    Height: '112 ft (34 m) on the 366 ft (112 m) summit of East Rock (East Rock Park’s page says 122 ft)',
+    Model: 'top cited (34.1 m = 112 ft); the stepped base, the pedestal with four bronze groups, the tapering red granite shaft, the observatory and the Angel of Peace as proportions only, all dimensions estimated; faces turned 45 degrees after the inscriptions’ compass faces'
+  },
+  sources: [WIKI + "Soldiers'_and_Sailors'_Monument_(New_Haven)", WIKI + 'East_Rock', WIKI + 'East_Rock_Park']
+});
+
+/** Rounded rectangle plan, w across and l along. */
+function roundedPlan(w: number, l: number): V2[] {
+  return roundedRect(0, 0, w, l, 12, 4);
+}

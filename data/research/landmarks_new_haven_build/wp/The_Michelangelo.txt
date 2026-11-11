@@ -1,0 +1,71 @@
+{{short description|Hotel in Manhattan, New York}}
+{{Use mdy dates|date=May 2024}}
+{{Infobox hotel
+| name                  = The Taft Hotel Building
+| logo                  = 
+| logo_size             = 
+| image                 = The Michelangelo - New York (54076909831).jpg
+| caption               = The historic Taft Hotel building in 2024
+| location              = [[Manhattan]], [[New York City]]
+| address               = 152 West 51st Street
+| hotel_chain           = Starhotels
+| coordinates           = {{Coord|40|45|41|N|73|58|58|W|type:landmark|display=inline,title}}
+| opening_date          = {{Start date and age|1926}}
+| developer             = 
+| architect             = [[H. Craig Severance]]
+| operator              = [[Starhotels]]
+| cost                  = 
+| owner                 = 
+| number_of_rooms       = 178
+| number_of_suites      = 
+| number_of_restaurants = 
+| floor_area            = 
+| floor_count           = 22
+| height                = 226 ft
+| parking               = 
+| website               = 
+}}
+
+The '''Taft Hotel''' building is a 22-story [[pre-war architecture|pre-war]] Spanish Renaissance structure that occupies the eastern side of [[Seventh Avenue (Manhattan)|Seventh Avenue]] between [[50th Street (Manhattan)|50th]] and [[51st Street (Manhattan)|51st]] streets, just north of [[Times Square]], in the [[Midtown Manhattan]] neighborhood of New York City. In its modern configuration, it features two separate portions with their own entrance on 51st Street. The larger portion is devoted to the residential condominium called '''Executive Plaza''', with each of its 440 units being privately owned. Certain units are rented by their owners to the public. A smaller portion of the building contains '''The Michelangelo''', a [[Starhotels]] hotel.
+
+==History==
+===Hotel Manger===
+On October 22, 1924, it was announced that [[Manger Hotels]], owned by the Manger brothers, had purchased a block on [[Seventh Avenue (Manhattan)|Seventh Avenue]] between [[50th Street (Manhattan)|50th]] and [[51st Street (Manhattan)|51st]] streets from Realty Associates and [[Bing & Bing]] for approximately $5.5 million, after plans for a sports arena on that site fell through. [[H. Craig Severance]] was hired to design a 1,250 room hotel and Bing & Bing were named the general contractors for the project.<ref>{{cite news |title=$5,500,000 Hotel to Rise on 7th Av. at 51st St |work=The New York Times |date=October 23, 1924}}</ref> The twenty-story, Spanish Renaissance-style '''Hotel Manager''' opened on November 15, 1926.<ref>{{usurped|1=[https://web.archive.org/web/20070514175607/http://www.emporis.com/en/wm/bu/?id=tafthotel-newyorkcity-ny-usa Taft Hotel - Emporis.com - Retrieved December 31, 2008]}}</ref> At the time, the 2,250-room Manger was the largest hotel in the [[Times Square]] area, and the third largest in Manhattan.<ref>{{cite news |title=New Manger Hotel Opens Tomorrow |work=The New York Times |date=November 14, 1926}}</ref> The development cost more than $10 million (equivalent to more than ${{Inflation|US|10|1926|r=0}}&nbsp;million in {{Inflation/year|US}}), an enormous amount of money at the time. The hotel was connected to the famous [[Roxy Theatre (New York City)|Roxy Theatre]], a movie and stage show palace that opened a few months later, on March 11, 1927. The lobby of the Roxy was actually located in the 50th St and Seventh Avenue corner of the hotel structure. [[Madison Square Garden (1925)|Madison Square Garden]] was a block to the west and drew thousands for major events.
+
+===Hotel Taft===
+In 1931, Manger Hotels sold the hotel to Bing & Bing,<ref>{{cite news |title=Hotel Manger Sold, Goes to Bing & Bing |work=The New York Times |date=April 3, 1931}}</ref><ref>{{cite news |title=Knott Corp. |work=The Wall Street Journal |date=April 9, 1931}}</ref> which renamed it the '''Hotel Taft''', after President [[William Howard Taft]].<ref name="query.nytimes.com">[https://www.nytimes.com/1992/06/28/realestate/postings-remember-the-taft-a-starhotel-on-51st-street.html "POSTINGS: Remember the Taft?; A StarHotel on 51st Street"] {{Webarchive|url=https://web.archive.org/web/20180115204050/http://www.nytimes.com/1992/06/28/realestate/postings-remember-the-taft-a-starhotel-on-51st-street.html |date=January 15, 2018 }}. ''[[The New York Times]]'', June 28, 1992. Accessed August 12, 2009.</ref> One of the hotel's most famous features was the Taft Grill.{{Citation needed|date=August 2024}} The [[George Hall (musician)|George Hall Orchestra]] (sometimes called the George Hall Taft Hotel Orchestra) performed from the hotel on Monday through Saturday at noon on [[CBS Radio]], starring [[Dolly Dawn]].<ref>Martin, Douglas. [https://www.nytimes.com/2002/12/18/arts/dolly-dawn-86-who-sang-center-stage-in-the-big-band-era.html "Dolly Dawn, 86, Who Sang Center Stage in the Big Band Era"] {{Webarchive|url=https://web.archive.org/web/20160304095457/http://www.nytimes.com/2002/12/18/arts/dolly-dawn-86-who-sang-center-stage-in-the-big-band-era.html |date=March 4, 2016 }}. ''[[The New York Times]]'', December 18, 2002. Accessed August 12, 2009.</ref> The band's signature song was "[[Love Letters in the Sand]]".{{Citation needed|date=August 2024}} Other big band performances were by [[Artie Shaw]], [[Xavier Cugat]], [[Tommy Dorsey|Tommy]] and [[Jimmy Dorsey]], [[Glenn Miller]], and [[Tony Pastor (bandleader)|Tony Pastor]].<ref>[http://new-york-city.hotelbook.com/hotel/The_Michaelangelo The Michelangelo Hotel] {{Webarchive|url=https://web.archive.org/web/20090107043206/http://new-york-city.hotelbook.com/hotel/The_Michaelangelo |date=January 7, 2009 }}. hotelbook.com. Accessed August 12, 2009.</ref> [[Vincent Lopez]] performed in residency for 20 years and broadcast a radio show from the hotel, with [[Gloria Parker]], ''Shake the Maracas''. Lopez later broadcast a TV show from the Taft on the [[DuMont Television Network]], ''[[Dinner Date (1950 DuMont TV series)|Dinner Date]]'', from January to July 1950.
+
+In 1957, J.I. Lubin & Associates sold the hotel to Lawrence A. Wien.<ref>{{Cite news |url=https://www.nytimes.com/1957/12/07/archives/taft-hotel-sold-to-investor-here-la-wien-buys-7th-avenue-blockfront.html |title=TAFT HOTEL SOLD TO INVESTOR HERE; L.A. Wien Buys 7th Avenue Blockfront Property from J.I. Lubin & Associates |newspaper=The New York Times |date=December 7, 1957 |access-date=November 2, 2021 |archive-date=November 2, 2021 |archive-url=https://web.archive.org/web/20211102090348/https://www.nytimes.com/1957/12/07/archives/taft-hotel-sold-to-investor-here-la-wien-buys-7th-avenue-blockfront.html |url-status=live }}</ref> In 1958, Wien re-sold the hotel to Zeckendorf Hotels Corporation.<ref>{{Cite news |url=https://www.nytimes.com/1958/10/20/archives/zeckendorf-acquires-lease-on-taft-hotel.html |title=Zeckendorf Acquires Lease on Taft Hotel |newspaper=The New York Times |date=October 20, 1958 |access-date=November 2, 2021 |archive-date=November 2, 2021 |archive-url=https://web.archive.org/web/20211102090348/https://www.nytimes.com/1958/10/20/archives/zeckendorf-acquires-lease-on-taft-hotel.html |url-status=live }}</ref> In 1961, Zeckendorf re-sold the hotel to the Breitbart Corporation.<ref>{{Cite news |url=https://www.nytimes.com/1961/04/27/archives/leasehold-sold-on-the-taft-hotel-syndicators-get-property-from.html |title=LEASEHOLD SOLD ON THE TAFT HOTEL; Syndicators Get Property from Zeckendorf Group |newspaper=The New York Times |date=April 27, 1961 |access-date=November 2, 2021 |archive-date=November 2, 2021 |archive-url=https://web.archive.org/web/20211102090349/https://www.nytimes.com/1961/04/27/archives/leasehold-sold-on-the-taft-hotel-syndicators-get-property-from.html |url-status=live }}</ref>
+
+The 1960 demolition of the Roxy Theatre, the 1968 demolition of Madison Square Garden, the increasing presence of unsavory businesses in the area, and the desire for newer, more elegant hotels contributed to the gradual decay of the Taft Hotel. In 1974, Urban Renewal Housing and Development Corporation, headed by Gilbert M. Federbush, acquired the hotel from Lawrence A. Wien. At the time, the hotel was struggling with a 51% occupancy rate and losing $80,000 a month. A year later, the hotel fell into receivership and was foreclosed on by its lender, the [[Penn Mutual|Penn Mutual Life Insurance Company]].<ref>{{Cite news |url=https://www.nytimes.com/1975/11/19/archives/about-real-estate-foreclosure-action-at-the-taft-halts-hotel.html |title=About Real Estate |newspaper=The New York Times |date=November 19, 1975 |last1=Oser |first1=Alan S. |access-date=November 2, 2021 |archive-date=November 2, 2021 |archive-url=https://web.archive.org/web/20211102090347/https://www.nytimes.com/1975/11/19/archives/about-real-estate-foreclosure-action-at-the-taft-halts-hotel.html |url-status=live }}</ref>
+
+===Mixed-use conversion===
+[[File:Tgif-nyc.jpg|thumb|The [[T.G.I. Friday's]] formerly located in the space that once housed the Roxy Theatre's lobby]]
+
+From 1984 to 1986, the hotel was converted to mixed use, at a cost of $100 million, buoyed by the economic recovery of the area, especially the 1983 announcement of the $200 million [[787 Seventh Avenue|Equitable Center]] office tower, across 51st Street to the north.<ref name="nytimes.com">{{Cite news |url=https://www.nytimes.com/1984/12/30/realestate/new-life-for-former-tourist-landmark.html |title=New Life for Former Tourist Landmark |newspaper=The New York Times |date=December 30, 1984 |last1=Purdum |first1=Todd S. |access-date=November 2, 2021 |archive-date=August 26, 2021 |archive-url=https://web.archive.org/web/20210826183056/https://www.nytimes.com/1984/12/30/realestate/new-life-for-former-tourist-landmark.html |url-status=live }}</ref>
+
+Taft Partners Development Group, which converted the building, consisted of Steven Goodstein from the Goodstein Construction Company, Hank Sopher of J.I. Sopher & Company and Arthur Cohen, chairman of Arlen Realty and Development Corporation.<ref name="nytimes.com"/> The architect for the conversion was Wechsler-Grasso-Menziuso.<ref>{{Cite web |url=https://www.cityrealty.com/nyc/midtown-west/executive-plaza-150-west-51st-street/review/3355 |title=Executive Plaza in Midtown West: Review and Ratings &#124; CityRealty |access-date=November 2, 2021 |archive-date=November 2, 2021 |archive-url=https://web.archive.org/web/20211102090348/https://www.cityrealty.com/nyc/midtown-west/executive-plaza-150-west-51st-street/review/3355 |url-status=live }}</ref> The eighth through the 21st floors were rebuilt as 448 condominiums, known as '''Executive Plaza''', while the first seven floors were occupied by the 179-room '''Grand Bay Hotel at Equitable Center''',<ref>{{Cite news |url=https://www.nytimes.com/1986/06/11/business/real-estate-luxurious-new-hotel-at-taft-site.html |title=Real Estate; Luxurious New Hotel at Taft Site |newspaper=The New York Times |date=June 11, 1986 |last1=Kennedy |first1=Shawn G. |access-date=November 2, 2021 |archive-date=November 2, 2021 |archive-url=https://web.archive.org/web/20211102090347/https://www.nytimes.com/1986/06/11/business/real-estate-luxurious-new-hotel-at-taft-site.html |url-status=live }}</ref> which opened in October 1986. The hotel and the condominiums had separate entrances side by side on [[51st Street (Manhattan)|51st Street]].<ref name="query.nytimes.com"/>
+
+In 1990, Park Lane Hotels International acquired the hotel portion and renamed it the '''Parc Fifty One Hotel'''. In 1992, [[Starhotels]] acquired the hotel for $42 million and renamed it '''The Michelangelo'''.<ref name="query.nytimes.com"/> The Executive Plaza residential [[Condominium (living space)|condominium]] portion of the building was listed in a 2015 ''[[New York Times]]'' article as having the highest proportion of [[Pied-à-terre|non-primary residences]] of any building in Manhattan, at 74.4%. The building allows owners to rent out their apartments by the month, and most of the apartments are small&nbsp;– some under 400 square feet.<ref>{{Cite news |last=Satow |first=Julie |date=January 9, 2015 |title=Why the Doorman Is Lonely |language=en-US |work=The New York Times |url=https://www.nytimes.com/2015/01/11/realestate/new-york-citys-emptiest-co-ops-and-condos.html |access-date=May 30, 2021 |issn=0362-4331 |archive-date=August 25, 2021 |archive-url=https://web.archive.org/web/20210825142931/https://www.nytimes.com/2015/01/11/realestate/new-york-citys-emptiest-co-ops-and-condos.html |url-status=live }}</ref>
+
+The building includes a [[Ruth's Chris Steakhouse]] on West 51st Street, and once contained America's largest [[T.G.I. Friday's]] restaurant,<ref>{{Cite web |title=Times Square NYC New Years Eve Parties |url=https://www.timessquarenewyears.com/parties-tgi-fridays-new-years.php |access-date=May 30, 2021 |website=www.timessquarenewyears.com |archive-date=June 2, 2021 |archive-url=https://web.archive.org/web/20210602215234/https://www.timessquarenewyears.com/parties-tgi-fridays-new-years.php |url-status=live }}</ref> located in the space that once housed the lobby of the [[Roxy Theatre (New York City)|Roxy Theatre]]. The T.G.I. Friday's closed due to the effects of the COVID-19 pandemic.<ref>{{cite web |title=Delshah Capital buys Midtown commercial condo at former TGI Friday's |last=Jones |first=Orion |date=March 10, 2021 |url=https://therealdeal.com/2021/03/10/delshah-capital-buys-midtown-commercial-condo-at-former-tgi-fridays/ |access-date=October 18, 2022 |archive-date=October 18, 2022 |archive-url=https://web.archive.org/web/20221018121939/https://therealdeal.com/2021/03/10/delshah-capital-buys-midtown-commercial-condo-at-former-tgi-fridays/ |url-status=live }}</ref>
+
+==References==
+{{Reflist}}
+
+==External links==
+*[http://www.michelangelohotel.com/ The Michelangelo official website]
+*[https://executiveplazanyc.com/ Executive Plaza official website]
+
+{{Midtown North, Manhattan}}
+{{Hotels in New York City}}
+
+{{DEFAULTSORT:Michelangelo}}
+[[Category:Buildings and structures completed in 1926]]
+[[Category:Hotel buildings completed in 1926]]
+[[Category:Hotels established in 1926]]
+[[Category:Hotels established in 1986]]
+[[Category:Hotels in Manhattan]]
+[[Category:Manger hotels]]
+[[Category:Midtown Manhattan]]
+[[Category:Seventh Avenue (Manhattan)]]

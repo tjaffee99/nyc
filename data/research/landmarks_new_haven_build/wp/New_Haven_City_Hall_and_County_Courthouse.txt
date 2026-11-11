@@ -1,0 +1,63 @@
+{{Use American English|date=September 2025}}
+{{Use mdy dates|date=February 2025}}
+{{Infobox NRHP
+| name = New Haven City Hall and County Courthouse
+| nrhp_type = 
+| image = New_Haven_City_Hall_and_County_Courthouse_(54106458160).jpg
+| caption = New Haven City Hall & County Courthouse
+| location = 161 Church Street, [[New Haven, Connecticut]]
+| coordinates = {{coord|41|18|26|N|72|55|29|W|display=inline,title}}
+| pushpin_map = Connecticut#USA
+| built = 1861; 1871–73
+| architect = [[Henry Austin (architect)|Henry Austin]]; [[David R. Brown (architect)|David R. Brown]]
+| architecture = [[High Victorian Gothic]]
+| added = September 9, 1975
+| area = {{convert|2|acre}}
+| ref_num = 75001940<ref name="nris">{{NRISref|2009a}}</ref>
+}}
+{{Multiple image
+| header = Header
+| align = right
+| direction = 
+| total_width = 250
+| perrow = 1/1
+| image1= City hall & county court house, New Haven, Conn. Master-pnp-det-4a10000-4a19000-4a19600-4a19645a.jpg
+| caption1 = Exterior, ca. 1900-1915
+| image2= New Haven City Hall interior.jpg
+| caption2 = Interior, 2025
+}}
+The '''New Haven City Hall and County Courthouse''' is located at 161 Church Street in the [[Downtown New Haven|Downtown]] section of [[New Haven, Connecticut|New Haven]], [[Connecticut]]. The city hall building, designed by [[Henry Austin (architect)|Henry Austin]], was built in 1861; the old courthouse building, now an annex, was built in 1871–73. They stand on the east side of the [[New Haven Green]].
+
+The pair of buildings was listed on the U.S. [[National Register of Historic Places]] in 1975. They are significant early examples of [[High Victorian Gothic]] architecture in the United States.<ref name=nris/><ref name="nrhpinv3">{{cite web|url={{NRHP url|id=75001940}} |title=National Register of Historic Places Inventory-Nomination: New Haven City Hall and County Courthouse (annex)|date=May 22, 1975 |author=Stephen J. Raiche |publisher=National Park Service}} and {{NRHP url|id=75001940|title=''Accompanying 15 photos, exterior and interior, from 1975 and undated''|photos=y}}</ref> 
+==History==
+New Haven’s city hall was designed by New Haven architect [[Henry Austin (architect)|Henry Austin]] and completed in 1861.<ref name="Sterner" /><ref name="Strahan" />  In 1873, the county courthouse was constructed on the left (north) side of the building, designed by David R. Brown.<ref name="Sterner" /> In 1914 the courthouse moved nearby and the older building became an annex for City Hall.<ref name="Strahan" />
+
+Brownstone from [[Portland, Connecticut]] and from [[Nova Scotia]]<ref name="Strahan" /> were used in construction to give the building a colorful effect.<ref name="Giordano" /> However, the materials were difficult to maintain, and the building was badly deteriorating by the mid 20th Century.<ref name="Giordano" /> The building's ornate clock tower was demolished in the 1950s.<ref name="Giordano" /> By the 1970s, the City Hall and courthouse were slated for demolition.<ref name="Strahan" /> In 1976, much of the rear and north portions of the original structure were demolished; due to local preservation groups, the facade was saved and the clock tower and rebuilt.<ref name="Giordano" /><ref name="Strahan" /><ref name="Sterner" />
+
+In 1992, a memorial to those involved in the [[United States v. The Amistad|Amistad incident]], the [[Amistad memorial (New Haven)|Amistad memorial]], was erected in front of city hall, facing the [[New Haven Green]], as this was the site of the prison where the Africans aboard the ''Amistad'' were held and tried.
+===Fuel cell===
+In January 2012, a [[PureCell System|PureCell]] Model 400 was dropped into place behind City Hall in the Millennium Plaza.<ref>{{Cite web|url=https://www.newhavenindependent.org/index.php/archives/entry/fuel_cell_drop_successful/|title=1st Fuel Cell Arrives At City Hall &#124; New Haven Independent|date=January 16, 2012|website=www.newhavenindependent.org}}</ref> The heat produced by the fuel cell will be used to heat and cool City Hall and the Hall of Records. It will supply 60 percent of the buildings' heating needs, and 30 percent of cooling needs.<ref>{{Cite web|url=https://www.newhavenindependent.org/index.php/archives/entry/city_hall_moves_on_green_energy/|title=City Hall Moves On Green Energy &#124; New Haven Independent|date=December 7, 2010|website=www.newhavenindependent.org}}</ref> According to Giovanni Zinn of the city's Office of Sustainability, the [[PureCell System|PureCell]] can help the city save up to $1 million in energy costs over the next ten years.<ref>{{cite web |url=http://www.utcpower.com/pressroom/blog/1st-fuel-cell-arrives-at-city-hall |title=1st Fuel Cell Arrives At City Hall |publisher=UTC Power |archive-url=https://archive.today/20120914152944/http://www.utcpower.com/pressroom/blog/1st-fuel-cell-arrives-at-city-hall |archive-date=14 September 2012 |url-status=dead}}</ref>
+===Renovation===
+In 2023, a renovation and expansion to City Hall was announced.<ref name="WANE" /> The project was estimated to cost $6.2 million, and add 6,800 square feet to the building.<ref name="WANE">{{cite news |last1=McMahan |first1=Clayton |title=City of New Haven unveils $6.2M renovation, expansion to City Hall |url=https://www.wane.com/news/local-news/city-of-new-haven-unveils-6-2m-renovation-expansion-to-city-hall/ |access-date=27 April 2025 |publisher=WANE.com |date=3 June 2023 |archive-url=https://web.archive.org/web/20230921094402/https://www.wane.com/news/local-news/city-of-new-haven-unveils-6-2m-renovation-expansion-to-city-hall/ |archive-date=21 September 2023}}</ref>
+
+==See also==
+{{commons category|New Haven City Hall}}
+* [[National Register of Historic Places listings in New Haven, Connecticut]]
+
+==References==
+<references>
+
+<ref name="Sterner">{{cite web |last1=Sterner |first1=Daniel |title=New Haven City Hall (1861) |url=https://historicbuildingsct.com/new-haven-city-hall-1861/ |website=Historic Buildings of Connecticut |publisher=Daniel Sterner |access-date=27 April 2025 |archive-url=https://web.archive.org/web/20241013115724/https://historicbuildingsct.com/new-haven-city-hall-1861/ |archive-date=13 October 2024 |date=28 April 2008}}</ref>
+<ref name="Giordano">{{cite web |title=New Haven City Hall |url=https://giordanoconstruction.com/new-haven-city-hall/ |website=Giordano Construction Co. |publisher=Giordano Construction Co. |access-date=27 April 2025 |archive-url=https://web.archive.org/web/20230320014015/https://giordanoconstruction.com/new-haven-city-hall/ |archive-date=20 March 2023 |location=Branford, Connecticut}}</ref>
+<ref name="Strahan">{{cite web |last1=Strahan |first1=Derek |title=City Hall, New Haven, Connecticut |url=https://lostnewengland.com/2019/09/city-hall-new-haven-connecticut/ |website=Lost New England |publisher=Derek Strahan |access-date=27 April 2025 |archive-url=https://web.archive.org/web/20241203231947/https://lostnewengland.com/2019/09/city-hall-new-haven-connecticut/ |archive-date=3 December 2024}}</ref>
+
+</references>
+
+{{NRHP in New Haven County, Connecticut}}
+
+[[Category:Courthouses on the National Register of Historic Places in Connecticut]]
+[[Category:City and town halls on the National Register of Historic Places in Connecticut]]
+[[Category:Buildings and structures in New Haven, Connecticut]]
+[[Category:Clock towers in Connecticut]]
+[[Category:County courthouses in Connecticut]]
+[[Category:National Register of Historic Places in New Haven, Connecticut]]

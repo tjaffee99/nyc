@@ -192,8 +192,12 @@ export function localPopulationAt(year: number, lon: number, lat: number, zoom: 
   // outside the city: the county under the centre of the map, at any zoom
   const outer = placeAt(cities.counties, lon, lat);
   if (outer && !CITY_BOROUGHS.has(outer.name)) {
-    const v = seriesAt(year, cities.pop[`county:${outer.name}`]);
-    if (v != null) return {value: v, label: COUNTY_LABEL[outer.name] ?? `${outer.name} County`};
+    const series = cities.pop[`county:${outer.name}`];
+    const v = seriesAt(year, series);
+    const label = COUNTY_LABEL[outer.name] ?? `${outer.name} County`;
+    if (v != null) return {value: v, label};
+    // before the county's first count: no number (the city's would be the wrong place's)
+    if (series && series.length) return {value: NaN, label: `${label}: no count before ${Math.floor(series[0][0])}`};
   }
   if (zoom >= 11.5) {
     const city = placeAt(cities.places, lon, lat);

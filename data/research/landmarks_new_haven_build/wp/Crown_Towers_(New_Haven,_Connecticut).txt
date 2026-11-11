@@ -1,0 +1,33 @@
+{{Short description|Skyscraper in New Haven, Connecticut}}
+{{Use American English|date=February 2025}}
+{{Infobox building
+|name               = Crown Towers
+|image              = Crown Towers a.jpg
+|caption            = Crown Towers viewed from Rev Dr M L King Jr Boulevard on September 12th, 2025
+|location           = 8 High Street <br /> [[New Haven]], [[Connecticut]] 06510-2100,<br />[[United States]]
+|coordinates        = {{coord|41.30671|-72.932594|format=dms|type:landmark_region:US-CT|display=inline,title}}
+|status             = 
+|completion_date    = 1967
+|building_type      = Office
+|floor_count        = 22
+|references         = <ref>{{Cite web |url=https://www.emporis.com/buildings/126849 |archive-url=https://web.archive.org/web/20210625032404/https://www.emporis.com/buildings/126849 |url-status=usurped |archive-date=June 25, 2021 |title=Emporis building ID 126849 |work=[[Emporis]]}}</ref>
+|roof               = {{convert|222|ft|m|abbr=on}}
+|top_floor          = 
+|antenna_spire      = 
+|floor_area         = 
+|architect          = Chloethiel Woodard Smith & Associates<ref>{{cite web|url=http://www.emporis.com/application/?nav=building&id=crowntowers-newhavenuen-ct-usa&lng=3 |archive-url=https://web.archive.org/web/20101226001910/http://www.emporis.com/application/?nav=building&lng=3&id=crowntowers-newhavenuen-ct-usa |url-status=usurped |archive-date=December 26, 2010 |title=Crown Towers, New Haven &#124; 126849 |publisher=Emporis |date= |accessdate=2022-05-03}}</ref> 
+|owner              = 
+}}
+[[File:Crown Towers, New Haven, entrance.jpg|thumb|right|Entrance]]
+'''Crown Towers''' is a [[high-rise]] apartment building in [[New Haven]], [[Connecticut]] part of the New Haven Towers family of buildings. The building stands 222 ft (68 m) tall and is the [[List of tallest buildings in New Haven|eleventh-tallest building]] in the city, the  [[Modern architecture|modernist]] building was New Haven's tallest residential building until the construction of several new developments in Downtown New Haven.
+
+==References==
+{{reflist}}
+
+{{New Haven skyscrapers}}
+
+[[Category:Residential buildings completed in 1967]]
+[[Category:Residential skyscrapers in Connecticut]]
+[[Category:Skyscrapers in New Haven, Connecticut]]
+[[Category:Apartment buildings in Connecticut]]
+[[Category:1967 establishments in Connecticut]]

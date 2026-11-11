@@ -1,0 +1,210 @@
+{{Short description|Cemetery in Connecticut, US}}
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=August 2023}}
+{{Infobox NRHP
+| name                 = Grove Street Cemetery
+| nrhp_type            = nhld
+| image                = File:MMDA-Photos - 2020-06-04 - Grove St Cemetery, New Haven, CT, USA.jpg
+| caption              = The Egyptian Revival entrance gate
+| location             = 200 Grove Street, [[New Haven, Connecticut]]
+| coordinates          = {{coord|41|18|49|N|72|55|39|W|display=inline,title}}
+| pushpin_map          = Connecticut#USA
+| area                 = {{convert|18|acre|ha}}
+| built                = 1796
+| architect            = [[Hezekiah Augur]]; [[Henry Austin (architect)|Henry Austin]]
+| architecture         = <!--Exotic Revival,-->[[Egyptian Revival architecture|Egyptian Revival]], [[Gothic Revival architecture|Gothic Revival]]
+| designated_nrhp_type = February 16, 2000<ref name="nhlsum">{{cite web|url=http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=957880214&ResourceType=Site|title=Grove Street Cemetery|access-date=2007-10-03|work=National Historic Landmark summary listing|publisher=National Park Service|archive-url=https://web.archive.org/web/20110606034825/http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=957880214&ResourceType=Site|archive-date=2011-06-06|url-status=dead}}</ref>
+| added                = August 8, 1997<ref name="nris">{{NRISref|2009a}}</ref>
+| ref_num              = 97000830
+}}
+
+'''Grove Street Cemetery''' or '''Grove Street Burial Ground''' is a cemetery in [[New Haven, Connecticut]], United States. Surrounded by the [[Yale University]] campus, it was organized in 1796 as the '''New Haven Burying Ground''' and incorporated in October 1797 to replace the crowded [[burial ground]] on the [[New Haven Green]]. The first private, nonprofit cemetery in the world, it was one of the earliest burial grounds to have a planned layout, with plots permanently owned by individual families, a structured arrangement of ornamental plantings, and paved and named streets and avenues. By introducing ideas like permanent memorials and the sanctity of the deceased body, the cemetery became "a real turning point... a whole redefinition of how people viewed death and dying", according to historian [[Peter Dobkin Hall]].<ref name="courant">"{{cite news |last=Grant |first=Steve |title=History Disinterred |newspaper=[[Hartford Courant]] |date=26 December 2008 |url=https://www.courant.com/2008/12/26/history-disinterred/ |access-date=10 May 2015 |url-status=live |archive-url=https://web.archive.org/web/20150511044100/http://articles.courant.com/2008-12-26/news/cemeteryfilm.art_1_first-cemetery-nonprofit-cemetery-city-streets |archive-date=11 May 2015}}</ref> Many notable Yale and New Haven luminaries are buried in the Grove Street Cemetery, including 14 [[List of Presidents of Yale University|Yale presidents]]; nevertheless, it was not restricted to members of the upper class, and was open to all.<ref name="courant"/>
+
+In 2000, Grove Street Cemetery was designated a [[National Historic Landmark]].<ref name="nrhpinv2" />
+
+==History==
+
+===Establishment (1796)===
+For the first 160 years of permanent settlement, New Haven residents buried their dead on the [[New Haven Green]], the town's central open space and churchyard. Stones date back to the 17th century and include gravestones include markers by the Thomas Johnson Shop, William Stanclift, John Gaud, William Holland, Caleb Lamson, Michael Baldwin, Joseph Johnson, Thomas Spellman, Thomas Gold, David Miller, and the New Haven Ritter Shop.    In 1794–95, a yellow fever plague swept the town.  The increased demand for burial space prompted [[James Hillhouse]], a businessman and [[U.S. Senator]], to invite other prominent families in the town to establish a dedicated burial ground on farmland bordering the town.<ref name="Pinnell">{{cite book |last=Pinnell |first=Patrick |title=The Campus Guide: Yale University |year=1999 |publisher=Princeton University Press |pages=108–09}}</ref> In 1796, thirty-two families purchased a tract just north of Grove Street, the tract was enclosed by a wooden fence, which was prone to rotting and needed to be replaced frequently. At first consisting of {{convert|6|acre|km2}}, the cemetery was quickly subscribed and thereafter expanded to nearly {{convert|18|acre|km2}}.{{Citation needed|date = February 2016}}
+
+In 1821, the monuments on the green were removed to the Grove Street Cemetery.<ref>Blake, Henry Taylor, ''Chronicles of New Haven Green from 1638 to 1862: A Series of Papers Read Before the New Haven Colony Historical Society'', Tuttle, Morehouse & Taylor Press, 1898, p. 28</ref>
+
+===Gateway and fence construction (1845–49)===
+Completed in 1845, the entrance on Grove Street is a brownstone [[Egyptian Revival]] gateway, designed by the New Haven architect [[Henry Austin (architect)|Henry Austin]] with carving executed by sculptor [[Hezekiah Augur]], both of whom are buried at the cemetery.<ref name="Pinnell"/> The style, popular in New England in that era, was chosen to reinforce the antiquity of the site.<ref>{{cite book |last=Giguere |first=Joy |title=Characteristically American: Memorial Architecture, National Identity, and the Egyptian Revival |year=2014 |publisher=University of Tennessee Press |isbn= 9781621900771 |url=https://books.google.com/books?id=NdzPBAAAQBAJ&pg=PA83 |access-date=10 May 2015 |pages=82–83}}</ref>  The lintel of the gateway is inscribed "The Dead Shall Be Raised." The quotation is taken from [[1 Corinthians 15]].52: "For the trumpet will sound, and the dead shall be raised incorruptible, and we will be changed."  Supposedly, Yale President [[Arthur Twining Hadley]] said of the inscription, "They certainly will be, if Yale needs the property."<ref>{{cite news |last=Taylor |first=Frances Grandy |title=Grove Street Cemetery At Yale Becomes U.S. Landmark Today |newspaper=Hartford Courant |date=23 September 2000 |url=https://www.courant.com/2000/09/23/grove-street-cemetery-at-yale-becomes-us-landmark-today/ |access-date=11 May 2015}}</ref>
+
+In 1848–49, the perimeter of the cemetery was surrounded on three sides by an {{convert|8|ft|m|adj=on}} stone wall.
+
+===Historic landmark===
+The cemetery was listed on the [[National Register of Historic Places]] in 1997.<ref name="nris"/>  It was designated a [[National Historic Landmark]] by the [[United States Secretary of the Interior]] in 2000, citing its history and the architectural significance of its gateway.<ref name="nhlsum"/><ref name=nris/><ref name="nrhpinv2">{{citation|title=National Register of Historic Landmark Nomination: Grove Street Cemetery / New Haven City Burial Ground|url=https://npgallery.nps.gov/NRHP/GetAsset/NHLS/97000830_text|format=pdf|date=September 29, 1999|author=Bruce Clouette|publisher=National Park Service|access-date=March 10, 2016|archive-date=October 20, 2020|archive-url=https://web.archive.org/web/20201020173725/https://npgallery.nps.gov/NRHP/GetAsset/NHLS/97000830_text|url-status=live}} and {{NHLS url|id=97000830|title=''Accompanying 32 photos, from 1997 and undated''|photos=y}}&nbsp;{{small|(32&nbsp;KB)}}</ref>
+
+===Conflict over perimeter fence===
+In 2008, Yale announced plans to construct two new [[residential colleges of Yale University|residential colleges]] just north of the cemetery. In 2009, university administrators and affiliates suggested to the cemetery proprietors that an additional gate be constructed in the north section of the historic wall that surrounds the burial ground to permit pedestrians to walk through the cemetery from the main Yale campus to the planned new colleges. In addition, the proprietors considered a proposal brought forward by one proprietor that would replace portions of the stone sections of the wall bordering Prospect Street with iron fencing similar to that already running along the cemetery's southern border on Grove Street.<ref>{{cite news |last=Appell |first=Alan |title=Plot-holders Slam Cemetery Plan |newspaper=New Haven Independent |date=7 October 2009 |url=http://www.newhavenindependent.org/index.php/archives/entry/plot-holders_slam_cemetery_plan/ |access-date=11 May 2015 |archive-date=May 18, 2015 |archive-url=https://web.archive.org/web/20150518095535/http://www.newhavenindependent.org/index.php/archives/entry/plot-holders_slam_cemetery_plan/ |url-status=live }}</ref> The proposal, withdrawn following a public meeting, included architectural and landscaping designs by Yale Architecture School Dean [[Robert A.M. Stern]].<ref>{{cite news |last=Appell |first=Alan |title=Cemetery Wall To Remain Undisturbed |newspaper=New Haven Independent |date=13 October 2009 |url=http://www.newhavenindependent.org/index.php/archives/entry/cemetery_wall_to_remain_undisturbed/ |access-date=11 May 2015 |archive-date=May 18, 2015 |archive-url=https://web.archive.org/web/20150518095537/http://www.newhavenindependent.org/index.php/archives/entry/cemetery_wall_to_remain_undisturbed/ |url-status=live }}</ref>
+
+==Notable burials and memorials==
+[[File:Grove Street Cemetery Tree Highsmith.jpg|thumb|right|Family plots from 1848 to 1850]]
+* [[James Rowland Angell]] (1869–1949), [[List of presidents of Yale University|President of Yale University]]
+* [[Kanichi Asakawa]] (1873–1948), historian
+* [[Jehudi Ashmun]] (1794–1828), religious leader, and social reformer, agent of the African Colonization Society
+* [[Hezekiah Augur]] (1791–1858), wood carver, sculptor and inventor
+* [[Henry Austin (architect)|Henry Austin]] (1804–1891), architect, designed the gate of the cemetery, Yale's College Library (which became Dwight Hall), and several mansions on Hillhouse Avenue
+* [[Alice Mabel Bacon]] (1858–1918), women educator (niece of Delia Bacon)
+* [[Delia Bacon]] (1811–1859), originator of the proposition that Francis Bacon wrote the plays attributed to Shakespeare
+* [[Leonard Bacon]] (1802–1881), clergyman and abolitionist (father of Alice Mabel Bacon and brother of Delia Bacon)
+* [[Charles Montague Bakewell]] (1867–1957), politician
+* [[Roger Sherman Baldwin]] (1793–1863), [[Governor of Connecticut]]
+* [[Simeon Baldwin]] (1761–1851), Mayor of New Haven
+* [[Simeon E. Baldwin]] (1840–1927), [[Governor of Connecticut]]
+* [[Ida Barney]] (1886–1982) noted female American astronomer
+* [[Ebenezer Bassett]] (1833–1908), African-American educator and diplomat; US Ambassador to Haiti
+* [[John Bassett (1652–1714)|John Bassett]] (1652–1714), captain of the [[trainband]]; deputy to the General Court (legislature) of Connecticut Colony
+* [[Lyman Beecher]] (1775–1863), abolitionist, father of [[Harriet Beecher Stowe]] and [[Henry Ward Beecher]]
+* [[Nathan Beers]] (1763–1861), paymaster to Connecticut troops in the American Revolution
+* [[Hiram Bingham I]] (1789–1869), Hawaiian [[missionary]] and clergyman
+* [[James Bishop (colonial administrator)|James Bishop]] (d. 1691), Secretary, Lieutenant Governor and Deputy Governor of New Haven Jurisdiction
+* [[Eli Whitney Blake]] (1795–1886), manufacturer and inventor of the stone crusher. His brother, Philos, invented the corkscrew
+* [[William Whiting Boardman]] (1794–1871), politician
+* [[Edward Gaylord Bourne]] (1860–1908), historian and educator. Leader in the American Historical Association.
+* [[Phineas Bradley]] (1745–1797), soldier. Captain, commander of the artillery defending New Haven, July 5, 1779
+* [[William H. Brewer]] (1828–1910), scientist. Helped found the [[Yale Forestry School]]; co-founder, with Samuel William Johnson, also buried here, of the first U.S. Agricultural Experiment Station
+[[Image:Grove Street Cemetery angel.jpg|thumb|right|upright]]
+* [[James Brewster (industrialist)|James Brewster]] (1788–1866), founder of [[Brewster & Co.]]; industrialist and railroad promoter
+* [[Kingman Brewster Jr.]] (1919–1988), President of Yale University
+* [[William Bristol]] (1779–1836), Mayor of [[New Haven, Connecticut]]
+* [[Walter Camp]] (1859–1925), football coach known as the "Father of American Football"
+* [[Leverett Candee]] (1795–1863), Industrialist. First practical use of Goodyear's vulcanization of rubber
+* [[Arthur E. Case]] (1894–1946), professor and author
+* [[Jedediah Chapman]] (d. 1863{{KIA}}), [[American Civil War|Civil War]] [[Union Army]] Officer killed at the [[Battle of Gettysburg]]
+* [[Thomas Clap]] (1703–1767), Rector & President of Yale College – buried in the City Burial Ground on the Green, stone later moved here
+* [[Harry Croswell]] (1778–1848), Crusading political journalist and Rector of Trinity Episcopal Church in New Haven
+* [[David Daggett]] (1764–1851), United States Senator, mayor of New Haven, Connecticut
+* [[Naphtali Daggett]] (1727–1780), clergyman, President ''pro tempore'' of Yale College
+* [[George Edward Day (theologian)|George Edward Day]] (1814–1905), Bible revisor
+* [[Jeremiah Day]] (1773–1867), President of Yale University
+* [[Amos Doolittle]] (1754–1832), silversmith, engraver of Revolutionary scenes. "The Revere of Connecticut"
+* [[Timothy Dwight IV]] (1752–1817), President of Yale University
+* [[Timothy Dwight V]] (1829–1916), President of Yale University
+* [[Amos Beebe Eaton]] (1806–1877), Civil War Union Army Brigadier General
+[[Image:E. Hayes Trowbridge plot, Grove Street Cemetery, New Haven, CT.jpg|thumb|right|Gravemarker of E. H. Trowbridge and Grace Allen Quincy Trowbridge]]
+* [[Theophilus Eaton]] (1590–1657), a founder of New Haven, first Governor of New Haven
+* [[Henry W. Edwards]] (1779–1847), U.S. Representative, U.S. Senator, and Governor of Connecticut
+* [[Pierpont Edwards]] (1750–1826), Delegate to the [[Continental Congress]]
+* [[Jeremiah Evarts]] (1781–1831), scholar, writer and missionary executive. Editor of the ‘’Panoplist’’ and the ‘’Missionary Herald’’
+* [[Henry Farnham]] (1836–1917), prominent New Haven merchant and philanthropist
+* [[George Park Fisher]] (1827–1902), historian and theologian
+* [[Andrew Hull Foote]] (1806–1863), naval officer who ended the rum ration in the [[United States Navy]]
+* [[Ann Gerry]] (1763–1849), wife of [[Elbridge Gerry]], [[Second ladies and gentlemen of the United States|Second lady of the United States]]
+* [[A. Bartlett Giamatti]] (1938–1989), baseball commissioner, President of [[Yale University]]
+* [[Josiah Willard Gibbs Sr.]] (1790–1861), professor at Yale Divinity School who first spoke with the mutineers of the [[La Amistad|Amistad]]
+* [[Josiah Willard Gibbs|Josiah Willard Gibbs Jr.]] (1839–1903), scientist, "Father of Thermodynamics"
+[[Image:GlennMillerMonumentGroveStCemeteryNewHavenCT04152008.JPG|thumb|right|Monument to [[Glenn Miller]], who formed the 418th Army Air Forces Band at Yale that did concerts, parades and radio broadcasts. This unit was called the [Captain before summer 1944, then Major] Glenn Miller Army Air Forces Orchestra from 20 March 1943 to 15 January 1946.]]
+* [[Chauncey Allen Goodrich|Chauncey Goodrich]] (1790–1860), Yale professor of Homiletics and Pastoral Charge
+* [[Elizur Goodrich]] (1761–1849), mayor of [[New Haven, Connecticut]]
+* [[Charles Goodyear]] (1800–1860), inventor of [[vulcanized rubber]]
+* [[Alfred Whitney Griswold]] (1906–1963), President of Yale University
+* [[Arthur Twining Hadley]] (1856–1930), Dean of Yale Graduate School when women were first admitted. President of Yale University
+* [[Henry Baldwin Harrison]] (1821–1901), [[Governor of Connecticut]]
+* [[James Hillhouse]] (1754–1832),  real estate developer, politician, and treasurer of [[Yale]]. Namesake of [[Hillhouse Avenue]] in New Haven
+* [[James Mason Hoppin]] (1820–1906), professor of religion and art
+* [[Leverett Hubbard]] (1725–1795), soldier, physician and apothecary
+* [[David Humphreys (soldier)|David Humphreys]] (1752–1818), Aide de Camp to General [[George Washington]]
+* [[Charles Roberts Ingersoll]] (1821–1903), [[Governor of Connecticut]]
+* [[Colin Macrae Ingersoll]] (1819–1903), United States Representative from Connecticut
+* [[Ralph Isaacs Ingersoll]] (1789–1872), United States Minister to Russia, mayor of [[New Haven, Connecticut]]
+* [[Eli Ives]] (1779–1861), professor of Medicine
+* [[Chauncey Jerome]] (1793–1868), mayor of New Haven, clockmaker
+* [[Nathaniel Jocelyn]] (1796–1881), portrait painter and engraver
+* [[Samuel William Johnson (chemist)|Samuel William Johnson]] (1830–1909), Yale professor, co-founder of the Agricultural Experiment Station Movement with William H. Brewer (also buried here)
+[[Image:EliWhitneyGraveSouthSideGroveStCemeteryNewHavenCT04152008.JPG|thumb|right|South side of [[Eli Whitney]] monument]]
+* [[Henry Coit Kingsley]] (1815–1886), treasurer of Yale<ref>{{Cite news |url=https://www.newspapers.com/article/hartford-courant-funeral-of-henry-c-kin/174672680/ |title=Funeral of Henry C. Kingsley |date=1886-12-23 |newspaper=[[Hartford Courant]] |page=4 |via=[[Newspapers.com]] |access-date=2025-06-16 |archive-date=June 17, 2025 |archive-url=https://web.archive.org/web/20250617025534/https://www.newspapers.com/article/hartford-courant-funeral-of-henry-c-kin/174672680/ |url-status=live }}{{Open access}}</ref>
+* [[James Luce Kingsley|James Kingsley]] (1778–1852), professor of Hebrew, Greek and Ecclesiastical History at Yale
+* [[John Gamble Kirkwood]] (1907–1959), chemist
+* [[Charlton Miner Lewis]] (1866–1923), Yale professor and author
+* [[Elias Loomis]] (1811–1889), mathematician and astronomer
+* Daniel Lyman (1718–1788), Surveyor, Deputy to the General Court, Court Referee, Justice of the Peace and caretaker of the State's public records
+* [[Samuel Mansfield]] (1717–1775), first sheriff of New Haven
+* [[Othniel Charles Marsh]] (1831–1899), paleontologist
+* Henry Czar Merwin (1839–1863{{KIA}}), Civil War Union Army Officer killed at the [[Battle of Gettysburg]]
+* [[Glenn Miller]] (Alton G. Miller), one of several fan-placed, private [[cenotaph|cenotaphs]] – (1904–1944), [[jazz]] bandleader, [[trombonist]]
+* Dr. Timothy Mix (1711–1779), Colonial soldier who died on a British prison ship.
+* [[John Michael Montias]] (1928–2005), economist and [[art historian]]
+* [[Jedidiah Morse]] (1761–1826), clergy,"Father of American Geography". Father of [[Samuel F. B. Morse]]
+* [[Theodore T. Munger]] (1830–1910), clergyman
+[[Image:EliWhitneyGraveNorthSideGroveStCemeteryNewHavenCT04152008.jpg|thumb|right|North side of [[Eli Whitney]] monument]]
+* [[Hubert Anson Newton]] (1830–1896), meteorologist and mathematician
+* George Henry Nettleton (1874–1959), author
+* [[Denison Olmsted]] (1791–1859), Professor of Medicine and Natural Philosophy at Yale. One of the first to see [[Halley's Comet]] in 1835
+* [[Lars Onsager]] (1903–1976), Nobel Laureate in Chemistry, a legendary theoretical chemist, distinguished professor of chemistry at Yale
+* [[Norman Holmes Pearson]] (1909–1975), Yale American Studies professor and World War II spy
+* [[Samuel Peck (daguerreotypist)|Samuel Peck]] (1813–1879), 19th-century photographer, artist, businessperson, photo case manufacturer, and gallery owner
+* [[Jaroslav Pelikan]] (1923–2006),  Scholar in the history of Christianity, Christian theology and medieval intellectual history
+* [[Timothy Pitkin]] (1766–1847), politician, United States Representative from Connecticut
+* [[Noah Porter]] (1811–1892), clergyman, President of Yale College
+* [[Joel Root]] (1770–1847), traveller, author
+* [[John Christopher Schwab]] (1865–1916), Yale historian and librarian<ref>{{Cite web |url=http://mssa.library.yale.edu/obituary_record/1859_1924/1915-16.pdf |title=Obituary Record of Graduates of Yale College |date=June 1916 |pages=117–119 |website=[[Yale University]] |access-date=August 4, 2026 |archive-url=https://web.archive.org/web/20220619234038/http://mssa.library.yale.edu/obituary_record/1859_1924/1915-16.pdf |archive-date=June 19, 2022 |url-status=dead}}</ref>
+* [[Charles Seymour]] (1885–1963), President of Yale University
+* [[George Dudley Seymour]] (1859–1945), Attorney, antiquarian, historian, author, and city planner
+* [[Joseph Earl Sheffield]] (1793–1882), merchant, founder of [[Sheffield Scientific School]]
+* [[Roger Sherman]] (1721–1793),  important founding father, the only person to have signed all four basic documents of American sovereignty, the [[Continental Association]], the [[United States Declaration of Independence|Declaration of Independence]], the [[Articles of Confederation]], and the [[United States Constitution]]. Today his grave is the center of this colonial city's [[Independence Day (United States)|Independence Day]] festivities.
+* [[Benjamin Silliman]] (1779–1864), pioneer in scientific education
+* [[Benjamin Silliman Jr.]] (1816–1885), Yale chemist and geologist. First suggested some practical uses for petroleum.
+* Aaron Skinner (1800–1858), civic figure and supervisor of improvements to Grove Street Cemetery
+* [[Nathan Smith (senator)|Nathan Smith]] (1770–1835), United States Senator from Connecticut
+* [[Ezra Stiles]] (1727–1795), President of [[Yale University]]
+* [[Henry Randolph Storrs]] (1787–1837), jurist
+* Titus Street (1786–1842), businessman and civic figure
+[[Image:NoahWebsterGraveGroveStCemeteryNewHavenCT04152008.jpg|thumb|right|Grave of [[Noah Webster]]]]
+* [[Alfred Howe Terry]] (1827–1890), Civil War Union Army Major General
+* [[Beatrice Tinsley]] (1941–1981), British-born New Zealand astronomer and cosmologist. First female professor of astronomy at Yale University
+* [[Ithiel Town]] (1784–1844), architect and civil engineer. Inventor of the lattice truss bridge
+* Martha Townsend (1753–1797), first interment in Grove Street Cemetery
+* [[William Kneeland Townsend]] (1849–1907), jurist
+* Henry H. Townshend (1874–1953), proprietor and historian of Grove Street Cemetery 
+* Timothy Trowbridge (1631–1734), merchant, soldier and politician
+* [[Louisa Caroline Huggins Tuthill]] (1799–1879), children's book author
+* [[Alexander C. Twining]] (1801–1884), inventor of first practical artificial ice system
+* [[Decius Wadsworth]] (1768–1821), Army Engineer, Chief of Ordnance (US Army)
+* [[Noah Webster]] (1758–1843), lexicographer, dictionary publisher
+* [[Nathan Whiting]], soldier, Colonel in the [[Seven Years' War]]
+* [[Eli Whitney]] (1765–1825), inventor of the [[cotton gin]]
+* [[Theodore Winthrop]] (1828–1861), Major, United States Army. First New Haven victim of the Civil War
+* [[Melancthon Taylor Woolsey]] (1717–1758), colonel in the Colonial Army
+* [[Theodore Dwight Woolsey]] (1812–1889), abolitionist, President of Yale
+* [[David Wooster]] (1711–1777{{KIA}}), Buried in [[Danbury, Connecticut]] but memorialized at Grove Street Cemetery.<ref>{{Cite web |url=http://www.grovestreetcemetery.org/bulletin/TheGroveStBulletin_Fall05.pdf |title=The Grove Street Bulletin, vol. 1, no. 4, 2005 |access-date=October 19, 2007 |archive-date=March 3, 2016 |archive-url=https://web.archive.org/web/20160303204558/http://www.grovestreetcemetery.org/bulletin/TheGroveStBulletin_Fall05.pdf |url-status=dead }}</ref> Major General, 7th in rank below Washington
+* [[Mary C. Wright|Mary Clabaugh Wright]] (1917–1970), educator and historian, first woman to become a full professor at Yale
+
+==See also==
+* [[List of National Historic Landmarks in Connecticut]]
+* [[National Register of Historic Places listings in New Haven, Connecticut]]
+
+==References==
+{{Reflist}}
+
+==Further reading==
+* {{cite book|title=History of the City Burial Ground in New Haven, together with the names of the owners of the lots therein|url=https://books.google.com/books?id=s2dZAAAAcAAJ|year=1863|publisher=J.H. Benham|location=New Haven}}
+* {{cite book |last=Townshend |first=Henry H |title=The Grove Street Cemetery |year=1947 |location=New Haven |publisher=The Whaples-Bullis Company |url=http://www.grovestreetcemetery.org/henry_townsend.htm |access-date=11 May 2015}}
+* {{cite book |last=Osterwies |first=Rollin G |title=Three Cemeteries of New Haven, 1638–1938 |year=1953 |publisher=Yale University Press |location=New Haven }}
+
+== External links ==
+{{Commons category|Grove Street Cemetery}}
+* [http://www.grovestreetcemetery.org/ Grove Street Cemetery home site]
+* [http://www.newhavenindependent.org/archives/2009/10/unrest_at_grove.php ''New Haven Independent'' "Plot-holders Slam Cemetery Plan"] {{Webarchive|url=https://web.archive.org/web/20091009032431/http://www.newhavenindependent.org/archives/2009/10/unrest_at_grove.php |date=October 9, 2009 }}
+* [http://www.nhregister.com/articles/2009/10/07/news/a3-newall.txt ''New Haven Register'' "Architect pushes for changes at city cemetery"] {{Webarchive|url=https://web.archive.org/web/20120312034812/http://www.nhregister.com/articles/2009/10/07/news/a3-newall.txt |date=March 12, 2012 }}
+* [http://ksghome.harvard.edu/~phall/Civic_Space_WIP.pdf Peter Dobkin Hall, "Setting, Landscape, Architecture, and the Creation of Civic Space in the United States, 1790–1920"]
+
+{{NHLs in CT}}
+{{NRHP in New Haven County, Connecticut}}
+{{Authority control}}
+
+[[Category:1796 establishments in Connecticut]]
+[[Category:Buildings and structures completed in 1796]]
+[[Category:Cemeteries established in the 1790s]]
+[[Category:Cemeteries on the National Register of Historic Places in Connecticut]]
+[[Category:National Historic Landmarks in Connecticut]]
+[[Category:Egyptian Revival architecture in the United States]]
+[[Category:Buildings and structures in New Haven, Connecticut]]
+[[Category:Gothic Revival architecture in Connecticut]]
+[[Category:Geography of New Haven, Connecticut]]
+[[Category:Cemeteries in New Haven County, Connecticut]]
+[[Category:Tourist attractions in New Haven, Connecticut]]
+[[Category:National Register of Historic Places in New Haven, Connecticut]]
+[[Category:Glenn Miller]]

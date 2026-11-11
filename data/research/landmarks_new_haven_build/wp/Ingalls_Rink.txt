@@ -1,0 +1,77 @@
+{{Short description|Arena in New Haven, Connecticut}}
+{{Use American English|date=September 2025}}
+{{Use mdy dates|date=September 2025}}
+{{More footnotes|date=March 2010}}
+{{Infobox stadium
+
+| 
+| name = David S. Ingalls Rink
+| nickname = ''"The Whale"''
+| image = [[Image:Ingalls Rink Highsmith.jpg|250px|Entrance of Ingalls Rink]]
+| location = 73 Sachem Street<br>[[New Haven, Connecticut]], US
+| groundbreaking = 1953
+| opened = {{Start date|1958|12|03}}<ref>{{cite news |date=December 4, 1958 |url=https://www.newspapers.com/article/connecticut-post-yale-opens-new-rink/192710935/ |title=Yale Opens New Rink |work=Connecticut Post |agency=Associated Press |page=20 |access-date=March 5, 2026 |via=Newspapers.com}}</ref>
+| renovated = 2009
+| closed =
+| demolished =
+| owner = [[Yale University]]
+| operator = [[Yale University]]
+| surface = 200 x 85 ft (hockey)
+| cost = $1.5 Million
+| architect = [[Eero Saarinen]]
+| structural_engineer = [[Severud Associates]]
+| former_names =
+| tenants = [[Yale Bulldogs]] ([[Yale Bulldogs men's ice hockey|men's]] and [[Yale Bulldogs women's ice hockey|women's]] hockey)
+| capacity = 3,500 (when configured for [[ice hockey|hockey]])
+}}
+
+'''David S. Ingalls Rink''' is a hockey rink in [[New Haven, Connecticut]], designed by architect [[Eero Saarinen]] and built between 1953 and 1958 for [[Yale University]]. It is commonly referred to as '''The Whale''', due to its shape. The building was constructed for $1.5 million, which was double its original cost estimate. It seats 3,500 people and has a maximum ceiling height of {{convert|23|m|ft|order=flip}}. The building is named for [[David S. Ingalls]], Yale class of 1920, and David S. Ingalls, Jr., Yale class of 1956, both of whom were [[ice hockey|hockey]] captains. Members of the Ingalls family were the primary benefactors of the arena. The building was included on the [[America's Favorite Architecture]] list, created in 2007 by the [[American Institute of Architects]].<ref>{{cite web|url=http://favoritearchitecture.org/afa150.php |title=America's Favorite Architecture |publisher=[[American Institute of Architects]] |access-date=March 28, 2010 |url-status=dead |archive-url=https://web.archive.org/web/20110510113118/http://favoritearchitecture.org/afa150.php |archive-date=May 10, 2011 }}</ref>
+
+==Structural system==
+The rink employs an innovative structural system employing a {{convert|90|m|ft|adj=on|order=flip}} [[reinforced concrete]] arch, a [[catenary arch]] form for which Saarinen's projects became known. A [[Net (device)|cable net]] is strung from the arch, supporting a [[timber roof truss|timber roof]]. This causes a stable, [[wikt:compond curve|double curvature]] form. Exterior cables linking the arch directly to the outer edges of the roof were added during structural design development.  These cables address forces caused by asymmetrical [[wind load]]s. [[Fred N. Severud]] was the structural engineer for the project.{{cn|date=March 2015}}
+
+==Bombing==
+On May 1, 1970, several rock bands were playing a concert in Ingalls Rink as part of the protests on [[New Haven Green]] against the [[New Haven Black Panther trials|Black Panther trials]].<ref name="BassRae">{{cite book |last1=Bass |first1=Paul |last2=Rae |first2=Douglas |author-link2=Douglas W. Rae |title=Murder in the Model City: The Black Panthers, Yale, and the Redemption of a Killer |url=https://archive.org/details/murderinmodelcit00paul |url-access=registration |publisher=Basic Books |year=2006 |pages=[https://archive.org/details/murderinmodelcit00paul/page/159 159–160]}}</ref> Shortly before midnight and towards the end of the concert, two bombs exploded in the north end of the rink's basement.<ref name="BassRae"/> The explosions caused no injuries, but shattered the building's glass doors and caused cracks to form in its arch.<ref name="BassRae"/> No culprit was ever identified, and both [[List of Presidents of Yale University|Yale President]] [[Kingman Brewster]] and [[New Haven Police]] Chief James Ahern contended that either pro- or anti-Panther partisans could have planted the devices.<ref>{{cite book |last=Kalman |first=Laura |url=https://books.google.com/books?id=NIEQuX3t5m0C&pg=PA212 |title=Yale Law School and the Sixties: Revolt and Reverberations |publisher=University of North Carolina Press |year=2006 |page=212 |isbn=9780807876886 |quote=But when a bomb hit Ingalls Rink during May Day weekend, Brewster, who was anathema to the Nixon administration, "considered it equally likely that the bomb could have been set by a provocateur from the left or right." |access-date=October 1, 2025 |via=Google Books}}</ref><ref>{{cite book |last=Donner |first=Frank |url=https://books.google.com/books?id=W6MwDwAAQBAJ&pg=PA326 |title=Protectors of Privilege: Red Squads and Police Repression in Urban America |publisher=University of California Press |year=1992 |page=326 |isbn=9780520080355 |quote=A few incidents occurred (the most serious of which was a bombing at the Yale Ingalls Skating Rink; Chief Ahern conjectures that the perpetrators could have been either pro- or anti-Panther), but the weekend passed and the city survived. |access-date=October 1, 2025 |via=Google Books}}</ref>
+
+==Renovations==
+[[File:Ingalls Ice Rink (Yale Hockey).jpg|thumb|250px|Rink interior with timbered roof|left]]
+The building has been renovated by [[Kevin Roche]] and [[Roche-Dinkeloo]], the firm which is a direct outgrowth of Eero Saarinen and Associates.<ref>{{cite news |title=Saarinen's Work, in 2 Parts, at Yale |first=Benjamin |last=Genocchio |url=https://www.nytimes.com/2010/03/28/nyregion/28artct.html |newspaper=[[The New York Times]] |date=March 28, 2010 |access-date=March 28, 2010}}</ref> In 1991, a new concrete refrigerant slab was added at a cost of $1.5 million.{{cn|date=March 2015}}
+
+In 2007, it was announced that the rink would undergo a $23.5 million renovation which would include approximately {{convert|13000|sqft|m2}} of varsity operational space as well as a complete renovation of the facility, including new men's and women's varsity locker rooms, training and strength and conditioning rooms, an added press box, a lower level hockey heritage area, offices for coaches of both programs, a student-athlete study area, new lights, as well as a sound system and de-humidification unit. The lower level interior would also be decorated with photos displaying the history of Yale hockey. These renovations were completed in 2009.<ref>{{cite news |url=http://yaledailynews.com/blog/2009/10/30/the-whale-resurfaces/ |last=Sharif |first=Amir |title=The Whale Resurfaces |newspaper=Yale Daily News |date=October 30, 2009 |access-date=March 16, 2015}}</ref>
+
+In August 2025, the university announced $3 million worth of upgrades for the arena. The primary focus would be a new videoboard suspended over the ice.<ref>{{cite news |url=https://www.uscho.com/2025/08/09/yales-ingalls-rink-finalizes-3-million-in-renovations-reinforces-our-commitment-to-the-student-athlete-alumni-campus-and-community-experience/ |title=Yale's Ingalls Rink finalizes $3 million in renovations, 'reinforces our commitment to the student-athlete, alumni, campus and community experience' |work=USCHO |date=August 9, 2025 |accessdate=August 10, 2025}}</ref>
+
+==See also==
+* [[Yale Bulldogs men's ice hockey]]
+* [[Yale Bulldogs women's ice hockey]]
+* [[Tensile architecture]]
+* [[Tensile structure|Tensile and membrane structures]]
+* [[Thin-shell structure]]
+* [[List of thin shell structures]]
+* [[Centre sportif de la Ganterie|Salle Frédéric-Lawson-Body]], a sports arena in [[Poitiers]], [[France]], whose design was inspired by Ingalls Rink
+
+==References==
+{{reflist|30em}}
+
+==External links==
+* {{commonscat-inline|Ingalls Rink}}
+* {{Structurae|id=20000129|title=David S. Ingalls Rink}}
+* [http://www.yalebulldogs.com/information/facilities/ingalls_rink/index Yale Bulldogs official Ingalls Rink site]
+
+{{Coord|41.316552|-72.925039|region:US_type:edu|display=title}}
+
+{{ECAC Hockey League}}
+{{Yale Bulldogs men's ice hockey navbox}}
+{{Yale Bulldogs women's ice hockey navbox}}
+{{Yale}}
+{{Eero Saarinen}}
+
+[[Category:1958 establishments in Connecticut]]
+[[Category:College ice hockey venues in Connecticut]]
+[[Category:Eero Saarinen buildings and structures]]
+[[Category:Modernist architecture in Connecticut]]
+[[Category:Sports venues completed in 1958]]
+[[Category:Sports venues in New Haven, Connecticut]]
+[[Category:Tensile membrane structures]]
+[[Category:Yale Bulldogs ice hockey]]
+[[Category:Yale University buildings and structures]]
