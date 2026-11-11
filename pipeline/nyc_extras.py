@@ -535,7 +535,7 @@ def site_labels():
     labels = [x for x in json.loads(out.read_text()) if x.get("tier") != "site"]
     # names that already have a label near by (a park, an airfield, a place of places.csv)
     have = [(_norm(x["name"]), x["lon"], x["lat"]) for x in labels]
-    for f in ("places.csv", "places_counties.csv"):
+    for f in ("places.csv", "places_counties.csv", "places_outer.csv"):
         if (TABLES / f).exists():
             pl = pd.read_csv(TABLES / f)
             have += [(_norm(nm), lo, la) for nm, lo, la in zip(pl.name, pl.lon, pl.lat)]

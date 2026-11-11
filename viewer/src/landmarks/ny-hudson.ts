@@ -341,28 +341,32 @@ addLM({
 const MS_RING = P(37.9, -99.2, 44.4, -97.0, 38.5, -82.4, 27.9, -82.0, 28.7, -58.5, -24.1, -56.6, -28.2, -54.2, -30.4, -51.7, -32.0, -48.0, -30.4, 62.8, -29.3, 66.6, -26.6, 69.4, -23.5, 71.1, -19.9, 72.0, 33.4, 70.3, 34.1, 88.2, 34.4, 94.5, 26.9, 94.7, 26.8, 103.6, -10.5, 104.9, -20.3, 104.7, -29.1, 102.2, -37.3, 99.0, -44.9, 94.2, -52.3, 85.6, -56.9, 76.8, -58.9, 70.9, -79.7, 71.7, -82.2, 15.0, -82.4, 10.9, -82.6, 6.2, -85.0, -50.0, -73.9, -50.3, -72.1, -58.0, -69.5, -65.1, -64.7, -74.0, -57.2, -83.3, -50.7, -89.0, -51.9, -91.5, -51.9, -94.7, -50.4, -99.3, -48.2, -102.6, -45.5, -105.1, -41.7, -106.6, -35.9, -107.2, -32.9, -107.4, -33.6, -119.0, 28.3, -121.1, 28.8, -107.3, 38.2, -105.0);
 
 function msBuild(b: MeshBuilder) {
-  // The field lies between the two stands: 110 x 49 m (120 x 53 yd), long axis north-south, centred on the bowl.
-  const fx = -29;
-  const fy = -26;
-  // west stand and east stand as sloped seating banks; the south and north ends open (estimated)
-  const bank = (x0: number, x1: number, lowX: number) => {
-    b.color('#8C8F94');
+  // The ring is the west stand with its north and south end structures; the east stand is a separate
+  // footprint (Overture fbe0064e, 121 x 27.5 m centred 50.5, 5.6). The field lies between them.
+  const y0 = -54;
+  const y1 = 68;
+  const bank = (xf: number, xb: number, top: number) => {
     const a: V3[] = [];
     const c: V3[] = [];
     for (let i = 0; i <= 6; i++) {
       const t = i / 6;
-      a.push([x0 + (x1 - x0) * t, fy - 62, 1 + 20 * t * t]);
-      c.push([x0 + (x1 - x0) * t, fy + 62, 1 + 20 * t * t]);
+      a.push([xf + (xb - xf) * t, y0, 1 + (top - 1) * t * t]);
+      c.push([xf + (xb - xf) * t, y1, 1 + (top - 1) * t * t]);
     }
-    b.ribbon(a, c);
-    b.color('#6E7176').quad([lowX, fy - 62, 0], [lowX, fy + 62, 0], [lowX, fy + 62, 1], [lowX, fy - 62, 1]);
-    b.color('#6E7176').quad([x1, fy - 62, 0], [x1, fy + 62, 0], [x1, fy + 62, 21], [x1, fy - 62, 21]);
+    b.color('#8C8F94').ribbon(a, c);
+    b.color('#6E7176');
+    b.quad([xb, y0, -1], [xb, y1, -1], [xb, y1, top], [xb, y0, top]); // back wall
+    b.tri([xf, y0, 0], [xb, y0, 0], [xb, y0, top]); // ends of the bank
+    b.tri([xf, y1, 0], [xb, y1, 0], [xb, y1, top]);
   };
-  bank(fx - 26, fx - 52, fx - 26);
-  bank(fx + 26, fx + 52, fx + 26);
-  b.color('#5C8A4D').quad([fx - 26, fy - 62, 0.2], [fx + 26, fy - 62, 0.2], [fx + 26, fy + 62, 0.2], [fx - 26, fy + 62, 0.2]);
-  // press box on the west rim (2003: the present form, estimated)
-  b.color('#6E7176').box(fx - 53, fy, 21, 6, 40, 5);
+  bank(-30, -82, 22); // west stand (1924; upper deck 1969)
+  bank(37, 64, 14); // east stand (1962)
+  b.color('#5C8A4D').quad([-30, y0 - 3, 0.2], [37, y0 - 3, 0.2], [37, y1 + 3, 0.2], [-30, y1 + 3, 0.2]);
+  // north and south end structures (field house, tunnel): low blocks (estimated)
+  b.color('#7B7E83').box(-11, 88, -1, 88, 33, 9);
+  b.color('#7B7E83').box(-48, -90, -1, 49, 60, 8);
+  // press box on the west rim (2003)
+  b.color('#6E7176').box(-80, 7, 22, 5, 38, 4.5);
 }
 
 addLM({
@@ -373,11 +377,11 @@ addLM({
   end: 9999,
   anchor: [-73.96417, 41.3875],
   build: msBuild,
-  replaces: [MS_RING],
+  replaces: [MS_RING, rect(50.5, 5.6, 27.5, 121)],
   facts: {
     Construction: 'opened in 1924 (16,000 seats); east grandstand 1962, west upper deck 1969, press box 2003; named for Dennis Michie, who started the football team in 1890',
     Setting: 'north-south field at 335 ft above sea level, west of Lusk Reservoir',
-    Model: 'two sloped stands either side of a 52 x 124 m field, placed on the bowl outline of today (14,603 m2, which includes the later expansions); stand height 21 m and the pitch are estimated; the 1924 stadium was smaller and is not reconstructed'
+    Model: 'a west and an east stand either side of the field (67 m between the stands, 124 m long) on the footprints of today (west stand with end structures 14,603 m2; east stand 3,335 m2); stand heights (22 m, 14 m), the slope and the end blocks are estimated; the 1924 stadium was smaller and is not reconstructed'
   },
   sources: [WIKI + 'Michie_Stadium', OVT]
 });

@@ -255,7 +255,7 @@ def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet, known):
     temp_land = np.zeros((rows, cols), bool)          # filled water that is water again today
     z = None
     parts = []
-    for p in (MANUAL / "fill_zones.csv", MANUAL / "fill_zones_counties.csv"):
+    for p in (MANUAL / "fill_zones.csv", MANUAL / "fill_zones_counties.csv", MANUAL / "fill_zones_outer.csv"):
         if p.exists():
             try:
                 parts.append(pd.read_csv(p))

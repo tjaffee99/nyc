@@ -137,12 +137,12 @@ def oid_range(url, where, cache):
     return out
 
 
-def fetch_page(url, where, fields, f):
+def fetch_page(url, where, fields, f, tries=5):
     """One OBJECTID window of a feature layer as GeoJSON (WGS84, 1e-6 degrees) -> f (gzip)."""
     if f.exists():
         return 0
     d = get_json(url, {"where": where, "outFields": fields, "outSR": 4326, "geometryPrecision": 6,
-                       "orderByFields": "OBJECTID", "f": "geojson"})
+                       "orderByFields": "OBJECTID", "f": "geojson"}, tries=tries)
     if d.get("exceededTransferLimit") or (d.get("properties") or {}).get("exceededTransferLimit"):
         raise RuntimeError(f"{f.name}: transfer limit exceeded")
     tmp = f.with_suffix(".part")
@@ -164,9 +164,20 @@ def download_layer(what, name, url, field, fields, page):
     todo = [p for p in pages if not (d / f"oid_{p[0]}_{p[1]}.geojson.gz").exists()]
     log(f"{what} {name}: {rng['n']} features, OBJECTID {rng['lo']}-{rng['hi']}, {len(todo)} of {len(pages)} pages to fetch")
     got = 0
+    def fetch_window(lo, hi):
+        """A window the service refuses (it answers 400 for pages of very large parcels) is halved until it goes through."""
+        try:
+            return fetch_page(url, f"{field}='{name}' AND OBJECTID >= {lo} AND OBJECTID < {hi}", fields,
+                              d / f"oid_{lo}_{hi}.geojson.gz", tries=2 if hi - lo > 50 else 5)
+        except RuntimeError:
+            if hi - lo <= 50:
+                raise
+            mid = (lo + hi) // 2
+            log(f"  window {lo}-{hi} refused: halved")
+            return fetch_window(lo, mid) + fetch_window(mid, hi)
+
     with ThreadPoolExecutor(3) as ex:
-        jobs = ex.map(lambda p: fetch_page(url, f"{field}='{name}' AND OBJECTID >= {p[0]} AND OBJECTID < {p[1]}", fields,
-                                           d / f"oid_{p[0]}_{p[1]}.geojson.gz"), todo)
+        jobs = ex.map(lambda p: fetch_window(p[0], p[1]), todo)
         for i, n in enumerate(jobs):
             got += n
             if i % 20 == 19:

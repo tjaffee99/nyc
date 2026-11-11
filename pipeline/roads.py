@@ -706,6 +706,9 @@ def read_routes():
         log("roads: no data/manual/routes.csv")
         return []
     t = pd.read_csv(p, dtype=str).fillna("")
+    po = MANUAL / "routes_outer.csv"      # the outer counties' highway openings (same columns)
+    if po.exists():
+        t = pd.concat([t, pd.read_csv(po, dtype=str).fillna("")], ignore_index=True)
     out, skipped = [], {}
     for r in t.itertuples():
         mode = r.mode.strip()

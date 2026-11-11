@@ -37,7 +37,11 @@ def rings_of(geom, tol=0.0004):
     return out
 
 
+OUTER_AREAS = {"fairfield_ct": ["Greater Bridgeport", "Western Connecticut"], "new_haven_ct": ["South Central Connecticut"]}
+
+
 def main():
+    import re
     from extent import map_counties
     extra = map_counties()   # {fips: name} of the counties around the city that are on the map
     allco = gpd.read_file(f"zip://{RAW / 'tiger' / 'tl_2024_us_county.zip'}")
@@ -73,6 +77,20 @@ def main():
                 pop[f"county:{name}"] = sorted({float(y): float(v) for y, v in zip(grp.year, grp.population)}.items())
     else:
         log("cities: no data/tables/population.csv yet - outlines only")
+    # the outer counties (population_outer.csv): its area keys carry the state where a name
+    # repeats, and Connecticut's series are of the old counties (one series, two planning regions)
+    po = TABLES / "population_outer.csv"
+    if po.exists():
+        t = pd.read_csv(po)
+        t["population"] = pd.to_numeric(t.population.astype(str).str.replace(",", ""), errors="coerce")
+        t["year"] = pd.to_numeric(t.year, errors="coerce")
+        t = t.dropna(subset=["population", "year"])
+        names = set(extra.values())
+        for area, grp in t.groupby(t.area.astype(str).str.lower().str.strip()):
+            series = sorted({float(y): float(v) for y, v in zip(grp.year, grp.population)}.items())
+            for name in OUTER_AREAS.get(area, [re.sub(r"_(ny|nj|ct|pa)$", "", area).replace("_", " ").title()]):
+                if name in names:
+                    pop[f"county:{name}"] = series
     out = {"places": [], "counties": counties, "pop": pop, "region": region, "region_label": "New York City"}
     (VIEWER_DATA / "cities.json").write_text(json.dumps(out, separators=(",", ":")))
     log(f"cities: {len(counties)} boroughs -> cities.json ({(VIEWER_DATA / 'cities.json').stat().st_size // 1024} KB)")
