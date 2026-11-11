@@ -1,4 +1,4 @@
-import sys,os,time,urllib.request,urllib.parse
+import sys,os,time,urllib.request,urllib.parse,urllib.error
 D='/home/user/nyc/data/interim/holes_nj_cities_raw'
 def get(t):
     fn=os.path.join(D,'wp_'+t.replace('/','_').replace(' ','_')+'.txt')
@@ -8,6 +8,10 @@ def get(t):
         try:
             r=urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'NYCThroughTime-research/0.1'}),timeout=30)
             open(fn,'wb').write(r.read());break
+        except urllib.error.HTTPError as e:
+            print(t,"ERR",e,flush=True)
+            if e.code==404: return None
+            time.sleep(15)
         except Exception as e:
             print(t,'ERR',e,flush=True);time.sleep(5)
     else: return None
