@@ -61,6 +61,31 @@ def built_counties():
     return set(json.loads(p.read_text()).get("counties", {}).values())
 
 
+def county_heaps(raw, county):
+    """Placeholder years per county: the city's rule (find_heaps: 300 buildings, three times
+    its neighbours) and, for old houses, a rule for small piles. An assessor who does not know
+    writes a round year - 1800 for 100 to 250 houses of a county where every other year of
+    those decades holds two or three (and 1790, 1810, 1750 ...). Too few for the city's rule,
+    but together they put 2,400 buildings in the year 1800 (the audit's spike), and the
+    modelled years, which follow the recorded ones, copied the pile. A decade year before 1900
+    with 15 or more buildings and four times the median of the plain years within four of it
+    is a placeholder too ("by then": estimated from the buildings around, like the city's)."""
+    found = find_heaps(raw, county)
+    for c in np.unique(county):
+        y = raw[(county == c) & np.isfinite(raw)].astype(int)
+        y = y[y < 1900]
+        cnt = dict(zip(*np.unique(y, return_counts=True)))
+        hs = set(found.get(c, set()))
+        for v in sorted(cnt):
+            if v % 10 or v in hs or cnt[v] < 15:
+                continue
+            nb = [cnt.get(u, 0) for u in range(v - 4, v + 5) if u % 5 and u not in hs]
+            if cnt[v] > 4 * max(float(np.median(nb)), 1.0):
+                hs.add(v)
+        found[c] = hs
+    return found
+
+
 def county_files(outer=False):
     files = (sorted(SRC.glob("n[jy]_*.parquet")) + sorted(SRC.glob("ct_*.parquet")) + sorted(SRC.glob("pa_*.parquet"))) if SRC.exists() else []
     files = [f for f in files if not f.stem.endswith(("_estimates", "_inventory"))]   # (read beside their county's file, below)
@@ -141,7 +166,7 @@ def recorded_evidence():
     raw = pd.to_numeric(g.year_raw, errors="coerce").values.astype(float)
     raw = np.where((raw >= YEAR_MIN) & (raw <= NOW + 1), raw, np.nan)
     heap = g.heap.fillna(False).astype(bool).values.copy() if "heap" in g else np.zeros(n, bool)
-    for c, hs in find_heaps(raw, county).items():
+    for c, hs in county_heaps(raw, county).items():
         heap |= (county == c) & np.isin(raw, list(hs))
     secondary = g.secondary.fillna(False).astype(bool).values if "secondary" in g else np.zeros(n, bool)
     hist = pd.to_numeric(g.year_hist, errors="coerce").values.astype(float) if "year_hist" in g else np.full(n, np.nan)
@@ -209,7 +234,7 @@ def build(g, outer=False):
     raw = pd.to_numeric(g.year_raw, errors="coerce").values.astype(float)
     raw = np.where((raw >= YEAR_MIN) & (raw <= NOW + 1), raw, np.nan)
     heap = g.heap.fillna(False).astype(bool).values.copy() if "heap" in g else np.zeros(n, bool)
-    found = find_heaps(raw, county)
+    found = county_heaps(raw, county)
     for c, hs in found.items():
         heap |= (county == c) & np.isin(raw, list(hs))
     log("counties: heap years " + "; ".join(f"{c} {sorted(int(v) for v in hs)}" for c, hs in found.items()))

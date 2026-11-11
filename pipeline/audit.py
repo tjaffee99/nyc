@@ -53,7 +53,8 @@ def read_set(path):
     pier = np.isin(c["src"], [i for i, v in enumerate(srcs) if v.startswith("pier")]) if "src" in c else np.zeros(n, bool)
     return {"start": c["start_year"].astype(float), "end": c["end_year"].astype(float), "height": c["height"].astype(float),
             "base": c["base"].astype(float), "conf": c["confidence"], "fid": c["fid"], "poly": np.array(polys, dtype=object),
-            "pier": pier}
+            "pier": pier,
+            "src": np.array([srcs[int(i)] if int(i) < len(srcs) else "" for i in c["src"]], dtype=object) if "src" in c else np.full(n, "", dtype=object)}
 
 
 def main():
@@ -66,6 +67,7 @@ def main():
     overlaps = 0
     before_ground = 0
     wet_examples = []
+    wet_src, wet_gap = {}, []
     standing_pairs = 0
     checked = 0
     worst = []
@@ -80,6 +82,10 @@ def main():
         es = earliest_start(polys, np.maximum(h - 2.0, 3.0))
         wet = np.isfinite(es) & (st < es - 0.75) & ~s["pier"][ok]
         before_ground += int(wet.sum())
+        for k in np.nonzero(wet)[0]:      # which kinds of rows, and by how much (the report's wet_by_source)
+            lab = str(s["src"][ok][k])[:60]
+            wet_src[lab] = wet_src.get(lab, 0) + 1
+            wet_gap.append(float(es[k] - st[k]))
         if wet.any() and len(wet_examples) < 8:
             k = int(np.nonzero(wet)[0][0])
             c0 = shapely.centroid(polys[k])
@@ -125,6 +131,8 @@ def main():
         "overlapping_pairs": overlaps, "overlap_examples": worst, "checked_for_overlap": checked,
         "nested_standing_pairs": standing_pairs,
         "before_their_ground": before_ground, "before_ground_examples": wet_examples,
+        "before_ground_by_source": dict(sorted(wet_src.items(), key=lambda kv: -kv[1])),
+        "before_ground_years_median": float(np.median(wet_gap)) if wet_gap else 0.0,
         "standing_by_year": {str(t): int(((start <= t) & (end > t)).sum()) for t in (1650, 1700, 1750, 1800, 1850, 1875, 1900, 1925, 1950, 1975, 2000, 2026)},
     }
     p = INTERIM / "reports" / "audit.json"

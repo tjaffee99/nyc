@@ -302,6 +302,17 @@ def add_predecessors(g):
     conf = g.year_confidence.values.copy()
     src = g.year_src.values.copy()
     start[redate.j.values] = redate.my.values - 2.0 - 22.0 * hashes(redate.j.values, "s")
+    # (the ground rule ran before this step: a building moved to before its map must still wait
+    # for its ground - 69 of the 78 buildings the audit found standing before theirs were these)
+    from ground_rule import earliest_start
+    jj = redate.j.values
+    if len(jj):
+        hcol = next((c for c in ("height", "height_m") if c in g), None)
+        hh = pd.to_numeric(g[hcol], errors="coerce").fillna(10.0).values[jj] if hcol else np.full(len(jj), 10.0)
+        es = earliest_start(g.geometry.to_crs(4326).values[jj], hh)
+        wait = np.isfinite(es) & (start[jj] < es)
+        start[jj] = np.where(wait, np.minimum(es + 0.5, redate.tstart.values), start[jj])
+        log(f"predecessors: {int(wait.sum())} of the re-dated buildings wait for their ground")
     conf[redate.j.values] = "estimated"
     src[redate.j.values] = "on_map"
     g = g.assign(start_year=start, year_confidence=conf, year_src=src)
