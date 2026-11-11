@@ -561,8 +561,8 @@ def farm_census(g, F, order, farmable, land, boro):
     New York's state censuses from 1821, the federal ones from 1850). The model's order stays —
     `order` is the year the settlement front reaches a cell plus slope and a field-sized noise, so
     the best and nearest ground goes first and woods stay scattered among the fields — but how much
-    is cleared by a year is the census's count, not the model's guess. Before a county's first
-    census the share grows evenly from its first settlement. Ground beyond the peak share is never
+    is cleared by a year is the census's count, not the model's guess. The ground the first census
+    finds cleared keeps the model's years (no count is older); ground beyond the peak share is never
     cleared. A county without figures (and Manhattan, which the British garrison stripped) keeps
     the model's years `F`."""
     p = TABLES / "farmland_counties.csv"
@@ -578,7 +578,9 @@ def farm_census(g, F, order, farmable, land, boro):
     for fips_list, yr, sh in zip(unit.astype(str), t.year.values, t.share.values):
         for f in fips_list.replace(" ", "").split("+"):
             series.setdefault(f.zfill(5), {})[float(yr)] = float(sh)
-    series = {f: sorted(v.items()) for f, v in series.items() if len(v) >= 2 and f != "36061"}
+    # (a county with one census only - New Jersey and Connecticut have 1850 alone - grows to that
+    # share by that year and no further: its peak a few decades later was somewhat higher)
+    series = {f: sorted(v.items()) for f, v in series.items() if len(v) >= 1 and f != "36061"}
     if not series:
         return F
     co = gpd.read_file(f"zip://{RAW / 'tiger' / 'tl_2024_us_county.zip'}")
@@ -596,15 +598,23 @@ def farm_census(g, F, order, farmable, land, boro):
         ys = np.array([q[0] for q in series[r.fips]])
         sh = np.array([q[1] for q in series[r.fips]])
         k = int(np.argmax(sh))
-        first = float(np.nanmin(F[m])) if np.isfinite(F[m]).any() else 1680.0
-        first = min(first, ys[0] - 40.0)
-        # the rising branch: (year, share) from the first settlement to the peak
-        cy = np.r_[first, ys[:k + 1]]
-        cs = np.maximum.accumulate(np.r_[0.0, sh[:k + 1]])
         o = order[m]
         rank = (np.argsort(np.argsort(o, kind="stable"), kind="stable") + 0.5) / n_land
-        keep = np.r_[True, np.diff(cs) > 1e-6]
-        yr = np.interp(rank, cs[keep], cy[keep], right=np.inf).astype(np.float32)
+        # up to the first census: the ground it finds cleared, at the model's own years (the
+        # front reached most of it long before; what the model has later is spread over the 25
+        # years before the count)
+        t0, s0 = float(ys[0]), float(sh[0])
+        yr = np.full(int(m.sum()), np.inf, np.float32)
+        early = rank <= s0
+        Fm = F[m]
+        jit = (rank * 9973.0) % 1.0
+        yr[early] = np.where(Fm[early] <= t0 - 1.0, Fm[early], t0 - 1.0 - 25.0 * jit[early])
+        # after it: the censuses' own growth to the peak; ground beyond the peak share stays wooded
+        if k > 0:
+            cs = np.maximum.accumulate(sh[:k + 1])
+            keep = np.r_[True, np.diff(cs) > 1e-6]
+            late = ~early
+            yr[late] = np.interp(rank[late], cs[keep], ys[:k + 1][keep], right=np.inf)
         out[m] = yr
         got = {int(y): round(float((yr <= y).sum()) / n_land, 2) for y in (1820, 1850, 1880)}
         said.append(f"{r.NAME} peak {sh[k]:.0%} in {int(ys[k])}, cleared {got}")
