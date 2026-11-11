@@ -53,6 +53,7 @@ ROOF_M2 = (60.0, 20000.0)
 ROOF_FILL = 0.7          # share of its bounding rectangle a patch must fill
 ROOF_MIN_SIDE = 5.0      # metres
 ROOF_ASPECT = 12.0
+CAMPUS_MAX_M2 = 2500.0   # in a fort or an institution a larger even patch is a parade ground, a court or a lawn
 RAIL_SHARE = 0.25        # share of a candidate on today's surface tracks (6 m to each side): rolling stock, not a roof
 OCCUPIED = 0.3           # share of a candidate under a building of the map: the map has it
 JOIN_PX = 1.3            # kept roofs this near are one building (the two slopes of a ridged roof)
@@ -301,6 +302,8 @@ def step_build():
                 inside = shapely.contains(mine, shapely.centroid(cm))
                 if water is not None:
                     inside &= ~(shapely.area(shapely.intersection(cm, water)) > 0.3 * shapely.area(cm))
+                if run[y][2] in KIND_OF:
+                    inside &= shapely.area(cm) * MPP * MPP <= CAMPUS_MAX_M2
                 if rail is not None:
                     ci, ri = rail.query(cm, predicate="intersects")
                     if len(ci):
@@ -401,6 +404,8 @@ def step_build():
                 end, basis = gf.OPEN_END[0] + u2 * (gf.OPEN_END[1] - gf.OPEN_END[0]), "open_today"
             if sg == 1:
                 end = min(end, 1950.5)
+                if E0 < 9999:
+                    end = min(end, E0 + 2.0 * u2)       # the site itself was gone before the second photograph
             end = min(end, gf.RECORD_FROM)
             if end <= last_seen + 0.6:
                 continue
