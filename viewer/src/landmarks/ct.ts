@@ -245,10 +245,10 @@ CT.push({
     b.color('#6A6560').cap(R_sterling, 20);
     // the stacks tower; centre from the Wikipedia coordinate (41.3113, -72.9291), four decimals
     b.frame(-26, 9, 0, 29, () => {
-      b.color(lime).box(0, 0, 20, 17, 11, 25.7);
-      b.color('#9E968A').box(0, 0, 45.7, 17.6, 11.6, 0.5);
+      b.color(lime).box(0, 0, 20, 17, 11, 24.5);
+      b.color('#9E968A').box(0, 0, 44.5, 17.6, 11.6, 0.4);
       for (const sx of [-1, 1]) for (const sy of [-1, 1]) {
-        b.color(lime).box(sx * 8.2, sy * 5.2, 45.7, 1.4, 1.4, 3);
+        b.color(lime).box(sx * 8.2, sy * 5.2, 44.9, 1.4, 1.4, 0.8);
       }
     });
   },
@@ -271,13 +271,13 @@ CT.push({
   anchor: [-72.92733, 41.311596],
   build: b => {
     b.frame(0.5, 0.2, 0, 28.7, () => {
-      b.color('#C9C2B4').box(0, 0, 0, 41, 27.3, 1.1);
+      b.color('#C9C2B4').box(0, 0, 0, 27.3, 41, 1.1);
       // windowless shell of Vermont marble, carried on four corner piers
-      b.color('#D8D2C6').box(0, 0, 4.2, 40.6, 26.9, 8.8, {bottom: true});
+      b.color('#D8D2C6').box(0, 0, 4.2, 26.9, 40.6, 8.8, {bottom: true});
       b.color('#9A948A');
-      for (const sx of [-1, 1]) for (const sy of [-1, 1]) b.box(sx * 19.4, sy * 12.7, 1.1, 2.2, 2.2, 3.1);
+      for (const sx of [-1, 1]) for (const sy of [-1, 1]) b.box(sx * 12.7, sy * 19.4, 1.1, 2.2, 2.2, 3.1);
       // glass book tower seen through the mezzanine
-      b.color('#8FA7A3').box(0, 0, 1.1, 12, 7, 3.1);
+      b.color('#8FA7A3').box(0, 0, 1.1, 7, 12, 3.1);
     });
   },
   replaces: [R_beinecke],
@@ -302,8 +302,8 @@ CT.push({
     const lime = '#BDB5A3';
     b.color(lime).prism(R_payne, 0, 17, {top: false});
     b.color('#6A6560').cap(R_payne, 17);
-    // the nine-storey tower, centre from the Wikipedia coordinate (41°18'49"N 72°55'50"W)
-    b.frame(38, -12, 0, 57, () => {
+    // the nine-storey tower, centre from the Wikipedia coordinate (41°18'49"N 72°55'50"W), moved 17 m to the nearest spot where a 15 m square fits inside the footprint
+    b.frame(26, 0, 0, 57.2, () => {
       b.color(lime).box(0, 0, 17, 15, 15, 33);
       b.color('#9E968A').box(0, 0, 50, 16, 16, 0.6);
       for (const sx of [-1, 1]) for (const sy of [-1, 1]) b.color(lime).box(sx * 7.2, sy * 7.2, 50, 1.6, 1.6, 2.8);
@@ -312,7 +312,7 @@ CT.push({
   replaces: [R_payne],
   facts: {
     Built: '1930–1932 (John Russell Pope): twelve acres of interior space and a nine-storey tower holding a third-floor pool, fencing and polo rooms',
-    Model: 'plan from the footprint; heights (block 17 m, tower 50 m), tower plan and position (±8 m, from a coordinate rounded to the second) estimated — no published height read; LOW confidence'
+    Model: 'plan from the footprint; heights (block 17 m, tower 50 m), tower plan and position (the Wikipedia coordinate is rounded to the second, ±30 m; the tower is put on the nearest ground inside the footprint) estimated — no published height read; LOW confidence'
   },
   sources: [WIKI + 'Payne_Whitney_Gymnasium', OVERTURE]
 });
@@ -364,8 +364,8 @@ CT.push({
       b.color('#8D8678').box(0, 0, 15, 29, 46.6, 0.5);
       // the wings, lower
       for (const s of [-1, 1]) {
-        b.color(lime).box(0, s * 34.5, 0, 28.4, 23, 10.5);
-        b.color('#8D8678').box(0, s * 34.5, 10.5, 28.8, 23.4, 0.4);
+        b.color(lime).box(0, s * 34.7, 0, 28.4, 23.4, 10.5);
+        b.color('#8D8678').box(0, s * 34.7, 10.5, 28.8, 23.8, 0.4);
       }
       // the great arched windows of the waiting hall, as dark panels on both long sides
       b.color('#5C6670');
@@ -393,16 +393,16 @@ CT.push({
   build: b => {
     b.frame(-0.3, 0.1, 0, 74.3, () => {
       b.color('#A39484');
-      for (const sx of [-1, 1]) for (const sy of [-1, 1]) b.cylinder(sx * 13.75, sy * 13.75, 7.6, 0, 98, 14);
-      b.color('#7C8A91').box(0, 0, 0, 27.5, 27.5, 82);
-      b.color('#A39484').box(0, 0, 82, 28, 28, 1.2);
+      for (const sx of [-1, 1]) for (const sy of [-1, 1]) b.cylinder(sx * 14.15, sy * 14.15, 7.2, 0, 98, 14);
+      b.color('#7C8A91').box(0, 0, 0, 24, 24, 82);
+      b.color('#A39484').box(0, 0, 82, 24.4, 24.4, 1.2);
     });
   },
   replaces: [R_kofc],
   facts: {
     Built: '1965–1969 (Kevin Roche John Dinkeloo and Associates): 23 floors, the Supreme Council headquarters of the Knights of Columbus, four granite-faced cylindrical towers',
     Height: '98 m (Overture Maps height for the footprint)',
-    Model: 'footprint (42.7 m square, rotated 74°); tower radius 7.6 m, the glazed core’s plan and its height (82 m) estimated'
+    Model: 'footprint (42.7 m square, rotated 74°); tower radius 7.2 m, the glazed core’s plan and its height (82 m) estimated'
   },
   sources: [WIKI + 'Knights_of_Columbus_Building_(New_Haven,_Connecticut)', OVERTURE]
 });
@@ -438,16 +438,16 @@ CT.push({
   anchor: [-73.529259, 41.142397],
   build: b => {
     b.frame(-0.4, 0, 0, 177.1, () => {
-      b.color('#6E6A64').box(0, 0, 0, 16.2, 9.6, 0.4);
-      b.color('#2B2B2B').box(0, 0, 3.6, 16.4, 9.8, 0.35);
+      b.color('#6E6A64').box(0, 0, 0, 9.6, 16.2, 0.4);
+      b.color('#2B2B2B').box(0, 0, 3.6, 9.8, 16.4, 0.35);
       b.color('#9DB8BF');
-      b.walls(rect(0, 0, 16.0, 9.4), 0.4, 3.6);
+      b.walls(rect(0, 0, 9.4, 16.0), 0.4, 3.6);
       // steel corner and mullion posts
       b.color('#1E1E1E');
-      for (const x of [-8, -4, 0, 4, 8]) for (const y of [-4.7, 4.7]) b.box(x, y, 0.4, 0.25, 0.25, 3.2);
-      for (const y of [-1.6, 1.6]) for (const x of [-8, 8]) b.box(x, y, 0.4, 0.25, 0.25, 3.2);
+      for (const y of [-8, -4, 0, 4, 8]) for (const x of [-4.7, 4.7]) b.box(x, y, 0.4, 0.25, 0.25, 3.2);
+      for (const x of [-1.6, 1.6]) for (const y of [-8, 8]) b.box(x, y, 0.4, 0.25, 0.25, 3.2);
       // the brick cylinder (bathroom and hearth) rises through the roof
-      b.color('#7A3E2E').cylinder(1.6, 0.6, 1.5, 0.4, 4.4, 14);
+      b.color('#7A3E2E').cylinder(0.6, 1.6, 1.5, 0.4, 4.4, 14);
     });
   },
   replaces: [R_glass],
