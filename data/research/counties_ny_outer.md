@@ -1,5 +1,8 @@
 # The outer New York counties: footprints with a construction year
 
+> **Superseded in part (2026-11-11, later the same day):** Dutchess and Nassau are no longer all modelled. `data/research/county_years.md` found recorded years for 87 % of Dutchess (the State's parcel centroid points) and assessor-derived cell curves for 97 % of Nassau and for Brookhaven (HISDAC-US BUPR, source `modelled_cells`). The figures below describe the first pass.
+
+
 Putnam (36079), Sullivan (36105), Ulster (36111), Dutchess (36027), Orange (36071), Nassau (36059), Suffolk (36103).
 Stages: `pipeline/counties_ny.py` (parcels, footprints, years as recorded) and `pipeline/counties_ny_estimates.py`
 (`build_outer`: years modelled where the roll has none). Built and fetched **2026-11-11**. Westchester and Rockland are
