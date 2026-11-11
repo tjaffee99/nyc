@@ -12,7 +12,8 @@ the photographs themselves give the outlines:
   evidence  the presence model of aerial_presence.py (unchanged, through gap_fill.score_lots) scores
             every candidate on its photograph; kept at the lot fill's thresholds (Staten Island 0.9),
             only where no building of the map, standing or vanished, lies on it at the time, not on
-            today's water, and only while the site existed. Kept roofs that touch are one building.
+            today's water or surface tracks, and only while the site existed. Kept roofs that
+            touch are one building.
   years     a building seen in 1924 starts no later than the photograph, spread back over SPREAD
             years (a third of them over the recorded years of the site's own buildings where it has
             five), not before the site's founding; one seen only in 1951 that the 1924 photograph
@@ -52,6 +53,7 @@ ROOF_M2 = (60.0, 20000.0)
 ROOF_FILL = 0.7          # share of its bounding rectangle a patch must fill
 ROOF_MIN_SIDE = 5.0      # metres
 ROOF_ASPECT = 12.0
+RAIL_SHARE = 0.25        # share of a candidate on today's surface tracks (6 m to each side): rolling stock, not a roof
 OCCUPIED = 0.3           # share of a candidate under a building of the map: the map has it
 JOIN_PX = 1.3            # kept roofs this near are one building (the two slopes of a ridged roof)
 SPREAD = 60.0            # years a start is spread back
@@ -262,6 +264,7 @@ def step_build():
             ex = gf.existing_window(*b)
             exs[b] = ex
             water, _ = gf.water_window(*b)
+            rail = gf.rail_window(*b)                 # wagons standing on yard tracks look like roofs
             for y in ap.YEARS:
                 if run[y] is None or not len(ex):
                     continue
@@ -298,6 +301,12 @@ def step_build():
                 inside = shapely.contains(mine, shapely.centroid(cm))
                 if water is not None:
                     inside &= ~(shapely.area(shapely.intersection(cm, water)) > 0.3 * shapely.area(cm))
+                if rail is not None:
+                    ci, ri = rail.query(cm, predicate="intersects")
+                    if len(ci):
+                        on_rail = np.zeros(len(cm))
+                        np.add.at(on_rail, ci, shapely.area(shapely.intersection(cm[ci], rail.geometries[ri])))
+                        inside &= ~(on_rail > RAIL_SHARE * shapely.area(cm))
                 cm = cm[inside]
                 if not len(cm):
                     continue
