@@ -469,7 +469,8 @@ def gapfill():
 
 
 # traced layers that failed the lead's check (data/manual/atlas/README.md has each layer's own checks)
-ATLAS_SKIP = {"hudson_heights_1887": "one plate placed by control points alone; 30 % of its outlines lie within 8 m of a street line"}
+ATLAS_SKIP = {"hudson_heights_1887": "one plate placed by control points alone; 30 % of its outlines lie within 8 m of a street line",
+              "brooklyn_bayridge_1898": "six of its twelve plates could not be placed, one of the others is 8 m off; 237 outlines, 16 % of them near a street line"}
 _streets = None
 
 
