@@ -466,6 +466,23 @@ def extent_years(g):
             lo = prev if prev is not None else year - 20.0
             out[m] = lo + (year - lo) * h[m]
             prev = year
+    # the counties: the built-up ground of the USGS sheets of 1897-98 and the urban tint of the
+    # sheets of the 1940s (data/manual/gapfill, read for the generated fill). A district that was
+    # cleared and rebuilt has no old building left to date its ground: without these it stays
+    # farmland until the town houses of the 1990s.
+    done = np.zeros((rows, cols), bool)
+    for fn, back in (("hudson_builtup_1897.geojson", 30.0), ("counties_builtup_1897.geojson", 30.0), ("counties_tint_194x.geojson", 47.0)):
+        f = MANUAL / "gapfill" / fn
+        if not f.exists():
+            continue
+        e = gpd.read_file(f).to_crs(3857)
+        for year, grp in e.groupby(e.year.astype(float)):
+            m = rasterize_on(g, [(q, 1) for q in grp.geometry.values if q is not None and not q.is_empty], fill=0, dtype="uint8").astype(bool)
+            m &= np.isnan(out) | (done & (out > year))
+            # (ground a later sheet shows built and the 1897 sheet does not: built in between)
+            lo = year - back
+            out[m] = lo + (year - lo) * h[m]
+            done |= m
     return out
 
 
