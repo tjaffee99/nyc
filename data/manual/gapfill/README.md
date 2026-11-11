@@ -262,3 +262,57 @@ cd pipeline
 - `assemble` must be rerun after every rebuild that adds or re-dates buildings, or the fill will overlap
   them. The snapshot leaves out rows whose `year_src` starts with `gapfill`, so the stage can read a
   building file that already holds its own rows.
+
+## The counties beyond Hudson (`gap_fill.py counties`, added 2026-11-11)
+
+Essex, Union, Passaic, Bergen, Westchester and Rockland have today's buildings with parcel years and
+nothing vanished. Rows are generated on the states' real parcels, not on a lot grid; the rules are in
+the comment block above `COUNTIES` in `pipeline/gap_fill.py`:
+
+- `parcel_neighbourhood`: the Bay project's rule — the parcel's neighbourhood was built up before 1945
+  (25th percentile of the recorded years of the buildings within 150 m, at least eight), its own
+  building is 25 or more years younger, and six in ten recorded neighbours are older than it by 20
+  years: an earlier building stood from the neighbourhood's development until today's replaced it.
+- `usgs<year>_blocks` / `usgs<year>_tint`: the parcel lies on the built block fronts, or in the urban
+  tint, of a 1940s USGS sheet and its own building is later.
+- `usgs1897_builtup`: the parcel lies in built-up ground of the 1897-98 sheets and its own building
+  is later (a share; alone only where the gap closes by 1948).
+
+71,321 rows; counts per county and evidence, the census check and the overlap checks are in
+`numbers_counties.md`. Output `data/interim/gapfill/gapfill_counties.parquet` (the loader reads every
+`gapfill*.parquet`). Not rerun by the city's `fresh assemble`: `gap_fill.py counties` after a change
+to the counties' buildings. All rows `procedural`; no hand-checked precision figure.
+
+## Inside the yards, forts and institutions (`pipeline/site_fill.py`, added 2026-11-11)
+
+The lot fill needs street frontages; a navy yard, a fort, an island of hospitals or a works has none,
+and no fire-insurance atlas mapped federal and city grounds. `site_fill.py` reads roofs off the two
+aerial photographs inside the grounds of `data/manual/sites/sites.geojson` (96 grounds; landfills and
+quarries left out; successive sites on one outline are one ground):
+
+1. Each photograph is segmented (Felzenszwalb, three scales). A patch of 60-20,000 m² that fills 70 %
+   of its bounding rectangle, at least 5 m wide, is a candidate roof, drawn as that rectangle and
+   moved by the photograph's measured shift against the map.
+2. The presence model (`aerial_presence.py`, unchanged) scores each candidate on its photograph; kept
+   at the lot fill's thresholds (0.8 for 1924, 0.7 for 1951, Staten Island 0.9), only where the map
+   has no building on more than 30 % of it at the time, not on today's water, not on today's surface
+   tracks (rolling stock), not larger than 2,500 m² in a fort or an institution (parade grounds,
+   courts), and only while the site existed. Of overlapping candidates the best-scored stays; kept
+   roofs that touch are one building.
+3. Years: a roof of 1924 starts before the photograph, spread back over 60 years (a third over the
+   recorded years of the site's own buildings where it has five), not before the site's founding; a
+   roof found only in 1951 that the 1924 photograph does not show starts in between. Ends: when the
+   map's next building on the spot went up, 1926-1950 where the 1951 photograph no longer shows it,
+   with the site where it closed, else 1956-1984. Heights by the kind of site (a shed over 2,500 m²:
+   10-16 m).
+
+Result (2026-11-11): 2,192 buildings in 72 sites; standing 208 in 1880, 535 in 1900, 1,213 in 1925,
+1,440 in 1950. The largest: Bush Terminal, Fort Tilden, Blackwell's Island, the Standard Oil works on
+Newtown Creek, Fort Totten, the Navy Yard, Fort Hamilton. `procedural`, evidence
+`site+aerial1924`, `site+aerial1951`, `site+aerial1924+1951`.
+
+Checked by eye only (`site_fill.py look site=<id>` draws the outlines on both photographs): the Navy
+Yard (outlines sit on roofs; perhaps half of the roofs in the picture are found) and Fort Hamilton
+(mostly on buildings; one parade ground was outlined before the size limit was added). No precision
+figure. Known failure modes: a paved court or lawn of roof size; a ship at a quay inside a site's
+outline; a roof split along its ridge into two rectangles that did not join.
