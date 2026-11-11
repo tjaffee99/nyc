@@ -117,10 +117,6 @@
    {
     "id": 8219,
     "sheet": "image 1516788"
-   },
-   {
-    "id": 8212,
-    "sheet": "21"
    }
   ],
   "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the city of New York, Manhattan Island, 1897; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
@@ -136,6 +132,43 @@
     ]
    ]
   },
+  "stone_min_m2": 200.0,
+  "stone_min_width_m": 6.0,
+  "stone_max_aspect": 4.0
+ },
+ "manhattan_inwood_1897": {
+  "map_year": 1897,
+  "atlas": "Atlas of the city of New York, Manhattan Island. From actual surveys and official plans by George W. and Walter S. Bromley (G. W. Bromley & Co., Philadelphia, 1897)",
+  "source": "bromley_manhattan_1897",
+  "style": "bromley_city",
+  "style_override": {
+   "max_m2": 20000.0,
+   "outline_big": 0.3,
+   "big_px": 4800,
+   "big_r": 16,
+   "stone": {
+    "da_abs": 5.5,
+    "db_min": -9.0,
+    "db_max": 0.5,
+    "dL_min": -28.0,
+    "dL_max": -9.0
+   },
+   "blue": {
+    "db_max": -5.5,
+    "db_min": -16.0,
+    "da_min": -6.0,
+    "da_max": 3.0,
+    "dL_min": -22.0,
+    "dL_max": -3.0
+   }
+  },
+  "plates": [
+   {
+    "id": 900045,
+    "sheet": "45"
+   }
+  ],
+  "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the city of New York, Manhattan Island, 1897; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
   "stone_min_m2": 200.0,
   "stone_min_width_m": 6.0,
   "stone_max_aspect": 4.0

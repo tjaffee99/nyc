@@ -1,7 +1,7 @@
 {
  "total": {
   "layer": "manhattan_downtown_1897",
-  "plates": 21,
+  "plates": 20,
   "buildings": 41254,
   "frame": 3788,
   "brick": 37422,
@@ -972,54 +972,6 @@
    "washed_dropped": 0,
    "exported": 782,
    "duplicates_dropped": 3,
-   "status": "ok"
-  },
-  {
-   "plate": "8212",
-   "image": "1516781",
-   "name": "[Plate 21: Bounded by Lexington Avenue, E. 57th Street, Avenue A, E. 54th Street, First Av",
-   "gcps": 49,
-   "model": "poly2",
-   "cv_rms": 1.2,
-   "mpp": 0.252,
-   "n": 2673,
-   "frame": 0,
-   "brick": 0,
-   "stone": 0,
-   "coincide": 0,
-   "share": 0.0,
-   "corrected": true,
-   "paper": [
-    80.0,
-    0.0,
-    11.0
-   ],
-   "off_median_vec": [
-    -0.33,
-    -0.08
-   ],
-   "off_median_m": 1.79,
-   "street": null,
-   "bld": {
-    "plate": "8212",
-    "n": 2673,
-    "windows": 24,
-    "shift_median": [
-     -0.27,
-     -0.11
-    ],
-    "fit_residual_m": 1.35,
-    "agree": 22,
-    "kind": "affine"
-   },
-   "sheet": "21",
-   "clipped": 2673,
-   "lettering_dropped": 0,
-   "water_dropped": 0,
-   "band_pieces_dropped": 0,
-   "washed_dropped": 0,
-   "exported": 0,
-   "duplicates_dropped": 0,
    "status": "ok"
   }
  ]

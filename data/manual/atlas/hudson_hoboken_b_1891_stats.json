@@ -1,0 +1,448 @@
+{
+ "total": {
+  "layer": "hudson_hoboken_b_1891",
+  "plates": 11,
+  "buildings": 1175,
+  "frame": 797,
+  "brick": 374,
+  "stone": 4,
+  "gasholders": 0,
+  "on_today": 108,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 1.87,
+  "overlap_dropped": 2
+ },
+ "plates": [
+  {
+   "plate": "91020013",
+   "image": "loc_hob1891b_0013",
+   "name": "Hoboken 1891 (b), plate 13",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 7.4,
+   "mpp": 0.1,
+   "n": 202,
+   "frame": 133,
+   "brick": 47,
+   "stone": 1,
+   "coincide": 21,
+   "share": 0.116,
+   "corrected": true,
+   "paper": [
+    69.0,
+    0.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.6,
+    -0.19
+   ],
+   "off_median_m": 1.55,
+   "street": null,
+   "bld": {
+    "plate": "91020013",
+    "n": 202,
+    "windows": 3,
+    "shift_median": [
+     2.66,
+     0.32
+    ],
+    "fit_residual_m": 1.17,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "13",
+   "lettering_dropped": 16,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 181,
+   "duplicates_dropped": 4,
+   "status": "ok"
+  },
+  {
+   "plate": "91020014",
+   "image": "loc_hob1891b_0014",
+   "name": "Hoboken 1891 (b), plate 14",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 4.4,
+   "mpp": 0.1,
+   "n": 181,
+   "frame": 118,
+   "brick": 44,
+   "stone": 0,
+   "coincide": 10,
+   "share": 0.062,
+   "corrected": true,
+   "paper": [
+    67.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.21,
+    -1.04
+   ],
+   "off_median_m": 2.54,
+   "street": null,
+   "bld": {
+    "plate": "91020014",
+    "n": 181,
+    "windows": 4,
+    "shift_median": [
+     -1.38,
+     -1.4
+    ],
+    "fit_residual_m": 1.9,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "14",
+   "lettering_dropped": 19,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 162,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "91020019",
+   "image": "loc_hob1891b_0019",
+   "name": "Hoboken 1891 (b), plate 19",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 0.6,
+   "mpp": 0.101,
+   "n": 188,
+   "frame": 164,
+   "brick": 15,
+   "stone": 2,
+   "coincide": 13,
+   "share": 0.072,
+   "corrected": false,
+   "paper": [
+    66.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.3,
+    -0.18
+   ],
+   "off_median_m": 2.29,
+   "sheet": "19",
+   "lettering_dropped": 6,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 181,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "91020020",
+   "image": "loc_hob1891b_0020",
+   "name": "Hoboken 1891 (b), plate 20",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 4.0,
+   "mpp": 0.099,
+   "n": 164,
+   "frame": 133,
+   "brick": 23,
+   "stone": 1,
+   "coincide": 23,
+   "share": 0.146,
+   "corrected": false,
+   "paper": [
+    69.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.2,
+    0.03
+   ],
+   "off_median_m": 1.73,
+   "sheet": "20",
+   "lettering_dropped": 7,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 157,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "91020025",
+   "image": "loc_hob1891b_0025",
+   "name": "Hoboken 1891 (b), plate 25",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 0.5,
+   "mpp": 0.1,
+   "n": 121,
+   "frame": 95,
+   "brick": 12,
+   "stone": 0,
+   "coincide": 4,
+   "share": 0.037,
+   "corrected": false,
+   "paper": [
+    65.0,
+    0.0,
+    9.0
+   ],
+   "off_median_vec": [
+    1.82,
+    -0.24
+   ],
+   "off_median_m": 2.91,
+   "sheet": "25",
+   "lettering_dropped": 9,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 107,
+   "duplicates_dropped": 5,
+   "status": "ok"
+  },
+  {
+   "plate": "91020007",
+   "image": "loc_hob1891b_0007",
+   "name": "Hoboken 1891 (b), plate 7",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 1.2,
+   "mpp": 0.101,
+   "n": 139,
+   "frame": 50,
+   "brick": 68,
+   "stone": 0,
+   "coincide": 10,
+   "share": 0.085,
+   "corrected": true,
+   "paper": [
+    70.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.31,
+    0.07
+   ],
+   "off_median_m": 0.89,
+   "street": null,
+   "bld": {
+    "plate": "91020007",
+    "n": 139,
+    "windows": 5,
+    "shift_median": [
+     -0.21,
+     1.76
+    ],
+    "fit_residual_m": 0.48,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "7",
+   "lettering_dropped": 14,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 118,
+   "duplicates_dropped": 7,
+   "status": "ok"
+  },
+  {
+   "plate": "91020011",
+   "image": "loc_hob1891b_0011",
+   "name": "Hoboken 1891 (b), plate 11",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 9.3,
+   "mpp": 0.102,
+   "n": 43,
+   "frame": 1,
+   "brick": 38,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.051,
+   "corrected": false,
+   "paper": [
+    67.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.45,
+    -0.37
+   ],
+   "off_median_m": 0.7,
+   "sheet": "11",
+   "lettering_dropped": 4,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 39,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "91020015",
+   "image": "loc_hob1891b_0015",
+   "name": "Hoboken 1891 (b), plate 15",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 9.2,
+   "mpp": 0.1,
+   "n": 129,
+   "frame": 44,
+   "brick": 59,
+   "stone": 0,
+   "coincide": 13,
+   "share": 0.126,
+   "corrected": true,
+   "paper": [
+    69.0,
+    -1.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.3,
+    0.63
+   ],
+   "off_median_m": 1.65,
+   "street": null,
+   "bld": {
+    "plate": "91020015",
+    "n": 129,
+    "windows": 6,
+    "shift_median": [
+     0.79,
+     1.12
+    ],
+    "fit_residual_m": 0.95,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "15",
+   "lettering_dropped": 23,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 103,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "91020016",
+   "image": "loc_hob1891b_0016",
+   "name": "Hoboken 1891 (b), plate 16",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 8.2,
+   "mpp": 0.1,
+   "n": 86,
+   "frame": 11,
+   "brick": 58,
+   "stone": 0,
+   "coincide": 12,
+   "share": 0.174,
+   "corrected": true,
+   "paper": [
+    69.0,
+    0.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.05,
+    0.08
+   ],
+   "off_median_m": 0.85,
+   "street": null,
+   "bld": {
+    "plate": "91020016",
+    "n": 86,
+    "windows": 5,
+    "shift_median": [
+     -0.44,
+     0.62
+    ],
+    "fit_residual_m": 0.31,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "16",
+   "lettering_dropped": 17,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 69,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "91020017",
+   "image": "loc_hob1891b_0017",
+   "name": "Hoboken 1891 (b), plate 17",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 9.5,
+   "mpp": 0.104,
+   "n": 50,
+   "frame": 32,
+   "brick": 9,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    68.0,
+    0.0,
+    9.0
+   ],
+   "sheet": "17",
+   "lettering_dropped": 9,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 41,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "91020018",
+   "image": "loc_hob1891b_0018",
+   "name": "Hoboken 1891 (b), plate 18",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 5.7,
+   "mpp": 0.098,
+   "n": 27,
+   "frame": 18,
+   "brick": 1,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    69.0,
+    0.0,
+    9.0
+   ],
+   "sheet": "18",
+   "lettering_dropped": 7,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 19,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  }
+ ]
+}
