@@ -496,7 +496,10 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
     opened sources. A failure in the layer switches it off rather than the map (`fxBroken`).
 49. **The counties' colonial towns** (`data/tables/early_counties.csv`: 161 towns, 1,065 rows;
     `nyc_extras.early_sites`): as decision 25 — the town and its founding are researched (from
-    general knowledge, see the note), the houses and where each stands are generated.
+    general knowledge, see the note), the houses and where each stands are generated. A row is
+    the dwellings a town added between two counts, dated at the middle of the span: each house
+    takes its own year within the span (stacked at the midpoint, 4,600 houses appeared in 1770
+    and as many in 1810 and 1835 — the audit's "spike years", which should be an empty list).
 50. **Story and page** (the owner's requests of 2026-11-11): 217 stops (stops outside the map's
     outline are dropped at start); pace 0.62 of the written seconds, flights 1.7-5.2 s; a stop
     is approached up to 8 years early so that what it shows appears while it is on screen; events
