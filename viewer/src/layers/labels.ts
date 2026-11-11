@@ -12,8 +12,12 @@ import {TextLayer} from '@deck.gl/layers';
 import {parseCsv} from '../data/tables';
 import {elevationAt} from './elevation';
 
-// places.csv (the city) and places_counties.csv (the counties around it): same columns
-const files = import.meta.glob(['../../../data/tables/places.csv', '../../../data/tables/places_counties.csv'], {query: '?raw', import: 'default', eager: true}) as Record<string, string>;
+// places.csv (the city), places_counties.csv (the inner counties) and places_outer.csv (the outer
+// counties): same columns
+const files = import.meta.glob(
+  ['../../../data/tables/places.csv', '../../../data/tables/places_counties.csv', '../../../data/tables/places_outer.csv'],
+  {query: '?raw', import: 'default', eager: true}
+) as Record<string, string>;
 
 type Place = {name: string; tier: string; lon: number; lat: number; start: number; end: number; z: number; mx: number; my: number; text: string};
 
