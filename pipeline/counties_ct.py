@@ -319,15 +319,218 @@ def report(stem, name, g, heaps, county_heaps, counts):
     log(lines[0])
 
 
+# ---------------------------------------------------------------------------------------------
+# modelled years (Pike County: no open parcel file with a year; see data/research/counties_ct.md)
+# A simplified form of counties_ny_estimates.py: the census's count of homes by decade built per block
+# group (ACS 2018-2022 B25034) sets how many buildings fall in each decade, an ordering score
+# (HISDAC-US first-built-up year of the 250 m cell, distance to the old centres, a stable hash) says
+# which, footprints under 40 m2 beside a larger one follow it. No parcels: every footprint is its own lot.
+
+ACS_PA = RAW / "counties_ct" / "acs" / "ACS_2022_5YR_BG_42.gdb.zip"
+FBUY = RAW / "counties_ny_est" / "hisdac" / "x" / "FBUY" / "data" / "FBUY.tif"
+BINS = [("pre1940", 1800, 1939, "B25034_E011"), ("1940s", 1940, 1949, "B25034_E010"), ("1950s", 1950, 1959, "B25034_E009"),
+        ("1960s", 1960, 1969, "B25034_E008"), ("1970s", 1970, 1979, "B25034_E007"), ("1980s", 1980, 1989, "B25034_E006"),
+        ("1990s", 1990, 1999, "B25034_E005"), ("2000s", 2000, 2009, "B25034_E004"), ("2010s", 2010, 2019, "B25034_E003"),
+        ("2020-25", 2020, 2025, "B25034_E002")]
+# old centres of Pike County (borough / village centres; coordinates of the places, WGS84)
+PIKE_CENTRES = [(-74.8018, 41.3226), (-74.7035, 41.3695), (-74.8657, 41.2184), (-74.9535, 41.3150)]  # Milford, Matamoras, Dingmans Ferry, Lackawaxen-ish
+MIN_MAIN = 40.0
+
+
+def hash01(ids):
+    return pd.util.hash_array(np.asarray(ids, dtype=object)).astype(np.float64) / 2.0 ** 64
+
+
+def fbuy_at(lon, lat):
+    import rasterio
+    from pyproj import Transformer
+    ds = rasterio.open(FBUY)
+    x, y = Transformer.from_crs(4326, ds.crs, always_xy=True).transform(lon, lat)
+    c, r = ~ds.transform * (np.asarray(x), np.asarray(y))
+    r, c = np.floor(r).astype(int), np.floor(c).astype(int)
+    a = ds.read(1, window=((r.min(), r.max() + 1), (c.min(), c.max() + 1)))
+    v = a[r - r.min(), c - c.min()].astype(float)
+    v[(v < 1700) | (v > 2020)] = np.nan
+    return v
+
+
+def load_bg_pa(bbox):
+    import geopandas as gpd
+    import pyogrio
+    g = str(next((CACHE / "acs").glob("*.gdb")))
+    bg = pyogrio.read_dataframe(g, layer="ACS_2022_5YR_BG_42_PENNSYLVANIA", bbox=bbox, columns=["GEOID"])
+    t = pyogrio.read_dataframe(g, layer="X25_HOUSING_CHARACTERISTICS", read_geometry=False, columns=["GEOIDFQ"] + [b[3] for b in BINS])
+    t["GEOID"] = t.pop("GEOIDFQ").str[-12:]
+    return gpd.GeoDataFrame(bg.merge(t, on="GEOID", how="left"), geometry="geometry", crs=4326)
+
+
+def model_years(df, units, centres, seed_ids=None):
+    """df: id, lon, lat, area_m2, bg, fbuy (index = row). units: GEOID -> 10 ACS counts. Returns DataFrame
+    (index of df): year_est, year_lo, year_hi, basis, secondary."""
+    from scipy.spatial import cKDTree
+    from pyproj import Transformer
+    tr = Transformer.from_crs(4326, 32618, always_xy=True)
+    x, y = tr.transform(df.lon.values, df.lat.values)
+    cx, cy = tr.transform([c[0] for c in centres], [c[1] for c in centres])
+    dcen = cKDTree(np.c_[cx, cy]).query(np.c_[x, y])[0]
+    area = df.area_m2.values
+    big = np.flatnonzero(area >= MIN_MAIN)
+    # outbuildings: under MIN_MAIN m2 within 40 m of a larger footprint follow the nearest one
+    follow = np.arange(len(df))
+    if len(big):
+        d, k = cKDTree(np.c_[x[big], y[big]]).query(np.c_[x, y])
+        small = (area < MIN_MAIN) & (d <= 40)
+        follow[small] = big[k[small]]
+    main = follow == np.arange(len(df))
+    h = hash01(df.id.values)
+    fb = pd.Series(df.fbuy.values)
+    bgs = df.bg.values
+    year = np.full(len(df), np.nan)
+    lo = np.full(len(df), np.nan)
+    hi = np.full(len(df), np.nan)
+    basis = np.full(len(df), "", object)
+    # county-wide fallback distribution
+    allu = np.sum([v for v in units.values()], axis=0).astype(float)
+    for b in pd.unique(bgs):
+        idx = np.flatnonzero((bgs == b) & main)
+        if not len(idx):
+            continue
+        u = np.nan_to_num(np.asarray(units.get(b, allu), float))
+        src = "acs_bg"
+        if u.sum() < 5:
+            u, src = allu, "acs_county"
+        # (the block group's units are all of its homes, buildings of other kinds included)
+        share = u / u.sum()
+        # order: older first
+        fr = fb.iloc[idx].rank(pct=True).fillna(0.5).values
+        dr = pd.Series(dcen[idx]).rank(pct=True).values
+        score = 0.55 * fr + 0.3 * dr + 0.35 * h[idx]
+        order = np.argsort(score)
+        n = len(idx)
+        cum = np.minimum(np.round(np.cumsum(share) * n).astype(int), n)
+        start = 0
+        for bi, (lab, y0, y1, _) in enumerate(BINS):
+            end = cum[bi]
+            m = end - start
+            if m <= 0:
+                start = max(start, end)
+                continue
+            sel = idx[order[start:end]]
+            pos = (np.arange(m) + 0.5) / m
+            t = np.clip(pos + 0.3 * (h[sel] - 0.5), 0, 1)
+            if bi == 0:      # stock built before 1940: growth curve ~ (t - 1800)^3, i.e. half built by 1915
+                yy = y0 + (y1 - y0) * np.clip(t, 0, 1) ** (1 / 3.0)
+                basis[sel] = f"{src}:pre1940+growth_curve"
+            else:
+                yy = y0 + (y1 - y0 + 1) * np.clip(t, 0, 0.999)
+                basis[sel] = f"{src}:{lab}"
+            year[sel], lo[sel], hi[sel] = np.floor(yy), y0, y1
+            start = end
+        left = idx[order[start:]]      # rounding remainder: the newest bin
+        if len(left):
+            year[left], lo[left], hi[left], basis[left] = 2020, 2020, 2025, f"{src}:2020-25"
+    fo = np.flatnonzero(~main)
+    for c, a in (("y", year), ("lo", lo), ("hi", hi)):
+        a[fo] = a[follow[fo]]
+    basis[fo] = pd.Series(basis[follow[fo]]).astype(str).values
+    basis[fo] = [b + "+outbuilding_of_main" if b else b for b in basis[fo]]
+    return pd.DataFrame({"year_est": year, "year_lo": lo, "year_hi": hi, "basis": basis, "secondary": ~main}, index=df.index)
+
+
+def build_pike():
+    import geopandas as gpd
+    stem = "pa_pike"
+    if not ACS_PA.exists() and not list((CACHE / "acs").glob("*.gdb")):
+        log("Pike: ACS download missing")
+        return None
+    poly = ny.county_outline("42103")
+    import counties_ct as me
+    saved = me.REGIONS
+    me.REGIONS = dict(saved, pike=("Pike", "42103", stem, []))
+    try:
+        fp, counts = me.load_footprints("pike")
+    finally:
+        me.REGIONS = saved
+    bg = load_bg_pa(tuple(poly.bounds))
+    ll = fp.geometry.representative_point()
+    pts = gpd.GeoDataFrame({"i": np.arange(len(fp))}, geometry=ll.values, crs=4326)
+    j = gpd.sjoin(pts, bg[["GEOID", "geometry"]], how="left", predicate="within").drop_duplicates("i")
+    fp["bg"] = j.GEOID.values
+    miss = fp.bg.isna().values
+    if miss.any():
+        k = gpd.sjoin_nearest(pts[miss].to_crs(32618), bg[["GEOID", "geometry"]].to_crs(32618)).drop_duplicates("i")
+        fp.loc[fp.index[miss], "bg"] = k.GEOID.values
+    fp["lon"], fp["lat"] = np.round(ll.x.values, 6), np.round(ll.y.values, 6)
+    fp["fbuy"] = fbuy_at(fp.lon.values, fp.lat.values)
+    units = {r.GEOID: np.array([r[b[3]] for b in BINS], float) for _, r in bg.iterrows()}
+    est = model_years(fp, units, PIKE_CENTRES)
+    height = fp.height.values.astype(float)
+    height = np.where(height > 0, height, np.nan)
+    out = gpd.GeoDataFrame({
+        "id": fp.id.values, "county": "Pike", "muni": "Pike County", "town": "Pike County",
+        "height_m": height, "height_src": np.where(np.isfinite(height), "overture", ""), "floors": fp.num_floors.values.astype(float),
+        "year_raw": np.nan, "year_src": "", "heap": False, "secondary": est.secondary.values, "prop_class": "", "use": np.int8(0),
+        "year_hist": np.nan, "hist_src": "", "year_hist_ca": np.nan, "muni_year_share": 0.0,
+        "lon": fp.lon.values, "lat": fp.lat.values, "name": fp.name.fillna("").values, "usn": "", "parcel": "", "n_on_parcel": 0,
+        "area_m2": fp.area_m2.values,
+        "footprint_src": fp.source_dataset.replace({"OpenStreetMap": "overture:osm", "Microsoft ML Buildings": "overture:microsoft",
+                                                    "Esri Community Maps": "overture:esri"}).fillna("").values,
+    }, geometry=fp.geometry.values, crs=4326)
+    OUT.mkdir(parents=True, exist_ok=True)
+    out.to_parquet(OUT / f"{stem}.parquet", index=False)
+    e = est.assign(id=fp.id.values, bg=fp.bg.values, order="model")[["id", "year_est", "year_lo", "year_hi", "basis", "bg", "order"]]
+    e = e.assign(year_est=e.year_est.astype("int16"), year_lo=e.year_lo.astype("int16"), year_hi=e.year_hi.astype("int16"))
+    e.to_parquet(OUT / f"{stem}_estimates.parquet", index=False)
+    rep = {"region": "Pike", "footprints": int(len(out)), "counts": counts, "share_with_year": 0.0, "share_modelled": 1.0,
+           "main_buildings": int((~out.secondary).sum()), "units_acs": int(sum(v.sum() for v in units.values())),
+           "decades_est": {str(int(k)): int(v) for k, v in (e.year_est // 10 * 10).value_counts().sort_index().items()}}
+    (OUT / f"{stem}_report.json").write_text(json.dumps(rep, indent=1))
+    log(f"Pike: {len(out)} footprints, {rep['main_buildings']} main, ACS units {rep['units_acs']}")
+    return out
+
+
+def validate(county_stem="ny_westchester", towns=("Scarsdale", "White Plains", "Rye")):
+    """The Pike model run on dated Westchester towns with their years hidden (ACS table of New York)."""
+    import geopandas as gpd
+    import pyogrio
+    from counties_ny_estimates import RAW as ER, BINS as NB
+    df = pd.read_parquet(OUT / f"{county_stem}.parquet", columns=["id", "muni", "town", "area_m2", "year_raw", "heap", "secondary", "lon", "lat"])
+    g = str(next((ER / "acs/gdb").glob("*.gdb")))
+    bg = pyogrio.read_dataframe(g, layer="ACS_2022_5YR_BG_36_NEW_YORK", columns=["GEOID"], bbox=(-73.9, 40.9, -73.6, 41.1))
+    t = pyogrio.read_dataframe(g, layer="X25_HOUSING_CHARACTERISTICS", read_geometry=False, columns=["GEOIDFQ"] + [b[3] for b in BINS])
+    t["GEOID"] = t.pop("GEOIDFQ").str[-12:]
+    bg = gpd.GeoDataFrame(bg.merge(t, on="GEOID"), geometry="geometry", crs=4326)
+    rows = []
+    for tn in towns:
+        d = df[df.town.eq(tn) | df.muni.eq(tn)].reset_index(drop=True)
+        d["fbuy"] = fbuy_at(d.lon.values, d.lat.values)
+        j = gpd.sjoin(gpd.GeoDataFrame({"i": d.index}, geometry=gpd.points_from_xy(d.lon, d.lat), crs=4326), bg[["GEOID", "geometry"]], predicate="within").drop_duplicates("i")
+        d["bg"] = pd.Series(j.GEOID.values, index=j.i.values).reindex(d.index).values
+        d = d[d.bg.notna()].reset_index(drop=True)
+        units = {r.GEOID: np.array([r[b[3]] for b in BINS], float) for _, r in bg.iterrows()}
+        e = model_years(d, units, [(-73.8, 41.0)] if tn != "Rye" else [(-73.684, 40.98)])
+        ok = d.year_raw.notna() & ~d.heap & ~d.secondary & e.year_est.notna()
+        err = (e.year_est[ok] - d.year_raw[ok]).abs()
+        rows.append((tn, int(ok.sum()), float(err.median()), float((err <= 10).mean()), float(((e.year_est[ok] // 10) == (d.year_raw[ok] // 10)).mean())))
+    for r in rows:
+        print("%-14s n=%6d median abs err %.0f y, within 10 y %.0f%%, same decade %.0f%%" % (r[0], r[1], r[2], 100 * r[3], 100 * r[4]))
+    return rows
+
+
 def main(argv):
+    if argv and argv[0] == "validate":
+        validate()
+        return
     cmd = argv[0] if argv and argv[0] in ("download", "build", "estimate") else "all"
-    keys = [a for a in argv if a in REGIONS or a == "pike"] or list(REGIONS)
+    keys = [a for a in argv if a in REGIONS or a == "pike"] or list(REGIONS) + ["pike"]
     if cmd in ("download", "all"):
         download(keys)
     if cmd in ("build", "all"):
         for k in keys:
             if k in REGIONS:
                 build(k)
+    if "pike" in keys or (cmd in ("estimate", "all") and not [a for a in argv if a in REGIONS]):
+        build_pike()
 
 
 if __name__ == "__main__":

@@ -69,6 +69,20 @@ const M: Record<string, Massing> = {
   carnegie: {anchor: [-73.979914, 40.765004], B: 29.2, foot: [[[-22.9, 30.5], [23.0, 30.6], [22.9, -30.0], [16.6, -30.1], [16.6, -30.7], [-22.9, -30.7]]], levels: []},
   ansonia: {anchor: [-73.980849, 40.780515], B: 28.7, foot: [[[28.6, -23.5], [-21.5, -23.5], [-35.1, 21.7], [28.6, 21.7]]], levels: [[61, 67, [[27.4, -22.3], [-20.6, -22.3], [-33.5, 20.5], [27.4, 20.5]]], [67, 73, [[25.6, -20.5], [-19.3, -20.5], [-31.1, 18.7], [25.6, 18.7]]], [73, 78, [[23.6, -18.5], [-17.8, -18.5], [-28.4, 16.7], [23.6, 16.7]]]]},
   dakota: {anchor: [-73.97615, 40.776784], B: 29.1, foot: [[[-31.3, 31.3], [30.3, 31.3], [30.2, -8.0], [29.1, -8.0], [29.1, -16.5], [30.1, -16.5], [30.1, -31.6], [-31.2, -31.6], [-31.1, -15.2], [-28.9, -15.2], [-28.8, 14.8], [-31.3, 14.8]]], levels: [[0, 36, [[-7.2, 8.2], [-7.3, -8.8], [-12.8, -8.8], [-12.8, -15.5], [12.1, -15.5], [12.1, -8.2], [5.7, -8.2], [5.8, 8.1], [12.2, 8.1], [12.2, 14.5], [-11.9, 14.5], [-13.3, 12.6], [-11.9, 8.2]]]]},
+  javits: {anchor: [-74.0025, 40.7578], B: 28.9, foot: [[[-110.4, 130.8], [98.4, 130.8], [98.1, -5.8], [121.8, -5.8], [125.3, -9.4], [125.1, -88.3], [121.6, -91.7], [97.8, -91.7], [97.7, -146.1], [-110.9, -146.2]]], levels: []},
+  javits_x: {anchor: [-74.0025, 40.7578], B: 28.9, foot: [[[-42.2, 130.9], [-42.1, 158], [98.4, 158.1], [98.4, 130.8], [-76.3, 130.8]]], levels: []},
+  oculus: {anchor: [-74.0114, 40.7115], B: 38.1, foot: [[[-49.2, 9], [-38.6, 11.8], [-17, 16], [4, 16.1], [24.6, 13.6], [24.5, 15.7], [29.8, 16.1], [44.4, 11.8], [46.2, 7.6], [51.6, 4.4], [53.2, 1.9], [53.3, -1], [51.1, -6.1], [44.7, -11.3], [28.7, -16], [21.7, -17.2], [21.1, -14.1], [10.4, -16.1], [-1.9, -16.3], [-16, -15.4], [-38, -11.5], [-49, -7.5], [-50, -7.8], [-52.7, -6.3], [-55.3, -3.9], [-56.5, -0], [-56, 3.5], [-53.7, 6.9]]], levels: []},
+  whitney: {anchor: [-74.009, 40.7396], B: 3.7, foot: [[[6.1, 24], [15.7, 24.1], [15.8, 9.5], [43.8, 9.9], [43.8, 4.5], [41.1, 4.5], [41.1, -16.6], [-41.4, -16.6], [-41.4, 5.2], [-32.4, 5.2], [-32.4, 11.4], [-29.2, 14.9], [-23.9, 11.2], [-16.8, 21.8], [6.1, 21.8]]], levels: []},
+  cloisters: {anchor: [-73.9319, 40.8648], B: 19.3, foot: [[[20.1, 13.8], [20.1, -3.1], [23.3, -3.1], [23.3, -12.6], [22.3, -12.6], [22.3, -42], [2.6, -42], [2.6, -41], [-19, -41.1], [-19, -28.9], [-22.2, -28.9], [-24.6, -26.7], [-24.6, -14], [-26.2, -14], [-25.7, 16.2], [-28.9, 17.5], [-29.9, 20.1], [-29.1, 22.4], [-27.1, 23.7], [-17.2, 23.8], [-17.2, 40.4], [-4.5, 40.4], [-4.1, 45], [-2.3, 48.5], [0.6, 50], [3.8, 49.3], [5.3, 47.7], [6, 45], [6.5, 45], [6.9, 35.8], [20.6, 35.6], [20.6, 29.9], [19.3, 29.9], [19.3, 26.7], [20.3, 26], [20.6, 24.8], [35.7, 24.4], [35.7, 14.4], [18.1, 14.4], [18.1, 13.8]]], levels: []},
+  twa: {anchor: [-73.7777, 40.6458], B: -5.2, foot: [[[30.4, -20.8], [25.3, -27.6], [16.9, -34.7], [30.6, -46.3], [22.5, -54.1], [16.5, -58.8], [5.7, -65], [0.4, -62], [-2.4, -66.3], [-7.3, -63.3], [-12.4, -71.2], [-15.2, -69.6], [-16.6, -71.8], [-23, -67.9], [-24.2, -68.9], [-27.4, -69.9], [-34.7, -71.1], [-39.1, -70.9], [-44, -69.4], [-39, -65.1], [-31.2, -52.7], [-24.7, -39.1], [-17.7, -17.8], [-14.9, -14.6], [-16.1, -9.2], [-20.4, -4.5], [-26.3, 4.4], [-28, 4.7], [-28.2, 5.6], [-27, 5.5], [-25.9, 6.3], [-21.2, 13.6], [-16.8, 18.8], [-17.8, 24.4], [-15.8, 22.2], [-15.1, 25.8], [-18.1, 29.3], [-22.9, 45.1], [-29.7, 60.4], [-36.6, 72.1], [-41.4, 78.1], [-44, 79.4], [-43.1, 80.2], [-38.3, 81.5], [-28.5, 81], [-23.2, 79.4], [-11.9, 73.5], [-6.2, 69.4], [-0.5, 64.2], [13.5, 46.7], [23.5, 39.7], [27.1, 36.6], [30.4, 32.2], [37.6, 17.5], [40.6, 6], [39.6, 0], [36.3, -10.1]]], levels: []},
+  apollo: {anchor: [-73.9499, 40.8102], B: 28.8, foot: [[[1.1, -1.9], [1.1, -36.3], [-13.5, -36.4], [-13.5, 23.9], [20.6, 23.9], [20.6, -1.9]]], levels: []},
+  sanremo: {anchor: [-73.9751, 40.778], B: 29, foot: [[[20.3, 31.4], [20.3, -30], [-24.8, -30.1], [-24.8, -12.3], [-21.1, -12.3], [-21.1, -4.1], [-4.9, -4.1], [-4.9, -13.3], [3.7, -13.2], [3.7, 14.4], [-5.6, 14.4], [-5.6, 5.5], [-18.4, 5.5], [-18.4, 13.7], [-21.6, 13.7], [-21.6, 31.3]]], levels: []},
+  bpl: {anchor: [-73.9681, 40.6722], B: 16.3, foot: [[[35.1, 58.4], [38.4, 42.5], [12.3, 37.6], [14.3, 27.6], [18.5, 28.5], [19, 19.5], [27.6, 19.2], [26.9, 11], [25.2, 3.1], [19.8, -10.1], [16.6, -15.3], [9.8, -10.8], [5.3, -16.5], [2.1, -13.3], [-5.3, -20.7], [10.8, -36.7], [13.4, -34.1], [13.3, -28.9], [37.1, -28.4], [38.3, -57.5], [37.7, -57.8], [37.4, -62.7], [36, -65.6], [33.1, -68.5], [30.2, -69.9], [26.1, -70.3], [22.2, -69.1], [18.6, -65.9], [18.2, -66.3], [-48.3, -0.4], [-43.6, 3.6], [-39.6, 8.4], [-36.4, 13.8], [-34.2, 19.6], [-32.9, 25.7], [-32.7, 31.9], [-33.5, 38.1], [-35.3, 44]]], levels: []},
+  queens: {anchor: [-73.8467, 40.7459], B: -22.4, foot: [[[23.6, 63.9], [23.7, 57.7], [33, 57.7], [33, 52.1], [30.3, 50.2], [29.2, 47], [30.1, 44.2], [32.8, 42.1], [32.8, 35.9], [26.9, 35.9], [27.3, -35.9], [33, -35.9], [33, -41.7], [30.4, -43.9], [29.6, -46.6], [30.3, -49.4], [32.9, -51.7], [32.9, -57.6], [23.9, -57.6], [24, -63.8], [-25.7, -64], [-25.7, -57.5], [-32.5, -57.5], [-32.6, -51.9], [-30.3, -50], [-29.4, -46.6], [-30.3, -43.8], [-32.6, -41.9], [-32.6, -35.8], [-26.8, -35.8], [-27.1, 36], [-32.5, 36], [-32.5, 41.9], [-30.3, 43.8], [-29.4, 46.6], [-30.3, 49.9], [-32.6, 51.8], [-32.6, 57.9], [-25.9, 57.9], [-26, 63.9]]], levels: []},
+  bxcourt: {anchor: [-73.9238, 40.8263], B: 24.5, foot: [[[-33.6, 37.8], [-10, 37.8], [-10, 42.1], [10.7, 42.1], [10.7, 37.9], [33.6, 37.9], [33.6, 10.4], [38.3, 10.4], [38.2, -10.5], [33.6, -10.5], [33.5, -37.5], [10.5, -37.5], [10.5, -42.3], [-10.6, -42.4], [-10.6, -37.5], [-33.7, -37.6], [-33.6, -9.9], [-38.2, -9.9], [-38.2, 10.4], [-33.6, 10.4]]], levels: []},
+  armory: {anchor: [-73.8982, 40.8684], B: 26, foot: [[[-86.2, 56.4], [83.2, 43.3], [84.2, 56.3], [93.9, 55.6], [85.8, -45.8], [61, -43.9], [60.6, -46.3], [61.8, -49.2], [60.3, -52.1], [58.6, -52.8], [56.1, -52.3], [51.7, -53.2], [51.5, -54.7], [44.7, -56.8], [8.5, -54.2], [10.2, -57.1], [10, -60], [7.9, -62.6], [5.1, -63.5], [1.9, -62.5], [-0.1, -59.7], [0.1, -56.3], [2.2, -53.7], [-10.9, -52.7], [-8.7, -55], [-8.6, -58.9], [-10.7, -61.5], [-14, -62.3], [-17.1, -61], [-18.8, -58.2], [-18.4, -54.8], [-15.7, -52.3], [-53.3, -49.4], [-59.2, -47], [-58.7, -41.3], [-60.9, -41.1], [-61.7, -43.3], [-63.8, -44.5], [-65.7, -44.5], [-67.6, -43.2], [-68.3, -41.4], [-68.1, -39.5], [-66.6, -37.7], [-64.4, -37.2], [-64.3, -35.5], [-93.3, -33.3]]], levels: []},
+  belvedere: {anchor: [-73.969, 40.7794], B: -36.7, foot: [[[8.4, 4.2], [4.5, 2.8], [5, 1.1], [4.5, -1.5], [2.3, -3.1], [3.6, -6.1], [6, -5.1], [9.5, -13], [6.8, -14.2], [8.9, -18.8], [5.2, -20.5], [5.3, -21.9], [2.6, -23], [1.8, -21.9], [2.4, -21.1], [-3.9, -8], [-8.8, -10.2], [-12.3, -2.4], [-7.1, -0.1], [-12.3, 11.4], [-4.7, 14.8], [-3.6, 12.4], [7.8, 17.6], [12.3, 7.8], [7.8, 5.8]]], levels: []},
+  whitehall: {anchor: [-74.0131, 40.7011], B: -6.3, foot: [[[21.1, 54.3], [21.7, 56.7], [20.9, 58.7], [19.4, 60], [17.1, 61], [14.9, 60.9], [10.6, 58.1], [7.8, 61.9], [13.7, 65.4], [18.2, 65.6], [22.9, 63.5], [25.9, 59.5], [26.4, 57.5], [26.1, 51.1], [26.5, 46.7], [42.1, 3.4], [44.6, 3.8], [49.2, -22], [51.2, -21.6], [54.4, -39], [51, -22.5], [45, -23.4], [24.5, 34.9], [-18.6, 44.2], [-35.2, 21.9], [-38.6, 3.1], [-46.7, 28.4], [-46.4, 32], [-12, 68.7], [-8.8, 73.7], [-7.6, 78.7], [-8.2, 83.5], [-10.4, 87.7], [-40, 120], [-36.3, 123.4], [-6.4, 90.7], [-3.8, 85.7], [-2.8, 79], [-3.7, 73.4], [-6.8, 67.2], [-13.5, 60], [-14, 56.3], [-12.7, 53.4], [-9, 51.1], [11.6, 47.6], [14.9, 48.2], [17.8, 49.7]], [[12.8, -55.2], [56, -47.2], [54.6, -42.5], [50.7, -22.6], [44.8, -23.7], [24.4, 34.6], [-18.5, 43.9], [-34.9, 21.7], [-39.7, -3.5], [-39.6, -40.3], [-45.2, -40.3], [-45.2, -54.9], [-21.9, -55.4]], [[44.8, -23.7], [48.6, -43.6], [54.6, -42.5], [50.7, -22.6]], [[17.2, -35.7], [-11.8, -35.2], [-12, -48.9], [17, -49.4]], [[52.3, -30.6], [24.4, -35.5], [-39.6, -35.3], [-39.6, -40.3], [-45.2, -40.3], [-45.2, -54.9], [-21.9, -55.4], [12.8, -55.2], [52.8, -48], [56, -47.2]], [[-43.3, -46.3], [-43.5, -54.1], [9.5, -54.4], [17, -53.6], [56.1, -46.7], [54.2, -39.3], [15.3, -46.5]], [[-45.2, -51], [-39.5, -51], [-39.6, -40.3], [-45.2, -40.3]]], levels: []},
 };
 // </massing>
 
@@ -217,7 +231,7 @@ const DAKOTA_ROOF: [number, number, V2[], V2[]][] = [
   [47, 50.9, [[-26.8, 19.3], [-26.8, 26.8], [25.8, 26.8], [25.7, -3.5], [24.6, -3.5], [24.6, -21.0], [25.6, -21.0], [25.6, -27.1], [-26.7, -27.1], [-26.6, -19.7], [-24.4, -19.7], [-24.3, 19.3]], [[-11.7, 3.7], [-15.2, 3.7], [-18.3, 13.4], [-14.2, 19.0], [16.7, 19.0], [16.7, 3.6], [10.3, 3.6], [10.2, -3.7], [16.6, -3.7], [16.6, -20.0], [-17.3, -20.0], [-17.3, -4.3], [-11.8, -4.3]]]
 ];
 
-export const MORE_B: Landmark[] = [
+const BASE: Landmark[] = [
   lm({
     id: 'one57',
     name: 'One57 (Carnegie 57)',
@@ -363,3 +377,179 @@ export const MORE_B: Landmark[] = [
     sources: [WP + 'Ansonia_(Manhattan)', 'https://s-media.nyc.gov/agencies/lpc/lp/0951.pdf', FOOT]
   })
 ];
+
+// ======================================================= second round (same file)
+function scl(ring: V2[], fu: number, fv: number): V2[] {
+  const cu = ring.reduce((a, p) => a + p[0], 0) / ring.length;
+  const cv = ring.reduce((a, p) => a + p[1], 0) / ring.length;
+  return ring.map(([u, v]) => [cu + (u - cu) * fu, cv + (v - cv) * fv] as V2);
+}
+function ell(cx: number, cy: number, rx: number, ry: number, n = 24): V2[] {
+  return Array.from({length: n}, (_, i) => [cx + rx * Math.cos((i / n) * 2 * Math.PI), cy + ry * Math.sin((i / n) * 2 * Math.PI)] as V2);
+}
+
+function drawOculus(b: MeshBuilder, m: Massing) {
+  b.color('#ECEBE6');
+  b.prism(m.foot[0], 0, 8, {});
+  b.loft([m.foot[0], scl(m.foot[0], 0.9, 0.6), scl(m.foot[0], 0.88, 0.1)], [8, 22, 33.03], {top: true});
+}
+function drawJavits(b: MeshBuilder, m: Massing) {
+  b.color('#8FB0BC'); // glass curtain wall on a space frame
+  b.prism(m.foot[0], 0, 53.57, {});
+}
+function drawJavitsX(b: MeshBuilder, m: Massing) {
+  b.color('#86A7B4');
+  b.prism(m.foot[0], 0, 53.57, {});
+}
+function drawWhitney(b: MeshBuilder, m: Massing) {
+  b.color('#9AA2A6');
+  b.prism(m.foot[0], 0, 10.5, {});
+  b.prism(rect(-24, -6, 34, 21), 10.5, 38, {});
+  b.prism(rect(3, -6, 20, 21), 10.5, 27, {});
+}
+function drawCloisters(b: MeshBuilder, m: Massing) {
+  b.color('#C9BBA0');
+  b.prism(m.foot[0], 0, 14, {});
+  b.prism(rect(0.5, 44.0, 9, 9), 14, 33.45, {});
+  b.color('#6F6A60');
+  b.pyramid(rect(0.5, 44.0, 9.4, 9.4), 33.45, [0.5, 44.0, 38]);
+}
+function drawTWA(b: MeshBuilder, m: Massing) {
+  b.color('#D8D6D0');
+  b.prism(m.foot[0], 0, 7.32, {});
+  b.loft([ell(0, 0, 30, 42), ell(0, 0, 26, 36), ell(0, 0, 20, 27)], [16, 20, 23], {top: true});
+  for (const [x, y] of [[-22, -14], [22, -14], [-22, 14], [22, 14]]) b.prism(rect(x, y, 3, 3), 7.32, 16, {});
+}
+function drawWhitehall(b: MeshBuilder, m: Massing) {
+  b.color('#A9B4BA');
+  const hs = [27.74, 15, 24, 24, 20, 23, 24];
+  m.foot.forEach((r, i) => b.prism(r, 0, hs[i], {}));
+}
+function drawApollo(b: MeshBuilder, m: Massing) {
+  b.color('#E7E1D2'); // white glazed terracotta
+  b.prism(m.foot[0], 0, 20.05, {});
+}
+function drawSanRemo(b: MeshBuilder, m: Massing) {
+  b.color('#D9CFB8');
+  b.prism(m.foot[0], 0, 75.9, {});
+  for (const y of [-23, 24]) {
+    b.prism(rect(12, y, 13, 13), 75.9, 105, {});
+    b.cylinder(12, y, 4.6, 105, 114, 16);
+    b.color('#8AA392');
+    b.dome(12, y, 3.6, 114, 6.5, 12, 4);
+    b.color('#D9CFB8');
+  }
+}
+function drawBelvedere(b: MeshBuilder, m: Massing) {
+  b.color('#8A8478'); // Manhattan schist and granite
+  b.prism(m.foot[0], 0, 7.62, {});
+  b.cylinder(0, 0, 2.5, 7.62, 15, 12);
+  b.color('#5E5A55');
+  b.frustum(0, 0, 3, 0.3, 15, 19, 12);
+}
+function drawQueensBldg(b: MeshBuilder, m: Massing) {
+  b.color('#CFC9BC');
+  b.prism(m.foot[0], 0, 15.3, {});
+}
+function drawBPL(b: MeshBuilder, m: Massing) {
+  b.color('#D8D2C0'); // Indiana limestone
+  b.prism(m.foot[0], 0, 24, {});
+}
+function drawBxCourt(b: MeshBuilder, m: Massing) {
+  b.color('#D3CDBE');
+  b.prism(m.foot[0], 0, 58.49, {});
+}
+function drawArmory(b: MeshBuilder, m: Massing) {
+  b.color('#A98A6E');
+  b.prism(m.foot[0], 0, 30.5, {});
+  for (const [x, y] of [[-87.7, -31.3], [80.5, -43.0], [88.7, 52.5], [-81.2, 53.1]]) b.prism(rect(x, y, 9, 9), 30.5, 39.37, {});
+}
+
+const NEW: Landmark[] = [
+  lm({
+    id: 'oculus', name: 'Oculus (World Trade Center Transportation Hub)', kind: 'building', built: [2008.5, 2016.17], m: M.oculus, draw: drawOculus,
+    facts: {Construction: 'ribs from 8 Jul 2008 – partly opened 3 Mar 2016', Height: '33 m (the footprint file’s measured roof)', Architect: 'Santiago Calatrava',
+      Model: 'plan and roof height from the city footprint; the ribbed wings are drawn as a three-step taper (shape estimated); 114 ribs and the skylight not drawn'},
+    sources: [WP + 'World_Trade_Center_Transportation_Hub', FOOT]
+  }),
+  lm({
+    id: 'javits', name: 'Jacob K. Javits Convention Center', kind: 'building', built: [1980.46, 1986.25], m: M.javits, draw: drawJavits,
+    facts: {Construction: 'groundbreaking 18 Jun 1980 – opened 3 Apr 1986', Height: '53.6 m (the footprint file’s measured maximum, applied to the whole block)', Architect: 'James Ingo Freed, Pei Cobb Freed & Partners',
+      Model: 'the 1986 plan is the 2023 footprint without its north strip; the height is the single measured maximum, so the halls are drawn too tall; space frame not drawn'},
+    sources: [WP + 'Jacob_K._Javits_Convention_Center', FOOT]
+  }),
+  lm({
+    id: 'javits_expansion', name: 'Javits Center expansion (north strip)', kind: 'building', built: [2018.0, 2021.36], m: M.javits_x, draw: drawJavitsX,
+    facts: {Construction: 'expansion completed 11 May 2021 (start year estimated)', Height: '53.6 m (measured maximum)', Architect: 'FXFOWLE (renovation and expansion)',
+      Model: 'the strip of the 2023 footprint north of the 1986 plan, taken as the expansion; its extent and start are estimated'},
+    sources: [WP + 'Jacob_K._Javits_Convention_Center', FOOT]
+  }),
+  lm({
+    id: 'whitney_gansevoort', name: 'Whitney Museum of American Art (Gansevoort Street)', kind: 'building', built: [2010.0, 2015.33], m: M.whitney, draw: drawWhitney,
+    facts: {Construction: '2010 – opened 1 May 2015', Floors: '8', Architect: 'Renzo Piano',
+      Model: 'plan from the city footprint (its measured roof is 10.5 m, the low part); the tall western block (38 m, eight storeys) and the terraced middle block (27 m) are estimates; no cited height'},
+    sources: [WP + 'Whitney_Museum_of_American_Art', FOOT]
+  }),
+  lm({
+    id: 'cloisters', name: 'The Cloisters', kind: 'building', built: [1934.5, 1938.36], m: M.cloisters, draw: drawCloisters,
+    facts: {Construction: '1934/35 – opened 10 May 1938', Floors: '2 levels on the hillside', Architect: 'Charles Collens',
+      Model: 'plan and the 33.5 m height from the city footprint; the 14 m body and the position of the tower (north-east end) are estimated'},
+    sources: [WP + 'The_Cloisters', FOOT]
+  }),
+  lm({
+    id: 'twa_flight_center', name: 'TWA Flight Center', kind: 'building', built: [1959.44, 1962.41], m: M.twa, draw: drawTWA,
+    facts: {Construction: '9 Jun 1959 – dedicated 28 May 1962', Height: '23 m (75 ft) at the shells; Y piers 16 m', Architect: 'Eero Saarinen',
+      Model: 'plan from the city footprint of the terminal complex; the shell is an ellipse, its position and size and the pier positions are estimated; the flight tubes are inside the footprint but not drawn'},
+    sources: [WP + 'TWA_Flight_Center', FOOT]
+  }),
+  lm({
+    id: 'whitehall_terminal', name: 'Staten Island Ferry — Whitehall Terminal', kind: 'building', built: [2003.0, 2005.1], m: M.whitehall, draw: drawWhitehall,
+    facts: {Construction: 'start estimated 2003 – opened 8 Feb 2005', Floors: '4', Architect: 'Anderson/Schwartz Architects (Frederic Schwartz)',
+      Model: 'seven parts of the city footprint at their measured roof heights (15–28 m); the curtain wall and the slips are not drawn'},
+    sources: [WP + 'Whitehall_Terminal', FOOT]
+  }),
+  lm({
+    id: 'apollo_theater', name: 'Apollo Theater', kind: 'building', built: [1913.0, 1914.1], m: M.apollo, draw: drawApollo,
+    facts: {Construction: '1913 – 1914', Floors: '3 on the facade', Architect: 'George Keister',
+      Model: 'plan and 20 m height from the city footprint (measured roof); no marquee'},
+    sources: [WP + 'Apollo_Theater', FOOT]
+  }),
+  lm({
+    id: 'san_remo', name: 'The San Remo', kind: 'tower', built: [1929.0, 1930.72], m: M.sanremo, draw: drawSanRemo,
+    facts: {Construction: '1929 – 21 Sep 1930', Height: '120 m (400 ft)', Floors: '27 (17 in the base, 10 more in each tower)', Architect: 'Emery Roth',
+      Model: 'plan from the city footprint (courtyard not cut out); total height 120.5 m is the footprint’s and the cited 120 m; base 75.9 m (17/27 of the height) and the tower plans (13 m squares) are estimated; temples drawn as colonnade and dome'},
+    sources: [WP + 'The_San_Remo', 'https://s-media.nyc.gov/agencies/lpc/lp/1049.pdf', FOOT]
+  }),
+  lm({
+    id: 'belvedere_castle', name: 'Belvedere Castle', kind: 'building', built: [1867.0, 1869.9], m: M.belvedere, draw: drawBelvedere,
+    facts: {Construction: '1867 – 1869', Architects: 'Calvert Vaux and Jacob Wrey Mould',
+      Model: 'plan and 7.6 m body from the city footprint; the tower’s position, its 15 m height and the conical cap are estimated; no cited height'},
+    sources: [WP + 'Belvedere_Castle', FOOT]
+  }),
+  lm({
+    id: 'queens_museum', name: 'Queens Museum (New York City Building)', kind: 'building', built: [1937.6, 1939.33], m: M.queens, draw: drawQueensBldg,
+    facts: {Construction: '1937 – dedicated 30 Apr 1939', Height: '15.3 m (measured; the ceiling is about 12 m)', Architect: 'Aymar Embury II',
+      Model: 'plan from the 2023 footprint, which includes the museum’s 2013 expansion on the south; the 1939 plan was 110 by 37 m; flat box'},
+    sources: [WP + 'Queens_Museum', FOOT]
+  }),
+  lm({
+    id: 'brooklyn_central_library', name: 'Brooklyn Public Library — Central Library', kind: 'building', built: [1938.0, 1941.24], m: M.bpl, draw: drawBPL,
+    facts: {Construction: 'resumed 1938 (first begun 1912) – dedicated 29 Mar 1941', Height: '24 m (80 ft) at the entrance facade', Floors: '3–4', Architects: 'Githens and Keally',
+      Model: 'plan from the city footprint; whole building drawn at the cited facade roof (the footprint’s highest part, 29 m, is not drawn); gilded entrance not drawn'},
+    sources: [WP + 'Central_Library_(Brooklyn_Public_Library)', FOOT]
+  }),
+  lm({
+    id: 'bronx_county_courthouse', name: 'Bronx County Courthouse', kind: 'building', built: [1931.0, 1934.9], m: M.bxcourt, draw: drawBxCourt,
+    facts: {Construction: '1931 – 1934', Height: '58.5 m (measured roof)', Floors: '9', Architects: 'Joseph H. Freedlander and Max Hausle',
+      Model: 'plan and height from the city footprint; the interior court and set-backs are not drawn'},
+    sources: [WP + 'Bronx_County_Courthouse', FOOT]
+  }),
+  lm({
+    id: 'kingsbridge_armory', name: 'Kingsbridge Armory (Eighth Coastal Artillery Armory)', kind: 'building', built: [1912.0, 1917.5], m: M.armory, draw: drawArmory,
+    facts: {Construction: 'authorised 1911, begun about 1912 – 1917 (dates not given exactly)', Height: '39.4 m (measured maximum); the drill-hall truss is 30 m', Architects: 'Pilcher & Tachau',
+      Model: 'plan from the city footprint; drill hall at the cited 30 m truss height, four corner turrets of 9 m squares at 39.4 m, their count and positions estimated'},
+    sources: [WP + 'Kingsbridge_Armory', FOOT]
+  })
+];
+
+export const MORE_B: Landmark[] = [...BASE, ...NEW];

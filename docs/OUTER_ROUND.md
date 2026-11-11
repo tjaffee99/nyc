@@ -25,6 +25,15 @@ brief names your part and your files.
   be killed. Make every step resumable (skip what is already written) and simply run it again.
 - The container can restart: write results to your files as you go, not at the end.
 
+## Overpass is blocked on this machine
+
+Every Overpass host fails from here: do not spend calls on it. OpenStreetMap-derived geometry is
+on disk as Overture extracts under `data/raw/overture/2026-10-21.0/` (read with DuckDB and
+`load spatial`, filter by an envelope, never whole): `outer_building.parquet` (footprints of the
+whole box), `outer_freeways.parquet` (motorway and trunk segments with `name` and `routes`),
+`outer_water.parquet` (water polygons with names); for the present map also `base_land_use.parquet`
+(parks, campuses, cemeteries), `base_water.parquet`, `rail.parquet`, `roads_region.parquet`.
+
 ## The outer counties (19 units; "the map" = the 12 it has today plus these)
 
 | State | Counties (FIPS) |

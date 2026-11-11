@@ -49,3 +49,8 @@ Already present (not rebuilt): UN, Lever, Seagram, MetLife, 56 Leonard, Williams
 
 Plan extents of each mesh equal the official footprint rotated to its long-edge bearing (they are built from it). Mesh extents/heights printed by `check.ts`. `npx tsc --noEmit` passes. Nothing viewed on screen.
 Caveats: Carnegie Hall's 1891 state is a plain block (the studio tower's exact corner position is estimated); One57 and Time Warner Center OSM parts include small unrelated pieces merged by the generator; Ansonia height not independently cited.
+
+## Second round (14 models; same file, same export)
+Footprints from `data/interim/nyc_buildings.parquet` (BIN: oculus 1089309, javits 1067973, whitney 1089239, cloisters 1064383, TWA 4596981, Whitehall 1085792, Apollo 1058654, San Remo 1028714, Belvedere 1083837, Queens 4458851, Brooklyn library 3029665, Bronx courthouse 2002869, Kingsbridge Armory 2098784 = "Eighth Coastal Artillery Armory"); `parts.py`, `gen2.py`, `splice.py` in `data/interim/landmarks_more_b/`. Dates/heights from each Wikipedia article (in the model's sources) or the footprint file's measured roof (said in each `Model:` fact). Mesh heights checked with `check.ts` (all equal the intended value; Cloisters tower cap reaches 38 m, estimated).
+Not built: the Shed and the Roosevelt Island Tramway (no footprint identified), St. George Terminal (no named footprint), Hell's... none other.
+Weakest: Javits (one measured maximum applied to the whole block), Whitney (blocks estimated), TWA (shell position estimated), Belvedere (tower position estimated).

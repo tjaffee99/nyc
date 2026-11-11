@@ -2024,7 +2024,8 @@ def county_block(job, shifts=None):
     np.logical_or.at(ok_m, pi[hit], own[bi[hit]])
     has = np.isfinite(m)
     # buildings of the map per municipality (for the census check)
-    for (cn, mu), q in pd.DataFrame({"c": county[pi], "m": par.muni.values[pi], "s": es[bi]}).groupby(["c", "m"]):
+    keepm = ~cbl[pi]                          # the frontage lots of the cleared-block rule are not parcels
+    for (cn, mu), q in pd.DataFrame({"c": county[pi][keepm], "m": par.muni.values[pi][keepm], "s": es[bi][keepm]}).groupby(["c", "m"]):
         for y in COUNTY_YEARS:
             st[f"muni|{cn}|{mu}|{y}"] = int((q.s.values <= y).sum())
     # the neighbourhood: RECORDED years only (placeholders, `neighbours` and `modelled` years date nothing)
@@ -2097,14 +2098,14 @@ def county_block(job, shifts=None):
     # for that very building until its year; counted in the report). The parcel rule needs the
     # parcel's own year.
     late = ~has | (m > INK_T + INK_GAP)
-    cand_sh = (sheet != "") & late
+    cand_sh = ((sheet != "") & late) | (cbk & (sheet != ""))
     cand_ti = (tint_year > 0) & ((has & (m > INK_T + INK_GAP)) | (pseudo & ~has)) & (hk < share)
     cand_ex = in97 & has & (m > 1903.0) & (m <= INK_T + INK_GAP) & (hk < share)
-    pre = np.flatnonzero(cand_pn | cand_sh | cand_ti | cand_ex)
+    pre = np.flatnonzero(cand_pn | cand_sh | cand_ti | cand_ex | cbk)
     st["parcels_with_evidence"] = len(pre)
     if not len(pre):
         return empty, st
-    lines, cls = streets_window(bx, by)
+    lines, cls = lines_c, cls_c
     if not len(lines):
         return empty, st
     stree = shapely.STRtree(lines)
@@ -2113,7 +2114,7 @@ def county_block(job, shifts=None):
     sp = shapely.get_coordinates(shapely.line_interpolate_point(lines[ni], shapely.line_locate_point(lines[ni], pts)))
     og, op = [], []
     for q, i in enumerate(pre):
-        outs = [lots[i]] if pseudo[i] else parcel_outline(lots[i], la[i], par.pid.values[i], float(bw[i]), float(dd[i]), bool(tall[i]), sp[q])
+        outs = [lots[i]] if (pseudo[i] or cbl[i]) else parcel_outline(lots[i], la[i], par.pid.values[i], float(bw[i]), float(dd[i]), bool(tall[i]), sp[q])
         for k_, g in enumerate(outs):
             og.append(g)
             op.append((i, k_))
@@ -2182,6 +2183,7 @@ def county_block(job, shifts=None):
         ink[sel] = v
         ink_code[sel] = f"usgs{SHEETS_C[fn][4]}_blocks"
     f41, b41 = window(INK_T, INK_GAP)
+    f97, b97_ = window(1897.5, 5.0)
     sH = f41 & (ink >= INK_MIN)
     if sH.any():
         r_near = NEAR_M / MPP
@@ -2191,39 +2193,61 @@ def county_block(job, shifts=None):
         sH &= (na + nl) >= 2
     st["sheet_read"] = int(np.isfinite(ink).sum())
     st["sheet_built"] = int(sH.sum())
+    # cleared blocks, rule (a): on the lots of each candidate block
+    in97p, tiy = in97[p], tint_year[p]
+    cbrow = np.zeros(N, bool)
+    skipbig = np.zeros(N, bool)
+    if cbk.any():
+        iscb = cbk[p]
+        blk_ = cbb[p]
+        strict = in97p | sH
+        okl = np.where(cbd[p] >= 0, strict | (tiy > 0), strict)
+        sel = np.flatnonzero(iscb & (blk_ >= 0))
+        tot = np.bincount(blk_[sel], minlength=len(cbpoly)).astype(float)
+        good = np.bincount(blk_[sel], weights=okl[sel].astype(float), minlength=len(cbpoly))
+        with np.errstate(all="ignore"):
+            okb = (tot > 0) & (good / tot >= CB_OK_SHARE)
+        cbrow = iscb & (blk_ >= 0) & okb[np.maximum(blk_, 0)]
+        skipbig = cbbig[p] & (blk_ >= 0) & okb[np.maximum(blk_, 0)]
+        st["cb_blocks_ok"] = int(okb.sum())
     # rows: the first evidence that applies anchors the row, later ones are named after it
     T1 = mo - 3.0
     f1, b1 = window(np.where(np.isfinite(T1), T1, 0.0), 0.0)
-    pn = cand_pn[p] & f1
+    pn = cand_pn[p] & f1 & ~cbrow & ~skipbig
+    sH = sH & ~skipbig
     # a 1940s sheet that shows the outline on open ground (no ink within 5 m) speaks against a row of
     # the parcel rule that would stand then
     veto = pn & np.isfinite(ink_raw) & (ink_raw < SHEET_OPEN) & (T1 > INK_T) & (dev[p] + 6.0 < INK_T)
     st["pn_vetoed_by_sheet"] = int(veto.sum())
     pn &= ~veto
-    ti = cand_ti[p] & f41 & ~pn & ~sH & ~veto
-    f97, b97_ = window(1897.5, 5.0)
-    exo = cand_ex[p] & f97 & ~pn & ~sH & ~ti & ~veto
-    anchor = np.where(pn, "pn", np.where(sH, "sh", np.where(ti, "ti", np.where(exo, "ex", ""))))
+    ti = cand_ti[p] & f41 & ~pn & ~sH & ~veto & ~cbrow & ~skipbig
+    exo = cand_ex[p] & f97 & ~pn & ~sH & ~ti & ~veto & ~cbrow & ~skipbig
+    cbA = cbrow & np.where(in97p, f97, f41)
+    anchor = np.where(cbA, "cb", np.where(pn, "pn", np.where(sH, "sh", np.where(ti, "ti", np.where(exo, "ex", "")))))
     keep = anchor != ""
     if not keep.any():
         return empty, st
     u1, u2, u3, u4 = hvec(key, "s"), hvec(key, "j"), hvec(key, "e"), hvec(key, "h")
-    T_ev = np.where(pn, T1, np.where(sH | ti, INK_T, 1897.5))
-    bnext = np.where(pn, b1, np.where(sH | ti, b41, b97_))
+    T_ev = np.where(cbA, np.where(in97p, 1897.5, INK_T), np.where(pn, T1, np.where(sH | ti, INK_T, 1897.5)))
+    bnext = np.where(cbA, np.where(in97p, b97_, b41), np.where(pn, b1, np.where(sH | ti, b41, b97_)))
     bnext = np.minimum(bnext, np.where(np.isfinite(mo), mo, np.inf))      # today's building on the parcel replaced it
     evid = np.where(pn, "parcel_neighbourhood", np.where(sH, ink_code, np.where(ti, "usgs" + tint_year[p].astype(str) + "_tint", "usgs1897_builtup"))).astype(object)
     both = pn & sH & (T1 > INK_T)
     evid = np.where(both, "parcel_neighbourhood+" + ink_code.astype(str), evid)
+    cbev = np.where(in97p, "usgs1897_builtup", np.where(sH, ink_code.astype(str), "usgs" + tiy.astype(str) + "_tint"))
+    evid = np.where(cbA, "cleared_block+" + cbev.astype(str), evid)
     # start
     hi = np.where(pn, np.minimum(dev[p] + 6.0 * u1, T1 - 2.0), np.where(sH | ti, INK_T - 1.5, 1897.0))
+    hi = np.where(cbA, np.where(in97p, 1897.0, INK_T - 1.5), hi)
     start = np.full(N, np.nan)
     start[pn] = hi[pn]
     need = keep & ~pn
     if need.any() and rec.any():
         K = min(24, int(rec.sum()))
-        d_, j_ = cKDTree(exc[rec]).query(oc, k=K, distance_upper_bound=YEAR_POOL_M / MPP)
+        d_, j_ = cKDTree(exc[rec]).query(oc, k=K, distance_upper_bound=CB_POOL_M / MPP)
         d_, j_ = d_.reshape(N, K), j_.reshape(N, K)
-        Yk = np.where(np.isfinite(d_), es[rec][np.minimum(j_, rec.sum() - 1)], np.nan)
+        pool_ = np.where(cbA, CB_POOL_M, YEAR_POOL_M) / MPP         # a cleared block has few recorded years of its own: wider pool
+        Yk = np.where(np.isfinite(d_) & (d_ <= pool_[:, None]), es[rec][np.minimum(j_, rec.sum() - 1)], np.nan)
         y = pick_years(Yk, np.full(N, -np.inf), hi, u1)
         start = np.where(need & np.isfinite(y), y + 3.0 * (u2 - 0.5), start)
     fb = hi - u1 * 30.0
@@ -2232,13 +2256,14 @@ def county_block(job, shifts=None):
     lo_o, la_o = px_to_lonlat(oc[:, 0], oc[:, 1])
     start = np.where(start > hi, 2 * hi - start, start)
     # built-up ground of 1897: a share of the rows that start later is put before it
-    cap = keep & (anchor != "ex") & in97[p] & (hk[p] < share[p]) & (start > 1897.0)
+    cap = keep & (anchor != "ex") & (anchor != "cb") & in97[p] & (hk[p] < share[p]) & (start > 1897.0)
+    capcb = cbA & in97p & (start > 1897.0)
     # ... when before it? The map of 1897 does not say. The census does, for the county: of the rows on
     # that ground, as many stand in a year as the county then had of its people of 1897 - the nearer an
     # old town centre (data/tables/places_counties.csv), the earlier. The same where an 1897-only row has
     # no recorded year around to take.
     y97 = census_start(county[p], 0.5 * u2 + 0.5 * (1.0 - np.exp(-centre_km(lo_o, la_o))))
-    start = np.where(cap, y97, start)
+    start = np.where(cap | capcb, y97, start)
     start = np.where((anchor == "ex") & no_pool, y97, start)
     evid = np.where(cap, "usgs1897_builtup+" + evid.astype(str), evid)
     start = np.maximum(start, 1626.0)
@@ -2257,6 +2282,17 @@ def county_block(job, shifts=None):
     lead = LEAD[0] + (LEAD[1] - LEAD[0]) * u3
     end = np.where(np.isfinite(bnext), bnext - lead, np.nan)
     basis = np.where(np.isfinite(bnext), "replaced_by_standing", "").astype(object)
+    # a researched district ends its rows at its clearance years (when that is before today's building)
+    cdl = cleared_districts()
+    if cdl:
+        dd_ = cbd[p]
+        c0 = np.array([c_[2] for c_ in cdl] + [np.nan])[np.where(dd_ >= 0, dd_, len(cdl))]
+        c1 = np.array([c_[3] for c_ in cdl] + [np.nan])[np.where(dd_ >= 0, dd_, len(cdl))]
+        dnm = np.array(["district:" + c_[0] for c_ in cdl] + [""], dtype=object)[np.where(dd_ >= 0, dd_, len(cdl))]
+        dend = c0 + (c1 - c0) * u3
+        use = cbA & np.isfinite(dend) & (dend > T_ev + 3.0) & ~(dend >= np.where(np.isfinite(end), end, np.inf))
+        end = np.where(use, dend, end)
+        basis = np.where(use, dnm, basis)
     mtree, myrs, mnames = motorways()
     if mtree is not None:
         a_, b_ = mtree.query_nearest(shapely.points(oc), max_distance=25.0 / MPP, all_matches=False)
@@ -2307,7 +2343,7 @@ def county_block(job, shifts=None):
             ov = shapely.area(shapely.intersection(gk[a_], exg[b_])) * MPP2 > 0.4
             keep[kk_[np.unique(a_[ov])]] = False
             st["dropped_on_a_map_building"] = int(len(np.unique(a_[ov])))
-    for a_name in ("pn", "sh", "ti", "ex"):
+    for a_name in ("pn", "sh", "ti", "ex", "cb"):
         st[f"rows_{a_name}"] = int((keep & (anchor == a_name)).sum())
     st["rows_corridor"] = int((keep & pseudo[p]).sum())
     st["rows_under_estimated_year"] = int((keep & np.isfinite(mo) & ~ok_m[p] & (anchor != "pn")).sum())
@@ -2382,6 +2418,7 @@ def step_counties(workers=3, only=None):
                 log(f"counties: {k + 1}/{len(jobs)} blocks, {time.time() - t0:.0f} s")
     parts = [pd.read_parquet(q) for q in sorted(ROWS_C.glob("*.parquet"))]
     df = pd.concat([q for q in parts if len(q)], ignore_index=True).drop_duplicates("id").reset_index(drop=True)
+    df = df.assign(_o=~df.evidence.str.startswith("cleared_block")).sort_values("_o", kind="stable").drop(columns="_o").reset_index(drop=True)   # the cleared-block rows win an overlap
     gpx = to_px(shapely.from_wkb(df.wkb.values))
     a_, b_ = shapely.STRtree(gpx).query(gpx, predicate="intersects")
     t_ = (a_ < b_) & (df.start_year.values[a_] < df.end_year.values[b_]) & (df.start_year.values[b_] < df.end_year.values[a_])

@@ -13,8 +13,9 @@ import {TOWERS} from './nyc-towers';
 import {LOST} from './nyc-lost';
 import {CIVIC} from './nyc-civic';
 import {MORE_B} from './nyc-more-b';
+import {NJ_INNER} from './nj-inner';
 
-export const LANDMARKS: Landmark[] = [...BRIDGES, ...TOWERS, ...LOST, ...CIVIC, ...MORE_B];
+export const LANDMARKS: Landmark[] = [...BRIDGES, ...TOWERS, ...LOST, ...CIVIC, ...MORE_B, ...NJ_INNER];
 
 export type LandmarkSet = {
   items: {lm: Landmark; vertices: number}[];
