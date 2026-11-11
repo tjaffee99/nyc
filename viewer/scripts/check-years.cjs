@@ -14,6 +14,10 @@ const VIEWS = [
   ['1900 Jersey City', 'year=1900&c=-74.045,40.722&z=13.6&p=55&b=20'],
   ['1960 Yonkers', 'year=1960&c=-73.88,40.94&z=13.2&p=50&b=0'],
   ['2026 region', 'year=2026&c=-74.0,40.9&z=9.2&p=20&b=0'],
+  // years at which the effects layer is on (a battle's columns, a fire)
+  ['1776 battle', 'year=1776.655&c=-73.985,40.665&z=12.6&p=50&b=0'],
+  ['1835 fire', 'year=1835.97&c=-74.009,40.705&z=15&p=55&b=29'],
+  ['2001 towers', 'year=2001.70&c=-74.0125,40.7115&z=14.5&p=60&b=29'],
 ];
 (async () => {
   const base = process.argv[2];

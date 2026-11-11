@@ -171,12 +171,24 @@ function render() {
   layers.push(...(labelLayers(state.year, zoom) as any));
   baseLayers = layers;
   // fires, battles and the like, in motion while the year stands at them (layers/effects.ts)
-  overlay.setProps({layers: effectsActive(state.year) ? [...layers, ...effectLayers(state.year, performance.now())] : layers});
+  overlay.setProps({layers: [...layers, ...fx(performance.now())]});
   updateOverlays();
 }
 let baseLayers: Layer[] = [];
 let lastFx = 0;
 let fxOn = false;
+let fxBroken = false;
+/** the effects' layers at the current year; a fault in them must never take the map down */
+function fx(t: number): Layer[] {
+  if (fxBroken) return [];
+  try {
+    return effectsActive(state.year) ? effectLayers(state.year, t) : [];
+  } catch (e) {
+    fxBroken = true;
+    console.warn('effects', e);
+    return [];
+  }
+}
 
 // ---------------------------------------------------------------- DOM
 const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -419,11 +431,11 @@ function trafficLoop(t: number) {
   // the effects move on the wall clock: about 20 redraws a second of their own few layers
   // (the rest of the list is the same objects, so nothing else is touched)
   if (!document.hidden && t - lastFx >= 50) {
-    const act = effectsActive(state.year);
+    const act = !fxBroken && effectsActive(state.year);
     if (act || fxOn) {
       lastFx = t;
       fxOn = act;
-      overlay.setProps({layers: act ? [...baseLayers, ...effectLayers(state.year, t)] : baseLayers});
+      overlay.setProps({layers: act ? [...baseLayers, ...fx(t)] : baseLayers});
     }
   }
   const z = map.getZoom();
