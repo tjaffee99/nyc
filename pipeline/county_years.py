@@ -63,7 +63,7 @@ def download(county, where=None, ids=None):
 
     def one(a):
         i, p = a
-        r = post({"objectIds": ",".join(map(str, p)), "outFields": FIELDS, "outSR": 4326, "geometryPrecision": 6, "f": "json"})
+        r = post({"where": f"OBJECTID >= {p[0]} AND OBJECTID <= {p[-1]} AND COUNTY_NAME='{county.title()}'", "orderByFields": "OBJECTID", "outFields": FIELDS, "outSR": 4326, "geometryPrecision": 6, "f": "json"})
         tmp = d / f"p{i:05d}.part"
         with gzip.open(tmp, "wt") as fh:
             json.dump(r["features"], fh)

@@ -546,10 +546,20 @@ def farm_years(g, lon, lat, boro, cap=True):
     settlement (a model; `estimated`). Manhattan was bare of woods by the end of the British
     occupation (1783): firewood for the garrison took what the farms had left."""
     kx = 111_320 * math.cos(math.radians(40.7))
-    F = np.full(lon.shape, np.inf, np.float32)
+    # (the front is smooth: on the wide region grid - 28 million cells, 700 seeds - it is
+    # computed on every fourth cell and interpolated)
+    step = 4 if lon.size > 6_000_000 else 1
+    lo, la = lon[::step, ::step], lat[::step, ::step]
+    F = np.full(lo.shape, np.inf, np.float32)
     for slon, slat, sy in settlement_seeds():
-        dkm = np.hypot((lon - slon) * kx, (lat - slat) * 110_574) / 1000.0
+        dkm = np.hypot((lo - slon) * kx, (la - slat) * 110_574) / 1000.0
         F = np.minimum(F, (sy + 3 + 12.0 * dkm).astype(np.float32))
+    if step > 1:
+        F = ndimage.zoom(F, (lon.shape[0] / F.shape[0], lon.shape[1] / F.shape[1]), order=1, mode="nearest")
+        F = F[:lon.shape[0], :lon.shape[1]]
+        if F.shape != lon.shape:
+            F = np.pad(F, ((0, lon.shape[0] - F.shape[0]), (0, lon.shape[1] - F.shape[1])), mode="edge")
+        F = F.astype(np.float32)
     if cap:
         F = np.where(boro == 1, np.minimum(F, 1779.0), np.minimum(F, 1860.0))
     return F + 6.0 * h01_grid(*lon.shape, salt=3, block=6).astype(np.float32)
@@ -943,9 +953,15 @@ def decorations(name, g, covers, years, elev, urban_y, park_y, wood_y):
         cs = slice(max(c0, 0), min(c0 + VERTS * sub, shape[1]))
         rng = np.random.default_rng(1609 + tx * 100003 + ty)
         kinds, ys, xs, sizes, starts, ends = [], [], [], [], [], []
+        # The outer counties' tier (docs/OUTER_ROUND.md): a wooded tile stores 20,000 trees, and
+        # beyond the inner counties that alone would be several hundred megabytes. There a
+        # share of them is kept, each drawn larger, so the woods read the same from above.
+        w, s_, e, n_ = tile_lonlat(tx, ty, g["z"])
+        outer = name == "region" and not (INNER_BBOX[0] <= (w + e) / 2 <= INNER_BBOX[2] and INNER_BBOX[1] <= (s_ + n_) / 2 <= INNER_BBOX[3])
+        thin, grow = (OUTER_TREES, OUTER_TREE_SIZE) if outer else (1.0, 1.0)
         # --- today's trees on real canopy pixels
         tr, tc = np.nonzero(tree_fine[rs, cs])
-        keep = rng.random(len(tr)) < (0.45 if name == "detail" else 0.3)
+        keep = rng.random(len(tr)) < (0.45 if name == "detail" else 0.3) * thin
         tr, tc = tr[keep] + rs.start, tc[keep] + cs.start
         if len(tr):
             fy = tr + rng.uniform(-0.45, 0.45, len(tr))
@@ -976,7 +992,7 @@ def decorations(name, g, covers, years, elev, urban_y, park_y, wood_y):
             per = 9 if name == "detail" else 3
             vy = np.repeat(vy, per); vx = np.repeat(vx, per)
             # (trees are drawn at about twice their size: one or two per 29 m cell read as closed forest)
-            keep = rng.random(len(vy)) < (0.42 if name == "detail" else 0.4)
+            keep = rng.random(len(vy)) < (0.42 if name == "detail" else 0.4) * thin
             vy, vx = vy[keep], vx[keep]
             fy = (vy + cr0 + rng.uniform(-0.5, 0.5, len(vy))) * sub
             fx = (vx + cc0 + rng.uniform(-0.5, 0.5, len(vy))) * sub
@@ -997,17 +1013,34 @@ def decorations(name, g, covers, years, elev, urban_y, park_y, wood_y):
         return {
             "deco_pos": (np.column_stack([lx, ly]).astype(np.uint16) & np.uint16(0xFFE0)).ravel(),
             "deco_kind": kinds.astype(np.uint8),
-            "deco_size": np.clip(np.rint(sizes / 2) * 2, 2, 254).astype(np.uint8),
+            "deco_size": np.clip(np.rint(sizes * grow / 2) * 2, 2, 254).astype(np.uint8),
             "deco_years": np.column_stack([enc_year(np.round(starts)), enc_year(np.round(ends))]).ravel(),
         }
 
     return fn
 
 
+INNER_BBOX = (-74.52, 40.47, -73.40, 41.38)   # the city and the seven counties around it: full tree density
+OUTER_TREES = 0.3          # share of the trees stored beyond it
+OUTER_TREE_SIZE = 1.6      # ... each drawn this much larger
+
+
+def tile_lonlat(tx, ty, z):
+    """(west, south, east, north) of a tile."""
+    n = 2.0 ** z
+    lat = lambda y: math.degrees(math.atan(math.sinh(math.pi * (1 - 2 * y / n))))   # noqa: E731
+    return tx / n * 360.0 - 180.0, lat(ty + 1), (tx + 1) / n * 360.0 - 180.0, lat(ty)
+
+
 def write_tiles(name, g, covers, years, elev, deco_fn=None, zooms=None):
+    from extent import POLY
     z_native = g["z"]
     zooms = zooms or [z_native]
-    count = 0
+    count = skipped = 0
+    # (the grid is a box, the map is the counties: a tile wholly beyond the map's outline - the
+    # Catskills, Pennsylvania, eastern Connecticut - is not written)
+    keep = POLY.buffer(0.03)
+    shapely.prepare(keep)
     for z in zooms:
         k = 2 ** (z_native - z)
         tx0 = g["tx0"] // k
@@ -1016,6 +1049,9 @@ def write_tiles(name, g, covers, years, elev, deco_fn=None, zooms=None):
         ty1 = -(-g["ty1"] // k)
         for tx in range(tx0, tx1):
             for ty in range(ty0, ty1):
+                if not shapely.intersects(keep, shapely.box(*tile_lonlat(tx, ty, z))):
+                    skipped += 1
+                    continue
                 # native-lattice vertex indices for this tile
                 gx = (tx * k - g["tx0"]) * VERTS + np.arange(VERTS + 1) * k
                 gy = (ty * k - g["ty0"]) * VERTS + np.arange(VERTS + 1) * k
@@ -1046,7 +1082,7 @@ def write_tiles(name, g, covers, years, elev, deco_fn=None, zooms=None):
                 write_columnar(out, cols, counts={"n": VERTS + 1, "z": z, "x": tx, "y": ty,
                                                   "deco": int(len(cols.get("deco_kind", [])))})
                 count += 1
-    log(f"terrain {name}: wrote {count} tiles for zooms {zooms}")
+    log(f"terrain {name}: wrote {count} tiles for zooms {zooms} ({skipped} beyond the map's outline left out)")
 
 
 def land_year_of(covers, years):

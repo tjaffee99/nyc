@@ -39,14 +39,22 @@ NYC_BBOX = (-74.29, 40.47, -73.67, 40.94)
 # The wider map: the city and the inner ring of counties around it (those for which real
 # construction years exist; see CLAUDE.md "Counties"). One box for the region terrain grid
 # and the region extracts; the 29 m detail grid stays on NYC_BBOX.
-REGION_BBOX = (-74.52, 40.47, -73.40, 41.38)
+# (until 2026-11-11 the seven counties' box, (-74.52, 40.47, -73.40, 41.38); now the whole
+# metropolitan area: OUTER_BBOX below)
+REGION_BBOX = (-75.37, 39.47, -71.85, 42.20)
 # the whole metropolitan area (the owner's list of 2026-11-11: the rest of northern New Jersey, the
 # Hudson valley counties, Long Island, south-west Connecticut, Pike County): downloads for the outer
 # counties are cut by this box; the map itself moves to it when their data is in (docs/OUTER_ROUND.md)
 OUTER_BBOX = (-75.37, 39.47, -71.85, 42.20)
 # state + county FIPS -> name (candidates; extent.py keeps the ones that were built)
 REGION_COUNTIES = {"34017": "Hudson", "34003": "Bergen", "34013": "Essex", "34039": "Union", "34031": "Passaic",
-                   "36119": "Westchester", "36059": "Nassau", "36087": "Rockland"}
+                   "36119": "Westchester", "36059": "Nassau", "36087": "Rockland",
+                   # the outer tier (docs/OUTER_ROUND.md)
+                   "36103": "Suffolk", "36079": "Putnam", "36071": "Orange", "36027": "Dutchess", "36111": "Ulster",
+                   "36105": "Sullivan", "34023": "Middlesex", "34025": "Monmouth", "34029": "Ocean", "34035": "Somerset",
+                   "34027": "Morris", "34037": "Sussex", "34019": "Hunterdon", "34021": "Mercer",
+                   "09120": "Greater Bridgeport", "09190": "Western Connecticut", "09170": "South Central Connecticut",
+                   "42103": "Pike"}
 # year the slider starts: Hudson's Half Moon enters the harbour
 YEAR_MIN = 1609
 # metric CRS for all distance / area work
