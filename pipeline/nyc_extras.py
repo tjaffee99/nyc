@@ -338,6 +338,9 @@ def gapfill():
     # (named, not globbed: the fill stages keep side tables and backups beside their outputs)
     files = [f for f in (INTERIM / "gapfill" / n for n in ("gapfill.parquet", "gapfill_counties.parquet", "gapfill_sites.parquet", "gapfill_ports.parquet"))
              if f.exists()]
+    # (the port fill is read only once the lead has accepted it: its stage may be writing the file)
+    if not (INTERIM / "gapfill" / "gapfill_ports.ok").exists():
+        files = [f for f in files if f.name != "gapfill_ports.parquet"]
     rows = []
     if not files:
         return rows

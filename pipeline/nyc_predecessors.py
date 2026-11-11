@@ -149,6 +149,8 @@ def load_structures():
         try:
             extra += fn()
         except Exception as e:  # noqa: BLE001
+            if fn is nyc_extras.gapfill:      # 300,000 generated buildings must not vanish silently
+                raise
             log(f"predecessors: {fn.__name__} not used ({type(e).__name__}: {e})")
     if extra:
         x = gpd.GeoDataFrame(pd.DataFrame(extra), geometry="geometry", crs=UTM)
