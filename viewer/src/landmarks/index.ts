@@ -14,8 +14,10 @@ import {LOST} from './nyc-lost';
 import {CIVIC} from './nyc-civic';
 import {MORE_B} from './nyc-more-b';
 import {NJ_INNER} from './nj-inner';
+import {NY_LONG_ISLAND} from './ny-long-island';
+import {extentDistance, extentReady} from '../layers/extent';
 
-export const LANDMARKS: Landmark[] = [...BRIDGES, ...TOWERS, ...LOST, ...CIVIC, ...MORE_B, ...NJ_INNER];
+export const LANDMARKS: Landmark[] = [...BRIDGES, ...TOWERS, ...LOST, ...CIVIC, ...MORE_B, ...NJ_INNER, ...NY_LONG_ISLAND];
 
 export type LandmarkSet = {
   items: {lm: Landmark; vertices: number}[];
@@ -32,8 +34,13 @@ const M_PER_DEG_LAT = 110_574;
 
 /** Build every landmark mesh and merge them into one buffer. Call after elevation loads. */
 export async function loadLandmarks(): Promise<LandmarkSet> {
+  // a model whose county is not on the map yet (more than a kilometre outside the extent) is
+  // not built: it would stand on nothing
+  await extentReady;
+  const off = (lm: Landmark) => extentDistance(lm.anchor[0], lm.anchor[1]) < -1;
   const meshes = LANDMARKS.map(lm => {
     const b = new MeshBuilder();
+    if (off(lm)) return b.build();
     try {
       lm.build(b);
     } catch (e) {

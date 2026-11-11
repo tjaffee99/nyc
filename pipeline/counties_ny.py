@@ -59,10 +59,16 @@ UA = "NYCThroughTime-research/0.1"
 CACHE = RAW / "counties_ny"
 OUT = INTERIM / "counties"
 REGION_FOOTPRINTS = RAW / "overture" / "2026-10-21.0" / "region_building.parquet"
+OUTER_FOOTPRINTS = RAW / "overture" / "2026-10-21.0" / "outer_building.parquet"
 TIGER = RAW / "tiger" / "tl_2024_us_county.zip"
 
 # county key -> (name, state+county FIPS)
-COUNTIES = {"westchester": ("Westchester", "36119"), "nassau": ("Nassau", "36059"), "rockland": ("Rockland", "36087")}
+COUNTIES = {"westchester": ("Westchester", "36119"), "nassau": ("Nassau", "36059"), "rockland": ("Rockland", "36087"),
+            # the outer round (2026-11-11): footprints from the outer extract, see data/research/counties_ny_outer.md
+            "putnam": ("Putnam", "36079"), "sullivan": ("Sullivan", "36105"), "ulster": ("Ulster", "36111"),
+            "dutchess": ("Dutchess", "36027"), "orange": ("Orange", "36071"), "suffolk": ("Suffolk", "36103")}
+OUTER = ("putnam", "sullivan", "ulster", "dutchess", "orange", "nassau", "suffolk")   # footprints from OUTER_FOOTPRINTS
+REGION_ONLY = ("westchester", "rockland")
 
 # NYS ITS Geospatial Services, "NYS Tax Parcels Public" (2025 assessment rolls, published May 2026)
 PARCELS = "https://gisservices.its.ny.gov/arcgis/rest/services/NYS_Tax_Parcels_Public/FeatureServer/1/query"
@@ -317,7 +323,7 @@ def load_footprints(key):
     con.execute("SET memory_limit='1000MB'")
     con.execute("SET enable_progress_bar=false")
     df = con.execute(
-        f"SELECT id, name, height, num_floors, source_dataset, ST_AsWKB(geometry) AS wkb FROM read_parquet('{REGION_FOOTPRINTS}') "
+        f"SELECT id, name, height, num_floors, source_dataset, ST_AsWKB(geometry) AS wkb FROM read_parquet('{OUTER_FOOTPRINTS if key in OUTER else REGION_FOOTPRINTS}') "
         f"WHERE lon BETWEEN {w - 0.01} AND {e + 0.01} AND lat BETWEEN {s - 0.01} AND {n + 0.01}").df()
     con.close()
     g = gpd.GeoDataFrame(df.drop(columns="wkb"), geometry=shapely.from_wkb(df.wkb.apply(bytes).values), crs=4326)
