@@ -84,6 +84,8 @@ export function initStory(map: MlMap, host: StoryHost, yearMin: number, yearMax:
 
   const FLY_MIN = 1700;
   let pruned = false;
+  const LEAD_YEARS = 8;
+  let arriveYear = 0;
   let on = false;
   let paused = false;
   let idx = 0;
@@ -133,6 +135,10 @@ export function initStory(map: MlMap, host: StoryHost, yearMin: number, yearMax:
     const km = Math.hypot((c.lng - s.lon) * 84.4, (c.lat - s.lat) * 110.6);
     flyMs = Math.min(5200, FLY_MIN + km * 240);
     fromYear = host.getYear();
+    // Arrive a few years early and let them run while the camera is on the place: what the
+    // caption speaks of is then seen appearing, not found standing (a stop with its own span of
+    // years runs that span instead).
+    arriveYear = s.yearTo != null && Number.isFinite(s.yearTo) ? s.year : s.year - Math.min(LEAD_YEARS, Math.max(0, s.year - fromYear));
     phase = 'fly';
     t0 = performance.now();
     paused = false;
@@ -152,7 +158,7 @@ export function initStory(map: MlMap, host: StoryHost, yearMin: number, yearMax:
     if (phase === 'fly') {
       const k = Math.min(1, el / flyMs);
       const e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
-      host.setYear(clampYear(fromYear + (s.year - fromYear) * e));
+      host.setYear(clampYear(fromYear + (arriveYear - fromYear) * e));
       if (k >= 1) {
         phase = 'dwell';
         t0 = t;
@@ -162,6 +168,7 @@ export function initStory(map: MlMap, host: StoryHost, yearMin: number, yearMax:
     } else {
       const k = Math.min(1, el / (s.seconds * 1000));
       if (s.yearTo != null && Number.isFinite(s.yearTo)) host.setYear(clampYear(s.year + (s.yearTo - s.year) * k));
+      else if (arriveYear < s.year) host.setYear(clampYear(arriveYear + (s.year - arriveYear) * Math.min(1, k / 0.55)));
       elFill.style.width = `${(k * 100).toFixed(1)}%`;
       // (read aloud: wait for the voice, at most 20 s over)
       if (k >= 1 && (spoken || el > s.seconds * 1000 + 20000)) {
