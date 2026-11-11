@@ -47,7 +47,13 @@ const stops: Stop[] = Object.values(files)
   }))
   .filter(s => Number.isFinite(s.year) && Number.isFinite(s.lon) && Number.isFinite(s.lat) && s.title);
 
-export type StoryHost = {getYear: () => number; setYear: (y: number) => void; onStart: () => void};
+export type StoryHost = {
+  getYear: () => number;
+  setYear: (y: number) => void;
+  onStart: () => void;
+  /** true while the page still stands at the year it loaded with and nobody has moved it */
+  pristine?: () => boolean;
+};
 export type Story = {active: () => boolean; pause: () => void; toggle: () => void; exit: () => void; step: (d: number) => void};
 
 const esc = (s: string) => s.replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'})[c]!);
@@ -190,12 +196,25 @@ export function initStory(map: MlMap, host: StoryHost, yearMin: number, yearMax:
     elPP.setAttribute('aria-label', 'Resume the tour');
   }
 
+  // a stop in a county that is not on the map yet is left out (the table may run ahead of the data)
+  function prune() {
+    if (pruned) return;
+    for (let k = stops.length - 1; k >= 0; k--) if (extentDistance(stops[k].lon, stops[k].lat) < -1) stops.splice(k, 1);
+    pruned = true;
+  }
+
+  /** Where the tour begins when the button is pressed: at the slider's year — the first stop at
+   *  or after it — and at the very beginning only when the page still stands where it loaded. */
+  function startIndex(): number {
+    prune();
+    if (host.pristine?.()) return 0;
+    const y = host.getYear();
+    const i = stops.findIndex(s => (s.yearTo != null && Number.isFinite(s.yearTo) ? s.yearTo : s.year) >= y - 0.5);
+    return i < 0 ? stops.length - 1 : i;
+  }
+
   function start(i = idx) {
-    // a stop in a county that is not on the map yet is left out (the table may run ahead of the data)
-    if (!pruned) {
-      for (let k = stops.length - 1; k >= 0; k--) if (extentDistance(stops[k].lon, stops[k].lat) < -1) stops.splice(k, 1);
-      pruned = true;
-    }
+    prune();
     host.onStart();
     on = true;
     panel!.hidden = false;
@@ -218,7 +237,7 @@ export function initStory(map: MlMap, host: StoryHost, yearMin: number, yearMax:
 
   const toggle = () => (paused ? goTo(idx) : pause());
   const step = (d: number) => on && goTo(idx + d);
-  btn.addEventListener('click', () => (on ? exit() : start(idx >= stops.length - 1 ? 0 : idx)));
+  btn.addEventListener('click', () => (on ? exit() : start(startIndex())));
   q('.story-x').addEventListener('click', exit);
   q('.story-prev').addEventListener('click', () => step(-1));
   q('.story-next').addEventListener('click', () => step(1));

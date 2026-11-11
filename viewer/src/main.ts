@@ -38,7 +38,7 @@ export const YEAR_MAX = 2026.99;
 // ---------------------------------------------------------------- state
 const initial = readHash();
 const state = {
-  year: initial.year ?? 1900,
+  year: initial.year ?? 1900, // (DEFAULT_YEAR, below)
   playing: false,
   speed: 6,
   quality: false,
@@ -152,7 +152,10 @@ map.on('click', e => {
 /** Extent of the terrain tiles (the city and the counties around it; pipeline common.REGION_BBOX). */
 const REGION: [number, number, number, number] = [-74.52, 40.47, -73.4, 41.38];
 
+const DEFAULT_YEAR = 1900;
+let yearMoved = false;
 function render() {
+  if (state.year !== DEFAULT_YEAR) yearMoved = true;
   const layers: Layer[] = [];
   const zoom = map.getZoom();
   layers.push(...(terrainLayer(state.year, REGION, zoom) as any[]));
@@ -212,7 +215,9 @@ const story = initStory(
     onStart: () => {
       setPlaying(false);
       infoBox.hidden = true;
-    }
+    },
+    // the page as it first loads (at its default year, nothing moved yet): the tour starts in 1609
+    pristine: () => !yearMoved && state.year === DEFAULT_YEAR
   },
   YEAR_MIN,
   YEAR_MAX
