@@ -763,13 +763,19 @@ def histories(name, g, d, land_only=False, reuse_land=True):
     ground_y = np.where(made, land_year, -np.inf)   # nothing before its ground
     # reservoirs: water from their year; one that was drained hands the ground to today's
     # use (park or city) at its end, and nothing else happens there in between
+    # (one change of cover for all of them: every change is a pair of full arrays, and the
+    # wide map has 175 reservoirs - one each ran the densest window out of memory)
     in_res = np.zeros((rows, cols), bool)
+    res_y = np.full((rows, cols), np.nan, np.float32)
     for m, ys, ye in reservoirs:
-        event(m, RESERVOIR, np.full((rows, cols), ys, np.float32))
+        res_y[m] = np.fmin(res_y[m], ys)
         in_res |= m
         if ye < 9000:
-            city_y = np.where(m, np.fmax(city_y, ye), city_y).astype(np.float32)
-            park_y = np.where(m, np.fmax(park_y, ye), park_y).astype(np.float32)
+            city_y[m] = np.fmax(city_y[m], ye)
+            park_y[m] = np.fmax(park_y[m], ye)
+    if in_res.any():
+        event(in_res, RESERVOIR, res_y)
+    del res_y
     # researched sites (data/manual/sites/sites.geojson, README there): a yard, works or
     # terminal is city ground from its founding; a fort, asylum, hospital ground or landfill is
     # open grass from its founding until today's use takes the ground
@@ -822,19 +828,23 @@ def histories(name, g, d, land_only=False, reuse_land=True):
     if ap.exists():
         af = gpd.read_parquet(ap).to_crs(3857)
         af = af[~af["class"].astype(str).str.contains("heliport")]
+        air_y = np.full((rows, cols), np.nan, np.float32)     # (one change of cover for all the fields)
         for geom, opened, closed in zip(af.geometry, af.opened.astype(float), af.closed.astype(float)):
             if geom is None or geom.is_empty:
                 continue
             m = rasterize_on(g, [(geom, 1)], fill=0, dtype="uint8").astype(bool) & land_now
             if not m.any():
                 continue
-            event(m, GRASS, np.fmax(opened, ground_y + 0.5))
+            air_y[m] = np.fmin(air_y[m], opened)
             if closed < 9000:
-                city_y = np.where(m, np.fmax(city_y, closed), city_y).astype(np.float32)
-                park_y = np.where(m, np.fmax(park_y, closed), park_y).astype(np.float32)
+                city_y[m] = np.fmax(city_y[m], closed)
+                park_y[m] = np.fmax(park_y[m], closed)
             else:
                 is_city &= ~m      # the field is still a field: pavement and terminals are drawn on it
                 open_grass &= ~m
+        if np.isfinite(air_y).any():
+            event(np.isfinite(air_y), GRASS, np.fmax(air_y, ground_y + 0.5))
+        del air_y
     # a park made where the city already stood (a cleared tenement block, an estate's grounds):
     # city ground first — buildings stood there well before, or the maps show it built up
     # a generation earlier
@@ -860,9 +870,13 @@ def histories(name, g, d, land_only=False, reuse_land=True):
     # ---- assemble: natural cover + up to four changes in time order
     C = np.stack([e[0] for e in events])
     Y = np.stack([e[1] for e in events])
-    order = np.argsort(np.where(np.isnan(Y), np.inf, Y), axis=0, kind="stable")
-    C = np.take_along_axis(C, order, 0)
-    Y = np.take_along_axis(Y, order, 0)
+    del events
+    for r0_ in range(0, rows, 256):       # (in bands of rows: the sort's index is eight bytes a value)
+        sl = slice(r0_, r0_ + 256)
+        o_ = np.argsort(np.where(np.isnan(Y[:, sl]), np.inf, Y[:, sl]), axis=0, kind="stable")
+        C[:, sl] = np.take_along_axis(C[:, sl], o_, 0)
+        Y[:, sl] = np.take_along_axis(Y[:, sl], o_, 0)
+    del o_
     covers = np.zeros((5, rows, cols), np.uint8)
     years = np.full((4, rows, cols), np.nan, np.float32)
     covers[0] = N
