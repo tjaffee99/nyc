@@ -21,6 +21,7 @@ import {loadBuildings, buildingsLayer, type BuildingSet} from './layers/building
 import {landmarkLayers, landmarkInfo, loadLandmarks, occupiedMask, replacedMask, type LandmarkSet} from './landmarks';
 import {loadTrees, treesLayer, type TreeSet} from './layers/trees';
 import {effectLayers, effectsActive} from './layers/effects';
+import {WIDE, setWide} from './scope';
 import {loadRegionTreeIndex, regionTreeLayers, regionTreesReady} from './layers/region-trees';
 import {treeLod} from './layers/decoration-meshes';
 import {loadLocalStreetIndex, loadRoads, localStreetLayers, roadLayers, trafficLayers, tickTraffic, hasTraffic} from './layers/roads';
@@ -185,7 +186,8 @@ let fxBroken = false;
 function fx(t: number): Layer[] {
   if (fxBroken) return [];
   try {
-    return effectsActive(state.year) ? effectLayers(state.year, t) : [];
+    // (only in the guided tour: on the plain map nothing is animated but the traffic)
+    return story.active() && effectsActive(state.year) ? effectLayers(state.year, t) : [];
   } catch (e) {
     fxBroken = true;
     console.warn('effects', e);
@@ -436,7 +438,7 @@ function trafficLoop(t: number) {
   // the effects move on the wall clock: about 20 redraws a second of their own few layers
   // (the rest of the list is the same objects, so nothing else is touched)
   if (!document.hidden && t - lastFx >= 50) {
-    const act = !fxBroken && effectsActive(state.year);
+    const act = !fxBroken && story.active() && effectsActive(state.year);
     if (act || fxOn) {
       lastFx = t;
       fxOn = act;
@@ -456,6 +458,17 @@ function trafficLoop(t: number) {
   }
 }
 if (!new URLSearchParams(location.search).has('notraffic')) requestAnimationFrame(trafficLoop);
+
+// ---------------------------------------------------------------- the core or the whole region
+{
+  const btn = $('scope') as HTMLButtonElement;
+  btn.textContent = WIDE ? 'Five boroughs only' : 'Show the whole region';
+  btn.title = WIDE
+    ? 'Load only the five boroughs and the Hudson waterfront (faster)'
+    : 'Also load the 26 counties around the city: northern New Jersey, the Hudson valley, Long Island, south-west Connecticut (slower, above all on a telephone)';
+  btn.hidden = false;
+  btn.addEventListener('click', () => setWide(!WIDE));
+}
 
 // ---------------------------------------------------------------- attribution
 $('attribution-text').innerHTML =

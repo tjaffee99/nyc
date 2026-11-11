@@ -5,13 +5,15 @@
  * landmarks, labels and traffic on the hills.
  */
 import {loadColumnar} from '../data/columnar';
+import {WIDE} from '../scope';
 
 type Grid = {elev: Int16Array; rows: number; cols: number; X0: number; Y0: number; res: number};
 const grids: Grid[] = [];
 const R = 6378137;
 
 export async function loadElevation() {
-  for (const name of ['detail', 'region']) {
+  // (the region's grid is 7 MB: only with the counties)
+  for (const name of WIDE ? ['detail', 'region'] : ['detail']) {
     try {
       const f = await loadColumnar(`data/elevation-${name}.bin.gz`);
       grids.push({

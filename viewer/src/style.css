@@ -261,6 +261,23 @@ html, body {
   cursor: pointer;
 }
 #story:hover { background: #fff; }
+/* the core or the whole region (scope.ts) */
+#scope {
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  left: 14px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 15px;
+  border: 1px solid rgba(60, 54, 46, 0.55);
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 15px;
+  cursor: pointer;
+}
+#scope:hover { background: #fff; }
 #story.on { background: var(--ink); color: #fff; }
 #story-panel {
   position: absolute;

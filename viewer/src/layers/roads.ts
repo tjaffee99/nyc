@@ -18,7 +18,8 @@ import {MeshBuilder} from '../landmarks/kit';
 import {DecoLayer} from './deco-layer';
 import {elevationAt} from './elevation';
 import {LandmarkMeshLayer, type MergedLandmarks} from '../landmarks/merged-layer';
-import {MAP_BOX} from './extent';
+import {MAP_BOX, extentDistance, extentReady} from './extent';
+import {WIDE} from '../scope';
 
 // kinds — keep in sync with pipeline/roads.py
 const K = {STREET: 0, MAJOR: 1, FREEWAY: 2, HIGHWAY: 3, CABLE: 4, STREETCAR: 5, RAIL: 6, KEY: 7, BART: 8, FERRY: 9, LIGHTRAIL: 10};
@@ -69,8 +70,14 @@ async function loadSet(id: string, url: string) {
   const set = decodeSet(id, await loadColumnar(url));
   sets.push(set);
   // squares of about 7 km (the sets span the region box, 95 x 100 km, since the counties were added)
-  if (id === 'roads-region' || id === 'freeways') for (const ch of splitSet(set, 12, 14)) drawSets.push(addDecks(withColumns(ch)));
-  else drawSets.push(addDecks(withColumns(set)));
+  if (id === 'roads-region' || id === 'freeways') {
+    await extentReady;
+    for (const ch of splitSet(set, 12, 14)) {
+      // (with the core only, scope.ts: the squares outside its outline are not drawn)
+      if (!WIDE && ch.bbox && extentDistance((ch.bbox[0] + ch.bbox[2]) / 2, (ch.bbox[1] + ch.bbox[3]) / 2) < -5) continue;
+      drawSets.push(addDecks(withColumns(ch)));
+    }
+  } else drawSets.push(addDecks(withColumns(set)));
 }
 
 function decodeSet(id: string, f: any): PathSet {

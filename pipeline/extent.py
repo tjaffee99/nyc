@@ -64,9 +64,31 @@ def in_extent(points, margin=MARGIN_DEG):
     return shapely.contains(poly, np.asarray(getattr(points, "values", points)))
 
 
+CORE_FILE = MANUAL / "extent_core.json"
+CORE_FIPS = ["34017"]      # with the five boroughs: Hudson County (the Hudson waterfront)
+
+
+def core_ring():
+    """The outline the page loads by default: the five boroughs and Hudson County. The whole map
+    (26 counties more) is slow on a telephone; the page loads it when asked (viewer/src/scope.ts)."""
+    if CORE_FILE.exists():
+        return json.loads(CORE_FILE.read_text())["ring"]
+    import geopandas as gpd
+    co = gpd.read_file(f"zip://{RAW / 'tiger' / 'tl_2024_us_county.zip'}")
+    fips = co.STATEFP + co.COUNTYFP
+    co = co[((co.STATEFP == "36") & co.COUNTYFP.isin(list(BORO_COUNTY))) | fips.isin(CORE_FIPS)].to_crs(4326)
+    u = shapely.union_all(list(co.geometry)).buffer(GROW_DEG).simplify(0.0015)
+    poly = max(getattr(u, "geoms", [u]), key=lambda p: p.area)
+    ring = [[round(x, 4), round(y, 4)] for x, y in np.asarray(poly.exterior.coords)[:-1, :2]]
+    CORE_FILE.write_text(json.dumps({"ring": ring, "source": "US Census TIGER/Line 2024: the five boroughs and county 34017",
+                                     "grow_deg": GROW_DEG}))
+    return ring
+
+
 def write_viewer_extent():
     VIEWER_DATA.mkdir(parents=True, exist_ok=True)
     (VIEWER_DATA / "map-extent.json").write_text(json.dumps({"ring": [list(p) for p in EXTENT], "fade_km": FADE_KM}))
+    (VIEWER_DATA / "core-extent.json").write_text(json.dumps({"ring": [list(p) for p in core_ring()], "fade_km": FADE_KM}))
 
 
 if __name__ == "__main__":

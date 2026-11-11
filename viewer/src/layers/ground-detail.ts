@@ -3,6 +3,7 @@
  * sports pitches, running tracks, playgrounds, plazas, gardens and lawns — real
  * OpenStreetMap outlines draped on the terrain, each from its (estimated) year.
  */
+import {WIDE} from '../scope';
 import {COORDINATE_SYSTEM} from '@deck.gl/core';
 import type {Layer} from '@deck.gl/core';
 import {PathLayer, SolidPolygonLayer} from '@deck.gl/layers';
@@ -105,7 +106,8 @@ function gdLayer(id: string, d: GD, year: number, zoom: number): Layer {
 }
 
 export function groundDetailLayers(year: number, zoom: number): Layer[] {
-  if (zoom >= 12.5 && regionState === 'idle') {
+  // (the counties' parks and pitches, 11 MB: only with the counties, scope.ts)
+  if (WIDE && zoom >= 12.5 && regionState === 'idle') {
     regionState = 'loading';
     loadSet(`${HEAVY_BASE}data/region-ground-detail.bin.gz`)
       .then(d => {

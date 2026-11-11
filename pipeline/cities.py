@@ -18,7 +18,7 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 
-from common import BORO_COUNTY, RAW, TABLES, VIEWER_DATA, log
+from common import INTERIM, BORO_COUNTY, RAW, TABLES, VIEWER_DATA, log
 from extent import POLY
 
 AREAS = {"manhattan": "Manhattan", "bronx": "The Bronx", "brooklyn": "Brooklyn", "queens": "Queens",
@@ -91,7 +91,46 @@ def main():
             for name in OUTER_AREAS.get(area, [re.sub(r"_(ny|nj|ct|pa)$", "", area).replace("_", " ").title()]):
                 if name in names:
                     pop[f"county:{name}"] = series
-    out = {"places": [], "counties": counties, "pop": pop, "region": region, "region_label": "New York City"}
+    # ---- the whole metropolitan area (the counter's figure when the map is zoomed all the way
+    # out): the five boroughs and every county on the map, at the census years from 1790. A
+    # county created later was counted inside its parent before (Nassau in Queens, Mercer in
+    # Hunterdon and Middlesex, Ocean in Monmouth, Putnam in Dutchess, Sullivan in Ulster), so
+    # the sum of the series that exist in a year is the area's count (a little short before
+    # 1840: the part of Mercer that came from Burlington). Connecticut's two Fairfield regions
+    # share one series: counted once.
+    def at(series, y):
+        if not series or y < series[0][0]:
+            return 0.0
+        ys = [q[0] for q in series]
+        return float(np.interp(y, ys, [q[1] for q in series]))
+
+    uniq = {tuple(map(tuple, v)) for k, v in pop.items() if k.startswith("county:")}
+    last = max((sv[-1][0] for sv in uniq), default=2020)
+    metro = [[float(y), round(sum(at(list(sv), y) for sv in uniq))] for y in list(range(1790, 2021, 10)) + ([last] if last > 2020 else [])]
+    # ---- the towns (town_population.py: the municipalities' outlines and census counts):
+    # the counter names the town under the middle of the map when zoomed in
+    places = []
+    tp, tt = INTERIM / "towns" / "towns.parquet", TABLES / "population_towns.csv"
+    if tp.exists() and tt.exists():
+        towns = gpd.read_parquet(tp).to_crs(4326)
+        t = pd.read_csv(tt, dtype={"geoid": str})
+        t["population"] = pd.to_numeric(t.population, errors="coerce")
+        t["year"] = pd.to_numeric(t.year, errors="coerce")
+        t = t.dropna(subset=["population", "year"])
+        series = {g: sorted({float(y): float(v) for y, v in zip(grp.year, grp.population)}.items()) for g, grp in t.groupby("geoid")}
+        keep = POLY.buffer(0.02)
+        for r in towns.itertuples():
+            sv = series.get(str(r.geoid))
+            if not sv or len(sv) < 3 or r.geometry is None or r.geometry.is_empty:
+                continue
+            rr = rings_of(r.geometry.intersection(keep), 0.0008)
+            if not rr:
+                continue
+            places.append({"name": str(r.name), "geoid": str(r.geoid), "rings": rr})
+            pop[str(r.geoid)] = sv
+        log(f"cities: {len(places)} towns with a census series of their own")
+    out = {"places": places, "counties": counties, "pop": pop, "region": region, "region_label": "New York City",
+           "metro": metro, "metro_label": f"New York metropolitan area ({len(counties)} counties)"}
     (VIEWER_DATA / "cities.json").write_text(json.dumps(out, separators=(",", ":")))
     log(f"cities: {len(counties)} boroughs -> cities.json ({(VIEWER_DATA / 'cities.json').stat().st_size // 1024} KB)")
 

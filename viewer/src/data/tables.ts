@@ -140,7 +140,8 @@ type Place = {name: string; geoid: string; kind: string; rings: Ring[]; bbox?: [
 const ENGLISH = 1664.69;
 const FIRST_CENSUS = 1698;
 const CITY_BOROUGHS = new Set(['Manhattan', 'The Bronx', 'Brooklyn', 'Queens', 'Staten Island']);
-let cities: {places: Place[]; counties: Place[]; pop: Record<string, [number, number][]>; region: [number, number][]; region_label: string} | null =
+let cities: {places: Place[]; counties: Place[]; pop: Record<string, [number, number][]>; region: [number, number][]; region_label: string;
+  metro?: [number, number][]; metro_label?: string} | null =
   null;
 
 export async function loadCities() {
@@ -186,11 +187,28 @@ const COUNTY_LABEL: Record<string, string> = {
   'South Central Connecticut': 'New Haven County'
 };
 
+// the counter's steps: the metropolitan area below this zoom, a town from that one
+const METRO_BELOW = 9.3;
+const TOWN_FROM = 11.3;
+
 /** The population to show for the year at this map centre and zoom. */
 export function localPopulationAt(year: number, lon: number, lat: number, zoom: number): {value: number; label: string} | null {
   if (!cities) return populationLabelAt(year);
-  // outside the city: the county under the centre of the map, at any zoom
+  // zoomed all the way out: the whole metropolitan area (the five boroughs and every county on the map)
+  if (zoom < METRO_BELOW && cities.metro) {
+    const v = seriesAt(year, cities.metro);
+    if (v != null) return {value: v, label: cities.metro_label ?? 'New York metropolitan area'};
+  }
   const outer = placeAt(cities.counties, lon, lat);
+  // zoomed in outside the city: the town under the centre of the map (Newark, not Essex County)
+  if (zoom >= TOWN_FROM && outer && !CITY_BOROUGHS.has(outer.name)) {
+    const town = placeAt(cities.places, lon, lat);
+    if (town) {
+      const v = seriesAt(year, cities.pop[town.geoid ?? ''] ?? cities.pop[town.name]);
+      if (v != null) return {value: v, label: town.name};
+    }
+  }
+  // outside the city otherwise: the county under the centre of the map
   if (outer && !CITY_BOROUGHS.has(outer.name)) {
     const series = cities.pop[`county:${outer.name}`];
     const v = seriesAt(year, series);

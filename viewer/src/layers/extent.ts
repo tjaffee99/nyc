@@ -4,11 +4,15 @@
  * few km inside the line, like the edge of an old game map, and lets other layers drop
  * what lies outside.
  */
+import {VIEW_BOX, WIDE} from '../scope';
+
 type Extent = {ring: [number, number][]; fadeKm: number};
 
 let ext: Extent | null = null;
 let grid: Float32Array | null = null;
-const G = {x0: 0, y0: 0, dx: 0.002, dy: 0.002, nx: 0, ny: 0};
+// (the whole region's outline spans 3.6 x 2.7 degrees: at the core's 200 m the grid took seconds
+// to fill on a telephone)
+const G = {x0: 0, y0: 0, dx: WIDE ? 0.006 : 0.002, dy: WIDE ? 0.006 : 0.002, nx: 0, ny: 0};
 
 const KX = 111.32 * Math.cos((40.7 * Math.PI) / 180);
 const KY = 110.57;
@@ -33,7 +37,7 @@ function distToRing(x: number, y: number, ring: [number, number][]) {
 
 export const extentReady: Promise<void> = (async () => {
   try {
-    const r = await fetch('data/map-extent.json');
+    const r = await fetch(WIDE ? 'data/map-extent.json' : 'data/core-extent.json');
     if (!r.ok) return;
     const j = await r.json();
     ext = {ring: j.ring, fadeKm: j.fade_km ?? 4};
@@ -79,6 +83,5 @@ export function extentBounds(): [number, number, number, number] | null {
   return [Math.min(...xs) - 0.12, Math.min(...ys) - 0.1, Math.max(...xs) + 0.12, Math.max(...ys) + 0.1];
 }
 
-/** The box of everything that is built (pipeline/common.py REGION_BBOX): the tiled layers ask
- *  for tiles only inside it. It was the inner counties' box until the outer counties came. */
-export const MAP_BOX: [number, number, number, number] = [-75.37, 39.47, -71.85, 42.2];
+/** The box the tiled layers ask for tiles in: everything that is built, or the core (scope.ts). */
+export const MAP_BOX: [number, number, number, number] = VIEW_BOX;

@@ -136,7 +136,7 @@ const on = (e: Effect, year: number) => year >= e.y0 - BEFORE && year <= e.y1 + 
 
 /** Is anything to animate at this year? (cheap: called every frame) */
 export function effectsActive(year: number): boolean {
-  for (const e of EFFECTS) if (on(e, year)) return true;
+  for (const e of EFFECTS) if (DRAWN.has(e.kind) && on(e, year)) return true;
   return false;
 }
 
@@ -149,6 +149,10 @@ function pointAlong(e: Effect, f: number): [number, number] {
   return [p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t];
 }
 
+// What is drawn. The columns of troops, the clashes and the fleets — red and blue lines over the
+// Revolution — were taken out at the owner's word (2026-11-11); their rows stay in the table.
+const DRAWN = new Set<Kind>(['fire', 'explosion', 'collapse']);
+
 type Dot = {p: [number, number, number]; r: number; c: [number, number, number, number]};
 type Line = {path: [number, number, number][]; c: [number, number, number, number]; w: number};
 
@@ -159,7 +163,7 @@ export function effectLayers(year: number, t: number): Layer[] {
   const rings: Dot[] = [];
   const s = t / 1000;
   for (const e of EFFECTS) {
-    if (!on(e, year)) continue;
+    if (!on(e, year) || !DRAWN.has(e.kind)) continue;
     const z0 = elevationAt(e.lon, e.lat);
     // how far the event has burnt down: 1 while it happens, fading over its hold
     const fade = year <= e.y1 ? 1 : Math.max(0, 1 - (year - e.y1) / HOLD[e.kind]);

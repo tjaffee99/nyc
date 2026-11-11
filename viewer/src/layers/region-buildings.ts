@@ -6,6 +6,7 @@
  */
 import {TileLayer} from '@deck.gl/geo-layers';
 import {HEAVY_BASE} from '../remote';
+import {WIDE} from '../scope';
 import type {Layer} from '@deck.gl/core';
 import {buildingsLayer, fromBinary, loadTileInWorker, type BuildingSet} from './buildings';
 import {occupiedMask, replacedMask, type LandmarkSet} from '../landmarks';
@@ -39,7 +40,8 @@ let sets: TileSet[] = [];
 
 export async function loadRegionIndex() {
   const loaded = await Promise.all(
-    SETS.map(async ({id, dir}) => {
+    // (the outer counties' set only with the counties, scope.ts)
+    SETS.filter(s => WIDE || s.id !== 'region-buildings-outer').map(async ({id, dir}) => {
       try {
         const r = await fetch(`${dir}/index.json`);
         if (!r.ok) return null; // not built yet
