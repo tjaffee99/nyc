@@ -2374,6 +2374,14 @@ def county_block(job, shifts=None):
 
 
 COUNTY_YEARS = (1850, 1880, 1900, 1925, 1950, 1975)
+# metres (east, south) by which a sheet lies off the map, as registered by the first run of this stage on the county
+# snapshot of 2026-11-11 00:08 (115 clear block-sheets). The run on the snapshot of 03:16 registered only 54, and none
+# for these sheets: the median is used when fewer than three blocks give a clear answer.
+SHEET_SHIFT_FALLBACK = {"NJ_Elizabeth_254343_1947_24000_geo.tif": (-3.6, 12.7), "NJ_Weehawken_255029_1943_25000_geo.tif": (-2.7, 25.3),
+                        "NY_Central_Park_122894_1947_24000_geo.tif": (7.2, 10.9), "NJ_Yonkers_255024_1947_24000_geo.tif": (11.8, 2.7),
+                        "NY_Mt_Vernon_130724_1947_24000_geo.tif": (-3.6, 12.7), "NY_Mamaroneck_130436_1947_24000_geo.tif": (4.5, 19.95),
+                        "NY_Haverstraw_129840_1943_31680_geo.tif": (9.1, 1.8), "NY_Nyack_128840_1943_31680_geo.tif": (3.6, 5.4),
+                        "NY_White_Plains_140271_1947_24000_geo.tif": (0.0, -8.15)}
 _county_shifts = {}
 
 
@@ -2414,6 +2422,9 @@ def step_counties(workers=3, only=None):
     per = {}
     for (bx, by, fn), v in clear.items():
         per.setdefault(fn, []).append(v)
+    for fn in SHEET_SHIFT_FALLBACK:                  # the first run's medians (counties.log, 2026-11-11 01:08) where this run finds too few clear blocks
+        if len(per.get(fn, [])) < 3:
+            _county_shifts[fn] = SHEET_SHIFT_FALLBACK[fn]
     for fn, vs in per.items():
         if len(vs) >= 3:
             med = (float(np.median([v[0] for v in vs])), float(np.median([v[1] for v in vs])))
@@ -2730,6 +2741,16 @@ def step_report_counties(workers=3):
                 m_ = sum(v for k, v in st.items() if k.startswith("muni|") and k.split("|")[1] == cn and k.split("|")[2].lower() == town.lower() and k.endswith(f"|{y if y != 1920 else 1925}"))
                 a_ = int(((mu == town.lower()) & (f["area"].values == cn) & (f.start_year.values <= y) & (f.end_year.values > y)).sum())
                 L.append(f"| {town} | {y} | {ser[str(y)]:,} | {m_}{' (1925)' if y == 1920 else ''} | {a_} | {ser[str(y)] / max(m_, 1):.1f} -> {ser[str(y)] / max(m_ + a_, 1):.1f} |")
+    # the cleared districts: density before (first version of the rules) -> after
+    if (WORK / "gapfill_counties_before_cleared.parquet").exists():
+        L += ["", "## Cleared districts: buildings per hectare of the district's cleared street blocks, map + fill, before -> after (reference blocks)", "",
+              "Cleared street blocks = fewer than a third of today's buildings older than 1945. Reference = surviving old blocks of the same town within 1 km "
+              "(at least 8 buildings, 70 % dated before 1930); its figure is the same before and after. Share = after / reference.", ""]
+        L += step_districts()
+        cbr = f[f.evidence.str.startswith("cleared_block")]
+        L += ["", f"Cleared-block rows: {len(cbr)} (before the rule: {len(pd.read_parquet(WORK / 'gapfill_counties_before_cleared.parquet', columns=['id']))} rows in all, "
+              f"{len(f)} now). By county: " + ", ".join(f"{k} {v}" for k, v in cbr.groupby('area').size().items()) + ". Blocks that were candidates of rules (b) and (c): "
+              f"{st.get('cb_blocks', 0)}; that passed rule (a): {st.get('cb_blocks_ok', 0)}; rows of the rule before the final guards: {st.get('rows_cb', 0)}."]
     # invariants
     jobs = [(int(q.stem.split("_")[0]), int(q.stem.split("_")[1])) for q in sorted(ROWS_C.glob("*.parquet"))]
     tot = {}

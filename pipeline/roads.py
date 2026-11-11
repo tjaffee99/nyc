@@ -415,6 +415,8 @@ class LandmarkBridges:
         p = TABLES / "landmarks_bridges.csv"
         if p.exists():
             t = pd.read_csv(p, dtype=str).fillna("")
+            for extra in sorted(TABLES.glob("landmarks_bridges_*.csv")):      # the bridges of the later landmark parts
+                t = pd.concat([t, pd.read_csv(extra, dtype=str).fillna("")], ignore_index=True)
             names, by_id = set(), set()
             for note, mlon, mlat in zip(t["notes"].values, pd.to_numeric(t.lon, errors="coerce"), pd.to_numeric(t.lat, errors="coerce")):
                 centre = _TO_UTM.transform(mlon, mlat) if np.isfinite(mlon) and np.isfinite(mlat) else None
@@ -461,6 +463,7 @@ class LandmarkBridges:
             f"{len(self.ids_out)} ids kept generic ({'landmarks_bridges.csv' if self.table else 'built-in list'})")
 
     ID_RADIUS = 1150.0  # a segment listed by id is long: only its bridge stretches near the model count
+    ID_RADIUS_OF = {"9ae299c1": 2700.0, "6f48e58b": 2700.0}   # the Cuomo Bridge is five kilometres long
 
     def _by_id(self, sid, x, y):
         """None = the id is not listed; else a mask: listed to keep (False) or part of a model (True
@@ -473,7 +476,7 @@ class LandmarkBridges:
             return None
         out = np.zeros(len(x), bool)
         for c in self.ids_in[s8]:
-            out |= np.ones(len(x), bool) if c is None else (np.hypot(x - c[0], y - c[1]) <= self.ID_RADIUS)
+            out |= np.ones(len(x), bool) if c is None else (np.hypot(x - c[0], y - c[1]) <= self.ID_RADIUS_OF.get(s8, self.ID_RADIUS))
         return out
 
     def covers(self, name, link, part, sid=""):
@@ -514,6 +517,15 @@ BRIDGE_END_PINS = [
     ("b8d3d9ec", lambda lon, lat: lat > 40.874, 43.5),                          # Henry Hudson Bridge, lower level
     ("e2ac78e7", lambda lon, lat: True, 24.5),                                  # Kosciuszko Bridge (ends 23-26 m)
     ("8f4b1e93", lambda lon, lat: True, 24.5),
+    # the Hudson valley's bridge models (viewer/src/landmarks/ny-hudson.ts; estimates from the models)
+    ("9ae299c1", lambda lon, lat: lon < -73.915, 11.1),                         # Cuomo Bridge, north span: Rockland end
+    ("9ae299c1", lambda lon, lat: lon > -73.870, 9.5),                          # ... Westchester end
+    ("6f48e58b", lambda lon, lat: lon < -73.915, 11.0),                         # Cuomo Bridge, south span
+    ("6f48e58b", lambda lon, lat: lon > -73.870, 9.6),
+    ("BEAR MOUNTAIN", lambda lon, lat: True, 66.0),
+    ("MID-HUDSON", lambda lon, lat: True, 44.0),
+    ("NEWBURGH-BEACON", lambda lon, lat: lon < -74.0, 38.0),
+    ("NEWBURGH-BEACON", lambda lon, lat: lon > -73.983, 13.0),
 ]
 
 
