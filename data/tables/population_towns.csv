@@ -2851,19 +2851,6 @@ year,geoid,name,county,state,population,source_url,note
 2000,0919018850,Darien,Western Connecticut,CT,19607,"https://en.wikipedia.org/wiki/Darien,_Connecticut",census count as tabulated in the article's US Census population template
 2010,0919018850,Darien,Western Connecticut,CT,20752,"https://en.wikipedia.org/wiki/Darien,_Connecticut",census count as tabulated in the article's US Census population template
 2020,0919018850,Darien,Western Connecticut,CT,21499,"https://en.wikipedia.org/wiki/Darien,_Connecticut",census count as tabulated in the article's US Census population template
-1900,3402133180,Hopewell township,Mercer,NJ,980,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
-1910,3402133180,Hopewell township,Mercer,NJ,1073,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
-1920,3402133180,Hopewell township,Mercer,NJ,1339,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
-1930,3402133180,Hopewell township,Mercer,NJ,1467,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
-1940,3402133180,Hopewell township,Mercer,NJ,1678,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
-1950,3402133180,Hopewell township,Mercer,NJ,1869,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
-1960,3402133180,Hopewell township,Mercer,NJ,1928,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
-1970,3402133180,Hopewell township,Mercer,NJ,2271,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
-1980,3402133180,Hopewell township,Mercer,NJ,2001,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
-1990,3402133180,Hopewell township,Mercer,NJ,1968,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
-2000,3402133180,Hopewell township,Mercer,NJ,2035,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
-2010,3402133180,Hopewell township,Mercer,NJ,1922,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
-2020,3402133180,Hopewell township,Mercer,NJ,1918,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
 1790,3403505560,Bernards township,Somerset,NJ,2377,"https://en.wikipedia.org/wiki/Bernards_Township,_New_Jersey",census count as tabulated in the article's US Census population template
 1810,3403505560,Bernards township,Somerset,NJ,1876,"https://en.wikipedia.org/wiki/Bernards_Township,_New_Jersey",census count as tabulated in the article's US Census population template
 1820,3403505560,Bernards township,Somerset,NJ,2063,"https://en.wikipedia.org/wiki/Bernards_Township,_New_Jersey",census count as tabulated in the article's US Census population template
@@ -3093,22 +3080,6 @@ year,geoid,name,county,state,population,source_url,note
 2000,3402530690,Hazlet township,Monmouth,NJ,21378,"https://en.wikipedia.org/wiki/Hazlet,_New_Jersey",census count as tabulated in the article's US Census population template
 2010,3402530690,Hazlet township,Monmouth,NJ,20334,"https://en.wikipedia.org/wiki/Hazlet,_New_Jersey",census count as tabulated in the article's US Census population template
 2020,3402530690,Hazlet township,Monmouth,NJ,20125,"https://en.wikipedia.org/wiki/Hazlet,_New_Jersey",census count as tabulated in the article's US Census population template
-1870,3402777240,Washington township,Morris,NJ,1880,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1880,3402777240,Washington township,Morris,NJ,2142,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1890,3402777240,Washington township,Morris,NJ,2834,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1900,3402777240,Washington township,Morris,NJ,3580,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1910,3402777240,Washington township,Morris,NJ,3567,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1920,3402777240,Washington township,Morris,NJ,3341,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1930,3402777240,Washington township,Morris,NJ,4410,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1940,3402777240,Washington township,Morris,NJ,4643,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1950,3402777240,Washington township,Morris,NJ,4802,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1960,3402777240,Washington township,Morris,NJ,5723,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1970,3402777240,Washington township,Morris,NJ,5943,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1980,3402777240,Washington township,Morris,NJ,6429,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1990,3402777240,Washington township,Morris,NJ,6474,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-2000,3402777240,Washington township,Morris,NJ,6712,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-2010,3402777240,Washington township,Morris,NJ,6461,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-2020,3402777240,Washington township,Morris,NJ,7299,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
 1880,3403156550,Passaic,Passaic,NJ,6532,"https://en.wikipedia.org/wiki/Passaic,_New_Jersey",census count as tabulated in the article's US Census population template
 1890,3403156550,Passaic,Passaic,NJ,13028,"https://en.wikipedia.org/wiki/Passaic,_New_Jersey",census count as tabulated in the article's US Census population template
 1900,3403156550,Passaic,Passaic,NJ,27777,"https://en.wikipedia.org/wiki/Passaic,_New_Jersey",census count as tabulated in the article's US Census population template
@@ -5668,22 +5639,6 @@ year,geoid,name,county,state,population,source_url,note
 2000,3400355770,Palisades Park,Bergen,NJ,17073,"https://en.wikipedia.org/wiki/Palisades_Park,_New_Jersey",census count as tabulated in the article's US Census population template
 2010,3400355770,Palisades Park,Bergen,NJ,19622,"https://en.wikipedia.org/wiki/Palisades_Park,_New_Jersey",census count as tabulated in the article's US Census population template
 2020,3400355770,Palisades Park,Bergen,NJ,20292,"https://en.wikipedia.org/wiki/Palisades_Park,_New_Jersey",census count as tabulated in the article's US Census population template
-1870,3400377135,Washington township,Bergen,NJ,1880,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1880,3400377135,Washington township,Bergen,NJ,2142,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1890,3400377135,Washington township,Bergen,NJ,2834,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1900,3400377135,Washington township,Bergen,NJ,3580,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1910,3400377135,Washington township,Bergen,NJ,3567,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1920,3400377135,Washington township,Bergen,NJ,3341,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1930,3400377135,Washington township,Bergen,NJ,4410,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1940,3400377135,Washington township,Bergen,NJ,4643,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1950,3400377135,Washington township,Bergen,NJ,4802,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1960,3400377135,Washington township,Bergen,NJ,5723,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1970,3400377135,Washington township,Bergen,NJ,5943,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1980,3400377135,Washington township,Bergen,NJ,6429,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-1990,3400377135,Washington township,Bergen,NJ,6474,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-2000,3400377135,Washington township,Bergen,NJ,6712,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-2010,3400377135,Washington township,Bergen,NJ,6461,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
-2020,3400377135,Washington township,Bergen,NJ,7299,"https://en.wikipedia.org/wiki/Washington_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
 1910,3403936690,Kenilworth,Union,NJ,779,"https://en.wikipedia.org/wiki/Kenilworth,_New_Jersey",census count as tabulated in the article's US Census population template
 1920,3403936690,Kenilworth,Union,NJ,1312,"https://en.wikipedia.org/wiki/Kenilworth,_New_Jersey",census count as tabulated in the article's US Census population template
 1930,3403936690,Kenilworth,Union,NJ,2243,"https://en.wikipedia.org/wiki/Kenilworth,_New_Jersey",census count as tabulated in the article's US Census population template
@@ -8533,22 +8488,6 @@ year,geoid,name,county,state,population,source_url,note
 2000,3610526528,Forestburgh town,Sullivan,NY,831,"https://en.wikipedia.org/wiki/Forestburgh,_New_York",census count as tabulated in the article's US Census population template
 2010,3610526528,Forestburgh town,Sullivan,NY,819,"https://en.wikipedia.org/wiki/Forestburgh,_New_York",census count as tabulated in the article's US Census population template
 2020,3610526528,Forestburgh town,Sullivan,NY,808,"https://en.wikipedia.org/wiki/Forestburgh,_New_York",census count as tabulated in the article's US Census population template
-1870,4210349408,Milford township,Pike,PA,746,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-1880,4210349408,Milford township,Pike,PA,983,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-1890,4210349408,Milford township,Pike,PA,793,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-1900,4210349408,Milford township,Pike,PA,884,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-1910,4210349408,Milford township,Pike,PA,872,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-1920,4210349408,Milford township,Pike,PA,768,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-1930,4210349408,Milford township,Pike,PA,886,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-1940,4210349408,Milford township,Pike,PA,901,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-1950,4210349408,Milford township,Pike,PA,1111,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-1960,4210349408,Milford township,Pike,PA,1198,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-1970,4210349408,Milford township,Pike,PA,1190,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-1980,4210349408,Milford township,Pike,PA,1143,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-1990,4210349408,Milford township,Pike,PA,1064,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-2000,4210349408,Milford township,Pike,PA,1104,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-2010,4210349408,Milford township,Pike,PA,1021,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
-2020,4210349408,Milford township,Pike,PA,1103,"https://en.wikipedia.org/wiki/Milford,_Pennsylvania",census count as tabulated in the article's US Census population template
 1900,3402133150,Hopewell,Mercer,NJ,980,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
 1910,3402133150,Hopewell,Mercer,NJ,1073,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
 1920,3402133150,Hopewell,Mercer,NJ,1339,"https://en.wikipedia.org/wiki/Hopewell,_New_Jersey",census count as tabulated in the article's US Census population template
@@ -9034,3 +8973,147 @@ year,geoid,name,county,state,population,source_url,note
 2000,3403776640,Walpack township,Sussex,NJ,41,"https://en.wikipedia.org/wiki/Walpack_Township,_New_Jersey",census count as tabulated in the article's US Census population template
 2010,3403776640,Walpack township,Sussex,NJ,16,"https://en.wikipedia.org/wiki/Walpack_Township,_New_Jersey",census count as tabulated in the article's US Census population template
 2020,3403776640,Walpack township,Sussex,NJ,7,"https://en.wikipedia.org/wiki/Walpack_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1790,3403507720,Bridgewater township,Somerset,NJ,2578,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1810,3403507720,Bridgewater township,Somerset,NJ,2906,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1820,3403507720,Bridgewater township,Somerset,NJ,3147,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1830,3403507720,Bridgewater township,Somerset,NJ,3549,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1840,3403507720,Bridgewater township,Somerset,NJ,3986,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,3403507720,Bridgewater township,Somerset,NJ,4070,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3403507720,Bridgewater township,Somerset,NJ,4947,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3403507720,Bridgewater township,Somerset,NJ,2082,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3403507720,Bridgewater township,Somerset,NJ,1912,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3403507720,Bridgewater township,Somerset,NJ,1444,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3403507720,Bridgewater township,Somerset,NJ,1601,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3403507720,Bridgewater township,Somerset,NJ,1742,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3403507720,Bridgewater township,Somerset,NJ,1934,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3403507720,Bridgewater township,Somerset,NJ,3352,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3403507720,Bridgewater township,Somerset,NJ,4934,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3403507720,Bridgewater township,Somerset,NJ,8234,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3403507720,Bridgewater township,Somerset,NJ,15789,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3403507720,Bridgewater township,Somerset,NJ,30235,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3403507720,Bridgewater township,Somerset,NJ,29175,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3403507720,Bridgewater township,Somerset,NJ,32509,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3403507720,Bridgewater township,Somerset,NJ,42940,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3403507720,Bridgewater township,Somerset,NJ,44464,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3403507720,Bridgewater township,Somerset,NJ,45977,"https://en.wikipedia.org/wiki/Bridgewater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402160900,Princeton,Mercer,NJ,28572,"https://en.wikipedia.org/wiki/Princeton,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402160900,Princeton,Mercer,NJ,30681,"https://en.wikipedia.org/wiki/Princeton,_New_Jersey",census count as tabulated in the article's US Census population template
+1830,3403770890,Stillwater township,Sussex,NJ,1381,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1840,3403770890,Stillwater township,Sussex,NJ,1476,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,3403770890,Stillwater township,Sussex,NJ,1742,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3403770890,Stillwater township,Sussex,NJ,1816,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3403770890,Stillwater township,Sussex,NJ,1632,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3403770890,Stillwater township,Sussex,NJ,1502,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3403770890,Stillwater township,Sussex,NJ,1296,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3403770890,Stillwater township,Sussex,NJ,1108,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3403770890,Stillwater township,Sussex,NJ,796,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3403770890,Stillwater township,Sussex,NJ,671,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3403770890,Stillwater township,Sussex,NJ,706,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3403770890,Stillwater township,Sussex,NJ,679,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3403770890,Stillwater township,Sussex,NJ,816,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3403770890,Stillwater township,Sussex,NJ,1339,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3403770890,Stillwater township,Sussex,NJ,2158,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3403770890,Stillwater township,Sussex,NJ,3887,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3403770890,Stillwater township,Sussex,NJ,4253,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3403770890,Stillwater township,Sussex,NJ,4267,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3403770890,Stillwater township,Sussex,NJ,4099,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3403770890,Stillwater township,Sussex,NJ,4004,"https://en.wikipedia.org/wiki/Stillwater_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,0919008210,Bridgewater,Western Connecticut,CT,815,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1860,0919008210,Bridgewater,Western Connecticut,CT,1048,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1870,0919008210,Bridgewater,Western Connecticut,CT,877,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1880,0919008210,Bridgewater,Western Connecticut,CT,708,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1890,0919008210,Bridgewater,Western Connecticut,CT,617,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1900,0919008210,Bridgewater,Western Connecticut,CT,649,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1910,0919008210,Bridgewater,Western Connecticut,CT,600,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1920,0919008210,Bridgewater,Western Connecticut,CT,481,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1930,0919008210,Bridgewater,Western Connecticut,CT,432,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1940,0919008210,Bridgewater,Western Connecticut,CT,537,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1950,0919008210,Bridgewater,Western Connecticut,CT,639,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1960,0919008210,Bridgewater,Western Connecticut,CT,898,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1970,0919008210,Bridgewater,Western Connecticut,CT,1277,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1980,0919008210,Bridgewater,Western Connecticut,CT,1563,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1990,0919008210,Bridgewater,Western Connecticut,CT,1654,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+2000,0919008210,Bridgewater,Western Connecticut,CT,1824,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+2010,0919008210,Bridgewater,Western Connecticut,CT,1727,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+2020,0919008210,Bridgewater,Western Connecticut,CT,1662,"https://en.wikipedia.org/wiki/Bridgewater,_Connecticut",census count as tabulated in the article's US Census population template
+1900,3400320020,Edgewater,Bergen,NJ,1006,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3400320020,Edgewater,Bergen,NJ,2655,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3400320020,Edgewater,Bergen,NJ,3530,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3400320020,Edgewater,Bergen,NJ,4089,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3400320020,Edgewater,Bergen,NJ,4028,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3400320020,Edgewater,Bergen,NJ,3952,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3400320020,Edgewater,Bergen,NJ,4113,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3400320020,Edgewater,Bergen,NJ,4987,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3400320020,Edgewater,Bergen,NJ,4628,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3400320020,Edgewater,Bergen,NJ,5001,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3400320020,Edgewater,Bergen,NJ,7677,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3400320020,Edgewater,Bergen,NJ,11513,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3400320020,Edgewater,Bergen,NJ,14336,"https://en.wikipedia.org/wiki/Edgewater,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3607939331,Kent town,Putnam,NY,12900,"https://en.wikipedia.org/wiki/Kent,_New_York",2020 census count from the article's infobox (the template has none)
+1790,3402133180,Hopewell township,Mercer,NJ,2320,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1810,3402133180,Hopewell township,Mercer,NJ,2565,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1820,3402133180,Hopewell township,Mercer,NJ,2881,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1830,3402133180,Hopewell township,Mercer,NJ,3154,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1840,3402133180,Hopewell township,Mercer,NJ,3205,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,3402133180,Hopewell township,Mercer,NJ,3698,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3402133180,Hopewell township,Mercer,NJ,3900,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3402133180,Hopewell township,Mercer,NJ,4276,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3402133180,Hopewell township,Mercer,NJ,4462,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3402133180,Hopewell township,Mercer,NJ,4338,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402133180,Hopewell township,Mercer,NJ,3360,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402133180,Hopewell township,Mercer,NJ,3171,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402133180,Hopewell township,Mercer,NJ,3249,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402133180,Hopewell township,Mercer,NJ,3907,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402133180,Hopewell township,Mercer,NJ,3738,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402133180,Hopewell township,Mercer,NJ,4731,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402133180,Hopewell township,Mercer,NJ,7818,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402133180,Hopewell township,Mercer,NJ,10030,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402133180,Hopewell township,Mercer,NJ,10893,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402133180,Hopewell township,Mercer,NJ,11590,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402133180,Hopewell township,Mercer,NJ,16105,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402133180,Hopewell township,Mercer,NJ,17304,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402133180,Hopewell township,Mercer,NJ,17491,"https://en.wikipedia.org/wiki/Hopewell_Township,_Mercer_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1810,3402777240,Washington township,Morris,NJ,1793,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1820,3402777240,Washington township,Morris,NJ,1876,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1830,3402777240,Washington township,Morris,NJ,2188,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1840,3402777240,Washington township,Morris,NJ,2451,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,3402777240,Washington township,Morris,NJ,2502,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3402777240,Washington township,Morris,NJ,2504,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3402777240,Washington township,Morris,NJ,2484,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3402777240,Washington township,Morris,NJ,2681,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3402777240,Washington township,Morris,NJ,2367,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402777240,Washington township,Morris,NJ,2220,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402777240,Washington township,Morris,NJ,1900,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402777240,Washington township,Morris,NJ,1779,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402777240,Washington township,Morris,NJ,1615,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402777240,Washington township,Morris,NJ,1870,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402777240,Washington township,Morris,NJ,2147,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402777240,Washington township,Morris,NJ,3330,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402777240,Washington township,Morris,NJ,6962,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402777240,Washington township,Morris,NJ,11402,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402777240,Washington township,Morris,NJ,15592,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402777240,Washington township,Morris,NJ,17592,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402777240,Washington township,Morris,NJ,18533,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402777240,Washington township,Morris,NJ,18197,"https://en.wikipedia.org/wiki/Washington_Township,_Morris_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1840,3400377135,Washington township,Bergen,NJ,1833,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,3400377135,Washington township,Bergen,NJ,1807,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3400377135,Washington township,Bergen,NJ,2273,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3400377135,Washington township,Bergen,NJ,2514,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3400377135,Washington township,Bergen,NJ,2853,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3400377135,Washington township,Bergen,NJ,2942,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3400377135,Washington township,Bergen,NJ,782,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3400377135,Washington township,Bergen,NJ,100,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3400377135,Washington township,Bergen,NJ,194,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3400377135,Washington township,Bergen,NJ,402,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3400377135,Washington township,Bergen,NJ,491,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3400377135,Washington township,Bergen,NJ,1208,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3400377135,Washington township,Bergen,NJ,6654,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3400377135,Washington township,Bergen,NJ,10577,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3400377135,Washington township,Bergen,NJ,9550,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3400377135,Washington township,Bergen,NJ,9245,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3400377135,Washington township,Bergen,NJ,8938,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3400377135,Washington township,Bergen,NJ,9102,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3400377135,Washington township,Bergen,NJ,9285,"https://en.wikipedia.org/wiki/Washington_Township,_Bergen_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,4210349408,Milford township,Pike,PA,1292,"https://en.wikipedia.org/wiki/Milford_Township,_Pike_County,_Pennsylvania",census count as tabulated in the article's US Census population template
+2010,4210349408,Milford township,Pike,PA,1530,"https://en.wikipedia.org/wiki/Milford_Township,_Pike_County,_Pennsylvania",census count as tabulated in the article's US Census population template
+2020,4210349408,Milford township,Pike,PA,1523,"https://en.wikipedia.org/wiki/Milford_Township,_Pike_County,_Pennsylvania",census count as tabulated in the article's US Census population template
