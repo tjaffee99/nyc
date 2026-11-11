@@ -132,8 +132,13 @@ command against https://nyc.theojaffee.net/ and compare a file's checksum with `
   happens somewhere between 104 and 147 MB (decision 33: the Pages part stays under 100 MB). After `make deploy`, confirm the live site by comparing a file's checksum — a
   pushed deploy is not a published one.
 - The build machine has 16 GB: run heavy stages one at a time, process big arrays in chunks.
-- Headless screenshots do not work on the build machine (software rendering times out). Verify
-  with numeric checks and a headless console-error check, and tell the owner what to eyeball.
+- Headless screenshots work only one way on the build machine: small (760 x 480), through the
+  DevTools protocol, with the trees, street tiles and traffic not loaded
+  (`viewer/scripts/shots.cjs <url> <out prefix> "<view>" …`; `page.screenshot` never returns
+  under software rendering). **Look at what you ship** — the first deployment of the outer
+  counties passed every numeric check with no place names, the colonial Princeton 900 m from
+  Nassau Street and landmarks nobody could find. Numeric checks first, then a few shots of
+  the places that matter, then tell the owner what was and was not looked at.
 
 **Working with parallel agents**
 - One bounded part each, a tool-call budget, exclusive ownership of named files; only the lead
@@ -520,6 +525,38 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
     Point, Kykuit, Sleepy Hollow, Oheka Castle, New Haven and Yale, the Hudson's bridges. A
     model outside the map's outline is not built (`loadLandmarks`).
 
+52. **The towns round: Princeton and New Haven** (2026-11-11; the owner: "The outer counties
+    aren't labeled and a lot of the data (building dates etc) looks fake and there are no
+    landmarks. Double check especially important towns like Princeton and New Haven";
+    `docs/TOWNS_ROUND.md`). What was wrong, and what was done:
+    - *No names*: the label layer never read `places_outer.csv`. It does now, and
+      `places_auto.py` adds 3,180 villages, hamlets and neighbourhoods of the outer counties
+      (`places_outer_auto.csv`, tier `hamlet` new): name and position are OpenStreetMap's place
+      points (Overture divisions), each shown from the year a twentieth of today's buildings
+      within 600 m stand on the map (`estimated`).
+    - *Town centres*: `places_outer.csv` held the Census gazetteer's interior point of each
+      municipality — Princeton's lies 900 m from Nassau Street. 122 of 230 places moved to
+      the place point (`data/tables/tools/recentre_places.py`), and the colonial towns were
+      regenerated around them (`data/research/early_counties_build`: `rot2.py`, `shift.py`,
+      `gen.py`). A table's coordinates are checked against a second source **and looked at**.
+    - *Landmarks*: the 16 models were drawn but few, small and lost among flat blocks.
+      `princeton.ts` (14) and `new-haven.ts` (18) add the buildings the towns are known by;
+      most heights are estimated from storeys (each `Model:` fact says so), and some cited
+      figures of the Princeton part come from search-result snippets, not opened pages.
+    - *Years*: a university pays no tax, so the roll has no year for its buildings (Princeton:
+      136 of the 145 footprints over 1,500 m² undated; Jadwin Gymnasium of 1969 stood at 1911),
+      and New Haven's assessor writes 1900, 1910 or 1920 for 60 % of the city. Researched rows
+      (`known_building_dates.princeton.csv`: 83; `.new_haven.csv`: 17; each from an opened
+      page) date the named campus and civic buildings; the rest stays `estimated`.
+    - *Counter*: before a county's first census count it shows no number (it showed New York
+      City's).
+    - **Connecticut's historic resources inventory (ConnCRIS)** has a construction date for
+      10,970 New Haven buildings (public feature service, found by the New Haven part) and
+      would replace 6,500 placeholder years. Its licence is CC BY-NC-ND. It is **not used and
+      not in the repository**: the 3,701 rows derived from it are parked in
+      `data/interim/new_haven_conncris_rows.csv` until the owner decides
+      (`data/research/new_haven_buildings.md`, task B).
+
 ## What is not done (as of 2026-11-11)
 
 - **Between the atlases and 1996** nothing real shows what stood: one atlas state per
@@ -547,6 +584,13 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
   OpenHistoricalMap rail extract covers the old box: delete `ohm_rail_region.json` under
   `data/raw` to refetch); closed airfields have no outline; six Suffolk towns and Pike County
   have census-modelled years.
+- **Princeton and New Haven** (decision 52): about fifteen of Princeton's large campus
+  footprints have no opened source for their year (Frick, Icahn, Jadwin Hall, the Andlinger
+  Center, the garages …); New Haven's ordinary buildings keep their spread placeholder years
+  unless ConnCRIS is allowed; Silliman College, the Schwarzman Center, City Hall, the Peabody
+  and the Shubert are undated (Wikipedia rate-limited the agents); Harkness Tower's position is
+  good to about 15 m. The other towns the owner named — Trenton, West Point, New Brunswick,
+  Poughkeepsie, Stamford, Bridgeport — have had no such pass.
 - **Large empty working ground**: the 25 largest empty patches (tank farms, quarries, depots)
   listed by the ports part were not filled.
 - **Effects and the colonial towns of the counties** rest on general knowledge, not opened
