@@ -425,7 +425,23 @@ def build(g, outer=False):
     log("counties: heap years " + "; ".join(f"{c} {sorted(int(v) for v in hs)}" for c, hs in found.items()))
     # (a pile at 1700 or 1750 is not "about 1700": it is "old, year unknown". As a bound it put
     # 240 houses of Hudson County in the 1670s-90s; it is read as "built by 1800")
-    raw = np.where(heap & (raw < 1790), 1800.0, raw)
+    old_pile = heap & (raw < 1790)
+    if old_pile.any():
+        # ... in open country: an old farmhouse, "built by 1800". On ground the dated maps show
+        # as town it is no year at all (238 houses of Hudson County stood in the 1780s): the
+        # building is dated like one without a year, from the buildings around.
+        ep = map_epochs()
+        in_town = np.zeros(n, bool)
+        if ep is not None:
+            grid, w0, n0, res0, _ = ep
+            b0 = g.geometry.bounds
+            cc = np.clip((((b0.minx + b0.maxx) / 2).values - w0) / res0, 0, grid.shape[1] - 1).astype(int)
+            rr = np.clip((n0 - ((b0.miny + b0.maxy) / 2).values) / res0, 0, grid.shape[0] - 1).astype(int)
+            in_town = grid[rr, cc] > 0
+        raw = np.where(old_pile & in_town, np.nan, np.where(old_pile, 1800.0, raw))
+        heap = heap & ~(old_pile & in_town)
+        log(f"counties: {int((old_pile & in_town).sum())} very early placeholder years in towns read as no year, "
+            f"{int((old_pile & ~in_town).sum())} in open country as 'built by 1800'")
     secondary = g.secondary.fillna(False).astype(bool).values if "secondary" in g else np.zeros(n, bool)
     year = np.where(heap, np.nan, raw)
     src = np.where(np.isfinite(year), np.where(secondary, "parcel_secondary", "parcel"), "").astype(object)
