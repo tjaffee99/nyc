@@ -92,7 +92,9 @@ again: decision 22). The whole chain in order, one stage at a time (about 25 min
 `nyc_buildings.py evidence` → `terrain_tiles.py land` → `nyc_buildings.py` →
 `county_buildings.py` → `street_trees.py build` → `airports.py` → `terrain_tiles.py` →
 `ground_detail.py` → `roads.py` (+ `check`) → `transit.py` → `cities.py` → `nyc_extras.py` →
-`audit.py`. Other jobs on the machine get killed for memory while it runs, and it them. After a deploy run the second
+`audit.py`. The generated fills read the built files: after a change to the buildings run
+the first four stages, then `gap_fill.py fresh assemble report` and `site_fill.py`, then the
+whole chain (decisions 34, 36). Other jobs on the machine get killed for memory while it runs, and it them. After a deploy run the second
 command against https://nyc.theojaffee.net/ and compare a file's checksum with `viewer/dist`.
 
 ## Working conventions
@@ -368,6 +370,10 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
       built. `procedural`, lowest rank, the popup names the evidence. Order: build the
       building files, run `gap_fill.py fresh assemble report`, build again. False rows are
       expected in the thousands in leafy suburbs; no hand-checked precision figure exists.
+    - *The other six counties* (`gap_fill.py counties` -> `gapfill_counties.parquet`, 71,000 rows): on
+      the states' real parcels, where the parcel's building is 25 or more years younger than a
+      neighbourhood built up before 1945 (the Bay project's rule), or a 1940s / 1897 USGS sheet
+      shows the ground built. `procedural`.
     - Vanished structures outside the city are held against the counties' standing buildings.
 35. **Modelled years where the roll has none** (`counties_ny_estimates.py`,
     `data/research/counties_ny_estimates.md`): 139,000 Westchester and 4,500 Rockland
@@ -376,7 +382,38 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
     the dated towns' years hidden: median error 21 years, a third in the right decade.
     `estimated`, source `modelled`.
 
-## What is not done (as of 2026-11-10, end of the second round)
+36. **Yards, forts and institutions** (2026-11-11; the owner: "the Brooklyn Navy Yard is too
+    empty for too long. Fix it and fix other similar military/industrial sites"). Three causes,
+    three fixes:
+    - *Lot stamps.* A year stamped on five or more buildings of an institutional lot is dropped
+      (not kept as an estimate): the building is dated like one without a year — the photographs,
+      the site's founding, its neighbours. One that a photograph shows standing is spread over
+      up to 45 years before it (`evidence_by:`), not stacked at the photograph.
+    - *Research* (`data/research/navy_yard.md`, `sites_buildings.md`, `industry_buildings.md`):
+      the Navy Yard from its National Register inventory and the yard plans of 1872, 1890 and
+      1946 registered on standing buildings (50 standing buildings dated, 34 lost ones, 25 with
+      an outline traced from a plan, ±8-15 m); Fort Wadsworth, Rikers Island's jails, Floyd
+      Bennett Field and others (41 dated); Bush Terminal's lofts. Written sources date few
+      buildings of such sites and place almost no lost ones: this route is exhausted quickly.
+    - *Roofs read off the photographs* (`pipeline/site_fill.py` -> `gapfill_sites.parquet`): inside
+      the sites of `data/manual/sites` each aerial photograph (1924, 1951) is segmented; a
+      building-sized patch that fills its bounding rectangle and that the presence model reads
+      as a standing building, where the map has none, becomes a building: outline approximate
+      (a rectangle on the roof), years estimated (spread back up to 60 years, not before the
+      site's founding), `procedural`, lowest rank. `site_fill.py look site=<id>` draws them on
+      the photographs: that is how they were checked (by eye, on four sites; no precision figure).
+    - Order of a full rebuild: build the building files → `gap_fill.py fresh assemble report` →
+      `site_fill.py` → build again.
+    - Limits: nothing before the 1860s is added (a roof of 1924 is not spread back further),
+      sites outside the city have no photographs, piers and dry docks are not buildings.
+37. **Undated made land is dated from the buildings' own years, not their waiting years.** Made
+    land without a zone appears four years before the second-earliest building around it. That
+    used the built years, which had already waited for the land: every rebuild pushed land and
+    buildings about half a year later (Bush Terminal's lofts of 1904-14 stood at 1931-35). The
+    building points carry `start_free` (the year before the ground rule moved it) and the
+    terrain uses that. A researched estimate (`known_est`) is ground evidence like a roll year.
+
+## What is not done (as of 2026-11-11)
 
 - **Between the atlases and 1996** nothing real shows what stood: one atlas state per
   district (two or three in the South Bronx), then the photographs of 1924 and 1951 as
@@ -389,9 +426,13 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
   Hudson (the Library of Congress Sanborn sheets can be placed by street crossings:
   `data/manual/atlas/tools_hudson/loc_register.py`; the Bay project's `sanborn_trace*.py`
   did the same for its towns). Storeys were not read off any atlas.
+- **Yards, forts and institutions before the 1860s**: only researched buildings (decision 36);
+  Fort Hamilton, Fort Schuyler, Fort Tilden, Governors Island's lost buildings, Hart Island,
+  Creedmoor, Kings County and the other hospital campuses were not researched building by
+  building; the Navy Yard's 1946 plan still holds about 150 untraced buildings.
 - **Piers before 1888**, and piers as part of the terrain (narrower than a cell).
-- **The counties' history**: no vanished buildings, no landmarks; Westchester's 22 undated
-  municipalities and Nassau have no buildings; the Hudson shore north of Hastings rests on the
+- **The counties' history**: vanished buildings only as generated rows (decision 34), no
+  landmarks; Nassau has no buildings; the Hudson shore north of Hastings rests on the
   soil survey alone; the Newark Bay Bridge and the Pulaski Skyway are drawn too low.
 - **Landmarks**: no new models in this round; some forts and works are plain documented boxes.
 - **Removed trees** are not drawn (the viewer has no end year for trees).
