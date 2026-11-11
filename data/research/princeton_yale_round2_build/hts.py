@@ -10,7 +10,7 @@ def run(f,src,ids):
         pid,name,c,x,y=m.groups()
         if c: x,y=consts[c]
         else: x,y=float(x),float(y)
-        rows=con.execute(f"select name,height_m,height_src,floors,floors_src,area_m2,geometry from '{f}' where lon between {x-.0015} and {x+.0015} and lat between {y-.0012} and {y+.0012}").fetchall()
+        rows=con.execute(f"select name,height_m,height_src,floors,footprint_src,area_m2,geometry from '{f}' where lon between {x-.0015} and {x+.0015} and lat between {y-.0012} and {y+.0012}").fetchall()
         best=None
         for r in rows:
             g=wkb.loads(bytes(r[6])); d=g.distance(Point(x,y))

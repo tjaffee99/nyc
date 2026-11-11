@@ -206,7 +206,7 @@ const NPC_ANCHOR: V2 = [-74.660719, 40.348883];
     replaces: [ALEXANDER],
     facts: {
       Built: 'groundbreaking 1892, completed 1894 and opened 9 June 1894; William Appleton Potter; Richardsonian Romanesque in rusticated brownstone and red granite; 900 seats',
-      Model: 'plan is the real outline (Overture, 1,136 m2); dates, style, materials and seating are cited; no height is published: the 13 m eave, the 21 m ridge and the four conical turrets (25 m) are estimated'
+      Model: 'plan is the real outline (Overture, 1,136 m2); dates, style, materials and seating are cited; no height is published: the 13 m eave, the 21 m ridge and the four conical turrets (25 m) are estimated Round 2: no opened page gives a height; OpenStreetMap gives three levels; the footprint height (7.5 m) is machine-learned (ms_ml) and was not used.'
     },
     sources: [WIKI + 'Alexander_Hall_(Princeton_University)', WIKI + 'Princeton_Historic_District_(Princeton,_New_Jersey)', OVERTURE]
   });
@@ -252,7 +252,7 @@ const NPC_ANCHOR: V2 = [-74.660719, 40.348883];
     facts: {
       Built: '1896-97 as Pyne Library, William Appleton Potter; the first explicitly Collegiate Gothic building at Princeton; the university\'s main library until 1948',
       Plan: 'a quadrangle of 216 x 155 ft (65.8 x 47.2 m) with a large tower over the western arch and a shorter, battlemented one over the eastern arch',
-      Model: 'plan and courtyard are the real outline (Overture; the quadrangle size is cited and matches it); no height is published: the 14 m wall, the 44 m western tower and the 24 m eastern tower are estimated'
+      Model: 'plan and courtyard are the real outline (Overture; the quadrangle size is cited and matches it); no height is published: the 14 m wall, the 44 m western tower and the 24 m eastern tower are estimated Round 2: no opened page gives a height; the footprint height (10.8 m) is machine-learned (ms_ml) and was not used.'
     },
     sources: [MUSEUM + 'artifact/252ecfae-9f12-4bf4-ae94-647a29375c32', WIKI + 'William_Appleton_Potter', OVERTURE]
   });
@@ -289,7 +289,7 @@ const NPC_ANCHOR: V2 = [-74.660719, 40.348883];
     facts: {
       Built: 'erected 1872, dedicated May 1873 as the University Library; William A. Potter; the most pronounced High Victorian Gothic building on the campus',
       Size: 'central octagon 64 ft (19.5 m) across and 50 ft (15.2 m) high; 160 ft (48.8 m) from wing to wing',
-      Model: 'plan is the real outline (Overture, 661 m2; its 48 m length matches the cited 160 ft); octagon width and height are cited; the wings\' 10 m, the steep roof (22 m) and the lantern (27 m) are estimated'
+      Model: 'plan is the real outline (Overture, 661 m2; its 48 m length matches the cited 160 ft); octagon width and height are cited; the wings\' 10 m, the steep roof (22 m) and the lantern (27 m) are estimated Round 2: the footprint carries a USGS lidar roof height of 19.7 m; the model ridge (22 m) is 12 percent above it, within the 20 percent tolerance, so no change.'
     },
     sources: ['https://static-prod.lib.princeton.edu/scsites/libraryhistory/1905_Williams.html', MUSEUM, WIKI + 'Princeton_Historic_District_(Princeton,_New_Jersey)', OVERTURE]
   });
@@ -324,7 +324,7 @@ const NPC_ANCHOR: V2 = [-74.660719, 40.348883];
     facts: {
       Built: 'commissioned 1909, the dormitory opened in 1910 and the tower was completed in 1911; Day & Klauder; Collegiate Gothic',
       Height: 'Holder Memorial Tower rises 145 ft (44.2 m) (most sources; a few say 140 ft)',
-      Model: 'plan is the real outline (Overture, 1,826 m2); the tower\'s height and the dates are cited; the 15 m eave, the tower\'s plan (about 9.6 m) and where it stands (the outline\'s deepest part) are estimated'
+      Model: 'plan is the real outline (Overture, 1,826 m2); the tower\'s height and the dates are cited; the 15 m eave, the tower\'s plan (about 9.6 m) and where it stands (the outline\'s deepest part) are estimated Round 2: the footprint carries a USGS lidar roof height of 20.2 m for the hall, to be compared with the model eave and ridge above; no change.'
     },
     sources: [MUSEUM + 'artifact/e6c46c30-f5d3-4757-b41d-59ea1d1c4645', 'https://dspace.njstatelib.org/items/741726e8-a7ae-41b5-ac55-2677a78c18b9', 'https://pjcarlino.blogspot.com/2008/04/holder-hall-prinecton.html', OVERTURE]
   });
@@ -439,9 +439,9 @@ const NPC_ANCHOR: V2 = [-74.660719, 40.348883];
     facts: {
       Opened: '11 September 2008; Frank Gehry; brick and stainless steel; 87,000 gross sq ft; four storeys in the tower, three in the Ivy Lane wing, two in the Washington Road wing',
       Height: 'highest point 105 ft (32.0 m), from grade to the top of the parapet coping (the university\'s fact sheet; earlier coverage said 103 ft)',
-      Model: 'plan is the real outline (Overture, 2,463 m2); the 32.0 m top is cited; the wings\' height (9.5 m), the tower\'s plan and place (the outline\'s deepest part) and the steel lid are estimated; construction start (2006) is an estimate'
+      Model: 'plan is the real outline (Overture, 2,463 m2); the 32.0 m top is cited; the wings\' height (9.5 m), the tower\'s plan and place (the outline\'s deepest part) and the steel lid are estimated; construction start (2006) is an estimate Round 2: the Daily Princetonian of Sept 2008 (opened) gives the main portion as a tower of four stories above grade, with the tower reaching more than 100 feet, the Ivy Lane wing three stories and the Washington Road wing two; 32.0 m fits that, but the fact-sheet page behind the exact figure could not be opened. Footprint height (9.8 m, ms_ml) is a machine-learned value and is the wings level, so no change.'
     },
-    sources: ['https://www.princeton.edu/news/2008/09/03/lewis-library-fact-sheet', OVERTURE]
+    sources: ['https://www.princeton.edu/news/2008/09/03/lewis-library-fact-sheet', OVERTURE, 'https://www.dailyprincetonian.com/article/2008/09/lewis-library-makes-a-grand-debut']
   });
 }
 
@@ -473,9 +473,9 @@ const NPC_ANCHOR: V2 = [-74.660719, 40.348883];
     facts: {
       Built: 'commissioned 1966, occupied and dedicated 17 March 1970; Warner, Burns, Toan and Lunde; a long three-storey base topped by a tower of ten more floors, for the departments of mathematics and statistics',
       Height: 'the tower is 170 ft (51.8 m), 17 stories as counted by the university when it won the zoning variance of 1965',
-      Model: 'plan is the real outline (Overture, 1,922 m2); the 170 ft height and the 3 + 10 floors are cited; the base height (11 m), the tower\'s plan and its place at the western end are estimated'
+      Model: 'plan is the real outline (Overture, 1,922 m2); the 170 ft height and the 3 + 10 floors are cited; the base height (11 m), the tower\'s plan and its place at the western end are estimated Round 2: the Wikipedia article on the mathematics department (opened) confirms three stories of classrooms plus ten floors of offices (13); the 170 ft figure is from the Museum page, not re-opened. Footprint height 15.4 m (ms_ml, machine-learned) is the base, no change.'
     },
-    sources: [MUSEUM + 'artifact/80804cbc-2146-4bad-913c-12a3569d090d', MUSEUM + 'reference/188787d5-d55e-4260-97ed-5c54f37a70ad', OVERTURE]
+    sources: [MUSEUM + 'artifact/80804cbc-2146-4bad-913c-12a3569d090d', MUSEUM + 'reference/188787d5-d55e-4260-97ed-5c54f37a70ad', OVERTURE, 'https://en.wikipedia.org/wiki/Department_of_Mathematics_(Princeton_University)']
   });
 }
 
@@ -503,7 +503,7 @@ const NPC_ANCHOR: V2 = [-74.660719, 40.348883];
     facts: {
       Built: 'groundbreaking 1964, opened 1969, $6.5 million; Walker O. Cain & Associates; 250,000 sq ft on five levels; 6,854 seats',
       Roof: 'a roof of three interlocking shells',
-      Model: 'plan is the real outline (Overture, 10,907 m2); the dates, seating and the three shells are cited; no height is published: the 8 m wall and the shells (18, 15 and 12.5 m) are estimated, and the shells are drawn as parabolic vaults'
+      Model: 'plan is the real outline (Overture, 10,907 m2); the dates, seating and the three shells are cited; no height is published: the 8 m wall and the shells (18, 15 and 12.5 m) are estimated, and the shells are drawn as parabolic vaults Round 2: no height appears in the Wikipedia article (opened); the footprint height (9.1 m) is machine-learned (ms_ml) and below the 12.5-18 m shells, so the shell heights remain estimates.'
     },
     sources: [WIKI + 'Jadwin_Gymnasium', OVERTURE]
   });
@@ -609,7 +609,7 @@ temple('pr_clio_hall', 'Clio Hall', CLIO, CLIO_ANCHOR, 90, 'Whig Hall');
     replaces: [ART],
     facts: {
       Built: 'construction began summer 2021 after the old museum was demolished; opened 31 October 2025; Adjaye Associates with Cooper Robertson; about 145,000 sq ft; three storeys of nine interlocking pavilions in alternating rough and polished stone',
-      Model: 'plan is the real outline with its three courtyards (Overture, 7,474 m2); the dates, three storeys and nine pavilions are cited; no height is published: the 12.5 m body and the raised pavilion volumes (to 18 m) are estimated. The museum of 1890 / 1966 on this ground is not modelled'
+      Model: 'plan is the real outline with its three courtyards (Overture, 7,474 m2); the dates, three storeys and nine pavilions are cited; no height is published: the 12.5 m body and the raised pavilion volumes (to 18 m) are estimated. The museum of 1890 / 1966 on this ground is not modelled Round 2: Wikipedia (opened) confirms the reopening on 31 Oct 2025, three stories and nine pavilions, 144,000-145,000 sq ft of floor; no height in metres appears on any opened page, and the footprint has no height, so 12.5 m and 18 m stay estimates.'
     },
     sources: [WIKI + 'Princeton_University_Art_Museum', 'https://www.dezeen.com/2025/10/31/adjaye-associates-princeton-university-art-museum/amp/', OVERTURE]
   });

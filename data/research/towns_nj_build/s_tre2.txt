@@ -1,0 +1,20 @@
+american_cigar|American Cigar Company Building|-74.744743|40.212498|1903|https://en.wikipedia.org/wiki/American_Cigar_Company_(Trenton,_New_Jersey)|exact: Built in 1903 as part of Trenton's cigar industry (NRHP listing; infobox built 1903)
+bellevue_school|Bellevue Avenue Colored School|-74.771389|40.225556|1883|https://en.wikipedia.org/wiki/Bellevue_Avenue_Colored_School|exact: built in 1883; two-story Italianate by William B. Thines
+brearley_house|Charles Brearley House|-74.755|40.223056|1855|https://en.wikipedia.org/wiki/Charles_Brearley_House|exact: built in 1855
+carver_center|Carver Center (Sunlight Elks Lodge)|-74.7686|40.2248|1928|https://en.wikipedia.org/wiki/Carver_Center_(Trenton,_New_Jersey)|estimate: auditorium built 1922-23, the two-story building facing Fowler Street 1927-28 (J. Osborne Hunt); footprint may be either
+henry_clay_cigar|Henry Clay and Bock Cigar Factory|-74.745833|40.203056|1932|https://en.wikipedia.org/wiki/Henry_Clay_and_Bock_&_Co._Ltd._Cigar_Factory|exact: built in 1932 in Spanish Revival style
+dickinson_house|Gen. Philemon Dickinson House (The Hermitage)|-74.783611|40.226667|1784|https://en.wikipedia.org/wiki/Gen._Philemon_Dickinson_House|exact: the stone-and-stucco addition built in 1784 still stands; the frame house of c.1760 was torn down c.1905
+east_trenton_library|East Trenton Public Library (Samuel Dickinson house)|-74.741769|40.233255|1796|https://en.wikipedia.org/wiki/East_Trenton_Public_Library|estimate: built c. 1796 as the Samuel Dickinson house; library from 1926
+golden_swan|Golden Swan-True American (Caola Building)|-74.76625|40.21922|1820|https://en.wikipedia.org/wiki/Golden_Swan–True_American|estimate: three row houses built in sections: Hancock 1815, Voorhees 1820, a third later
+higbee_school|Higbee Street School|-74.765833|40.234444|1857|https://en.wikipedia.org/wiki/Higbee_Street_School|exact: built in 1857 (Evernham and Hill)
+house_379_w_state|House at 379 West State Street|-74.778056|40.224722|1885|https://en.wikipedia.org/wiki/House_at_379_West_State_Street|exact: designed by William A. Cambell and ready for occupancy in 1885
+in_and_out_club|In and Out Social Club|-74.751667|40.209444|1893|https://en.wikipedia.org/wiki/In_and_Out_Social_Club|exact: building built in 1893
+kuser_estate|Rudolph V. Kuser Estate|-74.776667|40.223056|1905|https://en.wikipedia.org/wiki/Rudolph_V._Kuser_Estate|exact: built in 1905
+mansion_house|Mansion House (Ellarslie)|-74.789444|40.236667|1848|https://en.wikipedia.org/wiki/Mansion_House_(Trenton,_New_Jersey)|exact: built as a summer residence for Henry McCall Sr. in 1848 (John Notman)
+mercer_street_friends|Mercer Street Friends Center|-74.761111|40.217222|1858|https://en.wikipedia.org/wiki/Mercer_Street_Friends_Center|exact: built in 1858
+second_street_school|Second Street School and Mott School|-74.756667|40.201944|1854|https://en.wikipedia.org/wiki/Mott_School_and_Second_Street_School|estimate: Second Street School 1854; Mott School built 1876-1911; footprint may be either
+old_eagle_tavern|Old Eagle Tavern|-74.7594|40.2131|1765|https://en.wikipedia.org/wiki/Old_Eagle_Tavern|exact: built in 1765 by Robert Waln
+reading_station|Philadelphia and Reading Railroad Freight Station|-74.7675|40.2261|1888|https://en.wikipedia.org/wiki/Trenton_station_(Reading_Railroad)|exact: station built in 1888 by the Philadelphia and Reading Railroad
+roebling_machine_shop|Roebling Machine Shop|-74.7531|40.2097|1890|https://en.wikipedia.org/wiki/Roebling_Machine_Shop|exact: machine shop built in 1890 (further work 1901)
+sacred_heart|Sacred Heart Church|-74.7611|40.2164|1889|https://en.wikipedia.org/wiki/Sacred_Heart_Church_(Trenton,_New_Jersey)|exact: dedicated June 30, 1889
+st_michaels|St. Michael's Episcopal Church|-74.765278|40.222222|1748|https://en.wikipedia.org/wiki/St._Michael's_Church_(Trenton,_New_Jersey)|exact: present building at 140 North Warren Street built 1747-1748, renovated 1810 and 1847-48

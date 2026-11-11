@@ -71,7 +71,7 @@ NEW_HAVEN.push({
   facts: {
     Built: 'completed 1990, Crang and Boake of Toronto; postmodern; on the site of the Powell Building; the tallest building in New Haven',
     Height: '383 ft (117 m), 26 floors',
-    Model: 'plan from the footprint (67.8 x 32.4 m); roof height cited (116.7 m); the set-backs, the pyramidal roof and the colours estimated; start of building (1988) estimated'
+    Model: 'plan from the footprint (67.8 x 32.4 m); roof height cited (116.7 m); the set-backs, the pyramidal roof and the colours estimated; start of building (1988) estimated Round 2: OpenStreetMap (map API, opened) has height 116 and 26 levels for this building and Overture 116.0 m, which agrees with the cited 116.7 m.'
   },
   sources: [TALLEST, WIKI + 'Connecticut_Financial_Center', OVERTURE]
 });
@@ -103,9 +103,9 @@ NEW_HAVEN.push({
   facts: {
     Built: 'construction began 1 December 2008, completed 2010 (Becker + Becker; 500 apartments, a LEED Platinum building); on the site of Shartenberg’s department store (1915-62)',
     Height: '338 ft (103 m), 31 floors; the second-tallest building in New Haven',
-    Model: 'plan from the footprint (83.8 x 61.4 m, the podium and the towers together); top cited (103 m); podium height (27 m), which part is the tall slab and the second block, and the glass colours estimated: LOW'
+    Model: 'plan from the footprint (83.8 x 61.4 m, the podium and the towers together); top cited (103 m); podium height (27 m), which part is the tall slab and the second block, and the glass colours estimated: LOW Round 2: Wikipedia infobox (opened) gives roof 103 m and 31 floors, so the top is now cited; OpenStreetMap has height 91 (13 percent lower) and was not preferred.'
   },
-  sources: [TALLEST, WIKI + '360_State_Street', OVERTURE]
+  sources: [TALLEST, WIKI + '360_State_Street', OVERTURE, 'https://en.wikipedia.org/wiki/360_State_Street']
 });
 
 // ====================================================================== Union and New Haven Trust Building (1927)
@@ -140,7 +140,7 @@ NEW_HAVEN.push({
   facts: {
     Built: '1927, Cross and Cross, Georgian / Colonial Revival, on the corner of Church and Elm streets; the tallest building in New Haven until 1938; flats (The Union) since 2014',
     Height: '242 ft (74 m), 13 floors; the golden cupola echoes the dome of United Church on the Green',
-    Model: 'plan from the footprint (51 x 36 m); top cited (73.8 m = 242 ft); the base, the set-back stages and the cupola’s proportions estimated; start of building (1925.5) estimated'
+    Model: 'plan from the footprint (51 x 36 m); top cited (73.8 m = 242 ft); the base, the set-back stages and the cupola’s proportions estimated; start of building (1925.5) estimated Round 2: OpenStreetMap height 74 m and Overture 74.0 m agree with the cited 73.8 m.'
   },
   sources: [WIKI + 'Union_and_New_Haven_Trust_Building', TALLEST, OVERTURE]
 });
@@ -216,7 +216,7 @@ NEW_HAVEN.push({
   facts: {
     Built: '1962–1966, Philip Johnson, $12 million; the tallest building in New Haven 1966–69 and still the tallest on Yale’s campus; Kline Biology Tower until 2023',
     Height: '250 ft (76 m) to the roof, 16 floors',
-    Model: 'plan from the footprint (50 x 24 m); roof cited (76.2 m); the darker top band (4 m) and the brick colour estimated'
+    Model: 'plan from the footprint (50 x 24 m); roof cited (76.2 m); the darker top band (4 m) and the brick colour estimated Round 2: OpenStreetMap height 77 m and 16 levels agree with the cited 76.2 m.'
   },
   sources: [WIKI + 'Kline_Biology_Tower', TALLEST, OVERTURE]
 });
@@ -248,9 +248,9 @@ NEW_HAVEN.push({
   facts: {
     Built: '1953–1958 (opened 3 December 1958), Eero Saarinen, $1.5 million: a concrete arch and cable net under a timber roof; seats 3,500; renovated 2009',
     Height: 'maximum ceiling height 23 m; the main arch is 90 m long',
-    Model: 'plan from the footprint (95 x 60 m); the roof is a lofted hump to the cited ceiling height (23 m, used as the roof height), with a ridge line for the arch; the 4 m wall and the section of the roof estimated'
+    Model: 'plan from the footprint (95 x 60 m); the roof is a lofted hump to the cited ceiling height (23 m, used as the roof height), with a ridge line for the arch; the 4 m wall and the section of the roof estimated Round 2: Wikipedia (opened) confirms a maximum ceiling height of 23 m; the footprint height (7.5 m, Overture) is the wall, consistent with the 4 m wall estimate within the rim.'
   },
-  sources: [WIKI + 'Ingalls_Rink', OVERTURE]
+  sources: [WIKI + 'Ingalls_Rink', OVERTURE, 'https://en.wikipedia.org/wiki/Ingalls_Rink']
 });
 
 // ====================================================================== Woolsey Hall (1901)
@@ -281,7 +281,7 @@ NEW_HAVEN.push({
   replaces: [R_woolsey],
   facts: {
     Built: '1901 for Yale’s bicentennial (Carrère and Hastings, who designed the New York Public Library a decade later); the university’s largest auditorium, about 2,650 seats',
-    Model: 'plan from the footprint (46 x 36 m); every height (walls 18 m, roof 27.6 m), the green hipped roof and the six-column front on the south-west end estimated; no published height read: LOW'
+    Model: 'plan from the footprint (46 x 36 m); every height (walls 18 m, roof 27.6 m), the green hipped roof and the six-column front on the south-west end estimated; no published height read: LOW Round 2: no height on Wikipedia (opened), OpenStreetMap or the footprint; stays an estimate (LOW).'
   },
   sources: [WIKI + 'Woolsey_Hall', OVERTURE]
 });
@@ -309,7 +309,7 @@ NEW_HAVEN.push({
   replaces: [R_battell],
   facts: {
     Built: '1874–1876 (completed 1876), Russell Sturgis Jr., High Victorian Gothic, polychrome brick and stone; Yale’s college chapel on the Old Campus',
-    Model: 'plan from the footprint (42 x 26 m); every height (walls 12 m, ridge 19 m, tower 40 m), the nave’s extent and the position of the tower estimated; no published dimension read: LOW'
+    Model: 'plan from the footprint (42 x 26 m); every height (walls 12 m, ridge 19 m, tower 40 m), the nave’s extent and the position of the tower estimated; no published dimension read: LOW Round 2: no height on Wikipedia (opened), OpenStreetMap or the footprint; stays an estimate (LOW).'
   },
   sources: [WIKI + 'Battell_Chapel', OVERTURE]
 });
@@ -335,9 +335,9 @@ NEW_HAVEN.push({
   replaces: [R_rudolph],
   facts: {
     Built: 'dedicated 8 November 1963 (Paul Rudolph): one of the earliest and best-known Brutalist buildings in the United States; seven storeys with more than 30 floor levels; named for Rudolph in 2007',
-    Model: 'plan from the footprint (45 x 40 m); the stepped massing and every height (31 m at the tallest tower) estimated, ribbed concrete only as a colour; start of work (1958) estimated: LOW'
+    Model: 'plan from the footprint (45 x 40 m); the stepped massing and every height (31 m at the tallest tower) estimated, ribbed concrete only as a colour; start of work (1958) estimated: LOW Round 2: Wikipedia (opened): seven stories with more than 30 floor levels; no height in metres on any opened page; 31 m stays an estimate.'
   },
-  sources: [WIKI + 'Rudolph_Hall', OVERTURE]
+  sources: [WIKI + 'Rudolph_Hall', OVERTURE, 'https://en.wikipedia.org/wiki/Rudolph_Hall']
 });
 
 // ====================================================================== Yale Center for British Art (1969-77)
@@ -360,7 +360,7 @@ NEW_HAVEN.push({
   facts: {
     Built: 'opened to the public on 15 April 1977; designed by Louis Kahn, who died in 1974 before it was finished, at York and Chapel streets; four floors, matte steel panels and reflective glass',
     Height: '16.7 m (the footprint’s height)',
-    Model: 'plan from the footprint (61.6 x 36.6 m); top at the footprint’s 16.7 m; the base band (5.5 m) and the two courtyards (positions and sizes) estimated; start of work (1969) estimated'
+    Model: 'plan from the footprint (61.6 x 36.6 m); top at the footprint’s 16.7 m; the base band (5.5 m) and the two courtyards (positions and sizes) estimated; start of work (1969) estimated Round 2: the footprint height (16.7 m, Overture) is what the model uses; no other height read.'
   },
   sources: [WIKI + 'Yale_Center_for_British_Art', OVERTURE]
 });
@@ -390,9 +390,9 @@ NEW_HAVEN.push({
   replaces: [R_marcel],
   facts: {
     Built: 'built 1968–1970 for the Armstrong Rubber Company (Marcel Breuer and Robert Gatje); Pirelli’s from 1988 (Pirelli moved out in May 1999); today the Hotel Marcel; nine storeys with concrete panels',
-    Model: 'plan from the footprint (57 x 28 m); the two-storey base, the two-storey gap on three piers and the five-storey upper block as described; every height (about 4 m a storey, 36 m in all) and the pier sizes estimated: LOW'
+    Model: 'plan from the footprint (57 x 28 m); the two-storey base, the two-storey gap on three piers and the five-storey upper block as described; every height (about 4 m a storey, 36 m in all) and the pier sizes estimated: LOW Round 2: Wikipedia (opened, citing the National Park Service nomination): the building is nine stories including the two-storey gap, seven excluding it; this matches the model storey count. The 36 m total remains 4 m a storey, estimated.'
   },
-  sources: [WIKI + 'Hotel_Marcel', OVERTURE]
+  sources: [WIKI + 'Hotel_Marcel', OVERTURE, 'https://en.wikipedia.org/wiki/Hotel_Marcel']
 });
 
 // ====================================================================== Crown Towers (1967)

@@ -1,0 +1,3 @@
+mansion_house|Mansion House (Ellarslie)|id:fa0c73f5|x|1848|https://en.wikipedia.org/wiki/Mansion_House_(Trenton,_New_Jersey)|exact: built as a summer residence for Henry McCall Sr. in 1848 (John Notman)
+roebling_machine_shop|Roebling Machine Shop|id:d854f05d|x|1890|https://en.wikipedia.org/wiki/Roebling_Machine_Shop|exact: machine shop built in 1890 (further work 1901)
+sacred_heart|Sacred Heart Church|id:a1ff3022|x|1889|https://en.wikipedia.org/wiki/Sacred_Heart_Church_(Trenton,_New_Jersey)|exact: dedicated June 30, 1889

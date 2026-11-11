@@ -19,7 +19,7 @@ for p in lines:
     sid=f'{"tre" if town=="trenton" else "nb"}_{slug}'
     if lon.startswith('id:'):
         row=con.execute(f"select id,name,area_m2,height_m,geometry from 'data/interim/counties/{par}.parquet' where id like ?",[lon[3:]+'%']).fetchall()
-        g=wkb.loads(bytes(row[0][4])); d=0
+        g=wkb.loads(bytes(row[0][4])); d=0; best=None
     else:
         lon,lat=float(lon),float(lat); e=0.0004
         rows=con.execute(f"select id,name,area_m2,height_m,geometry from 'data/interim/counties/{par}.parquet' where lon between ? and ? and lat between ? and ?",[lon-e,lon+e,lat-e,lat+e]).fetchall()
