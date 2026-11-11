@@ -110,3 +110,21 @@ A source URL on every row. Readmes: `data/tables/places_README.md`, `data/manual
 Made-land dates of the counties: `data/manual/fill_counties_README.md` (a source per zone).
 Military and industrial sites: `data/manual/sites/README.md`. Story captions:
 `data/tables/story_README.md`.
+
+## Added in the third pass and the sites round (2026-11-10/11)
+
+| id | What | From | Licence | Use |
+|---|---|---|---|---|
+| `sanborn_brooklyn_188x` | Sanborn-Perris, *Insurance maps of Brooklyn*, volumes 1-9, 1886-88 | NYPL Map Division scans; control points: NYPL Map Warper (NYC Space/Time Directory dump) | Public domain scans; CC0 control points | Brooklyn's built core house by house (`data/manual/atlas/brooklyn_*`) |
+| `bromley_bronx_1904`, `bromley_bronx_1921` | G. W. Bromley & Co., atlases of the borough of the Bronx (sections 9-13) | NYPL, as above | Public domain; CC0 | The South Bronx in two later states |
+| `hyde_queens_1901`, `hyde_queens_1907`, `bromley_richmond_1917` | E. Belcher Hyde, *Atlas of the borough of Queens* (vols. 1-3); Bromley, *Atlas of the borough of Richmond* | NYPL, as above | Public domain; CC0 | Long Island City, Jamaica, Flushing, Rockaway; Staten Island's north shore |
+| `hopkins_jersey_city_1919`, `spielmann_brush_1873`, `brush_hudson_1887` | G. M. Hopkins, *Atlas of Jersey City* vol. 1; Spielmann & Brush, *Insurance maps of Jersey City*; Brush, *Insurance maps of Hudson County* | NYPL, as above | Public domain; CC0 | Jersey City and the Heights (`hudson_*`; the 1887 plate failed the street check and is skipped) |
+| `sanborn_hoboken_1891` | Sanborn-Perris, Hoboken 1891, three plates placed by street crossings | Library of Congress Sanborn collection (`loc.gov/collections/sanborn-maps`, IIIF) | Public domain | Hoboken (three plates) |
+| `usgs_1940s`, `usgs_1897` | USGS 1:24,000 / 1:25,000 sheets of 1943-47 (Jersey City, Weehawken, Elizabeth, Yonkers, Mount Vernon, White Plains, Nyack, Haverstraw, Mamaroneck …) and the 1897-98 sheets' built-up tint | USGS Historical Topographic Map Collection (`prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo`) | Public domain | Evidence for the generated fill in Hudson County and the old towns of the other counties (`pipeline/gap_fill.py`, `data/manual/gapfill`) |
+| `nj_1930` | New Jersey's black-and-white aerial mosaic of 1930 | NJ Office of GIS (`img.nj.gov/imagerywms/BlackWhite1930`) | Public | Looked at for the Hudson County fill (README there) |
+| `acs_bg` | American Community Survey 2018-2022, table B25034 (homes by decade built) by block group | US Census Bureau, TIGER/Line with demographic data | Public domain | Modelled years where the roll has none (`counties_ny_estimates.py`) |
+| `hisdac_fbuy` | HISDAC-US first built-up year, 250 m cells (Leyk & Uhl 2018, doi:10.7910/DVN/PKJ90M) | Harvard Dataverse | CC0 | Ordering inside a block group in the same model |
+| `nrhp_navy_yard` | National Register nomination of the Brooklyn Navy Yard Historic District (2014, NRIS 14000261): building inventory and the yard plans of 1872, 1890 and 1946 reproduced in it | National Park Service (`npgallery.nps.gov`) | Public domain | Dated standing buildings and traced lost buildings of the yard (`data/research/navy_yard.md`) |
+| `nps_wadsworth`, `doc_rikers`, `lpc_2040` | Cultural Landscape Report for Fort Wadsworth (2023); the Department of Correction's history of its jails; LPC report on Fort Totten | National Park Service (`npshistory.com`); `correctionhistory.org`; NYC LPC | Public domain; facts only | Dated buildings of the forts and Rikers Island (`data/research/sites_buildings.md`) |
+| `haer_bush`, `cdi_maspeth` | HAER NY-201 Bush Terminal; Controlled Demolition Inc. on the Maspeth gas holders | Library of Congress (`tile.loc.gov`); `controlled-demolition.com` | Public domain; facts only | Bush Terminal's lofts, the two holders (`data/research/industry_buildings.md`) |
+| `aerial_1924`, `aerial_1951` (second use) | The city's aerial mosaics, as in the second round | NYC (tile services in `pipeline/aerial_presence.py`) | Public | Roofs inside yards, forts and institutions (`pipeline/site_fill.py`): outlines read off the photographs by a program, marked `procedural` |
