@@ -183,6 +183,8 @@ def source_label(src: str) -> str:
         return "property tax record of the lot's main building (an outbuilding: estimated)"
     if src == "historic_register":
         return "state historic-resource inventory"
+    if src == "historic_register_ca":
+        return "state historic-resource inventory: an approximate ('circa') year (the assessor has only a placeholder)"
     if src == "after_demolition":
         return "city records: the building before it was removed that year; built after (year estimated)"
     if src == "after_map":

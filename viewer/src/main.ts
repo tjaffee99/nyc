@@ -461,6 +461,8 @@ if (!new URLSearchParams(location.search).has('notraffic')) requestAnimationFram
 $('attribution-text').innerHTML =
   'Buildings: <a href="https://opendata.cityofnewyork.us/" target="_blank" rel="noopener">NYC Open Data</a> (footprints, PLUTO, Landmarks Preservation Commission) · ' +
   '3D parts &amp; streets: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> via Overture · ' +
+  'Counties: New Jersey MOD-IV, New York State and Connecticut parcel records · ' +
+  'Connecticut construction dates in part from the <a href="https://conncris.ct.gov/" target="_blank" rel="noopener">Connecticut State Historic Preservation Office</a>\'s inventory (CC BY-NC-ND) · ' +
   'Terrain: USGS 3DEP, ESA WorldCover · Landmarks reconstructed from cited references · ' +
   '<a href="https://github.com/tjaffee99/nyc/blob/HEAD/SOURCES.md" target="_blank" rel="noopener">Sources</a>';
 

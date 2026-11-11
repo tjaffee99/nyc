@@ -63,7 +63,7 @@ def built_counties():
 
 def county_files(outer=False):
     files = (sorted(SRC.glob("n[jy]_*.parquet")) + sorted(SRC.glob("ct_*.parquet")) + sorted(SRC.glob("pa_*.parquet"))) if SRC.exists() else []
-    files = [f for f in files if not f.stem.endswith("_estimates")]   # (read beside their county's file, below)
+    files = [f for f in files if not f.stem.endswith(("_estimates", "_inventory"))]   # (read beside their county's file, below)
     return [f for f in files if (f.stem not in INNER_FILES) == outer]
 
 
@@ -98,6 +98,23 @@ def load(files=None, outer=False):
             g = g[pd.to_numeric(g.muni_year_share, errors="coerce").fillna(0) >= MIN_YEAR_SHARE]
             if len(g) < n0:
                 log(f"counties: {f.name}: {n0 - len(g)} footprints left out (municipalities whose roll has no construction years)")
+        # a state inventory's construction dates (conncris.py): only where the assessor's year
+        # is a placeholder or missing - a plain year as year_hist, a "circa" year as year_hist_ca
+        ip = f.with_name(f.stem + "_inventory.parquet")
+        if ip.exists() and len(g):
+            inv = pd.read_parquet(ip).drop_duplicates("id").set_index("id")
+            yi = pd.to_numeric(inv.year_inv.reindex(g["id"].values).values, errors="coerce")
+            ca = inv.circa.reindex(g["id"].values).fillna(False).values.astype(bool)
+            rawy = pd.to_numeric(g.year_raw, errors="coerce").values.astype(float)
+            need = (g.heap.fillna(False).astype(bool).values | ~np.isfinite(rawy)) & np.isfinite(yi)
+            for col in ("year_hist", "year_hist_ca"):
+                if col not in g:
+                    g[col] = np.nan
+            free = need & ~np.isfinite(pd.to_numeric(g.year_hist, errors="coerce").values.astype(float))
+            g["year_hist"] = np.where(free & ~ca, yi, pd.to_numeric(g.year_hist, errors="coerce"))
+            g["year_hist_ca"] = np.where(free & ca, yi, pd.to_numeric(g.year_hist_ca, errors="coerce"))
+            log(f"counties: {f.name}: the state inventory dates {int((free & ~ca).sum())} footprints with a placeholder or no "
+                f"assessor year, and {int((free & ca).sum())} more with a 'circa' year")
         if len(g):
             parts.append(g.to_crs(4326))
             log(f"counties: {f.name}: {len(g)} footprints")
@@ -210,6 +227,16 @@ def build(g, outer=False):
     year = np.where(kn, ky, year)
     src = np.where(kn, np.where(kest, "known_est", "known"), src).astype(object)
     hist_ok = hist_ok | kn
+    # an inventory's approximate year ("circa 1900", a round decade): better than the assessor's
+    # placeholder, not a record. Spread over six years so that it is not a heap of its own.
+    hca = pd.to_numeric(g.year_hist_ca, errors="coerce").values.astype(float) if "year_hist_ca" in g else np.full(n, np.nan)
+    ca_ok = np.isfinite(hca) & ~np.isfinite(year) & (hca >= YEAR_MIN) & (hca <= NOW)
+    if ca_ok.any():
+        jit = np.array([h01(f"ca{k}") for k in np.asarray(keys)[ca_ok]]) * 6.0 - 3.0
+        year = year.copy()
+        year[ca_ok] = hca[ca_ok] + jit
+        src = np.where(ca_ok, "historic_register_ca", src).astype(object)
+        log(f"counties: {int(ca_ok.sum())} footprints take an inventory's approximate ('circa') year")
     # heights
     H = pd.to_numeric(g.height_m, errors="coerce").values.astype(float)
     floors = pd.to_numeric(g.floors, errors="coerce").values.astype(float) if "floors" in g else np.full(n, np.nan)
