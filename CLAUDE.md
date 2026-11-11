@@ -535,8 +535,8 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
   towns; no 1609 layer of their own (dry land is forest, today's water is water, no vanished
   streams or marsh); demolished railroads and trolleys are not drawn (the cached
   OpenHistoricalMap rail extract covers the old box: delete `ohm_rail_region.json` under
-  `data/raw` to refetch); closed airfields have no outline; the Lower Trenton bridge's road deck
-  is drawn through its model; six Suffolk towns and Pike County have census-modelled years.
+  `data/raw` to refetch); closed airfields have no outline; six Suffolk towns and Pike County
+  have census-modelled years.
 - **Large empty working ground**: the 25 largest empty patches (tank farms, quarries, depots)
   listed by the ports part were not filled.
 - **Effects and the colonial towns of the counties** rest on general knowledge, not opened
