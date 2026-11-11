@@ -11,3 +11,4 @@ matplotlib
 requests
 rasterio
 laspy[lazrs]>=2.5
+scikit-image

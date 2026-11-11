@@ -133,6 +133,11 @@ def source_label(src: str) -> str:
                 "group and the town's growth (typically within about 20 years; not a record)")
     if src.startswith("gapfill"):
         ev = src.split(":", 1)[1] if ":" in src else ""
+        if ev.startswith("site+"):      # site_fill.py: a roof read off the photograph inside a yard, fort or institution
+            seen = ("the 1924 and 1951 aerial photographs show" if "1924+1951" in ev else
+                    f"the {ev[-4:]} aerial photograph shows")
+            return (f"generated: {seen} a roof here, inside a yard, fort or institution that no atlas mapped "
+                    "(outline read off the photograph by a program: approximate; years and height estimated)")
         says = []
         ext = [p for p in ev.split("+") if p.startswith("extent")]
         if ext:

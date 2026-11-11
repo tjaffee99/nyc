@@ -226,7 +226,11 @@ def notable():
                 if not isinstance(fp, str) or "x" not in fp.lower().replace("×", "x"):
                     continue
                 w, d = _wxd(fp)
-                poly = shapely.affinity.translate(_rect(w, d, _num(getattr(r, "rotation_deg", 0), 0.0)), X[k], Y[k])
+                said = f"{r.name} {getattr(r, 'shape_note', '')}".lower()
+                if abs(w - d) < 0.5 and any(q in said for q in ("holder", "gasometer", "tank", "circular", "round", "silo")):
+                    poly = shapely.Point(X[k], Y[k]).buffer(w / 2, 8)             # a round structure given by its diameter
+                else:
+                    poly = shapely.affinity.translate(_rect(w, d, _num(getattr(r, "rotation_deg", 0), 0.0)), X[k], Y[k])
             h = _num(getattr(r, "height_m", np.nan))
             st = _num(getattr(r, "storeys", np.nan))
             rows.append({"id": f"notable:{r.id}", "map_year": int(_num(r.end_year, 1900)) - 1, "boro": "", "colors": "",
@@ -332,6 +336,7 @@ def gapfill():
     shows built-on ground and no outline survives. Generated, marked `procedural`, and the
     first to give way to anything real."""
     files = sorted((INTERIM / "gapfill").glob("gapfill*.parquet")) if (INTERIM / "gapfill").exists() else []
+    files = [f for f in files if not f.stem.endswith("_muni")]      # a side table of the county fill, no geometry
     rows = []
     if not files:
         return rows
