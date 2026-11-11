@@ -1836,6 +1836,74 @@ def parcel_outline(lot, la, key, bw, d, tall, sp):
     return [g]
 
 
+# ----------------------------------------------------------------------------- cleared blocks (added 2026-11-11)
+# A street block (the polygon between today's street centre lines) that was built up and then cleared and
+# rebuilt: every lot-sized position on it gets a building from the neighbourhood's own years until the
+# clearance. Rules (README "Cleared blocks"):
+#  (a) ground: built-up ground of the 1897-98 sheets, or a 1940s sheet's built block fronts, or - only inside
+#      one of the researched districts - its urban tint (judged on the block's lots: CB_OK_SHARE of them);
+#  (b) fewer than a third of today's buildings on the block date from before 1945 (any year, recorded or not);
+#  (c) the block lies inside a researched district (data/manual/gapfill/cleared_districts.geojson), or
+#      at least CB_LATE_SHARE of its (at least CB_MIN_N) buildings have a recorded year after 1950.
+# Lots: the real parcels where they are lot-sized (parcel_outline), else the street-frontage rows that
+# make_lots cuts (blocks of the city's part of this file). Years: start as the surviving buildings around
+# (recorded years within CB_POOL_M) do, 1897 as their upper bound where the 1897 sheet shows the block built
+# (a census distribution before that where no recorded year is old enough); end at the district's clearance
+# years, else when today's building on the spot went up. Marked `procedural`, evidence cleared_block+<sheet>.
+CB_OFF = os.environ.get("GAPFILL_CB", "1") == "0"        # GAPFILL_CB=0: the rules of the first version (the "before" of the report)
+CB_OLD_SHARE = 1.0 / 3.0
+CB_LATE_SHARE = 0.6
+CB_MIN_N = 3
+CB_OK_SHARE = 0.5
+CB_POOL_M = 800.0
+CB_MAX_M2 = 40e4          # a block larger than 40 ha is not a street block of a town (parks, yards)
+
+
+def cleared_districts():
+    """[(name, prepared polygon lon/lat, clearance start, clearance end)] of cleared_districts.geojson."""
+    if "cdist" not in _cache:
+        out = []
+        p = DOC / "cleared_districts.geojson"
+        if p.exists():
+            for ft in json.load(open(p))["features"]:
+                poly = shapely.make_valid(shapely.from_geojson(json.dumps(ft["geometry"])))
+                shapely.prepare(poly)
+                pr = ft["properties"]
+                out.append((pr["name"], poly, float(pr["clearance_start"]), float(pr["clearance_end"])))
+        _cache["cdist"] = out
+    return _cache["cdist"]
+
+
+def cleared_blocks(bx, by, lines, exc, es, rec):
+    """Candidate cleared blocks around z14 block (bx, by): (polygons in pixels, district index or -1).
+    Rules (b) and (c); rule (a) is judged later on the lots."""
+    empty = (np.array([], dtype=object), np.array([], int))
+    if CB_OFF or len(lines) < 3:
+        return empty
+    polys = city_blocks(lines, bx, by)
+    if not len(polys):
+        return empty
+    polys = polys[shapely.area(polys) * MPP2 <= CB_MAX_M2]
+    if not len(polys):
+        return empty
+    pi, bi = shapely.STRtree(shapely.points(exc)).query(polys, predicate="contains")
+    nP = len(polys)
+    n = np.bincount(pi, minlength=nP).astype(float)
+    old = np.bincount(pi, weights=(es[bi] < 1945.0).astype(float), minlength=nP)
+    late = np.bincount(pi, weights=(rec[bi] & (es[bi] > 1950.0)).astype(float), minlength=nP)
+    rp = shapely.get_coordinates(shapely.point_on_surface(polys))
+    lo, la = px_to_lonlat(rp[:, 0], rp[:, 1])
+    dist = np.full(nP, -1, int)
+    for k, (nm, poly, c0, c1) in enumerate(cleared_districts()):
+        dist[(dist < 0) & shapely.contains_xy(poly, lo, la)] = k
+    with np.errstate(all="ignore"):
+        fold = np.where(n > 0, old / n, 0.0)
+        flate = np.where(n > 0, late / n, 0.0)
+    ok = (fold < CB_OLD_SHARE) & ((dist >= 0) | ((n >= CB_MIN_N) & (flate >= CB_LATE_SHARE)))
+    return polys[ok], dist[ok]
+
+
+
 def county_block(job, shifts=None):
     """The rows of one z14 block of the counties and its counts."""
     from scipy.spatial import cKDTree
@@ -1857,9 +1925,16 @@ def county_block(job, shifts=None):
     # Under a motorway there are no parcels (the right-of-way), and so no rows. There the lots of the
     # street grid stand in (make_lots, as in the city and Hudson County): within CORRIDOR_M of a motorway
     # centre line and outside every parcel. They can only rest on a 1940s sheet or tint and end at the motorway.
+    _cl = []
+
+    def get_cl():
+        if not _cl:
+            _cl.append(make_lots(bx, by)[0])
+        return _cl[0]
+
     mtree_, _, _ = motorways()
     if mtree_ is not None and len(mtree_.query(shapely.box(*block_px(bx, by)), predicate="intersects")):
-        cl, _, _, _ = make_lots(bx, by)
+        cl = get_cl()
         if len(cl):
             cg = cl.g.values
             cc = shapely.centroid(cg)
@@ -1875,6 +1950,59 @@ def county_block(job, shifts=None):
                 par = pd.concat([par, add], ignore_index=True)
                 lots = np.concatenate([lots, cg[sel_]])
                 st["corridor_lots"] = int(len(sel_))
+    corr_cids = set(c_[2:] for c_ in par.pid.values if str(c_).startswith("hw"))
+    # ---- cleared blocks: parcels and street-frontage lots of the blocks the rules (b) and (c) pick out
+    lines_c, cls_c = streets_window(bx, by)
+    cbk = np.zeros(len(lots), bool)             # a candidate of the cleared-block rule
+    cbl = np.zeros(len(lots), bool)             # ... a frontage lot (outline = the lot itself)
+    cbbig = np.zeros(len(lots), bool)           # a large parcel in a candidate block (its lots are the frontage lots)
+    cbb = np.full(len(lots), -1, int)           # the block (index into cbpoly)
+    exs0 = ex.start_year.values.astype(float)
+    exc0 = shapely.get_coordinates(shapely.point_on_surface(ex.g.values))
+    rec0 = (np.array([str(v) for v in ex.year_confidence.values]) == "exact") & np.isin(np.array([str(v) for v in ex.year_src.values]), ("parcel", "historic_register"))
+    cbpoly, cbdist = cleared_blocks(bx, by, lines_c, exc0, exs0, rec0)
+    st["cb_blocks"] = int(len(cbpoly))
+    if len(cbpoly):
+        ptree = shapely.STRtree(cbpoly)
+        pts = shapely.point_on_surface(lots)
+        ia, ib = ptree.query(pts, predicate="within")
+        ok_ = ~par.pseudo.values[ia]
+        ia, ib = ia[ok_], ib[ok_]
+        cbb[ia] = ib
+        la_ = shapely.area(lots) * MPP2
+        cbk[ia] = la_[ia] <= BIG_LOT_M2
+        cbbig[ia] = la_[ia] > BIG_LOT_M2
+        cl = get_cl()
+        if len(cl):
+            cg = cl.g.values
+            cc = shapely.centroid(cg)
+            ja, jb = ptree.query(cc, predicate="within")
+            sel_ = np.zeros(len(cg), bool)
+            sel_[ja] = True
+            blk = np.full(len(cg), -1, int)
+            blk[ja] = jb
+            sel_ &= ~np.array([c_ in corr_cids for c_ in cl.cid.values])
+            small = np.flatnonzero(cbk)
+            if len(small) and sel_.any():
+                # a frontage lot is dropped where a lot-sized parcel (which has its own row) lies under it
+                gi, pj = shapely.STRtree(lots[small]).query(cg[sel_], predicate="intersects")
+                idx = np.flatnonzero(sel_)[gi]
+                ov_ = shapely.area(shapely.intersection(cg[idx], lots[small][pj])) * MPP2 > 0.3 * (shapely.area(cg[idx]) * MPP2)
+                sel_[np.unique(idx[ov_])] = False
+            sel_ = np.flatnonzero(sel_)
+            if len(sel_):
+                _, jn = cKDTree(shapely.get_coordinates(pts)).query(shapely.get_coordinates(cc[sel_]))
+                add = pd.DataFrame({"county": par.county.values[jn], "muni": par.muni.values[jn], "pid": ["cb" + c_ for c_ in cl.cid.values[sel_]],
+                                    "lon": cl.lon.values[sel_], "lat": cl.lat.values[sel_], "wkb": None, "pseudo": False})
+                par = pd.concat([par, add], ignore_index=True)
+                lots = np.concatenate([lots, cg[sel_]])
+                m_ = len(sel_)
+                cbk = np.concatenate([cbk, np.ones(m_, bool)])
+                cbl = np.concatenate([cbl, np.ones(m_, bool)])
+                cbbig = np.concatenate([cbbig, np.zeros(m_, bool)])
+                cbb = np.concatenate([cbb, blk[sel_]])
+        st["cb_lots"] = int(cbk.sum())
+    cbd = np.where(cbb >= 0, cbdist[np.maximum(cbb, 0)] if len(cbdist) else -1, -1)
     pseudo = par.pseudo.values.astype(bool)
     n = len(lots)
     st["parcels"] = n
