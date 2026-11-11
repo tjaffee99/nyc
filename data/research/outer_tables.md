@@ -69,9 +69,14 @@ Not every municipality is there: the colonial towns, county seats, cities and th
   sentences, checked by script), `nominal ... not found in the cited article`, `estimated` (my reckoning, kept because a place that
   existed must not be empty). Of the 230 rows 82 carry a year found in the cited article, 60 are "nominal ... not found in the cited article" (the year may still be right: the article may give it in a table or not at all) and 88 are `estimated` (mine, or a bracket): **treat
   the settlement years of the minor towns as approximate**.
-- Coordinates were typed from memory (five decimals) and compared with the `{{coord}}` in the article where that is decimal:
-  eight differ by 3-7 km because the article gives the township centre or another point (Jamesburg, Old Bridge, Middletown NJ, Tinton Falls,
-  Barnegat, Butler, Walpack, Yardville); the old-centre coordinates were kept. The other rows were not checked: a label may sit a kilometre off.
+- Coordinates were typed from memory (five decimals), then checked against the Census 2023 Gazetteer (`data/raw/outer_tables/gaz/`,
+  script `data/interim/outer_tables/gaz_fix.py`). Rule: a row matching the gazetteer's place file (city, borough, village, CDP)
+  keeps my old-centre point if within 2.5 km, else takes the gazetteer point; a row matching only the county-subdivision file
+  (towns, townships: their point is the centroid of the whole township) keeps my point unless it is more than 8 km away. 209 rows kept,
+  15 moved (note "position: Census gazetteer", or the Academy's Plain for West Point, set by hand because the CDP point lies in the
+  woods), 6 with no gazetteer match (Garrison, Menlo Park, Peapack-Gladstone, Whitehouse Station, Dingmans Ferry, Greeley) kept from
+  memory and marked so in the note. Kept rows were not checked beyond that: a point may still be up to 2.5 km (places) or 8 km
+  (townships) from the true centre.
 - Greater Bridgeport has only 7 rows because the region is 6 towns; Shelton, Derby and the Naugatuck Valley are another region.
 - Mercer's Hamilton and Ewing, Somerset's Franklin and Hillsborough and similar townships without a village centre are missing.
 

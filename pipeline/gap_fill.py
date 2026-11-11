@@ -2919,75 +2919,6 @@ def step_look_county(lon, lat, name="look", half_m=190.0):
     print(out, "sheet", fns[:1], "shift m east / south", (se, ss))
 
 
-if __name__ == "__main__":
-    args = sys.argv[1:] or ["snapshot", "lots", "ink", "assemble", "report"]
-    if args[0] == "block":                      # one block, for a smoke test: gap_fill.py block <lon> <lat>
-        step_snapshot()
-        x, y = ap.lonlat_to_pixel(float(args[1]), float(args[2]))
-        j = (int(x // (NB * TILE)), int(y // (NB * TILE)))
-        LOTS.mkdir(parents=True, exist_ok=True)
-        print(j, do_block(j))
-        sys.exit(0)
-    if args[0] == "clook":                      # gap_fill.py clook <lon> <lat> <name>
-        step_look_county(float(args[1]), float(args[2]), args[3] if len(args) > 3 else "look")
-        sys.exit(0)
-    if args[0] == "cone":                       # the counties' rows of one block: gap_fill.py cone <lon> <lat>
-        step_counties_snapshot()
-        _county_mode()
-        x, y = ap.lonlat_to_pixel(float(args[1]), float(args[2]))
-        j = (int(x // (NB * TILE)), int(y // (NB * TILE)))
-        _, r = county_shift_job(j)
-        for fn, v in r.items():
-            _county_shifts[(j[0], j[1], fn)] = v
-        ROWS_C.mkdir(parents=True, exist_ok=True)
-        res = _county_job(j)
-        print(j, r, res[1], {k: v for k, v in res[2].items() if not k.startswith("muni|")})
-        sys.exit(0)
-    if args[0] == "one":                        # assemble one block: gap_fill.py one <lon> <lat>
-        x, y = ap.lonlat_to_pixel(float(args[1]), float(args[2]))
-        j = (int(x // (NB * TILE)), int(y // (NB * TILE)))
-        print(j, _assemble_job(j)[1:])
-        sys.exit(0)
-    if args[0] == "look":
-        step_snapshot()
-        step_look(float(args[1]), float(args[2]), args[3] if len(args) > 3 else "look")
-        step_look_sheet(float(args[1]), float(args[2]), args[3] if len(args) > 3 else "look")
-        sys.exit(0)
-    for a in args:
-        if a == "snapshot":
-            step_snapshot()
-        elif a == "lots":
-            step_snapshot()
-            step_lots()
-        elif a == "lots-reverse":
-            step_snapshot()
-            step_lots(workers=2, reverse=True)
-        elif a == "lots-middle":
-            step_snapshot()
-            step_lots(workers=1, middle=True, budget_s=float(args[1]) if len(args) > 1 else None)
-            break
-        elif a == "ink":
-            step_snapshot()
-            step_ink()
-        elif a == "assemble":
-            step_snapshot()
-            step_ink()
-            step_assemble()
-        elif a == "report":
-            step_report()
-        elif a == "counties":                   # the six counties beyond Hudson -> gapfill_counties.parquet (gapfill.parquet untouched)
-            step_counties()
-        elif a == "counties-report":
-            step_report_counties()
-        elif a == "districts":
-            step_districts()
-        elif a == "counties-fresh":
-            step_counties_snapshot(force=True)
-        elif a == "fresh":
-            EXISTING.unlink(missing_ok=True)
-        else:
-            raise SystemExit(f"unknown step {a}")
-
 
 # ----------------------------------------------------------------------------- the cleared districts: density before / after
 DIST_YEARS = (1900, 1925, 1950)
@@ -3119,3 +3050,74 @@ def step_districts():
                                                               "after": {k: {str(y): v for y, v in d.items()} for k, d in a.items()}}, indent=1, default=str))
     print("\n".join(L))
     return L
+
+
+if __name__ == "__main__":
+    args = sys.argv[1:] or ["snapshot", "lots", "ink", "assemble", "report"]
+    if args[0] == "block":                      # one block, for a smoke test: gap_fill.py block <lon> <lat>
+        step_snapshot()
+        x, y = ap.lonlat_to_pixel(float(args[1]), float(args[2]))
+        j = (int(x // (NB * TILE)), int(y // (NB * TILE)))
+        LOTS.mkdir(parents=True, exist_ok=True)
+        print(j, do_block(j))
+        sys.exit(0)
+    if args[0] == "clook":                      # gap_fill.py clook <lon> <lat> <name>
+        step_look_county(float(args[1]), float(args[2]), args[3] if len(args) > 3 else "look")
+        sys.exit(0)
+    if args[0] == "cone":                       # the counties' rows of one block: gap_fill.py cone <lon> <lat>
+        step_counties_snapshot()
+        _county_mode()
+        x, y = ap.lonlat_to_pixel(float(args[1]), float(args[2]))
+        j = (int(x // (NB * TILE)), int(y // (NB * TILE)))
+        _, r = county_shift_job(j)
+        for fn, v in r.items():
+            _county_shifts[(j[0], j[1], fn)] = v
+        ROWS_C.mkdir(parents=True, exist_ok=True)
+        res = _county_job(j)
+        print(j, r, res[1], {k: v for k, v in res[2].items() if not k.startswith("muni|")})
+        sys.exit(0)
+    if args[0] == "one":                        # assemble one block: gap_fill.py one <lon> <lat>
+        x, y = ap.lonlat_to_pixel(float(args[1]), float(args[2]))
+        j = (int(x // (NB * TILE)), int(y // (NB * TILE)))
+        print(j, _assemble_job(j)[1:])
+        sys.exit(0)
+    if args[0] == "look":
+        step_snapshot()
+        step_look(float(args[1]), float(args[2]), args[3] if len(args) > 3 else "look")
+        step_look_sheet(float(args[1]), float(args[2]), args[3] if len(args) > 3 else "look")
+        sys.exit(0)
+    for a in args:
+        if a == "snapshot":
+            step_snapshot()
+        elif a == "lots":
+            step_snapshot()
+            step_lots()
+        elif a == "lots-reverse":
+            step_snapshot()
+            step_lots(workers=2, reverse=True)
+        elif a == "lots-middle":
+            step_snapshot()
+            step_lots(workers=1, middle=True, budget_s=float(args[1]) if len(args) > 1 else None)
+            break
+        elif a == "ink":
+            step_snapshot()
+            step_ink()
+        elif a == "assemble":
+            step_snapshot()
+            step_ink()
+            step_assemble()
+        elif a == "report":
+            step_report()
+        elif a == "counties":                   # the six counties beyond Hudson -> gapfill_counties.parquet (gapfill.parquet untouched)
+            step_counties()
+        elif a == "counties-report":
+            step_report_counties()
+        elif a == "districts":
+            step_districts()
+        elif a == "counties-fresh":
+            step_counties_snapshot(force=True)
+        elif a == "fresh":
+            EXISTING.unlink(missing_ok=True)
+        else:
+            raise SystemExit(f"unknown step {a}")
+
