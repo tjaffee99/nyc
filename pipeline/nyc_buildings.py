@@ -273,6 +273,8 @@ def fill_estimates(xy, year, raw, is_heap, H, keys, src, lo=None, hi=None, ev=No
 
     def neighbours(idx, k, radius, lo, hi):
         """Median of the recorded years within radius that lie in [lo, hi]; NaN if < 2."""
+        if not len(ry):                    # (a county without one recorded year: Nassau)
+            return np.full(len(idx), np.nan)
         d, j = tree.query(xy[idx], k=k, distance_upper_bound=radius)
         v = np.where(np.isfinite(d), ry[np.minimum(j, len(ry) - 1)], np.nan)
         v = np.where((v >= lo[:, None]) & (v <= hi[:, None]), v, np.nan)
@@ -344,8 +346,12 @@ def fill_estimates(xy, year, raw, is_heap, H, keys, src, lo=None, hi=None, ev=No
                 v = np.where((v >= lo_m[tall][:, None]) & (v <= hi_m[tall][:, None]), v, np.nan)
                 with np.errstate(all="ignore"):
                     est[tall] = np.nanmedian(v, axis=1)
-        d1, j1 = tree.query(xy[miss], k=1)
-        est = np.where(np.isfinite(est), est, np.clip(ry[j1], lo_m, hi_m))
+        if len(ry):
+            d1, j1 = tree.query(xy[miss], k=1)
+            near = ry[j1]
+        else:                                  # no recorded year anywhere in the set: a neutral year
+            near = np.full(len(miss), 1950.0)  # (such a county takes its modelled years afterwards)
+        est = np.where(np.isfinite(est), est, np.clip(near, lo_m, hi_m))
         y_m = est + (hl[miss] - 0.5)
         y_m = np.where(y_m < lo_m, lo_m + 0.2 + 5.0 * hl[miss], y_m)
         # standing by a photograph or a map that the neighbours' years would put it after:
