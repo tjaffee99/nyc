@@ -1,0 +1,36 @@
+id,name,lat,lon,bin,start_year,end_year,source_url,note
+ct_bfef1cb3,Connecticut Hall,41.308173,-72.928855,,1752,9999,https://en.wikipedia.org/wiki/Old_Campus,"exact: Old Campus table ""1752"" (built 1750-52); oldest surviving Yale building"
+ct_32078cb8,Dwight Hall & Memorial Chapel,41.308947,-72.929297,,1849,9999,https://en.wikipedia.org/wiki/Old_Campus,"exact: the Old Campus table lists ""Dwight Hall (College Library)"" 1849 (Henry Austin; Yale's first library building); name matched, memorial chapel added later"
+ct_2815a283,Street Hall,41.308144,-72.929926,,1866,9999,https://en.wikipedia.org/wiki/Old_Campus,exact: Old Campus table 1866 (Peter B. Wight; opened as the School of the Fine Arts)
+ct_a38c23c4,Farnam Hall,41.309078,-72.927675,,1870,9999,https://en.wikipedia.org/wiki/Old_Campus,"exact: Old Campus table 1870, the first of the four Victorian Gothic colleges"
+ct_a1661fbb,Durfee Building,41.309672,-72.928097,,1871,9999,https://en.wikipedia.org/wiki/Old_Campus,"exact: Old Campus table lists Durfee Hall 1871; Overture's name is ""Durfee Building"" (same site, matched by name)"
+ct_c501f924,Battell Chapel,41.309421,-72.927581,,1876,9999,https://en.wikipedia.org/wiki/Battell_Chapel,"exact: construction 1874, completed 1876 (infobox); expanded 1893 and an apse 1947"
+ct_e80dc2d2,Lawrence Hall,41.308701,-72.927934,,1886,9999,https://en.wikipedia.org/wiki/Old_Campus,exact: Old Campus table 1886
+ct_2a112872,Linsly-Chittenden Hall,41.308596,-72.929478,,1890,9999,https://en.wikipedia.org/wiki/Old_Campus,exact for Chittenden Hall 1890; Linsly Hall was added 1906 (Old Campus table); the footprint holds both
+ct_c0528e52,Welch Hall,41.308138,-72.928358,,1891,9999,https://en.wikipedia.org/wiki/Old_Campus,exact: Old Campus table 1891
+ct_f8f02041,Vanderbilt Hall,41.30792,-72.929084,,1894,9999,https://en.wikipedia.org/wiki/Old_Campus,exact: Old Campus table 1894
+ct_dedd2dc9,Phelps Hall,41.30844,-72.928146,,1896,9999,https://en.wikipedia.org/wiki/Old_Campus,exact: Old Campus table 1896
+ct_c61ce595,Lanman-Wright Hall,41.309805,-72.9288,,1912,9999,https://en.wikipedia.org/wiki/Old_Campus,exact: Old Campus table 1912 (built as Wright Hall)
+ct_3a982f89,McClellan Hall,41.308331,-72.929316,,1925,9999,https://en.wikipedia.org/wiki/Old_Campus,exact: Old Campus table 1925
+ct_71c1b31b,Bingham Hall,41.307716,-72.928685,,1928,9999,https://en.wikipedia.org/wiki/Old_Campus,"exact: Old Campus table 1928, on the site of the College House of 1718"
+ct_32000413,Woolsey Hall,41.311244,-72.926176,,1901,9999,https://en.wikipedia.org/wiki/Woolsey_Hall,exact: opened 1901 for the Bicentennial (infobox opened 1901)
+ct_51398189,Yale Law School,41.312032,-72.927781,,1931,9999,https://en.wikipedia.org/wiki/Sterling_Law_Building,"exact: the Sterling Law Building ""was built in 1931"" (James Gamble Rogers)"
+ct_709f04fc,Sterling Library,41.311184,-72.929022,,1930,9999,https://en.wikipedia.org/wiki/Sterling_Memorial_Library,"exact: completed 1930, opened April 1931"
+ct_61feacd7,Yale University Art Gallery,41.308435,-72.93088,,1953,9999,https://en.wikipedia.org/wiki/Yale_University_Art_Gallery,exact for Louis Kahn's building of 1953; Street Hall (1866) and Swartwout's 1928 building adjoin; the footprint is matched by name only
+ct_6605d564,Yale Center for British Art,41.307896,-72.930861,,1974,9999,https://en.wikipedia.org/wiki/Yale_Center_for_British_Art,"estimated: completed 1974 (infobox) after Kahn's death; opened to the public April 15, 1977"
+ct_a499f893,Rudolph Hall,41.308769,-72.931886,,1963,9999,https://en.wikipedia.org/wiki/Rudolph_Hall,"exact: dedicated November 8, 1963 (built as the Art and Architecture Building; the 2008 addition adjoins)"
+ct_730f8e24,Beinecke Rare Book and Manuscript Library,41.311597,-72.927324,,1963,9999,https://en.wikipedia.org/wiki/Beinecke_Rare_Book_and_Manuscript_Library,exact: opened 1963
+ct_c5b49d4e,Payne Whitney Gymnasium,41.313723,-72.931086,,1932,9999,https://en.wikipedia.org/wiki/Payne_Whitney_Gymnasium,exact: opened 1932
+ct_ce058d9d,Yale Repertory Theatre,41.30814,-72.931581,,1846,9999,https://en.wikipedia.org/wiki/Yale_Repertory_Theatre,"exact: the building is the Calvary Baptist Church ""erected in 1846"" (Gothic Revival); the theatre company dates from 1966"
+ct_f5e3e826,Knights of Columbus Supreme Council,41.302778,-72.92758,,1969,9999,"https://en.wikipedia.org/wiki/Knights_of_Columbus_Building_(New_Haven,_Connecticut)",exact: completed 1969 (infobox)
+ct_a819bc51,New Haven Union Station,41.297605,-72.926544,,1920,9999,https://en.wikipedia.org/wiki/Union_Station_(New_Haven),exact: opened 1920 (Cass Gilbert)
+ct_e159be96,Trinity Episcopal Church,41.307037,-72.927293,,1816,9999,https://en.wikipedia.org/wiki/Trinity_Church_on_the_Green,"exact: built 1814-1816 (infobox); tower top rebuilt 1871, chancel 1884"
+ct_0063d69c,Center Church on the Green,41.307904,-72.926593,,1814,9999,https://en.wikipedia.org/wiki/Center_Church_on_the_Green,"year from the project brief (Ithiel Town, 1812-14); the Wikipedia page was not read"
+ct_78c58b1f,United Church on the Green,41.308661,-72.926054,,1815,9999,https://en.wikipedia.org/wiki/United_Church_on_the_Green,year from the project brief (1813-15); the Wikipedia page was not read
+ct_e93345eb,Branford College,41.309671,-72.930083,,1922,9999,https://en.wikipedia.org/wiki/Harkness_Tower,"estimated: the Memorial Quadrangle (Harkness Tower 1917-21) was ""completed in 1922""; Branford College as a residential college dates from 1933"
+ct_32b8ee1f,Saybrook College,41.31015,-72.92915,,1922,9999,https://en.wikipedia.org/wiki/Harkness_Tower,estimated: part of the Memorial Quadrangle completed in 1922; Saybrook College as a residential college dates from 1933
+ct_246ac9b8,Ingalls Ice Rink,41.316811,-72.925003,,1958,9999,https://en.wikipedia.org/wiki/Ingalls_Rink,exact: built between 1953 and 1958 (Eero Saarinen)
+ct_c66adeb3,Woodbridge Hall,41.311207,-72.926665,,1901,9999,https://en.wikipedia.org/wiki/Hewitt_Quadrangle,"exact: ""also completed in 1901"" with the Bicentennial buildings; main administrative building"
+ct_a92cb15e,Ezra Stiles College,41.312595,-72.930682,,1961,9999,https://en.wikipedia.org/wiki/Ezra_Stiles_College,"exact: ""built in 1961"" (Eero Saarinen); the college opened in 1962 (not read)"
+ct_d7c72463,Morse College,41.312677,-72.930418,,1961,9999,https://en.wikipedia.org/wiki/Morse_College,"exact: ""built in 1961"" (Eero Saarinen)"
+ct_a3cca42e,Timothy Dwight College,41.310338,-72.923648,,1935,9999,https://en.wikipedia.org/wiki/Timothy_Dwight_College,"exact: designed 1935 by James Gamble Rogers; the college opened September 23, 1935"

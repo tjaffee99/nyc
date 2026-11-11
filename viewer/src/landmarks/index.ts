@@ -16,9 +16,11 @@ import {MORE_B} from './nyc-more-b';
 import {NJ_INNER} from './nj-inner';
 import {NY_LONG_ISLAND} from './ny-long-island';
 import {NJ_OUTER} from './nj-outer';
+import {MORE_A} from './nyc-more-a';
+import {CT} from './ct';
 import {extentDistance, extentReady} from '../layers/extent';
 
-export const LANDMARKS: Landmark[] = [...BRIDGES, ...TOWERS, ...LOST, ...CIVIC, ...MORE_B, ...NJ_INNER, ...NY_LONG_ISLAND, ...NJ_OUTER];
+export const LANDMARKS: Landmark[] = [...BRIDGES, ...TOWERS, ...LOST, ...CIVIC, ...MORE_B, ...MORE_A, ...NJ_INNER, ...NY_LONG_ISLAND, ...NJ_OUTER, ...CT];
 
 export type LandmarkSet = {
   items: {lm: Landmark; vertices: number}[];
