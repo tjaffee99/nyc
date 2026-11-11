@@ -134,6 +134,37 @@ def recorded_evidence():
     return g.geometry.values[ok], year[ok], hist_ok[ok]
 
 
+def researched(g):
+    """(year, is an estimate) per footprint from the researched tables' rows without a BIN."""
+    import shapely
+    from common import TABLES
+    year = np.full(len(g), np.nan)
+    est = np.zeros(len(g), bool)
+    rows = []
+    for p in sorted(TABLES.glob("known_building_dates*.csv")):
+        if p.name.endswith(".records.csv"):
+            continue
+        t = pd.read_csv(p)
+        if "bin" in t:
+            t = t[pd.to_numeric(t["bin"], errors="coerce").fillna(0) == 0]
+        t = t[pd.to_numeric(t.start_year, errors="coerce").notna() & pd.to_numeric(t.lon, errors="coerce").notna()
+              & ~t.id.astype(str).str.startswith("site_floor:")]
+        if len(t):
+            rows.append(t)
+    if not rows:
+        return year, est
+    t = pd.concat(rows, ignore_index=True)
+    b = g.total_bounds
+    t = t[(t.lon.astype(float) >= b[0]) & (t.lon.astype(float) <= b[2]) & (t.lat.astype(float) >= b[1]) & (t.lat.astype(float) <= b[3])]
+    if not len(t):
+        return year, est
+    qi, gi = shapely.STRtree(g.geometry.values).query(shapely.points(t.lon.values.astype(float), t.lat.values.astype(float)), predicate="within")
+    year[gi] = t.start_year.values.astype(float)[qi]
+    est[gi] = t.note.astype(str).str.lower().str.contains("estimate").values[qi] if "note" in t else False
+    log(f"counties: {len(np.unique(gi))} footprints dated by researched rows ({len(t) - len(np.unique(qi))} of {len(t)} rows in the area matched none)")
+    return year, est
+
+
 def compact(geoms_utm, area):
     """The outer tier's outlines: a house-sized outline that fills its bounding rectangle becomes
     that rectangle, shrunk about its centre to the outline's own area; the rest is simplified."""
@@ -172,6 +203,13 @@ def build(g, outer=False):
     hist_ok = np.isfinite(hist) & (hist >= YEAR_MIN) & (hist <= NOW)
     year = np.where(hist_ok, hist, year)
     src = np.where(hist_ok, "historic_register", src).astype(object)
+    # researched rows (data/tables/known_building_dates*.csv without a BIN: campuses and civic
+    # buildings outside the city): the footprint the row's point lies in takes its year
+    ky, kest = researched(g)
+    kn = np.isfinite(ky)
+    year = np.where(kn, ky, year)
+    src = np.where(kn, np.where(kest, "known_est", "known"), src).astype(object)
+    hist_ok = hist_ok | kn
     # heights
     H = pd.to_numeric(g.height_m, errors="coerce").values.astype(float)
     floors = pd.to_numeric(g.floors, errors="coerce").values.astype(float) if "floors" in g else np.full(n, np.nan)
@@ -203,7 +241,7 @@ def build(g, outer=False):
                 year[m] = np.quantile(ref, rk)
         log(f"counties: {int(use_est.sum())} footprints without a roll year take the modelled estimate")
     year = np.clip(year, YEAR_MIN, 2029.0)
-    conf = np.where(np.isin(src, ["parcel", "historic_register"]), "exact", "estimated").astype(object)
+    conf = np.where(np.isin(src, ["parcel", "historic_register", "known"]), "exact", "estimated").astype(object)
     log(f"counties: {n} footprints: {pd.Series(src).str.split(':').str[0].value_counts().to_dict()}")
     start = row_timing(xy, year, keys)
     start0 = start
