@@ -7203,3 +7203,983 @@ year,geoid,name,county,state,population,source_url,note
 2000,3400382300,Woodcliff Lake,Bergen,NJ,5745,"https://en.wikipedia.org/wiki/Woodcliff_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
 2010,3400382300,Woodcliff Lake,Bergen,NJ,5730,"https://en.wikipedia.org/wiki/Woodcliff_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
 2020,3400382300,Woodcliff Lake,Bergen,NJ,6128,"https://en.wikipedia.org/wiki/Woodcliff_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,3401924870,Franklin township,Hunterdon,NJ,1454,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3401924870,Franklin township,Hunterdon,NJ,1552,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3401924870,Franklin township,Hunterdon,NJ,1342,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3401924870,Franklin township,Hunterdon,NJ,1338,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3401924870,Franklin township,Hunterdon,NJ,1287,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3401924870,Franklin township,Hunterdon,NJ,1258,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3401924870,Franklin township,Hunterdon,NJ,1099,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3401924870,Franklin township,Hunterdon,NJ,980,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3401924870,Franklin township,Hunterdon,NJ,1100,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3401924870,Franklin township,Hunterdon,NJ,1211,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3401924870,Franklin township,Hunterdon,NJ,1255,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3401924870,Franklin township,Hunterdon,NJ,1777,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3401924870,Franklin township,Hunterdon,NJ,2154,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3401924870,Franklin township,Hunterdon,NJ,2294,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3401924870,Franklin township,Hunterdon,NJ,2851,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3401924870,Franklin township,Hunterdon,NJ,2990,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3401924870,Franklin township,Hunterdon,NJ,3195,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3401924870,Franklin township,Hunterdon,NJ,3267,"https://en.wikipedia.org/wiki/Franklin_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402570110,Spring Lake,Monmouth,NJ,526,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402570110,Spring Lake,Monmouth,NJ,853,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402570110,Spring Lake,Monmouth,NJ,1009,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402570110,Spring Lake,Monmouth,NJ,1745,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402570110,Spring Lake,Monmouth,NJ,1650,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402570110,Spring Lake,Monmouth,NJ,2008,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402570110,Spring Lake,Monmouth,NJ,2922,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402570110,Spring Lake,Monmouth,NJ,3896,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402570110,Spring Lake,Monmouth,NJ,4215,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402570110,Spring Lake,Monmouth,NJ,3499,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402570110,Spring Lake,Monmouth,NJ,3567,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402570110,Spring Lake,Monmouth,NJ,2993,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402570110,Spring Lake,Monmouth,NJ,2789,"https://en.wikipedia.org/wiki/Spring_Lake,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3610520104,Delaware town,Sullivan,NY,1998,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1880,3610520104,Delaware town,Sullivan,NY,1830,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1890,3610520104,Delaware town,Sullivan,NY,1734,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1900,3610520104,Delaware town,Sullivan,NY,1541,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1910,3610520104,Delaware town,Sullivan,NY,1842,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1920,3610520104,Delaware town,Sullivan,NY,1740,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1930,3610520104,Delaware town,Sullivan,NY,1777,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1940,3610520104,Delaware town,Sullivan,NY,1934,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1950,3610520104,Delaware town,Sullivan,NY,2089,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1960,3610520104,Delaware town,Sullivan,NY,2141,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1970,3610520104,Delaware town,Sullivan,NY,2260,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1980,3610520104,Delaware town,Sullivan,NY,2783,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1990,3610520104,Delaware town,Sullivan,NY,2633,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+2000,3610520104,Delaware town,Sullivan,NY,2720,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+2010,3610520104,Delaware town,Sullivan,NY,2670,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+2020,3610520104,Delaware town,Sullivan,NY,2203,"https://en.wikipedia.org/wiki/Delaware,_New_York",census count as tabulated in the article's US Census population template
+1900,3402939390,Lavallette,Ocean,NJ,21,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402939390,Lavallette,Ocean,NJ,42,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402939390,Lavallette,Ocean,NJ,117,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402939390,Lavallette,Ocean,NJ,287,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402939390,Lavallette,Ocean,NJ,315,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402939390,Lavallette,Ocean,NJ,567,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402939390,Lavallette,Ocean,NJ,832,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402939390,Lavallette,Ocean,NJ,1509,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402939390,Lavallette,Ocean,NJ,2072,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402939390,Lavallette,Ocean,NJ,2299,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402939390,Lavallette,Ocean,NJ,2665,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402939390,Lavallette,Ocean,NJ,1875,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402939390,Lavallette,Ocean,NJ,1787,"https://en.wikipedia.org/wiki/Lavallette,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3403129070,Haledon,Passaic,NJ,2560,"https://en.wikipedia.org/wiki/Haledon,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3403129070,Haledon,Passaic,NJ,3435,"https://en.wikipedia.org/wiki/Haledon,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3403129070,Haledon,Passaic,NJ,4812,"https://en.wikipedia.org/wiki/Haledon,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3403129070,Haledon,Passaic,NJ,5303,"https://en.wikipedia.org/wiki/Haledon,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3403129070,Haledon,Passaic,NJ,6204,"https://en.wikipedia.org/wiki/Haledon,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3403129070,Haledon,Passaic,NJ,6161,"https://en.wikipedia.org/wiki/Haledon,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3403129070,Haledon,Passaic,NJ,6767,"https://en.wikipedia.org/wiki/Haledon,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3403129070,Haledon,Passaic,NJ,6607,"https://en.wikipedia.org/wiki/Haledon,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3403129070,Haledon,Passaic,NJ,6951,"https://en.wikipedia.org/wiki/Haledon,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3403129070,Haledon,Passaic,NJ,8252,"https://en.wikipedia.org/wiki/Haledon,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3403129070,Haledon,Passaic,NJ,8318,"https://en.wikipedia.org/wiki/Haledon,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3403129070,Haledon,Passaic,NJ,9052,"https://en.wikipedia.org/wiki/Haledon,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3400321510,Englewood Cliffs,Bergen,NJ,218,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3400321510,Englewood Cliffs,Bergen,NJ,410,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3400321510,Englewood Cliffs,Bergen,NJ,534,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3400321510,Englewood Cliffs,Bergen,NJ,809,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3400321510,Englewood Cliffs,Bergen,NJ,888,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3400321510,Englewood Cliffs,Bergen,NJ,966,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3400321510,Englewood Cliffs,Bergen,NJ,2913,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3400321510,Englewood Cliffs,Bergen,NJ,5938,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3400321510,Englewood Cliffs,Bergen,NJ,5698,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3400321510,Englewood Cliffs,Bergen,NJ,5634,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3400321510,Englewood Cliffs,Bergen,NJ,5322,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3400321510,Englewood Cliffs,Bergen,NJ,5281,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3400321510,Englewood Cliffs,Bergen,NJ,5342,"https://en.wikipedia.org/wiki/Englewood_Cliffs,_New_Jersey",census count as tabulated in the article's US Census population template
+1820,3610543786,Lumberland town,Sullivan,NY,569,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1830,3610543786,Lumberland town,Sullivan,NY,955,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1840,3610543786,Lumberland town,Sullivan,NY,1205,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1850,3610543786,Lumberland town,Sullivan,NY,2635,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1860,3610543786,Lumberland town,Sullivan,NY,970,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1870,3610543786,Lumberland town,Sullivan,NY,1065,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1880,3610543786,Lumberland town,Sullivan,NY,1050,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1890,3610543786,Lumberland town,Sullivan,NY,875,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1900,3610543786,Lumberland town,Sullivan,NY,809,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1910,3610543786,Lumberland town,Sullivan,NY,716,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1920,3610543786,Lumberland town,Sullivan,NY,480,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1930,3610543786,Lumberland town,Sullivan,NY,499,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1940,3610543786,Lumberland town,Sullivan,NY,490,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1950,3610543786,Lumberland town,Sullivan,NY,494,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1960,3610543786,Lumberland town,Sullivan,NY,538,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1970,3610543786,Lumberland town,Sullivan,NY,857,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1980,3610543786,Lumberland town,Sullivan,NY,1210,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1990,3610543786,Lumberland town,Sullivan,NY,1425,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+2000,3610543786,Lumberland town,Sullivan,NY,1936,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+2010,3610543786,Lumberland town,Sullivan,NY,2468,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+2020,3610543786,Lumberland town,Sullivan,NY,2243,"https://en.wikipedia.org/wiki/Lumberland,_New_York",census count as tabulated in the article's US Census population template
+1900,3400356130,Park Ridge,Bergen,NJ,870,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3400356130,Park Ridge,Bergen,NJ,1401,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3400356130,Park Ridge,Bergen,NJ,1481,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3400356130,Park Ridge,Bergen,NJ,2229,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3400356130,Park Ridge,Bergen,NJ,2519,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3400356130,Park Ridge,Bergen,NJ,3189,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3400356130,Park Ridge,Bergen,NJ,6389,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3400356130,Park Ridge,Bergen,NJ,8709,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3400356130,Park Ridge,Bergen,NJ,8515,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3400356130,Park Ridge,Bergen,NJ,8102,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3400356130,Park Ridge,Bergen,NJ,8708,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3400356130,Park Ridge,Bergen,NJ,8645,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3400356130,Park Ridge,Bergen,NJ,8883,"https://en.wikipedia.org/wiki/Park_Ridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402903940,Beach Haven,Ocean,NJ,239,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402903940,Beach Haven,Ocean,NJ,272,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402903940,Beach Haven,Ocean,NJ,329,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402903940,Beach Haven,Ocean,NJ,715,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402903940,Beach Haven,Ocean,NJ,746,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402903940,Beach Haven,Ocean,NJ,1050,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402903940,Beach Haven,Ocean,NJ,1041,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402903940,Beach Haven,Ocean,NJ,1488,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402903940,Beach Haven,Ocean,NJ,1714,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402903940,Beach Haven,Ocean,NJ,1475,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402903940,Beach Haven,Ocean,NJ,1278,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402903940,Beach Haven,Ocean,NJ,1170,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402903940,Beach Haven,Ocean,NJ,1027,"https://en.wikipedia.org/wiki/Beach_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3401777930,Weehawken township,Hudson,NJ,280,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3401777930,Weehawken township,Hudson,NJ,597,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3401777930,Weehawken township,Hudson,NJ,1102,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3401777930,Weehawken township,Hudson,NJ,1943,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3401777930,Weehawken township,Hudson,NJ,5325,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3401777930,Weehawken township,Hudson,NJ,11228,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3401777930,Weehawken township,Hudson,NJ,14485,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3401777930,Weehawken township,Hudson,NJ,14807,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3401777930,Weehawken township,Hudson,NJ,14363,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3401777930,Weehawken township,Hudson,NJ,14830,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3401777930,Weehawken township,Hudson,NJ,13504,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3401777930,Weehawken township,Hudson,NJ,13383,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3401777930,Weehawken township,Hudson,NJ,13168,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3401777930,Weehawken township,Hudson,NJ,12385,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3401777930,Weehawken township,Hudson,NJ,13501,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3401777930,Weehawken township,Hudson,NJ,12554,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3401777930,Weehawken township,Hudson,NJ,17197,"https://en.wikipedia.org/wiki/Weehawken,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402748210,Morris Plains,Morris,NJ,1713,"https://en.wikipedia.org/wiki/Morris_Plains,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402748210,Morris Plains,Morris,NJ,2018,"https://en.wikipedia.org/wiki/Morris_Plains,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402748210,Morris Plains,Morris,NJ,2707,"https://en.wikipedia.org/wiki/Morris_Plains,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402748210,Morris Plains,Morris,NJ,4703,"https://en.wikipedia.org/wiki/Morris_Plains,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402748210,Morris Plains,Morris,NJ,5540,"https://en.wikipedia.org/wiki/Morris_Plains,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402748210,Morris Plains,Morris,NJ,5305,"https://en.wikipedia.org/wiki/Morris_Plains,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402748210,Morris Plains,Morris,NJ,5219,"https://en.wikipedia.org/wiki/Morris_Plains,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402748210,Morris Plains,Morris,NJ,5236,"https://en.wikipedia.org/wiki/Morris_Plains,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402748210,Morris Plains,Morris,NJ,5532,"https://en.wikipedia.org/wiki/Morris_Plains,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402748210,Morris Plains,Morris,NJ,6153,"https://en.wikipedia.org/wiki/Morris_Plains,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3401974420,Union township,Hunterdon,NJ,1217,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3401974420,Union township,Hunterdon,NJ,1051,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3401974420,Union township,Hunterdon,NJ,1167,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3401974420,Union township,Hunterdon,NJ,1134,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3401974420,Union township,Hunterdon,NJ,918,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3401974420,Union township,Hunterdon,NJ,930,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3401974420,Union township,Hunterdon,NJ,834,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3401974420,Union township,Hunterdon,NJ,1152,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3401974420,Union township,Hunterdon,NJ,1303,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3401974420,Union township,Hunterdon,NJ,1557,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3401974420,Union township,Hunterdon,NJ,1717,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3401974420,Union township,Hunterdon,NJ,2351,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3401974420,Union township,Hunterdon,NJ,3971,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3401974420,Union township,Hunterdon,NJ,5078,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3401974420,Union township,Hunterdon,NJ,6160,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3401974420,Union township,Hunterdon,NJ,5908,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3401974420,Union township,Hunterdon,NJ,6507,"https://en.wikipedia.org/wiki/Union_Township,_Hunterdon_County,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3403160090,Pompton Lakes,Passaic,NJ,847,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3403160090,Pompton Lakes,Passaic,NJ,1060,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3403160090,Pompton Lakes,Passaic,NJ,2008,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3403160090,Pompton Lakes,Passaic,NJ,3104,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3403160090,Pompton Lakes,Passaic,NJ,3189,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3403160090,Pompton Lakes,Passaic,NJ,4654,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3403160090,Pompton Lakes,Passaic,NJ,9445,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3403160090,Pompton Lakes,Passaic,NJ,11397,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3403160090,Pompton Lakes,Passaic,NJ,10660,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3403160090,Pompton Lakes,Passaic,NJ,10539,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3403160090,Pompton Lakes,Passaic,NJ,10640,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3403160090,Pompton Lakes,Passaic,NJ,11097,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3403160090,Pompton Lakes,Passaic,NJ,11127,"https://en.wikipedia.org/wiki/Pompton_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3401309250,Caldwell,Essex,NJ,1367,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3401309250,Caldwell,Essex,NJ,2236,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3401309250,Caldwell,Essex,NJ,3776,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3401309250,Caldwell,Essex,NJ,5144,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3401309250,Caldwell,Essex,NJ,4932,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3401309250,Caldwell,Essex,NJ,6270,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3401309250,Caldwell,Essex,NJ,6942,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3401309250,Caldwell,Essex,NJ,8677,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3401309250,Caldwell,Essex,NJ,7624,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3401309250,Caldwell,Essex,NJ,7549,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3401309250,Caldwell,Essex,NJ,7584,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3401309250,Caldwell,Essex,NJ,7822,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3401309250,Caldwell,Essex,NJ,9027,"https://en.wikipedia.org/wiki/Caldwell,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3607175781,Tuxedo town,Orange,NY,1678,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+1900,3607175781,Tuxedo town,Orange,NY,2277,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+1910,3607175781,Tuxedo town,Orange,NY,2858,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+1920,3607175781,Tuxedo town,Orange,NY,2355,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+1930,3607175781,Tuxedo town,Orange,NY,2606,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+1940,3607175781,Tuxedo town,Orange,NY,2314,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+1950,3607175781,Tuxedo town,Orange,NY,2281,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+1960,3607175781,Tuxedo town,Orange,NY,2227,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+1970,3607175781,Tuxedo town,Orange,NY,2967,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+1980,3607175781,Tuxedo town,Orange,NY,3069,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+1990,3607175781,Tuxedo town,Orange,NY,3023,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+2000,3607175781,Tuxedo town,Orange,NY,3334,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+2010,3607175781,Tuxedo town,Orange,NY,3624,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+2020,3607175781,Tuxedo town,Orange,NY,3811,"https://en.wikipedia.org/wiki/Tuxedo,_New_York",census count as tabulated in the article's US Census population template
+1930,3402729700,Harding township,Morris,NJ,1206,"https://en.wikipedia.org/wiki/Harding_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402729700,Harding township,Morris,NJ,1565,"https://en.wikipedia.org/wiki/Harding_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402729700,Harding township,Morris,NJ,1970,"https://en.wikipedia.org/wiki/Harding_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402729700,Harding township,Morris,NJ,2683,"https://en.wikipedia.org/wiki/Harding_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402729700,Harding township,Morris,NJ,3249,"https://en.wikipedia.org/wiki/Harding_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402729700,Harding township,Morris,NJ,3236,"https://en.wikipedia.org/wiki/Harding_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402729700,Harding township,Morris,NJ,3640,"https://en.wikipedia.org/wiki/Harding_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402729700,Harding township,Morris,NJ,3180,"https://en.wikipedia.org/wiki/Harding_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402729700,Harding township,Morris,NJ,3838,"https://en.wikipedia.org/wiki/Harding_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402729700,Harding township,Morris,NJ,3871,"https://en.wikipedia.org/wiki/Harding_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402507750,Brielle,Monmouth,NJ,392,"https://en.wikipedia.org/wiki/Brielle,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402507750,Brielle,Monmouth,NJ,684,"https://en.wikipedia.org/wiki/Brielle,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402507750,Brielle,Monmouth,NJ,961,"https://en.wikipedia.org/wiki/Brielle,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402507750,Brielle,Monmouth,NJ,1328,"https://en.wikipedia.org/wiki/Brielle,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402507750,Brielle,Monmouth,NJ,2619,"https://en.wikipedia.org/wiki/Brielle,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402507750,Brielle,Monmouth,NJ,3594,"https://en.wikipedia.org/wiki/Brielle,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402507750,Brielle,Monmouth,NJ,4068,"https://en.wikipedia.org/wiki/Brielle,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402507750,Brielle,Monmouth,NJ,4406,"https://en.wikipedia.org/wiki/Brielle,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402507750,Brielle,Monmouth,NJ,4893,"https://en.wikipedia.org/wiki/Brielle,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402507750,Brielle,Monmouth,NJ,4774,"https://en.wikipedia.org/wiki/Brielle,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402507750,Brielle,Monmouth,NJ,4982,"https://en.wikipedia.org/wiki/Brielle,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3401364590,Roseland,Essex,NJ,486,"https://en.wikipedia.org/wiki/Roseland,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3401364590,Roseland,Essex,NJ,609,"https://en.wikipedia.org/wiki/Roseland,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3401364590,Roseland,Essex,NJ,1058,"https://en.wikipedia.org/wiki/Roseland,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3401364590,Roseland,Essex,NJ,1556,"https://en.wikipedia.org/wiki/Roseland,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3401364590,Roseland,Essex,NJ,2019,"https://en.wikipedia.org/wiki/Roseland,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3401364590,Roseland,Essex,NJ,2804,"https://en.wikipedia.org/wiki/Roseland,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3401364590,Roseland,Essex,NJ,4453,"https://en.wikipedia.org/wiki/Roseland,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3401364590,Roseland,Essex,NJ,5330,"https://en.wikipedia.org/wiki/Roseland,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3401364590,Roseland,Essex,NJ,4847,"https://en.wikipedia.org/wiki/Roseland,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3401364590,Roseland,Essex,NJ,5298,"https://en.wikipedia.org/wiki/Roseland,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3401364590,Roseland,Essex,NJ,5819,"https://en.wikipedia.org/wiki/Roseland,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3401364590,Roseland,Essex,NJ,6299,"https://en.wikipedia.org/wiki/Roseland,_New_Jersey",census count as tabulated in the article's US Census population template
+1790,3401905650,Bethlehem township,Hunterdon,NJ,1335,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1810,3401905650,Bethlehem township,Hunterdon,NJ,1728,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1820,3401905650,Bethlehem township,Hunterdon,NJ,2002,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1830,3401905650,Bethlehem township,Hunterdon,NJ,2032,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1840,3401905650,Bethlehem township,Hunterdon,NJ,2370,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,3401905650,Bethlehem township,Hunterdon,NJ,2746,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3401905650,Bethlehem township,Hunterdon,NJ,1859,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3401905650,Bethlehem township,Hunterdon,NJ,2211,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3401905650,Bethlehem township,Hunterdon,NJ,2830,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3401905650,Bethlehem township,Hunterdon,NJ,2308,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3401905650,Bethlehem township,Hunterdon,NJ,1634,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3401905650,Bethlehem township,Hunterdon,NJ,980,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3401905650,Bethlehem township,Hunterdon,NJ,798,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3401905650,Bethlehem township,Hunterdon,NJ,735,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3401905650,Bethlehem township,Hunterdon,NJ,791,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3401905650,Bethlehem township,Hunterdon,NJ,857,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3401905650,Bethlehem township,Hunterdon,NJ,1090,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3401905650,Bethlehem township,Hunterdon,NJ,1385,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3401905650,Bethlehem township,Hunterdon,NJ,3045,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3401905650,Bethlehem township,Hunterdon,NJ,3104,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3401905650,Bethlehem township,Hunterdon,NJ,3820,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3401905650,Bethlehem township,Hunterdon,NJ,3979,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3401905650,Bethlehem township,Hunterdon,NJ,3745,"https://en.wikipedia.org/wiki/Bethlehem_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402522440,Fair Haven,Monmouth,NJ,1295,"https://en.wikipedia.org/wiki/Fair_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402522440,Fair Haven,Monmouth,NJ,2260,"https://en.wikipedia.org/wiki/Fair_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402522440,Fair Haven,Monmouth,NJ,2491,"https://en.wikipedia.org/wiki/Fair_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402522440,Fair Haven,Monmouth,NJ,3560,"https://en.wikipedia.org/wiki/Fair_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402522440,Fair Haven,Monmouth,NJ,5678,"https://en.wikipedia.org/wiki/Fair_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402522440,Fair Haven,Monmouth,NJ,6142,"https://en.wikipedia.org/wiki/Fair_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402522440,Fair Haven,Monmouth,NJ,5679,"https://en.wikipedia.org/wiki/Fair_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402522440,Fair Haven,Monmouth,NJ,5270,"https://en.wikipedia.org/wiki/Fair_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402522440,Fair Haven,Monmouth,NJ,5937,"https://en.wikipedia.org/wiki/Fair_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402522440,Fair Haven,Monmouth,NJ,6121,"https://en.wikipedia.org/wiki/Fair_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402522440,Fair Haven,Monmouth,NJ,6269,"https://en.wikipedia.org/wiki/Fair_Haven,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3402562430,Red Bank,Monmouth,NJ,2086,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3402562430,Red Bank,Monmouth,NJ,2684,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3402562430,Red Bank,Monmouth,NJ,4145,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402562430,Red Bank,Monmouth,NJ,5428,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402562430,Red Bank,Monmouth,NJ,7398,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402562430,Red Bank,Monmouth,NJ,9251,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402562430,Red Bank,Monmouth,NJ,11622,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402562430,Red Bank,Monmouth,NJ,10974,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402562430,Red Bank,Monmouth,NJ,12743,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402562430,Red Bank,Monmouth,NJ,12482,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402562430,Red Bank,Monmouth,NJ,12847,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402562430,Red Bank,Monmouth,NJ,12031,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402562430,Red Bank,Monmouth,NJ,10636,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402562430,Red Bank,Monmouth,NJ,11844,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402562430,Red Bank,Monmouth,NJ,12206,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402562430,Red Bank,Monmouth,NJ,12936,"https://en.wikipedia.org/wiki/Red_Bank,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402966480,Seaside Park,Ocean,NJ,73,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402966480,Seaside Park,Ocean,NJ,101,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402966480,Seaside Park,Ocean,NJ,179,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402966480,Seaside Park,Ocean,NJ,571,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402966480,Seaside Park,Ocean,NJ,653,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402966480,Seaside Park,Ocean,NJ,987,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402966480,Seaside Park,Ocean,NJ,1054,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402966480,Seaside Park,Ocean,NJ,1432,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402966480,Seaside Park,Ocean,NJ,1795,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402966480,Seaside Park,Ocean,NJ,1871,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402966480,Seaside Park,Ocean,NJ,2263,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402966480,Seaside Park,Ocean,NJ,1579,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402966480,Seaside Park,Ocean,NJ,1436,"https://en.wikipedia.org/wiki/Seaside_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402506970,Bradley Beach,Monmouth,NJ,982,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402506970,Bradley Beach,Monmouth,NJ,1807,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402506970,Bradley Beach,Monmouth,NJ,2307,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402506970,Bradley Beach,Monmouth,NJ,3306,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402506970,Bradley Beach,Monmouth,NJ,3468,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402506970,Bradley Beach,Monmouth,NJ,3911,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402506970,Bradley Beach,Monmouth,NJ,4204,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402506970,Bradley Beach,Monmouth,NJ,4163,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402506970,Bradley Beach,Monmouth,NJ,4772,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402506970,Bradley Beach,Monmouth,NJ,4475,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402506970,Bradley Beach,Monmouth,NJ,4793,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402506970,Bradley Beach,Monmouth,NJ,4298,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402506970,Bradley Beach,Monmouth,NJ,4282,"https://en.wikipedia.org/wiki/Bradley_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3400354870,Old Tappan,Bergen,NJ,269,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3400354870,Old Tappan,Bergen,NJ,305,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3400354870,Old Tappan,Bergen,NJ,404,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3400354870,Old Tappan,Bergen,NJ,600,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3400354870,Old Tappan,Bergen,NJ,609,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3400354870,Old Tappan,Bergen,NJ,828,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3400354870,Old Tappan,Bergen,NJ,2330,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3400354870,Old Tappan,Bergen,NJ,3917,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3400354870,Old Tappan,Bergen,NJ,4168,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3400354870,Old Tappan,Bergen,NJ,4254,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3400354870,Old Tappan,Bergen,NJ,5482,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3400354870,Old Tappan,Bergen,NJ,5750,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3400354870,Old Tappan,Bergen,NJ,5888,"https://en.wikipedia.org/wiki/Old_Tappan,_New_Jersey",census count as tabulated in the article's US Census population template
+1820,3602747207,Milan town,Dutchess,NY,1797,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1830,3602747207,Milan town,Dutchess,NY,1886,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1840,3602747207,Milan town,Dutchess,NY,1725,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1850,3602747207,Milan town,Dutchess,NY,1764,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1860,3602747207,Milan town,Dutchess,NY,1522,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1870,3602747207,Milan town,Dutchess,NY,1474,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1880,3602747207,Milan town,Dutchess,NY,1275,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1890,3602747207,Milan town,Dutchess,NY,1026,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1900,3602747207,Milan town,Dutchess,NY,950,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1910,3602747207,Milan town,Dutchess,NY,893,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1920,3602747207,Milan town,Dutchess,NY,704,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1930,3602747207,Milan town,Dutchess,NY,622,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1940,3602747207,Milan town,Dutchess,NY,695,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1950,3602747207,Milan town,Dutchess,NY,806,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1960,3602747207,Milan town,Dutchess,NY,944,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1970,3602747207,Milan town,Dutchess,NY,1322,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1980,3602747207,Milan town,Dutchess,NY,1668,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1990,3602747207,Milan town,Dutchess,NY,1895,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+2000,3602747207,Milan town,Dutchess,NY,2356,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+2010,3602747207,Milan town,Dutchess,NY,2370,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+2020,3602747207,Milan town,Dutchess,NY,2245,"https://en.wikipedia.org/wiki/Milan,_New_York",census count as tabulated in the article's US Census population template
+1930,3402967110,Ship Bottom,Ocean,NJ,277,"https://en.wikipedia.org/wiki/Ship_Bottom,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402967110,Ship Bottom,Ocean,NJ,396,"https://en.wikipedia.org/wiki/Ship_Bottom,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402967110,Ship Bottom,Ocean,NJ,533,"https://en.wikipedia.org/wiki/Ship_Bottom,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402967110,Ship Bottom,Ocean,NJ,717,"https://en.wikipedia.org/wiki/Ship_Bottom,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402967110,Ship Bottom,Ocean,NJ,1079,"https://en.wikipedia.org/wiki/Ship_Bottom,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402967110,Ship Bottom,Ocean,NJ,1427,"https://en.wikipedia.org/wiki/Ship_Bottom,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402967110,Ship Bottom,Ocean,NJ,1352,"https://en.wikipedia.org/wiki/Ship_Bottom,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402967110,Ship Bottom,Ocean,NJ,1384,"https://en.wikipedia.org/wiki/Ship_Bottom,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402967110,Ship Bottom,Ocean,NJ,1156,"https://en.wikipedia.org/wiki/Ship_Bottom,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402967110,Ship Bottom,Ocean,NJ,1098,"https://en.wikipedia.org/wiki/Ship_Bottom,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402570140,Spring Lake Heights,Monmouth,NJ,1221,"https://en.wikipedia.org/wiki/Spring_Lake_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402570140,Spring Lake Heights,Monmouth,NJ,1076,"https://en.wikipedia.org/wiki/Spring_Lake_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402570140,Spring Lake Heights,Monmouth,NJ,1798,"https://en.wikipedia.org/wiki/Spring_Lake_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402570140,Spring Lake Heights,Monmouth,NJ,3309,"https://en.wikipedia.org/wiki/Spring_Lake_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402570140,Spring Lake Heights,Monmouth,NJ,4602,"https://en.wikipedia.org/wiki/Spring_Lake_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402570140,Spring Lake Heights,Monmouth,NJ,5424,"https://en.wikipedia.org/wiki/Spring_Lake_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402570140,Spring Lake Heights,Monmouth,NJ,5341,"https://en.wikipedia.org/wiki/Spring_Lake_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402570140,Spring Lake Heights,Monmouth,NJ,5227,"https://en.wikipedia.org/wiki/Spring_Lake_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402570140,Spring Lake Heights,Monmouth,NJ,4713,"https://en.wikipedia.org/wiki/Spring_Lake_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402570140,Spring Lake Heights,Monmouth,NJ,4890,"https://en.wikipedia.org/wiki/Spring_Lake_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402745330,Mendham,Morris,NJ,1129,"https://en.wikipedia.org/wiki/Mendham_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402745330,Mendham,Morris,NJ,969,"https://en.wikipedia.org/wiki/Mendham_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402745330,Mendham,Morris,NJ,1278,"https://en.wikipedia.org/wiki/Mendham_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402745330,Mendham,Morris,NJ,1343,"https://en.wikipedia.org/wiki/Mendham_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402745330,Mendham,Morris,NJ,1724,"https://en.wikipedia.org/wiki/Mendham_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402745330,Mendham,Morris,NJ,2371,"https://en.wikipedia.org/wiki/Mendham_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402745330,Mendham,Morris,NJ,3729,"https://en.wikipedia.org/wiki/Mendham_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402745330,Mendham,Morris,NJ,4899,"https://en.wikipedia.org/wiki/Mendham_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402745330,Mendham,Morris,NJ,4890,"https://en.wikipedia.org/wiki/Mendham_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402745330,Mendham,Morris,NJ,5097,"https://en.wikipedia.org/wiki/Mendham_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402745330,Mendham,Morris,NJ,4981,"https://en.wikipedia.org/wiki/Mendham_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402745330,Mendham,Morris,NJ,4981,"https://en.wikipedia.org/wiki/Mendham_Borough,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402974210,Tuckerton,Ocean,NJ,1268,"https://en.wikipedia.org/wiki/Tuckerton,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402974210,Tuckerton,Ocean,NJ,1106,"https://en.wikipedia.org/wiki/Tuckerton,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402974210,Tuckerton,Ocean,NJ,1429,"https://en.wikipedia.org/wiki/Tuckerton,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402974210,Tuckerton,Ocean,NJ,1320,"https://en.wikipedia.org/wiki/Tuckerton,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402974210,Tuckerton,Ocean,NJ,1332,"https://en.wikipedia.org/wiki/Tuckerton,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402974210,Tuckerton,Ocean,NJ,1536,"https://en.wikipedia.org/wiki/Tuckerton,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402974210,Tuckerton,Ocean,NJ,1926,"https://en.wikipedia.org/wiki/Tuckerton,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402974210,Tuckerton,Ocean,NJ,2472,"https://en.wikipedia.org/wiki/Tuckerton,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402974210,Tuckerton,Ocean,NJ,3048,"https://en.wikipedia.org/wiki/Tuckerton,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402974210,Tuckerton,Ocean,NJ,3517,"https://en.wikipedia.org/wiki/Tuckerton,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402974210,Tuckerton,Ocean,NJ,3347,"https://en.wikipedia.org/wiki/Tuckerton,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402974210,Tuckerton,Ocean,NJ,3577,"https://en.wikipedia.org/wiki/Tuckerton,_New_Jersey",census count as tabulated in the article's US Census population template
+1830,3602758156,Pine Plains town,Dutchess,NY,1503,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1840,3602758156,Pine Plains town,Dutchess,NY,1334,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1850,3602758156,Pine Plains town,Dutchess,NY,1416,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1860,3602758156,Pine Plains town,Dutchess,NY,1412,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1870,3602758156,Pine Plains town,Dutchess,NY,1503,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1880,3602758156,Pine Plains town,Dutchess,NY,1352,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1890,3602758156,Pine Plains town,Dutchess,NY,1308,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1900,3602758156,Pine Plains town,Dutchess,NY,1263,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1910,3602758156,Pine Plains town,Dutchess,NY,1420,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1920,3602758156,Pine Plains town,Dutchess,NY,1252,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1930,3602758156,Pine Plains town,Dutchess,NY,1209,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1940,3602758156,Pine Plains town,Dutchess,NY,1301,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1950,3602758156,Pine Plains town,Dutchess,NY,1360,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1960,3602758156,Pine Plains town,Dutchess,NY,1608,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1970,3602758156,Pine Plains town,Dutchess,NY,1792,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1980,3602758156,Pine Plains town,Dutchess,NY,2199,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1990,3602758156,Pine Plains town,Dutchess,NY,2287,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+2000,3602758156,Pine Plains town,Dutchess,NY,2569,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+2010,3602758156,Pine Plains town,Dutchess,NY,2473,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+2020,3602758156,Pine Plains town,Dutchess,NY,2218,"https://en.wikipedia.org/wiki/Pine_Plains_(town),_New_York",census count as tabulated in the article's US Census population template
+1920,3403724930,Franklin,Sussex,NJ,4075,"https://en.wikipedia.org/wiki/Franklin,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3403724930,Franklin,Sussex,NJ,4176,"https://en.wikipedia.org/wiki/Franklin,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3403724930,Franklin,Sussex,NJ,4009,"https://en.wikipedia.org/wiki/Franklin,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3403724930,Franklin,Sussex,NJ,3864,"https://en.wikipedia.org/wiki/Franklin,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3403724930,Franklin,Sussex,NJ,3624,"https://en.wikipedia.org/wiki/Franklin,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3403724930,Franklin,Sussex,NJ,4236,"https://en.wikipedia.org/wiki/Franklin,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3403724930,Franklin,Sussex,NJ,4486,"https://en.wikipedia.org/wiki/Franklin,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3403724930,Franklin,Sussex,NJ,4977,"https://en.wikipedia.org/wiki/Franklin,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3403724930,Franklin,Sussex,NJ,5160,"https://en.wikipedia.org/wiki/Franklin,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3403724930,Franklin,Sussex,NJ,5045,"https://en.wikipedia.org/wiki/Franklin,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3403724930,Franklin,Sussex,NJ,4912,"https://en.wikipedia.org/wiki/Franklin,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,3401978230,West Amwell township,Hunterdon,NJ,1175,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3401978230,West Amwell township,Hunterdon,NJ,1089,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3401978230,West Amwell township,Hunterdon,NJ,1030,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3401978230,West Amwell township,Hunterdon,NJ,1039,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3401978230,West Amwell township,Hunterdon,NJ,866,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3401978230,West Amwell township,Hunterdon,NJ,839,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3401978230,West Amwell township,Hunterdon,NJ,866,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3401978230,West Amwell township,Hunterdon,NJ,735,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3401978230,West Amwell township,Hunterdon,NJ,788,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3401978230,West Amwell township,Hunterdon,NJ,975,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3401978230,West Amwell township,Hunterdon,NJ,1213,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3401978230,West Amwell township,Hunterdon,NJ,1683,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3401978230,West Amwell township,Hunterdon,NJ,2142,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3401978230,West Amwell township,Hunterdon,NJ,2299,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3401978230,West Amwell township,Hunterdon,NJ,2251,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3401978230,West Amwell township,Hunterdon,NJ,2383,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3401978230,West Amwell township,Hunterdon,NJ,3840,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3401978230,West Amwell township,Hunterdon,NJ,3005,"https://en.wikipedia.org/wiki/West_Amwell_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3400317530,Demarest,Bergen,NJ,393,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3400317530,Demarest,Bergen,NJ,560,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3400317530,Demarest,Bergen,NJ,654,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3400317530,Demarest,Bergen,NJ,1013,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3400317530,Demarest,Bergen,NJ,1165,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3400317530,Demarest,Bergen,NJ,1786,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3400317530,Demarest,Bergen,NJ,4231,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3400317530,Demarest,Bergen,NJ,5133,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3400317530,Demarest,Bergen,NJ,4963,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3400317530,Demarest,Bergen,NJ,4800,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3400317530,Demarest,Bergen,NJ,4845,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3400317530,Demarest,Bergen,NJ,4881,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3400317530,Demarest,Bergen,NJ,4981,"https://en.wikipedia.org/wiki/Demarest,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3610527573,Fremont town,Sullivan,NY,1728,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1870,3610527573,Fremont town,Sullivan,NY,2218,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1880,3610527573,Fremont town,Sullivan,NY,2025,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1890,3610527573,Fremont town,Sullivan,NY,2168,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1900,3610527573,Fremont town,Sullivan,NY,2184,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1910,3610527573,Fremont town,Sullivan,NY,1931,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1920,3610527573,Fremont town,Sullivan,NY,1435,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1930,3610527573,Fremont town,Sullivan,NY,1386,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1940,3610527573,Fremont town,Sullivan,NY,1251,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1950,3610527573,Fremont town,Sullivan,NY,1170,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1960,3610527573,Fremont town,Sullivan,NY,1047,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1970,3610527573,Fremont town,Sullivan,NY,1047,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1980,3610527573,Fremont town,Sullivan,NY,1346,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1990,3610527573,Fremont town,Sullivan,NY,1332,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+2000,3610527573,Fremont town,Sullivan,NY,1391,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+2010,3610527573,Fremont town,Sullivan,NY,1381,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+2020,3610527573,Fremont town,Sullivan,NY,1161,"https://en.wikipedia.org/wiki/Fremont,_Sullivan_County,_New_York",census count as tabulated in the article's US Census population template
+1890,3402780390,Wharton,Morris,NJ,775,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402780390,Wharton,Morris,NJ,2069,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402780390,Wharton,Morris,NJ,2983,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402780390,Wharton,Morris,NJ,2877,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402780390,Wharton,Morris,NJ,3683,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402780390,Wharton,Morris,NJ,3854,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402780390,Wharton,Morris,NJ,3853,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402780390,Wharton,Morris,NJ,5006,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402780390,Wharton,Morris,NJ,5535,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402780390,Wharton,Morris,NJ,5485,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402780390,Wharton,Morris,NJ,5405,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402780390,Wharton,Morris,NJ,6298,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402780390,Wharton,Morris,NJ,6522,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402780390,Wharton,Morris,NJ,7241,"https://en.wikipedia.org/wiki/Wharton,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3403925800,Garwood,Union,NJ,1118,"https://en.wikipedia.org/wiki/Garwood,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3403925800,Garwood,Union,NJ,2084,"https://en.wikipedia.org/wiki/Garwood,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3403925800,Garwood,Union,NJ,3344,"https://en.wikipedia.org/wiki/Garwood,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3403925800,Garwood,Union,NJ,3622,"https://en.wikipedia.org/wiki/Garwood,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3403925800,Garwood,Union,NJ,4622,"https://en.wikipedia.org/wiki/Garwood,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3403925800,Garwood,Union,NJ,5426,"https://en.wikipedia.org/wiki/Garwood,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3403925800,Garwood,Union,NJ,5260,"https://en.wikipedia.org/wiki/Garwood,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3403925800,Garwood,Union,NJ,4752,"https://en.wikipedia.org/wiki/Garwood,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3403925800,Garwood,Union,NJ,4227,"https://en.wikipedia.org/wiki/Garwood,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3403925800,Garwood,Union,NJ,4153,"https://en.wikipedia.org/wiki/Garwood,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3403925800,Garwood,Union,NJ,4226,"https://en.wikipedia.org/wiki/Garwood,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3403925800,Garwood,Union,NJ,4454,"https://en.wikipedia.org/wiki/Garwood,_New_Jersey",census count as tabulated in the article's US Census population template
+1830,3403727420,Green township,Sussex,NJ,801,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1840,3403727420,Green township,Sussex,NJ,777,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,3403727420,Green township,Sussex,NJ,823,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3403727420,Green township,Sussex,NJ,1023,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3403727420,Green township,Sussex,NJ,868,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3403727420,Green township,Sussex,NJ,727,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3403727420,Green township,Sussex,NJ,636,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3403727420,Green township,Sussex,NJ,627,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3403727420,Green township,Sussex,NJ,888,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3403727420,Green township,Sussex,NJ,454,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3403727420,Green township,Sussex,NJ,539,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3403727420,Green township,Sussex,NJ,540,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3403727420,Green township,Sussex,NJ,596,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3403727420,Green township,Sussex,NJ,854,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3403727420,Green township,Sussex,NJ,1343,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3403727420,Green township,Sussex,NJ,2450,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3403727420,Green township,Sussex,NJ,2709,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3403727420,Green township,Sussex,NJ,3220,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3403727420,Green township,Sussex,NJ,3601,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3403727420,Green township,Sussex,NJ,3627,"https://en.wikipedia.org/wiki/Green_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1810,3403747430,Montague township,Sussex,NJ,661,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1820,3403747430,Montague township,Sussex,NJ,964,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1830,3403747430,Montague township,Sussex,NJ,990,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1840,3403747430,Montague township,Sussex,NJ,1025,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,3403747430,Montague township,Sussex,NJ,1010,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3403747430,Montague township,Sussex,NJ,983,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3403747430,Montague township,Sussex,NJ,932,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3403747430,Montague township,Sussex,NJ,1022,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3403747430,Montague township,Sussex,NJ,797,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3403747430,Montague township,Sussex,NJ,710,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3403747430,Montague township,Sussex,NJ,621,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3403747430,Montague township,Sussex,NJ,534,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3403747430,Montague township,Sussex,NJ,581,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3403747430,Montague township,Sussex,NJ,621,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3403747430,Montague township,Sussex,NJ,602,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3403747430,Montague township,Sussex,NJ,879,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3403747430,Montague township,Sussex,NJ,1131,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3403747430,Montague township,Sussex,NJ,2066,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3403747430,Montague township,Sussex,NJ,2832,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3403747430,Montague township,Sussex,NJ,3412,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3403747430,Montague township,Sussex,NJ,3847,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3403747430,Montague township,Sussex,NJ,3792,"https://en.wikipedia.org/wiki/Montague_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3402706640,Boonton township,Morris,NJ,405,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3402706640,Boonton township,Morris,NJ,326,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402706640,Boonton township,Morris,NJ,809,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402706640,Boonton township,Morris,NJ,428,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402706640,Boonton township,Morris,NJ,684,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402706640,Boonton township,Morris,NJ,623,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402706640,Boonton township,Morris,NJ,817,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402706640,Boonton township,Morris,NJ,1155,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402706640,Boonton township,Morris,NJ,1998,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402706640,Boonton township,Morris,NJ,3070,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402706640,Boonton township,Morris,NJ,3273,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402706640,Boonton township,Morris,NJ,3566,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402706640,Boonton township,Morris,NJ,4287,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402706640,Boonton township,Morris,NJ,4263,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402706640,Boonton township,Morris,NJ,4380,"https://en.wikipedia.org/wiki/Boonton_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3402502110,Atlantic Highlands,Monmouth,NJ,945,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402502110,Atlantic Highlands,Monmouth,NJ,1383,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402502110,Atlantic Highlands,Monmouth,NJ,1645,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402502110,Atlantic Highlands,Monmouth,NJ,1629,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402502110,Atlantic Highlands,Monmouth,NJ,2000,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402502110,Atlantic Highlands,Monmouth,NJ,2335,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402502110,Atlantic Highlands,Monmouth,NJ,3083,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402502110,Atlantic Highlands,Monmouth,NJ,4119,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402502110,Atlantic Highlands,Monmouth,NJ,5102,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402502110,Atlantic Highlands,Monmouth,NJ,4950,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402502110,Atlantic Highlands,Monmouth,NJ,4629,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402502110,Atlantic Highlands,Monmouth,NJ,4705,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402502110,Atlantic Highlands,Monmouth,NJ,4385,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402502110,Atlantic Highlands,Monmouth,NJ,4414,"https://en.wikipedia.org/wiki/Atlantic_Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3402315550,Cranbury township,Middlesex,NJ,1509,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3402315550,Cranbury township,Middlesex,NJ,1422,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402315550,Cranbury township,Middlesex,NJ,1428,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402315550,Cranbury township,Middlesex,NJ,1424,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402315550,Cranbury township,Middlesex,NJ,1083,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402315550,Cranbury township,Middlesex,NJ,1278,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402315550,Cranbury township,Middlesex,NJ,1342,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402315550,Cranbury township,Middlesex,NJ,1797,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402315550,Cranbury township,Middlesex,NJ,2001,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402315550,Cranbury township,Middlesex,NJ,2253,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402315550,Cranbury township,Middlesex,NJ,1927,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402315550,Cranbury township,Middlesex,NJ,2500,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402315550,Cranbury township,Middlesex,NJ,3227,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402315550,Cranbury township,Middlesex,NJ,3857,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402315550,Cranbury township,Middlesex,NJ,3842,"https://en.wikipedia.org/wiki/Cranbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402567350,Shrewsbury,Monmouth,NJ,857,"https://en.wikipedia.org/wiki/Shrewsbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402567350,Shrewsbury,Monmouth,NJ,1058,"https://en.wikipedia.org/wiki/Shrewsbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402567350,Shrewsbury,Monmouth,NJ,1613,"https://en.wikipedia.org/wiki/Shrewsbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402567350,Shrewsbury,Monmouth,NJ,3222,"https://en.wikipedia.org/wiki/Shrewsbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402567350,Shrewsbury,Monmouth,NJ,3315,"https://en.wikipedia.org/wiki/Shrewsbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402567350,Shrewsbury,Monmouth,NJ,2962,"https://en.wikipedia.org/wiki/Shrewsbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402567350,Shrewsbury,Monmouth,NJ,3096,"https://en.wikipedia.org/wiki/Shrewsbury,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402567350,Shrewsbury,Monmouth,NJ,3590,"https://en.wikipedia.org/wiki/Shrewsbury,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402567350,Shrewsbury,Monmouth,NJ,3809,"https://en.wikipedia.org/wiki/Shrewsbury,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402567350,Shrewsbury,Monmouth,NJ,4184,"https://en.wikipedia.org/wiki/Shrewsbury,_New_Jersey",census count as tabulated in the article's US Census population template
+1830,3610516661,Cochecton town,Sullivan,NY,438,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1840,3610516661,Cochecton town,Sullivan,NY,622,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1850,3610516661,Cochecton town,Sullivan,NY,1981,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1860,3610516661,Cochecton town,Sullivan,NY,2771,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1870,3610516661,Cochecton town,Sullivan,NY,1490,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1880,3610516661,Cochecton town,Sullivan,NY,1328,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1890,3610516661,Cochecton town,Sullivan,NY,1174,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1900,3610516661,Cochecton town,Sullivan,NY,1117,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1910,3610516661,Cochecton town,Sullivan,NY,1142,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1920,3610516661,Cochecton town,Sullivan,NY,1112,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1930,3610516661,Cochecton town,Sullivan,NY,1154,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1940,3610516661,Cochecton town,Sullivan,NY,1189,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1950,3610516661,Cochecton town,Sullivan,NY,1136,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1960,3610516661,Cochecton town,Sullivan,NY,1070,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1970,3610516661,Cochecton town,Sullivan,NY,1181,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1980,3610516661,Cochecton town,Sullivan,NY,1330,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1990,3610516661,Cochecton town,Sullivan,NY,1318,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+2000,3610516661,Cochecton town,Sullivan,NY,1327,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+2010,3610516661,Cochecton town,Sullivan,NY,1372,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+2020,3610516661,Cochecton town,Sullivan,NY,1448,"https://en.wikipedia.org/wiki/Cochecton,_New_York",census count as tabulated in the article's US Census population template
+1930,3402748480,Mountain Lakes,Morris,NJ,2132,"https://en.wikipedia.org/wiki/Mountain_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402748480,Mountain Lakes,Morris,NJ,2205,"https://en.wikipedia.org/wiki/Mountain_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402748480,Mountain Lakes,Morris,NJ,2806,"https://en.wikipedia.org/wiki/Mountain_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402748480,Mountain Lakes,Morris,NJ,4037,"https://en.wikipedia.org/wiki/Mountain_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402748480,Mountain Lakes,Morris,NJ,4739,"https://en.wikipedia.org/wiki/Mountain_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402748480,Mountain Lakes,Morris,NJ,4153,"https://en.wikipedia.org/wiki/Mountain_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402748480,Mountain Lakes,Morris,NJ,3847,"https://en.wikipedia.org/wiki/Mountain_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402748480,Mountain Lakes,Morris,NJ,4256,"https://en.wikipedia.org/wiki/Mountain_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402748480,Mountain Lakes,Morris,NJ,4160,"https://en.wikipedia.org/wiki/Mountain_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402748480,Mountain Lakes,Morris,NJ,4472,"https://en.wikipedia.org/wiki/Mountain_Lakes,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3402131620,Hightstown,Mercer,NJ,970,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3402131620,Hightstown,Mercer,NJ,1347,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3402131620,Hightstown,Mercer,NJ,1355,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3402131620,Hightstown,Mercer,NJ,1875,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402131620,Hightstown,Mercer,NJ,1749,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402131620,Hightstown,Mercer,NJ,1879,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402131620,Hightstown,Mercer,NJ,2674,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402131620,Hightstown,Mercer,NJ,3012,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402131620,Hightstown,Mercer,NJ,3486,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402131620,Hightstown,Mercer,NJ,3712,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402131620,Hightstown,Mercer,NJ,4317,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402131620,Hightstown,Mercer,NJ,5431,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402131620,Hightstown,Mercer,NJ,4581,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402131620,Hightstown,Mercer,NJ,5126,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402131620,Hightstown,Mercer,NJ,5216,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402131620,Hightstown,Mercer,NJ,5494,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402131620,Hightstown,Mercer,NJ,5900,"https://en.wikipedia.org/wiki/Hightstown,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402549920,Neptune City,Monmouth,NJ,1009,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402549920,Neptune City,Monmouth,NJ,488,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402549920,Neptune City,Monmouth,NJ,539,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402549920,Neptune City,Monmouth,NJ,2258,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402549920,Neptune City,Monmouth,NJ,2392,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402549920,Neptune City,Monmouth,NJ,3073,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402549920,Neptune City,Monmouth,NJ,4013,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402549920,Neptune City,Monmouth,NJ,5502,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402549920,Neptune City,Monmouth,NJ,5276,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402549920,Neptune City,Monmouth,NJ,4997,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402549920,Neptune City,Monmouth,NJ,5218,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402549920,Neptune City,Monmouth,NJ,4869,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402549920,Neptune City,Monmouth,NJ,4626,"https://en.wikipedia.org/wiki/Neptune_City,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402566330,Sea Girt,Monmouth,NJ,110,"https://en.wikipedia.org/wiki/Sea_Girt,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402566330,Sea Girt,Monmouth,NJ,386,"https://en.wikipedia.org/wiki/Sea_Girt,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402566330,Sea Girt,Monmouth,NJ,599,"https://en.wikipedia.org/wiki/Sea_Girt,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402566330,Sea Girt,Monmouth,NJ,1178,"https://en.wikipedia.org/wiki/Sea_Girt,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402566330,Sea Girt,Monmouth,NJ,1798,"https://en.wikipedia.org/wiki/Sea_Girt,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402566330,Sea Girt,Monmouth,NJ,2207,"https://en.wikipedia.org/wiki/Sea_Girt,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402566330,Sea Girt,Monmouth,NJ,2650,"https://en.wikipedia.org/wiki/Sea_Girt,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402566330,Sea Girt,Monmouth,NJ,2099,"https://en.wikipedia.org/wiki/Sea_Girt,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402566330,Sea Girt,Monmouth,NJ,2148,"https://en.wikipedia.org/wiki/Sea_Girt,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402566330,Sea Girt,Monmouth,NJ,1828,"https://en.wikipedia.org/wiki/Sea_Girt,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402566330,Sea Girt,Monmouth,NJ,1866,"https://en.wikipedia.org/wiki/Sea_Girt,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3610575759,Tusten town,Sullivan,NY,871,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1870,3610575759,Tusten town,Sullivan,NY,1028,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1880,3610575759,Tusten town,Sullivan,NY,1050,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1890,3610575759,Tusten town,Sullivan,NY,1004,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1900,3610575759,Tusten town,Sullivan,NY,890,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1910,3610575759,Tusten town,Sullivan,NY,878,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1920,3610575759,Tusten town,Sullivan,NY,881,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1930,3610575759,Tusten town,Sullivan,NY,914,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1940,3610575759,Tusten town,Sullivan,NY,950,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1950,3610575759,Tusten town,Sullivan,NY,1042,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1960,3610575759,Tusten town,Sullivan,NY,1087,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1970,3610575759,Tusten town,Sullivan,NY,1224,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1980,3610575759,Tusten town,Sullivan,NY,1424,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1990,3610575759,Tusten town,Sullivan,NY,1271,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+2000,3610575759,Tusten town,Sullivan,NY,1415,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+2010,3610575759,Tusten town,Sullivan,NY,1515,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+2020,3610575759,Tusten town,Sullivan,NY,1405,"https://en.wikipedia.org/wiki/Tusten,_New_York",census count as tabulated in the article's US Census population template
+1900,3402531500,Highlands,Monmouth,NJ,1228,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402531500,Highlands,Monmouth,NJ,1386,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402531500,Highlands,Monmouth,NJ,1731,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402531500,Highlands,Monmouth,NJ,1877,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402531500,Highlands,Monmouth,NJ,2076,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402531500,Highlands,Monmouth,NJ,2959,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402531500,Highlands,Monmouth,NJ,3536,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402531500,Highlands,Monmouth,NJ,3916,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402531500,Highlands,Monmouth,NJ,5187,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402531500,Highlands,Monmouth,NJ,4849,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402531500,Highlands,Monmouth,NJ,5097,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402531500,Highlands,Monmouth,NJ,5005,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402531500,Highlands,Monmouth,NJ,4621,"https://en.wikipedia.org/wiki/Highlands,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3403725140,Fredon township,Sussex,NJ,150,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3403725140,Fredon township,Sussex,NJ,457,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3403725140,Fredon township,Sussex,NJ,269,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3403725140,Fredon township,Sussex,NJ,412,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3403725140,Fredon township,Sussex,NJ,478,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3403725140,Fredon township,Sussex,NJ,584,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3403725140,Fredon township,Sussex,NJ,804,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3403725140,Fredon township,Sussex,NJ,1372,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3403725140,Fredon township,Sussex,NJ,2281,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3403725140,Fredon township,Sussex,NJ,2763,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3403725140,Fredon township,Sussex,NJ,2860,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3403725140,Fredon township,Sussex,NJ,3437,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3403725140,Fredon township,Sussex,NJ,3235,"https://en.wikipedia.org/wiki/Fredon_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402748690,Mount Arlington,Morris,NJ,275,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402748690,Mount Arlington,Morris,NJ,277,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402748690,Mount Arlington,Morris,NJ,213,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402748690,Mount Arlington,Morris,NJ,306,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402748690,Mount Arlington,Morris,NJ,456,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402748690,Mount Arlington,Morris,NJ,639,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402748690,Mount Arlington,Morris,NJ,1246,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402748690,Mount Arlington,Morris,NJ,3590,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402748690,Mount Arlington,Morris,NJ,4251,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402748690,Mount Arlington,Morris,NJ,3630,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402748690,Mount Arlington,Morris,NJ,4663,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402748690,Mount Arlington,Morris,NJ,5050,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402748690,Mount Arlington,Morris,NJ,5909,"https://en.wikipedia.org/wiki/Mount_Arlington,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,4210370496,Shohola township,Pike,PA,2475,"https://en.wikipedia.org/wiki/Shohola_Township,_Pennsylvania",census count as tabulated in the article's US Census population template
+1920,3402966450,Seaside Heights,Ocean,NJ,154,"https://en.wikipedia.org/wiki/Seaside_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402966450,Seaside Heights,Ocean,NJ,399,"https://en.wikipedia.org/wiki/Seaside_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402966450,Seaside Heights,Ocean,NJ,549,"https://en.wikipedia.org/wiki/Seaside_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402966450,Seaside Heights,Ocean,NJ,862,"https://en.wikipedia.org/wiki/Seaside_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402966450,Seaside Heights,Ocean,NJ,954,"https://en.wikipedia.org/wiki/Seaside_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402966450,Seaside Heights,Ocean,NJ,1248,"https://en.wikipedia.org/wiki/Seaside_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402966450,Seaside Heights,Ocean,NJ,1802,"https://en.wikipedia.org/wiki/Seaside_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402966450,Seaside Heights,Ocean,NJ,2366,"https://en.wikipedia.org/wiki/Seaside_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402966450,Seaside Heights,Ocean,NJ,3155,"https://en.wikipedia.org/wiki/Seaside_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402966450,Seaside Heights,Ocean,NJ,2887,"https://en.wikipedia.org/wiki/Seaside_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402966450,Seaside Heights,Ocean,NJ,2440,"https://en.wikipedia.org/wiki/Seaside_Heights,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3400365400,Saddle River,Bergen,NJ,415,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3400365400,Saddle River,Bergen,NJ,483,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3400365400,Saddle River,Bergen,NJ,506,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3400365400,Saddle River,Bergen,NJ,657,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3400365400,Saddle River,Bergen,NJ,816,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3400365400,Saddle River,Bergen,NJ,1003,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3400365400,Saddle River,Bergen,NJ,1776,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3400365400,Saddle River,Bergen,NJ,2437,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3400365400,Saddle River,Bergen,NJ,2763,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3400365400,Saddle River,Bergen,NJ,2950,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3400365400,Saddle River,Bergen,NJ,3201,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3400365400,Saddle River,Bergen,NJ,3152,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3400365400,Saddle River,Bergen,NJ,3372,"https://en.wikipedia.org/wiki/Saddle_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3400353430,Northvale,Bergen,NJ,387,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3400353430,Northvale,Bergen,NJ,588,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3400353430,Northvale,Bergen,NJ,827,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3400353430,Northvale,Bergen,NJ,1144,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3400353430,Northvale,Bergen,NJ,1159,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3400353430,Northvale,Bergen,NJ,1455,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3400353430,Northvale,Bergen,NJ,2892,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3400353430,Northvale,Bergen,NJ,5177,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3400353430,Northvale,Bergen,NJ,5046,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3400353430,Northvale,Bergen,NJ,4563,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3400353430,Northvale,Bergen,NJ,4460,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3400353430,Northvale,Bergen,NJ,4640,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3400353430,Northvale,Bergen,NJ,4761,"https://en.wikipedia.org/wiki/Northvale,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,3403737440,Lafayette township,Sussex,NJ,928,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3403737440,Lafayette township,Sussex,NJ,919,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3403737440,Lafayette township,Sussex,NJ,884,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3403737440,Lafayette township,Sussex,NJ,781,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3403737440,Lafayette township,Sussex,NJ,742,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3403737440,Lafayette township,Sussex,NJ,717,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3403737440,Lafayette township,Sussex,NJ,683,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3403737440,Lafayette township,Sussex,NJ,634,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3403737440,Lafayette township,Sussex,NJ,735,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3403737440,Lafayette township,Sussex,NJ,803,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3403737440,Lafayette township,Sussex,NJ,836,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3403737440,Lafayette township,Sussex,NJ,1100,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3403737440,Lafayette township,Sussex,NJ,1202,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3403737440,Lafayette township,Sussex,NJ,1614,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3403737440,Lafayette township,Sussex,NJ,1902,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3403737440,Lafayette township,Sussex,NJ,2300,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3403737440,Lafayette township,Sussex,NJ,2538,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3403737440,Lafayette township,Sussex,NJ,2358,"https://en.wikipedia.org/wiki/Lafayette_Township,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3400332310,Ho-Ho-Kus,Bergen,NJ,316,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3400332310,Ho-Ho-Kus,Bergen,NJ,488,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3400332310,Ho-Ho-Kus,Bergen,NJ,586,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3400332310,Ho-Ho-Kus,Bergen,NJ,925,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3400332310,Ho-Ho-Kus,Bergen,NJ,1626,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3400332310,Ho-Ho-Kus,Bergen,NJ,2254,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3400332310,Ho-Ho-Kus,Bergen,NJ,3988,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3400332310,Ho-Ho-Kus,Bergen,NJ,4348,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3400332310,Ho-Ho-Kus,Bergen,NJ,4129,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3400332310,Ho-Ho-Kus,Bergen,NJ,3935,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3400332310,Ho-Ho-Kus,Bergen,NJ,4060,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3400332310,Ho-Ho-Kus,Bergen,NJ,4078,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3400332310,Ho-Ho-Kus,Bergen,NJ,4258,"https://en.wikipedia.org/wiki/Ho-Ho-Kus,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3403161170,Prospect Park,Passaic,NJ,2719,"https://en.wikipedia.org/wiki/Prospect_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3403161170,Prospect Park,Passaic,NJ,4292,"https://en.wikipedia.org/wiki/Prospect_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3403161170,Prospect Park,Passaic,NJ,5909,"https://en.wikipedia.org/wiki/Prospect_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3403161170,Prospect Park,Passaic,NJ,5714,"https://en.wikipedia.org/wiki/Prospect_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3403161170,Prospect Park,Passaic,NJ,5242,"https://en.wikipedia.org/wiki/Prospect_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3403161170,Prospect Park,Passaic,NJ,5201,"https://en.wikipedia.org/wiki/Prospect_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3403161170,Prospect Park,Passaic,NJ,5176,"https://en.wikipedia.org/wiki/Prospect_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3403161170,Prospect Park,Passaic,NJ,5142,"https://en.wikipedia.org/wiki/Prospect_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3403161170,Prospect Park,Passaic,NJ,5053,"https://en.wikipedia.org/wiki/Prospect_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3403161170,Prospect Park,Passaic,NJ,5779,"https://en.wikipedia.org/wiki/Prospect_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3403161170,Prospect Park,Passaic,NJ,5865,"https://en.wikipedia.org/wiki/Prospect_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3403161170,Prospect Park,Passaic,NJ,6372,"https://en.wikipedia.org/wiki/Prospect_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3400330150,Harrington Park,Bergen,NJ,269,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3400330150,Harrington Park,Bergen,NJ,377,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3400330150,Harrington Park,Bergen,NJ,627,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3400330150,Harrington Park,Bergen,NJ,1251,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3400330150,Harrington Park,Bergen,NJ,1389,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3400330150,Harrington Park,Bergen,NJ,1634,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3400330150,Harrington Park,Bergen,NJ,3581,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3400330150,Harrington Park,Bergen,NJ,4841,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3400330150,Harrington Park,Bergen,NJ,4532,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3400330150,Harrington Park,Bergen,NJ,4623,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3400330150,Harrington Park,Bergen,NJ,4740,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3400330150,Harrington Park,Bergen,NJ,4664,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3400330150,Harrington Park,Bergen,NJ,4741,"https://en.wikipedia.org/wiki/Harrington_Park,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3401931320,High Bridge,Hunterdon,NJ,2209,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3401931320,High Bridge,Hunterdon,NJ,1935,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3401931320,High Bridge,Hunterdon,NJ,1377,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3401931320,High Bridge,Hunterdon,NJ,1545,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3401931320,High Bridge,Hunterdon,NJ,1795,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3401931320,High Bridge,Hunterdon,NJ,1860,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3401931320,High Bridge,Hunterdon,NJ,1781,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3401931320,High Bridge,Hunterdon,NJ,1854,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3401931320,High Bridge,Hunterdon,NJ,2148,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3401931320,High Bridge,Hunterdon,NJ,2606,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3401931320,High Bridge,Hunterdon,NJ,3435,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3401931320,High Bridge,Hunterdon,NJ,3886,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3401931320,High Bridge,Hunterdon,NJ,3776,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3401931320,High Bridge,Hunterdon,NJ,3648,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3401931320,High Bridge,Hunterdon,NJ,3546,"https://en.wikipedia.org/wiki/High_Bridge,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3403568730,South Bound Brook,Somerset,NJ,671,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3403568730,South Bound Brook,Somerset,NJ,801,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3403568730,South Bound Brook,Somerset,NJ,883,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3403568730,South Bound Brook,Somerset,NJ,1024,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3403568730,South Bound Brook,Somerset,NJ,1302,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3403568730,South Bound Brook,Somerset,NJ,1763,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3403568730,South Bound Brook,Somerset,NJ,1928,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3403568730,South Bound Brook,Somerset,NJ,2905,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3403568730,South Bound Brook,Somerset,NJ,3626,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3403568730,South Bound Brook,Somerset,NJ,4525,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3403568730,South Bound Brook,Somerset,NJ,4331,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3403568730,South Bound Brook,Somerset,NJ,4185,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3403568730,South Bound Brook,Somerset,NJ,4492,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3403568730,South Bound Brook,Somerset,NJ,4563,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3403568730,South Bound Brook,Somerset,NJ,4863,"https://en.wikipedia.org/wiki/South_Bound_Brook,_New_Jersey",census count as tabulated in the article's US Census population template
+1850,3401938610,Lambertville,Hunterdon,NJ,1417,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3401938610,Lambertville,Hunterdon,NJ,2699,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3401938610,Lambertville,Hunterdon,NJ,3842,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3401938610,Lambertville,Hunterdon,NJ,4183,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3401938610,Lambertville,Hunterdon,NJ,4142,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3401938610,Lambertville,Hunterdon,NJ,4637,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3401938610,Lambertville,Hunterdon,NJ,4657,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3401938610,Lambertville,Hunterdon,NJ,4660,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3401938610,Lambertville,Hunterdon,NJ,4518,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3401938610,Lambertville,Hunterdon,NJ,4447,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3401938610,Lambertville,Hunterdon,NJ,4477,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3401938610,Lambertville,Hunterdon,NJ,4269,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3401938610,Lambertville,Hunterdon,NJ,4359,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3401938610,Lambertville,Hunterdon,NJ,4044,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3401938610,Lambertville,Hunterdon,NJ,3927,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3401938610,Lambertville,Hunterdon,NJ,3868,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3401938610,Lambertville,Hunterdon,NJ,3906,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3401938610,Lambertville,Hunterdon,NJ,4139,"https://en.wikipedia.org/wiki/Lambertville,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3400330540,Haworth,Bergen,NJ,418,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3400330540,Haworth,Bergen,NJ,588,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3400330540,Haworth,Bergen,NJ,748,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3400330540,Haworth,Bergen,NJ,1042,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3400330540,Haworth,Bergen,NJ,1419,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3400330540,Haworth,Bergen,NJ,1612,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3400330540,Haworth,Bergen,NJ,3215,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3400330540,Haworth,Bergen,NJ,3760,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3400330540,Haworth,Bergen,NJ,3509,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3400330540,Haworth,Bergen,NJ,3384,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3400330540,Haworth,Bergen,NJ,3390,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3400330540,Haworth,Bergen,NJ,3382,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3400330540,Haworth,Bergen,NJ,3343,"https://en.wikipedia.org/wiki/Haworth,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402903130,Barnegat Light,Ocean,NJ,70,"https://en.wikipedia.org/wiki/Barnegat_Light,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402903130,Barnegat Light,Ocean,NJ,69,"https://en.wikipedia.org/wiki/Barnegat_Light,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402903130,Barnegat Light,Ocean,NJ,144,"https://en.wikipedia.org/wiki/Barnegat_Light,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402903130,Barnegat Light,Ocean,NJ,225,"https://en.wikipedia.org/wiki/Barnegat_Light,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402903130,Barnegat Light,Ocean,NJ,227,"https://en.wikipedia.org/wiki/Barnegat_Light,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402903130,Barnegat Light,Ocean,NJ,287,"https://en.wikipedia.org/wiki/Barnegat_Light,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402903130,Barnegat Light,Ocean,NJ,554,"https://en.wikipedia.org/wiki/Barnegat_Light,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402903130,Barnegat Light,Ocean,NJ,619,"https://en.wikipedia.org/wiki/Barnegat_Light,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402903130,Barnegat Light,Ocean,NJ,675,"https://en.wikipedia.org/wiki/Barnegat_Light,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402903130,Barnegat Light,Ocean,NJ,764,"https://en.wikipedia.org/wiki/Barnegat_Light,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402903130,Barnegat Light,Ocean,NJ,574,"https://en.wikipedia.org/wiki/Barnegat_Light,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402903130,Barnegat Light,Ocean,NJ,640,"https://en.wikipedia.org/wiki/Barnegat_Light,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3401728650,Guttenberg,Hudson,NJ,1206,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3401728650,Guttenberg,Hudson,NJ,1927,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3401728650,Guttenberg,Hudson,NJ,3825,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3401728650,Guttenberg,Hudson,NJ,5647,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3401728650,Guttenberg,Hudson,NJ,6726,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3401728650,Guttenberg,Hudson,NJ,6535,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3401728650,Guttenberg,Hudson,NJ,6200,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3401728650,Guttenberg,Hudson,NJ,5566,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3401728650,Guttenberg,Hudson,NJ,5118,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3401728650,Guttenberg,Hudson,NJ,5754,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3401728650,Guttenberg,Hudson,NJ,7340,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3401728650,Guttenberg,Hudson,NJ,8268,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3401728650,Guttenberg,Hudson,NJ,10807,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3401728650,Guttenberg,Hudson,NJ,11176,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3401728650,Guttenberg,Hudson,NJ,12017,"https://en.wikipedia.org/wiki/Guttenberg,_New_Jersey",census count as tabulated in the article's US Census population template
+1860,3401923700,Flemington,Hunterdon,NJ,1174,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1870,3401923700,Flemington,Hunterdon,NJ,1412,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3401923700,Flemington,Hunterdon,NJ,1751,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3401923700,Flemington,Hunterdon,NJ,1977,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3401923700,Flemington,Hunterdon,NJ,2145,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3401923700,Flemington,Hunterdon,NJ,2693,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3401923700,Flemington,Hunterdon,NJ,2590,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3401923700,Flemington,Hunterdon,NJ,2729,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3401923700,Flemington,Hunterdon,NJ,2617,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3401923700,Flemington,Hunterdon,NJ,3058,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3401923700,Flemington,Hunterdon,NJ,3232,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3401923700,Flemington,Hunterdon,NJ,3917,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3401923700,Flemington,Hunterdon,NJ,4132,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3401923700,Flemington,Hunterdon,NJ,4047,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3401923700,Flemington,Hunterdon,NJ,4200,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3401923700,Flemington,Hunterdon,NJ,4581,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3401923700,Flemington,Hunterdon,NJ,4876,"https://en.wikipedia.org/wiki/Flemington,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402969510,South Toms River,Ocean,NJ,405,"https://en.wikipedia.org/wiki/South_Toms_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402969510,South Toms River,Ocean,NJ,445,"https://en.wikipedia.org/wiki/South_Toms_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402969510,South Toms River,Ocean,NJ,492,"https://en.wikipedia.org/wiki/South_Toms_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402969510,South Toms River,Ocean,NJ,1603,"https://en.wikipedia.org/wiki/South_Toms_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402969510,South Toms River,Ocean,NJ,3981,"https://en.wikipedia.org/wiki/South_Toms_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402969510,South Toms River,Ocean,NJ,3954,"https://en.wikipedia.org/wiki/South_Toms_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402969510,South Toms River,Ocean,NJ,3869,"https://en.wikipedia.org/wiki/South_Toms_River,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402969510,South Toms River,Ocean,NJ,3634,"https://en.wikipedia.org/wiki/South_Toms_River,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402969510,South Toms River,Ocean,NJ,3684,"https://en.wikipedia.org/wiki/South_Toms_River,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402969510,South Toms River,Ocean,NJ,3643,"https://en.wikipedia.org/wiki/South_Toms_River,_New_Jersey",census count as tabulated in the article's US Census population template
+1880,3402334890,Jamesburg,Middlesex,NJ,681,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+1890,3402334890,Jamesburg,Middlesex,NJ,887,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402334890,Jamesburg,Middlesex,NJ,1063,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402334890,Jamesburg,Middlesex,NJ,2075,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402334890,Jamesburg,Middlesex,NJ,2053,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402334890,Jamesburg,Middlesex,NJ,2048,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402334890,Jamesburg,Middlesex,NJ,2128,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402334890,Jamesburg,Middlesex,NJ,2307,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402334890,Jamesburg,Middlesex,NJ,2853,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402334890,Jamesburg,Middlesex,NJ,4584,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402334890,Jamesburg,Middlesex,NJ,4114,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402334890,Jamesburg,Middlesex,NJ,5294,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402334890,Jamesburg,Middlesex,NJ,6025,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402334890,Jamesburg,Middlesex,NJ,5915,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402334890,Jamesburg,Middlesex,NJ,5783,"https://en.wikipedia.org/wiki/Jamesburg,_New_Jersey",census count as tabulated in the article's US Census population template
+1900,3402930390,Harvey Cedars,Ocean,NJ,39,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402930390,Harvey Cedars,Ocean,NJ,33,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402930390,Harvey Cedars,Ocean,NJ,65,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402930390,Harvey Cedars,Ocean,NJ,53,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402930390,Harvey Cedars,Ocean,NJ,74,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402930390,Harvey Cedars,Ocean,NJ,106,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402930390,Harvey Cedars,Ocean,NJ,134,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402930390,Harvey Cedars,Ocean,NJ,314,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402930390,Harvey Cedars,Ocean,NJ,363,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402930390,Harvey Cedars,Ocean,NJ,362,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402930390,Harvey Cedars,Ocean,NJ,359,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402930390,Harvey Cedars,Ocean,NJ,337,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402930390,Harvey Cedars,Ocean,NJ,391,"https://en.wikipedia.org/wiki/Harvey_Cedars,_New_Jersey",census count as tabulated in the article's US Census population template
+1910,3402547130,Monmouth Beach,Monmouth,NJ,485,"https://en.wikipedia.org/wiki/Monmouth_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1920,3402547130,Monmouth Beach,Monmouth,NJ,410,"https://en.wikipedia.org/wiki/Monmouth_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1930,3402547130,Monmouth Beach,Monmouth,NJ,457,"https://en.wikipedia.org/wiki/Monmouth_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1940,3402547130,Monmouth Beach,Monmouth,NJ,584,"https://en.wikipedia.org/wiki/Monmouth_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1950,3402547130,Monmouth Beach,Monmouth,NJ,806,"https://en.wikipedia.org/wiki/Monmouth_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1960,3402547130,Monmouth Beach,Monmouth,NJ,1363,"https://en.wikipedia.org/wiki/Monmouth_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1970,3402547130,Monmouth Beach,Monmouth,NJ,2042,"https://en.wikipedia.org/wiki/Monmouth_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1980,3402547130,Monmouth Beach,Monmouth,NJ,3318,"https://en.wikipedia.org/wiki/Monmouth_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+1990,3402547130,Monmouth Beach,Monmouth,NJ,3303,"https://en.wikipedia.org/wiki/Monmouth_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+2000,3402547130,Monmouth Beach,Monmouth,NJ,3595,"https://en.wikipedia.org/wiki/Monmouth_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+2010,3402547130,Monmouth Beach,Monmouth,NJ,3279,"https://en.wikipedia.org/wiki/Monmouth_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
+2020,3402547130,Monmouth Beach,Monmouth,NJ,3174,"https://en.wikipedia.org/wiki/Monmouth_Beach,_New_Jersey",census count as tabulated in the article's US Census population template
