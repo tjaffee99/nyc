@@ -281,6 +281,7 @@ def muni_outlines(key, g):
 
 _outlines = {}
 _state_cache = {}
+EXTRA_HEAPS = [('suffolk', 'Southampton', 1991)]   # (county, assessing town, year): placeholders after 1990, see merge_pieces
 SPLIT = ('nassau', 'suffolk')   # built in pieces (the municipalities), the machine has 2 GB
 
 
@@ -871,6 +872,20 @@ def merge_pieces(key):
     cnum = pd.to_numeric(g.prop_class.str[:3], errors="coerce").values
     kind = np.where((cnum >= 200) & (cnum < 300), "homes", "other")
     my = np.where(~g.secondary.values, g.year_raw.values, np.nan)
+    # find_heaps stops at 1990. Southampton's roll carries 10,715 houses on 1991 (8 times the 1,300-1,500 of 1992-93, 3 times the
+    # 1990 and 1988-89 counts): a placeholder, not a building year. Flagged here with the same scatter evidence as the others.
+    for (cty, tw, yr) in EXTRA_HEAPS:
+        if cty != key:
+            continue
+        sel = (g.town.values == tw) & (kind == "homes") & (g.year_raw.values == yr)
+        if sel.any():
+            from pyproj import Transformer
+            x, y = Transformer.from_crs(4326, UTM, always_xy=True).transform(g.lon.values, g.lat.values)
+            ev = heap_evidence({tw: {yr}}, np.where((g.town.values == tw) & (kind == "homes"), my, np.nan), g.town.values, np.asarray(x), np.asarray(y), "homes", tracts=False)
+            heap_rows += ev
+            g.loc[sel, "heap"] = True
+            my = np.where(sel & ~g.secondary.values, np.nan, my)    # (not a recorded year for the county-level heap search either)
+            log(f"{name}: {int(sel.sum())} {tw} homes on {yr} flagged as a placeholder year: {ev}")
     county_heaps = {k: sorted(int(v) for v in find_heaps(np.where(kind == k, my, np.nan), np.full(len(g), name), need)[name])
                     for k, need in (("homes", heap_min), ("other", heap_min_other))}
     f = OUT / f"ny_{key}.parquet"
