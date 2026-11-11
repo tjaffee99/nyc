@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import json
 import math
+import re
 import zlib
 
 import geopandas as gpd
@@ -151,6 +152,14 @@ def early_sites():
         # the Dutch and English villages were single streets (Midwout, Nieuw Haarlem, Vlissingen):
         # their houses are set along the row's bearing (the nearest road of today: an estimate)
         street = kind == "house" and n >= 6 and spread >= 150
+        # early_counties.csv: a row is the dwellings a town added between two counts. Its
+        # start_year is the middle of that span and its id carries the count's year
+        # (ec_<county>_<town>_<year>_<k>). Each dwelling takes its own year within the span - at
+        # the midpoint they all appeared at once: 4,600 houses in 1770, as many in 1810 and 1835.
+        # A founding cluster (the count's year is the founding year) goes up over six years.
+        y0 = _num(r.start_year)
+        m_ = re.search(r"_(\d{4})_\d+$", str(r.id)) if str(r.id).startswith("ec_") else None
+        half = float(m_.group(1)) - y0 if m_ else None
         placed = []
         for i in range(max(n, 1)):
             if i == 0 and n == 1:
@@ -184,9 +193,16 @@ def early_sites():
             else:
                 shape = _rect(w * scale, d * scale, rot if (n == 1 or street) else rot + 180 * h01(f"{r.id}o{i}"))
             poly = shapely.affinity.translate(shape, X[k] + dx, Y[k] + dy)
+            if half is None or n == 1:
+                ys = y0
+            elif half > 0:
+                ys = y0 + (2 * h01(f"{r.id}y{i}") - 1) * half
+            else:
+                ys = y0 + (0.0 if i == 0 else 6.0 * h01(f"{r.id}y{i}"))
+            ys = max(1609.0, min(ys, _num(r.end_year) - 1.0))
             rows.append({"id": f"early:{r.id}:{i}" if n > 1 else f"early:{r.id}", "map_year": int(_num(r.end_year, 1700)) - 1,
                          "boro": "", "colors": "", "name": r.name if n == 1 else f"{r.name} (one of {n} dwellings; position generated)",
-                         "start_doc": _num(r.start_year), "end_doc": _num(r.end_year), "h_doc": h * (1.5 if scale > 1 else 1.0),
+                         "start_doc": ys, "end_doc": _num(r.end_year), "h_doc": h * (1.5 if scale > 1 else 1.0),
                          "cls": "documented", "conf_doc": "procedural" if n > 1 else "estimated",
                          "mat_doc": "bark" if lenape else mat, "geometry": poly})
     log(f"extras: {len(rows)} early dwellings from {len(t)} researched rows ({', '.join(f.name for f in files)}); "
