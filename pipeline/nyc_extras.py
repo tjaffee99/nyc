@@ -376,6 +376,62 @@ def farmsteads():
     return rows
 
 
+def _town_starts(g, sy, ey, ev):
+    """The generated lots of a town start along the town's own census growth. The fill dated them
+    by the county's growth, nearest the old centres first: in Hudson County that left the west
+    and south of Hoboken bare until the 1920s and 1930s, though Hoboken had its largest
+    population in 1910 - its blocks were all built by then. Within a municipality the lots
+    keep their order and take years along its census curve up to its peak (a town does not
+    add houses while it loses people); never later than the map or photograph that is the
+    lot's evidence. Not for the cleared districts, the yards, the ports and the sites: they
+    carry their own years. Estimated, as before."""
+    try:
+        from county_buildings import town_curves
+        tc = town_curves()
+    except Exception as e:  # noqa: BLE001
+        log(f"extras: town curves not used for the generated lots ({type(e).__name__}: {e})")
+        return sy
+    if tc is None:
+        return sy
+    import re
+    tree, geoids, series = tc
+    use = np.array([bool(re.match(r"(usgs|aerial|extent|parcel|neighbourhood)", v)) and "cleared" not in v for v in ev]) & np.isfinite(sy) & np.isfinite(ey)
+    idx = np.flatnonzero(use)
+    if not len(idx):
+        return sy
+    pts = g.geometry.iloc[idx].representative_point().to_crs(4326)
+    qi, ti = tree.query(pts.values, predicate="within")
+    town = np.full(len(idx), -1)
+    town[qi] = ti
+    # the lot's evidence: a map or photograph of a year - it stood by then
+    evy = np.array([min([int(m) for m in re.findall(r"(1[6-9]\d\d|20\d\d)", v)] or [9999]) for v in ev[idx]], dtype=float)
+    out = sy.copy()
+    moved = 0
+    for tn in np.unique(town[town >= 0]):
+        sv = series.get(geoids[tn])
+        k = np.flatnonzero(town == tn)
+        if sv is None or len(k) < 20 or sv[0][0] > 1880:
+            continue
+        ys, ps = sv
+        peak = int(np.argmax(ps))
+        if peak < 1:
+            continue
+        knots = np.r_[ys[0] - 30.0, ys[:peak + 1]]
+        grow = np.clip(np.diff(np.r_[0.0, np.maximum.accumulate(ps[:peak + 1])]), 0.0, None)
+        if grow.sum() <= 0:
+            continue
+        cdf = np.r_[0.0, np.cumsum(grow) / grow.sum()] + np.arange(len(knots)) * 1e-9
+        rows = idx[k]
+        q = (pd.Series(sy[rows]).rank(method="first").values - 0.5) / len(rows)
+        new = np.interp(q, cdf, knots)
+        new = np.minimum(new, np.minimum(evy[k] - 1.0, ey[rows] - 2.0))
+        new = np.maximum(new, 1609.0)
+        moved += int((np.abs(new - sy[rows]) > 3).sum())
+        out[rows] = new
+    log(f"extras: {moved} generated lots take their start from their town's census growth")
+    return out
+
+
 def gapfill():
     """Rows (UTM) of the evidence-driven fill (pipeline/gap_fill.py ->
     data/interim/gapfill/gapfill.parquet): lot-sized outlines where a photograph or a map
@@ -397,6 +453,7 @@ def gapfill():
     st = pd.to_numeric(g.storeys, errors="coerce").values if "storeys" in g else np.full(len(g), np.nan)
     mat = g.material.fillna("").astype(str).values if "material" in g else np.full(len(g), "")
     ev = g.evidence.fillna("").astype(str).values if "evidence" in g else np.full(len(g), "")
+    sy = _town_starts(g, sy, ey, ev)
     ids = g["id"].astype(str).values
     for k, geom in enumerate(g.geometry.values):
         if geom is None or geom.is_empty or not (np.isfinite(sy[k]) and np.isfinite(ey[k])) or ey[k] <= sy[k] + 1:
