@@ -189,7 +189,8 @@ def step_snapshot():
             parts = [f"""select coalesce(doitt_id, '') as doitt_id, cast(bin as bigint) as bin, boro, start_year, end_year, year_src,
                                year_confidence, height_m, area, ST_X(ST_Centroid(geometry)) as lon, ST_Y(ST_Centroid(geometry)) as lat,
                                ST_AsWKB(geometry) as wkb
-                        from '{BUILDINGS}' where year_src not like 'gapfill%' and boro in ('1','2','3','4','5')"""]
+                        from '{BUILDINGS}' where year_src not like 'gapfill%' and boro in ('1','2','3','4','5')
+                          and not (year_confidence = 'procedural' and year_src = 'ohm_documented')"""]   # the fill's rows under an older label
             if COUNTY.exists():
                 parts.append(f"""select '' as doitt_id, cast(null as bigint) as bin, 'Hudson' as boro, start_year, end_year, year_src,
                                         year_confidence, height_m, area, ST_X(ST_Centroid(geometry)) as lon,

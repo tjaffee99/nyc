@@ -554,8 +554,9 @@ def add_predecessors(g):
     pre = v.id.str.split(":").str[0].values
     lenape = early_site & (v.mat_doc.values == "bark")
     srcs = np.where(lenape, "lenape_site", np.where(pre == "early", "early_site", np.where(pre == "notable", "lost_researched",
-            np.where(pre == "demo", "city_demolition", np.where(is_doc, "ohm_documented",
-            np.where(pre == "gap", "gapfill:" + v.id.str.split(":").str[1].values,
+            np.where(pre == "demo", "city_demolition",
+            np.where(pre == "gap", "gapfill:" + v.id.str.split(":").str[1].values,      # (before `is_doc`: the fill's rows come in as documented)
+            np.where(is_doc, "ohm_documented",
             np.where(pre == "farm", "farmstead",
             np.where(pre == "ohm", "map_", np.where(pre == "atlas", "traced_", "atlas_")).astype(object) + v.map_year.astype(str).values)))))))
     conf_out = np.where(is_doc & documented_start, "exact", "estimated").astype(object)

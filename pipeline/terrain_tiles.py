@@ -348,6 +348,9 @@ def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet, known):
         rest = made & ~np.isfinite(land_year)
         if rest.any():
             uy = nearest_fill(np.where(np.isfinite(urban_y), urban_y, 0).astype(np.float32), np.isfinite(urban_y))
+            # (a building's point lies in one cell; a large building covers many, and the nearest
+            # point to its far corner may be a new building next door)
+            uy = np.fmin(uy, own_years(g))
             land_year[rest] = np.clip(uy[rest] - 4.0, YEAR_MIN + 20, 2020)
             log(f"terrain {name}: {int(rest.sum())} made-land cells have no zone: dated 4 years before their first use")
     # evidence that the ground was there earlier (ground_rule.py): a landmark record, a
@@ -361,6 +364,40 @@ def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet, known):
         land_year[adj] = np.maximum(lim[adj], YEAR_MIN + 1.0)
         log(f"terrain {name}: {int(adj.sum())} made-land cells dated earlier by buildings recorded or mapped on them")
     return land_year, N, events, reservoirs
+
+
+def own_years(g, min_m2=300.0):
+    """Per cell: the earliest year (before the ground rule) of a building of min_m2 or more whose
+    outline touches the cell or one next to it; NaN where none. Generated buildings do not count."""
+    from rasterio import features
+    from rasterio.transform import Affine
+    rows, cols, res = g["rows"], g["cols"], g["res"]
+    out = np.full((rows, cols), np.inf, np.float32)
+    shapes = []
+    for f in (INTERIM / "nyc_buildings.parquet", INTERIM / "county_buildings.parquet"):
+        if not f.exists():
+            continue
+        import pyarrow.parquet as pq
+        names = pq.read_schema(f).names
+        b = pd.read_parquet(f, columns=[c for c in ("geometry", "start_year", "start_free", "year_confidence", "area") if c in names])
+        b = b[(b.year_confidence.values != "procedural") & (b["area"].values >= min_m2)]
+        y = b.start_year.values.astype(np.float32)
+        if "start_free" in b:
+            sf = b.start_free.values.astype(np.float32)
+            y = np.where(np.isfinite(sf), sf, y)
+        gm = shapely.from_wkb(b.geometry.values)
+        gm = shapely.transform(gm, lambda c: np.column_stack([np.radians(c[:, 0]) * 6378137.0,
+                                                               6378137.0 * np.log(np.tan(np.pi / 4 + np.radians(c[:, 1]) / 2))]))
+        shapes += list(zip(gm, y.tolist()))
+    if not shapes:
+        return np.full((rows, cols), np.nan, np.float32)
+    shapes.sort(key=lambda q: -q[1])          # the earliest is burnt last
+    tr = Affine(res, 0, g["X0"] - res / 2, 0, -res, g["Y0"] + res / 2)      # the grid's values sit on its nodes
+    out = features.rasterize(shapes, out_shape=(rows, cols), transform=tr, fill=np.inf, dtype="float32", all_touched=True)
+    out = ndimage.minimum_filter(out, 3, mode="nearest")
+    n = int(np.isfinite(out).sum())
+    log(f"terrain: {len(shapes)} buildings of {min_m2:.0f} m2 or more date the ground under {n} cells")
+    return np.where(np.isfinite(out), out, np.nan).astype(np.float32)
 
 
 def building_evidence(g, standing_only=False, free=False):
