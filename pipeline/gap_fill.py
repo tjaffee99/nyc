@@ -1547,6 +1547,7 @@ PARCEL_SRC = {"Bergen": (RAW / "counties_nj" / "parcels_bergen.parquet", "MUN_NA
 PN_BEFORE, PN_YOUNGER, PN_OLDER, PN_MIN = 1945.0, 25.0, 0.6, 8      # the Bay rule's numbers
 LOT_M2 = (40.0, 20000.0)
 BIG_LOT_M2 = 1500.0
+SHEET_OPEN = 0.15        # an outline with less ink than this share (grown ink) is open ground on the sheet
 CORE_MIN = 0.4           # share of an outline that must be heavy ink before the ink is grown by 5 m
 CORRIDOR_M = 35.0        # lots of the street grid are added this near a motorway where no parcel exists (the right-of-way)
 TALL_M = 11.0            # a neighbourhood whose buildings are taller than this at the median is a town centre
@@ -1733,6 +1734,44 @@ def _sheets_of_block(bx, by):
     return [fn for fn, v in SHEETS_C.items() if v[0] < lo1 and v[2] > lo0 and v[1] < la1 and v[3] > la0]
 
 
+def census_start(county, u):
+    """A year before 1897 per row: the year in which the county had the share `u` of its people of 1897
+    (data/tables/population_counties.csv, log-linear between the counts); before the first count, the
+    first count's year."""
+    if "cpop" not in _cache:
+        t = pd.read_csv(TABLES / "population_counties.csv")
+        cur = {}
+        for ar, d in t.groupby(t.area.astype(str).str.lower().str.strip()):
+            y = pd.to_numeric(d.year, errors="coerce").values
+            v = pd.to_numeric(d.population.astype(str).str.replace(",", ""), errors="coerce").values
+            ok = np.isfinite(y) & np.isfinite(v) & (v > 0) & (y >= 1700)
+            if ok.sum() >= 3:
+                o = np.argsort(y[ok])
+                grid = np.arange(max(float(y[ok][o][0]), 1700.0), 1897.01, 1.0)
+                pop = np.exp(np.interp(grid, y[ok][o], np.log(v[ok][o])))
+                cur[ar] = (grid, pop / pop[-1])
+        _cache["cpop"] = cur
+    out = np.full(len(u), 1897.0) - 30.0 * np.asarray(u) ** 2
+    for cn in np.unique(county):
+        c = _cache["cpop"].get(str(cn).lower())
+        if c is not None:
+            sel = np.asarray(county) == cn
+            out[sel] = np.interp(np.asarray(u)[sel], c[1], c[0])
+    return out
+
+
+def centre_km(lon, lat):
+    """Distance in km to the nearest town or village centre that existed before 1897 (places_counties.csv)."""
+    from scipy.spatial import cKDTree
+    if "centres" not in _cache:
+        t = pd.read_csv(TABLES / "places_counties.csv")
+        t = t[t.tier.astype(str).isin(("city", "town", "neighborhood", "historic")) & (pd.to_numeric(t.year_start, errors="coerce") < 1897)]
+        _cache["centres"] = cKDTree(np.column_stack([t.lon.values * 84.4, t.lat.values * 110.6])) if len(t) else None
+    if _cache["centres"] is None:
+        return np.full(len(lon), 5.0)
+    return _cache["centres"].query(np.column_stack([np.asarray(lon) * 84.4, np.asarray(lat) * 110.6]))[0]
+
+
 def county_shift_job(job):
     """First pass: the clear shifts of the sheets on one block {sheet: (m east, m south)}."""
     bx, by = job
@@ -1855,6 +1894,10 @@ def county_block(job, shifts=None):
     hit = es[bi] == m[pi]
     np.logical_or.at(ok_m, pi[hit], own[bi[hit]])
     has = np.isfinite(m)
+    # buildings of the map per municipality (for the census check)
+    for (cn, mu), q in pd.DataFrame({"c": county[pi], "m": par.muni.values[pi], "s": es[bi]}).groupby(["c", "m"]):
+        for y in COUNTY_YEARS:
+            st[f"muni|{cn}|{mu}|{y}"] = int((q.s.values <= y).sum())
     # the neighbourhood: RECORDED years only (placeholders, `neighbours` and `modelled` years date nothing)
     rec = (conf == "exact") & np.isin(ysrc, ("parcel", "historic_register"))
     r150 = 150.0 / MPP
@@ -1920,10 +1963,14 @@ def county_block(job, shifts=None):
         v = SHEETS_C[fn]
         sheet[(lon >= v[0]) & (lon < v[2]) & (lat >= v[1]) & (lat < v[3])] = fn
     cand_pn = has & ok_m & (nn >= PN_MIN) & (dev < PN_BEFORE) & (m - dev > PN_YOUNGER) & (older >= PN_OLDER)
-    late = ~has | (ok_m & (m > INK_T + INK_GAP))
+    # the sheets, tints and the built-up ground of 1897 speak of the ground, whatever the quality of
+    # the year of today's building (an estimated or modelled year may be wrong - then the row stands in
+    # for that very building until its year; counted in the report). The parcel rule needs the
+    # parcel's own year.
+    late = ~has | (m > INK_T + INK_GAP)
     cand_sh = (sheet != "") & late
-    cand_ti = (tint_year > 0) & ((has & ok_m & (m > INK_T + INK_GAP)) | (pseudo & ~has)) & (hk < share)
-    cand_ex = in97 & has & ok_m & (m > 1903.0) & (m <= INK_T + INK_GAP) & (hk < share)
+    cand_ti = (tint_year > 0) & ((has & (m > INK_T + INK_GAP)) | (pseudo & ~has)) & (hk < share)
+    cand_ex = in97 & has & (m > 1903.0) & (m <= INK_T + INK_GAP) & (hk < share)
     pre = np.flatnonzero(cand_pn | cand_sh | cand_ti | cand_ex)
     st["parcels_with_evidence"] = len(pre)
     if not len(pre):
@@ -1985,6 +2032,7 @@ def county_block(job, shifts=None):
     mo = m[p]
     # the 1940s sheets on the outlines
     ink = np.full(N, np.nan)
+    ink_raw = np.full(N, np.nan)
     ink_code = np.full(N, "", dtype=object)
     for fn in fns:
         sel = np.flatnonzero((sheet[p] == fn) & cand_sh[p])
@@ -1998,6 +2046,7 @@ def county_block(job, shifts=None):
             continue
         (grown, core), org, dx, dy, _ = r
         v = ink_share(og[sel], grown, org, dx, dy)
+        ink_raw[sel] = v
         # the outline itself must lie on the ink (CORE_MIN of it before the ink is grown): the mark of a
         # single house beside the parcel, or a letter, is not a block front
         v = np.where(ink_share(og[sel], core, org, dx, dy) >= CORE_MIN, v, 0.0)
@@ -2017,9 +2066,14 @@ def county_block(job, shifts=None):
     T1 = mo - 3.0
     f1, b1 = window(np.where(np.isfinite(T1), T1, 0.0), 0.0)
     pn = cand_pn[p] & f1
-    ti = cand_ti[p] & f41 & ~pn & ~sH
+    # a 1940s sheet that shows the outline on open ground (no ink within 5 m) speaks against a row of
+    # the parcel rule that would stand then
+    veto = pn & np.isfinite(ink_raw) & (ink_raw < SHEET_OPEN) & (T1 > INK_T) & (dev[p] + 6.0 < INK_T)
+    st["pn_vetoed_by_sheet"] = int(veto.sum())
+    pn &= ~veto
+    ti = cand_ti[p] & f41 & ~pn & ~sH & ~veto
     f97, b97_ = window(1897.5, 5.0)
-    exo = cand_ex[p] & f97 & ~pn & ~sH & ~ti
+    exo = cand_ex[p] & f97 & ~pn & ~sH & ~ti & ~veto
     anchor = np.where(pn, "pn", np.where(sH, "sh", np.where(ti, "ti", np.where(exo, "ex", ""))))
     keep = anchor != ""
     if not keep.any():
@@ -2044,11 +2098,19 @@ def county_block(job, shifts=None):
         y = pick_years(Yk, np.full(N, -np.inf), hi, u1)
         start = np.where(need & np.isfinite(y), y + 3.0 * (u2 - 0.5), start)
     fb = hi - u1 * 30.0
-    start = np.where(keep & np.isnan(start), fb, start)
+    no_pool = keep & np.isnan(start)
+    start = np.where(no_pool, fb, start)
+    lo_o, la_o = px_to_lonlat(oc[:, 0], oc[:, 1])
     start = np.where(start > hi, 2 * hi - start, start)
     # built-up ground of 1897: a share of the rows that start later is put before it
     cap = keep & (anchor != "ex") & in97[p] & (hk[p] < share[p]) & (start > 1897.0)
-    start = np.where(cap, 1897.0 - 30.0 * u2 * u2, start)
+    # ... when before it? The map of 1897 does not say. The census does, for the county: of the rows on
+    # that ground, as many stand in a year as the county then had of its people of 1897 - the nearer an
+    # old town centre (data/tables/places_counties.csv), the earlier. The same where an 1897-only row has
+    # no recorded year around to take.
+    y97 = census_start(county[p], 0.5 * u2 + 0.5 * (1.0 - np.exp(-centre_km(lo_o, la_o))))
+    start = np.where(cap, y97, start)
+    start = np.where((anchor == "ex") & no_pool, y97, start)
     evid = np.where(cap, "usgs1897_builtup+" + evid.astype(str), evid)
     start = np.maximum(start, 1626.0)
     # massing by the neighbourhood and the time (the Bay's massing, in this map's types)
@@ -2119,11 +2181,8 @@ def county_block(job, shifts=None):
     for a_name in ("pn", "sh", "ti", "ex"):
         st[f"rows_{a_name}"] = int((keep & (anchor == a_name)).sum())
     st["rows_corridor"] = int((keep & pseudo[p]).sum())
+    st["rows_under_estimated_year"] = int((keep & np.isfinite(mo) & ~ok_m[p] & (anchor != "pn")).sum())
     st["waits_for_ground"] = int((waits & keep).sum())
-    # buildings of the map per municipality (for the census check)
-    for (cn, mu), q in pd.DataFrame({"c": county[pi], "m": par.muni.values[pi], "s": es[bi]}).groupby(["c", "m"]):
-        for y in COUNTY_YEARS:
-            st[f"muni|{cn}|{mu}|{y}"] = int((q.s.values <= y).sum())
     kk_ = np.flatnonzero(keep)
     wkb_out = np.array(shapely.to_wkb(to_lonlat(np.array([gout[q] for q in kk_], dtype=object))), dtype=object) if len(kk_) else np.array([], dtype=object)
     lo_, la_ = px_to_lonlat(oc[kk_, 0], oc[kk_, 1])
@@ -2411,8 +2470,8 @@ DISTRICTS_C = {
     "Haverstraw": _box(-73.975, 41.190, -73.955, 41.205),
 }
 TOWNS_C = (("Westchester", "Yonkers"), ("Westchester", "Mount Vernon"), ("Westchester", "New Rochelle"), ("Westchester", "White Plains"),
-           ("Westchester", "Port Chester"), ("Westchester", "Ossining"), ("Westchester", "Peekskill"), ("Westchester", "Tarrytown"),
-           ("Rockland", "Nyack"), ("Rockland", "Haverstraw"), ("Rockland", "Suffern"))
+           ("Westchester", "Port Chester"), ("Westchester", "Ossining, Village"), ("Westchester", "Peekskill"), ("Westchester", "Tarrytown"),
+           ("Rockland", "Nyack"), ("Rockland", "Haverstraw, Village"), ("Rockland", "Suffern"))
 
 
 def step_report_counties(workers=3):
@@ -2437,6 +2496,9 @@ def step_report_counties(workers=3):
           f"ground of 1897 alone {st.get('rows_ex', 0)} (before the last guards). Outlines read on a 1940s sheet {st.get('sheet_read', 0)}, "
           f"of them on heavy ink with built neighbours {st.get('sheet_built', 0)}. Dropped at the last guard: {st.get('dropped_on_a_map_building', 0)} "
           f"on a map building, {st.get('dropped_on_another_row', 0)} on another row. Rows that wait for their ground: {st.get('waits_for_ground', 0)}. "
+          f"Rows of the parcel rule dropped because a 1940s sheet shows the outline open: {st.get('pn_vetoed_by_sheet', 0)}. Rows on motorway "
+          f"corridors (lots of the street grid, no parcel): {st.get('rows_corridor', 0)}. Rows that end under a standing building whose own "
+          f"year is an estimate or modelled (the row may stand in for that very building): {st.get('rows_under_estimated_year', 0)}. "
           f"Blocks that failed: {st.get('failed', 0)}.", ""]
     L += ["## Test places: buildings standing on the map, before -> after the fill", "",
           "| place | " + " | ".join(str(y) for y in COUNTY_YEARS) + " | fill rows by evidence |", "|---|" + "---|" * (len(COUNTY_YEARS) + 1)]
@@ -2478,7 +2540,7 @@ def step_report_counties(workers=3):
         wiki = json.loads(wp.read_text())
         mu = pd.read_parquet(mp).set_index("id").muni.reindex(f.id.values).astype(str).str.lower().values
         for cn, town in TOWNS_C:
-            ser = (wiki.get(town) or wiki.get(town + ", Village") or {}).get("series")
+            ser = (wiki.get(town) or {}).get("series")
             if not ser:
                 continue
             for y in (1880, 1900, 1920, 1950):
@@ -2490,6 +2552,9 @@ def step_report_counties(workers=3):
     # invariants
     jobs = [(int(q.stem.split("_")[0]), int(q.stem.split("_")[1])) for q in sorted(ROWS_C.glob("*.parquet"))]
     tot = {}
+    if _con is not None:
+        _con.close()
+    _fresh_connection()                      # a DuckDB connection must not be open when the workers fork
     with Pool(workers, initializer=_county_mode, maxtasksperchild=40) as pool:
         for r in pool.imap_unordered(_check_job, jobs):
             for k, v in r.items():

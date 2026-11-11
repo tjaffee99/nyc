@@ -220,9 +220,13 @@ def assign_years(g, pluto, lpc):
     lot_cls = pluto.bldgclass.reindex(bbl).fillna("").astype(str).str[:1].values
     same = pd.DataFrame({"b": bbl, "y": year}).groupby(["b", "y"]).y.transform("size").values
     stamp = (src == "assessor") & (bbl != "") & (same >= 5) & ~np.isin(lot_cls, list("ABCDRSL"))
+    # Such a stamp says nothing about the building (the Navy Yard's 93 "1950s" buildings: 30
+    # stand on the 1924 photograph). It is dropped: the building is dated like one without a
+    # year — from the photographs of 1924 and 1951, its site's founding, the buildings around.
+    year[stamp] = np.nan
     conf[stamp] = "estimated"
-    src[stamp] = "lot_year"
-    log(f"buildings: {int(stamp.sum())} buildings carry the year of an institutional lot shared by five or more (estimated)")
+    src[stamp] = ""
+    log(f"buildings: {int(stamp.sum())} buildings carry the year of an institutional lot shared by five or more: not used")
     # researched rows
     year, conf, src, end = known_dates(g, year, conf, src)
     lo, hi, ev = evidence_bounds(g)
@@ -344,8 +348,15 @@ def fill_estimates(xy, year, raw, is_heap, H, keys, src, lo=None, hi=None, ev=No
         est = np.where(np.isfinite(est), est, np.clip(ry[j1], lo_m, hi_m))
         y_m = est + (hl[miss] - 0.5)
         y_m = np.where(y_m < lo_m, lo_m + 0.2 + 5.0 * hl[miss], y_m)
+        # standing by a photograph or a map that the neighbours' years would put it after:
+        # over the decades before it (at most 45 years, never before its lower bound), not on it
+        late = np.isfinite(hi[miss]) & (y_m > hi_m - 0.5)
+        span = np.clip(hi_m - 1.0 - lo_m, 1.0, 45.0)
+        y_m = np.where(late, hi_m - 0.5 - span * ((hb[miss] + 0.3 * hl[miss]) % 1.0), y_m)
         year[miss] = np.clip(y_m, lo_m, hi_m)
-        src[miss] = "neighbours"
+        evm = ev[miss].astype(str)
+        src[miss] = np.where(late & (evm != ""), "evidence_by:" + evm,
+                             np.where(np.isfinite(lo[miss]) & (est < lo[miss]) & (evm != ""), "evidence_after:" + evm, "neighbours"))
     return year, src
 
 

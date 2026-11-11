@@ -120,10 +120,12 @@ def source_label(src: str) -> str:
         return "a new-law tenement in the city's housing records: built after April 1901"
     if src == "assessor_flagged":
         return "city records: a year the Department of Finance marks as its own estimate"
+    if src.startswith("evidence_by:site") or src.startswith("evidence_after:site"):
+        return "inside a site with a founding year: not older than the site (no year of its own on record)"
     if src.startswith("evidence_by:aerial"):
-        return f"standing on the {src[-4:]} aerial photograph: built by then (the assessor's rounded year is later)"
+        return f"standing on the {src[-4:]} aerial photograph: built by then (no reliable year of its own on record)"
     if src.startswith("evidence_after:aerial"):
-        return f"not yet on the {src[-4:]} aerial photograph: built after it (the assessor's rounded year is earlier)"
+        return f"not yet on the {src[-4:]} aerial photograph: built after it (no reliable year of its own on record)"
     if src.startswith("evidence_by:topo"):
         return f"drawn on the USGS map surveyed in {src[-4:]}: built by then"
     if src == "modelled":
