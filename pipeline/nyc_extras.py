@@ -438,6 +438,87 @@ def atlas_layers():
     return rows
 
 
+_hist = {}
+
+
+def _is_water(x, y, year):
+    """True where the terrain is open water or tidal flat at `year` (UTM points): the cover
+    histories of the last terrain run (the fine grid where it reaches, else the region's)."""
+    from pyproj import Transformer
+    import covers as C
+    X, Y = Transformer.from_crs(UTM, 3857, always_xy=True).transform(np.asarray(x, float), np.asarray(y, float))
+    out = np.zeros(len(X), bool)
+    todo = np.ones(len(X), bool)
+    for name in ("detail", "region"):
+        if name not in _hist:
+            try:
+                m = json.loads((INTERIM / f"grid_{name}_meta.json").read_text())
+                _hist[name] = (m, np.load(INTERIM / f"grid_{name}_covers.npy", mmap_mode="r"),
+                               np.load(INTERIM / f"grid_{name}_years.npy", mmap_mode="r"))
+            except Exception:  # noqa: BLE001 - no terrain run yet
+                _hist[name] = None
+        if _hist[name] is None:
+            continue
+        m, cv, ys = _hist[name]
+        c = np.rint((X - m["X0"]) / m["res"]).astype(int)
+        r = np.rint((m["Y0"] - Y) / m["res"]).astype(int)
+        ok = todo & (c >= 0) & (c < m["cols"]) & (r >= 0) & (r < m["rows"])
+        if not ok.any():
+            continue
+        cov = np.asarray(cv[0][r[ok], c[ok]])
+        for k in range(ys.shape[0]):
+            yk = np.asarray(ys[k][r[ok], c[ok]])
+            ch = np.isfinite(yk) & (yk <= year)
+            cov = np.where(ch, np.asarray(cv[k + 1][r[ok], c[ok]]), cov)
+        out[ok] = np.isin(cov, [C.DEEP, C.SHALLOW, C.FLAT])
+        todo &= ~ok
+    return out
+
+
+PIER_REACH_M = 96.0      # a deck whose landward end is this near the shore of its time is joined to it
+
+
+def _to_land(deck, year):
+    """The deck with its landward end carried to the shore of its time. Pier outlines come from
+    charts and survey sheets; the map's shoreline is the terrain's, cells of 29 or 58 m, so a
+    pier drawn to the bulkhead line can stop short of the drawn land. (deck, joined?)"""
+    mrr = deck.minimum_rotated_rectangle
+    if mrr.geom_type != "Polygon":
+        return deck, False
+    c = np.asarray(mrr.exterior.coords)[:4]
+    e1, e2 = c[1] - c[0], c[2] - c[1]
+    if np.hypot(*e1) >= np.hypot(*e2):
+        ends, width = [(c[0] + c[3]) / 2, (c[1] + c[2]) / 2], float(np.hypot(*e2))
+    else:
+        ends, width = [(c[0] + c[1]) / 2, (c[2] + c[3]) / 2], float(np.hypot(*e1))
+    mid = (ends[0] + ends[1]) / 2
+    steps = np.arange(0.0, PIER_REACH_M + 1.0, 6.0)
+    best = None
+    for p in ends:
+        u = p - mid
+        n = float(np.hypot(*u))
+        if n < 1.0:
+            return deck, False
+        u = u / n
+        pts = p[None, :] + steps[:, None] * u[None, :]
+        land = ~_is_water(pts[:, 0], pts[:, 1], year)
+        if land.any():
+            d = float(steps[int(np.argmax(land))])
+            if best is None or d < best[0]:
+                best = (d, p, u)
+    if best is None:
+        return deck, False
+    d, p, u = best
+    if d == 0.0:
+        d = 6.0          # the end is at the shore line: a short overlap closes the seam
+    w = np.array([-u[1], u[0]]) * min(width, 45.0) / 2
+    a, b = p - u * 3.0, p + u * (d + 12.0)
+    out = shapely.unary_union([deck, shapely.Polygon([a - w, a + w, b + w, b - w])]).buffer(0)
+    if out.geom_type != "Polygon":
+        out = max(getattr(out, "geoms", [out]), key=lambda q: q.area)
+    return out, True
+
+
 def piers():
     """Finished building rows (EPSG:4326) for pier decks and their sheds: low platforms over
     the water, standing over their years. Not land-checked (they are over water by nature)."""
@@ -446,6 +527,7 @@ def piers():
         return None
     g = gpd.read_file(p).to_crs(UTM)
     out = []
+    n_join = 0
     for r in g.itertuples():
         geom = r.geometry
         if geom is None or geom.is_empty:
@@ -461,8 +543,10 @@ def piers():
                 continue
             base = {"end_year": e, "year_confidence": "exact" if rec else "estimated", "use": np.uint8(5), "raw_year": 0.0,
                     "stories": 1.0, "boro": "", "year_src": "pier", "name": name if isinstance(name, str) else None}
+            whole, joined = _to_land(part, s + 1.0)
+            n_join += int(joined)
             out.append(dict(base, start_year=s, height=deck + 1.0, base=-1.0, mat=M_EARLY, roof=R_WALL,
-                            fid_key=f"pier:{r.id}", geometry=part))
+                            fid_key=f"pier:{r.id}", geometry=whole))
             shed = str(getattr(r, "shed", "none") or "none").lower()
             if shed in ("shed", "headhouse"):
                 inner = part.buffer(-2.5)
@@ -476,6 +560,7 @@ def piers():
                                         mat=M_EARLY, roof=R_SHINGLE, fid_key=f"pier:{r.id}:shed", geometry=inner))
     if not out:
         return None
+    log(f"extras: {n_join} pier decks carried to the shore of their time")
     gdf = gpd.GeoDataFrame(out, geometry="geometry", crs=UTM)
     # no two decks on one spot at once (the same pier read from two map editions, a pier
     # rebuilt longer): the earlier deck ends when the later one starts, or the lesser one goes

@@ -462,7 +462,81 @@ def cut_holes(poly, depth=0):
     return out
 
 
-def write_outlines(path, polys_utm, kinds, years, ends, ground, z_extra=0.3):
+# ---------------------------------------------------------------------------------------------
+# Features on a roof or a pier deck (landmarks_more_c, 2026-11-11). A piece whose outline lies on the roof of a
+# standing building or on a pier deck is drawn at that roof (+ z_extra), not at the terrain 0.3 m, where the
+# building's extrusion covers it (DrapeExtension does not write depth; see data/research/features_on_decks.md).
+DECK_MIN_SHARE = 0.6      # of the piece's area inside the covering footprint
+DECK_ROOF_RATIO = 1.3     # a roof deck: the footprint is at least this many times the piece's area ...
+DECK_H_MIN, DECK_H_MAX = 2.0, 40.0   # ... and its extrusion (`height`, m) between these: no towers, no sheds
+# Pieces that a landmark model of viewer/src/landmarks/nyc-more-c.ts already draws on its deck (ring of each
+# model, lon/lat): left at the terrain, under the model, so nothing is drawn twice.
+LANDMARK_DECKS = {
+    "riverbank_plant (nyc-more-c.ts)": [[-73.956232,40.827888],[-73.955024,40.827423],[-73.954689,40.827927],[-73.95461,40.827896],[-73.954629,40.827867],[-73.953867,40.827575],[-73.953819,40.827639],[-73.953919,40.82768],[-73.95392,40.827691],[-73.95391,40.827704],[-73.953886,40.827712],[-73.953732,40.827653],[-73.953729,40.82763],[-73.953739,40.827618],[-73.953757,40.827616],[-73.953791,40.827629],[-73.953818,40.827589],[-73.953768,40.82757],[-73.954314,40.826831],[-73.954427,40.826765],[-73.954732,40.826446],[-73.95527,40.825715],[-73.955359,40.825617],[-73.955603,40.825482],[-73.956656,40.8241],[-73.957544,40.82295],[-73.959516,40.823709],[-73.95899,40.824498],[-73.958959,40.824486],[-73.957873,40.826116],[-73.95791,40.82613],[-73.957846,40.826225],[-73.957782,40.826199],[-73.957733,40.826274],[-73.957371,40.826134],[-73.956879,40.826873],[-73.957006,40.826922],[-73.956948,40.827009],[-73.956925,40.827],[-73.956294,40.827947],[-73.956215,40.827916]],
+    "pier40 (nyc-more-c.ts)": [[-74.011172,40.7304],[-74.011373,40.728289],[-74.014798,40.728567],[-74.014786,40.728649],[-74.01428,40.728599],[-74.013997,40.730626]],
+    "bbp_pier5 (nyc-more-c.ts)": [[-74.000344,40.694868],[-74.000531,40.694932],[-74.000681,40.694677],[-74.000494,40.694613],[-74.000948,40.694063],[-74.003011,40.694773],[-74.002404,40.695708],[-74.000285,40.694966]],
+    "bbp_pier2 (nyc-more-c.ts)": [[-73.997527,40.69956],[-73.997713,40.699627],[-73.998169,40.69886],[-73.997965,40.698743],[-73.99801,40.698655],[-73.998405,40.698885],[-73.998405,40.698904],[-74.000041,40.699459],[-73.999496,40.700328],[-73.997488,40.699639]],
+}
+
+
+def deck_floor(polys_utm, pyear, pend, exclude_landmarks=True):
+    """Height (m, absolute, same datum as Ground) of the roof or pier deck each piece lies on, NaN if none, and
+    the piece's start year (not before its deck).
+
+    A deck is a row of nyc_buildings.parquet that stands for the piece's whole life (start_year <= start + 0.5,
+    end_year >= end) and covers at least DECK_MIN_SHARE of the piece, and is either a pier row (`year_src` ==
+    'pier': the deck slab, top = base + height = 2.5 m for the city's pier layer) or a roof deck: footprint
+    >= DECK_ROOF_RATIO x the piece and an extrusion `height` of DECK_H_MIN..DECK_H_MAX m. The top is
+    base + height of the row as the viewer extrudes it (nyc_buildings.py: base = lowest ground corner - 1 m,
+    height = measured roof + (mean ground - lowest ground) + 1 m), i.e. mean ground along the outline + the
+    measured roof height. Of several, the highest top is taken (what covers the piece from above)."""
+    import duckdb
+    polys_utm = np.asarray(polys_utm, dtype=object)
+    n = len(polys_utm)
+    floor = np.full(n, np.nan)
+    pyear = np.asarray(pyear, float).copy()
+    pend = np.asarray(pend, float)
+    con = duckdb.connect()
+    con.execute("install spatial; load spatial; SET memory_limit='1500MB'; SET threads=2")
+    rows = con.execute(f"""select year_src = 'pier', base, height, start_year, end_year, area, st_aswkb(geometry)
+        from '{INTERIM / "nyc_buildings.parquet"}'
+        where end_year >= 2000 and (year_src = 'pier' or (height between {DECK_H_MIN} and {DECK_H_MAX} and area >= 150))""").fetchall()
+    is_pier = np.array([r[0] for r in rows], bool)
+    top = np.array([r[1] + r[2] for r in rows], float)
+    b0 = np.array([r[3] for r in rows], float)
+    b1 = np.array([r[4] for r in rows], float)
+    barea = np.array([r[5] for r in rows], float)
+    bg = shapely.from_wkb([bytes(r[6]) for r in rows])
+    tf = to_utm()
+    xy, ix = shapely.get_coordinates(bg, return_index=True)
+    x, y = tf.transform(xy[:, 0], xy[:, 1])
+    bg = shapely.set_coordinates(bg.copy(), np.column_stack([x, y]))
+    barea = shapely.area(bg)
+    tree = shapely.STRtree(bg)
+    pi, bi = tree.query(polys_utm, predicate="intersects")
+    keep = np.ones(n, bool)
+    if exclude_landmarks:
+        tl = to_utm()
+        for ring in LANDMARK_DECKS.values():
+            rx, ry = tl.transform([p[0] for p in ring], [p[1] for p in ring])
+            keep &= ~shapely.contains(shapely.Polygon(np.column_stack([rx, ry])), shapely.point_on_surface(polys_utm))
+    parea = shapely.area(polys_utm)
+    share = shapely.area(shapely.intersection(polys_utm[pi], bg[bi])) / np.maximum(parea[pi], 1e-6)
+    ok = keep[pi] & (share >= DECK_MIN_SHARE) & (b1[bi] >= np.minimum(pend[pi], 9999.0) - 1e-6)
+    ok &= is_pier[bi] | (barea[bi] >= DECK_ROOF_RATIO * parea[pi])
+    ok &= b0[bi] <= pyear[pi] + 0.5
+    best = {}
+    for p, b, s in zip(pi[ok], bi[ok], share[ok]):
+        k = (top[b], s)
+        if p not in best or k > best[p][0]:
+            best[p] = (k, b)
+    for p, (_, b) in best.items():
+        floor[p] = top[b]
+        pyear[p] = max(pyear[p], b0[b] + 0.5)
+    return floor, pyear
+
+
+def write_outlines(path, polys_utm, kinds, years, ends, ground, z_extra=0.3, floor=None):
     """Rings of hole-free UTM polygons -> BAYT file in drawing order."""
     polys_utm = np.asarray(polys_utm, dtype=object)
     kinds = np.asarray(kinds)
@@ -471,9 +545,13 @@ def write_outlines(path, polys_utm, kinds, years, ends, ground, z_extra=0.3):
     order = np.lexsort((-area, rank))
     polys_utm, kinds = polys_utm[order], kinds[order]
     years, ends = np.asarray(years, float)[order], np.asarray(ends, float)[order]
+    floor = None if floor is None else np.asarray(floor, float)[order]
     xy, idx = shapely.get_coordinates(shapely.get_exterior_ring(polys_utm), return_index=True)
     lon, lat = to_ll().transform(xy[:, 0], xy[:, 1])
-    z = ground(lon, lat) + z_extra
+    z = ground(lon, lat)
+    if floor is not None:       # a roof or pier deck under the piece: flat at its top (fmax ignores NaN = no deck)
+        z = np.fmax(z, floor[idx])
+    z = z + z_extra
     n = np.bincount(idx, minlength=len(polys_utm))
     starts = np.r_[0, np.cumsum(n)]
     write_columnar(path, {
@@ -947,11 +1025,13 @@ def main():
     pyear = np.clip(np.where(wait, ly_piece + 0.5, pyear), YEAR_MIN, float(CURRENT_YEAR))
     stats["waits_for_made_land"] = int(wait.sum())
     ground = Ground()
+    floor, pyear = deck_floor(polys, pyear, end[src])
+    stats["pieces_on_a_deck"] = int(np.isfinite(floor).sum())
     manh = (feats.boro.values == MANHATTAN)[src]
     VIEWER_DATA.mkdir(parents=True, exist_ok=True)
     report = {"dating": {k: int(v) for k, v in pd.Series(rule).value_counts().items()}, **stats, "files": {}}
     for path, m in ((VIEWER_DATA / "ground-detail.bin.gz", manh), (VIEWER_DATA / "region-ground-detail.bin.gz", ~manh)):
-        n_poly, n_vert = write_outlines(path, polys[m], kinds[m], pyear[m], end[src][m], ground)
+        n_poly, n_vert = write_outlines(path, polys[m], kinds[m], pyear[m], end[src][m], ground, floor=floor[m])
         report["files"][path.name] = {"polygons": n_poly, "vertices": n_vert, "bytes": path.stat().st_size,
                                       "by_kind": np.bincount(kinds[m], minlength=15).tolist()}
         log(f"ground detail: {path.name}: {n_poly} outlines, {n_vert} vertices, {path.stat().st_size / 1e6:.2f} MB "
