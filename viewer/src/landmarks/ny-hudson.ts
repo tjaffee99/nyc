@@ -109,7 +109,7 @@ function kykuitBuild(b: MeshBuilder) {
   const TOP = 17.07; // OSM / Overture height of the footprint
   const EAVE = 13.6; // estimated: four storeys, hipped roof above
   // terraces of the forecourt and gardens (Bosworth, 1906-): one stepped platform, estimated
-  b.color('#B9B09B').prism(scaleAbout(KY_RING, 1.5), -1.2, 0.6, {top: true});
+  b.color('#B9B09B').prism(scaleAbout(KY_RING, 1.2), -1.2, 0.6, {top: true});
   b.color('#D8D2C2').prism(KY_RING, 0, EAVE);
   b.color('#8A8F93');
   hipOver(b, KY_RING, EAVE, TOP - EAVE, 0.78);
@@ -679,7 +679,7 @@ function pier(b: MeshBuilder, p: Pth, d: number, off: number, across: number, al
 // Anchor (-73.88096, 41.07112), midway between the towers of the new bridge's main span; x east, y north.
 // New-bridge paths: Overture's bridge-flagged 'New York State Thruway' segments (the two roadways of the
 // 2017/2018 twin spans), sampled every ~70 m; the main-span pylons (bridge:support=pylon, height 128 m)
-// are the four OpenStreetMap ways 1005972999, 1005973000, 1005973001, 1005973002 at x = -181.5 / +181.5 m.
+// are the four OpenStreetMap ways 1005972999, 1005973000, 1005973001, 1005973002 at x = -182.9 / +182.9 m.
 // The old bridge is not in any dataset at hand: its line is the new south (eastbound) roadway shifted
 // 78 m south (the new eastbound span stood 160 ft from the old bridge, Wikipedia; plus half the two
 // widths), which is an estimate.
@@ -711,7 +711,7 @@ function cuomoSpan(b: MeshBuilder, pts: V2[], width: number, towerOff: number) {
   }
   // pylons
   for (const sx of [-1, 1]) {
-    const d = dAtX(p, sx * 181.5);
+    const d = dAtX(p, sx * 182.9);
     const q = ptAt(p, d);
     const zd = zf(d);
     b.frame(q.x, q.y, 0, bearingOf(q), () => {
@@ -752,7 +752,7 @@ addLM({
   facts: {
     Construction: 'construction began in 2013; the northbound / westbound span opened on August 26, 2017 (Tappan Zee Bridge (2017-present))',
     Design: 'twin cable-stayed spans, main span 1,200 ft (366 m), towers 419 ft (128 m), 139 ft (42 m) above the water; this deck 87 ft (26.5 m) wide',
-    Model: 'deck line and pylon positions from OpenStreetMap / Overture (towers 363 m apart against the cited 366 m); deck heights on the trestle (14 m), the grades, the pier spacing (~70 m) and the stay fan are estimated; the four lower pylons of the side spans are not modelled; construction start 2013.8 is estimated within 2013'
+    Model: 'deck line and pylon positions from OpenStreetMap / Overture (towers 365.7 m apart against the cited 366 m); deck heights on the trestle (14 m), the grades, the pier spacing (~70 m) and the stay fan are estimated; the four lower pylons of the side spans are not modelled; construction start 2013.8 is estimated within 2013'
   },
   sources: [WIKI + 'Tappan_Zee_Bridge_(2017–present)', OSM + 'way/1005973000', OVT]
 });
@@ -1190,4 +1190,43 @@ addLM({
     Model: 'a twin of the 1963 span 42 m to its south (estimated spacing); same estimates; construction start 1977.0 is estimated'
   },
   sources: [WIKI + 'Newburgh–Beacon_Bridge', OVT]
+});
+
+// ====================================================================== Mohonk Mountain House (1869-1910)
+// Anchor (-74.1556, 41.76861) (article coordinates 41 46 07 N 74 09 20 W). Footprint (Overture b84cda83): 5,232 m2,
+// 215 x 64 m bounding rectangle, 7 storeys at the tallest (Overture num_floors). Wikipedia: a Victorian-style
+// mountain castle on Lake Mohonk with 259 guest rooms including 28 tower rooms; "the main structure was built
+// by Quaker twin brothers Albert and Alfred Smiley between 1869 and 1910".
+const MO_RING = P(-97.5, -83.4, -93.3, -91.9, -89.8, -96.9, -71.4, -86.0, -73.5, -82.6, -60.2, -74.6, -63.8, -69.8, -32.5, -51.7, -36.6, -42.4, -23.7, -35.1, -11.5, -55.7, 13.7, -41.2, 2.4, -20.5, 5.7, -18.4, 11.0, -7.8, 6.6, -2.5, 30.6, 22.2, 37.7, 17.4, 40.9, 20.9, 40.9, 27.1, 44.9, 25.8, 57.8, 42.2, 56.9, 48.4, 61.8, 56.8, 43.5, 68.3, 36.4, 57.6, 31.7, 60.7, 25.6, 62.6, 18.0, 61.4, 11.9, 57.2, 8.8, 50.1, 8.3, 42.6, 10.1, 35.5, 17.7, 28.9, -5.5, 3.2, -1.9, -2.5, -27.7, -18.4, -50.0, -32.2, -54.9, -31.3, -55.8, -33.9, -55.8, -34.3, -56.2, -37.0, -55.3, -39.7, -64.1, -45.1, -67.2, -43.4, -70.8, -44.2, -72.5, -46.4, -72.9, -50.1, -70.6, -52.7, -67.8, -53.5, -65.7, -57.1, -70.0, -60.0, -83.4, -68.0, -79.8, -73.7);
+
+function moBuild(b: MeshBuilder) {
+  const EAVE = 15.5;
+  const c = centroid(MO_RING);
+  b.color('#8A7F6E').prism(MO_RING, 0, EAVE); // local stone (Shawangunk conglomerate) and shingle, colour estimated
+  b.color('#5E544A').loft([MO_RING, scaleAbout(MO_RING, 0.95, c)], [EAVE, EAVE + 4.5], {top: true});
+  // the corner towers (estimated positions: three vertices of the outline pulled 5 m inwards)
+  for (const i of [3, 11, 23]) {
+    const v = MO_RING[i];
+    const d = Math.hypot(c[0] - v[0], c[1] - v[1]) || 1;
+    const tx = v[0] + ((c[0] - v[0]) / d) * 5;
+    const ty = v[1] + ((c[1] - v[1]) / d) * 5;
+    tower(b, tx, ty, 7.5, EAVE, 26, 33, '#8A7F6E', '#4A4038');
+  }
+}
+
+addLM({
+  id: 'mohonk_mountain_house',
+  name: 'Mohonk Mountain House',
+  kind: 'building',
+  built: [1869.0, 1910.0],
+  end: 9999,
+  anchor: [-74.1556, 41.76861],
+  build: moBuild,
+  replaces: [MO_RING],
+  facts: {
+    Construction: 'built by Albert and Alfred Smiley between 1869 and 1910, on the shore of Lake Mohonk',
+    Form: 'Victorian-style mountain castle, 259 guest rooms including 28 tower rooms',
+    Model: 'plan is the footprint of today (5,232 m2, up to 7 storeys); eave height 15.5 m, the roof and the three towers (position, 33 m) are estimated; the building grew over 41 years and its stages are not known here, so it rises as a whole from 1869 to 1910'
+  },
+  sources: [WIKI + 'Mohonk_Mountain_House', OVT]
 });

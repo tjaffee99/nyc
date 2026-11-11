@@ -168,10 +168,13 @@ def download_layer(what, name, url, field, fields, page):
         """A window the service refuses (it answers 400 for pages of very large parcels) is halved until it goes through."""
         try:
             return fetch_page(url, f"{field}='{name}' AND OBJECTID >= {lo} AND OBJECTID < {hi}", fields,
-                              d / f"oid_{lo}_{hi}.geojson.gz", tries=2 if hi - lo > 50 else 5)
+                              d / f"oid_{lo}_{hi}.geojson.gz", tries=2 if hi - lo > 1 else 3)
         except RuntimeError:
-            if hi - lo <= 50:
-                raise
+            if hi - lo <= 1:   # one parcel the service cannot serve: skipped, noted
+                log(f"  OBJECTID {lo}: the service cannot return it; skipped")
+                with gzip.open(d / f"oid_{lo}_{hi}.geojson.gz", "wt") as fh:
+                    json.dump({"type": "FeatureCollection", "features": []}, fh)
+                return 0
             mid = (lo + hi) // 2
             log(f"  window {lo}-{hi} refused: halved")
             return fetch_window(lo, mid) + fetch_window(mid, hi)
