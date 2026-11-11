@@ -144,6 +144,9 @@ def evidence_on(g):
     e = pd.read_parquet(EVIDENCE)
     X = np.radians(e.lon.values.astype(float)) * 6378137.0
     Y = 6378137.0 * np.log(np.tan(np.pi / 4 + np.radians(e.lat.values.astype(float)) / 2))
+    # (only the points on this grid: a window of the region is a tenth of it)
+    on = (X >= g["X0"] - 2 * g["res"]) & (X <= g["X0"] + (cols + 1) * g["res"]) & (Y <= g["Y0"] + 2 * g["res"]) & (Y >= g["Y0"] - (rows + 1) * g["res"])
+    e, X, Y = e[on], X[on], Y[on]
     # each point speaks for the 2 x 2 cells around it (as land_year_at reads them)
     c0 = np.floor((X - g["X0"]) / g["res"]).astype(np.int64)
     r0 = np.floor((g["Y0"] - Y) / g["res"]).astype(np.int64)

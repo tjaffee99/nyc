@@ -80,10 +80,13 @@ SEEDS = [(-74.0135, 40.7040, 1625), (-73.9900, 40.7260, 1651), (-73.9370, 40.801
          (-73.8950, 40.8610, 1671), (-73.9020, 40.8790, 1693), (-73.8280, 40.8870, 1664)]
 
 
+_H_OFF = [0, 0]   # row, column of the grid being worked on within its whole grid (windowed runs)
+
+
 def h01_grid(rows, cols, salt=0, block=1):
     """Deterministic hash in [0, 1) per cell (or per block x block cells)."""
-    r = (np.arange(rows) // block).astype(np.uint64)[:, None]
-    c = (np.arange(cols) // block).astype(np.uint64)[None, :]
+    r = ((np.arange(rows) + _H_OFF[0]) // block).astype(np.uint64)[:, None]
+    c = ((np.arange(cols) + _H_OFF[1]) // block).astype(np.uint64)[None, :]
     M = np.uint64(0xFFFFFFFF)
     h = ((r * np.uint64(73856093)) & M) ^ ((c * np.uint64(19349663)) & M) ^ np.uint64(salt * 83492791 & 0xFFFFFFFF)
     h = ((h ^ (h >> np.uint64(13))) * np.uint64(0x5BD1E995)) & M
@@ -708,7 +711,9 @@ def histories(name, g, d, land_only=False, reuse_land=True):
     # years and leave some of them standing before their ground: keep the saved years.
     sv = INTERIM / f"grid_{name}_landyear.npy"
     if reuse_land and sv.exists():
-        saved = np.load(sv)
+        saved = np.load(sv, mmap_mode="r")
+        if "win" in g and saved.shape == g["whole"]:
+            saved = np.asarray(saved[g["win"]])
         if saved.shape == land_year.shape:
             both = np.isfinite(saved) & np.isfinite(land_year)
             land_year = np.where(both, saved, land_year).astype(np.float32)
@@ -888,6 +893,76 @@ def histories(name, g, d, land_only=False, reuse_land=True):
         f"made land {int(made.sum())} cells, city {int(is_city.sum())}, park {int(is_park.sum())}, farms {int(farm_ok.sum())}")
     wood_y = np.where(regrow, np.fmax(ground_y + 25.0, 1900.0 + 60.0 * h), np.nan).astype(np.float32)
     return covers, years, elev, urban_y, np.where(is_park, park_y, np.nan).astype(np.float32), wood_y
+
+
+WINDOW_CELLS = 8_000_000   # a grid larger than this is worked in windows (the whole region is 28 million cells)
+WINDOW_TILES = 32          # the core of a window, in tiles of the grid
+WINDOW_MARGIN = 3          # ... and the tiles around it that are computed and thrown away (11 km)
+
+
+def histories_whole(name, g, d, **kw):
+    """histories() for a grid of any size. A small grid is done in one piece. The whole region
+    (5,377 x 5,249 cells) does not fit in memory in one piece - every change of cover is a full
+    array - so it is worked in windows of WINDOW_TILES tiles with a margin, and the cores are
+    put together. What reaches further than the margin (the nearest built-up ground of an empty
+    district, a county's order of clearing) is taken per window; the noise is the whole grid's,
+    so fields and woodlots run on across a window's edge. A window wholly beyond the map's
+    outline is not computed: water where WorldCover has none or water, forest elsewhere."""
+    from extent import POLY
+    rows, cols = g["rows"], g["cols"]
+    if rows * cols <= WINDOW_CELLS:
+        _H_OFF[0] = _H_OFF[1] = 0
+        return histories(name, g, d, **kw)
+    covers = np.zeros((5, rows, cols), np.uint8)
+    years = np.full((4, rows, cols), np.nan, np.float32)
+    urban_y = np.full((rows, cols), np.nan, np.float32)
+    park_y = np.full((rows, cols), np.nan, np.float32)
+    wood_y = np.full((rows, cols), np.nan, np.float32)
+    made = np.zeros((rows, cols), bool)
+    elev = np.nan_to_num(d["elev"], nan=0.0).astype(np.float32)
+    keep = POLY.buffer(0.05)
+    shapely.prepare(keep)
+    ntx, nty = g["tx1"] - g["tx0"], g["ty1"] - g["ty0"]
+    k = 0
+    for wy in range(0, nty, WINDOW_TILES):
+        for wx in range(0, ntx, WINDOW_TILES):
+            cx0, cy0 = wx, wy
+            cx1, cy1 = min(wx + WINDOW_TILES, ntx), min(wy + WINDOW_TILES, nty)
+            # core, in cells of the whole grid (the last row / column of vertices belongs to the last window)
+            r0, r1 = cy0 * VERTS, (cy1 * VERTS + 1 if cy1 == nty else cy1 * VERTS)
+            c0, c1 = cx0 * VERTS, (cx1 * VERTS + 1 if cx1 == ntx else cx1 * VERTS)
+            w, s_, e, n_ = tile_lonlat(g["tx0"] + cx0, g["ty0"] + cy1 - 1, g["z"])[0], tile_lonlat(g["tx0"] + cx0, g["ty0"] + cy1 - 1, g["z"])[1], \
+                tile_lonlat(g["tx0"] + cx1 - 1, g["ty0"] + cy0, g["z"])[2], tile_lonlat(g["tx0"] + cx1 - 1, g["ty0"] + cy0, g["z"])[3]
+            if not shapely.intersects(keep, shapely.box(w, s_, e, n_)):
+                wcw = d["wc"][r0:r1, c0:c1]
+                base = np.where(np.isin(wcw, [0, 80]), DEEP, FOREST).astype(np.uint8)
+                covers[:, r0:r1, c0:c1] = base[None]
+                continue
+            mx0, my0 = max(cx0 - WINDOW_MARGIN, 0), max(cy0 - WINDOW_MARGIN, 0)
+            mx1, my1 = min(cx1 + WINDOW_MARGIN, ntx), min(cy1 + WINDOW_MARGIN, nty)
+            R0, R1, C0, C1 = my0 * VERTS, my1 * VERTS + 1, mx0 * VERTS, mx1 * VERTS + 1
+            res = g["res"]
+            X0, Y0 = g["X0"] + C0 * res, g["Y0"] - R0 * res
+            gw = {"name": name, "z": g["z"], "tx0": g["tx0"] + mx0, "ty0": g["ty0"] + my0, "tx1": g["tx0"] + mx1, "ty1": g["ty0"] + my1,
+                  "rows": R1 - R0, "cols": C1 - C0, "res": res, "X0": X0, "Y0": Y0,
+                  "transform": Affine(res, 0, X0 - res / 2, 0, -res, Y0 + res / 2),
+                  "win": (slice(R0, R1), slice(C0, C1)), "whole": (rows, cols)}
+            dw = {"elev": d["elev"][R0:R1, C0:C1], "wc": d["wc"][R0:R1, C0:C1]}
+            _H_OFF[0], _H_OFF[1] = R0, C0
+            k += 1
+            log(f"terrain {name}: window {k}: tiles x {gw['tx0']}..{gw['tx1']} y {gw['ty0']}..{gw['ty1']} ({gw['rows']} x {gw['cols']} cells)")
+            cw, yw, _, uw, pw, ww = histories(name, gw, dw, **kw)
+            rr, cc = slice(r0 - R0, r1 - R0), slice(c0 - C0, c1 - C0)
+            covers[:, r0:r1, c0:c1] = cw[:, rr, cc]
+            years[:, r0:r1, c0:c1] = yw[:, rr, cc]
+            urban_y[r0:r1, c0:c1] = uw[rr, cc]
+            park_y[r0:r1, c0:c1] = pw[rr, cc]
+            wood_y[r0:r1, c0:c1] = ww[rr, cc]
+            made[r0:r1, c0:c1] = _MADE[name][rr, cc]
+            del cw, yw, uw, pw, ww
+    _H_OFF[0] = _H_OFF[1] = 0
+    _MADE[name] = made
+    return covers, years, elev, urban_y, park_y, wood_y
 
 
 def decorations(name, g, covers, years, elev, urban_y, park_y, wood_y):
@@ -1272,13 +1347,13 @@ def main():
             # the same cover histories as the full run (so the year a cell turns to land is
             # the one the viewer shows), recomputed from the evidence and the buildings on disk
             g, d = load_grid(name)
-            covers, years = histories(name, g, d, reuse_land=False)[:2]
+            covers, years = histories_whole(name, g, d, reuse_land=False)[:2]
             np.save(INTERIM / f"grid_{name}_landyear.npy", made_land_year(name, covers, years))
         return
     meta = {}
     for name, zooms, step in (("region", [8, 9, 10, 11, 12, 13], 2), ("detail", [14], 2)):
         g, d = load_grid(name)
-        covers, years, elev, urban_y, park_y, wood_y = histories(name, g, d)
+        covers, years, elev, urban_y, park_y, wood_y = histories_whole(name, g, d)
         if name == "region":
             elev = region_under_detail(g, elev)
         deco = decorations(name, g, covers, years, elev, urban_y, park_y, wood_y)
