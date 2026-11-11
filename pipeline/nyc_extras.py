@@ -128,11 +128,12 @@ def natural_wet(x_utm, y_utm):
 
 def early_sites():
     """Rows (in UTM) for the Lenape settlements and the colony's outlying buildings."""
-    p = TABLES / "early_nyc.csv"
+    # (early_counties.csv: the towns of the counties around the city, same columns)
+    files = [f for f in (TABLES / "early_nyc.csv", TABLES / "early_counties.csv") if f.exists()]
     rows = []
-    if not p.exists():
+    if not files:
         return rows
-    t = pd.read_csv(p)
+    t = pd.concat([pd.read_csv(f) for f in files], ignore_index=True)
     # (a row without an end is a house that still stands: it dates today's footprint — early_standing)
     t = t[pd.to_numeric(t.end_year, errors="coerce") < 9000].reset_index(drop=True)
     X, Y = _to_utm(t.lon.values, t.lat.values)
@@ -188,7 +189,7 @@ def early_sites():
                          "start_doc": _num(r.start_year), "end_doc": _num(r.end_year), "h_doc": h * (1.5 if scale > 1 else 1.0),
                          "cls": "documented", "conf_doc": "procedural" if n > 1 else "estimated",
                          "mat_doc": "bark" if lenape else mat, "geometry": poly})
-    log(f"extras: {len(rows)} early dwellings from {len(t)} researched rows (early_nyc.csv); "
+    log(f"extras: {len(rows)} early dwellings from {len(t)} researched rows ({', '.join(f.name for f in files)}); "
         f"{skipped} of a cluster found no dry ground and were left out")
     return rows
 
