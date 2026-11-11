@@ -9,7 +9,8 @@ const fs = require('fs');
   const [base, out, ...views] = process.argv.slice(2);
   const browser = await chromium.launch({args: ['--enable-unsafe-swiftshader', '--use-angle=swiftshader', '--ignore-gpu-blocklist']});
   const page = await browser.newPage({viewport: {width: +(process.env.W || 760), height: +(process.env.H || 480)}, deviceScaleFactor: 1});
-  const heavy = new RegExp('region-trees|street-trees|region-streets|traffic' + (process.env.BLOCK ? '|' + process.env.BLOCK : ''));
+  // STREETS=1 loads the street tiles too (slower)
+  const heavy = new RegExp('region-trees|street-trees|traffic' + (process.env.STREETS ? '' : '|region-streets|outer-streets') + (process.env.BLOCK ? '|' + process.env.BLOCK : ''));
   await page.route('**/*', r => (heavy.test(r.request().url()) ? r.abort() : r.continue()));
   const q0 = Object.fromEntries(views[0].split('&').map(kv => kv.split('=')));
   await page.goto(`${base}#${views[0]}`, {waitUntil: 'load'});

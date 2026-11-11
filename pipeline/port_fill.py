@@ -226,7 +226,11 @@ def window_data(c, geom_m, pad=300.0):
     out = {}
     bl = []
     for f in ("county_buildings", "nyc_buildings"):
-        q = gdf_from(c, f"select ST_AsWKB(geometry) g from '{INTERIM}/{f}.parquet' where ST_Intersects(geometry,{env})")
+        # (standing buildings only, and no generated row: the built files hold this stage's own
+        # containers and cars of the run before - with them as obstacles a rerun stood nothing
+        # on the yards that already had cars: decision 38)
+        q = gdf_from(c, f"select ST_AsWKB(geometry) g from '{INTERIM}/{f}.parquet' where ST_Intersects(geometry,{env}) "
+                        f"and end_year > 9000 and year_confidence <> 'procedural'")
         if len(q):
             bl.append(q.to_crs(CRS_M).geometry)
     out["buildings"] = pd.concat(bl).tolist() if bl else []
@@ -374,13 +378,41 @@ def build_terminals(c):
 # ---- rail yards --------------------------------------------------------------------------------------
 def build_yards(c):
     Y = json.load(open(PORTS / "yards.geojson"))["features"]
+    # The waterfront yards that are gone (yards_historic.geojson: the Pennsylvania at Exchange
+    # Place and Harsimus Cove, the Erie at Pavonia, the Jersey Central at Communipaw, the Lehigh
+    # Valley at Black Tom, the West Shore at Weehawken): no track of theirs is in today's data,
+    # so the tracks are drawn - parallel lines at the yard's bearing, every second track of a
+    # yard laid at 4.6 m - and the cars stand until the yard closed. Outline and years are
+    # researched (data/research/hudson_waterfront.md); tracks and cars are generated.
+    hp = PORTS / "yards_historic.geojson"
+    if hp.exists():
+        for f in json.load(open(hp))["features"]:
+            if float(f["properties"].get("end_year", 9999)) < 9000:
+                f["properties"]["_lost"] = True
+                Y.append(f)
     rows, stats = [], {}
     for f in Y:
         p = f["properties"]; yid = p["id"]
+        lost = bool(p.get("_lost"))
         poly = gpd.GeoSeries([shape(f["geometry"])], crs=4326).to_crs(CRS_M).iloc[0].buffer(0)
         d = window_data(c, poly, pad=100)
         lines = []
-        for cl, rf, g in d["rail"]:
+        if lost:
+            br = math.radians(float(p.get("track_bearing_deg", 90)))
+            ux, uy = math.sin(br), math.cos(br)            # along the tracks
+            px, py = math.cos(br), -math.sin(br)           # across them
+            x0, y0, x1, y1 = poly.bounds
+            cx, cy, half = (x0 + x1) / 2, (y0 + y1) / 2, math.hypot(x1 - x0, y1 - y0) / 2 + 10
+            gap = 2 * max(float(p.get("track_gap_m", 4.6)), 4.6)
+            k = -half
+            while k <= half:
+                ln = LineString([(cx + px * k - ux * half, cy + py * k - uy * half), (cx + px * k + ux * half, cy + py * k + uy * half)])
+                gi = ln.intersection(poly.buffer(-4))
+                for sgm in ([gi] if gi.geom_type == "LineString" else [x for x in getattr(gi, "geoms", []) if x.geom_type == "LineString"]):
+                    if sgm.length > 40:
+                        lines.append(sgm)
+                k += gap
+        for cl, rf, g in ([] if lost else d["rail"]):
             if "is_tunnel" in rf or "is_bridge" in rf:
                 continue
             gi = g.intersection(poly)
@@ -392,6 +424,8 @@ def build_yards(c):
         bld = unary_union([b.buffer(CAR_CLEAR_BUILDING) for b in d["buildings"]]) if d["buildings"] else Polygon()
         rd = unary_union([g.buffer(ROAD_HALF.get(cl, 5)) for cl, g in d["roads"]]) if d["roads"] else Polygon()
         keep_out = unary_union([bld, rd, d["water"]]) if not d["water"].is_empty else unary_union([bld, rd])
+        if lost:
+            keep_out = Polygon()       # (today's streets and towers stand where the yard was)
         kp = prep(keep_out)
         lenr = SUBWAY_CAR_LEN if yid in SUBWAY_YARDS else CAR_LEN
         cars = []
@@ -432,8 +466,10 @@ def build_yards(c):
         for i in sorted(taken):
             g, pos = cars[i]
             start = p["start_year"] + YARD_SPREAD * h01(yid, "yr", pos)
-            rows.append(dict(id=f"yard_{yid}_{pos}", start_year=round(start, 2), end_year=float(STILL_EXISTS), height_m=CAR_H, storeys=1,
-                             material="railcar", evidence="yard+railcars", end_basis="open_today", area=round(g.area, 1), geometry=g, terminal=yid))
+            end = float(p["end_year"]) + h01(yid, "end", pos) if lost else float(STILL_EXISTS)
+            rows.append(dict(id=f"yard_{yid}_{pos}", start_year=round(start, 2), end_year=round(end, 2), height_m=CAR_H, storeys=1,
+                             material="railcar", evidence="yard+railcars", end_basis="yard_closed" if lost else "open_today",
+                             area=round(g.area, 1), geometry=g, terminal=yid))
         stats[yid] = dict(rows=len(taken), track_m=round(total_len), cover_m=round(sum(geoms[i].area for i in taken) / CAR_W),
                           track_share=round(sum(geoms[i].area for i in taken) / CAR_W / total_len, 3))
         print(yid, stats[yid], flush=True)

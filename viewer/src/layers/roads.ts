@@ -24,7 +24,7 @@ import {WIDE} from '../scope';
 // kinds — keep in sync with pipeline/roads.py
 const K = {STREET: 0, MAJOR: 1, FREEWAY: 2, HIGHWAY: 3, CABLE: 4, STREETCAR: 5, RAIL: 6, KEY: 7, BART: 8, FERRY: 9, LIGHTRAIL: 10};
 const COLORS: Record<number, [number, number, number, number]> = {
-  [K.STREET]: [176, 170, 158, 255],
+  [K.STREET]: [160, 154, 142, 255],   // (darker than it was: on the suburbs' green ground the streets did not read)
   [K.MAJOR]: [160, 154, 144, 255],
   [K.FREEWAY]: [138, 134, 128, 255],
   [K.HIGHWAY]: [150, 145, 136, 255],
@@ -60,7 +60,7 @@ type PathSet = {
  *  map squares so that only the squares in view go through the GPU. */
 const sets: PathSet[] = [];
 // suburban streets at city scale: thin and translucent, a texture rather than lines
-const FAINT_STREET: [number, number, number, number] = [150, 146, 138, 150];
+const FAINT_STREET: [number, number, number, number] = [132, 128, 120, 185];
 const drawSets: PathSet[] = [];
 const fade = new TimeExtension({mode: 'fade'});
 
@@ -464,7 +464,7 @@ function pathLayer(s: PathSet, year: number, id: string, faint = false): Layer {
     getColor: (_: any, {index}: any) =>
       s.id === 'transit' ? trackColor(s.kind[index], s.elevated[index]) : faint ? FAINT_STREET : (COLORS[s.kind[index]] ?? COLORS[0]),
     widthUnits: 'meters',
-    widthMinPixels: s.id === 'routes' ? 1.5 : faint ? 0.5 : 0.8,
+    widthMinPixels: s.id === 'routes' ? 1.5 : faint ? 0.7 : 1.0,
     shadowEnabled: false,
     billboard: false,
     jointRounded: true,
