@@ -765,7 +765,8 @@ def build():
     start = land_check(g.geometry.values, start, src, g.height_m.fillna(7.0).values.astype(float), g.doitt_id.values)
     conf = np.where(start > start0 + 0.05, "estimated", conf).astype(object)   # waits for its ground: no longer the record's year
     start = np.minimum(start, 2029.9)   # under construction today (also when its made land is dated later)
-    g = g.assign(start_year=start, end_year=end, year_confidence=conf, raw_year=raw, year_src=src)
+    g = g.assign(start_year=start, end_year=end, year_confidence=conf, raw_year=raw, year_src=src,
+                 start_free=np.minimum(start0, start), start_built=start)
     bbl = g.pluto_bbl.fillna("").astype(str).values
     g["bldgclass"] = pluto.bldgclass.reindex(bbl).values
     g["prox"] = pluto.proxcode.reindex(bbl).values if "proxcode" in pluto else np.nan
@@ -852,10 +853,15 @@ def write_outputs(g):
     rp = g.geometry.representative_point()
     au = g.geometry.to_crs(UTM).area.values
     INTERIM.mkdir(parents=True, exist_ok=True)
+    # the year before the building waited for its ground (terrain_tiles: undated made land is dated
+    # from it); a building re-dated afterwards, and one that was added later, has only its own year
+    sf = full.start_free.values.astype(float) if "start_free" in full else np.full(len(full), np.nan)
+    sb = full.start_built.values.astype(float) if "start_built" in full else np.full(len(full), np.nan)
+    free = np.where(np.isfinite(sf) & (np.abs(sb - g.start_year.values) < 0.01), sf, g.start_year.values)
     pd.DataFrame({"lon": rp.x.values, "lat": rp.y.values, "start_year": g.start_year.values, "end_year": g.end_year.values,
                   "area_m2": au, "height": g.height.values, "boro": g.boro.values,
-                  "conf": g.year_confidence.values}).to_parquet(INTERIM / "nyc_building_points.parquet")
-    full.drop(columns=[c for c in ("lpc_mat",) if c in full]).to_parquet(INTERIM / "nyc_buildings.parquet")
+                  "conf": g.year_confidence.values, "start_free": free}).to_parquet(INTERIM / "nyc_building_points.parquet")
+    full.drop(columns=[c for c in ("lpc_mat", "start_built") if c in full]).to_parquet(INTERIM / "nyc_buildings.parquet")
     # Manhattan: one file
     core = g[g.boro == CORE_BORO]
     if len(core):
@@ -890,7 +896,7 @@ def evidence():
     from ground_rule import write_evidence
     g = load_footprints()
     year, raw, conf, end, src, xy = assign_years(g, load_pluto(), load_lpc())
-    rec = np.isin(src, ["lpc", "known", "assessor"])
+    rec = np.isin(src, ["lpc", "known", "assessor", "known_est"])    # a researched estimate counts like a roll year (weak)
     geoms = [g.geometry.values[rec]]
     years = [year[rec]]
     strong = [np.isin(src[rec], ["lpc", "known"])]

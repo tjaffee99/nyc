@@ -363,10 +363,11 @@ def fill_layers(name, g, N, land_now, lake_now, urban_y, still_wet, known):
     return land_year, N, events, reservoirs
 
 
-def building_evidence(g, standing_only=False):
+def building_evidence(g, standing_only=False, free=False):
     """City ground from the buildings themselves: the year of the second-earliest building
     within one cell of each cell (incl. vanished ones, unless standing_only), and the share
-    of the ground they cover."""
+    of the ground they cover. free: the buildings' years before the ground rule moved them
+    (`start_free`) - what dates made land must not itself depend on the land's date."""
     rows, cols = g["rows"], g["cols"]
     urban_y = np.full((rows, cols), np.nan, np.float32)
     cover = np.zeros((rows, cols), np.float32)
@@ -374,7 +375,9 @@ def building_evidence(g, standing_only=False):
     if not files:
         log("terrain: no building points yet (nyc_buildings.py) - no city ground")
         return urban_y, cover
-    b = pd.concat([pd.read_parquet(f, columns=["lon", "lat", "start_year", "end_year", "area_m2"]) for f in files], ignore_index=True)
+    b = pd.concat([pd.read_parquet(f) for f in files], ignore_index=True)
+    if free and "start_free" in b:
+        b["start_year"] = np.where(np.isfinite(b.start_free.values.astype(float)), b.start_free.values, b.start_year.values)
     if standing_only:
         b = b[b.end_year >= 9000]
     X = np.radians(b.lon.values) * 6378137.0
@@ -553,7 +556,13 @@ def histories(name, g, d, land_only=False, reuse_land=True):
     ext_y = extent_years(g)
     # made land without a dated zone appears a little before its first use: the buildings
     # around, the park it lies in, or the built-up extent that first includes it
-    first_use = np.fmin(np.fmin(urban_fill, np.where(is_park, park_y, np.nan)), ext_y).astype(np.float32)
+    # (the buildings' years as they were before they waited for their ground: dated from the
+    # waiting years, the ground and its buildings pushed each other half a year later with every rebuild)
+    urban_free, _ = building_evidence(g, free=True)
+    free_ok = np.isfinite(urban_free)
+    free_fill = nearest_fill(np.where(free_ok, urban_free, 0).astype(np.float32), free_ok) if free_ok.any() else urban_fill
+    del urban_free, free_ok
+    first_use = np.fmin(np.fmin(free_fill, np.where(is_park, park_y, np.nan)), ext_y).astype(np.float32)
     # (streams are not made land: nothing waits for them, the city simply covers them)
     land_year, N, extra, reservoirs = fill_layers(name, g, N, land_now, lake_now, first_use, (land_now & (wc == 90)) | stream, known)
     if land_only:

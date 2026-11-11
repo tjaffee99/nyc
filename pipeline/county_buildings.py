@@ -191,13 +191,13 @@ def main():
     out = gpd.GeoDataFrame({"start_year": start, "end_year": 9999.0, "height": H + (gmean - gmin) + 1.0, "base": gmin - 1.0,
                             "year_confidence": conf, "use": use, "raw_year": np.nan_to_num(raw), "stories": stories,
                             "mat": mat, "roof": roof, "fid_key": keys, "year_src": src, "name": names, "county": county,
-                            "height_m": H, "area": area}, geometry=g.geometry.values, crs=4326)
+                            "height_m": H, "area": area, "start_free": np.minimum(start0, start)}, geometry=g.geometry.values, crs=4326)
     out["geometry"] = out.geometry.to_crs(UTM).simplify(0.6, preserve_topology=True).to_crs(4326)
     out = out[~out.geometry.is_empty & out.geometry.is_valid & (out.geometry.geom_type == "Polygon")]
     rp = out.geometry.representative_point()
     pd.DataFrame({"lon": rp.x.values, "lat": rp.y.values, "start_year": out.start_year.values, "end_year": out.end_year.values,
                   "area_m2": out["area"].values, "height": out.height.values, "boro": "9", "county": out.county.values,
-                  "conf": out.year_confidence.values}).to_parquet(INTERIM / "county_building_points.parquet")
+                  "conf": out.year_confidence.values, "start_free": out.start_free.values}).to_parquet(INTERIM / "county_building_points.parquet")
     out.to_parquet(INTERIM / "county_buildings.parquet")
     write_tile_set(out[COLS + ["year_src", "name"]], OUT)
     y = np.floor(out.start_year.values).astype(int)
