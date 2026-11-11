@@ -74,5 +74,206 @@
     "name": "Hoboken plate 18"
    }
   ]
+ },
+ "hudson_hoboken_1930": {
+  "map_year": 1930,
+  "atlas": "Insurance maps of Hudson County, New Jersey, vol. 7: Hoboken (Sanborn Map Co.), the 1930 re-issue corrected by pasted slips to April 1951, 50 ft to the inch",
+  "source": "sanborn_hoboken_1930",
+  "style": "bromley_city",
+  "source_url": "https://www.loc.gov/item/sanborn05511_034/ (Library of Congress, Sanborn Maps Collection, public domain); control points made here from street intersections",
+  "style_override": {
+   "core": 12,
+   "wall_px": 240,
+   "hole_px": 500,
+   "front_px": 2500,
+   "frame": {
+    "db_min": 6.5,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 92
+   }
+  },
+  "plates": [
+   {
+    "id": 91030015,
+    "sheet": "15",
+    "name": "Hoboken 1930 sheet 15"
+   },
+   {
+    "id": 91030016,
+    "sheet": "16",
+    "name": "Hoboken 1930 sheet 16"
+   },
+   {
+    "id": 91030017,
+    "sheet": "17",
+    "name": "Hoboken 1930 sheet 17"
+   },
+   {
+    "id": 91030018,
+    "sheet": "18",
+    "name": "Hoboken 1930 sheet 18"
+   },
+   {
+    "id": 91030019,
+    "sheet": "19",
+    "name": "Hoboken 1930 sheet 19"
+   },
+   {
+    "id": 91030020,
+    "sheet": "20",
+    "name": "Hoboken 1930 sheet 20"
+   },
+   {
+    "id": 91030021,
+    "sheet": "21",
+    "name": "Hoboken 1930 sheet 21"
+   },
+   {
+    "id": 91030022,
+    "sheet": "22",
+    "name": "Hoboken 1930 sheet 22"
+   },
+   {
+    "id": 91030023,
+    "sheet": "23",
+    "name": "Hoboken 1930 sheet 23"
+   },
+   {
+    "id": 91030024,
+    "sheet": "24",
+    "name": "Hoboken 1930 sheet 24"
+   },
+   {
+    "id": 91030025,
+    "sheet": "25",
+    "name": "Hoboken 1930 sheet 25"
+   },
+   {
+    "id": 91030026,
+    "sheet": "26",
+    "name": "Hoboken 1930 sheet 26"
+   },
+   {
+    "id": 91030027,
+    "sheet": "27",
+    "name": "Hoboken 1930 sheet 27"
+   },
+   {
+    "id": 91030028,
+    "sheet": "28",
+    "name": "Hoboken 1930 sheet 28"
+   },
+   {
+    "id": 91030029,
+    "sheet": "29",
+    "name": "Hoboken 1930 sheet 29"
+   },
+   {
+    "id": 91030030,
+    "sheet": "30",
+    "name": "Hoboken 1930 sheet 30"
+   },
+   {
+    "id": 91030031,
+    "sheet": "31",
+    "name": "Hoboken 1930 sheet 31"
+   },
+   {
+    "id": 91030032,
+    "sheet": "32",
+    "name": "Hoboken 1930 sheet 32"
+   },
+   {
+    "id": 91030034,
+    "sheet": "34",
+    "name": "Hoboken 1930 sheet 34"
+   },
+   {
+    "id": 91030035,
+    "sheet": "35",
+    "name": "Hoboken 1930 sheet 35"
+   },
+   {
+    "id": 91030036,
+    "sheet": "36",
+    "name": "Hoboken 1930 sheet 36"
+   },
+   {
+    "id": 91030037,
+    "sheet": "37",
+    "name": "Hoboken 1930 sheet 37"
+   },
+   {
+    "id": 91030038,
+    "sheet": "38",
+    "name": "Hoboken 1930 sheet 38"
+   },
+   {
+    "id": 91030039,
+    "sheet": "39",
+    "name": "Hoboken 1930 sheet 39"
+   },
+   {
+    "id": 91030040,
+    "sheet": "40",
+    "name": "Hoboken 1930 sheet 40"
+   },
+   {
+    "id": 91030041,
+    "sheet": "41",
+    "name": "Hoboken 1930 sheet 41"
+   },
+   {
+    "id": 91030042,
+    "sheet": "42",
+    "name": "Hoboken 1930 sheet 42"
+   },
+   {
+    "id": 91030043,
+    "sheet": "43",
+    "name": "Hoboken 1930 sheet 43"
+   },
+   {
+    "id": 91030044,
+    "sheet": "44",
+    "name": "Hoboken 1930 sheet 44"
+   },
+   {
+    "id": 91030045,
+    "sheet": "45",
+    "name": "Hoboken 1930 sheet 45"
+   },
+   {
+    "id": 91030046,
+    "sheet": "46",
+    "name": "Hoboken 1930 sheet 46"
+   },
+   {
+    "id": 91030047,
+    "sheet": "47",
+    "name": "Hoboken 1930 sheet 47"
+   },
+   {
+    "id": 91030048,
+    "sheet": "48",
+    "name": "Hoboken 1930 sheet 48"
+   },
+   {
+    "id": 91030051,
+    "sheet": "51",
+    "name": "Hoboken 1930 sheet 51"
+   },
+   {
+    "id": 91030052,
+    "sheet": "52",
+    "name": "Hoboken 1930 sheet 52"
+   },
+   {
+    "id": 91030054,
+    "sheet": "54",
+    "name": "Hoboken 1930 sheet 54"
+   }
+  ]
  }
 }
