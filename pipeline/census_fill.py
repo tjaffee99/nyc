@@ -543,7 +543,15 @@ def select(pid):
     rng = np.random.default_rng(int(pid[-6:]) + 11)
     o = np.argsort(z["hc"], kind="stable")
     hc, hs, he = z["hc"][o], z["hs"][o], z["he"][o]
+    # the place's old centre: where the map's rows stood densest at the first census year that has a real town on
+    # the candidates' ground (>= 150 lots with a row of the map within 60 m); the mean of the densest 1 % of them
     ctr = z["ctr"]
+    for ti0 in range(len(YEARS)):
+        w0 = z["cnt"][:, ti0].astype(float)
+        if (w0 > 0).sum() >= 150:
+            top = np.argsort(-w0)[:max(30, int(0.01 * len(w0)))]
+            ctr = np.array([np.mean(z["cx"][top]), np.mean(z["cy"][top])])
+            break
     dist = np.hypot(z["cx"] - ctr[0], z["cy"] - ctr[1]) / 1000.0
     dn = dist / max(np.percentile(dist, 95), 0.5)
     ratio_all = z["cnt"].astype(np.float32) / np.maximum(z["cand_n"], 1)[:, None]
@@ -583,7 +591,7 @@ def select(pid):
             np.minimum.at(er, hci[later], hsi[later])
             ok = elig & ~blocked & ((er - sc) >= 2.0)
             idx = np.where(ok)[0]
-            score = ratio_all[idx, ti] + 0.3 * dn[idx]
+            score = 0.7 * ratio_all[idx, ti] + 0.8 * dn[idx]
             pick = idx[np.argsort(score, kind="stable")[:k]]
             used[pick] = True; S[pick] = sc[pick]; DY[pick] = y; LO[pick] = lo[pick]; HI[pick] = hi
             
@@ -661,6 +669,7 @@ def collect(*pids):
         if not len(z["idx"]):
             continue
         S, E, kind = z["S"].astype(float), z["E"].astype(float), z["kind"].astype(int).copy()
+        E = np.where(z["basis"] == "replaced_by_map", E - 0.02, E)       # ends just before the real row starts, never on its float
         h = (np.floor(np.abs(z["cx"] * 7.31 + z["cy"] * 3.17)) % 97) / 97.0
         kind[S < 1830] = 0
         kind[(S < 1860) & (kind == 2)] = 1
@@ -688,7 +697,17 @@ def collect(*pids):
                                         "area": area, "geometry": polys}, crs=4326))
         frames[-1]["pid"] = pid
     g = pd.concat(frames, ignore_index=True)
-    g = g.drop_duplicates("id")
+    g = g.drop_duplicates("id").reset_index(drop=True)
+    # slab seams: two lots of different slabs may overlap; drop the later one where both stand at once
+    gp = proj(g.geometry.values)
+    tr = shapely.STRtree(gp)
+    a, b = tr.query(gp, predicate="intersects")
+    mk = a < b
+    a, b = a[mk], b[mk]
+    both = (g.start_year.values[a] < g.end_year.values[b]) & (g.end_year.values[a] > g.start_year.values[b])
+    drop = set(b[both].tolist())
+    print("dropped for overlapping another fill row:", len(drop))
+    g = g.drop(index=list(drop)).reset_index(drop=True)
     g.drop(columns="pid").to_parquet(INTERIM / "gapfill" / "gapfill_census.parquet")
     g[["id", "pid"]].to_parquet(WORK / "row_places.parquet")
     print(len(g), "rows ->", INTERIM / "gapfill" / "gapfill_census.parquet")
@@ -755,7 +774,7 @@ def check_overlap(pid):
     tr = shapely.STRtree(rg)
     gi, ri = tr.query(gp, predicate="intersects")
     gs, ge = g.start_year.values[gi], g.end_year.values[gi]
-    ov = (s[ri] < ge) & (e[ri] > gs)
+    ov = (s[ri] < ge - 0.05) & (e[ri] > gs + 0.05)
     # lots against lots
     t2 = shapely.STRtree(gp)
     a, b = t2.query(gp, predicate="intersects")

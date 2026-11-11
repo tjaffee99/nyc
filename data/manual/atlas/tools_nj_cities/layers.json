@@ -90,6 +90,41 @@
     "id": 92150004,
     "sheet": "4",
     "name": "Paterson 1915 sheet 4"
+   },
+   {
+    "id": 92150013,
+    "sheet": "13",
+    "name": "Paterson 1915 sheet 13"
+   },
+   {
+    "id": 92150014,
+    "sheet": "14",
+    "name": "Paterson 1915 sheet 14"
+   },
+   {
+    "id": 92150015,
+    "sheet": "15",
+    "name": "Paterson 1915 sheet 15"
+   },
+   {
+    "id": 92150019,
+    "sheet": "19",
+    "name": "Paterson 1915 sheet 19"
+   },
+   {
+    "id": 92150020,
+    "sheet": "20",
+    "name": "Paterson 1915 sheet 20"
+   },
+   {
+    "id": 92150021,
+    "sheet": "21",
+    "name": "Paterson 1915 sheet 21"
+   },
+   {
+    "id": 92150022,
+    "sheet": "22",
+    "name": "Paterson 1915 sheet 22"
    }
   ]
  }

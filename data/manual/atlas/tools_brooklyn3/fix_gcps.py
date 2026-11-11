@@ -8,6 +8,8 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[1] / "extents" / "tools"))
 import warp, streets as S  # noqa
+TOL = 6.0
+SC = (0.18, 0.22)
 OWNF = HERE / "gcps_own.json"
 own = json.loads(OWNF.read_text())
 for pid in sys.argv[2:]:
@@ -23,7 +25,7 @@ for pid in sys.argv[2:]:
         if np.hypot(*dp) < 300:
             continue
         s = np.hypot(*dx) / np.hypot(*dp)
-        if not 0.095 <= s <= 0.115:
+        if not SC[0] <= s <= SC[1]:
             continue
         # similarity with reflection (image y down): x = s R [u, -v]
         ang = np.arctan2(dx[1], dx[0]) - np.arctan2(-dp[1], dp[0])
@@ -31,9 +33,9 @@ for pid in sys.argv[2:]:
         M = s * R @ np.diag([1, -1])
         pred = (px - px[i]) @ M.T + xy[i]
         e = np.hypot(*(pred - xy).T)
-        n = int((e < 5.0).sum())
-        if n > best[0] or (n == best[0] and best[1] is not None and e[e < 5].mean() < best[1][1]):
-            best = (n, (e < 5.0, e[e < 5].mean(), s))
+        n = int((e < TOL).sum())
+        if n > best[0] or (n == best[0] and best[1] is not None and e[e < TOL].mean() < best[1][1]):
+            best = (n, (e < TOL, e[e < TOL].mean(), s))
     n = best[0]
     if n < 3:
         print(pid, "no consensus", len(px), "points", flush=True)
