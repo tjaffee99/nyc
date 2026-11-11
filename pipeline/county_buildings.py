@@ -228,7 +228,12 @@ def build(g, outer=False):
         ye = pd.to_numeric(g.year_est, errors="coerce").values.astype(float)
         use_est = np.isfinite(ye) & ~np.isfinite(raw) & ~hist_ok
         year = np.where(use_est, ye, year)
-        src = np.where(use_est, "modelled", src).astype(object)
+        # (two kinds of estimate: the census's homes by decade per block group, and - where the
+        # assessor's own records were counted per 250 m cell and five-year step, HISDAC-US - that
+        # cell's curve: county_years.py, about twice as close)
+        basis = g.est_basis.fillna("").astype(str).values if "est_basis" in g else np.full(n, "", dtype=object)
+        cells = np.array([b.startswith("hisdac_bupr") for b in basis])
+        src = np.where(use_est, np.where(cells, "modelled_cells", "modelled"), src).astype(object)
         # The census has one open bin "1939 or earlier", and the estimator spreads it along the
         # town's population curve — which ignores that old houses were pulled down (it had
         # 3,000 of today's Westchester buildings standing before 1800). Each building keeps its

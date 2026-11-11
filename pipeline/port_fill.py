@@ -514,7 +514,11 @@ def empty(n=25, min_ha=5.0, open_m=8.0):
     air = gdf_from(c, f"select ST_AsWKB(geometry) g from '{OV}/region_airports.parquet'")
     air = unary_union(air.to_crs(CRS_M).geometry.tolist()) if len(air) else Polygon()
     skip = unary_union([mine, air.buffer(30)])
-    print(len(cand), "candidate land-use polygons", flush=True)
+    MAP_FIPS = {"36005", "36047", "36061", "36081", "36085", "34017", "34003", "34013", "34039", "34031", "36119", "36087"}  # 5 boroughs + 7 counties
+    cty0 = gpd.read_file(RAW / "tiger" / "tl_2024_us_county.zip", bbox=tuple(REGION_BBOX)).to_crs(CRS_M)
+    in_map = unary_union(cty0[(cty0.STATEFP + cty0.COUNTYFP).isin(MAP_FIPS)].geometry.tolist())
+    cand = cand[[in_map.contains(g.representative_point()) for g in cand.geometry]]
+    print(len(cand), "candidate land-use polygons in the map", flush=True)
     res = []
     for r in cand.itertuples():
         if r.geometry.intersection(skip).area > 0.5 * r.geometry.area:
@@ -530,6 +534,8 @@ def empty(n=25, min_ha=5.0, open_m=8.0):
         rds = [g.buffer(ROAD_HALF.get(cl, 5)) for cl, g in zip(rd.cl, rd.to_crs(CRS_M).geometry)] if len(rd) else []
         free = r.geometry.difference(unary_union([b.buffer(BUILDING_MARGIN) for b in bl] + rds + [skip]))
         free = free.buffer(-open_m).buffer(open_m)
+        if len(res) % 20 == 0:
+            print("  ...", r.Index, len(res), flush=True)
         for p in ([free] if free.geom_type == "Polygon" else list(getattr(free, "geoms", []))):
             if p.area >= 3e4:
                 res.append(dict(ha=p.area / 1e4, id=r.id, subtype=r.subtype, cls=r.cls if hasattr(r, "cls") else r[3], name=r.name, geometry=p))

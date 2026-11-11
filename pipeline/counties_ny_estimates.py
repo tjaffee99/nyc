@@ -481,7 +481,7 @@ def run_build_outer(targets):
     own files are not rewritten."""
     INT.mkdir(parents=True, exist_ok=True)
     pops = json.loads((RAW / "wiki_pop.json").read_text())
-    train = [c for c in ALL if (OUT / f"ny_{c}.parquet").exists() and c not in ("dutchess", "nassau")]
+    train = [c for c in ALL if (OUT / f"ny_{c}.parquet").exists() and c not in ("nassau",)]
     A = b = None
     prepared = {}
     for c in train:

@@ -142,6 +142,9 @@ def source_label(src: str) -> str:
         return f"not yet on the {src[-4:]} aerial photograph: built after it (no reliable year of its own on record)"
     if src.startswith("evidence_by:topo"):
         return f"drawn on the USGS map surveyed in {src[-4:]}: built by then"
+    if src == "modelled_cells":
+        return ("no public construction year for this building: assigned from the assessor's own counts of buildings "
+                "by five-year period in its 250 m cell (HISDAC-US; typically within about 10 years; not a record)")
     if src == "modelled":
         return ("no public construction year: modelled from the census's count of homes by decade built in the block "
                 "group and the town's growth (typically within about 20 years; not a record)")
