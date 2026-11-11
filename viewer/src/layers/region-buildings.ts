@@ -31,7 +31,9 @@ type Index = {
 type TileSet = {id: string; dir: string; index: Index; have: Set<string>; haveLow: Set<string>};
 const SETS: {id: string; dir: string}[] = [
   {id: 'region-buildings', dir: `${HEAVY_BASE}data/region-buildings`},
-  {id: 'region-buildings-county', dir: `${HEAVY_BASE}data/county-buildings`}
+  {id: 'region-buildings-county', dir: `${HEAVY_BASE}data/county-buildings`},
+  // the outer counties: the same format, houses as rectangles (county_buildings.py outer)
+  {id: 'region-buildings-outer', dir: `${HEAVY_BASE}data/outer-buildings`}
 ];
 let sets: TileSet[] = [];
 

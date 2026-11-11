@@ -23,7 +23,7 @@ DIST = Path(os.environ.get("DEPLOY_DIST") or ROOT / "viewer" / "dist")
 # published 104 MB in under a minute. These tile sets are therefore pushed to the branch but
 # left out of the Pages build by a Jekyll `exclude`; the published page reads them through
 # raw.githubusercontent.com (viewer/src/remote.ts).
-HEAVY = ["data/region-buildings", "data/county-buildings", "tiles/terrain/13"]
+HEAVY = ["data/region-buildings", "data/county-buildings", "data/outer-buildings", "tiles/terrain/13"]
 LIMIT_MB = 100          # the part Pages builds
 
 

@@ -60,6 +60,7 @@ def main():
     files = [VIEWER_DATA / "core-buildings.bin.gz"] + sorted((VIEWER_DATA / "region-buildings" / "13").glob("*/*.bin.gz"))
     n_city = len(files)
     files += sorted((VIEWER_DATA / "county-buildings" / "13").glob("*/*.bin.gz"))
+    files += sorted((VIEWER_DATA / "outer-buildings" / "13").glob("*/*.bin.gz"))
     files = [f for f in files if f.exists()]
     start, end, conf = [], [], []
     overlaps = 0
