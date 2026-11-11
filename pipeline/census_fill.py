@@ -341,20 +341,54 @@ def rect_polys(cx, cy, w, d, ang):
 DEC = YEARS            # density is counted at the census years
 
 
-def cands(pid):
+_CACHE = {}
+
+
+def county_data(pid, bb):
+    """Everything a place needs, loaded once per county (the loads dominate the run time of a small place)."""
+    pl = pd.read_csv(WORK / "places.csv", dtype={"pid": str}, index_col=0)
+    co = pl.county[pl.pid == pid].iloc[0]
+    if co == "NYC" or co not in set(pl.county):
+        key = ("one", pid, bb)
+    else:
+        key = ("county", co)
+    if key not in _CACHE:
+        _CACHE.clear()
+        gdf = places()
+        if key[0] == "county":
+            sub = gdf[(pl.county.values == co)]
+            x0, y0, x1, y1 = sub.total_bounds
+            cbb = (x0 - 0.003, y0 - 0.003, x1 + 0.003, y1 + 0.003)
+        else:
+            cbb = bb
+        s, e, rg, rx, ry = load_real(cbb)
+        cls, rd = load_roads(cbb)
+        ex = load_excl(cbb)
+        _CACHE[key] = dict(bb=cbb, s=s, e=e, rg=rg, rx=rx, ry=ry, cls=cls, rd=rd, ex=ex, rdb=shapely.bounds(rd), exb=shapely.bounds(ex))
+    d = _CACHE[key]
+    xs_, ys_ = T_FWD.transform([bb[0], bb[2], bb[0], bb[2]], [bb[1], bb[1], bb[3], bb[3]])
+    lo_x, hi_x = min(xs_) - 300, max(xs_) + 300
+    lo_y, hi_y = min(ys_) - 300, max(ys_) + 300
+    m = (d["rx"] >= lo_x) & (d["rx"] <= hi_x) & (d["ry"] >= lo_y) & (d["ry"] <= hi_y)
+    r = (d["rdb"][:, 2] >= lo_x) & (d["rdb"][:, 0] <= hi_x) & (d["rdb"][:, 3] >= lo_y) & (d["rdb"][:, 1] <= hi_y)
+    x = (d["exb"][:, 2] >= lo_x) & (d["exb"][:, 0] <= hi_x) & (d["exb"][:, 3] >= lo_y) & (d["exb"][:, 1] <= hi_y)
+    return d["s"][m], d["e"][m], d["rg"][m], d["rx"][m], d["ry"][m], d["cls"][r], d["rd"][r], d["ex"][x]
+
+
+def cands(pid, k=0, n=1):
+    k, n = int(k), int(n)
     pl = pd.read_csv(WORK / "places.csv", dtype={"pid": str}, index_col=0)
     gdf = places()
     i = int(pl.index[pl.pid == pid][0]); poly = gdf.geometry.iloc[i]
     rng = np.random.default_rng(int(pid[-6:]) + 7)
     x0, y0, x1, y1 = poly.bounds
-    bb = (x0 - 0.002, y0 - 0.002, x1 + 0.002, y1 + 0.002)
-    print(pid, pl.place[i], "loading", flush=True)
-    s, e, rg, rx, ry = load_real(bb)
+    sx0, sx1 = x0 + (x1 - x0) * k / n, x0 + (x1 - x0) * (k + 1) / n       # this slab of the place (west to east)
+    bb = (sx0 - 0.002, y0 - 0.002, sx1 + 0.002, y1 + 0.002)
+    print(pid, pl.place[i], "slab", k, n, "loading", flush=True)
+    s, e, rg, rx, ry, cls, rd, ex = county_data(pid, bb)
     print(" real rows", len(s), flush=True)
-    cls, rd = load_roads(bb)
     keep = np.isin(cls, list(HALF))
     cls, rd = cls[keep], rd[keep]
-    ex = load_excl(bb)
     print(" roads", len(rd), "excl", len(ex), flush=True)
     # roads that are lot fronts: not motorway / trunk
     lot_front = np.isin(cls, list(SETBACK))
@@ -380,6 +414,7 @@ def cands(pid):
     inside = shapely.contains_xy(proj([poly])[0], cx, cy)
     lon, lat = T_INV.transform(cx, cy)
     g, ge = cover_ground(lon, lat)
+    inside &= (lon >= sx0) & (lon < sx1)
     ok = inside & ~np.isnan(g) & (g <= 1960) & (ge > g + 1)
     sel = np.where(ok)[0]
     cx, cy, w, d, ang, kind, bha, g, ge, seg = [a[sel] for a in (cx, cy, w, d, ang, kind, bha, g, ge, seg)]
@@ -388,18 +423,18 @@ def cands(pid):
     # exclusions: water, parks, cemeteries, rail yards, sites
     ok = np.ones(len(polys), bool)
     if len(ex):
-        tr = shapely.STRtree(ex)
-        hit = tr.query(polys, predicate="intersects")[0]
+        tr = shapely.STRtree(polys)
+        hit = tr.query(ex, predicate="intersects")[1]       # the big polygons are the (prepared) query side
         ok[hit] = False
     # a road's carriageway: group by class
     for c, hw in HALF.items():
         m = cls == c
         if not m.any():
             continue
-        tr = shapely.STRtree(rd[m])
-        hit = tr.query(polys, predicate="dwithin", distance=hw)
+        tr = shapely.STRtree(polys)
+        hit = tr.query(rd[m], predicate="dwithin", distance=hw)
         # a lot's own front road is further away than hw by construction
-        ok[np.unique(hit[0])] = False
+        ok[np.unique(hit[1])] = False
     print(" after exclusions", int(ok.sum()), flush=True)
     sel = np.where(ok)[0]
     cx, cy, w, d, ang, kind, bha, g, ge, polys = [a[sel] for a in (cx, cy, w, d, ang, kind, bha, g, ge, polys)]
@@ -457,11 +492,22 @@ def cands(pid):
     keep = ~blocked
     remap = -np.ones(len(cx), np.int64); remap[keep] = np.arange(keep.sum())
     hmask = keep[ci]
-    np.savez_compressed(WORK / f"cand_{pid}.npz", cx=cx[keep], cy=cy[keep], w=w[keep].astype(np.float32), d=d[keep].astype(np.float32),
+    np.savez_compressed(WORK / (f"cand_{pid}.npz" if n == 1 else f"cand_{pid}_{k}.npz"), cx=cx[keep], cy=cy[keep], w=w[keep].astype(np.float32), d=d[keep].astype(np.float32),
                         ang=ang[keep].astype(np.float32), kind=kind[keep], bha=bha[keep].astype(np.float32), g=g[keep].astype(np.float32),
                         ge=ge[keep].astype(np.float32), cnt=cnt[keep], cand_n=cand_n[keep], ctr=ctr,
                         hc=remap[ci[hmask]].astype(np.int32), hs=hs[hmask].astype(np.float32), he=he[hmask].astype(np.float32))
     print(" candidates kept", int(keep.sum()), "of", len(cx), " hits", int(hmask.sum()), " peak MB", __import__("resource").getrusage(__import__("resource").RUSAGE_SELF).ru_maxrss // 1024, flush=True)
+
+
+def run_county(*pids):
+    for pid in pids:
+        if (WORK / f"rows_{pid}.npz").exists():
+            continue
+        try:
+            cands(pid)
+            select(pid)
+        except Exception as ex_:
+            print("FAILED", pid, repr(ex_), flush=True)
 
 
 def make_lots_wrap(lines, cls, rng, dens_tree, old_tree, hv):
@@ -481,7 +527,12 @@ RATIO_CUT = 0.6
 def select(pid):
     m = model()
     mp = m[m.pid == pid].set_index("year")
-    z = dict(np.load(WORK / f"cand_{pid}.npz"))
+    parts = [dict(np.load(f)) for f in ([WORK / f"cand_{pid}.npz"] if (WORK / f"cand_{pid}.npz").exists() else sorted(WORK.glob(f"cand_{pid}_*.npz")))]
+    z, off = {}, 0
+    for p_ in parts:
+        p_["hc"] = p_["hc"] + off; off += len(p_["cx"])
+    for key in parts[0]:
+        z[key] = parts[0][key] if key == "ctr" else np.concatenate([p_[key] for p_ in parts])
     n = len(z["cx"])
     rng = np.random.default_rng(int(pid[-6:]) + 11)
     o = np.argsort(z["hc"], kind="stable")
@@ -713,6 +764,49 @@ def holes_check():
     tot = d.groupby(["which", "year"]).ha.sum().unstack(0)
     print(tot.round(0))
     return d
+
+
+def look(name, year, lon, lat, half=900):
+    """A picture of one place and year: the terrain's city ground (grey), the map's rows alive then (black), the fill (red)."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from matplotlib.collections import PatchCollection
+    from matplotlib.patches import Polygon as MPoly
+    year = float(year); lon = float(lon); lat = float(lat); half = float(half)
+    cx, cy = T_FWD.transform(lon, lat)
+    d = half / 80000.0
+    s, e, rg, rx, ry = load_real((lon - d * 1.4, lat - d, lon + d * 1.4, lat + d))
+    al = (s <= year) & (e > year)
+    g = load_out()
+    gp = proj(g.geometry.values)
+    cg = shapely.centroid(gp)
+    gx, gy = shapely.get_x(cg), shapely.get_y(cg)
+    inwin = (abs(gx - cx) < half * 1.5) & (abs(gy - cy) < half * 1.1)
+    ga = inwin & (g.start_year.values <= year) & (g.end_year.values > year)
+    # terrain city ground on a 25 m raster
+    xs = np.arange(cx - half * 1.5, cx + half * 1.5, 25.0); ys = np.arange(cy - half * 1.1, cy + half * 1.1, 25.0)
+    XX, YY = np.meshgrid(xs, ys)
+    lo, la = T_INV.transform(XX.ravel(), YY.ravel())
+    gg, gge = cover_ground(lo, la)
+    city = ((gg <= year) & (gge > year)).reshape(XX.shape)
+    fig, ax = plt.subplots(figsize=(9, 6.5), dpi=100)
+    ax.imshow(city, extent=(xs[0], xs[-1], ys[0], ys[-1]), origin="lower", cmap="Greys", vmin=0, vmax=4, alpha=0.5)
+    win = (abs(rx - cx) < half * 1.6) & (abs(ry - cy) < half * 1.2) & al
+    def patches(geoms):
+        out = []
+        for gm in geoms:
+            if gm.geom_type == "Polygon":
+                out.append(MPoly(np.asarray(gm.exterior.coords), closed=True))
+        return out
+    ax.add_collection(PatchCollection(patches(rg[win]), facecolor="#222", edgecolor="none"))
+    ax.add_collection(PatchCollection(patches(gp[ga]), facecolor="#d62728", edgecolor="none"))
+    ax.set_xlim(cx - half * 1.5, cx + half * 1.5); ax.set_ylim(cy - half * 1.1, cy + half * 1.1); ax.set_aspect("equal")
+    ax.set_title(f"{name} {int(year)}: grey = ground the terrain calls city, black = {int(win.sum())} rows of the map, red = {int(ga.sum())} census fill", fontsize=9)
+    ax.axis("off")
+    (WORK / "look").mkdir(exist_ok=True)
+    fig.savefig(WORK / "look" / f"{name}_{int(year)}.png", bbox_inches="tight"); plt.close(fig)
+    print(name, year, "map", int(win.sum()), "fill", int(ga.sum()))
 
 
 if __name__ == "__main__":

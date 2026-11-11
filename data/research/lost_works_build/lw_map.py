@@ -51,6 +51,9 @@ def main():
     else:
         water.plot(ax=ax, color="#cfe6f5")
     if "nobld" not in rest: b.plot(ax=ax, facecolor="none" if aer else "#d8d0c0", edgecolor="#ff0" if aer else "#a09070", linewidth=0.4)
+    for r in rest:
+        if r.startswith("atlas="):
+            ag = gpd.read_file(ROOT / "data/manual/atlas" / (r.split("=")[1] + ".geojson"), bbox=(x0, y0, x1, y1)); ag.boundary.plot(ax=ax, color="#0a0", linewidth=0.7)
     roads.plot(ax=ax, color="#fff" if aer else "#777", linewidth=0.5); rail.plot(ax=ax, color="#c00", linewidth=0.7)
     seen = set()
     for r in roads.itertuples():

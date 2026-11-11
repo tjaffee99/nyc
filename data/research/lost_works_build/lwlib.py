@@ -20,3 +20,8 @@ def mk(id, name, y0, y1, lat, lon, h, mat, w, d, rot, note, url, storeys=""):
                 shape_note=note, source_url=url, footprint_m=f"{w:g}x{d:g}", rotation_deg=rot)
 def off(lat, lon, dx_m, dy_m):
     return lat + dy_m / 110540, lon + dx_m / (111320 * math.cos(math.radians(lat)))
+def drop(ids):
+    d = load()
+    for i in ids: d.pop(i, None)
+    w = csv.DictWriter(open(CSV, "w", newline=""), COLS); w.writeheader()
+    for r in d.values(): w.writerow(r)

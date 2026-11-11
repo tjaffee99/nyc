@@ -1,17 +1,17 @@
 {
  "total": {
   "layer": "brooklyn_old_1880",
-  "plates": 15,
-  "buildings": 2187,
-  "frame": 1928,
-  "brick": 259,
+  "plates": 14,
+  "buildings": 2189,
+  "frame": 1923,
+  "brick": 266,
   "stone": 0,
   "gasholders": 0,
-  "on_today": 24,
+  "on_today": 25,
   "invalid": 0,
   "area_out_of_range": 0,
   "outside_coverage": 0,
-  "coverage_km2": 17.32
+  "coverage_km2": 17.15
  },
  "plates": [
   {
@@ -22,23 +22,23 @@
    "model": "affine",
    "cv_rms": 6.9,
    "mpp": 0.423,
-   "n": 863,
-   "frame": 85,
-   "brick": 0,
+   "n": 957,
+   "frame": 96,
+   "brick": 2,
    "stone": 0,
    "coincide": 1,
-   "share": 0.012,
+   "share": 0.01,
    "corrected": true,
    "paper": [
-    89.0,
+    88.0,
     -2.0,
     10.0
    ],
    "off_median_vec": [
-    -0.3,
-    -0.46
+    -0.76,
+    -0.63
    ],
-   "off_median_m": 1.89,
+   "off_median_m": 1.63,
    "street": {
     "plate": "7984",
     "min_q": 0.2,
@@ -63,12 +63,12 @@
     "after_abs_median": 2.5
    },
    "sheet": "H80-7984",
-   "clipped": 776,
+   "clipped": 858,
    "lettering_dropped": 0,
    "water_dropped": 0,
-   "band_pieces_dropped": 2,
+   "band_pieces_dropped": 1,
    "washed_dropped": 0,
-   "exported": 85,
+   "exported": 98,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -133,9 +133,9 @@
    "model": "affine",
    "cv_rms": 107.3,
    "mpp": 0.424,
-   "n": 625,
+   "n": 638,
    "frame": 95,
-   "brick": 16,
+   "brick": 19,
    "stone": 0,
    "coincide": 0,
    "share": 0.0,
@@ -146,10 +146,10 @@
     10.0
    ],
    "off_median_vec": [
-    -0.18,
-    1.57
+    -0.11,
+    1.46
    ],
-   "off_median_m": 2.01,
+   "off_median_m": 1.88,
    "street": {
     "plate": "7986",
     "min_q": 0.2,
@@ -174,12 +174,12 @@
     "after_abs_median": 2.2
    },
    "sheet": "H80-7986",
-   "clipped": 502,
+   "clipped": 511,
    "lettering_dropped": 0,
    "water_dropped": 0,
-   "band_pieces_dropped": 12,
+   "band_pieces_dropped": 13,
    "washed_dropped": 0,
-   "exported": 111,
+   "exported": 114,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -191,7 +191,7 @@
    "model": "affine",
    "cv_rms": 5.0,
    "mpp": 0.424,
-   "n": 171,
+   "n": 172,
    "frame": 88,
    "brick": 3,
    "stone": 0,
@@ -232,10 +232,10 @@
     "after_abs_median": 1.8
    },
    "sheet": "H80-7987",
-   "clipped": 75,
+   "clipped": 74,
    "lettering_dropped": 0,
    "water_dropped": 0,
-   "band_pieces_dropped": 5,
+   "band_pieces_dropped": 7,
    "washed_dropped": 0,
    "exported": 91,
    "duplicates_dropped": 0,
@@ -249,9 +249,9 @@
    "model": "affine",
    "cv_rms": 0.0,
    "mpp": 0.284,
-   "n": 198,
+   "n": 214,
    "frame": 18,
-   "brick": 2,
+   "brick": 4,
    "stone": 0,
    "coincide": 0,
    "share": 0.0,
@@ -262,10 +262,10 @@
     10.0
    ],
    "off_median_vec": [
-    -0.3,
-    -1.94
+    -1.4,
+    -1.61
    ],
-   "off_median_m": 2.21,
+   "off_median_m": 2.41,
    "street": {
     "plate": "7990",
     "min_q": 0.2,
@@ -290,12 +290,12 @@
     "after_abs_median": 3.1
    },
    "sheet": "H80-7990",
-   "clipped": 174,
+   "clipped": 187,
    "lettering_dropped": 0,
    "water_dropped": 0,
-   "band_pieces_dropped": 4,
+   "band_pieces_dropped": 5,
    "washed_dropped": 0,
-   "exported": 20,
+   "exported": 22,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -307,12 +307,12 @@
    "model": "affine",
    "cv_rms": 0.8,
    "mpp": 0.283,
-   "n": 62,
+   "n": 61,
    "frame": 37,
-   "brick": 6,
+   "brick": 5,
    "stone": 0,
    "coincide": 1,
-   "share": 0.023,
+   "share": 0.024,
    "corrected": true,
    "paper": [
     89.0,
@@ -320,10 +320,10 @@
     10.0
    ],
    "off_median_vec": [
-    4.17,
-    -0.35
+    4.23,
+    -0.36
    ],
-   "off_median_m": 4.21,
+   "off_median_m": 4.26,
    "street": {
     "plate": "7991",
     "min_q": 0.2,
@@ -348,12 +348,12 @@
     "after_abs_median": 1.5
    },
    "sheet": "H80-7991",
-   "clipped": 10,
+   "clipped": 11,
    "lettering_dropped": 0,
    "water_dropped": 0,
-   "band_pieces_dropped": 9,
+   "band_pieces_dropped": 8,
    "washed_dropped": 0,
-   "exported": 43,
+   "exported": 42,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -365,9 +365,9 @@
    "model": "affine",
    "cv_rms": 0.0,
    "mpp": 0.29,
-   "n": 133,
+   "n": 138,
    "frame": 13,
-   "brick": 32,
+   "brick": 27,
    "stone": 0,
    "coincide": 0,
    "share": 0.0,
@@ -378,10 +378,10 @@
     10.0
    ],
    "off_median_vec": [
-    -0.64,
-    -1.65
+    -0.63,
+    -1.67
    ],
-   "off_median_m": 2.43,
+   "off_median_m": 2.36,
    "street": {
     "plate": "7992",
     "min_q": 0.2,
@@ -406,12 +406,12 @@
     "after_abs_median": 1.0
    },
    "sheet": "H80-7992",
-   "clipped": 77,
+   "clipped": 79,
    "lettering_dropped": 0,
    "water_dropped": 0,
-   "band_pieces_dropped": 11,
+   "band_pieces_dropped": 19,
    "washed_dropped": 0,
-   "exported": 45,
+   "exported": 40,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -423,7 +423,7 @@
    "model": "affine",
    "cv_rms": 0.0,
    "mpp": 0.286,
-   "n": 286,
+   "n": 291,
    "frame": 235,
    "brick": 22,
    "stone": 0,
@@ -436,10 +436,10 @@
     10.0
    ],
    "off_median_vec": [
-    3.47,
-    -0.94
+    3.59,
+    -0.91
    ],
-   "off_median_m": 4.33,
+   "off_median_m": 4.44,
    "street": {
     "plate": "7993",
     "min_q": 0.2,
@@ -464,10 +464,10 @@
     "after_abs_median": 2.8
    },
    "sheet": "H80-7993",
-   "clipped": 0,
+   "clipped": 1,
    "lettering_dropped": 0,
    "water_dropped": 0,
-   "band_pieces_dropped": 29,
+   "band_pieces_dropped": 33,
    "washed_dropped": 0,
    "exported": 257,
    "duplicates_dropped": 0,
@@ -481,9 +481,9 @@
    "model": "affine",
    "cv_rms": 0.0,
    "mpp": 0.287,
-   "n": 390,
+   "n": 395,
    "frame": 284,
-   "brick": 48,
+   "brick": 46,
    "stone": 0,
    "coincide": 1,
    "share": 0.003,
@@ -494,10 +494,10 @@
     10.0
    ],
    "off_median_vec": [
-    2.92,
-    -5.12
+    2.85,
+    -5.04
    ],
-   "off_median_m": 5.9,
+   "off_median_m": 5.79,
    "street": {
     "plate": "7994",
     "min_q": 0.2,
@@ -522,12 +522,12 @@
     "after_abs_median": 1.9
    },
    "sheet": "H80-7994",
-   "clipped": 18,
+   "clipped": 17,
    "lettering_dropped": 0,
    "water_dropped": 0,
-   "band_pieces_dropped": 40,
+   "band_pieces_dropped": 48,
    "washed_dropped": 0,
-   "exported": 332,
+   "exported": 330,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -539,9 +539,9 @@
    "model": "affine",
    "cv_rms": 7.7,
    "mpp": 0.422,
-   "n": 208,
+   "n": 211,
    "frame": 152,
-   "brick": 39,
+   "brick": 37,
    "stone": 0,
    "coincide": 0,
    "share": 0.0,
@@ -578,9 +578,9 @@
    "clipped": 0,
    "lettering_dropped": 0,
    "water_dropped": 0,
-   "band_pieces_dropped": 15,
+   "band_pieces_dropped": 20,
    "washed_dropped": 0,
-   "exported": 191,
+   "exported": 189,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -592,7 +592,7 @@
    "model": "affine",
    "cv_rms": 8.1,
    "mpp": 0.288,
-   "n": 382,
+   "n": 409,
    "frame": 0,
    "brick": 0,
    "stone": 0,
@@ -605,10 +605,10 @@
     10.0
    ],
    "off_median_vec": [
-    0.36,
-    2.51
+    0.38,
+    2.5
    ],
-   "off_median_m": 2.59,
+   "off_median_m": 2.58,
    "street": {
     "plate": "8003",
     "min_q": 0.2,
@@ -633,7 +633,7 @@
     "after_abs_median": 3.2
    },
    "sheet": "H80-8003",
-   "clipped": 382,
+   "clipped": 409,
    "lettering_dropped": 0,
    "water_dropped": 0,
    "band_pieces_dropped": 0,
@@ -650,9 +650,9 @@
    "model": "affine",
    "cv_rms": 0.0,
    "mpp": 0.286,
-   "n": 84,
+   "n": 86,
    "frame": 29,
-   "brick": 31,
+   "brick": 32,
    "stone": 0,
    "coincide": 0,
    "share": 0.0,
@@ -689,9 +689,9 @@
    "clipped": 0,
    "lettering_dropped": 0,
    "water_dropped": 0,
-   "band_pieces_dropped": 22,
+   "band_pieces_dropped": 23,
    "washed_dropped": 0,
-   "exported": 60,
+   "exported": 61,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -726,12 +726,12 @@
    "model": "affine",
    "cv_rms": 5.0,
    "mpp": 0.287,
-   "n": 926,
+   "n": 943,
    "frame": 783,
-   "brick": 52,
+   "brick": 63,
    "stone": 0,
-   "coincide": 19,
-   "share": 0.023,
+   "coincide": 20,
+   "share": 0.024,
    "corrected": true,
    "paper": [
     89.0,
@@ -739,10 +739,10 @@
     9.0
    ],
    "off_median_vec": [
-    -1.32,
-    -0.85
+    -1.24,
+    -0.82
    ],
-   "off_median_m": 2.2,
+   "off_median_m": 2.14,
    "street": {
     "plate": "8011",
     "min_q": 0.2,
@@ -770,9 +770,9 @@
    "clipped": 21,
    "lettering_dropped": 0,
    "water_dropped": 0,
-   "band_pieces_dropped": 69,
+   "band_pieces_dropped": 75,
    "washed_dropped": 0,
-   "exported": 835,
+   "exported": 846,
    "duplicates_dropped": 1,
    "status": "ok"
   },
@@ -784,9 +784,9 @@
    "model": "affine",
    "cv_rms": 6.5,
    "mpp": 0.284,
-   "n": 107,
+   "n": 109,
    "frame": 62,
-   "brick": 8,
+   "brick": 6,
    "stone": 0,
    "coincide": 0,
    "share": 0.0,
@@ -820,69 +820,19 @@
     "after_abs_median": 1.7
    },
    "sheet": "H80-8014",
-   "clipped": 29,
+   "clipped": 31,
    "lettering_dropped": 0,
    "water_dropped": 0,
-   "band_pieces_dropped": 8,
+   "band_pieces_dropped": 10,
    "washed_dropped": 0,
-   "exported": 70,
+   "exported": 68,
    "duplicates_dropped": 0,
    "status": "ok"
   },
   {
    "plate": "8015",
-   "image": "1512369",
-   "name": "Plate 21: Part of Wards 13, 14, 15, 16 & 19 City of Brooklyn.",
-   "gcps": 4,
-   "model": "affine",
-   "cv_rms": 40.3,
-   "mpp": 0.288,
-   "n": 593,
-   "frame": 16,
-   "brick": 0,
-   "stone": 0,
-   "coincide": 0,
-   "share": 0.0,
-   "corrected": true,
-   "paper": [
-    89.0,
-    -1.0,
-    9.0
-   ],
-   "off_median_vec": [
-    0.6,
-    -0.19
-   ],
-   "off_median_m": 0.63,
-   "street": {
-    "plate": "8015",
-    "min_q": 0.2,
-    "win_m": 300.0,
-    "gcps": 4,
-    "model": "affine",
-    "cv_rms": 40.3,
-    "mpp": 0.288,
-    "windows": 11,
-    "shift_median": [
-     0.4,
-     -17.8
-    ],
-    "shift_abs_median": 19.8,
-    "kind": "shift",
-    "agree": 7,
-    "fit_residual_m": 4.5,
-    "after_windows": 9,
-    "after_abs_median": 5.2
-   },
    "sheet": "H80-8015",
-   "clipped": 563,
-   "lettering_dropped": 0,
-   "water_dropped": 0,
-   "band_pieces_dropped": 14,
-   "washed_dropped": 0,
-   "exported": 16,
-   "duplicates_dropped": 0,
-   "status": "ok"
+   "status": "left out: street match left 5.2 m after a 20 m correction (control points CV rms 40 m); 18 outlines outside the Sanborn layers"
   },
   {
    "plate": "8016",
@@ -892,9 +842,9 @@
    "model": "affine",
    "cv_rms": 78.5,
    "mpp": 0.294,
-   "n": 480,
+   "n": 501,
    "frame": 377,
-   "brick": 103,
+   "brick": 124,
    "stone": 0,
    "coincide": 2,
    "share": 0.004,

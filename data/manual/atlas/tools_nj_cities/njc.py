@@ -102,8 +102,8 @@ def locate(layer, pid, city, prior=None, pr=None, rots=None, scales=None, verbos
     polys = load_px(layer, pid)
     P = A.Plate(layer, pid, verbose=False); W, H = P.img().shape[1], P.img().shape[0]
     polys = [shapely.affinity.translate(p, -W / 2, -H / 2) for p in polys]
-    rots = rots if rots is not None else np.arange(-12, 12.1, 3.0)
-    scales = scales if scales is not None else [0.097, 0.1, 0.103, 0.106]
+    rots = rots if rots is not None else np.arange(-3, 3.1, 1.5)
+    scales = scales if scales is not None else [0.098, 0.1, 0.102, 0.104]
     cell = 4.0
     F, tr = city_raster(city, cell); F = ndi.gaussian_filter(F, 1.5)
     if prior is not None:
@@ -133,8 +133,8 @@ def locate(layer, pid, city, prior=None, pr=None, rots=None, scales=None, verbos
     sc0, th0, s0, gx0, gy0 = best[:5]
     # window of the fine raster around the coarse position (template extent + 60 m)
     res = []
-    for th in np.arange(th0 - 2, th0 + 2.01, 0.5):
-        for s in (s0 - 0.003, s0 - 0.0015, s0, s0 + 0.0015, s0 + 0.003):
+    for th in np.arange(th0 - 1, th0 + 1.01, 0.5):
+        for s in (s0 - 0.002, s0 - 0.001, s0, s0 + 0.001, s0 + 0.002):
             T, (ox, oy) = tmpl(polys, amat(th, s), cell, 1.5)
             # sub-raster of F1 around expected window
             wx0 = gx0 + ox - 50; wy1 = gy0 + oy + 50
@@ -228,7 +228,7 @@ def run(layer, tag, item, sheets, rest=False):
                 A.trace(layer, pid, verbose=False)
             st = pickle.load(open(A.WORK / layer / f"{pid}.pkl", "rb"))["stats"]; rep["n"] = st["n"]
             if st["n"] >= 40:
-                pri = os.environ.get("PRIOR"); f = locate(layer, pid, city, prior=[float(v) for v in pri.split(",")[:2]] if pri else None, pr=float(pri.split(",")[2]) if pri else None, verbose=False); write_fit(layer, pid, f); rep.update(fit={k: round(float(v), 3) for k, v in f.items()})
+                pri = json.load(open(os.environ["PRIORS"])).get(str(sh)) if os.environ.get("PRIORS") else None; f = locate(layer, pid, city, prior=pri[:2] if pri else None, pr=pri[2] if pri else None, verbose=False); write_fit(layer, pid, f); rep.update(fit={k: round(float(v), 3) for k, v in f.items()})
                 r = A.refine_buildings(layer, pid, win_m=140.0, min_q=0.2, verbose=False); rep["bld"] = r
                 st = pickle.load(open(A.WORK / layer / f"{pid}.pkl", "rb"))["stats"]
                 rep.update(coincide=st["coincide"], share=st["share"], off=st.get("off_median_m"))
