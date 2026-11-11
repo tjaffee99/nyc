@@ -86,6 +86,75 @@ def county_heaps(raw, county):
     return found
 
 
+_EPOCHS = []
+
+
+def map_epochs():
+    """The built-up ground of dated maps as one grid over the whole box: per 0.0006-degree cell
+    (about 55 m) the rank of the earliest map that shows it built up (1 = the oldest map; 0 =
+    none does). The maps: the USGS sheets of the 1890s, of the 1940s and the 1:250,000 sheets of
+    about 1957 (data/manual/gapfill/*builtup_*.geojson, *tint_*.geojson; decisions 43 and 54)."""
+    if _EPOCHS:
+        return _EPOCHS[0]
+    _EPOCHS.append(None)
+    try:
+        import json
+        import rasterio.features
+        from rasterio.transform import from_origin
+        from shapely.geometry import shape
+        from common import MANUAL, REGION_BBOX
+        layers = {}
+        for f in sorted((MANUAL / "gapfill").glob("*builtup_*.geojson")) + sorted((MANUAL / "gapfill").glob("*tint_*.geojson")):
+            for ft in json.loads(f.read_text())["features"]:
+                y = pd.to_numeric(ft["properties"].get("year"), errors="coerce")
+                if np.isfinite(y) and ft.get("geometry"):
+                    layers.setdefault(int(round(float(y) / 10.0) * 10), []).append(shape(ft["geometry"]))
+        if not layers:
+            return None
+        w, s_, e, n_ = REGION_BBOX
+        res = 0.0006
+        W, H = int(np.ceil((e - w) / res)), int(np.ceil((n_ - s_) / res))
+        tr = from_origin(w, n_, res, res)
+        grid = np.zeros((H, W), np.uint8)
+        years = sorted(layers)
+        for k in range(len(years), 0, -1):          # the latest first: an earlier map overwrites
+            m = rasterio.features.rasterize([(g, 1) for g in layers[years[k - 1]]], out_shape=(H, W), transform=tr, fill=0, dtype="uint8")
+            grid[m == 1] = k
+        _EPOCHS[0] = (grid, w, n_, res, years)
+        log(f"counties: dated maps of built-up ground: {years} ({[int((grid == k + 1).sum()) for k in range(len(years))]} cells first built up on each)")
+    except Exception as e:  # noqa: BLE001
+        log(f"counties: dated maps not read ({type(e).__name__}: {e})")
+    return _EPOCHS[0]
+
+
+def order_by_maps(lon, lat, xy, year, src):
+    """Estimated years follow the order in which the maps show the ground built up. A year that
+    is modelled (the census's homes by decade in the block group, the assessor's counts per
+    cell) or taken from the buildings around is right as a distribution and blind as to which
+    house came first. Within a square kilometre and one kind of estimate the years are dealt
+    out again: the buildings on ground an older map shows built up take the earliest. The
+    square's set of years does not change; recorded years are not touched."""
+    ep = map_epochs()
+    if ep is None:
+        return year, 0
+    grid, w, n_, res, years = ep
+    c = np.clip(((np.asarray(lon) - w) / res).astype(int), 0, grid.shape[1] - 1)
+    r = np.clip(((n_ - np.asarray(lat)) / res).astype(int), 0, grid.shape[0] - 1)
+    rank = grid[r, c].astype(np.int64)
+    rank = np.where(rank == 0, len(years) + 1, rank)
+    kind = np.where(src == "modelled", 1, np.where(src == "modelled_cells", 2, np.where(src == "neighbours", 3, 0)))
+    sel = np.flatnonzero((kind > 0) & np.isfinite(year))
+    if not len(sel):
+        return year, 0
+    key = (np.floor(xy[sel, 0] / 1000).astype(np.int64) * 100003 + np.floor(xy[sel, 1] / 1000).astype(np.int64)) * 8 + kind[sel]
+    d = pd.DataFrame({"i": sel, "key": key, "rank": rank[sel], "year": year[sel]})
+    by_map = d.sort_values(["key", "rank", "year"], kind="stable")
+    by_year = d.sort_values(["key", "year"], kind="stable")
+    out = year.copy()
+    out[by_map.i.values] = by_year.year.values
+    return out, int((np.abs(out[sel] - year[sel]) > 0.5).sum())
+
+
 def county_files(outer=False):
     files = (sorted(SRC.glob("n[jy]_*.parquet")) + sorted(SRC.glob("ct_*.parquet")) + sorted(SRC.glob("pa_*.parquet"))) if SRC.exists() else []
     files = [f for f in files if not f.stem.endswith(("_estimates", "_inventory"))]   # (read beside their county's file, below)
@@ -297,6 +366,11 @@ def build(g, outer=False):
                 rk = (pd.Series(year[m]).rank(method="first").values - 0.5) / m.sum()
                 year[m] = np.quantile(ref, rk)
         log(f"counties: {int(use_est.sum())} footprints without a roll year take the modelled estimate")
+    # the order of building-out follows the dated maps (order_by_maps)
+    bb = g.geometry.bounds
+    year, moved = order_by_maps(((bb.minx + bb.maxx) / 2).values, ((bb.miny + bb.maxy) / 2).values, xy, year, src)
+    if moved:
+        log(f"counties: {moved} estimated years dealt out again in the order the dated maps show the ground built up")
     year = np.clip(year, YEAR_MIN, 2029.0)
     conf = np.where(np.isin(src, ["parcel", "historic_register", "known"]), "exact", "estimated").astype(object)
     log(f"counties: {n} footprints: {pd.Series(src).str.split(':').str[0].value_counts().to_dict()}")
