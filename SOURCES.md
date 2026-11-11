@@ -282,3 +282,12 @@ century"), CSX South Kearny, E-Rail Elizabeth, Global Marine Terminal, River Ter
 | `wikipedia_town_population` | The `US Census population` template of each municipality's article (decennial census counts) | Wikipedia — the URL in each row of `data/tables/population_towns.csv` | CC BY-SA (facts: census counts) | The counter's figure for the town under the centre of the map |
 | `tiger_cousub` | TIGER/Line 2024 county subdivisions of New Jersey, New York, Connecticut and Pennsylvania | US Census Bureau — https://www2.census.gov/geo/tiger/TIGER2024/COUSUB/ | public domain | Outlines of the municipalities (`data/interim/towns/towns.parquet`) |
 
+## Added in the round of 2026-11-12 (the places that were missing their past)
+
+| id | What | From | Licence | Use |
+|---|---|---|---|---|
+| `sanborn_hoboken` | Sanborn / Brush insurance atlas of Hudson County, vol. 7 (Hoboken), 1891, and its 1930 re-issue corrected to April 1951 | Library of Congress, Geography and Map Division — the item and image addresses in `data/research/hoboken_atlas.md` | public domain | Traced layers `hudson_hoboken_b_1891`, `hudson_hoboken_1930` |
+| `bromley_manhattan_1897` (further use) | Bromley's 1897 atlas of Manhattan, the plates south of 40th Street | NYPL Map Division scans and Map Warper control points — see above | see above | Traced layer `manhattan_downtown_1897` (`data/research/manhattan_downtown_atlas.md`) |
+| `bromley_brooklyn_1898` | Bromley's 1898 Atlas of the Brooklyn Borough (73 plates in the Map Warper dump) | NYPL Map Division — the plate and image ids in `data/manual/atlas/tools_brooklyn2/layers.json` | public domain (scans); CC0 (control points) | Traced layers `brooklyn_{sunsetpark,redhook,heights,williamsburg}_1898`; `brooklyn_bayridge_1898` traced and not used |
+| `wikipedia_holes` | Articles on Shooters Island, the Gulf Oil terminal at Bloomfield, the Hunts Point markets, Rikers Island, Freedomland, Giants Stadium, the Meadowlands Arena, the malls, the Central Ward and the interstates' histories | Wikipedia — the URLs in `data/research/holes_boroughs.md` and `holes_nj_cities.md` | CC BY-SA (facts only) | Years of `notable_demolished.{boroughs2,nj_cities}.csv`, `known_building_dates.{boroughs2,nj_cities}.csv`, the corrected clearance years of `cleared_districts.geojson`; the outlines of sheds and tanks are read off the project's 1924 and 1951 aerial photographs |
+

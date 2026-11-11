@@ -643,19 +643,70 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
       `data/interim/towns/towns.parquet`); between, the county. No neighbourhood figures: no
       historical series exists for them.
 
-## What is not done (as of 2026-11-11)
+55. **The places that were missing their past** (2026-11-12; the owner: "fix Hoboken, and any
+    other towns (or parts of NYC proper) that are missing information in the past";
+    `docs/ROUND4.md`).
+    - *Measured first* (`pipeline/holes.py` → `data/interim/reports/holes.csv`,
+      `holes_by_place.csv`): ground that is city in a year with no building standing within
+      60 m, per place and year. It found what nobody had guessed: Newark's Central Ward after
+      its clearance (324 ha in one piece in 1980), Brooklyn in 1860 (229 ha), the Bronx from
+      1940 (Rikers Island, Freedomland's ground, Hunts Point), Staten Island, Paterson. It
+      marks a building by its centre, so large sheds leave false holes; streets, squares and
+      rail lines read as holes too. A list for looking, not a rule. Hoboken has no such hole:
+      its gap was bare made land in the west and south with nothing on it at all.
+    - *Hoboken* (`data/manual/atlas/hudson_hoboken_b_1891`, `hudson_hoboken_1930`;
+      `data/research/hoboken_atlas.md`): the Sanborn atlas at the Library of Congress, placed
+      by street crossings — the 11 plates of 1891 not traced before (1,175 outlines) and the
+      1930 re-issue corrected with pasted slips to 1951 (1,990 outlines on 33 sheets: "stood
+      by 1930, a few by 1951"). With the three plates of before, 85 % of Hoboken's built area
+      has real outlines. The west side is empty on the 1891 plates (laid-out lots): it was
+      built between then and 1930. Rows of attached houses are one outline; the piers,
+      shipyards and the north end are not covered; Weehawken, Union City and West New York
+      were not started.
+    - *Manhattan south of 40th Street* (`manhattan_downtown_1897`,
+      `data/research/manhattan_downtown_atlas.md`): the plates of Bromley's 1897 atlas the
+      midtown layer had left, 41,254 outlines on 20 plates — one state of 1897 from the Battery
+      to 125th Street. 8,988 stand where the map had nothing in 1897; 14,937 coincide with
+      Perris rows of 1854-57. 18 % lie within 8 m of a street line (28-33 % below Houston
+      Street, where the Perris outlines give 27-46 %: narrow streets, not registration).
+      Inwood's plate could not be registered (10 m off; almost unbuilt in 1897).
+    - *Brooklyn* (`brooklyn_{sunsetpark,redhook,heights,williamsburg}_1898`, tool
+      `tools_brooklyn2/`): Bromley's 1898 atlas outside the layers of 1886-90 — 21,755
+      outlines (Sunset Park and the Bush Terminal shore 4,933, Red Hook 1,631, the Heights and
+      the old core 2,541, east Williamsburg 12,650); the outlines that coincide with standing
+      buildings sit 1.5-2.5 m off. `brooklyn_bayridge_1898` is not used (`ATLAS_SKIP`: half its
+      plates could not be placed). Coney Island and a state before 1880 were not done.
+    - *The generated lots follow their town* (`nyc_extras._town_starts`): within a municipality
+      the fill's lots keep their order and start along its census curve up to its peak, never
+      after the lot's evidence (79,000 lots; Hoboken: 2,542 standing in 1900 against 1,559).
+    - *The 20th century's holes* (`data/research/holes_boroughs.md`, `holes_nj_cities.md`):
+      32 lost buildings in the Bronx, Queens and Staten Island (Shooters Island's shipyard
+      sheds, traced on the 1924 photograph; 23 tanks of the Gulf Oil terminal at Bloomfield,
+      read off the 1951 one; `notable_demolished.boroughs2.csv`), eight dates (the Hunts Point
+      markets 1967 and 1974, Rikers), five ground sites (Rikers' fields, Freedomland's ground);
+      Giants Stadium and the Meadowlands Arena; the Central Ward's clearance runs to 1990 (it
+      ended in 1975: the cause of the 324 ha), Route 78's to 1985, Paterson's Route 80 to 1966.
+      Much of what is left is real: the Central Ward after 1967, Liberty State Park's interior
+      after the yards closed, landfills, parking fields, marsh.
+
+## What is not done (as of 2026-11-12)
 
 - **Between the atlases and 1996** nothing real shows what stood: one atlas state per
   district (two or three in the South Bronx), then the photographs of 1924 and 1951 as
   generated lots, then the city's removals from 1996. Clearance dates are records only for
   housing projects, parks and highways.
-- **Traced layers still missing**: Manhattan south of 40th St after 1857 beyond the 1890 /
-  1894 layers, Inwood; Red Hook, Downtown Brooklyn's old core, Sunset Park, Bay Ridge, Coney
-  Island; the Bronx east of the Bronx River and the far north; Flushing's centre, the
-  Rockaway beach towns; Staten Island beyond the north shore; Hoboken, Bayonne and north
-  Hudson (the Library of Congress Sanborn sheets can be placed by street crossings:
-  `data/manual/atlas/tools_hudson/loc_register.py`; the Bay project's `sanborn_trace*.py`
-  did the same for its towns). Storeys were not read off any atlas.
+- **Traced layers still missing**: Inwood; Bay Ridge, Coney Island and Brooklyn before 1880
+  (229 ha of the old city are built-up ground without buildings in 1860); the Bronx east of
+  the Bronx River and the far north; Flushing's centre, the Rockaway beach towns; Staten
+  Island beyond the north shore; Hoboken's piers, shipyards and north end, Weehawken, Union
+  City, West New York, Bayonne (the Library of Congress Sanborn sheets are placed by street
+  crossings: `data/manual/atlas/tools_hoboken/`); Paterson (thin before 1920: 2,800
+  buildings in 1900 for 105,000 people) and Newark have no traced atlas at all. Manhattan
+  has one state (1897) between 1857 and 1996. Storeys were not read off any atlas.
+- **Lost works that could not be placed** (decision 55): the Koppers coke works and Western
+  Electric at Kearny, the Singer works at Elizabethport, Paterson's locomotive works,
+  Ruppert and Roosevelt stadiums, the Port Ivory works, the Arthur Kill tank farms,
+  Freedomland's structures, the Hamburg-American piers, Colgate, Stevens Castle.
 - **Yards, forts and institutions before the 1860s**: only researched buildings (decision 36);
   Fort Hamilton, Fort Schuyler, Fort Tilden, Governors Island's lost buildings, Hart Island,
   Creedmoor, Kings County and the other hospital campuses were not researched building by
