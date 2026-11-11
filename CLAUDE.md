@@ -550,12 +550,43 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
       page) date the named campus and civic buildings; the rest stays `estimated`.
     - *Counter*: before a county's first census count it shows no number (it showed New York
       City's).
-    - **Connecticut's historic resources inventory (ConnCRIS)** has a construction date for
-      10,970 New Haven buildings (public feature service, found by the New Haven part) and
-      would replace 6,500 placeholder years. Its licence is CC BY-NC-ND. It is **not used and
-      not in the repository**: the 3,701 rows derived from it are parked in
-      `data/interim/new_haven_conncris_rows.csv` until the owner decides
-      (`data/research/new_haven_buildings.md`, task B).
+    - **Connecticut's historic resources inventory (ConnCRIS)**, found by the New Haven part: a
+      public point layer of the State Historic Preservation Office with a construction date
+      per surveyed building. Its licence is CC BY-NC-ND; the owner allowed it ("Do all of those
+      things then", 2026-11-11) — used with attribution (the page's sources, `SOURCES.md`), only
+      the year enters the map, the layer is not republished. See decision 53.
+
+53. **The towns round, second pass** (2026-11-11, evening; the owner: "Do all of those things
+    then" — the list of what was still weak).
+    - *ConnCRIS in bulk* (`pipeline/conncris.py fetch` / `build` →
+      `data/interim/counties/ct_<region>_inventory.parquet`, read by `county_buildings.load()`):
+      36,380 points in the map's 39 Connecticut towns. A footprint whose assessor year is a
+      placeholder or missing takes the inventory's: about 4,200 plain years (`exact`, source
+      `historic_register`) and 7,400 "circa" or round ones (`estimated`, source
+      `historic_register_ca`, spread over six years). Several points in one footprint must
+      agree within five years. A recorded assessor year is never replaced: where both exist
+      they agree within two years in 57-70 % (points on the neighbour's building, rounded
+      years). New York's CRIS "circa" years (`year_hist_ca`) are used the same way now.
+    - *Small piles at round years are placeholders* (`county_buildings.county_heaps`): an
+      assessor who does not know writes 1800 for 100-250 old houses of a county where the
+      years around hold two or three; too few for the city's rule (300 buildings), enough to
+      put 2,400 buildings in 1800 — the audit's spike — and the modelled years, which follow
+      the recorded ones, copied the pile. A decade year before 1900 with 15 buildings and four
+      times the median of the plain years within four of it is a placeholder in the counties.
+    - *Buildings re-dated from an atlas wait for their ground* (`nyc_predecessors.py`): 69 of the
+      78 buildings the audit found before their ground were standing buildings moved to
+      before the map that shows them, after the ground rule had run. `audit.py` now reports
+      which kinds of rows stand before their ground (`before_ground_by_source`).
+    - *Greens* (`nyc_extras.on_green`): no generated colonial dwelling stands on a town green,
+      a common or a burying ground of today's map (715 outlines from Overture's land use).
+    - *More towns* (same pass as decision 52, one agent per pair; notes `data/research/towns_*.md`,
+      `princeton_yale_round2.md`): researched years for 20 more footprints at Princeton and
+      Yale, 100 at Stamford and Bridgeport, 49 at West Point and Poughkeepsie, and those of
+      Trenton and New Brunswick (`known_building_dates.{princeton2,new_haven2,ct_towns,
+      hudson_towns,trenton_nb}.csv`); landmark models `ct-towns.ts` (14), `ny-towns.ts` (18),
+      `nj-towns.ts`. About 14 of the 32 models of decision 52 carry a cited height; the rest
+      say what is estimated. Wikipedia rate-limits this machine (fetch raw wikitext, slowly);
+      Princeton's and West Point's own sites refuse it.
 
 ## What is not done (as of 2026-11-11)
 
@@ -585,12 +616,16 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
   `data/raw` to refetch); closed airfields have no outline; six Suffolk towns and Pike County
   have census-modelled years.
 - **Princeton and New Haven** (decision 52): about fifteen of Princeton's large campus
-  footprints have no opened source for their year (Frick, Icahn, Jadwin Hall, the Andlinger
-  Center, the garages …); New Haven's ordinary buildings keep their spread placeholder years
-  unless ConnCRIS is allowed; Silliman College, the Schwarzman Center, City Hall, the Peabody
-  and the Shubert are undated (Wikipedia rate-limited the agents); Harkness Tower's position is
-  good to about 15 m. The other towns the owner named — Trenton, West Point, New Brunswick,
-  Poughkeepsie, Stamford, Bridgeport — have had no such pass.
+  footprints still have no opened source for their year (Schmidt Hall, MacMillan, the garages,
+  DeNunzio Pool …); in New Haven the inventory covers the surveyed buildings only, so most
+  placeholder years outside the historic districts remain spread; City Hall, the Peabody, the
+  Shubert, 101 College Street are undated; the Yale Repertory Theatre is 1846 on Wikipedia and
+  1871 in the inventory (unresolved); Harkness Tower's position is good to about 15 m.
+- **The other towns** (decision 53): West Point's Eisenhower Hall and three more of its
+  largest buildings, Poughkeepsie's factories, Stamford's One Stamford Forum, Marriott and
+  Harbor Point blocks and Bridgeport's hospitals and university are undated or unmatched;
+  most model heights there are from the footprint or estimated; the PSEG stack, the Perry
+  Arch and the Stamford station are not modelled.
 - **Large empty working ground**: the 25 largest empty patches (tank farms, quarries, depots)
   listed by the ports part were not filled.
 - **Effects and the colonial towns of the counties** rest on general knowledge, not opened
