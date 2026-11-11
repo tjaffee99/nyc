@@ -1,0 +1,2 @@
+id,name,kind,start_year,end_year,lat,lon,height_m,year_source_url,notes
+nj_lower_trenton_bridge,"Lower Trenton Bridge (""Trenton Makes"")",bridge,1928,9999,40.2105,-74.7683,11.3,https://en.wikipedia.org/wiki/Lower_Trenton_Bridge,"Length 1,022 ft; deck and truss heights are the model's estimates; Model: see nj-outer.ts; Overture names.primary: the two roadways are the bridge stretches of 'Bridge Street' segments 5f60ff13… and f2e00b75… (roads_region.parquet)"
