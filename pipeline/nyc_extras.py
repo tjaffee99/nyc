@@ -438,11 +438,14 @@ def gapfill():
     shows built-on ground and no outline survives. Generated, marked `procedural`, and the
     first to give way to anything real."""
     # (named, not globbed: the fill stages keep side tables and backups beside their outputs)
-    files = [f for f in (INTERIM / "gapfill" / n for n in ("gapfill.parquet", "gapfill_counties.parquet", "gapfill_sites.parquet", "gapfill_ports.parquet"))
+    files = [f for f in (INTERIM / "gapfill" / n for n in ("gapfill.parquet", "gapfill_counties.parquet", "gapfill_sites.parquet", "gapfill_ports.parquet", "gapfill_census.parquet"))
              if f.exists()]
     # (the port fill is read only once the lead has accepted it: its stage may be writing the file)
     if not (INTERIM / "gapfill" / "gapfill_ports.ok").exists():
         files = [f for f in files if f.name != "gapfill_ports.parquet"]
+    # (the census fill likewise: census_fill.py writes it, the lead accepts it)
+    if not (INTERIM / "gapfill" / "gapfill_census.ok").exists():
+        files = [f for f in files if f.name != "gapfill_census.parquet"]
     rows = []
     if not files:
         return rows
