@@ -47,9 +47,9 @@ Every feature is a geometry with a lifespan:
   parcel years, the landscape of 1609, made land, streets, railroads, parks and labels, and
   nothing vanished. The owner's priority order for accuracy: Manhattan > the other boroughs >
   the inner suburbs > the outer suburbs.
-- **Not on the map, and why:** Nassau publishes no construction years in bulk; 22 of
-  Westchester's 43 municipalities publish none either (their ground and streets are drawn,
-  their buildings are not: `county_buildings.MIN_YEAR_SHARE`). The rest of the metropolitan
+- **Not on the map, and why:** Nassau publishes no construction years in bulk (it could be
+  drawn with modelled years as 22 of Westchester's 43 municipalities are: decision 35). The
+  rest of the metropolitan
   area (the owner's list: Putnam, Suffolk, Ulster, Dutchess, Orange, Sullivan NY; Middlesex,
   Monmouth, Ocean, Somerset, Morris, Sussex, Hunterdon, Mercer NJ; Greater Bridgeport, Western
   Connecticut and New Haven; Pike PA) is not started. New Jersey's tax list (MOD-IV) covers
@@ -347,14 +347,48 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
     requests per visitor: if the site gets real traffic, move the tile sets to proper storage.
     Keep the Pages part under 100 MB.
 
+34. **Traced atlas layers and the generated fill** (third pass, 2026-11-10/11; the owner's
+    rule "a place that existed must not be empty").
+    - *Traced* (`data/manual/atlas/*_YYYY.geojson`, README there per layer; tools per part in
+      `tools*/`): Manhattan 40th-125th St (Bromley 1897), Brooklyn's built core (Sanborn-Perris
+      1886-88, house by house, nine layers), the South Bronx in three states (1887, 1904,
+      1921), Queens' old centres (Hyde 1901 / 1907), Staten Island's north shore (Bromley
+      1917), Jersey City (Hopkins 1919), three Hoboken plates (1891). About 359,000 outlines.
+      They are not complete inside their coverage. An outline mostly covered by standing
+      buildings of the map's time is those buildings (rows are not cut as the lots are);
+      sliver-shaped outlines in a roadway are dropped; a layer that fails the lead's street
+      check is skipped (`nyc_extras.ATLAS_SKIP`). Where no earlier map or extent bounds a
+      traced building's start, it follows the borough's or county's census growth up to the
+      map year, nearest the old centres first.
+    - *Generated* (`pipeline/gap_fill.py` -> `data/interim/gapfill/gapfill*.parquet`,
+      `data/manual/gapfill/README.md`): lot-sized outlines along today's block frontages,
+      kept only where the 1924 or 1951 aerial photograph shows a building on the lot, where a
+      dated map's built-up area covers the block (a share measured against the traced
+      atlases), or — Hudson County — where the 1940s USGS sheets draw the block front as
+      built. `procedural`, lowest rank, the popup names the evidence. Order: build the
+      building files, run `gap_fill.py fresh assemble report`, build again. False rows are
+      expected in the thousands in leafy suburbs; no hand-checked precision figure exists.
+    - Vanished structures outside the city are held against the counties' standing buildings.
+35. **Modelled years where the roll has none** (`counties_ny_estimates.py`,
+    `data/research/counties_ny_estimates.md`): 139,000 Westchester and 4,500 Rockland
+    footprints take a year from the census's count of homes by decade built per block group;
+    the pre-1940 stock follows the ages of the county's recorded buildings. Validated with
+    the dated towns' years hidden: median error 21 years, a third in the right decade.
+    `estimated`, source `modelled`.
+
 ## What is not done (as of 2026-11-10, end of the second round)
 
-- **The tenement generation in the cleared districts.** Lincoln Square has no traced source
-  for 1880-1955; East Harlem and the South Bronx have one atlas year each (1897, 1887) and
-  nothing between it and the projects. A vanished building with nothing on its spot still
-  ends when the big building beside it went up — an estimate, not a researched clearance.
-- **Outside lower Manhattan, downtown Brooklyn and the three new atlas areas nothing vanished
-  is drawn** except removed buildings since 1996, farmstead marks and the researched sites.
+- **Between the atlases and 1996** nothing real shows what stood: one atlas state per
+  district (two or three in the South Bronx), then the photographs of 1924 and 1951 as
+  generated lots, then the city's removals from 1996. Clearance dates are records only for
+  housing projects, parks and highways.
+- **Traced layers still missing**: Manhattan south of 40th St after 1857 beyond the 1890 /
+  1894 layers, Inwood; Red Hook, Downtown Brooklyn's old core, Sunset Park, Bay Ridge, Coney
+  Island; the Bronx east of the Bronx River and the far north; Flushing's centre, the
+  Rockaway beach towns; Staten Island beyond the north shore; Hoboken, Bayonne and north
+  Hudson (the Library of Congress Sanborn sheets can be placed by street crossings:
+  `data/manual/atlas/tools_hudson/loc_register.py`; the Bay project's `sanborn_trace*.py`
+  did the same for its towns). Storeys were not read off any atlas.
 - **Piers before 1888**, and piers as part of the terrain (narrower than a cell).
 - **The counties' history**: no vanished buildings, no landmarks; Westchester's 22 undated
   municipalities and Nassau have no buildings; the Hudson shore north of Hastings rests on the
