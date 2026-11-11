@@ -1,0 +1,14 @@
+Port_Mobil,_Staten_Island
+Rossville,_Staten_Island
+Bloomfield,_Staten_Island
+Chelsea,_Staten_Island
+Travis,_Staten_Island
+Old_Place,_Staten_Island
+Sandy_Ground,_Staten_Island
+Hunts_Point_Terminal_Market
+Bruckner_Boulevard
+Port_Morris,_Bronx
+Baychester,_Bronx
+Throggs_Neck_Bridge
+New_York_State_Pavilion
+Flushing_Meadows_Fair

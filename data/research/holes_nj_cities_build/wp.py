@@ -11,10 +11,10 @@ def get(t):
         except urllib.error.HTTPError as e:
             print(t,"ERR",e,flush=True)
             if e.code==404: return None
-            time.sleep(15)
+            time.sleep(60)
         except Exception as e:
             print(t,'ERR',e,flush=True);time.sleep(5)
     else: return None
-    time.sleep(4);return fn
+    time.sleep(8);return fn
 if __name__=='__main__':
     for t in sys.argv[1:]: print(t,get(t),flush=True)

@@ -1,0 +1,119 @@
+{
+ "manhattan_downtown_1897": {
+  "map_year": 1897,
+  "atlas": "Atlas of the city of New York, Manhattan Island. From actual surveys and official plans by George W. and Walter S. Bromley (G. W. Bromley & Co., Philadelphia, 1897)",
+  "source": "bromley_manhattan_1897",
+  "style": "bromley_city",
+  "style_override": {
+   "max_m2": 20000.0,
+   "outline_big": 0.3,
+   "big_px": 4800,
+   "big_r": 16,
+   "stone": {
+    "da_abs": 5.5,
+    "db_min": -9.0,
+    "db_max": 0.5,
+    "dL_min": -28.0,
+    "dL_max": -9.0
+   },
+   "blue": {
+    "db_max": -5.5,
+    "db_min": -16.0,
+    "da_min": -6.0,
+    "da_max": 3.0,
+    "dL_min": -22.0,
+    "dL_max": -3.0
+   }
+  },
+  "plates": [
+   {
+    "id": 8223,
+    "sheet": "image 1516792"
+   },
+   {
+    "id": 8222,
+    "sheet": "17"
+   },
+   {
+    "id": 8221,
+    "sheet": "image 1516790"
+   },
+   {
+    "id": 8220,
+    "sheet": "14"
+   },
+   {
+    "id": 8200,
+    "sheet": "image 1516769"
+   },
+   {
+    "id": 8198,
+    "sheet": "image 1516767"
+   },
+   {
+    "id": 8199,
+    "sheet": "12"
+   },
+   {
+    "id": 8203,
+    "sheet": "15"
+   },
+   {
+    "id": 8197,
+    "sheet": "10"
+   },
+   {
+    "id": 8196,
+    "sheet": "9"
+   },
+   {
+    "id": 8195,
+    "sheet": "8"
+   },
+   {
+    "id": 8194,
+    "sheet": "image 1516763"
+   },
+   {
+    "id": 8193,
+    "sheet": "image 1516762"
+   },
+   {
+    "id": 8192,
+    "sheet": "image 1516761"
+   },
+   {
+    "id": 8191,
+    "sheet": "image 1516760"
+   },
+   {
+    "id": 8190,
+    "sheet": "image 1516759"
+   },
+   {
+    "id": 8208,
+    "sheet": "image 1516777"
+   },
+   {
+    "id": 8189,
+    "sheet": "1"
+   }
+  ],
+  "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the city of New York, Manhattan Island, 1897; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "clip": {
+   "south_of": [
+    [
+     -73.999183,
+     40.759516
+    ],
+    [
+     -73.97087,
+     40.747591
+    ]
+   ]
+  },
+  "stone_min_m2": 200.0,
+  "stone_min_width_m": 6.0,
+  "stone_max_aspect": 4.0
+ }
+}

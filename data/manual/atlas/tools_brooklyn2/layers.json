@@ -1,0 +1,422 @@
+{
+ "brooklyn_sunsetpark_1898": {
+  "map_year": 1898,
+  "atlas": "Atlas of the Brooklyn borough of the City of New York, originally Kings County (G. W. Bromley & Co., Philadelphia, 1898), NYPL Map Division, volume 1 (Ward 8)",
+  "source": "bromley_brooklyn_1898",
+  "style": "bromley_city",
+  "style_override": {
+   "max_m2": 20000.0,
+   "outline_big": 0.3,
+   "big_px": 4800,
+   "big_r": 16,
+   "stone": {
+    "da_abs": 5.5,
+    "db_min": -9.0,
+    "db_max": 0.5,
+    "dL_min": -28.0,
+    "dL_max": -9.0
+   },
+   "blue": {
+    "db_max": -5.5,
+    "db_min": -16.0,
+    "da_min": -6.0,
+    "da_max": 3.0,
+    "dL_min": -22.0,
+    "dL_max": -3.0
+   },
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    30.0,
+    15.0
+   ],
+   "stone_min_m2": 200.0,
+   "stone_min_width_m": 6.0,
+   "stone_max_aspect": 4.0
+  },
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 8518,
+    "sheet": "B98-8518",
+    "name": "Part of Ward 8. Land Map Section, No. 3, Volume 1, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8519,
+    "sheet": "B98-8519",
+    "name": "Part of Ward 8. Land Map Section, No. 3, Volume 1, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8520,
+    "sheet": "B98-8520",
+    "name": "Part of Ward 8. Land Map Section, No. 3, Volume 1, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8521,
+    "sheet": "B98-8521",
+    "name": "Double Page Plate No. 10: [Bounded by Sixth Ave., Thirty Ninth St.,Ninth Ave., Forty Ninth St., Eighth Ave. and Sixtieth St.]"
+   }
+  ],
+  "clip": {
+   "outside_layers": [
+    "brooklyn_downtown_1887",
+    "brooklyn_southwest_1886",
+    "brooklyn_williamsburg_1887",
+    "brooklyn_greenpoint_1887",
+    "brooklyn_bedstuy_1888",
+    "brooklyn_bushwick_1888",
+    "brooklyn_crownheights_1888",
+    "brooklyn_browns_1887",
+    "brooklyn_parkslope_1888",
+    "kings_towns_1890"
+   ]
+  }
+ },
+ "brooklyn_redhook_1898": {
+  "map_year": 1898,
+  "atlas": "Atlas of the Brooklyn borough of the City of New York, originally Kings County (G. W. Bromley & Co., Philadelphia, 1898), NYPL Map Division, volume 1 (Wards 6, 12)",
+  "source": "bromley_brooklyn_1898",
+  "style": "bromley_city",
+  "style_override": {
+   "max_m2": 20000.0,
+   "outline_big": 0.3,
+   "big_px": 4800,
+   "big_r": 16,
+   "stone": {
+    "da_abs": 5.5,
+    "db_min": -9.0,
+    "db_max": 0.5,
+    "dL_min": -28.0,
+    "dL_max": -9.0
+   },
+   "blue": {
+    "db_max": -5.5,
+    "db_min": -16.0,
+    "da_min": -6.0,
+    "da_max": 3.0,
+    "dL_min": -22.0,
+    "dL_max": -3.0
+   },
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    30.0,
+    15.0
+   ],
+   "stone_min_m2": 200.0,
+   "stone_min_width_m": 6.0,
+   "stone_max_aspect": 4.0
+  },
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 8515,
+    "sheet": "B98-8515",
+    "name": "Part of Wards 6,10 & 12. Land Map Section, No. 2, Volume 1, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8516,
+    "sheet": "B98-8516",
+    "name": "Part of Ward 12. Land Map Section, No. 2, Volume 1, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8517,
+    "sheet": "B98-8517",
+    "name": "Part of Ward 12. Land Map Section, No. 2, Volume 1, Brooklyn Borough, New York City."
+   }
+  ],
+  "clip": {
+   "outside_layers": [
+    "brooklyn_downtown_1887",
+    "brooklyn_southwest_1886",
+    "brooklyn_williamsburg_1887",
+    "brooklyn_greenpoint_1887",
+    "brooklyn_bedstuy_1888",
+    "brooklyn_bushwick_1888",
+    "brooklyn_crownheights_1888",
+    "brooklyn_browns_1887",
+    "brooklyn_parkslope_1888",
+    "kings_towns_1890"
+   ]
+  }
+ },
+ "brooklyn_heights_1898": {
+  "map_year": 1898,
+  "atlas": "Atlas of the Brooklyn borough of the City of New York, originally Kings County (G. W. Bromley & Co., Philadelphia, 1898), NYPL Map Division, volume 1 (Wards 1-6, 10)",
+  "source": "bromley_brooklyn_1898",
+  "style": "bromley_city",
+  "style_override": {
+   "max_m2": 20000.0,
+   "outline_big": 0.3,
+   "big_px": 4800,
+   "big_r": 16,
+   "stone": {
+    "da_abs": 5.5,
+    "db_min": -9.0,
+    "db_max": 0.5,
+    "dL_min": -28.0,
+    "dL_max": -9.0
+   },
+   "blue": {
+    "db_max": -5.5,
+    "db_min": -16.0,
+    "da_min": -6.0,
+    "da_max": 3.0,
+    "dL_min": -22.0,
+    "dL_max": -3.0
+   },
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    30.0,
+    15.0
+   ],
+   "stone_min_m2": 200.0,
+   "stone_min_width_m": 6.0,
+   "stone_max_aspect": 4.0
+  },
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 8512,
+    "sheet": "B98-8512",
+    "name": "Wards 2 & 5 and Part of 1 &4. Land Map Section, No.1, Volume 1, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8513,
+    "sheet": "B98-8513",
+    "name": "Part of Wards 1,3,4,6 &10. Land Map Sections, No.1&2, Volume 1, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8514,
+    "sheet": "B98-8514",
+    "name": "Double Page Plate No. 3: [Bounded by Smith St., Bergen St., Hoyt St., Fulton St., Flatbush Ave., Fourth Ave., First St., (Gowanus Canal) Bond St., Fourth St. Hoyt St. and Fifth St.]"
+   }
+  ],
+  "clip": {
+   "outside_layers": [
+    "brooklyn_downtown_1887",
+    "brooklyn_southwest_1886",
+    "brooklyn_williamsburg_1887",
+    "brooklyn_greenpoint_1887",
+    "brooklyn_bedstuy_1888",
+    "brooklyn_bushwick_1888",
+    "brooklyn_crownheights_1888",
+    "brooklyn_browns_1887",
+    "brooklyn_parkslope_1888",
+    "kings_towns_1890"
+   ]
+  }
+ },
+ "brooklyn_bayridge_1898": {
+  "map_year": 1898,
+  "atlas": "Atlas of the Brooklyn borough of the City of New York, originally Kings County (G. W. Bromley & Co., Philadelphia, 1898), NYPL Map Division, volume 2 (Ward 30)",
+  "source": "bromley_brooklyn_1898",
+  "style": "bromley_city",
+  "style_override": {
+   "max_m2": 20000.0,
+   "outline_big": 0.3,
+   "big_px": 4800,
+   "big_r": 16,
+   "stone": {
+    "da_abs": 5.5,
+    "db_min": -9.0,
+    "db_max": 0.5,
+    "dL_min": -28.0,
+    "dL_max": -9.0
+   },
+   "blue": {
+    "db_max": -5.5,
+    "db_min": -16.0,
+    "da_min": -6.0,
+    "da_max": 3.0,
+    "dL_min": -22.0,
+    "dL_max": -3.0
+   },
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    30.0,
+    15.0
+   ],
+   "stone_min_m2": 200.0,
+   "stone_min_width_m": 6.0,
+   "stone_max_aspect": 4.0
+  },
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 8483,
+    "sheet": "B98-8483",
+    "name": "Part of Ward 30, Land Map Section, No. 17. Volume 2, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8484,
+    "sheet": "B98-8484",
+    "name": "Part of Ward 30, Land Map Sections, Nos. 17, 18 & 19. Volume 2, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8485,
+    "sheet": "B98-8485",
+    "name": "Part of Ward 30, Land Map Sections, Nos. 3, 17 & 18, Volume 2, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8486,
+    "sheet": "B98-8486",
+    "name": "Double Page Plate No. 24: [Bounded by (Dyker Beach Park) Bay 8th Street, Fourteenth Avenue, 86th Street, Twelfth Avenue, 81st Street, Seventeenth Avenue, 86th Street, Bay 14th Street, Cropsey Avenue, Seventeenth Avenue and Warehouse Avenue.]"
+   },
+   {
+    "id": 8487,
+    "sheet": "B98-8487",
+    "name": "Part of Ward 30, Land Map Section, No. 18. Volume 2, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8489,
+    "sheet": "B98-8489",
+    "name": "Part of Ward 30, Land Map Section, No. 18. Volume 2, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8490,
+    "sheet": "B98-8490",
+    "name": "Double Page Plate No. 21: [Bounded by 66th Street, Seventeenth Avenue, 65th Street, (Old Road from Flatbush to New Utrecht) Eighteenth Avenue, 81st Street and Twelfth Avenue.]"
+   },
+   {
+    "id": 8491,
+    "sheet": "B98-8491",
+    "name": "Double Page Plate No. 25: [Bounded by 81st Street, Eighteenth Avenue, 86th Street, Twenty-Third Avenue, Warehouse Avenue, Seventeenth Avenue, Cropsey Avenue, Bay-Fourteenth Street, 86th Street and Seventeenth Avenue.]"
+   },
+   {
+    "id": 8492,
+    "sheet": "B98-8492",
+    "name": "Part of Ward 30, Land Map Section, No. 18. Volume 2, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8493,
+    "sheet": "B98-8493",
+    "name": "Part of Wards 29 & 30, Land Map Sections, Nos. 3, 16 & 17, Volume 2, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8494,
+    "sheet": "B98-8494",
+    "name": "Double Page Plate No. 19: [Bounded by 92nd Street, Third Avenue, 91st Street, Fifth Avenue, 86th Street, Fort Hamilton Avenue (Smith Avenue) and (Proposed Bay Ridge Parkway) Narrows Avenue.]"
+   },
+   {
+    "id": 8495,
+    "sheet": "B98-8495",
+    "name": "Double Page Plate No. 23: [Bounded by (U.S. Government Reservation) Fort Hamilton Avenue, 86th Street, Bay 2nd Street, Benson Avenue, Delaplaine Street, Atlantic Avenue, (Dyker Beach Park) Seventh Avenue, 170th Street, Battery Avenue, Cropsey Avenue, Dah"
+   }
+  ],
+  "clip": {
+   "outside_layers": [
+    "brooklyn_downtown_1887",
+    "brooklyn_southwest_1886",
+    "brooklyn_williamsburg_1887",
+    "brooklyn_greenpoint_1887",
+    "brooklyn_bedstuy_1888",
+    "brooklyn_bushwick_1888",
+    "brooklyn_crownheights_1888",
+    "brooklyn_browns_1887",
+    "brooklyn_parkslope_1888",
+    "kings_towns_1890"
+   ]
+  }
+ },
+ "brooklyn_williamsburg_1898": {
+  "map_year": 1898,
+  "atlas": "Atlas of the Brooklyn borough of the City of New York, originally Kings County (G. W. Bromley & Co., Philadelphia, 1898), NYPL Map Division, volume 1 (Wards 13-19)",
+  "source": "bromley_brooklyn_1898",
+  "style": "bromley_city",
+  "style_override": {
+   "max_m2": 20000.0,
+   "outline_big": 0.3,
+   "big_px": 4800,
+   "big_r": 16,
+   "stone": {
+    "da_abs": 5.5,
+    "db_min": -9.0,
+    "db_max": 0.5,
+    "dL_min": -28.0,
+    "dL_max": -9.0
+   },
+   "blue": {
+    "db_max": -5.5,
+    "db_min": -16.0,
+    "da_min": -6.0,
+    "da_max": 3.0,
+    "dL_min": -22.0,
+    "dL_max": -3.0
+   },
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    30.0,
+    15.0
+   ],
+   "stone_min_m2": 200.0,
+   "stone_min_width_m": 6.0,
+   "stone_max_aspect": 4.0
+  },
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 8459,
+    "sheet": "B98-8459",
+    "name": "Part of Wards 14, 15 & 17. Land Map Sections, No. 8 & 9, Volume 1, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8461,
+    "sheet": "B98-8461",
+    "name": "Double Page Plate No. 34: [Bounded by (New Town Creek) Commercial Street, Ash Street, Oakland Street, Paidge Avenue, Sutton Street, Meserole Avenue, Diamond Street, Calyer Street, Manhattan Avenue, Greenpoint Avenue, West Street and Bay Street.]"
+   },
+   {
+    "id": 8462,
+    "sheet": "B98-8462",
+    "name": "Part of Wards 17 & 18. Land Map Sections, No. 9 & 10, Volume 1, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8463,
+    "sheet": "B98-8463",
+    "name": "Part of Wards 16 & 18. Land Map Section, No. 10, Volume 1, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8465,
+    "sheet": "B98-8465",
+    "name": "Double Page Plate No. 32: [Bounded by Marcy Ave., Metropolitan Ave., N. Fifth St., Havemeyer St., Withers St., Union Ave., Richardson St., Leonard St., Frost St., Manhattan Ave., Withers St., Graham Ave., Jackson St., Humboldt St., Metropolitan Ave., Bus"
+   },
+   {
+    "id": 8469,
+    "sheet": "B98-8469",
+    "name": "Part of Wards 13 & 14. Land Map Section, No. 8, Volume 1, Brooklyn Borough, New York City."
+   },
+   {
+    "id": 8522,
+    "sheet": "B98-8522",
+    "name": "Part of Wards 16 & 18, Land Map Section, No. 10, Volume 1. Brooklyn Borough, New York City."
+   }
+  ],
+  "clip": {
+   "outside_layers": [
+    "brooklyn_downtown_1887",
+    "brooklyn_southwest_1886",
+    "brooklyn_williamsburg_1887",
+    "brooklyn_greenpoint_1887",
+    "brooklyn_bedstuy_1888",
+    "brooklyn_bushwick_1888",
+    "brooklyn_crownheights_1888",
+    "brooklyn_browns_1887",
+    "brooklyn_parkslope_1888",
+    "kings_towns_1890"
+   ]
+  }
+ }
+}
