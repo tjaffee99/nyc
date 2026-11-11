@@ -151,12 +151,14 @@ def region_extract(name: str, refetch: bool = False):
     log(f"overture {name}: {n} rows -> {out}")
 
 
-def region_buildings():
+def region_buildings(outer=False):
     """Every Overture footprint of the wider box (common.REGION_BBOX) with a centre point,
     for the counties around the city: data/raw/overture/<release>/region_building.parquet
-    (id, subtype, class, name, height, num_floors, source_dataset, lon, lat, WKB geometry)."""
-    from common import REGION_BBOX as RB
-    out = RAW / "overture" / RELEASE / "region_building.parquet"
+    (id, subtype, class, name, height, num_floors, source_dataset, lon, lat, WKB geometry).
+    outer: the same for common.OUTER_BBOX -> outer_building.parquet (a superset)."""
+    from common import OUTER_BBOX, REGION_BBOX
+    RB = OUTER_BBOX if outer else REGION_BBOX
+    out = RAW / "overture" / RELEASE / ("outer_building.parquet" if outer else "region_building.parquet")
     if out.exists():
         log("overture region_building: cached")
         return
@@ -164,7 +166,7 @@ def region_buildings():
     con.execute("INSTALL httpfs; LOAD httpfs; INSTALL spatial; LOAD spatial; SET memory_limit='5GB'; SET threads=4;")
     con.execute("CREATE OR REPLACE SECRET overture (TYPE s3, PROVIDER config, KEY_ID '', SECRET '', REGION 'us-west-2');")
     src = f"s3://overturemaps-us-west-2/release/{RELEASE}/theme=buildings/type=building/*"
-    stage = out.with_name("_stage_region_building.parquet")
+    stage = out.with_name("_stage_" + out.name)
     con.execute(f"""
     COPY (
       SELECT id, subtype, class, names.primary AS name, height, num_floors, has_parts,
@@ -193,6 +195,9 @@ def local_roads():
 
 if __name__ == "__main__":
     import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "outer_buildings":
+        region_buildings(outer=True)
+        sys.exit(0)
     if len(sys.argv) > 1 and sys.argv[1] == "region_buildings":
         region_buildings()
         sys.exit(0)

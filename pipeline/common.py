@@ -40,6 +40,10 @@ NYC_BBOX = (-74.29, 40.47, -73.67, 40.94)
 # construction years exist; see CLAUDE.md "Counties"). One box for the region terrain grid
 # and the region extracts; the 29 m detail grid stays on NYC_BBOX.
 REGION_BBOX = (-74.52, 40.47, -73.40, 41.38)
+# the whole metropolitan area (the owner's list of 2026-11-11: the rest of northern New Jersey, the
+# Hudson valley counties, Long Island, south-west Connecticut, Pike County): downloads for the outer
+# counties are cut by this box; the map itself moves to it when their data is in (docs/OUTER_ROUND.md)
+OUTER_BBOX = (-75.37, 39.47, -71.85, 42.20)
 # state + county FIPS -> name (candidates; extent.py keeps the ones that were built)
 REGION_COUNTIES = {"34017": "Hudson", "34003": "Bergen", "34013": "Essex", "34039": "Union", "34031": "Passaic",
                    "36119": "Westchester", "36059": "Nassau", "36087": "Rockland"}
