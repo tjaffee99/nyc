@@ -1,0 +1,124 @@
+{
+ "brooklyn_old_1880": {
+  "map_year": 1880,
+  "atlas": "Atlas of the entire city of Brooklyn, complete in one volume (Hopkins, 1880), NYPL Map Division, scale 300 ft to the inch",
+  "source": "hopkins_brooklyn_1880",
+  "style": "robinson_300ft",
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 7984,
+    "sheet": "H80-7984",
+    "name": "Plate 29: Bounded by Flushing Avenue, Central Avenue, Himrod Street, Evergreen Avenue, Harman Street, Bushwick Street, Greene Street, Broadway, Lexington Avenue and Nostrand Avenue."
+   },
+   {
+    "id": 7985,
+    "sheet": "H80-7985",
+    "name": "[Plate 30: Bounded by Seneca Avenue, Covert Street, Suydam Street, Cypress Avenue, Harman Street, St. Nicholas Avenue, Grove Street, Myrtle Avenue, Ralph Street, Knickerbocker Avenue, Bleecker Street, Hamburg Avenue, Harman Street, Central Avenue, Flushi"
+   },
+   {
+    "id": 7986,
+    "sheet": "H80-7986",
+    "name": "Plate 31: Part of Wards 23 & 25. City of Brooklyn."
+   },
+   {
+    "id": 7987,
+    "sheet": "H80-7987",
+    "name": "[Plate 32: Bounded by Greene Avenue, Bushvick Avenue, Himrod Street, Centrat Avenue, Greene Avenue, Myrtle Avenue, Bleecker Street, Wyckoff Avenue, Cornelia Street, Irving Avenue, Eldert Street, Knickerbocker Avenue, Schaffer Street, Broadway, Hopkinson "
+   },
+   {
+    "id": 7990,
+    "sheet": "H80-7990",
+    "name": "Plate 10: Part of Wards 7, 9, 23 & 24."
+   },
+   {
+    "id": 7991,
+    "sheet": "H80-7991",
+    "name": "Plate 11: Part of Wards 9 & 24. City of Brooklyn."
+   },
+   {
+    "id": 7992,
+    "sheet": "H80-7992",
+    "name": "Plate 12: Part of Ward 22. City of Brooklyn."
+   },
+   {
+    "id": 7993,
+    "sheet": "H80-7993",
+    "name": "Plate 13: Bounded by 11th Street, Ninth Avenue, 15th Street, Eleventh Avenue, 19th Street, Tenth Avenue, 21st Street and Fifth Avenue."
+   },
+   {
+    "id": 7994,
+    "sheet": "H80-7994",
+    "name": "Plate 14: Part of Wards 8, 10, & 22."
+   },
+   {
+    "id": 7996,
+    "sheet": "H80-7996",
+    "name": "Plate 17: Part of Ward 8 City of Brooklyn."
+   },
+   {
+    "id": 8003,
+    "sheet": "H80-8003",
+    "name": "Plate 8: Part of Wards 7, 20, 21& 23. City of Brooklyn."
+   },
+   {
+    "id": 8008,
+    "sheet": "H80-8008",
+    "name": "Plate 24: Part of Ward 17. City of Brooklyn."
+   },
+   {
+    "id": 8010,
+    "sheet": "H80-8010",
+    "name": "Plate 26: Part of Wards 17 & 18. City of Brooklyn."
+   },
+   {
+    "id": 8011,
+    "sheet": "H80-8011",
+    "name": "[Plate 27: Bounded by Withers Street, Kingsland Avenue, Parker Street, Vandervoort Avenue, Stagg Street, Morrill Street, Scholes Street and Union Avenue.]"
+   },
+   {
+    "id": 8014,
+    "sheet": "H80-8014",
+    "name": "Plate 19: Part of Ward 24. City of Brooklyn."
+   },
+   {
+    "id": 8015,
+    "sheet": "H80-8015",
+    "name": "Plate 21: Part of Wards 13, 14, 15, 16 & 19 City of Brooklyn."
+   },
+   {
+    "id": 8016,
+    "sheet": "H80-8016",
+    "name": "Plate 22: Bounded by N. 14th Street, Fifth Street, Union Avenue, N. 2nd Street, Third Street, N. 1st Street, River Street, N. 3rd Street and (East River) First Street."
+   }
+  ],
+  "style_override": {
+   "brick": {
+    "da_min": 7.0,
+    "db_max": 9.0,
+    "L_min": 42
+   },
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    30.0,
+    15.0
+   ]
+  },
+  "clip": {
+   "outside_layers": [
+    "brooklyn_downtown_1887",
+    "brooklyn_southwest_1886",
+    "brooklyn_williamsburg_1887",
+    "brooklyn_greenpoint_1887",
+    "brooklyn_bedstuy_1888",
+    "brooklyn_bushwick_1888",
+    "brooklyn_crownheights_1888",
+    "brooklyn_browns_1887",
+    "brooklyn_parkslope_1888"
+   ]
+  }
+ }
+}

@@ -1,0 +1,684 @@
+{
+ "bronx_east_1905": {
+  "map_year": 1905,
+  "atlas": "Atlas of the borough of the Bronx, city of New York, Volume A (G. W. Bromley & Co., Philadelphia, 1905): the district east of the Bronx River (Unionport, Westchester, Castle Hill, Clason Point, Throgs Neck, Pelham Parkway)",
+  "source": "bromley_bronx_1905",
+  "style": "bromley_city",
+  "style_override": {
+   "brick": {
+    "da_min": 4.5,
+    "db_max": 5.0,
+    "L_min": 45
+   },
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "outline": 0.3
+  },
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 22971,
+    "sheet": "2",
+    "name": "Bronx, V. A, Plate No. 2 [Map bounded by Barnes Ave., Lydig Ave., Bronx Park East, Pelham Parkway So",
+    "new": 0.89
+   },
+   {
+    "id": 22973,
+    "sheet": "4",
+    "name": "Bronx, V. A, Plate No. 4 [Map bounded by Fowler Ave., Morris Park Ave., Unionport Rd., Neil Ave.]",
+    "new": 0.9
+   },
+   {
+    "id": 22975,
+    "sheet": "6",
+    "name": "Bronx, V. A, Plate No. 6 [Map bounded by Williamsbridge Rd., Sacket Ave., Bronxdale Ave., Morris Par",
+    "new": 1.0
+   },
+   {
+    "id": 22976,
+    "sheet": "7",
+    "name": "Bronx, V. A, Plate No. 7 [Map bounded by Morris Park Ave., Barnes Ave., East Tremont Ave., Unionport",
+    "new": 1.0
+   },
+   {
+    "id": 22977,
+    "sheet": "8",
+    "name": "Bronx, V. A, Plate No. 8 [Map bounded by Morris Park Ave., Bronxdale Ave., East Tremont Ave., Barnes",
+    "new": 1.0
+   },
+   {
+    "id": 22978,
+    "sheet": "9",
+    "name": "Bronx, V. A, Plate No. 9 [Map bounded by Morris Park Ave., Melville St., Walker Ave., East Tremont A",
+    "new": 0.87
+   },
+   {
+    "id": 22979,
+    "sheet": "10",
+    "name": "Bronx, V. A, Plate No. 10 [Map bounded by Morris Park Ave., Unionport Rd., White Plains Rd., East Tr",
+    "new": 1.0
+   },
+   {
+    "id": 22980,
+    "sheet": "11",
+    "name": "Bronx, V. A, Plate No. 11 [Map bounded by Unionport Rd., Morris Park Ave., Bronx Park.]",
+    "new": 0.62
+   },
+   {
+    "id": 22981,
+    "sheet": "12",
+    "name": "Bronx, V. A, Plate No. 12 [Map bounded by Bronx International Exposition, E. 177th St., East Tremont",
+    "new": 0.89
+   },
+   {
+    "id": 22982,
+    "sheet": "13",
+    "name": "Bronx, V. A, Plate No. 13 [Map bounded by Watson's Lane, Manor Ave., Westchester Ave., Bronx River.]",
+    "new": 0.89
+   },
+   {
+    "id": 22984,
+    "sheet": "15",
+    "name": "Bronx, V. A, Plate No. 15 [Map bounded by East Tremont Ave., Beach Ave., E. 174th St., Rosedale Ave.",
+    "new": 1.0
+   },
+   {
+    "id": 22985,
+    "sheet": "16",
+    "name": "Bronx, V. A, Plate No. 16 [Map bounded by East Tremont Ave., Gary St., Wood Ave., Beach Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 22986,
+    "sheet": "17",
+    "name": "Bronx, V. A, Plate No. 17 [Map bounded by East Tremont Ave., Unionport Rd., McGraw Ave., Gray St.]",
+    "new": 1.0
+   },
+   {
+    "id": 22987,
+    "sheet": "18",
+    "name": "Bronx, V. A, Plate No. 18 [Map bounded by Bronxdale Ave., Zerega Ave., Raymond St., Protectory Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 22988,
+    "sheet": "19",
+    "name": "Bronx, V. A, Plate No. 19 [Map bounded by Gray St., Westchester Ave., Commonwealth Ave., Wood Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 22989,
+    "sheet": "20",
+    "name": "Bronx, V. A, Plate No. 20 [Map bounded by Olmstead Ave., Ellis Ave., Virginia Ave., McGraw Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 22990,
+    "sheet": "21",
+    "name": "Bronx, V. A, Plate No. 21 [Map bounded by Olmstead Ave., Blackrock Ave., Virginia Ave., Ellis Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 22991,
+    "sheet": "22",
+    "name": "Bronx, V. A, Plate No. 22 [Map bounded by Olmstead Ave., Houghton Ave., White Plains Rd., Blackrock ",
+    "new": 1.0
+   },
+   {
+    "id": 22992,
+    "sheet": "23",
+    "name": "Bronx, V. A, Plate No. 23 [Map bounded by Havemeyer Ave., Ludlow Ave., Olmstead Ave., Powell Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 22993,
+    "sheet": "24",
+    "name": "Bronx, V. A, Plate No. 24  [Map bounded by Havemeyer Ave., Hermany Ave., Olmstead Ave., Ludlow Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 22995,
+    "sheet": "26",
+    "name": "Bronx, V. A, Plate No. 26 [Map bounded by Seberry Creek, Westchester Creek, Haviland Ave., Havemeyer",
+    "new": 1.0
+   },
+   {
+    "id": 22996,
+    "sheet": "27",
+    "name": "Bronx, V. A, Plate No. 27 [Map bounded by Westchester Creek, Ludlow Ave., Havemeyer Ave., Haviland A",
+    "new": 1.0
+   },
+   {
+    "id": 22997,
+    "sheet": "28",
+    "name": "Bronx, V. A, Plate No. 28 [Map bounded by Westchester Creek, Turnbull Ave., Havemeyer Ave., Ludlow A",
+    "new": 1.0
+   },
+   {
+    "id": 22998,
+    "sheet": "29",
+    "name": "Bronx, V. A, Plate No. 29 [Map bounded by East Tremont Ave., Maud Pl., Seberry Creek, Balcom Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 22999,
+    "sheet": "30",
+    "name": "Bronx, V. A, Plate No. 30 [Map bounded by Balcom Ave., Chidsey St., E. 177th St., Westchester Creek.",
+    "new": 1.0
+   },
+   {
+    "id": 23000,
+    "sheet": "31",
+    "name": "Bronx, V. A, Plate No. 31 [Map bounded by Protectory Ave., Raymond Ave., Parker St., Westchester Ave",
+    "new": 1.0
+   },
+   {
+    "id": 23001,
+    "sheet": "32",
+    "name": "Bronx, V. A, Plate No. 32 [Map bounded by Glebe Ave., St. Peter's St., Seabury Ave., Waterbury Ave.,",
+    "new": 1.0
+   },
+   {
+    "id": 23002,
+    "sheet": "33",
+    "name": "Bronx, V. A, Plate No. 33 [Map bounded by Glebe Ave., Blondell Ave., Westchester Creek, Westchester ",
+    "new": 1.0
+   },
+   {
+    "id": 23003,
+    "sheet": "34",
+    "name": "Bronx, V. A, Plate No. 34 [Map bounded by Westchester Creek, Ericson Pl., East Tremont Ave., Blondel",
+    "new": 1.0
+   },
+   {
+    "id": 23004,
+    "sheet": "35",
+    "name": "Bronx, V. A, Plate No. 35 [Map bounded by Poplar St., Overing St., Glebe Ave., Zerega Ave., Castle H",
+    "new": 1.0
+   },
+   {
+    "id": 23005,
+    "sheet": "36",
+    "name": "Bronx, V. A, Plate No. 36 [Map bounded by Barlow St., Blondell Ave., Halperin Ave., Overing St.]",
+    "new": 1.0
+   },
+   {
+    "id": 23006,
+    "sheet": "37",
+    "name": "Bronx, V. A, Plate No. 37 [Map bounded by Bronx and Pelham Parkway, Elberon Ave., Morris Park Ave., ",
+    "new": 1.0
+   },
+   {
+    "id": 23007,
+    "sheet": "38",
+    "name": "Bronx, V. A, Plate No. 38 [Map bounded by Saratoga Ave., Morris Park Ave., Westchester Creek, Willia",
+    "new": 1.0
+   },
+   {
+    "id": 23008,
+    "sheet": "39",
+    "name": "Bronx, V. A, Plate No. 39 [Map bounded by Elberon Ave., Bronx and Pelham Parkway, Pilgrim Ave., Morr",
+    "new": 1.0
+   },
+   {
+    "id": 23009,
+    "sheet": "40",
+    "name": "Bronx, V. A, Plate No. 40 [Map bounded by Bronx and Pelham Parkway, Eastern Blvd., Morris Park Ave.,",
+    "new": 1.0
+   },
+   {
+    "id": 23010,
+    "sheet": "41",
+    "name": "Bronx, V. A, Plate No. 41 [Map bounded by Morris Park Ave., Plymouth St., Middletown Rd., Westcheste",
+    "new": 1.0
+   },
+   {
+    "id": 23011,
+    "sheet": "42",
+    "name": "Bronx, V. A, Plate No. 42 [Map bounded by Eastern Blvd., Middletown Rd., Plymouth St., Westchester A",
+    "new": 1.0
+   },
+   {
+    "id": 23012,
+    "sheet": "43",
+    "name": "Bronx, V. A, Plate No. 43 [Map bounded by Middletown Rd., Cornell Ave., Lasalle Ave., East Tremont A",
+    "new": 1.0
+   },
+   {
+    "id": 23013,
+    "sheet": "44",
+    "name": "Bronx, V. A, Plate No. 44 [Map bounded by Middleton Rd., Country Club Ave., Eastern Boulevard, Water",
+    "new": 1.0
+   },
+   {
+    "id": 23014,
+    "sheet": "45",
+    "name": "Bronx, V. A, Plate No. 45 [Map bounded by Waterbury Ave., Mayflower Ave., Eastern Bouleavrd, Vreelan",
+    "new": 1.0
+   },
+   {
+    "id": 23015,
+    "sheet": "46",
+    "name": "Bronx, V. A, Plate No. 46 [Map bounded by Latting St., Eastern Boulevard, East Tremont Ave., Mayflow",
+    "new": 1.0
+   },
+   {
+    "id": 23016,
+    "sheet": "47",
+    "name": "Bronx, V. A, Plate No. 47 [Map bounded by St. Joseph's Ave., E. 177th St., Westchester Creek.]",
+    "new": 1.0
+   },
+   {
+    "id": 23018,
+    "sheet": "49",
+    "name": "Bronx, V. A, Plate No. 49 [Map bounded by Turnbull Ave., Westchester Creek, Castle Hill Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 23023,
+    "sheet": "54",
+    "name": "Bronx, V. A, Plate No. 54 [Map bounded by Underhill Ave., Pugsley's Creek Sound View Ave., Watson Av",
+    "new": 1.0
+   },
+   {
+    "id": 23024,
+    "sheet": "55",
+    "name": "Bronx, V. A, Plate No. 55 [Map bounded by Westchester Ave., Bronx River.]",
+    "new": 1.0
+   },
+   {
+    "id": 23025,
+    "sheet": "56",
+    "name": "Bronx, V. A, Plate No. 56 [Map bounded by Westchester Ave., Old Clason's Point Rd., Story Ave., Crai",
+    "new": 1.0
+   },
+   {
+    "id": 23027,
+    "sheet": "58",
+    "name": "Bronx, V. A, Plate No. 58 [Map bounded by Pugsley's Creek, Westchester Creek, East River.]",
+    "new": 1.0
+   },
+   {
+    "id": 23030,
+    "sheet": "61",
+    "name": "Bronx, V. A, Plate No. 61 [Map bounded by Fort Schuyler Rd., Hammond's Creek, East River, East Tremo",
+    "new": 1.0
+   },
+   {
+    "id": 23031,
+    "sheet": "62",
+    "name": "Bronx, V. A, Plate No. 62 [Map bounded by East Tremont Ave., Weir Creek, Long Island Sound, Morgan A",
+    "new": 1.0
+   },
+   {
+    "id": 23032,
+    "sheet": "63",
+    "name": "Bronx, V. A, Plate No. 63 [Map bounded by E. 177th St., Philip Ave., Long Island Sound, Dewey Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 23033,
+    "sheet": "64",
+    "name": "Bronx, V. A, Plate No. 64 [Map bounded by East Tremont Ave., Eastern Boulevard, Layton Ave., Eastche",
+    "new": 1.0
+   },
+   {
+    "id": 23034,
+    "sheet": "65",
+    "name": "Bronx, V. A, Plate No. 65 [Map bounded by Eastern Boulevard, North Road, Eastchester Bay, Layton Ave",
+    "new": 1.0
+   }
+  ],
+  "clip": {
+   "outside_layers": [
+    "bronx_23rd_ward_1887",
+    "bronx_south_1904",
+    "bronx_south_1921",
+    "brooklyn_bayridge_1898",
+    "brooklyn_bedstuy_1888",
+    "brooklyn_browns_1887",
+    "brooklyn_bushwick_1888",
+    "brooklyn_crownheights_1888",
+    "brooklyn_downtown_1887",
+    "brooklyn_greenpoint_1887",
+    "brooklyn_heights_1898",
+    "brooklyn_parkslope_1888",
+    "brooklyn_redhook_1898",
+    "brooklyn_southwest_1886",
+    "brooklyn_sunsetpark_1898",
+    "brooklyn_williamsburg_1887",
+    "brooklyn_williamsburg_1898",
+    "harlem_1897",
+    "hudson_heights_1873",
+    "hudson_heights_1887",
+    "hudson_hoboken_1891",
+    "hudson_hoboken_1930",
+    "hudson_hoboken_b_1891",
+    "hudson_jersey_city_1919",
+    "kings_towns_1890",
+    "manhattan_downtown_1897",
+    "manhattan_midtown_1897",
+    "queens_flushing_1901",
+    "queens_jamaica_1901",
+    "queens_lic_1901",
+    "queens_rockaway_1907",
+    "staten_island_north_1917"
+   ]
+  }
+ },
+ "bronx_north_1905": {
+  "map_year": 1905,
+  "atlas": "Atlas of the borough of the Bronx, city of New York, Volume B (G. W. Bromley & Co., Philadelphia, 1905): Williamsbridge, Wakefield, Eastchester, Baychester, Pelham Bay and City Island",
+  "source": "bromley_bronx_1905",
+  "style": "bromley_city",
+  "style_override": {
+   "brick": {
+    "da_min": 4.5,
+    "db_max": 5.0,
+    "L_min": 45
+   },
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "outline": 0.3
+  },
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 23042,
+    "sheet": "1",
+    "name": "Bronx, V. B, Plate No. 1 [Map bounded by Mace Ave., Cruger Ave., Reiss Pl., Bronx Park E.]",
+    "new": 0.86
+   },
+   {
+    "id": 23043,
+    "sheet": "2",
+    "name": "Bronx, V. B, Plate No. 2 [Map bounded by Boston Rd., Williamsbridge Rd., Bronx and Pelham Parkway]",
+    "new": 1.0
+   },
+   {
+    "id": 23044,
+    "sheet": "3",
+    "name": "Bronx, V. B, Plate No. 3 [Map bounded by Adee Ave., White Plains, Mace Ave., Bronx Park E.]",
+    "new": 0.96
+   },
+   {
+    "id": 23045,
+    "sheet": "4",
+    "name": "Bronx, V. B, Plate No. 4 [Map bounded by Bronx River, Rosewood Ave., White Plains Rd., Adee Ave.]en",
+    "new": 1.0
+   },
+   {
+    "id": 23046,
+    "sheet": "5",
+    "name": "Bronx, V. B, Plate No. 5 [Map bounded by Tilden St., South Oak Drive, White Plains Rd.]",
+    "new": 1.0
+   },
+   {
+    "id": 23047,
+    "sheet": "6",
+    "name": "Bronx, V. B, Plate No. 6 [Map bounded by Tilden St., Boston Rd., Williamsbridge Rd., South Oak Drive",
+    "new": 1.0
+   },
+   {
+    "id": 23048,
+    "sheet": "7",
+    "name": "Bronx, V. B, Plate No. 7 [Map bounded by Bronx River, White Plains Rd., Rosewood St., Newell Ave.]",
+    "new": 0.88
+   },
+   {
+    "id": 23049,
+    "sheet": "8",
+    "name": "Bronx, V. B, Plate No. 8 [Map bounded by Bronx River, Willett Ave., Gun Hill Rd., E. 219th St.]",
+    "new": 0.68
+   },
+   {
+    "id": 23050,
+    "sheet": "9",
+    "name": "Bronx, V. B, Plate No. 9 [Map bounded by Willett Ave., E. 215th St., Bronxwood Ave., Tilden St.]",
+    "new": 1.0
+   },
+   {
+    "id": 23051,
+    "sheet": "10",
+    "name": "Bronx, V. B, Plate No. 10 [Map bounded by Willett Ave., E. 219th St., Bronxwood Ave., E. 215th St.]",
+    "new": 1.0
+   },
+   {
+    "id": 23052,
+    "sheet": "11",
+    "name": "Bronx, V. B, Plate No. 11 [Map bounded by E. 220th St., Tilden St., Bronxwood Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 23053,
+    "sheet": "12",
+    "name": "Bronx, V. B, Plate No. 12 [Map bounded by Eastchester Rd., Boston Rd., Briggs Ave., Oakley St.]",
+    "new": 1.0
+   },
+   {
+    "id": 23055,
+    "sheet": "14",
+    "name": "Bronx, V. B, Plate No. 14 [Map bounded by Oakley St., Eastchester Rd.]",
+    "new": 1.0
+   },
+   {
+    "id": 23056,
+    "sheet": "15",
+    "name": "Bronx, V. B, Plate No. 15 [Map bounded by White Plains Rd., E. 224th St., Bronxwood Ave., E. 219th S",
+    "new": 1.0
+   },
+   {
+    "id": 23057,
+    "sheet": "16",
+    "name": "Bronx, V. B, Plate No. 16 [Map bounded by Bronx River, E. 224th St., White Plains Rd., E. 219th St.]",
+    "new": 1.0
+   },
+   {
+    "id": 23058,
+    "sheet": "17",
+    "name": "Bronx, V. B, Plate No. 17 [Map bounded by Carpenter Ave., E. 229th St., Barnes Ave., E. 224th St.]",
+    "new": 1.0
+   },
+   {
+    "id": 23059,
+    "sheet": "18",
+    "name": "Bronx, V. B, Plate No. 18 [Map bounded by Carpenter Ave., E. 234th St., Barnes Ave., E. 229th St.]",
+    "new": 1.0
+   },
+   {
+    "id": 23060,
+    "sheet": "19",
+    "name": "Bronx, V. B, Plate No. 19 [Map bounded by Barnes Ave., E. 233rd St., Bronxwood Ave., E. 224th St.]",
+    "new": 1.0
+   },
+   {
+    "id": 23061,
+    "sheet": "20",
+    "name": "Bronx, V. B, Plate No. 20 [Map bounded by Bronxwood Ave., E. 233rd St., Ely Ave., E. 228th St.]",
+    "new": 1.0
+   },
+   {
+    "id": 23062,
+    "sheet": "21",
+    "name": "Bronx, V. B, Plate No. 21 [Map bounded by E. 239th St., Wickham Ave., Bussing Ave., White Plains Rd.",
+    "new": 1.0
+   },
+   {
+    "id": 23063,
+    "sheet": "22",
+    "name": "Bronx, V. B, Plate No. 22 [Map bounded by Bussing Ave., Grace Ave., E. 233rd St., Digney Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 23064,
+    "sheet": "23",
+    "name": "Bronx, V. B, Plate No. 23 [Map bounded by Bronx River, E. 237th St., Old White Plains Rd., E. 234th ",
+    "new": 0.85
+   },
+   {
+    "id": 23065,
+    "sheet": "24",
+    "name": "Bronx, V. B, Plate No. 24 [Map bounded by Bronx River, E. 239th St., White Plains Rd., E. 237th St.]",
+    "new": 0.92
+   },
+   {
+    "id": 23066,
+    "sheet": "25",
+    "name": "Bronx, V. B, Plate No. 25 [Map bounded by Bronx River, E. 234th St., Carpenter Ave., E. 229th St.]",
+    "new": 1.0
+   },
+   {
+    "id": 23068,
+    "sheet": "27",
+    "name": "Bronx, V. B, Plate No. 27 [Map bounded by E. 241st St., Richardson Ave., E. 239th St., Bullard Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 23070,
+    "sheet": "29",
+    "name": "Bronx, V. B, Plate No. 29 [Map bounded by South St., White Plains Rd., Richardson Ave., E. 241st St.",
+    "new": 1.0
+   },
+   {
+    "id": 23071,
+    "sheet": "30",
+    "name": "Bronx, V. B, Plate No. 30 [Map bounded by South St., Desbrow Pl., Cranford Ave., E. 241st St., Richa",
+    "new": 1.0
+   },
+   {
+    "id": 23072,
+    "sheet": "31",
+    "name": "Bronx, V. B, Plate No. 31 [Map bounded by Wicknam Ave., E. 239th St., Vernon Parkway South, Munday's",
+    "new": 1.0
+   },
+   {
+    "id": 23074,
+    "sheet": "33",
+    "name": "Bronx, V. B, Plate No. 33 [Map bounded by Eastchester Rd., Arnow Ave., Boston Rd.]",
+    "new": 1.0
+   },
+   {
+    "id": 23075,
+    "sheet": "34",
+    "name": "Bronx, V. B, Plate No. 34 [Map bounded by Eastchester Rd., Pelham Parkway North, Williamsbridge Rd.,",
+    "new": 1.0
+   },
+   {
+    "id": 23076,
+    "sheet": "35",
+    "name": "Bronx, V. B, Plate No. 35 [Map bounded by Eastchester Rd., Gun Hill Rd., Bronx and Pelham Parkway]",
+    "new": 1.0
+   },
+   {
+    "id": 23079,
+    "sheet": "38",
+    "name": "Bronx, V. B, Plate No. 38 [Map bounded by Reeds Mill Rd., Ivy St., Bartow Ave., Ely Ave., Givan Ave.",
+    "new": 1.0
+   },
+   {
+    "id": 23080,
+    "sheet": "39",
+    "name": "Bronx, V. B, Plate No. 39 [Map bounded by Scheffelin's Lane, Brunner Ave., Tillotson Ave., Eastchest",
+    "new": 1.0
+   },
+   {
+    "id": 23081,
+    "sheet": "40",
+    "name": "Bronx, V. B, Plate No. 40 [Map bounded by Tillotson Ave., Ely Ave., Adee Ave., Eastchester Rd.]",
+    "new": 1.0
+   },
+   {
+    "id": 23083,
+    "sheet": "42",
+    "name": "Bronx, V. B, Plate No. 42 [Map bounded by Dyre Ave., Ely Ave., Schieffelin's Lane, Boston Rd.]",
+    "new": 1.0
+   },
+   {
+    "id": 23084,
+    "sheet": "43",
+    "name": "Bronx, V. B, Plate No. 43 [Map bounded by Brace Ave., Seton Ave., E. 233rd St., Grenada Pl.]",
+    "new": 1.0
+   },
+   {
+    "id": 23085,
+    "sheet": "44",
+    "name": "Bronx, V. B, Plate No. 44 [Map bounded by Grace Ave., Bussing Ave., Seton Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 23086,
+    "sheet": "45",
+    "name": "Bronx, V. B, Plate No. 45 [Map bounded by Kingsbridge Rd., Dyre Ave., E. 233rd St., Seton Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 23087,
+    "sheet": "46",
+    "name": "Bronx, V. B, Plate No. 46 [Map bounded by Kingsbridge Rd., E. 233rd St., Boston Rd., Dyre Ave.]",
+    "new": 1.0
+   },
+   {
+    "id": 23090,
+    "sheet": "48",
+    "name": "Bronx, V. B, Plate No. 48 [Map bounded by Eastchester Bay, City Island Rd., Pelham Bay]",
+    "new": 1.0
+   },
+   {
+    "id": 23093,
+    "sheet": "50",
+    "name": "Bronx, V. B, Plate No. 50 [Map bounded by Pelham Bridge Rd., Twin Island]",
+    "new": 1.0
+   },
+   {
+    "id": 23094,
+    "sheet": "51",
+    "name": "Bronx, V. B, Plate No. 51 [Map bounded by Eastchester Bay, Terrace Place, Long Island Sound, Beach S",
+    "new": 1.0
+   },
+   {
+    "id": 23095,
+    "sheet": "52",
+    "name": "Bronx, V. B, Plate No. 52 [Map bounded by Long Island Sound, Bay St., Beach St.]",
+    "new": 1.0
+   }
+  ],
+  "clip": {
+   "outside_layers": [
+    "bronx_23rd_ward_1887",
+    "bronx_south_1904",
+    "bronx_south_1921",
+    "brooklyn_bayridge_1898",
+    "brooklyn_bedstuy_1888",
+    "brooklyn_browns_1887",
+    "brooklyn_bushwick_1888",
+    "brooklyn_crownheights_1888",
+    "brooklyn_downtown_1887",
+    "brooklyn_greenpoint_1887",
+    "brooklyn_heights_1898",
+    "brooklyn_parkslope_1888",
+    "brooklyn_redhook_1898",
+    "brooklyn_southwest_1886",
+    "brooklyn_sunsetpark_1898",
+    "brooklyn_williamsburg_1887",
+    "brooklyn_williamsburg_1898",
+    "harlem_1897",
+    "hudson_heights_1873",
+    "hudson_heights_1887",
+    "hudson_hoboken_1891",
+    "hudson_hoboken_1930",
+    "hudson_hoboken_b_1891",
+    "hudson_jersey_city_1919",
+    "kings_towns_1890",
+    "manhattan_downtown_1897",
+    "manhattan_midtown_1897",
+    "queens_flushing_1901",
+    "queens_jamaica_1901",
+    "queens_lic_1901",
+    "queens_rockaway_1907",
+    "staten_island_north_1917"
+   ]
+  }
+ }
+}

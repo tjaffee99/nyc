@@ -1,0 +1,41 @@
+{
+ "passaic_paterson_1915": {
+  "city": "paterson",
+  "map_year": 1915,
+  "source": "sanborn_paterson_1915",
+  "source_url": "https://www.loc.gov/item/sanborn05590_004/",
+  "atlas": "Insurance maps of Paterson, New Jersey, vols 1-3 (Sanborn Map Co. 1915), 50 ft to the inch",
+  "style": "bromley_city",
+  "style_override": {
+   "core": 12,
+   "wall_px": 240,
+   "hole_px": 500,
+   "front_px": 2500,
+   "frame": {
+    "db_min": 6.5,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 92
+   }
+  },
+  "id0": "9215",
+  "name": "Paterson 1915",
+  "plates": [
+   {
+    "id": 92150008,
+    "sheet": "8",
+    "name": "Paterson 1915 sheet 8"
+   },
+   {
+    "id": 92150006,
+    "sheet": "6",
+    "name": "Paterson 1915 sheet 6"
+   },
+   {
+    "id": 92150007,
+    "sheet": "7",
+    "name": "Paterson 1915 sheet 7"
+   }
+  ]
+ }
+}

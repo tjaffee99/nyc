@@ -1,0 +1,3 @@
+BRX = (-73.93, 40.78, -73.74, 40.93)
+lay["bronx_east_1905"] = layer(1905, "Atlas of the borough of the Bronx, city of New York, Volume A (G. W. Bromley & Co., Philadelphia, 1905): the district east of the Bronx River (Unionport, Westchester, Castle Hill, Clason Point, Throgs Neck, Pelham Parkway)", "bromley_bronx_1905", pick(r"Bronx, V\. A, Plate.*From Vol\. A$", box=BRX), BRONX_SO)
+lay["bronx_north_1905"] = layer(1905, "Atlas of the borough of the Bronx, city of New York, Volume B (G. W. Bromley & Co., Philadelphia, 1905): Williamsbridge, Wakefield, Eastchester, Baychester, Pelham Bay and City Island", "bromley_bronx_1905", pick(r"Bronx, V\. B, Plate.*From Vol\. B$", box=BRX), BRONX_SO)
