@@ -13,9 +13,16 @@ im = Image.fromarray(img).resize((wpx, int(H / f)), Image.LANCZOS); d = ImageDra
 c = P.fwd(np.array([[W / 2, H / 2]]))[0]
 names, g = S.roads(); b = shapely.bounds(g)
 r = 450
-g = g[(b[:, 2] > c[0] - r) & (b[:, 0] < c[0] + r) & (b[:, 3] > c[1] - r) & (b[:, 1] < c[1] + r)]
-for x in g:
+sel0 = (b[:, 2] > c[0] - r) & (b[:, 0] < c[0] + r) & (b[:, 3] > c[1] - r) & (b[:, 1] < c[1] + r)
+g = g[sel0]
+nm = np.array(names)[(b[:, 2] > c[0] - r) & (b[:, 0] < c[0] + r) & (b[:, 3] > c[1] - r) & (b[:, 1] < c[1] + r)] if False else None
+sel = (b[:, 2] > c[0] - r) & (b[:, 0] < c[0] + r) & (b[:, 3] > c[1] - r) & (b[:, 1] < c[1] + r)
+nm = np.array(names)[sel]
+for x, n in zip(g, nm):
     for ln in getattr(x, "geoms", [x]):
         q = P.inv(np.asarray(ln.coords)) / f
         d.line([tuple(p) for p in q], fill=(0, 200, 255, 200), width=2)
+        ins = [p for p in q if 60 < p[0] < wpx - 120 and 40 < p[1] < im.height - 40]
+        if ins:
+            p = ins[len(ins) // 2]; d.text((p[0] + 3, p[1] + 2), str(n).replace(" street", "").replace(" avenue", " av"), fill=(0, 90, 255, 255))
 im.save(out); print(out, im.size)

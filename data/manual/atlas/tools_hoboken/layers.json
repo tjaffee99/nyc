@@ -29,6 +29,31 @@
     "name": "Hoboken plate 14"
    },
    {
+    "id": 91020019,
+    "sheet": "19",
+    "name": "Hoboken plate 19"
+   },
+   {
+    "id": 91020020,
+    "sheet": "20",
+    "name": "Hoboken plate 20"
+   },
+   {
+    "id": 91020025,
+    "sheet": "25",
+    "name": "Hoboken plate 25"
+   },
+   {
+    "id": 91020007,
+    "sheet": "7",
+    "name": "Hoboken plate 7"
+   },
+   {
+    "id": 91020011,
+    "sheet": "11",
+    "name": "Hoboken plate 11"
+   },
+   {
     "id": 91020015,
     "sheet": "15",
     "name": "Hoboken plate 15"
@@ -37,6 +62,16 @@
     "id": 91020016,
     "sheet": "16",
     "name": "Hoboken plate 16"
+   },
+   {
+    "id": 91020017,
+    "sheet": "17",
+    "name": "Hoboken plate 17"
+   },
+   {
+    "id": 91020018,
+    "sheet": "18",
+    "name": "Hoboken plate 18"
    }
   ]
  }
