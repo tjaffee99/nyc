@@ -1,0 +1,13 @@
+aspire|The Aspire|id:93afc0d7|x|2015|https://en.wikipedia.org/wiki/New_Brunswick,_New_Jersey|exact: tallest-buildings table lists Aspire, 16/17 floors, 2015 (the roll's 1892 is a placeholder)
+george_street_410|410 George Street|id:729be61d|x|1989|https://en.wikipedia.org/wiki/New_Brunswick,_New_Jersey|exact: tallest-buildings table lists 410 George Street, 11 floors, 1989 (Rothe-Johnson Architects)
+university_center|University Center at Easton Avenue|id:19c7b12a|x|1994|https://en.wikipedia.org/wiki/New_Brunswick,_New_Jersey|exact: tallest-buildings table lists University Center, 12 floors, 1994
+middlesex_courthouse|Middlesex County Courthouse|id:2ca55958|x|1958|https://en.wikipedia.org/wiki/Civic_Square,_New_Brunswick|exact: the last of a series of county courthouses was built in 1958; renovated 2003
+middlesex_admin_building|Middlesex County Administration Building|id:b6b18276|x|1999|https://en.wikipedia.org/wiki/Civic_Square,_New_Brunswick|exact: a new Administration Building was completed in 1999
+public_safety_building|Civic Square Public Safety Building|id:cc3f610f|x|2000|https://en.wikipedia.org/wiki/Civic_Square,_New_Brunswick|exact: the Public Safety Building completed in May 2000
+skyline_tower|Skyline Tower|id:daacf9ff|x|1967|https://en.wikipedia.org/wiki/Civic_Square,_New_Brunswick|exact: 14 stories, originally built in 1967 as the Middlesex County Administrative Building; renovated 2003 as residential
+fricano_towers|Schatzman-Fricano Apartments (John P. Fricano Towers)|id:b8dcb7a8|x|1963|https://en.wikipedia.org/wiki/New_Brunswick,_New_Jersey|exact: tallest-buildings table lists Schatzman-Fricano Apartments, 14 floors, 1963
+george_apartments|The George|-74.4429|40.4921|2013|https://en.wikipedia.org/wiki/New_Brunswick,_New_Jersey|exact: tallest-buildings table lists The George, 14 floors, 2013
+socam_apartments|Rockhoff Hall / SoCam290|-74.4434|40.4917|2005|https://en.wikipedia.org/wiki/New_Brunswick,_New_Jersey|exact: tallest-buildings table lists Rockhoff Hall/SoCam290, 12 floors, 2005
+one_spring_street|1 Spring Street|-74.445|40.4954|2006|https://en.wikipedia.org/wiki/New_Brunswick,_New_Jersey|exact: tallest-buildings table lists 1 Spring Street, 23 floors, 2006 (Costas Kondylis)
+jersey_mikes_arena|Jersey Mike's Arena (Rutgers Athletic Center)|id:65078aba|x|1977|https://en.wikipedia.org/wiki/Jersey_Mike's_Arena|exact: opened November 30, 1977 as the Rutgers Athletic Center (the roll's 2012 is a later renovation)
+william_levine_hall|William Levine Hall (Pharmacy)|id:61a06894|x|1963|https://en.wikipedia.org/wiki/Busch_Campus_of_Rutgers_University|exact: the original four-wing building was opened in 1963

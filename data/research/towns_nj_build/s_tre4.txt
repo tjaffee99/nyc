@@ -1,0 +1,5 @@
+old_masonic_temple|Old Masonic Temple|-74.7683|40.2192|1793|https://en.wikipedia.org/wiki/Old_Masonic_Temple_(Trenton,_New_Jersey)|exact: historic building built in 1793; moved half a block south to 102 Barrack Street in 1915; now a tourist information centre
+st_hedwig_church|St. Hedwig's Church|-74.7502|40.2386|1904|https://en.wikipedia.org/wiki/Trenton,_New_Jersey|exact: Hedwig's church was built in 1904 by Polish immigrants
+state_planetarium|New Jersey State Planetarium|-74.7729|40.2206|1964|https://en.wikipedia.org/wiki/New_Jersey_State_Museum|exact: since its opening in 1964 the State Museum's planetarium has been part of its programming
+douglass_house|Douglass House|-74.7617|40.2189|1766|https://en.wikipedia.org/wiki/Douglass_House_(Trenton,_New_Jersey)|estimate: the oldest section dates to circa 1766; moved from South Broad Street to Mill Hill
+anderson_capner_house|Anderson-Capner House|-74.7353|40.2389|1764|https://en.wikipedia.org/wiki/Anderson–Capner_House|exact: constructed in 1764 (Wikidata gives 1709; the article says 1764)
