@@ -113,6 +113,8 @@ PLAY = ["pitch", "track", "playground"]
 DRAW_RANK = {12: 0, 11: 1, 10: 2, 3: 3, 0: 4, 5: 5, 13: 6, 7: 7, 6: 8, 8: 9, 9: 10, 2: 11, 1: 12, 14: 13, 4: 14}
 
 MIN_AREA = 20.0       # m2: smaller pieces (planters, door-yard gardens) are dropped
+INNER_BBOX = (-74.52, 40.47, -73.40, 41.38)   # the city and the seven counties around it
+OUTER_MIN_AREA = 5000.0                       # m2: beyond them only pieces of half a hectare and more
 SIMPLIFY_M = 1.0      # outline tolerance
 SEG_M = 25.0          # longest edge, so flat polygons follow the terrain
 PLAY_FLOOR = 1903.0   # Seward Park, first municipal playground (https://en.wikipedia.org/wiki/Seward_Park_(Manhattan))
@@ -984,6 +986,11 @@ def main():
     # (outside the city the smallest pieces are left out: the file is loaded at start)
     cmin = feats["class"].map(lambda c: COUNTY_MIN_AREA.get(c, COUNTY_MIN_AREA_DEFAULT)).values
     keep = fu.geometry.area.values >= np.where(feats.city.values, MIN_AREA, cmin)
+    # (the outer counties' tier: only what reads from above - parks, golf courses, cemeteries,
+    # campuses and large fields; one file holds the whole region's detail)
+    rp = feats.geometry.representative_point()
+    inner = (rp.x.values >= INNER_BBOX[0]) & (rp.x.values <= INNER_BBOX[2]) & (rp.y.values >= INNER_BBOX[1]) & (rp.y.values <= INNER_BBOX[3])
+    keep &= inner | (fu.geometry.area.values >= OUTER_MIN_AREA)
     feats, fu = feats[keep].reset_index(drop=True), fu[keep].reset_index(drop=True)
     stadiums = lu[lu["class"] == "stadium"].to_crs(UTM)
     year, end, rule, stats = date_features(feats, fu, parks, courses, hood, stadiums)

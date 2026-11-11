@@ -23,7 +23,8 @@ DIST = Path(os.environ.get("DEPLOY_DIST") or ROOT / "viewer" / "dist")
 # published 104 MB in under a minute. These tile sets are therefore pushed to the branch but
 # left out of the Pages build by a Jekyll `exclude`; the published page reads them through
 # raw.githubusercontent.com (viewer/src/remote.ts).
-HEAVY = ["data/region-buildings", "data/county-buildings", "data/outer-buildings", "tiles/terrain/13"]
+HEAVY = ["data/region-buildings", "data/county-buildings", "data/outer-buildings", "tiles/terrain/13",
+         "data/region-streets", "data/region-trees", "data/region-ground-detail.bin.gz"]
 LIMIT_MB = 100          # the part Pages builds
 
 
@@ -35,7 +36,8 @@ def main():
     if not (DIST / "index.html").exists():
         sys.exit("viewer/dist/index.html is missing: run `make build` first")
     total = sum(f.stat().st_size for f in DIST.rglob("*") if f.is_file()) / 1e6
-    heavy = sum(f.stat().st_size for h in HEAVY for f in (DIST / h).rglob("*") if f.is_file()) / 1e6
+    heavy = sum(f.stat().st_size for h in HEAVY for f in ([DIST / h] if (DIST / h).is_file() else (DIST / h).rglob("*"))
+                if f.is_file()) / 1e6
     n = sum(1 for f in DIST.rglob("*") if f.is_file())
     size = total - heavy
     print(f"deploy: {n} files, {total:.0f} MB in the branch: {size:.0f} MB built by Pages, {heavy:.0f} MB read from the branch")

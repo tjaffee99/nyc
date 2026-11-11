@@ -12,6 +12,7 @@ import type {ShaderModule} from '@luma.gl/shadertools';
 import {PathLayer} from '@deck.gl/layers';
 import {TileLayer} from '@deck.gl/geo-layers';
 import {loadColumnar} from '../data/columnar';
+import {HEAVY_BASE} from '../remote';
 import {TimeExtension} from './time-extension';
 import {MeshBuilder} from '../landmarks/kit';
 import {DecoLayer} from './deco-layer';
@@ -124,9 +125,12 @@ let localZ = 12;
 let localLowZ = 10;
 export async function loadLocalStreetIndex() {
   try {
-    const r = await fetch('data/region-streets/index.json');
-    if (!r.ok || !(r.headers.get('content-type') ?? '').includes('json')) return;
-    const j = await r.json();
+    const r = await fetch(`${HEAVY_BASE}data/region-streets/index.json`);
+    if (!r.ok) return;
+    // (by content: GitHub's raw host serves JSON as text/plain, a dev server answers a missing file with index.html)
+    const text = await r.text();
+    if (!text.trimStart().startsWith('{')) return;
+    const j = JSON.parse(text);
     localZ = j.z;
     localIndex = new Set((j.tiles as {x: number; y: number}[]).map(t => `${t.x}/${t.y}`));
     if (j.low) {
@@ -164,7 +168,7 @@ function streetTiles(
     extent: [-74.52, 40.47, -73.4, 41.38],
     getTileData: async ({index: t}: any) => {
       if (!have.has(`${t.x}/${t.y}`)) return null;
-      return decodeSet(`${id}-${t.x}-${t.y}`, await loadColumnar(`data/region-streets/${z}/${t.x}/${t.y}.bin.gz`));
+      return decodeSet(`${id}-${t.x}-${t.y}`, await loadColumnar(`${HEAVY_BASE}data/region-streets/${z}/${t.x}/${t.y}.bin.gz`));
     },
     renderSubLayers: (props: any) => {
       const s = props.data as PathSet | null;

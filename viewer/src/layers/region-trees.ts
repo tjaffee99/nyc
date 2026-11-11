@@ -6,6 +6,7 @@
  */
 import type {Layer} from '@deck.gl/core';
 import {loadColumnar} from '../data/columnar';
+import {HEAVY_BASE} from '../remote';
 import {extentDistance} from './extent';
 import {decodeTrees, treesLayer, type TreeSet} from './trees';
 
@@ -21,9 +22,11 @@ let redraw: (() => void) | null = null;
 export async function loadRegionTreeIndex(onTile: () => void) {
   redraw = onTile;
   try {
-    const r = await fetch('data/region-trees/index.json');
+    const r = await fetch(`${HEAVY_BASE}data/region-trees/index.json`);
     if (!r.ok) return;
-    index = (await r.json()) as Index;
+    const text = await r.text();
+    if (!text.trimStart().startsWith('{')) return;
+    index = JSON.parse(text) as Index;
     have = new Set(index.tiles.map(t => `${t.x}/${t.y}`));
   } catch (e) {
     console.warn('region trees', e);
@@ -97,7 +100,7 @@ export function regionTreeLayers(year: number, zoom: number, bounds: [number, nu
   for (const key of want) {
     if (cache.has(key)) continue;
     cache.set(key, 'loading');
-    loadColumnar(`data/region-trees/${z}/${key}.bin.gz`)
+    loadColumnar(`${HEAVY_BASE}data/region-trees/${z}/${key}.bin.gz`)
       .then(f => {
         cache.set(key, decodeTrees(f));
         redraw?.();

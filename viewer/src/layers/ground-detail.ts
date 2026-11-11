@@ -7,6 +7,7 @@ import {COORDINATE_SYSTEM} from '@deck.gl/core';
 import type {Layer} from '@deck.gl/core';
 import {PathLayer, SolidPolygonLayer} from '@deck.gl/layers';
 import {loadColumnar} from '../data/columnar';
+import {HEAVY_BASE} from '../remote';
 import {DrapeExtension, DRAPE_PARAMETERS} from './drape-extension';
 import {TimeExtension} from './time-extension';
 
@@ -106,7 +107,7 @@ function gdLayer(id: string, d: GD, year: number, zoom: number): Layer {
 export function groundDetailLayers(year: number, zoom: number): Layer[] {
   if (zoom >= 12.5 && regionState === 'idle') {
     regionState = 'loading';
-    loadSet('data/region-ground-detail.bin.gz')
+    loadSet(`${HEAVY_BASE}data/region-ground-detail.bin.gz`)
       .then(d => {
         region = d;
         regionState = 'done';
