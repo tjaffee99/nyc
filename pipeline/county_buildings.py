@@ -86,6 +86,44 @@ def county_heaps(raw, county):
     return found
 
 
+def on_atlas(geoms_utm):
+    """Per footprint: the year of the earliest traced atlas that draws this building (NaN: none
+    does). The Hudson County layers of data/manual/atlas (Jersey City 1919, the Hoboken plates
+    of 1891, the Heights of 1873) were traced to show what is gone; an outline that coincides
+    with a building standing today is that building, and so it stood by the atlas's year - the
+    only dated evidence for a county whose roll has a real year for one building in four."""
+    import json
+    import shapely
+    from common import MANUAL
+    from nyc_extras import ATLAS_SKIP
+    out = np.full(len(geoms_utm), np.nan)
+    files = [f for f in sorted((MANUAL / "atlas").glob("hudson_*.geojson")) if not f.stem.endswith("_coverage") and f.stem not in ATLAS_SKIP]
+    if not files or not len(geoms_utm):
+        return out
+    garea = shapely.area(geoms_utm)
+    for f in files:
+        try:
+            my = float(f.stem.rsplit("_", 1)[1])
+            t = gpd.read_file(f).to_crs(UTM)
+        except Exception:  # noqa: BLE001
+            continue
+        tg = t.geometry.values
+        tg = tg[~shapely.is_missing(tg)]
+        tg = shapely.make_valid(tg)
+        tree = shapely.STRtree(tg)
+        gi, ti = tree.query(geoms_utm, predicate="intersects")
+        if not len(gi):
+            continue
+        inter = shapely.area(shapely.intersection(geoms_utm[gi], tg[ti]))
+        fa, fb = inter / np.maximum(shapely.area(tg[ti]), 1e-6), inter / np.maximum(garea[gi], 1e-6)
+        iou = inter / np.maximum(shapely.area(tg[ti]) + garea[gi] - inter, 1e-6)
+        same = (iou >= 0.5) | ((fa >= 0.7) & (fb >= 0.6))
+        hit = np.unique(gi[same])
+        out[hit] = np.fmin(out[hit], my)
+        log(f"counties: {f.stem}: {len(hit)} standing footprints are buildings drawn on the atlas of {int(my)}")
+    return out
+
+
 _EPOCHS = []
 
 
@@ -127,7 +165,7 @@ def map_epochs():
     return _EPOCHS[0]
 
 
-def order_by_maps(lon, lat, xy, year, src):
+def order_by_maps(lon, lat, xy, year, src, raw=None):
     """Estimated years follow the order in which the maps show the ground built up. A year that
     is modelled (the census's homes by decade in the block group, the assessor's counts per
     cell) or taken from the buildings around is right as a distribution and blind as to which
@@ -143,10 +181,15 @@ def order_by_maps(lon, lat, xy, year, src):
     rank = grid[r, c].astype(np.int64)
     rank = np.where(rank == 0, len(years) + 1, rank)
     kind = np.where(src == "modelled", 1, np.where(src == "modelled_cells", 2, np.where(src == "neighbours", 3, 0)))
+    # (a placeholder that is a bound - "by 1900" - is dealt out again only among the buildings
+    # that carry the same placeholder: the bound holds for each of them)
+    by = np.array([str(v).startswith("heap_by") for v in src])
+    heap_year = np.where(by & np.isfinite(raw), raw, 0).astype(np.int64) if raw is not None else np.zeros(len(year), np.int64)
+    kind = np.where(by & (heap_year > 0), 4, kind)
     sel = np.flatnonzero((kind > 0) & np.isfinite(year))
     if not len(sel):
         return year, 0
-    key = (np.floor(xy[sel, 0] / 1000).astype(np.int64) * 100003 + np.floor(xy[sel, 1] / 1000).astype(np.int64)) * 8 + kind[sel]
+    key = ((np.floor(xy[sel, 0] / 1000).astype(np.int64) * 100003 + np.floor(xy[sel, 1] / 1000).astype(np.int64)) * 8 + kind[sel]) * 4096 + heap_year[sel]
     d = pd.DataFrame({"i": sel, "key": key, "rank": rank[sel], "year": year[sel]})
     by_map = d.sort_values(["key", "rank", "year"], kind="stable")
     by_year = d.sort_values(["key", "year"], kind="stable")
@@ -366,9 +409,20 @@ def build(g, outer=False):
                 rk = (pd.Series(year[m]).rank(method="first").values - 0.5) / m.sum()
                 year[m] = np.quantile(ref, rk)
         log(f"counties: {int(use_est.sum())} footprints without a roll year take the modelled estimate")
+    # standing on a traced atlas: built by its year (on_atlas). Not for a recorded year.
+    if np.isin(county, ["Hudson"]).any():
+        hud = np.flatnonzero(county == "Hudson")
+        my = np.full(n, np.nan)
+        my[hud] = on_atlas(g.geometry.to_crs(UTM).values[hud])
+        late = np.isfinite(my) & ~np.isin(src, ["parcel", "historic_register", "known"]) & (year > my)
+        if late.any():
+            year = year.copy()
+            year[late] = my[late] - 2.0 - 22.0 * np.array([h01(f"am{k}") for k in np.asarray(keys)[late]])
+            src = np.where(late, "on_map", src).astype(object)
+            log(f"counties: {int(late.sum())} Hudson County buildings with an estimated year stand on a traced atlas: dated to before it")
     # the order of building-out follows the dated maps (order_by_maps)
     bb = g.geometry.bounds
-    year, moved = order_by_maps(((bb.minx + bb.maxx) / 2).values, ((bb.miny + bb.maxy) / 2).values, xy, year, src)
+    year, moved = order_by_maps(((bb.minx + bb.maxx) / 2).values, ((bb.miny + bb.maxy) / 2).values, xy, year, src, raw)
     if moved:
         log(f"counties: {moved} estimated years dealt out again in the order the dated maps show the ground built up")
     year = np.clip(year, YEAR_MIN, 2029.0)

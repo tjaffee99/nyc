@@ -125,7 +125,7 @@ def source_label(src: str) -> str:
     if src == "neighbours":
         return "no recorded year: estimated from the buildings around"
     if src == "on_map":
-        return "standing on a 19th-century atlas (year estimated)"
+        return "standing on a traced atlas of the time: built by then (the year itself is estimated)"
     if src == "evidence_by:law_old":
         return "an old-law tenement in the city's housing records: built by April 1901 (the assessor's year is later)"
     if src == "evidence_by:law_1929":
