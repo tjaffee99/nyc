@@ -16,8 +16,9 @@ from export_columnar import write_columnar
 POSITION_SCALE = 1e-6
 
 
-def encode(geoms, origin):
+def encode(geoms, origin, scale=None):
     """geoms: shapely Polygons (EPSG:4326). Returns (positions int32 flat, starts u32, valid u8, n_vertices)."""
+    scale = scale or POSITION_SCALE
     pos_chunks, valid_chunks = [], []
     starts = np.zeros(len(geoms) + 1, np.uint32)
     vcount = 0
@@ -31,7 +32,7 @@ def encode(geoms, origin):
         for r in rings:
             e += len(r)
             valid[e - 1] = 0
-        q = np.rint((closed - (ox, oy)) / POSITION_SCALE).astype(np.int64)
+        q = np.rint((closed - (ox, oy)) / scale).astype(np.int64)
         d = np.diff(q, axis=0, prepend=np.zeros((1, 2), np.int64))  # first vertex relative to the origin
         pos_chunks.append(d.astype(np.int32))
         valid_chunks.append(valid)
@@ -42,20 +43,33 @@ def encode(geoms, origin):
     return np.concatenate(pos_chunks).ravel(), starts, np.concatenate(valid_chunks), vcount
 
 
-def write_buildings(path, df, origin, conf_codes, use_categories, extra_meta=None):
+COMPACT_SCALE = 5e-6     # the outer tier: corners to half a metre
+
+
+def write_buildings(path, df, origin, conf_codes, use_categories, extra_meta=None, compact=False):
     """df: GeoDataFrame (EPSG:4326, Polygons) with start_year, end_year, height, base,
-    year_confidence, use, raw_year, stories, mat, roof, fid_key."""
-    positions, starts, valid, vcount = encode(df.geometry.values, origin)
+    year_confidence, use, raw_year, stories, mat, roof, fid_key.
+    compact (the outer counties' tier: the same format, fewer bits): corners to half a metre,
+    years to a quarter, heights to half a metre, and an id of one byte (the id only varies the
+    colour a little)."""
+    scale = COMPACT_SCALE if compact else POSITION_SCALE
+    positions, starts, valid, vcount = encode(df.geometry.values, origin, scale)
     fid = np.array([zlib.crc32(str(k).encode()) for k in df.fid_key.astype(str)], dtype=np.uint32)
     stories = np.nan_to_num(df.stories.astype(float).values, nan=0).clip(0, 255).astype(np.uint8)
+    sy, hh, bb = df.start_year.astype(np.float32).values, df.height.astype(np.float32).values, df.base.astype(np.float32).values
+    if compact:
+        fid = fid & np.uint32(0xFF)
+        sy = (np.round(sy * 4) / 4).astype(np.float32)
+        hh = (np.round(hh * 2) / 2).astype(np.float32)
+        bb = (np.round(bb * 2) / 2).astype(np.float32)
     cols = {
         "positions_delta|shuffle": positions,
         "start_indices|shuffle": starts,
         "vertex_valid": valid,
-        "start_year": df.start_year.astype(np.float32).values,
+        "start_year": sy,
         "end_year": df.end_year.astype(np.float32).values,
-        "height": df.height.astype(np.float32).values,
-        "base": df.base.astype(np.float32).values,
+        "height": hh,
+        "base": bb,
         "confidence": df.year_confidence.map(conf_codes).fillna(1).astype(np.uint8).values,
         "use": df.use.astype(np.uint8).values,
         "raw_year": df.raw_year.fillna(0).astype(np.int16).values,
@@ -64,7 +78,7 @@ def write_buildings(path, df, origin, conf_codes, use_categories, extra_meta=Non
         "roof": df.roof.astype(np.uint8).values,
         "fid|shuffle": fid,
     }
-    meta = {"position_scale": POSITION_SCALE, "use_categories": use_categories, "confidence": list(conf_codes)}
+    meta = {"position_scale": scale, "use_categories": use_categories, "confidence": list(conf_codes)}
     # where the year comes from (shown in the click popup), and the names of named buildings
     if "year_src" in df:
         labels = [source_label(v) for v in df.year_src.fillna("").astype(str).values]

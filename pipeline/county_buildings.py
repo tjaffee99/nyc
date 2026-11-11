@@ -35,6 +35,17 @@ from nyc_buildings import (COLS, Ground, fill_estimates, find_heaps, h01, land_c
 UTM = NYC_CRS
 OUT = VIEWER_DATA / "county-buildings"
 SRC = INTERIM / "counties"
+# The outer tier (docs/OUTER_ROUND.md; the owner, 2026-11-11: "compress the houses ... you probably
+# only need real detail for a few places outside of the core"): the 19 county units beyond the
+# seven around the city. Their own tile set; outlines of house size are stored as rectangles of
+# the outline's area on its long axis, nothing under OUTER_MIN_M2 is drawn, and no full file is
+# kept. `python county_buildings.py outer` builds it, one county file at a time.
+OUT_OUTER = VIEWER_DATA / "outer-buildings"
+INNER_FILES = {"nj_bergen", "nj_essex", "nj_hudson", "nj_passaic", "nj_union", "ny_rockland", "ny_westchester"}
+OUTER_MIN_M2 = 60.0
+RECT_MAX_M2 = 500.0      # a larger building keeps its outline (simplified to OUTER_SIMPLIFY_M)
+RECT_FILL = 0.55         # ... and so does one that fills less of its bounding rectangle than this
+OUTER_SIMPLIFY_M = 1.2
 NOW = 2026.5
 # a municipality is built when at least this share of its main buildings carries a year
 MIN_YEAR_SHARE = 0.5
@@ -50,10 +61,16 @@ def built_counties():
     return set(json.loads(p.read_text()).get("counties", {}).values())
 
 
-def load():
-    files = sorted(SRC.glob("n[jy]_*.parquet")) + sorted(SRC.glob("ct_*.parquet")) if SRC.exists() else []
+def county_files(outer=False):
+    files = (sorted(SRC.glob("n[jy]_*.parquet")) + sorted(SRC.glob("ct_*.parquet")) + sorted(SRC.glob("pa_*.parquet"))) if SRC.exists() else []
     files = [f for f in files if not f.stem.endswith("_estimates")]   # (read beside their county's file, below)
-    keep = built_counties()
+    return [f for f in files if (f.stem not in INNER_FILES) == outer]
+
+
+def load(files=None, outer=False):
+    if files is None:
+        files = county_files()
+    keep = None if outer else built_counties()
     if os.environ.get("COUNTIES"):   # test run: only these (names, comma-separated)
         keep = set(os.environ["COUNTIES"].split(","))
     parts = []
@@ -90,8 +107,9 @@ def load():
     g = g.explode(index_parts=False)
     g = g[g.geometry.geom_type == "Polygon"].reset_index(drop=True)
     g["area"] = g.geometry.to_crs(UTM).area.values
-    # (outbuildings under 25 m2 — sheds — are not drawn in the counties: the site must stay small)
-    return g[g["area"] > 25].reset_index(drop=True)
+    # (outbuildings under 25 m2 — sheds — are not drawn in the counties: the site must stay small;
+    # in the outer tier nothing under OUTER_MIN_M2: garages go too)
+    return g[g["area"] > (OUTER_MIN_M2 if outer else 25)].reset_index(drop=True)
 
 
 def recorded_evidence():
@@ -116,11 +134,25 @@ def recorded_evidence():
     return g.geometry.values[ok], year[ok], hist_ok[ok]
 
 
-def main():
-    g = load()
-    if g is None:
-        log("counties: no county files (data/interim/counties) or none on the map yet - nothing to build")
-        return
+def compact(geoms_utm, area):
+    """The outer tier's outlines: a house-sized outline that fills its bounding rectangle becomes
+    that rectangle, shrunk about its centre to the outline's own area; the rest is simplified."""
+    import shapely
+    mrr = shapely.minimum_rotated_rectangle(geoms_utm)
+    ok = np.array([q is not None and q.geom_type == "Polygon" for q in mrr], bool)
+    ma = np.where(ok, shapely.area(mrr), np.inf)
+    rect = ok & (area < RECT_MAX_M2) & (area >= RECT_FILL * ma)
+    out = shapely.simplify(geoms_utm, OUTER_SIMPLIFY_M, preserve_topology=True)
+    if rect.any():
+        c = shapely.get_coordinates(mrr[rect]).reshape(-1, 5, 2)
+        mid = c[:, :4].mean(axis=1, keepdims=True)
+        k = np.sqrt(area[rect] / ma[rect])[:, None, None]
+        out[rect] = shapely.polygons(mid + (c - mid) * k)
+    return out, rect
+
+
+def build(g, outer=False):
+    """Years, heights, materials and ground of the footprints `g` -> the rows of the map."""
     n = len(g)
     xyp = g.geometry.to_crs(UTM).representative_point()
     xy = np.column_stack([xyp.x.values, xyp.y.values])
@@ -192,12 +224,77 @@ def main():
                             "year_confidence": conf, "use": use, "raw_year": np.nan_to_num(raw), "stories": stories,
                             "mat": mat, "roof": roof, "fid_key": keys, "year_src": src, "name": names, "county": county,
                             "height_m": H, "area": area, "start_free": np.minimum(start0, start)}, geometry=g.geometry.values, crs=4326)
-    out["geometry"] = out.geometry.to_crs(UTM).simplify(0.6, preserve_topology=True).to_crs(4326)
+    if outer:
+        gm, rect = compact(out.geometry.to_crs(UTM).values, area)
+        out["geometry"] = gpd.GeoSeries(gm, crs=UTM).to_crs(4326).values
+        log(f"counties: {int(rect.sum())} of {n} outlines stored as rectangles")
+    else:
+        out["geometry"] = out.geometry.to_crs(UTM).simplify(0.6, preserve_topology=True).to_crs(4326)
     out = out[~out.geometry.is_empty & out.geometry.is_valid & (out.geometry.geom_type == "Polygon")]
+    return out, measured
+
+
+def points_of(out):
     rp = out.geometry.representative_point()
-    pd.DataFrame({"lon": rp.x.values, "lat": rp.y.values, "start_year": out.start_year.values, "end_year": out.end_year.values,
-                  "area_m2": out["area"].values, "height": out.height.values, "boro": "9", "county": out.county.values,
-                  "conf": out.year_confidence.values, "start_free": out.start_free.values}).to_parquet(INTERIM / "county_building_points.parquet")
+    return pd.DataFrame({"lon": rp.x.values, "lat": rp.y.values, "start_year": out.start_year.values, "end_year": out.end_year.values,
+                         "area_m2": out["area"].values, "height": out.height.values, "boro": "9", "county": out.county.values,
+                         "conf": out.year_confidence.values, "start_free": out.start_free.values})
+
+
+def merge_points():
+    """county_building_points.parquet (terrain, roads, ground detail) = the inner counties' points
+    and the outer tier's, whichever run wrote last."""
+    parts = [pd.read_parquet(f) for f in (INTERIM / "county_points_inner.parquet", INTERIM / "county_points_outer.parquet") if f.exists()]
+    if parts:
+        pd.concat(parts, ignore_index=True).to_parquet(INTERIM / "county_building_points.parquet")
+
+
+def main_outer():
+    """The outer tier: one county file at a time (Suffolk alone is 600,000 footprints)."""
+    files = county_files(outer=True)
+    if os.environ.get("FILES"):          # test run: only these stems (comma-separated)
+        files = [f for f in files if f.stem in os.environ["FILES"].split(",")]
+    outs, pts = [], []
+    for f in files:
+        g = load([f], outer=True)
+        if g is None or not len(g):
+            continue
+        out, _ = build(g, outer=True)
+        pts.append(points_of(out))
+        outs.append(out[COLS + ["year_src", "name", "county"]])
+        del g, out
+    if not outs:
+        log("counties: no outer county files yet (data/interim/counties)")
+        return
+    out = gpd.GeoDataFrame(pd.concat(outs, ignore_index=True), geometry="geometry", crs=4326)
+    pd.concat(pts, ignore_index=True).to_parquet(INTERIM / "county_points_outer.parquet")
+    merge_points()
+    write_tile_set(out[COLS + ["year_src", "name"]], OUT_OUTER, compact=True)
+    size = sum(q.stat().st_size for q in OUT_OUTER.rglob("*.bin.gz")) / 1e6
+    y = np.floor(out.start_year.values).astype(int)
+    summary = {"buildings": int(len(out)), "by_county": out.county.value_counts().to_dict(),
+               "confidence": out.year_confidence.value_counts().to_dict(),
+               "source": pd.Series(out.year_src.values).str.split(":").str[0].value_counts().to_dict(),
+               "tile_set_mb": round(size, 1), "bytes_per_building": round(size * 1e6 / max(len(out), 1), 1),
+               "per_decade": {str(int(d)): int(c) for d, c in zip(*np.unique(y // 10 * 10, return_counts=True))}}
+    p = INTERIM / "reports" / "outer_buildings_summary.json"
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(summary, indent=1))
+    log(f"counties (outer): {summary['buildings']} buildings {summary['by_county']}; {size:.0f} MB, "
+        f"{summary['bytes_per_building']} bytes per building; confidence {summary['confidence']}")
+
+
+def main():
+    import sys
+    if "outer" in sys.argv[1:]:
+        return main_outer()
+    g = load()
+    if g is None:
+        log("counties: no county files (data/interim/counties) or none on the map yet - nothing to build")
+        return
+    out, measured = build(g)
+    points_of(out).to_parquet(INTERIM / "county_points_inner.parquet")
+    merge_points()
     out.to_parquet(INTERIM / "county_buildings.parquet")
     write_tile_set(out[COLS + ["year_src", "name"]], OUT)
     y = np.floor(out.start_year.values).astype(int)

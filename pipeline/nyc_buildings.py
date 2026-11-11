@@ -811,8 +811,9 @@ def build():
     return g
 
 
-def write_tile_set(rest, out_dir):
-    """z13 tiles of every building + z11 tiles of the large / tall ones + index.json."""
+def write_tile_set(rest, out_dir, compact=False):
+    """z13 tiles of every building + z11 tiles of the large / tall ones + index.json.
+    compact: building_binary.write_buildings' compact encoding (the outer counties)."""
     import shutil
     rp = rest.geometry.representative_point()
     tx, ty = tile_of(rp.x.values, rp.y.values)
@@ -822,7 +823,7 @@ def write_tile_set(rest, out_dir):
     index = []
     for (x, y), t in rest.groupby(["tx", "ty"]):
         path = out_dir / str(TILE_Z) / str(x) / f"{y}.bin.gz"
-        write_buildings(path, t, tile_origin(x, y), CONF, USE_CATEGORIES)
+        write_buildings(path, t, tile_origin(x, y), CONF, USE_CATEGORIES, compact=compact)
         index.append({"x": int(x), "y": int(y), "n": int(len(t)), "bbox": [round(float(v), 5) for v in t.total_bounds]})
     # zoomed out: only buildings big enough to see there, outlines simplified to 1.5 m
     ru = rest.geometry.to_crs(UTM)
@@ -835,7 +836,7 @@ def write_tile_set(rest, out_dir):
     low = low.assign(tx=lx, ty=ly)
     low_index = []
     for (x, y), t in low.groupby(["tx", "ty"]):
-        write_buildings(out_dir / str(LOW_Z) / str(x) / f"{y}.bin.gz", t, tile_origin(x, y, LOW_Z), CONF, USE_CATEGORIES)
+        write_buildings(out_dir / str(LOW_Z) / str(x) / f"{y}.bin.gz", t, tile_origin(x, y, LOW_Z), CONF, USE_CATEGORIES, compact=compact)
         low_index.append({"x": int(x), "y": int(y), "n": int(len(t))})
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "index.json").write_text(json.dumps({"z": TILE_Z, "tiles": index, "low": {"z": LOW_Z, "tiles": low_index}},
