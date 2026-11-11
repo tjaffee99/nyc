@@ -588,6 +588,61 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
       say what is estimated. Wikipedia rate-limits this machine (fetch raw wikitext, slowly);
       Princeton's and West Point's own sites refuse it.
 
+54. **Build-out order, the Hudson waterfront, a light default** (2026-11-11, night; the owner:
+    "the years of the buildings seem fake. think much harder about the order in which all of
+    these towns were actually built out, the patterns of farmland and forest over time …
+    surely some kind of maps exist in the past? also a lot of Jersey City and Hoboken are
+    empty before the modern era"; `docs/ROUND3.md`).
+    - *Maps of 1946-61* (`data/manual/gapfill/all_tint_{1949,1957}.geojson`,
+      `all_woodland_{1949,1957}.geojson`, `outer_tint_1949.geojson`; tool
+      `gapfill/tools/usgs_epochs.py`; `data/research/usgs_epochs.md`): the urban tint and the
+      green woodland tint of the Army Map Service's 1:250,000 sheets, for all 31 areas,
+      registered to about 50 m. Validated on buildings with a recorded year: 5.8-7.4 % of those
+      older than the map lie in its woodland; the tint shows towns, not farms (recall 37-45 %),
+      and in the inner counties it covers whole conurbations (it dates nothing there). The
+      1890s sheets could not be read reliably in the outer counties (no tint; black ink is
+      railways and labels as much as towns): not done.
+    - *Estimated years follow the maps* (`county_buildings.order_by_maps`, `map_epochs`): within
+      a square kilometre and one kind of estimate (census model, counts per cell, neighbours; a
+      "by" placeholder among the buildings that carry the same one) the years are dealt out
+      again so that buildings on ground an older map shows built up (1897, 1940s, 1949, 1957)
+      take the earliest. The square's set of years does not change; recorded years are not
+      touched. It orders, it does not date.
+    - *Standing on a traced atlas* (`county_buildings.on_atlas`, Hudson County): a standing
+      building that coincides with an outline of the 1919 Jersey City atlas (or Hoboken 1891,
+      the Heights 1873) and has only an estimated year is dated to before the atlas (978
+      buildings; source `on_map`). Hudson's roll has a real year for one building in four.
+    - *The woods of 1957 in the terrain* (`terrain_tiles.woods_of_1957`): open then and wooded
+      today — the woods came back after 1957, not in 1882-1937; wooded then and built on
+      since — the field goes back to woods before the houses come.
+    - *The lost railroad yards of the Hudson waterfront* (`data/manual/ports/yards_historic.geojson`,
+      `data/research/hudson_waterfront.md`): nine rail properties with opening and closing
+      years; outlines hand-drawn from today's streets and the 1919 layer (50-150 m).
+      `port_fill.py` draws parallel tracks in the six that are gone and stands cars on them
+      until the yard closed (5,008 cars, `procedural`). `notable_demolished.hudson.csv`: nine
+      lost terminals as boxes of estimated size. `port_fill.py` no longer takes its own rows
+      of the run before as obstacles (a rerun stood nothing on yards that already had cars).
+    - *Not done there*: no more of Hoboken was traced (the Library of Congress's site was
+      down; the scans of the three plates of 1891 are gone from the machine); the
+      Hamburg-American piers, Colgate, Stevens Castle and Maxwell House have no opened source
+      that places them within 40 m.
+    - *The page*: effects (`effects.ts`) are drawn only while the guided tour runs, and only
+      fires, explosions and collapses — the troop columns, clashes and fleets are gone (the
+      owner). By default the page loads the **core**: the five boroughs and Hudson County
+      (`scope.ts`, `extent.py core_ring` → `core-extent.json`); "Show the whole region" loads
+      the counties (remembered on the device; a link into the counties opens them). Everything
+      that asks the extent follows; the region's elevation grid, ground detail and outer
+      building index are not loaded in the core. Local streets are drawn darker (they were in
+      `region-streets` for the outer counties all along and did not read on suburban ground).
+    - *The counter* (`cities.py`, `tables.ts localPopulationAt`): below zoom 9.3 the
+      metropolitan area (the sum of every county's series on the map, from 1790); from zoom
+      11.3 outside the city the town under the centre of the map
+      (`pipeline/town_population.py` → `data/tables/population_towns.csv`: the census counts
+      of the municipalities from the `US Census population` template of their Wikipedia
+      articles, fetched slowly; outlines: TIGER county subdivisions,
+      `data/interim/towns/towns.parquet`); between, the county. No neighbourhood figures: no
+      historical series exists for them.
+
 ## What is not done (as of 2026-11-11)
 
 - **Between the atlases and 1996** nothing real shows what stood: one atlas state per
