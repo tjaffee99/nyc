@@ -41,19 +41,20 @@ Every feature is a geometry with a lifespan:
 
 ## Scope
 
-- **Now:** the five boroughs, and seven counties around them: Hudson, Bergen, Essex, Union and
-  Passaic (New Jersey), Westchester and Rockland (New York) — `data/manual/extent_counties.json`.
-  Manhattan carries the deepest history; the counties have today's buildings with their
-  parcel years, the landscape of 1609, made land, streets, railroads, parks and labels, and
-  nothing vanished. The owner's priority order for accuracy: Manhattan > the other boroughs >
-  the inner suburbs > the outer suburbs.
-- **Not on the map, and why:** Nassau publishes no construction years in bulk (it could be
-  drawn with modelled years as 22 of Westchester's 43 municipalities are: decision 35). The
-  rest of the metropolitan
-  area (the owner's list: Putnam, Suffolk, Ulster, Dutchess, Orange, Sullivan NY; Middlesex,
-  Monmouth, Ocean, Somerset, Morris, Sussex, Hunterdon, Mercer NJ; Greater Bridgeport, Western
-  Connecticut and New Haven; Pike PA) is not started. New Jersey's tax list (MOD-IV) covers
-  every county of the state; the binding limits are the size of the published site and cost.
+- **Now:** the five boroughs and 26 counties around them (`data/manual/extent_counties.json`).
+  *Inner* (full detail): Hudson, Bergen, Essex, Union and Passaic (New Jersey), Westchester and
+  Rockland (New York). *Outer* (a compact tier, decision 39): Nassau, Suffolk, Putnam, Orange,
+  Dutchess, Ulster, Sullivan (New York); Middlesex, Monmouth, Ocean, Somerset, Morris, Sussex,
+  Hunterdon, Mercer (New Jersey); Greater Bridgeport, Western Connecticut and South Central
+  Connecticut (the planning regions that replaced the counties); Pike (Pennsylvania).
+  Manhattan carries the deepest history; the inner counties have today's buildings with their
+  parcel years, the landscape of 1609, made land, streets, railroads, parks, labels and
+  generated rows for what was cleared; the outer counties have today's buildings (houses as
+  rectangles) with a year each, thinned trees, the same ground model, highways, stations,
+  labels, a few landmarks and their colonial towns. The owner's priority order for accuracy:
+  Manhattan > the other boroughs > the inner suburbs > the outer suburbs.
+- **Not on the map:** nothing of the owner's list is left out. Beyond it (Litchfield, Hartford,
+  the Lehigh Valley, Philadelphia's side of the Delaware) the ground is drawn faded.
 
 ## Repo layout
 
@@ -90,11 +91,12 @@ pairs in the city's own footprints are reported, not failed; "before their groun
 (if it is not, run `terrain_tiles.py land`, the two building stages and `terrain_tiles.py`
 again: decision 22). The whole chain in order, one stage at a time (about 25 minutes):
 `nyc_buildings.py evidence` → `terrain_tiles.py land` → `nyc_buildings.py` →
-`county_buildings.py` → `street_trees.py build` → `airports.py` → `terrain_tiles.py` →
+`county_buildings.py` → `county_buildings.py outer` → `street_trees.py build` → `airports.py` → `terrain_tiles.py` →
 `ground_detail.py` → `roads.py` (+ `check`) → `transit.py` → `cities.py` → `nyc_extras.py` →
-`audit.py`. The generated fills read the built files: after a change to the buildings run
-the first four stages, then `gap_fill.py fresh assemble report` and `site_fill.py`, then the
-whole chain (decisions 34, 36). Other jobs on the machine get killed for memory while it runs, and it them. After a deploy run the second
+`audit.py` (about an hour on the wide map). The generated fills read the built files: after a
+change to the buildings run the first four stages, then `gap_fill.py fresh assemble report`,
+`gap_fill.py counties`, `site_fill.py` and `port_fill.py`, then the whole chain (decisions 34,
+36, 44). Other jobs on the machine get killed for memory while it runs, and it them. After a deploy run the second
 command against https://nyc.theojaffee.net/ and compare a file's checksum with `viewer/dist`.
 
 ## Working conventions
@@ -424,6 +426,90 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
     `procedural` row. After a change to the fill, check
     `select year_src, count(*) ... where year_confidence = 'procedural'` on the built file.
 
+39. **The outer counties are a compact tier** (round of 2026-11-11; the owner: "add the rest of
+    the counties now … compress the houses and tree procedural generation if you must"). One box
+    for everything, `common.REGION_BBOX` = `OUTER_BBOX` = (-75.37, 39.47, -71.85, 42.20).
+    - *Buildings* (`county_buildings.py outer` → `data/outer-buildings`, one county file at a
+      time): 3.01 million, 68 MB, 22.5 bytes a building. A house under 500 m² that fills 55 % of
+      its smallest enclosing rectangle is drawn as that rectangle with the outline's area;
+      nothing under 60 m²; corners to half a metre (`building_binary.COMPACT_SCALE`), years to a
+      quarter, heights to half a metre, a one-byte id. Larger buildings keep their outline,
+      simplified to 1.2 m. The inner counties' set is unchanged.
+    - *Trees*: outside `terrain_tiles.INNER_BBOX` 30 % of the canopy trees, drawn 1.6 times as
+      large. *Ground detail* outside it: outlines of 5,000 m² and more.
+    - *Tables with outer rows*, read by the city's stages: `places_outer.csv`,
+      `population_outer.csv`, `transit_stations_outer.csv`, `airports_outer.csv`,
+      `data/manual/routes_outer.csv`, `fill_zones_outer.csv` (137 reservoirs),
+      `landmarks_bridges_hudson.csv`. Place coordinates were checked against the Census
+      gazetteer (the agents' own were from memory and up to kilometres off).
+    - *Hosting*: `deploy.py`'s list of sets read from the branch now also holds
+      `data/outer-buildings`, `data/region-streets`, `data/region-trees` and
+      `data/region-ground-detail.bin.gz`.
+40. **Years in the outer counties** (`data/research/county_years.md`, `counties_*.md`). The
+    owner: "I don't believe that you actually have to model 100% for any county. There must be
+    some data somewhere" — there was. New Jersey: MOD-IV. New York: the state parcel layer and
+    the State's parcel centroid points (Dutchess: 87 % recorded). Connecticut: the towns' CAMA
+    files (`AYB`). Where a roll publishes no year — Nassau, Brookhaven — the building takes one
+    from HISDAC-US's counts of buildings by five-year period in its 250 m cell (built from the
+    assessors' own records; source `modelled_cells`). Islip, Huntington, Babylon, East Hampton,
+    Southold and Pike County still rest on the census model of decision 35 (`modelled`).
+    Overall 43 % recorded, 57 % `estimated`. None of the Long Island years was validated
+    against a hidden sample.
+41. **The wide terrain is worked in windows** (`terrain_tiles.histories_whole`). The region grid
+    is 5,377 × 5,249 cells of 58 m; every change of cover is a pair of full arrays, so it is
+    computed in 9 windows (32-tile cores, 3-tile margins) and the cores are put together. The
+    noise is the whole grid's (`_H_OFF`), so fields and woodlots run across a window's edge.
+    Tiles beyond the outline are not written. All reservoirs are one change of cover and all
+    airfields one (one each ran the densest window out of memory). The fine grid still covers
+    only the city box.
+42. **Farmland follows the censuses** (`terrain_tiles.farm_census`,
+    `data/tables/farmland_counties.csv`, `data/research/farmland.md`; the owner: "was there
+    *that* much farming in 1820? like the entire metro area?" — no). The model of decision 29
+    keeps its order of clearing; the share of each county that is cleared at 1820, 1850 and
+    1880 is set to the census's improved acreage (Ocean 7 % at its peak, Pike 6 %, Sussex 24 %
+    in 1820 and 45 % in 1850, Somerset 71 %). The run logs every county's figures.
+43. **Districts that were cleared and rebuilt** (`gap_fill.py counties` → `cleared_blocks()`,
+    `data/manual/gapfill/cleared_districts.geojson`: 14 districts, Newark's Central Ward
+    first; the owner: "appear before they were destroyed and are not just farmland until the
+    90s"). Inside a district every block front carries generated lots from the district's
+    building-up to its clearance (`procedural`, the popup names the evidence); the counties'
+    built-up areas of the 1897 and 1940s USGS sheets (`counties_builtup_1897.geojson`,
+    `counties_tint_194x.geojson`) date the city ground. `gapfill_counties.parquet`: 110,000 rows.
+44. **Ports, rail yards and other working ground** (`port_fill.py`, `data/manual/ports/`: 7
+    container terminals, 18 yards; `gapfill_ports.parquet`, 9,800 rows, read only when
+    `gapfill_ports.ok` exists). Container stacks and standing railroad cars from the
+    terminal's or yard's opening year: the terminal and its year are real, positions, sizes and
+    colours generated (`procedural`, material 16 `containers`, the popup says so). Airfields
+    are mown grass (green, not the dry yellow of open ground).
+45. **Piers reach the land** (`nyc_extras._to_land`): a deck whose landward end stands in the
+    water of its own year is carried to the shore (up to 96 m: three terrain cells); 780 decks.
+    The shore is the terrain's, so a pier can still end a cell short on screen.
+46. **Things on decks** (`ground_detail.deck_floor`, `data/research/features_on_decks.md`):
+    pitches, tracks and courts on a landmark's roof deck (Riverbank State Park, Pier 40,
+    Brooklyn Bridge Park's piers) are drawn at the deck's height, not under it.
+47. **A low apartment building is not a row house**: building class D is never `small_res`
+    (Co-op City's garden apartments were coloured and labelled as row houses).
+48. **Effects** (`viewer/src/layers/effects.ts`, `data/tables/effects.csv`: 186 rows;
+    `effects_README.md`): fires, explosions, battles (columns moving, clashes), fleets and
+    collapses as animated marks at their dates, two flat layers driven from the traffic clock.
+    Dates and places are largely from general knowledge (`estimated` in the table), not from
+    opened sources. A failure in the layer switches it off rather than the map (`fxBroken`).
+49. **The counties' colonial towns** (`data/tables/early_counties.csv`: 161 towns, 1,065 rows;
+    `nyc_extras.early_sites`): as decision 25 — the town and its founding are researched (from
+    general knowledge, see the note), the houses and where each stands are generated.
+50. **Story and page** (the owner's requests of 2026-11-11): 217 stops (stops outside the map's
+    outline are dropped at start); pace 0.62 of the written seconds, flights 1.7-5.2 s; a stop
+    is approached up to 8 years early so that what it shows appears while it is on screen; events
+    that are not buildings are stops too. The Story button stands between Play and the slider
+    and starts at the slider's year — at 1609 only while the page still stands at the 1900 it
+    loaded with. The sources are a small "i" in the corner.
+51. **Landmarks, second pass** (`nyc-more-{a,b,c}.ts`, `nj-inner.ts`, `nj-outer.ts`,
+    `ny-hudson.ts`, `ny-long-island.ts`, `ct.ts`; notes `data/research/landmarks_*.md`): about
+    120 models — the High Line, the Farley Building / Moynihan Train Hall, the Brooklyn Tower
+    on the Dime, Riverbank State Park, Pier 40; Newark, Jersey City, Princeton, Trenton, West
+    Point, Kykuit, Sleepy Hollow, Oheka Castle, New Haven and Yale, the Hudson's bridges. A
+    model outside the map's outline is not built (`loadLandmarks`).
+
 ## What is not done (as of 2026-11-11)
 
 - **Between the atlases and 1996** nothing real shows what stood: one atlas state per
@@ -442,10 +528,20 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
   Creedmoor, Kings County and the other hospital campuses were not researched building by
   building; the Navy Yard's 1946 plan still holds about 150 untraced buildings.
 - **Piers before 1888**, and piers as part of the terrain (narrower than a cell).
-- **The counties' history**: vanished buildings only as generated rows (decision 34), no
-  landmarks; Nassau has no buildings; the Hudson shore north of Hastings rests on the
-  soil survey alone; the Newark Bay Bridge and the Pulaski Skyway are drawn too low.
-- **Landmarks**: no new models in this round; some forts and works are plain documented boxes.
+- **The counties' history**: vanished buildings only as generated rows (decisions 34, 43); the
+  Hudson shore north of Hastings rests on the soil survey alone; the Newark Bay Bridge and the
+  Pulaski Skyway are drawn too low.
+- **The outer counties**: no vanished buildings outside the cleared districts and the colonial
+  towns; no 1609 layer of their own (dry land is forest, today's water is water, no vanished
+  streams or marsh); demolished railroads and trolleys are not drawn (the cached
+  OpenHistoricalMap rail extract covers the old box: delete `ohm_rail_region.json` under
+  `data/raw` to refetch); closed airfields have no outline; the Lower Trenton bridge's road deck
+  is drawn through its model; six Suffolk towns and Pike County have census-modelled years.
+- **Large empty working ground**: the 25 largest empty patches (tank farms, quarries, depots)
+  listed by the ports part were not filled.
+- **Effects and the colonial towns of the counties** rest on general knowledge, not opened
+  sources; the story's event captions were not checked line by line.
+- **Landmarks**: some forts and works are plain documented boxes.
 - **Removed trees** are not drawn (the viewer has no end year for trees).
 - **LiDAR massing** (`lidar_parts.py`, not ported): towers without OSM parts are flat extrusions.
 - **The Harlem USGS sheet's registration** in the city's 1609 layer may be off by tens of

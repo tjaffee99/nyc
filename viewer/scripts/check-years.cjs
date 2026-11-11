@@ -18,6 +18,12 @@ const VIEWS = [
   ['1776 battle', 'year=1776.655&c=-73.985,40.665&z=12.6&p=50&b=0'],
   ['1835 fire', 'year=1835.97&c=-74.009,40.705&z=15&p=55&b=29'],
   ['2001 towers', 'year=2001.70&c=-74.0125,40.7115&z=14.5&p=60&b=29'],
+  // the outer counties (the compact tier)
+  ['2026 New Haven', 'year=2026&c=-72.927,41.308&z=13.4&p=50&b=0'],
+  ['1900 Trenton', 'year=1900&c=-74.765,40.22&z=13.2&p=50&b=0'],
+  ['1960 Levittown', 'year=1960&c=-73.515,40.725&z=13.2&p=45&b=0'],
+  ['2026 Poughkeepsie', 'year=2026&c=-73.93,41.705&z=12.6&p=50&b=0'],
+  ['2026 whole map', 'year=2026&c=-73.7,40.9&z=7.6&p=0&b=0'],
 ];
 (async () => {
   const base = process.argv[2];
@@ -27,10 +33,11 @@ const VIEWS = [
   page.on('console', m => { if (m.type() === 'error' || m.type() === 'warning') msgs.push(`${m.type()}: ${m.text().slice(0, 200)}`); });
   page.on('pageerror', e => msgs.push(`pageerror: ${e.message.slice(0, 300)}`));
   // (counted from the responses: the browser's resource log keeps only its first 250 entries)
-  const got = {regionBuildingTiles: 0, countyBuildingTiles: 0, terrain13: 0, fromRawHost: 0, failed: 0};
+  const got = {regionBuildingTiles: 0, countyBuildingTiles: 0, outerBuildingTiles: 0, terrain13: 0, fromRawHost: 0, failed: 0};
   page.on('response', r => {
     const u = r.url();
     const hit = /region-buildings\/1[13]\//.test(u) ? 'regionBuildingTiles' : /county-buildings\/1[13]\//.test(u) ? 'countyBuildingTiles'
+      : /outer-buildings\/\d+\//.test(u) ? 'outerBuildingTiles'
       : /tiles\/terrain\/13\//.test(u) ? 'terrain13' : null;
     if (/raw\.githubusercontent\.com/.test(u)) got.fromRawHost++;
     if (hit) { if (r.ok()) got[hit]++; else got.failed++; }
