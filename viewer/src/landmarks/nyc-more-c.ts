@@ -97,6 +97,36 @@ const SOURCES = [
   OSM + '275080368'
 ];
 
+
+// ---------------------------------------------------------------------------------------------
+// Pier decks that carry sports fields (the generic deck / shed of the city hides them)
+// <piers> (data/interim/landmarks_more_c/gen_piers.py)
+type Field = [string, string, V2[]]; // OSM way, kind, outline
+type PierData = {anchor: V2; ring: V2[]; fields: Field[]};
+const PIERS: Record<string, PierData> = {"p40":{"anchor":[-74.012727,40.729427],"ring":[[131.2,107.6],[114.2,-125.8],[-174.7,-95.1],[-173.7,-86.0],[-131.0,-91.5],[-107.1,132.6]],"fields":[["65223814","soccer",[[68.2,-119.4],[112.0,-123.5],[118.7,-51.4],[75.3,-46.7]]],["576166509","multi",[[-3.7,-77.0],[-7.0,-109.2],[55.2,-115.5],[58.5,-83.3]]]]},"p5":{"anchor":[-74.00168,40.69488],"ring":[[112.8,-1.3],[97.0,5.8],[84.3,-22.5],[100.1,-29.5],[61.8,-90.3],[-112.3,-11.8],[-61.1,91.6],[117.7,9.5]],"fields":[["328277180","soccer",[[-10.6,54.1],[-47.3,-27.0],[-93.0,-6.6],[-56.2,74.5]]],["328277282","soccer",[[-5.6,51.9],[40.5,31.3],[3.8,-49.8],[-42.3,-29.3]]],["328277283","soccer",[[45.5,29.0],[92.1,8.2],[55.4,-72.9],[8.8,-52.1]]]]},"p2":{"anchor":[-73.998828,40.699567],"ring":[[109.8,-0.8],[94.1,6.6],[55.6,-78.2],[72.8,-91.1],[69.0,-100.8],[35.7,-75.4],[35.7,-73.3],[-102.4,-11.9],[-56.4,84.2],[113.1,8.0]],"fields":[["328274771","basketball",[[-22.0,-13.9],[-9.9,12.0],[4.0,5.8],[-7.9,-20.3]]],["328274772","multi",[[-53.9,74.4],[-21.1,59.7],[-36.2,26.2],[-49.6,-3.7],[-54.2,-1.6],[-82.5,11.0]]],["328275677","pickleball",[[16.2,-33.3],[8.4,-50.4],[-61.9,-18.8],[-54.2,-1.6]]],["328275678","american_handball",[[52.5,24.0],[49.7,17.5],[82.7,3.0],[85.6,9.6]]],["328275679","playground",[[-54.2,-1.6],[-61.9,-18.8],[-90.3,-6.1],[-82.5,11.0]]],["328275680","roller_skating",[[34.2,31.8],[-14.0,53.6],[-16.6,54.4],[-18.9,54.0],[-20.8,52.6],[-21.9,50.5],[-28.3,36.6],[-28.9,34.3],[-28.4,32.0],[-27.0,30.2],[-25.2,29.2],[23.0,7.4],[24.9,6.7],[27.3,6.8],[29.3,8.0],[30.7,9.9],[37.0,23.8],[37.9,26.0],[37.7,28.4],[36.4,30.4]]],["675333781","basketball",[[-44.2,-3.9],[-32.2,22.0],[-18.2,15.8],[-30.1,-10.2]]],["675333783","basketball",[[0.2,-24.5],[12.2,1.8],[26.3,-4.3],[14.7,-30.7]]],["979905190","basketball",[[40.3,-41.7],[52.1,-15.2],[66.4,-21.5],[54.7,-48.0]]],["979905191","basketball",[[21.2,-33.7],[33.2,-7.3],[47.4,-13.4],[35.7,-40.0]]]]}};
+
+const FIELD_COLOR: Record<string, string> = {
+  soccer: '#5fae52', multi: '#4f9a49', basketball: '#c2652d', pickleball: '#3f7fa8', american_handball: '#8f959b',
+  roller_skating: '#b5503a', playground: '#b4573f'
+};
+
+function pierBody(key: string, top: number, wall: string, roof: string, fields: boolean) {
+  return (b: MeshBuilder) => {
+    const P = PIERS[key];
+    b.color(wall).walls(P.ring, 0, top);
+    b.color(roof).cap(P.ring, top);
+    if (!fields) return;
+    P.fields.forEach(([, kind, ring], i) => {
+      b.color(FIELD_COLOR[kind] ?? '#4f9a49').cap(ring, top + 0.06 + 0.01 * (i % 3));
+    });
+  };
+}
+
+const P40_SOURCES = [WIKI + 'Pier_40', WIKI + 'Hudson_River_Park', 'https://data.cityofnewyork.us/d/5zhs-2jue', OSM + '65223814', OSM + '576166509'];
+const BBP_SOURCES = [WIKI + 'Brooklyn_Bridge_Park', 'https://www.openstreetmap.org/relation/56469108'];
+const P40_H = 14.7;
+const BBP_H = 3.0;
+
 export const MORE_C: Landmark[] = [
   {
     id: 'north_river_plant_1986',
@@ -129,5 +159,69 @@ export const MORE_C: Landmark[] = [
       Model: 'the plant\'s deck (21.2 m) with every slab at its OpenStreetMap position and size (listed in the source comments); buildings are the OSM outlines at the city-measured heights read as above the deck (estimated: the city gives no deck level), flat roofs and the greenhouse height (3.5 m) estimated; colours estimated; the 138th Street footbridge (OSM way 46568274) at deck level on two estimated piers; the 145th Street approach and the plant hall below the deck are not modelled; construction 1991-1993 is estimated (deck complete 1991, opening May 1993)'
     },
     sources: SOURCES
+  },
+  {
+    id: 'pier40_terminal_1962',
+    name: 'Pier 40 (Holland America terminal)',
+    kind: 'building',
+    built: [1958.0, 1962.0],
+    end: 1998.0,
+    anchor: PIERS.p40.anchor,
+    build: pierBody('p40', P40_H, '#a39e92', '#8e8c86', false),
+    replaces: [PIERS.p40.ring],
+    facts: {
+      Built: 'construction began in 1958 and the terminal opened in 1962 (Holland America Line, a 20-year lease); a three-level shed, the roof used as a car park',
+      Size: '14.5 acres, the largest structure in Hudson River Park; the outer decks (the shed) 175 ft wide',
+      Model: "the city's footprint of the shed (BIN 1012249, 57,300 m2) extruded to 14.7 m above the water (the city's measured roof 13.11 m plus its ground elevation 1.6 m); the courtyard, the garage at the east end, the ramps and the cargo levels are not modelled; start 1958 and opening 1962 are the source's"
+    },
+    sources: P40_SOURCES
+  },
+  {
+    id: 'pier40_roof_fields',
+    name: 'Pier 40 with its roof fields',
+    kind: 'park',
+    built: [1997.5, 1998.5],
+    end: 9999,
+    anchor: PIERS.p40.anchor,
+    build: pierBody('p40', P40_H, '#a39e92', '#8e8c86', true),
+    replaces: [PIERS.p40.ring],
+    facts: {
+      Built: 'the upper-level recreation area opened in 1998 on the shed roof (two fields, one small and one soccer, and a flying trapeze); Hudson River Park Trust; the pier was redesignated as parkland in 1998',
+      Fields: 'the two roof fields at their OpenStreetMap outlines (ways 65223814, soccer, 3,185 m2; 576166509, 2,023 m2) as turf slabs on the roof',
+      Model: "as the terminal, plus the two roof fields; the main turf field of 2005 (OSM way 23529474, 5,323 m2) lies on the former cargo level inside the shed and is not drawn; the roof level is the city's, the 1998 opening taken as the date of both fields (the source says 'opened in 1998'; the month is not given: the model's 1997.5-1998.5 is estimated)"
+    },
+    sources: P40_SOURCES
+  },
+  {
+    id: 'bbp_pier5_fields',
+    name: 'Brooklyn Bridge Park, Pier 5 (three turf fields)',
+    kind: 'park',
+    built: [2011.0, 2012.95],
+    end: 9999,
+    anchor: PIERS.p5.anchor,
+    build: pierBody('p5', BBP_H, '#a39e92', '#b9b7ad', true),
+    replaces: [PIERS.p5.ring],
+    facts: {
+      Built: 'Pier 5 opened in December 2012 (Michael Van Valkenburgh Associates), after the sheds of the piers were taken down when construction began in 2008',
+      Fields: 'three artificial-turf soccer fields, OSM ways 328277180, 328277282, 328277283 (4,450-4,540 m2 each)',
+      Model: "the pier's outline from the city's pier layer (21,900 m2) as a deck 2.5 m above the water; the three fields at their OpenStreetMap outlines; the uplands, picnic peninsula and the fences are not modelled; the start of construction (2011) is estimated"
+    },
+    sources: BBP_SOURCES.concat([OSM + '328277180', OSM + '328277282', OSM + '328277283'])
+  },
+  {
+    id: 'bbp_pier2_courts',
+    name: 'Brooklyn Bridge Park, Pier 2 (courts and play turf)',
+    kind: 'park',
+    built: [2013.0, 2014.4],
+    end: 9999,
+    anchor: PIERS.p2.anchor,
+    build: pierBody('p2', BBP_H, '#a39e92', '#b9b7ad', true),
+    replaces: [PIERS.p2.ring],
+    facts: {
+      Built: 'Pier 2 opened in May 2014',
+      Fields: 'basketball (5 courts), handball, bocce and shuffleboard courts, artificial turf, swings, fitness bars (Wikipedia); the model draws the OpenStreetMap pitches: 5 basketball (ways 328274771, 675333781, 675333783, 979905190, 979905191), pickleball (328275677), handball (328275678), the play turf (328274772), the roller rink (328275680) and a playground (328275679)',
+      Model: "the pier's outline from the city's pier layer (18,500 m2) as a deck 2.5 m above the water; fields as slabs at OpenStreetMap outlines (the pickleball polygon of 1,449 m2 is as mapped, probably several courts); bocce, shuffleboard, tables and the roof structure (OSM way 328275185) are not modelled; the start of construction (2013) is estimated"
+    },
+    sources: BBP_SOURCES.concat([OSM + '328274772', OSM + '328275680'])
   }
 ];
