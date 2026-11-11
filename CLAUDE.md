@@ -444,7 +444,14 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
       gazetteer (the agents' own were from memory and up to kilometres off).
     - *Hosting*: `deploy.py`'s list of sets read from the branch now also holds
       `data/outer-buildings`, `data/region-streets`, `data/region-trees` and
-      `data/region-ground-detail.bin.gz`.
+      `data/region-ground-detail.bin.gz`. The build is 391 MB: 87 MB through Pages, 304 MB
+      read from the branch.
+    - *Viewer*: the tiled layers (terrain, buildings, streets) ask for tiles inside
+      `extent.ts MAP_BOX`, which must be the pipeline's `REGION_BBOX`. It was the inner
+      counties' box in three places: the first deployment of the outer counties published
+      their data and drew none of it. `check-years.cjs` counts the outer tiles fetched
+      (run the outer views alone — after the inner ones the software renderer's queue is
+      still busy and the count reads 0).
 40. **Years in the outer counties** (`data/research/county_years.md`, `counties_*.md`). The
     owner: "I don't believe that you actually have to model 100% for any county. There must be
     some data somewhere" — there was. New Jersey: MOD-IV. New York: the state parcel layer and
@@ -549,5 +556,11 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
 - **LiDAR massing** (`lidar_parts.py`, not ported): towers without OSM parts are flat extrusions.
 - **The Harlem USGS sheet's registration** in the city's 1609 layer may be off by tens of
   metres at Hart Island (found by the counties' agent, not corrected).
+- **The audit of 2026-11-11** (5,912,762 buildings): 78 buildings stand before their ground
+  (the same ones after a second full chain: not the ratchet of decision 37; among them early
+  and traced buildings on ground the terrain dates later — not looked into); one spike year,
+  1800 (3,368 buildings against about 960 in the years around: the assessors' "1800" for an
+  old house in several counties, below the per-county heap threshold, and 750 modelled
+  Suffolk years that stop at 1800).
 - Not checked on a real GPU: nothing was looked at on screen in this environment. Checks were
   numeric (`audit.py`, each part's own checks) and a headless boot without console errors.
