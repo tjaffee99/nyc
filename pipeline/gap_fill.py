@@ -2979,9 +2979,143 @@ if __name__ == "__main__":
             step_counties()
         elif a == "counties-report":
             step_report_counties()
+        elif a == "districts":
+            step_districts()
         elif a == "counties-fresh":
             step_counties_snapshot(force=True)
         elif a == "fresh":
             EXISTING.unlink(missing_ok=True)
         else:
             raise SystemExit(f"unknown step {a}")
+
+
+# ----------------------------------------------------------------------------- the cleared districts: density before / after
+DIST_YEARS = (1900, 1925, 1950)
+DIST_BLOCKS = WORK / "district_blocks_counties.parquet"
+
+
+def _district_blocks():
+    """Street blocks (polygons between the street centre lines) of every researched district and of the surviving
+    old blocks of the same town within 1 km (reference: at least 8 buildings, 70 % of them recorded before 1930).
+    Cached in district_blocks_counties.parquet: district, role (district / reference), area_ha, wkb (lon/lat)."""
+    if DIST_BLOCKS.exists():
+        return pd.read_parquet(DIST_BLOCKS)
+    from scipy.spatial import cKDTree
+    _county_mode()
+    rows = []
+    for k, (name, poly, c0, c1) in enumerate(cleared_districts()):
+        pm = to_px(poly)
+        lo0, la0, lo1, la1 = poly.bounds
+        x0, y0 = ap.lonlat_to_pixel(lo0, la1)
+        x1, y1 = ap.lonlat_to_pixel(lo1, la0)
+        m_ = 1100.0 / MPP
+        jobs = [(bx, by) for bx in range(int((x0 - m_) // (NB * TILE)), int((x1 + m_) // (NB * TILE)) + 1)
+                for by in range(int((y0 - m_) // (NB * TILE)), int((y1 + m_) // (NB * TILE)) + 1)]
+        ppoly = shapely.buffer(pm, 1000.0 / MPP)
+        pc_ = shapely.centroid(pm)
+        seen = {}
+        # the town's parcels give the municipality of a block
+        mu_name = [t.strip().lower() for t in json.load(open(DOC / "cleared_districts.geojson"))["features"][k]["properties"]["muni"].split(";")]
+        for job in jobs:
+            ex = existing_window(*job)
+            ex = ex[ex.end_year.values == 9999].reset_index(drop=True)
+            if not len(ex):
+                continue
+            lines, _ = streets_window(*job)
+            polys = city_blocks(lines, *job)
+            polys = polys[shapely.area(polys) * MPP2 <= CB_MAX_M2] if len(polys) else polys
+            if not len(polys):
+                continue
+            rp = shapely.point_on_surface(polys)
+            near = shapely.intersects(ppoly, rp)
+            if not near.any():
+                continue
+            polys, rp = polys[near], rp[near]
+            exc = shapely.get_coordinates(shapely.point_on_surface(ex.g.values))
+            pi, bi = shapely.STRtree(shapely.points(exc)).query(polys, predicate="contains")
+            n = np.bincount(pi, minlength=len(polys))
+            recy = ((np.array([str(v) for v in ex.year_confidence.values]) == "exact") & np.isin(np.array([str(v) for v in ex.year_src.values]), ("parcel", "historic_register"))
+                    & (ex.start_year.values < 1930))
+            rold = np.bincount(pi, weights=recy[bi].astype(float), minlength=len(polys))
+            lo, la = px_to_lonlat(*shapely.get_coordinates(rp).T)
+            ind = shapely.contains_xy(poly, lo, la)
+            # the municipality: nearest parcel
+            pq = con().execute(f"""select muni, lon, lat from '{PARCELS_C}/*.parquet' where bkx between {job[0] - 1} and {job[0] + 1}
+                 and bky between {job[1] - 1} and {job[1] + 1}""").fetchdf()
+            mu = np.full(len(polys), "", dtype=object)
+            if len(pq):
+                _, jn = cKDTree(np.column_stack([pq.lon.values * 84.4, pq.lat.values * 110.6])).query(np.column_stack([lo * 84.4, la * 110.6]))
+                mu = np.array([str(v).lower() for v in pq.muni.values[jn]], dtype=object)
+            same = np.array([any(t in str(q) or str(q).split(" ")[0] in t for t in mu_name) for q in mu])
+            with np.errstate(all="ignore"):
+                fr = np.where(n > 0, rold / n, 0.0)
+            refok = (~ind) & same & (n >= 8) & (fr >= 0.7)
+            for j in np.flatnonzero(ind | refok):
+                kk = f"{k}:{round(float(lo[j]), 5)},{round(float(la[j]), 5)}"
+                seen[kk] = ("district" if ind[j] else "reference", float(shapely.area(polys[j]) * MPP2 / 1e4), shapely.to_wkb(to_lonlat(polys[j])), str(mu[j]))
+        for kk, (role, ha, w, mu) in seen.items():
+            rows.append({"district": name, "role": role, "area_ha": ha, "muni": mu, "wkb": w})
+    df = pd.DataFrame(rows)
+    df.to_parquet(DIST_BLOCKS, index=False)
+    return df
+
+
+def _count_in(polys, lo0, la0, lo1, la1, rows_path):
+    """{year: buildings standing (map + rows) with a centre in one of the polygons}, and the rows' own share."""
+    c = con()
+    e = c.execute(f"select lon, lat, start_year, end_year from '{EXISTING_C}' where lon between {lo0} and {lo1} and lat between {la0} and {la1}").fetchdf()
+    r = c.execute(f"""select ST_X(ST_Centroid(geometry)) lon, ST_Y(ST_Centroid(geometry)) lat, start_year, end_year from '{rows_path}'""").fetchdf()
+    r = r[(r.lon >= lo0) & (r.lon <= lo1) & (r.lat >= la0) & (r.lat <= la1)]
+    u = shapely.union_all(polys)
+    shapely.prepare(u)
+    ine = shapely.contains_xy(u, e.lon.values, e.lat.values)
+    inr = shapely.contains_xy(u, r.lon.values, r.lat.values)
+    out = {}
+    for y in DIST_YEARS:
+        a = int(((e.start_year.values <= y) & (e.end_year.values > y) & ine).sum())
+        b = int(((r.start_year.values <= y) & (r.end_year.values > y) & inr).sum())
+        out[y] = (a, b)
+    return out
+
+
+def district_table(rows_path):
+    """{district: {"ha": , "ref_ha": , year: (map, rows in district, map+rows density, reference density)}}."""
+    _county_mode()
+    db = _district_blocks()
+    res = {}
+    for name, d in db.groupby("district", sort=False):
+        dis = d[d.role == "district"]
+        ref = d[d.role == "reference"]
+        pd_ = shapely.from_wkb(dis.wkb.map(bytes).values)
+        pr_ = shapely.from_wkb(ref.wkb.map(bytes).values) if len(ref) else np.array([], dtype=object)
+        allp = np.concatenate([pd_, pr_])
+        lo0, la0 = min(shapely.bounds(allp)[:, 0]), min(shapely.bounds(allp)[:, 1])
+        lo1, la1 = max(shapely.bounds(allp)[:, 2]), max(shapely.bounds(allp)[:, 3])
+        cd = _count_in(pd_, lo0, la0, lo1, la1, rows_path)
+        cr = _count_in(pr_, lo0, la0, lo1, la1, rows_path) if len(pr_) else None
+        ha, rha = float(dis.area_ha.sum()), float(ref.area_ha.sum())
+        ent = {"ha": round(ha, 1), "ref_ha": round(rha, 1), "ref_blocks": int(len(ref))}
+        for y in DIST_YEARS:
+            a, b = cd[y]
+            ent[y] = (a, b, round((a + b) / max(ha, 1e-9), 1), round(sum(cr[y]) / rha, 1) if cr and rha > 0 else None)
+        res[name] = ent
+    return res
+
+
+def step_districts():
+    """before (rows of the first version of the rules: gapfill_counties_before_cleared.parquet) -> after (gapfill_counties.parquet)."""
+    b = district_table(WORK / "gapfill_counties_before_cleared.parquet")
+    a = district_table(OUT_C)
+    L = ["| district | ha (blocks) | ref ha | " + " | ".join(f"{y}: bldg/ha before -> after (ref) = share" for y in DIST_YEARS) + " |", "|---|---|---|" + "---|" * len(DIST_YEARS)]
+    for name in a:
+        cells = []
+        for y in DIST_YEARS:
+            bb, aa = b[name][y], a[name][y]
+            ref = aa[3]
+            cells.append(f"{bb[2]} -> {aa[2]} ({ref if ref is not None else 'n/a'}) = " + (f"{100 * aa[2] / ref:.0f} %" if ref else "n/a"))
+        L.append(f"| {name} | {a[name]['ha']} | {a[name]['ref_ha']} | " + " | ".join(cells) + " |")
+    (WORK / "districts_counties.md").write_text("\n".join(L))
+    (WORK / "districts_counties.json").write_text(json.dumps({"before": {k: {str(y): v for y, v in d.items()} for k, d in b.items()},
+                                                              "after": {k: {str(y): v for y, v in d.items()} for k, d in a.items()}}, indent=1, default=str))
+    print("\n".join(L))
+    return L

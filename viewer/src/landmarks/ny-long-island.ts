@@ -123,7 +123,7 @@ NY_LONG_ISLAND.push({
   end: 1905,
   anchor: [-73.50107, 40.88558],
   build: (b) => {
-    house(b, SITES.sagamore, {wall: '#6F5B47', roof: '#4B4F47', eave: 8, rise: [4, 0, 3.5]}, SITES.sagamore.ring.map(([x, y]) => [x, y] as V2).length ? SAG_1885.map((p) => frameOf(p, SITES.sagamore.bearing)) : []);
+    house(b, SITES.sagamore, {wall: '#6F5B47', roof: '#4B4F47', eave: 8, rise: [4, 0, 3.5]}, SAG_1885.map((p) => frameOf(p, SITES.sagamore.bearing)));
   },
   replaces: [SAG_1885],
   facts: {
@@ -437,7 +437,7 @@ function bigDuck(b: MeshBuilder) {
     // neck and head
     b.frustum(0, 2.7, 1.3, 0.9, 2.8, 5.0, 10);
     b.frustum(0, 3.0, 0.95, 0.85, 4.8, 6.1, 10);
-    b.color('#E39A2D').box(0, 4.3, 5.0, 1.0, 1.5, 0.5);
+    b.color('#E39A2D').box(0, 4.1, 5.0, 1.0, 1.5, 0.5);
     b.color('#B3261E').box(-0.8, 3.2, 5.6, 0.25, 0.25, 0.25).box(0.8, 3.2, 5.6, 0.25, 0.25, 0.25);
   });
 }

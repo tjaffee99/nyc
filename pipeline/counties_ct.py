@@ -137,7 +137,7 @@ def load_parcels(town):
     """The town's parcels (UTM), cached as one GeoParquet."""
     import geopandas as gpd
     import shapely
-    out = OUT / f"ct_parcels_{town.replace(' ', '_')}.parquet"
+    out = OUT / f"parcels_ct_{town.replace(' ', '_')}.parquet"
     pages = sorted((CACHE / "parcels" / town).glob("oid_*.geojson.gz"))
     if not pages:
         return None
@@ -417,7 +417,8 @@ def model_years(df, units, centres, seed_ids=None):
                 continue
             sel = idx[order[start:end]]
             pos = (np.arange(m) + 0.5) / m
-            t = np.clip(pos + 0.3 * (h[sel] - 0.5), 0, 1)
+            t = pos + 0.3 * (h[sel] - 0.5)
+            t = np.clip(1 - np.abs(1 - np.abs(t)), 0, 1)   # (reflected at both ends, so the edges do not pile up)
             if bi == 0:      # stock built before 1940: growth curve ~ (t - 1800)^3, i.e. half built by 1915
                 yy = y0 + (y1 - y0) * np.clip(t, 0, 1) ** (1 / 3.0)
                 basis[sel] = f"{src}:pre1940+growth_curve"

@@ -105,6 +105,37 @@ function radial(r: V2[], n: number): V2[] {
   return out;
 }
 
+/** Signed distance from a point to a ring's edges: positive inside. */
+function clearance(r: V2[], x: number, y: number): number {
+  let inside = false;
+  let d = Infinity;
+  for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+    const [ax, ay] = r[j];
+    const [bx, by] = r[i];
+    if (by > y !== ay > y && x < ((ax - bx) * (y - by)) / (ay - by) + bx) inside = !inside;
+    const ex = bx - ax;
+    const ey = by - ay;
+    const t = Math.max(0, Math.min(1, ((x - ax) * ex + (y - ay) * ey) / (ex * ex + ey * ey)));
+    d = Math.min(d, Math.hypot(x - ax - t * ex, y - ay - t * ey));
+  }
+  return inside ? d : -d;
+}
+
+/** Offset along an oriented box's long axis (between s0 and s1) where the ring is deepest. */
+function deepest(r: V2[], o: {cx: number; cy: number; bearing: number}, s0: number, s1: number): number {
+  const a = (-o.bearing * Math.PI) / 180;
+  let best = s0;
+  let bd = -Infinity;
+  for (let s = s0; s <= s1; s += 0.5) {
+    const d = clearance(r, o.cx - Math.sin(a) * s, o.cy + Math.cos(a) * s);
+    if (d > bd) {
+      bd = d;
+      best = s;
+    }
+  }
+  return best;
+}
+
 /** Ring walls + flat roof. */
 function block(b: MeshBuilder, ring: V2[], z0: number, z1: number, wall: string, roof = wall) {
   b.color(wall).walls(ring, z0, z1);
@@ -313,7 +344,7 @@ NJ_OUTER.push({
     // stage house, over the western third
     const o = obb(WAR_MEMORIAL);
     b.color('#CFC7B0').frame(o.cx, o.cy, 0, o.bearing, () => {
-      b.box(0, o.L * 0.22, 14.5, o.W * 0.96, o.L * 0.4, 6.5);
+      b.box(0, deepest(WAR_MEMORIAL, o, 0, 0.35 * o.L), 14.5, o.W * 0.5, o.L * 0.3, 6.5);
     });
     b.color('#B8AF98').cap(scaled(WAR_MEMORIAL, 0.92), 14.9);
   },
@@ -367,13 +398,19 @@ const NASSAU_ANCHOR: V2 = [-74.65935, 40.34874];
     anchor: NASSAU_ANCHOR,
     build: b => {
       block(b, NASSAU, 0, 14.5, '#B79E7A', '#6F6A62');
-      hippedOver(b, o.cx, o.cy, o.W * 0.45, o.L * 0.55, o.bearing, 14.5, 3.0, '#5E5B58');
-      // Notman's cupola and corner towers of 1855
-      b.color('#E6E1D2').frame(o.cx, o.cy, 0, o.bearing, () => {
-        b.box(0, 0, 17, 3.6, 3.6, 3.4);
-        for (const s of [-1, 1]) b.box(0, s * o.L * 0.3, 14.5, 4.0, 4.0, 5.2);
+      // hipped roof, cupola and Notman's two towers of 1855, each placed where the outline is deepest
+      const sc = deepest(NASSAU, o, -0.15 * o.L, 0.15 * o.L);
+      const s1 = deepest(NASSAU, o, 0.2 * o.L, 0.5 * o.L);
+      const s2 = deepest(NASSAU, o, -0.5 * o.L, -0.2 * o.L);
+      b.frame(o.cx, o.cy, 0, o.bearing, () => {
+        b.color('#5E5B58').hip(0, sc, 7, 20, 14.5, 2.8);
+        b.color('#E6E1D2').box(0, sc, 16.5, 3.4, 3.4, 3.4);
+        b.color('#5E5B58').pyramid(rect(0, sc, 3.6, 3.6), 19.9, [0, sc, 23.6]);
+        for (const t of [s1, s2]) {
+          b.color('#E6E1D2').box(0, t, 14.5, 3.6, 3.6, 4.4);
+          b.color('#5E5B58').pyramid(rect(0, t, 3.8, 3.8), 18.9, [0, t, 22]);
+        }
       });
-      b.color('#5E5B58').pyramid(rotRect(o.cx, o.cy, 3.6, 3.6, o.bearing), 20.4, [o.cx, o.cy, 24.2]);
     },
     replaces: [NASSAU],
     facts: {
@@ -550,7 +587,8 @@ NJ_OUTER.push({
     const o = obb(FORD);
     block(b, FORD, 0, 7.4, '#EDE9DC', '#5F4B42');
     // hipped roof on the main block; chimneys
-    hippedOver(b, o.cx, o.cy, o.W * 0.8, o.L * 0.8, o.bearing, 7.4, 3.0, '#5F4B42');
+    const sc = deepest(FORD, o, -0.2 * o.L, 0.2 * o.L);
+    b.color('#5F4B42').frame(o.cx, o.cy, 0, o.bearing, () => b.hip(0, sc, o.W * 0.6, o.L * 0.55, 7.4, 2.6));
     b.color('#8E5A47').frame(o.cx, o.cy, 0, o.bearing, () => {
       for (const s of [-1, 1]) b.box(s * o.W * 0.28, o.L * 0.3, 7.4, 1.0, 1.0, 4.4);
       for (const s of [-1, 1]) b.box(s * o.W * 0.28, -o.L * 0.3, 7.4, 1.0, 1.0, 4.4);
