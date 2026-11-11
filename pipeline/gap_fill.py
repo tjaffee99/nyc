@@ -2923,6 +2923,7 @@ def step_look_county(lon, lat, name="look", half_m=190.0):
 # ----------------------------------------------------------------------------- the cleared districts: density before / after
 DIST_YEARS = (1900, 1925, 1950)
 DIST_BLOCKS = WORK / "district_blocks_counties.parquet"
+CLEARED_ONLY = [True]     # the table counts the district's blocks that fell to rule (b) (fewer than a third of today's buildings older than 1945)
 
 
 def _district_blocks():
@@ -2965,9 +2966,11 @@ def _district_blocks():
             exc = shapely.get_coordinates(shapely.point_on_surface(ex.g.values))
             pi, bi = shapely.STRtree(shapely.points(exc)).query(polys, predicate="contains")
             n = np.bincount(pi, minlength=len(polys))
-            recy = ((np.array([str(v) for v in ex.year_confidence.values]) == "exact") & np.isin(np.array([str(v) for v in ex.year_src.values]), ("parcel", "historic_register"))
-                    & (ex.start_year.values < 1930))
+            # Essex's, Passaic's and Westchester's recorded years are mostly modern (parcel rolls hold the owner's last
+            # rebuild): a surviving old block is one whose buildings are dated before 1930, recorded or placeholder
+            recy = ex.start_year.values < 1930
             rold = np.bincount(pi, weights=recy[bi].astype(float), minlength=len(polys))
+            old45 = np.bincount(pi, weights=(ex.start_year.values < 1945)[bi].astype(float), minlength=len(polys))
             lo, la = px_to_lonlat(*shapely.get_coordinates(rp).T)
             ind = shapely.contains_xy(poly, lo, la)
             # the municipality: nearest parcel
@@ -2981,11 +2984,12 @@ def _district_blocks():
             with np.errstate(all="ignore"):
                 fr = np.where(n > 0, rold / n, 0.0)
             refok = (~ind) & same & (n >= 8) & (fr >= 0.7)
+            f45 = np.where(n > 0, old45 / np.maximum(n, 1), 0.0)
             for j in np.flatnonzero(ind | refok):
                 kk = f"{k}:{round(float(lo[j]), 5)},{round(float(la[j]), 5)}"
-                seen[kk] = ("district" if ind[j] else "reference", float(shapely.area(polys[j]) * MPP2 / 1e4), shapely.to_wkb(to_lonlat(polys[j])), str(mu[j]))
-        for kk, (role, ha, w, mu) in seen.items():
-            rows.append({"district": name, "role": role, "area_ha": ha, "muni": mu, "wkb": w})
+                seen[kk] = ("district" if ind[j] else "reference", float(shapely.area(polys[j]) * MPP2 / 1e4), shapely.to_wkb(to_lonlat(polys[j])), str(mu[j]), bool(ind[j] and f45[j] < CB_OLD_SHARE))
+        for kk, (role, ha, w, mu, cl_) in seen.items():
+            rows.append({"district": name, "role": role, "area_ha": ha, "muni": mu, "wkb": w, "cleared": cl_})
     df = pd.DataFrame(rows)
     df.to_parquet(DIST_BLOCKS, index=False)
     return df
@@ -3015,7 +3019,7 @@ def district_table(rows_path):
     db = _district_blocks()
     res = {}
     for name, d in db.groupby("district", sort=False):
-        dis = d[d.role == "district"]
+        dis = d[(d.role == "district") & (d.cleared if CLEARED_ONLY[0] else True)]
         ref = d[d.role == "reference"]
         pd_ = shapely.from_wkb(dis.wkb.map(bytes).values)
         pr_ = shapely.from_wkb(ref.wkb.map(bytes).values) if len(ref) else np.array([], dtype=object)

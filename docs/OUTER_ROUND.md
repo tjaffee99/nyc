@@ -27,7 +27,9 @@ brief names your part and your files.
 
 ## Overpass is blocked on this machine
 
-Every Overpass host fails from here: do not spend calls on it. OpenStreetMap-derived geometry is
+Every OpenStreetMap Overpass host fails from here: do not spend calls on it. (Reachable: the
+OpenStreetMap map API for small boxes, `api.openstreetmap.org/api/0.6/map?bbox=…`; OpenHistoricalMap's
+Overpass; Wikidata's SPARQL endpoint; Wikipedia.) OpenStreetMap-derived geometry is
 on disk as Overture extracts under `data/raw/overture/2026-10-21.0/` (read with DuckDB and
 `load spatial`, filter by an envelope, never whole): `outer_building.parquet` (footprints of the
 whole box), `outer_freeways.parquet` (motorway and trunk segments with `name` and `routes`),

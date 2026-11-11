@@ -335,8 +335,9 @@ def gapfill():
     data/interim/gapfill/gapfill.parquet): lot-sized outlines where a photograph or a map
     shows built-on ground and no outline survives. Generated, marked `procedural`, and the
     first to give way to anything real."""
-    files = sorted((INTERIM / "gapfill").glob("gapfill*.parquet")) if (INTERIM / "gapfill").exists() else []
-    files = [f for f in files if not f.stem.endswith("_muni")]      # a side table of the county fill, no geometry
+    # (named, not globbed: the fill stages keep side tables and backups beside their outputs)
+    files = [f for f in (INTERIM / "gapfill" / n for n in ("gapfill.parquet", "gapfill_counties.parquet", "gapfill_sites.parquet"))
+             if f.exists()]
     rows = []
     if not files:
         return rows
