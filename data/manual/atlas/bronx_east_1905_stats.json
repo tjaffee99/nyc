@@ -1,0 +1,1707 @@
+{
+ "total": {
+  "layer": "bronx_east_1905",
+  "plates": 19,
+  "buildings": 3229,
+  "frame": 2862,
+  "brick": 367,
+  "stone": 0,
+  "gasholders": 0,
+  "on_today": 814,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 4.19
+ },
+ "plates": [
+  {
+   "plate": "22971",
+   "image": "2021065",
+   "name": "Bronx, V. A, Plate No. 2 [Map bounded by Barnes Ave., Lydig Ave., Bronx Park East, Pelham ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 11.6,
+   "mpp": 0.091,
+   "n": 19,
+   "frame": 19,
+   "brick": 0,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    82.0,
+    -2.0,
+    13.0
+   ],
+   "sheet": "2",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 11.6 m)"
+  },
+  {
+   "plate": "22973",
+   "image": "2021067",
+   "name": "Bronx, V. A, Plate No. 4 [Map bounded by Fowler Ave., Morris Park Ave., Unionport Rd., Nei",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 15.2,
+   "mpp": 0.135,
+   "n": 413,
+   "frame": 365,
+   "brick": 38,
+   "stone": 0,
+   "coincide": 24,
+   "share": 0.06,
+   "corrected": false,
+   "paper": [
+    80.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    -0.8,
+    -0.6
+   ],
+   "off_median_m": 1.66,
+   "sheet": "4",
+   "clipped": 5,
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 403,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "22975",
+   "image": "2021069",
+   "name": "Bronx, V. A, Plate No. 6 [Map bounded by Williamsbridge Rd., Sacket Ave., Bronxdale Ave., ",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 573.6,
+   "mpp": 0.176,
+   "n": 15,
+   "frame": 12,
+   "brick": 3,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    86.0,
+    -2.0,
+    10.0
+   ],
+   "sheet": "6",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 573.6 m)"
+  },
+  {
+   "plate": "22976",
+   "image": "2021070",
+   "name": "Bronx, V. A, Plate No. 7 [Map bounded by Morris Park Ave., Barnes Ave., East Tremont Ave.,",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 17.2,
+   "mpp": 0.095,
+   "n": 197,
+   "frame": 185,
+   "brick": 11,
+   "stone": 0,
+   "coincide": 29,
+   "share": 0.148,
+   "corrected": true,
+   "paper": [
+    84.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    -0.5,
+    0.59
+   ],
+   "off_median_m": 1.55,
+   "street": null,
+   "bld": {
+    "plate": "22976",
+    "n": 197,
+    "windows": 5,
+    "shift_median": [
+     -2.91,
+     4.39
+    ],
+    "fit_residual_m": 2.05,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "7",
+   "clipped": 0,
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 196,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "22977",
+   "image": "2021071",
+   "name": "Bronx, V. A, Plate No. 8 [Map bounded by Morris Park Ave., Bronxdale Ave., East Tremont Av",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 5.1,
+   "mpp": 0.093,
+   "n": 101,
+   "frame": 84,
+   "brick": 14,
+   "stone": 0,
+   "coincide": 45,
+   "share": 0.459,
+   "corrected": true,
+   "paper": [
+    86.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.31,
+    -0.17
+   ],
+   "off_median_m": 1.61,
+   "street": null,
+   "bld": {
+    "plate": "22977",
+    "n": 101,
+    "windows": 3,
+    "shift_median": [
+     -3.02,
+     -1.57
+    ],
+    "fit_residual_m": 1.24,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "8",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 98,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "22978",
+   "image": "2021072",
+   "name": "Bronx, V. A, Plate No. 9 [Map bounded by Morris Park Ave., Melville St., Walker Ave., East",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 15.3,
+   "mpp": 0.093,
+   "n": 136,
+   "frame": 112,
+   "brick": 12,
+   "stone": 0,
+   "coincide": 39,
+   "share": 0.315,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.31,
+    -0.18
+   ],
+   "off_median_m": 1.2,
+   "street": null,
+   "bld": {
+    "plate": "22978",
+    "n": 136,
+    "windows": 4,
+    "shift_median": [
+     -4.02,
+     2.37
+    ],
+    "fit_residual_m": 0.94,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "9",
+   "clipped": 6,
+   "lettering_dropped": 2,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 124,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "22979",
+   "image": "2021073",
+   "name": "Bronx, V. A, Plate No. 10 [Map bounded by Morris Park Ave., Unionport Rd., White Plains Rd",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 8.3,
+   "mpp": 0.093,
+   "n": 286,
+   "frame": 250,
+   "brick": 34,
+   "stone": 0,
+   "coincide": 74,
+   "share": 0.261,
+   "corrected": true,
+   "paper": [
+    80.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    0.14,
+    0.08
+   ],
+   "off_median_m": 1.44,
+   "street": null,
+   "bld": {
+    "plate": "22979",
+    "n": 286,
+    "windows": 4,
+    "shift_median": [
+     -2.84,
+     -3.23
+    ],
+    "fit_residual_m": 1.2,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "10",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 284,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "22980",
+   "image": "2021074",
+   "name": "Bronx, V. A, Plate No. 11 [Map bounded by Unionport Rd., Morris Park Ave., Bronx Park.]",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 25.0,
+   "mpp": 0.14,
+   "n": 11,
+   "frame": 9,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    86.0,
+    -3.0,
+    13.0
+   ],
+   "sheet": "11",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 25.0 m)"
+  },
+  {
+   "plate": "22981",
+   "image": "2021075",
+   "name": "Bronx, V. A, Plate No. 12 [Map bounded by Bronx International Exposition, E. 177th St., Ea",
+   "gcps": 3,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.124,
+   "n": 22,
+   "frame": 21,
+   "brick": 1,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    9.0
+   ],
+   "sheet": "12",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 0.0 m)"
+  },
+  {
+   "plate": "22982",
+   "image": "2021076",
+   "name": "Bronx, V. A, Plate No. 13 [Map bounded by Watson's Lane, Manor Ave., Westchester Ave., Bro",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 3.9,
+   "mpp": 0.151,
+   "n": 59,
+   "frame": 12,
+   "brick": 36,
+   "stone": 11,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    88.0,
+    -2.0,
+    10.0
+   ],
+   "sheet": "13",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 3.9 m)"
+  },
+  {
+   "plate": "22984",
+   "image": "2021078",
+   "name": "Bronx, V. A, Plate No. 15 [Map bounded by East Tremont Ave., Beach Ave., E. 174th St., Ros",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 4.5,
+   "mpp": 0.106,
+   "n": 287,
+   "frame": 267,
+   "brick": 16,
+   "stone": 0,
+   "coincide": 46,
+   "share": 0.163,
+   "corrected": true,
+   "paper": [
+    84.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    0.1,
+    -0.18
+   ],
+   "off_median_m": 1.33,
+   "street": null,
+   "bld": {
+    "plate": "22984",
+    "n": 287,
+    "windows": 4,
+    "shift_median": [
+     -1.38,
+     -1.13
+    ],
+    "fit_residual_m": 0.99,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "15",
+   "clipped": 0,
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 283,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "22985",
+   "image": "2021079",
+   "name": "Bronx, V. A, Plate No. 16 [Map bounded by East Tremont Ave., Gary St., Wood Ave., Beach Av",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 35.8,
+   "mpp": 0.105,
+   "n": 41,
+   "frame": 38,
+   "brick": 2,
+   "stone": 1,
+   "coincide": 1,
+   "share": 0.024,
+   "corrected": false,
+   "paper": [
+    82.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    2.11,
+    0.76
+   ],
+   "off_median_m": 2.24,
+   "sheet": "16",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 2.24 m; control points CV rms 35.8 m)"
+  },
+  {
+   "plate": "22986",
+   "image": "2021080",
+   "name": "Bronx, V. A, Plate No. 17 [Map bounded by East Tremont Ave., Unionport Rd., McGraw Ave., G",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 22.5,
+   "mpp": 0.138,
+   "n": 73,
+   "frame": 42,
+   "brick": 17,
+   "stone": 14,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -3.0,
+    15.0
+   ],
+   "sheet": "17",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 22.5 m)"
+  },
+  {
+   "plate": "22987",
+   "image": "2021081",
+   "name": "Bronx, V. A, Plate No. 18 [Map bounded by Bronxdale Ave., Zerega Ave., Raymond St., Protec",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 12.7,
+   "mpp": 0.12,
+   "n": 118,
+   "frame": 98,
+   "brick": 17,
+   "stone": 3,
+   "coincide": 6,
+   "share": 0.051,
+   "corrected": false,
+   "paper": [
+    81.0,
+    -3.0,
+    15.0
+   ],
+   "off_median_vec": [
+    0.73,
+    0.94
+   ],
+   "off_median_m": 1.55,
+   "sheet": "18",
+   "status": "left out: not placed reliably (no street or building match; 6 outlines on standing footprints, median offset 1.55 m; control points CV rms 12.7 m)"
+  },
+  {
+   "plate": "22988",
+   "image": "2021082",
+   "name": "Bronx, V. A, Plate No. 19 [Map bounded by Gray St., Westchester Ave., Commonwealth Ave., W",
+   "gcps": 10,
+   "model": "affine",
+   "cv_rms": 17.7,
+   "mpp": 0.117,
+   "n": 165,
+   "frame": 154,
+   "brick": 7,
+   "stone": 0,
+   "coincide": 20,
+   "share": 0.124,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.22,
+    -0.35
+   ],
+   "off_median_m": 1.38,
+   "street": null,
+   "bld": {
+    "plate": "22988",
+    "n": 165,
+    "windows": 5,
+    "shift_median": [
+     -5.21,
+     1.57
+    ],
+    "fit_residual_m": 1.1,
+    "agree": 5,
+    "kind": "shift"
+   },
+   "sheet": "19",
+   "clipped": 0,
+   "lettering_dropped": 2,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 161,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "22989",
+   "image": "2021083",
+   "name": "Bronx, V. A, Plate No. 20 [Map bounded by Olmstead Ave., Ellis Ave., Virginia Ave., McGraw",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 22.5,
+   "mpp": 0.11,
+   "n": 93,
+   "frame": 65,
+   "brick": 28,
+   "stone": 0,
+   "coincide": 4,
+   "share": 0.043,
+   "corrected": false,
+   "paper": [
+    80.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    1.65,
+    -1.15
+   ],
+   "off_median_m": 1.83,
+   "sheet": "20",
+   "status": "left out: not placed reliably (no street or building match; 4 outlines on standing footprints, median offset 1.83 m; control points CV rms 22.5 m)"
+  },
+  {
+   "plate": "22990",
+   "image": "2021084",
+   "name": "Bronx, V. A, Plate No. 21 [Map bounded by Olmstead Ave., Blackrock Ave., Virginia Ave., El",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 29.4,
+   "mpp": 0.106,
+   "n": 70,
+   "frame": 60,
+   "brick": 9,
+   "stone": 0,
+   "coincide": 12,
+   "share": 0.174,
+   "corrected": false,
+   "paper": [
+    84.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    0.42,
+    0.15
+   ],
+   "off_median_m": 2.09,
+   "sheet": "21",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 69,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "22991",
+   "image": "2021085",
+   "name": "Bronx, V. A, Plate No. 22 [Map bounded by Olmstead Ave., Houghton Ave., White Plains Rd., ",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 4.1,
+   "mpp": 0.107,
+   "n": 64,
+   "frame": 57,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 25,
+   "share": 0.397,
+   "corrected": false,
+   "paper": [
+    80.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    -0.32,
+    0.85
+   ],
+   "off_median_m": 1.27,
+   "sheet": "22",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 63,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "22992",
+   "image": "2021086",
+   "name": "Bronx, V. A, Plate No. 23 [Map bounded by Havemeyer Ave., Ludlow Ave., Olmstead Ave., Powe",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 5.0,
+   "mpp": 0.103,
+   "n": 163,
+   "frame": 132,
+   "brick": 28,
+   "stone": 0,
+   "coincide": 64,
+   "share": 0.4,
+   "corrected": true,
+   "paper": [
+    84.0,
+    -3.0,
+    15.0
+   ],
+   "off_median_vec": [
+    0.17,
+    -0.32
+   ],
+   "off_median_m": 1.39,
+   "street": null,
+   "bld": {
+    "plate": "22992",
+    "n": 163,
+    "windows": 3,
+    "shift_median": [
+     -0.32,
+     3.18
+    ],
+    "fit_residual_m": 0.38,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "23",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 160,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "22993",
+   "image": "2021087",
+   "name": "Bronx, V. A, Plate No. 24  [Map bounded by Havemeyer Ave., Hermany Ave., Olmstead Ave., Lu",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 5.7,
+   "mpp": 0.102,
+   "n": 125,
+   "frame": 123,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 48,
+   "share": 0.384,
+   "corrected": true,
+   "paper": [
+    80.0,
+    -3.0,
+    15.0
+   ],
+   "off_median_vec": [
+    0.13,
+    -0.0
+   ],
+   "off_median_m": 1.53,
+   "street": null,
+   "bld": {
+    "plate": "22993",
+    "n": 125,
+    "windows": 5,
+    "shift_median": [
+     0.1,
+     1.26
+    ],
+    "fit_residual_m": 0.59,
+    "agree": 5,
+    "kind": "shift"
+   },
+   "sheet": "24",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 125,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "22995",
+   "image": "2021089",
+   "name": "Bronx, V. A, Plate No. 26 [Map bounded by Seberry Creek, Westchester Creek, Haviland Ave.,",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 1.8,
+   "mpp": 0.107,
+   "n": 100,
+   "frame": 96,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 40,
+   "share": 0.408,
+   "corrected": false,
+   "paper": [
+    83.0,
+    -2.0,
+    12.0
+   ],
+   "off_median_vec": [
+    -0.53,
+    0.43
+   ],
+   "off_median_m": 1.13,
+   "sheet": "26",
+   "clipped": 0,
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 98,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "22996",
+   "image": "2021090",
+   "name": "Bronx, V. A, Plate No. 27 [Map bounded by Westchester Creek, Ludlow Ave., Havemeyer Ave., ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 5.2,
+   "mpp": 0.086,
+   "n": 41,
+   "frame": 35,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    11.0
+   ],
+   "sheet": "27",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 5.2 m)"
+  },
+  {
+   "plate": "22997",
+   "image": "2021091",
+   "name": "Bronx, V. A, Plate No. 28 [Map bounded by Westchester Creek, Turnbull Ave., Havemeyer Ave.",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 34.6,
+   "mpp": 0.102,
+   "n": 33,
+   "frame": 25,
+   "brick": 6,
+   "stone": 2,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    82.0,
+    -2.0,
+    13.0
+   ],
+   "sheet": "28",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 34.6 m)"
+  },
+  {
+   "plate": "22998",
+   "image": "2021092",
+   "name": "Bronx, V. A, Plate No. 29 [Map bounded by East Tremont Ave., Maud Pl., Seberry Creek, Balc",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 10.8,
+   "mpp": 0.132,
+   "n": 85,
+   "frame": 60,
+   "brick": 24,
+   "stone": 0,
+   "coincide": 19,
+   "share": 0.226,
+   "corrected": true,
+   "paper": [
+    84.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    0.8,
+    0.25
+   ],
+   "off_median_m": 1.37,
+   "street": null,
+   "bld": {
+    "plate": "22998",
+    "n": 85,
+    "windows": 3,
+    "shift_median": [
+     -5.44,
+     2.77
+    ],
+    "fit_residual_m": 1.16,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "29",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 84,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "22999",
+   "image": "2021093",
+   "name": "Bronx, V. A, Plate No. 30 [Map bounded by Balcom Ave., Chidsey St., E. 177th St., Westches",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 67.0,
+   "mpp": 0.151,
+   "n": 9,
+   "frame": 9,
+   "brick": 0,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    82.0,
+    -2.0,
+    13.0
+   ],
+   "sheet": "30",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 67.0 m)"
+  },
+  {
+   "plate": "23000",
+   "image": "2021094",
+   "name": "Bronx, V. A, Plate No. 31 [Map bounded by Protectory Ave., Raymond Ave., Parker St., Westc",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 6.8,
+   "mpp": 0.104,
+   "n": 206,
+   "frame": 166,
+   "brick": 39,
+   "stone": 0,
+   "coincide": 68,
+   "share": 0.332,
+   "corrected": true,
+   "paper": [
+    87.0,
+    -2.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -0.44,
+    0.03
+   ],
+   "off_median_m": 1.27,
+   "street": null,
+   "bld": {
+    "plate": "23000",
+    "n": 206,
+    "windows": 4,
+    "shift_median": [
+     2.29,
+     -1.67
+    ],
+    "fit_residual_m": 0.5,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "31",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 205,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "23001",
+   "image": "2021095",
+   "name": "Bronx, V. A, Plate No. 32 [Map bounded by Glebe Ave., St. Peter's St., Seabury Ave., Water",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 2.8,
+   "mpp": 0.111,
+   "n": 215,
+   "frame": 187,
+   "brick": 27,
+   "stone": 0,
+   "coincide": 113,
+   "share": 0.528,
+   "corrected": true,
+   "paper": [
+    79.0,
+    -2.0,
+    13.0
+   ],
+   "off_median_vec": [
+    -0.21,
+    0.11
+   ],
+   "off_median_m": 1.23,
+   "street": null,
+   "bld": {
+    "plate": "23001",
+    "n": 215,
+    "windows": 9,
+    "shift_median": [
+     0.08,
+     0.18
+    ],
+    "fit_residual_m": 0.34,
+    "agree": 9,
+    "kind": "shift"
+   },
+   "sheet": "32",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 214,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "23002",
+   "image": "2021096",
+   "name": "Bronx, V. A, Plate No. 33 [Map bounded by Glebe Ave., Blondell Ave., Westchester Creek, We",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 12.7,
+   "mpp": 0.102,
+   "n": 130,
+   "frame": 104,
+   "brick": 26,
+   "stone": 0,
+   "coincide": 3,
+   "share": 0.023,
+   "corrected": true,
+   "paper": [
+    84.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    -0.78,
+    -1.81
+   ],
+   "off_median_m": 1.97,
+   "street": null,
+   "bld": {
+    "plate": "23002",
+    "n": 130,
+    "windows": 5,
+    "shift_median": [
+     3.87,
+     2.36
+    ],
+    "fit_residual_m": 1.57,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "33",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 130,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "23003",
+   "image": "2021097",
+   "name": "Bronx, V. A, Plate No. 34 [Map bounded by Westchester Creek, Ericson Pl., East Tremont Ave",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 11.3,
+   "mpp": 0.118,
+   "n": 49,
+   "frame": 49,
+   "brick": 0,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.02,
+   "corrected": false,
+   "paper": [
+    83.0,
+    -2.0,
+    12.0
+   ],
+   "off_median_vec": [
+    1.65,
+    0.34
+   ],
+   "off_median_m": 1.68,
+   "sheet": "34",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.68 m; control points CV rms 11.3 m)"
+  },
+  {
+   "plate": "23004",
+   "image": "2021098",
+   "name": "Bronx, V. A, Plate No. 35 [Map bounded by Poplar St., Overing St., Glebe Ave., Zerega Ave.",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 5.2,
+   "mpp": 0.103,
+   "n": 233,
+   "frame": 183,
+   "brick": 48,
+   "stone": 0,
+   "coincide": 74,
+   "share": 0.32,
+   "corrected": true,
+   "paper": [
+    88.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.1,
+    0.39
+   ],
+   "off_median_m": 1.42,
+   "street": null,
+   "bld": {
+    "plate": "23004",
+    "n": 233,
+    "windows": 7,
+    "shift_median": [
+     1.42,
+     -1.15
+    ],
+    "fit_residual_m": 1.3,
+    "agree": 7,
+    "kind": "shift"
+   },
+   "sheet": "35",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 231,
+   "duplicates_dropped": 1,
+   "status": "ok"
+  },
+  {
+   "plate": "23005",
+   "image": "2021099",
+   "name": "Bronx, V. A, Plate No. 36 [Map bounded by Barlow St., Blondell Ave., Halperin Ave., Overin",
+   "gcps": 6,
+   "model": "affine",
+   "cv_rms": 6.6,
+   "mpp": 0.103,
+   "n": 157,
+   "frame": 144,
+   "brick": 10,
+   "stone": 0,
+   "coincide": 42,
+   "share": 0.273,
+   "corrected": true,
+   "paper": [
+    80.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    0.15,
+    0.35
+   ],
+   "off_median_m": 1.19,
+   "street": null,
+   "bld": {
+    "plate": "23005",
+    "n": 157,
+    "windows": 5,
+    "shift_median": [
+     -1.12,
+     -0.27
+    ],
+    "fit_residual_m": 0.53,
+    "agree": 5,
+    "kind": "shift"
+   },
+   "sheet": "36",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 154,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "23006",
+   "image": "2021100",
+   "name": "Bronx, V. A, Plate No. 37 [Map bounded by Bronx and Pelham Parkway, Elberon Ave., Morris P",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 75.9,
+   "mpp": 0.176,
+   "n": 13,
+   "frame": 13,
+   "brick": 0,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    14.0
+   ],
+   "sheet": "37",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 75.9 m)"
+  },
+  {
+   "plate": "23007",
+   "image": "2021101",
+   "name": "Bronx, V. A, Plate No. 38 [Map bounded by Saratoga Ave., Morris Park Ave., Westchester Cre",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 107.3,
+   "mpp": 0.231,
+   "n": 77,
+   "frame": 73,
+   "brick": 2,
+   "stone": 2,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    82.0,
+    -2.0,
+    13.0
+   ],
+   "sheet": "38",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 107.3 m)"
+  },
+  {
+   "plate": "23008",
+   "image": "2021102",
+   "name": "Bronx, V. A, Plate No. 39 [Map bounded by Elberon Ave., Bronx and Pelham Parkway, Pilgrim ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 16.0,
+   "mpp": 0.195,
+   "n": 76,
+   "frame": 65,
+   "brick": 9,
+   "stone": 2,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    84.0,
+    -2.0,
+    14.0
+   ],
+   "sheet": "39",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 16.0 m)"
+  },
+  {
+   "plate": "23009",
+   "image": "2021103",
+   "name": "Bronx, V. A, Plate No. 40 [Map bounded by Bronx and Pelham Parkway, Eastern Blvd., Morris ",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 56.9,
+   "mpp": 0.125,
+   "n": 42,
+   "frame": 39,
+   "brick": 3,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.024,
+   "corrected": false,
+   "paper": [
+    82.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    -1.42,
+    0.8
+   ],
+   "off_median_m": 1.63,
+   "sheet": "40",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.63 m; control points CV rms 56.9 m)"
+  },
+  {
+   "plate": "23010",
+   "image": "2021104",
+   "name": "Bronx, V. A, Plate No. 41 [Map bounded by Morris Park Ave., Plymouth St., Middletown Rd., ",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 12.4,
+   "mpp": 0.131,
+   "n": 79,
+   "frame": 75,
+   "brick": 4,
+   "stone": 0,
+   "coincide": 8,
+   "share": 0.101,
+   "corrected": false,
+   "paper": [
+    84.0,
+    -3.0,
+    15.0
+   ],
+   "off_median_vec": [
+    0.43,
+    -0.23
+   ],
+   "off_median_m": 1.3,
+   "sheet": "41",
+   "status": "left out: not placed reliably (no street or building match; 8 outlines on standing footprints, median offset 1.3 m; control points CV rms 12.4 m)"
+  },
+  {
+   "plate": "23011",
+   "image": "2021105",
+   "name": "Bronx, V. A, Plate No. 42 [Map bounded by Eastern Blvd., Middletown Rd., Plymouth St., Wes",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 8.0,
+   "mpp": 0.125,
+   "n": 33,
+   "frame": 32,
+   "brick": 1,
+   "stone": 0,
+   "coincide": 4,
+   "share": 0.121,
+   "corrected": false,
+   "paper": [
+    82.0,
+    -3.0,
+    15.0
+   ],
+   "off_median_vec": [
+    0.69,
+    -0.28
+   ],
+   "off_median_m": 2.4,
+   "sheet": "42",
+   "status": "left out: not placed reliably (no street or building match; 4 outlines on standing footprints, median offset 2.4 m; control points CV rms 8.0 m)"
+  },
+  {
+   "plate": "23012",
+   "image": "2021106",
+   "name": "Bronx, V. A, Plate No. 43 [Map bounded by Middletown Rd., Cornell Ave., Lasalle Ave., East",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 4.8,
+   "mpp": 0.116,
+   "n": 147,
+   "frame": 133,
+   "brick": 14,
+   "stone": 0,
+   "coincide": 29,
+   "share": 0.197,
+   "corrected": true,
+   "paper": [
+    84.0,
+    -3.0,
+    15.0
+   ],
+   "off_median_vec": [
+    0.4,
+    -0.96
+   ],
+   "off_median_m": 1.59,
+   "street": null,
+   "bld": {
+    "plate": "23012",
+    "n": 147,
+    "windows": 3,
+    "shift_median": [
+     -0.69,
+     1.83
+    ],
+    "fit_residual_m": 1.01,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "43",
+   "clipped": 0,
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 147,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "23013",
+   "image": "2021107",
+   "name": "Bronx, V. A, Plate No. 44 [Map bounded by Middleton Rd., Country Club Ave., Eastern Boulev",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 15.3,
+   "mpp": 0.127,
+   "n": 40,
+   "frame": 36,
+   "brick": 4,
+   "stone": 0,
+   "coincide": 4,
+   "share": 0.1,
+   "corrected": false,
+   "paper": [
+    84.0,
+    -2.0,
+    11.0
+   ],
+   "off_median_vec": [
+    1.66,
+    0.86
+   ],
+   "off_median_m": 2.28,
+   "sheet": "44",
+   "status": "left out: not placed reliably (no street or building match; 4 outlines on standing footprints, median offset 2.28 m; control points CV rms 15.3 m)"
+  },
+  {
+   "plate": "23014",
+   "image": "2021108",
+   "name": "Bronx, V. A, Plate No. 45 [Map bounded by Waterbury Ave., Mayflower Ave., Eastern Bouleavr",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 15.4,
+   "mpp": 0.133,
+   "n": 44,
+   "frame": 42,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.045,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -2.48,
+    -3.49
+   ],
+   "off_median_m": 5.14,
+   "sheet": "45",
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 5.14 m; control points CV rms 15.4 m)"
+  },
+  {
+   "plate": "23015",
+   "image": "2021109",
+   "name": "Bronx, V. A, Plate No. 46 [Map bounded by Latting St., Eastern Boulevard, East Tremont Ave",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 70.0,
+   "mpp": 0.104,
+   "n": 130,
+   "frame": 124,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.015,
+   "corrected": false,
+   "paper": [
+    82.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    -0.06,
+    -0.04
+   ],
+   "off_median_m": 1.05,
+   "sheet": "46",
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 1.05 m; control points CV rms 70.0 m)"
+  },
+  {
+   "plate": "23016",
+   "image": "2021110",
+   "name": "Bronx, V. A, Plate No. 47 [Map bounded by St. Joseph's Ave., E. 177th St., Westchester Cre",
+   "gcps": 3,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.127,
+   "n": 26,
+   "frame": 17,
+   "brick": 9,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    14.0
+   ],
+   "sheet": "47",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 0.0 m)"
+  },
+  {
+   "plate": "23018",
+   "image": "2021112",
+   "name": "Bronx, V. A, Plate No. 49 [Map bounded by Turnbull Ave., Westchester Creek, Castle Hill Av",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 939.7,
+   "mpp": 0.19,
+   "n": 18,
+   "frame": 17,
+   "brick": 1,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    13.0
+   ],
+   "sheet": "49",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 939.7 m)"
+  },
+  {
+   "plate": "23023",
+   "image": "2021117",
+   "name": "Bronx, V. A, Plate No. 54 [Map bounded by Underhill Ave., Pugsley's Creek Sound View Ave.,",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 9.1,
+   "mpp": 0.139,
+   "n": 7,
+   "frame": 4,
+   "brick": 3,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    84.0,
+    -2.0,
+    12.0
+   ],
+   "sheet": "54",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 9.1 m)"
+  },
+  {
+   "plate": "23024",
+   "image": "2021118",
+   "name": "Bronx, V. A, Plate No. 55 [Map bounded by Westchester Ave., Bronx River.]",
+   "gcps": 3,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.126,
+   "n": 13,
+   "frame": 6,
+   "brick": 0,
+   "stone": 7,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    87.0,
+    -2.0,
+    11.0
+   ],
+   "sheet": "55",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 0.0 m)"
+  },
+  {
+   "plate": "23025",
+   "image": "2021119",
+   "name": "Bronx, V. A, Plate No. 56 [Map bounded by Westchester Ave., Old Clason's Point Rd., Story ",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 6.9,
+   "mpp": 0.159,
+   "n": 7,
+   "frame": 4,
+   "brick": 2,
+   "stone": 1,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    11.0
+   ],
+   "sheet": "56",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 6.9 m)"
+  },
+  {
+   "plate": "23027",
+   "image": "2021121",
+   "name": "Bronx, V. A, Plate No. 58 [Map bounded by Pugsley's Creek, Westchester Creek, East River.]",
+   "gcps": 8,
+   "model": "affine",
+   "cv_rms": 10.5,
+   "mpp": 0.221,
+   "n": 207,
+   "frame": 202,
+   "brick": 5,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.01,
+   "corrected": false,
+   "paper": [
+    83.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    1.1,
+    -0.49
+   ],
+   "off_median_m": 2.18,
+   "sheet": "58",
+   "status": "left out: not placed reliably (no street or building match; 2 outlines on standing footprints, median offset 2.18 m; control points CV rms 10.5 m)"
+  },
+  {
+   "plate": "23030",
+   "image": "2021124",
+   "name": "Bronx, V. A, Plate No. 61 [Map bounded by Fort Schuyler Rd., Hammond's Creek, East River, ",
+   "gcps": 3,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.24,
+   "n": 41,
+   "frame": 36,
+   "brick": 5,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    14.0
+   ],
+   "sheet": "61",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 0.0 m)"
+  },
+  {
+   "plate": "23031",
+   "image": "2021125",
+   "name": "Bronx, V. A, Plate No. 62 [Map bounded by East Tremont Ave., Weir Creek, Long Island Sound",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 5.7,
+   "mpp": 0.181,
+   "n": 177,
+   "frame": 168,
+   "brick": 2,
+   "stone": 7,
+   "coincide": 7,
+   "share": 0.04,
+   "corrected": false,
+   "paper": [
+    84.0,
+    -2.0,
+    12.0
+   ],
+   "off_median_vec": [
+    0.04,
+    -0.1
+   ],
+   "off_median_m": 0.84,
+   "sheet": "62",
+   "status": "left out: not placed reliably (no street or building match; 7 outlines on standing footprints, median offset 0.84 m; control points CV rms 5.7 m)"
+  },
+  {
+   "plate": "23032",
+   "image": "2021126",
+   "name": "Bronx, V. A, Plate No. 63 [Map bounded by E. 177th St., Philip Ave., Long Island Sound, De",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 9.0,
+   "mpp": 0.194,
+   "n": 28,
+   "frame": 23,
+   "brick": 5,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -3.0,
+    13.0
+   ],
+   "sheet": "63",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 9.0 m)"
+  },
+  {
+   "plate": "23033",
+   "image": "2021127",
+   "name": "Bronx, V. A, Plate No. 64 [Map bounded by East Tremont Ave., Eastern Boulevard, Layton Ave",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 4.5,
+   "mpp": 0.169,
+   "n": 57,
+   "frame": 55,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.018,
+   "corrected": false,
+   "paper": [
+    83.0,
+    -2.0,
+    13.0
+   ],
+   "off_median_vec": [
+    3.74,
+    1.71
+   ],
+   "off_median_m": 4.11,
+   "sheet": "64",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 4.11 m; control points CV rms 4.5 m)"
+  },
+  {
+   "plate": "23034",
+   "image": "2021128",
+   "name": "Bronx, V. A, Plate No. 65 [Map bounded by Eastern Boulevard, North Road, Eastchester Bay, ",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 8.6,
+   "mpp": 0.16,
+   "n": 81,
+   "frame": 66,
+   "brick": 9,
+   "stone": 6,
+   "coincide": 3,
+   "share": 0.037,
+   "corrected": false,
+   "paper": [
+    84.0,
+    -2.0,
+    14.0
+   ],
+   "off_median_vec": [
+    -0.43,
+    -1.35
+   ],
+   "off_median_m": 1.68,
+   "sheet": "65",
+   "status": "left out: not placed reliably (no street or building match; 3 outlines on standing footprints, median offset 1.68 m; control points CV rms 8.6 m)"
+  }
+ ]
+}

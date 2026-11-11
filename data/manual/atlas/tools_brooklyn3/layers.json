@@ -122,137 +122,70 @@
    ]
   }
  },
- "brooklyn_old_1868": {
-  "map_year": 1868,
-  "atlas": "Insurance maps of the city of Brooklyn, L.I., vol. 4 (Williamsburgh and Greenpoint; W. Perris, 1868), NYPL Map Division, 50 ft to the inch",
-  "source": "perris_brooklyn_1868",
+ "brooklyn_coney_1899": {
+  "map_year": 1899,
+  "atlas": "Atlas of the Brooklyn Borough of the City of New York, vol. 3 (Gravesend; G. W. Bromley & Co., 1899), NYPL Map Division, Ward 31 plates",
+  "source": "bromley_brooklyn_1899",
   "style": "bromley_city",
   "require_match": 8.0,
   "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
   "plates": [
    {
-    "id": 15776,
-    "sheet": "P68-15776",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 66; [Map      bounded by 3rd St., South 1st St., East River, River St., Kent Ave., Including   North 6th St., North 5th St., North 4th St., North 3rd St., North 2nd St., North 1st St., Grand St., Wythe Ave.]"
+    "id": 28123,
+    "sheet": "B99-28123",
+    "name": "Double Page Plate No. 5: [Bounded by Bayview Ave., (Gravesend Bay) Canal Ave., W. 27th St., (Atlantic Ocean) Surf Ave. and Atlantic Ave.]"
    },
    {
-    "id": 15777,
-    "sheet": "P68-15777",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 67; [Map      bounded by Wythe Ave., North 6th St., East River, Kent Ave.; Including North     12th St., North 11th St., North 10th St., North 9th St., North 8th St., North    7th St.]"
+    "id": 28124,
+    "sheet": "B99-28124",
+    "name": "Double Page Plate No. 6: [Bounded by W. 27th St., Canal Ave., (Gravesend Bay) Warehouse Ave., Bay 47th St., Harway Ave., Avenue Z, (Harway Basin) Avenue Y, W. 12th St. and (Atlantic Ocean) Surf Ave.]"
    },
    {
-    "id": 15778,
-    "sheet": "P68-15778",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 68; [Map      bounded by Meserole Ave., Gem St., Franklin St., North 15th St., East River,     Kent St., Green Point Ave.; Including Milton St., West St., Noble St., Oak St.,  Calyer St., Quay St.]"
+    "id": 28125,
+    "sheet": "B99-28125",
+    "name": "Double Page Plate No. 7: [Bounded by W. 12th St., Avenue Y, E. 2nd St., Ocean Parkway, Concourse Drive, Surf Ave. and W. 10th St.]"
    },
    {
-    "id": 15779,
-    "sheet": "P68-15779",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 69; [Map      bounded by Bell St., Pink St., Blue St., Bay St., Maspeth Ave., East             Williamsburgh, Newtown Creek, Franklyn St., Kent St.; Including East River       Dupont St., Eagle St., Freeman St.,"
+    "id": 28126,
+    "sheet": "B99-28126",
+    "name": "Double Page Plate No. 8: [Bounded by Ocean Parkway, Avenue Z, E. 12th St., Canal Ave., Coney Island Ave., (Atlantic Ocean) Surf Ave. and Sea-Breeze Ave.]"
    },
    {
-    "id": 15780,
-    "sheet": "P68-15780",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 70; [Map      bounded by Vernol Ave., Manhattan Ave. late Union Ave., Commercial St., Box St., Bell St. (Not Opened), Newtown Creek, River St.; Including Pier St., Dock St.,   South St., Flushing St., Front St.,"
-   },
-   {
-    "id": 15781,
-    "sheet": "P68-15781",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 71; [Map      bounded by Vernon Ave., West 4th St., West 5th St., West 6th St., West 7th St.,  West 8th St.; Including West Ave.]"
-   },
-   {
-    "id": 15782,
-    "sheet": "P68-15782",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 72; [Map      bounded by Jacks Creek, East 3rd St., Vernon Ave., East 11th St., East 10th St., East 9th St., East 8th St., East 7th St., East 6th St., East 5th St., East 4th   St.; Including East Ave., Van Alst "
-   },
-   {
-    "id": 15783,
-    "sheet": "P68-15783",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 73; [Map      bounded by Jacks Creek, Ranton St., Pequod St., Shawnet St., Paidge Ave.,        Prorost St., Eagle St., Du Pont St., Clay St., Box St.; Including Manhattan Ave. Late Union Place, Ash St., Oakland "
-   },
-   {
-    "id": 15784,
-    "sheet": "P68-15784",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 74; [Map      bounded by Manhattan Ave. Late Union Place, Commercial St., Oakland St.,         Greenpoint St., Franklin St., Clay St., Dupoint St.; Including Eagle St.,        Freeman St., Green St., Huron St., "
-   },
-   {
-    "id": 15785,
-    "sheet": "P68-15785",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 75; [Map      bounded by Meeker Ave., Scott Ave., Newtown Creek, Newel St., Meserole Ave.,     Franklin St., Greenpoint Ave., Milton St., Noble St; Including Oak St., Calyer   St., Dobbin St., Guernsey St., Lori"
-   },
-   {
-    "id": 15786,
-    "sheet": "P68-15786",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 76; [Map      bounded by North 14th St., North 15th St., 5th St., Guernsey St., Lorimer St.,   Van Cott Ave., Oakland St., Newel St., Bancker St., Meserole Ave.; Including     Banker St., 2nd St., Norman Ave., 3"
-   },
-   {
-    "id": 15787,
-    "sheet": "P68-15787",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 77; [Map      bounded by Driggs St. late 5th St., North 6th St., 7th St., 8th St., 9th St.,    10th St., 11th St., 12th St., 13th St., 14th St., 15th St., Wythe Ave. late 2nd  St.; Including Eckford St., Van Cot"
-   },
-   {
-    "id": 15789,
-    "sheet": "P68-15789",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 79; [Map      bounded by Keap St. late 10th St., South 4th St., South 3rd St., South 2nd St.,  South 1st St., Grand St., Hope St.; Including North 2nd St., North 6th St.,      North 5th St., 7th St., Roebling St"
-   },
-   {
-    "id": 15790,
-    "sheet": "P68-15790",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 80; [Map      bounded by Leonard St., Orchard St., 5th St., Loniner St., Van Pelt St., Leonard St., Conselyea St., Skillman Ave., Jackson St., Wthers St., Frost St.,           Richardson St., Bayard St.; Includi"
-   },
-   {
-    "id": 15791,
-    "sheet": "P68-15791",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 81; [Map      bounded by Humboldt St., Herbert St., Meeker Ave., William St., North Henry St.  (not opened), Richardson St., Humboldt St., Ainslie St., Leonard St.; Including  Frost St., Withers St., Jackson St."
-   },
-   {
-    "id": 15792,
-    "sheet": "P68-15792",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 82; [Map      bounded by Lorimer St., Skillman Ave., Conselyea St., North 2nd St., Loriner     St., Stagg St., Schols St., Ten Eyck St., Mauger St., Grand St., Powers St.;     Including Ainslie St., Devoe St., N"
-   },
-   {
-    "id": 15793,
-    "sheet": "P68-15793",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 83; [Map      bounded by Humboldt St., Johnson Ave., Graham Ave., Ewen St., Leonard St.,       Loraimer St., Montrose Ave.; Including Meserole St., Schols St., Stagg St., Ten  Eyck St., Mavger St., Grand St., Po"
-   },
-   {
-    "id": 15794,
-    "sheet": "P68-15794",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 84; [Map      bounded by Metropolitan Ave., Morgan Ave., Stagg St., Humbolt St., Devoe St.,    Bushwick Ave., Ten Eyck St., Judge St.; Including Powers St., Olive St.,         Catharine St., Grand St., Agate St."
-   },
-   {
-    "id": 15795,
-    "sheet": "P68-15795",
-    "name": "Brooklyn, Vol. 4, Double Page Plate No. 85; [Map      bounded by Orient Ave., Olive St., Maspeth Ave., Newtown Creek, Haussman St.,    Webster St., Jockson St., Wright St., Broom St.; Including Van Pelt St., Newton  St., Skillman Ave., Kingsland Ave.,"
+    "id": 28133,
+    "sheet": "B99-28133",
+    "name": "Double Page Plate No. 15: [Bounded by (Atlantic Ocean, Manhattan Beach Hotel and Land Co.) E. 12th St., Avenue Z, E. 26th St., (Sheepshead Bay) Emmons Ave. and Neptune Ave.]"
    }
   ],
   "style_override": {
-   "frame": {
-    "db_min": 8.0,
-    "hue": 0.42,
-    "L_min": 50,
-    "L_max": 88
-   },
-   "brick": {
-    "da_min": 2.0,
-    "db_max": 3.0,
-    "L_min": 45
-   },
+   "max_m2": 20000.0,
+   "outline_big": 0.3,
+   "big_px": 4800,
+   "big_r": 16,
    "stone": {
-    "da_abs": 3.5,
-    "db_min": -14.0,
-    "db_max": -3.5,
-    "dL_min": -22.0,
-    "dL_max": -4.0
+    "da_abs": 5.5,
+    "db_min": -9.0,
+    "db_max": 0.5,
+    "dL_min": -28.0,
+    "dL_max": -9.0
    },
-   "front_px": 0,
+   "blue": {
+    "db_max": -5.5,
+    "db_min": -16.0,
+    "da_min": -6.0,
+    "da_max": 3.0,
+    "dL_min": -22.0,
+    "dL_max": -3.0
+   },
    "street_empty": true,
    "street_min_q": 0.2,
    "street_win_m": 300.0,
    "street_search": [
     30.0,
     15.0
-   ]
+   ],
+   "stone_min_m2": 200.0,
+   "stone_min_width_m": 6.0,
+   "stone_max_aspect": 4.0
   }
  }
 }

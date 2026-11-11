@@ -510,6 +510,12 @@ def run_county(*pids):
             print("FAILED", pid, repr(ex_), flush=True)
 
 
+def select_all():
+    for f in sorted(WORK.glob("rows_*.npz")):
+        pid = f.stem[5:]
+        select(pid)
+
+
 def make_lots_wrap(lines, cls, rng, dens_tree, old_tree, hv):
     class _H:
         pass
@@ -544,6 +550,7 @@ def select(pid):
     used = np.zeros(n, bool)
     S = np.full(n, np.nan); E = np.full(n, np.inf); basis = np.full(n, "", object)
     u0 = rng.random(n); u1 = rng.random(n)
+    DY = np.full(n, np.nan); LO = np.full(n, np.nan); HI = np.full(n, np.nan)
     log = []
     first = True
     for ti, y in enumerate(YEARS):
@@ -565,7 +572,7 @@ def select(pid):
             win = 20.0 if first else 10.0
             elig = (~used) & (z["g"] < y - 0.5) & (z["ge"] > y) & (ratio_all[:, ti] < RATIO_CUT)
             lo = np.maximum(y - win, z["g"] + 0.3); hi = y - 0.2
-            elig &= hi > lo + 0.3
+            elig &= hi > lo + 2.5
             sc = lo + u0 * (hi - lo)
             hm = elig[hc]
             hci = hc[hm]; hsi = hs[hm]; hei = he[hm]; ss = sc[hci]
@@ -578,7 +585,8 @@ def select(pid):
             idx = np.where(ok)[0]
             score = ratio_all[idx, ti] + 0.3 * dn[idx]
             pick = idx[np.argsort(score, kind="stable")[:k]]
-            used[pick] = True; S[pick] = sc[pick]
+            used[pick] = True; S[pick] = sc[pick]; DY[pick] = y; LO[pick] = lo[pick]; HI[pick] = hi
+            
             ge_ = z["ge"][pick] - 0.5
             e0 = np.minimum(er[pick], np.where(z["ge"][pick] < 9000, ge_, np.inf))
             E[pick] = e0
@@ -586,6 +594,50 @@ def select(pid):
             placed = len(pick)
             log.append((y, int(r.bld), int(r.need), int(k), placed, int(ok.sum())))
         first = False
+    # pass 2: the starts follow a continuous rate (linear between the decades' mid-points) instead of a uniform
+    # slab per decade, so that no year stands out from its neighbours (the rows keep their lot and decade)
+    ys_placed = sorted({int(v) for v in DY[used]})
+    if ys_placed:
+        cnt_y = {y_: int((DY == y_).sum()) for y_ in ys_placed}
+        win_y = {y_: (20.0 if y_ == ys_placed[0] and y_ == next(yy for yy in YEARS if yy in mp.index and np.isfinite(mp.loc[yy, "pop"])) else 10.0) for y_ in ys_placed}
+        rate = {y_: cnt_y[y_] / win_y[y_] for y_ in ys_placed}
+        rng2 = np.random.default_rng(int(pid[-6:]) + 13)
+        idx_u = np.where(used)[0]
+        grid = np.linspace(0, 1, 41)
+        newS = S.copy()
+        for y_ in ys_placed:
+            rows_ = idx_u[DY[idx_u] == y_]
+            r_prev = rate.get(y_ - 10, 0.0); r_next = rate.get(y_ + 10, 0.0)
+            r0_ = min(rate[y_], 2.0 * r_prev + 0.05 * rate[y_]); r1_ = min(rate[y_], 2.0 * r_next + 0.05 * rate[y_])
+            rm_ = 1.6 * rate[y_]
+            t = LO[rows_][:, None] + (HI[rows_] - LO[rows_])[:, None] * grid[None, :]
+            mid = y_ - win_y[y_] / 2
+            f = np.where(t < mid, r0_ + (rm_ - r0_) * (t - (y_ - win_y[y_])) / (win_y[y_] / 2), rm_ + (r1_ - rm_) * (t - mid) / (win_y[y_] / 2))
+            f = np.clip(f, 0.05 * max(rate[y_], 1e-9), None)
+            cdf = np.cumsum(f, axis=1); cdf /= cdf[:, -1:]
+            u = rng2.random(len(rows_))[:, None]
+            k_ = (cdf < u).sum(axis=1).clip(0, len(grid) - 1)
+            newS[rows_] = t[np.arange(len(rows_)), k_]
+        # feasible at the new start? (no row of the map within 3 m alive then); else keep the first draw
+        hm = used[hc]
+        hci, hsi, hei = hc[hm], hs[hm], he[hm]
+        bad = np.zeros(n, bool)
+        ssn = newS[hci]
+        bad[hci[(hsi <= ssn) & (ssn < hei)]] = True
+        erq = np.full(n, np.inf)
+        lat_ = hsi > ssn
+        np.minimum.at(erq, hci[lat_], hsi[lat_])
+        bad |= used & ((erq - newS) < 2.0)
+        mv = used & ~bad
+        # the end that came from the map moves with the start; ends from the decline or the ground keep their draw
+        S[mv] = newS[mv]
+        reuse = mv & (basis == "replaced_by_map")
+        E[reuse] = np.minimum(erq[reuse], np.where(z["ge"][reuse] < 9000, z["ge"][reuse] - 0.5, np.inf))
+        E[used & (basis == "census_decline")] = np.maximum(E[used & (basis == "census_decline")], S[used & (basis == "census_decline")] + 1.0)
+        print("   pass 2: %d of %d starts re-dealt along the rate curve" % (int(mv.sum()), int(used.sum())))
+    # a replacement later than 1995 is not believed (the lot was cleared before the new building): spread over 1960-1995
+    late = used & (E > 1996) & (E < 9000) & (basis == "replaced_by_map")
+    E[late] = np.maximum(S[late] + 1.0, 1960 + 35 * u1[late]); basis[late] = "estimated"
     # rows still open: spread over 1960-1995
     op = used & np.isinf(E)
     E[op] = np.maximum(S[op] + 1.0, 1960 + 35 * u1[op]); basis[op] = "estimated"

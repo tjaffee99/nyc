@@ -22,8 +22,10 @@ lay = {
 SANB = dict(frame=dict(db_min=8.0, hue=0.42, L_min=50, L_max=88), brick=dict(da_min=2.0, db_max=3.0, L_min=45),
             stone=dict(da_abs=3.5, db_min=-14.0, db_max=-3.5, dL_min=-22.0, dL_max=-4.0), front_px=0, street_empty=True,
             street_min_q=0.2, street_win_m=300.0, street_search=[30.0, 15.0])
-lay['brooklyn_old_1868'] = L(1868, "Insurance maps of the city of Brooklyn, L.I., vol. 4 (Williamsburgh and Greenpoint; W. Perris, 1868), NYPL Map Division, 50 ft to the inch", 'perris_brooklyn_1868',
-     'bromley_city', [15776, 15777, 15778, 15779, 15780, 15781, 15782, 15783, 15784, 15785, 15786, 15787, 15789, 15790, 15791, 15792, 15793, 15794, 15795], SANB, None, 'P68')
+# Perris 1868 vol. 4 (plates 66-85, Williamsburgh) was tried and left out: see data/research/brooklyn_atlas3.md
+B98 = json.load(open('data/manual/atlas/tools_brooklyn2/layers.json'))['brooklyn_sunsetpark_1898']['style_override']
+lay['brooklyn_coney_1899'] = L(1899, "Atlas of the Brooklyn Borough of the City of New York, vol. 3 (Gravesend; G. W. Bromley & Co., 1899), NYPL Map Division, Ward 31 plates", 'bromley_brooklyn_1899',
+     'bromley_city', [28123, 28124, 28125, 28126, 28133], B98, None, 'B99')
 for _p in lay['brooklyn_old_1880']['plates']:
     if _p['id'] == 8015: _p['skip'] = 'street match left 5.2 m after a 20 m correction (control points CV rms 40 m); 18 outlines outside the Sanborn layers'
 if __name__ == '__main__':

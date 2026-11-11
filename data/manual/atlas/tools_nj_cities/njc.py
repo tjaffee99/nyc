@@ -102,13 +102,15 @@ def locate(layer, pid, city, prior=None, pr=None, rots=None, scales=None, verbos
     polys = load_px(layer, pid)
     P = A.Plate(layer, pid, verbose=False); W, H = P.img().shape[1], P.img().shape[0]
     polys = [shapely.affinity.translate(p, -W / 2, -H / 2) for p in polys]
-    rots = rots if rots is not None else np.arange(-3, 3.1, 1.5)
+    rots = rots if rots is not None else (np.arange(-40, 40.1, 2.0) if prior is not None else np.arange(-3, 3.1, 1.5))
     scales = scales if scales is not None else [0.098, 0.1, 0.102, 0.104]
     cell = 4.0
     F, tr = city_raster(city, cell); F = ndi.gaussian_filter(F, 1.5)
     if prior is not None:
-        # restrict by masking the score map later
         cx, cy = prior
+        R = pr + 260
+        j0 = max(0, int((cx - R - tr.c) / cell)); j1 = int((cx + R - tr.c) / cell); i0 = max(0, int((tr.f - (cy + R)) / cell)); i1 = int((tr.f - (cy - R)) / cell)
+        F = F[i0:i1, j0:j1]; tr = Affine(cell, 0, tr.c + j0 * cell, 0, -cell, tr.f - i0 * cell)
     cand = []
     for th in rots:
         for s in scales:
@@ -129,11 +131,16 @@ def locate(layer, pid, city, prior=None, pr=None, rots=None, scales=None, verbos
     if verbose: print(layer, pid, "coarse best", [round(v, 3) if isinstance(v, float) else v for v in best[:5]], "second place (>40 m away) %.3f" % lead, flush=True)
     # fine
     cell = 1.0
-    F1, tr1 = city_raster(city, cell); F1 = ndi.gaussian_filter(F1, 1.0)
+    F1, tr1 = city_raster(city, cell)
+    if prior is not None:
+        R = pr + 260
+        j0 = max(0, int((cx - R - tr1.c) / cell)); j1 = int((cx + R - tr1.c) / cell); i0 = max(0, int((tr1.f - (cy + R)) / cell)); i1 = int((tr1.f - (cy - R)) / cell)
+        F1 = F1[i0:i1, j0:j1]; tr1 = Affine(cell, 0, tr1.c + j0 * cell, 0, -cell, tr1.f - i0 * cell)
+    F1 = ndi.gaussian_filter(F1, 1.0)
     sc0, th0, s0, gx0, gy0 = best[:5]
     # window of the fine raster around the coarse position (template extent + 60 m)
     res = []
-    for th in np.arange(th0 - 1, th0 + 1.01, 0.5):
+    for th in np.arange(th0 - 2, th0 + 2.01, 0.5):
         for s in (s0 - 0.002, s0 - 0.001, s0, s0 + 0.001, s0 + 0.002):
             T, (ox, oy) = tmpl(polys, amat(th, s), cell, 1.5)
             # sub-raster of F1 around expected window
@@ -179,7 +186,7 @@ if __name__ == "__main__":
             write_fit(layer, pid, f)
             print(json.dumps(dict(sheet=sh, **{k: round(float(v), 4) for k, v in f.items()})), flush=True)
 
-def ovr(layer, sheets, out, w=760, items=False):
+def ovr(layer, sheets, out, w=int(os.environ.get("OVW", 760)), items=False):
     """Montage: each sheet reduced to w px wide with today's footprints (cyan) over it (and the traced outlines if items)."""
     from PIL import Image, ImageDraw
     ims = []
