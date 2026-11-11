@@ -99,7 +99,7 @@ USE_CATEGORIES = ["unknown", "single-family home", "residential", "commercial", 
                   "industrial", "government / civic", "other"]
 # facade materials
 M_GENERIC, M_EARLY, M_FRAME, M_BRICK, M_MASONRY, M_STUCCO, M_MIDCENTURY, M_TOWER70, M_GLASS, M_CONTEMP, M_CIVIC, \
-    M_INDUSTRIAL, M_DUTCH, M_BARK, M_BROWNSTONE, M_WHITEBRICK = range(16)
+    M_INDUSTRIAL, M_DUTCH, M_BARK, M_BROWNSTONE, M_WHITEBRICK, M_CONTAINERS = range(17)
 # roof codes: 0 flat (tar / gravel / membrane), 1 clay tile, 2 shingle / slate (pitched), 3 same as walls
 R_FLAT, R_TILE, R_SHINGLE, R_WALL = range(4)
 
@@ -147,6 +147,11 @@ def source_label(src: str) -> str:
                 "group and the town's growth (typically within about 20 years; not a record)")
     if src.startswith("gapfill"):
         ev = src.split(":", 1)[1] if ":" in src else ""
+        if ev.startswith("port+") or ev.startswith("yard+"):      # port_fill.py
+            what = "shipping containers stacked in a container terminal" if "container" in ev else \
+                   ("railroad cars standing in a yard" if "rail" in ev else "what stands on a working yard")
+            return (f"generated: {what} (the terminal or yard and its opening year are real; "
+                    "the positions, sizes and colours are generated)")
         if ev.startswith("site+"):      # site_fill.py: a roof read off the photograph inside a yard, fort or institution
             seen = ("the 1924 and 1951 aerial photographs show" if "1924+1951" in ev else
                     f"the {ev[-4:]} aerial photograph shows")

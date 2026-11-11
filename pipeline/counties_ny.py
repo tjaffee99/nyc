@@ -280,6 +280,8 @@ def muni_outlines(key, g):
 # build
 
 _outlines = {}
+_state_cache = {}
+SPLIT = ('nassau', 'suffolk')   # built in pieces (the municipalities), the machine has 2 GB
 
 
 def county_outline(fips):
@@ -323,7 +325,7 @@ def in_county(g, poly):
     return g[shapely.contains_xy(poly, rep.x.values, rep.y.values)].reset_index(drop=True), int(bad.sum())
 
 
-def load_footprints(key):
+def load_footprints(key, part=None):
     """Overture footprints whose inner point lies in the county, >= MIN_AREA m2, and the State's
     footprints where Overture has none (Overture's footprints cover < FILL_OVERLAP of the outline
     and < FILL_AREA m2: neighbours that touch)."""
@@ -331,7 +333,7 @@ def load_footprints(key):
     import geopandas as gpd
     import shapely
     name, fips = COUNTIES[key]
-    poly = county_outline(fips)
+    poly = county_outline(fips) if part is None else part   # (part: a piece of the county, WGS84; Nassau and Suffolk are built in pieces)
     w, s, e, n = poly.bounds
     con = duckdb.connect()
     con.execute("SET memory_limit='1000MB'")
@@ -352,6 +354,8 @@ def load_footprints(key):
     st = state_footprints(key)
     n_state = n_fill = 0
     if st is not None:
+        if part is not None:
+            st = st.cx[w - 0.01:e + 0.01, s - 0.01:n + 0.01]
         st, _ = in_county(st, poly)
         su = st.geometry.to_crs(UTM)
         sarea = su.area.values
@@ -385,6 +389,8 @@ def load_footprints(key):
 def state_footprints(key):
     """The State's footprints of the county (WGS84; OBJECTID, source, source date), cached as one GeoParquet."""
     import geopandas as gpd
+    if key in _state_cache:
+        return _state_cache[key]
     name = COUNTIES[key][0]
     out = OUT / f"state_fp_{key}.parquet"
     pages = sorted((CACHE / "state_footprints" / name).glob("oid_*.geojson.gz"))
@@ -396,7 +402,10 @@ def state_footprints(key):
         g.to_parquet(out)
         del g
         gc.collect()
-    return gpd.read_parquet(out)
+    r = gpd.read_parquet(out)
+    if key in SPLIT:
+        _state_cache[key] = r
+    return r
 
 
 def load_parcels(key):
@@ -589,15 +598,26 @@ def cris_points(key):
     return gpd.GeoDataFrame.from_features(feats, crs=4326).to_crs(UTM)
 
 
-def build(key):
+def build(key, part=None, label=""):
     import geopandas as gpd
     name, fips = COUNTIES[key]
-    if not any((CACHE / "parcels" / name).glob("oid_*.geojson.gz")):
+    has_parcels = any((CACHE / "parcels" / name).glob("oid_*.geojson.gz"))
+    if not has_parcels and key not in OUTER:
         log(f"{name}: no parcels with construction years -> not built (see data/research/counties_ny.md)")
         return None
-    fp, counts = load_footprints(key)
+    fp, counts = load_footprints(key, part)
     gc.collect()
-    st = parcel_stacks(load_parcels(key))
+    if not has_parcels:
+        return build_without_parcels(key, fp, counts, label)
+    par = load_parcels(key)
+    if part is not None:   # the parcels around the piece (a footprint is matched to a parcel within 300 m)
+        x0, y0, x1, y1 = fp.total_bounds
+        from pyproj import Transformer
+        tr = Transformer.from_crs(4326, UTM, always_xy=True)
+        (ax, ay), (bx, by) = tr.transform(x0, y0), tr.transform(x1, y1)
+        par = par.cx[ax - 600:bx + 600, ay - 600:by + 600]
+    st = parcel_stacks(par)
+    del par
     gc.collect()
     u = fp.geometry.to_crs(UTM)
     cen = u.centroid
@@ -706,12 +726,159 @@ def build(key):
                                                     "Esri Community Maps": "overture:esri"}).str.replace("NYS ", "nys_bf_").fillna("").values,
     }, geometry=fp.geometry.values, crs=4326)
     OUT.mkdir(parents=True, exist_ok=True)
+    if part is not None:
+        (OUT / "parts").mkdir(exist_ok=True)
+        out.to_parquet(OUT / "parts" / f"ny_{key}_{label}.parquet", index=False)
+        (OUT / "parts" / f"ny_{key}_{label}.json").write_text(json.dumps({"heap_rows": heap_rows, "counts": counts}))
+        log(f"{name} piece {label}: {len(out)} footprints, {int(out.year_raw.notna().sum())} with a year")
+        return None
     f = OUT / f"ny_{key}.parquet"
     out.to_parquet(f.with_suffix(".part"), index=False)
     f.with_suffix(".part").rename(f)
     report(key, out, heap_rows, county_heaps, counts)
     muni_outlines(key, out)
     return out
+
+
+def civil_pieces(key):
+    """(municipality, assessing town, outline in UTM) for a county without parcels: a village; a town outside its
+    villages; a city. A village that shares its name with a town is called "<name>, Village", a town that shares
+    it with a city "<name>, Town" (as the State's roll does)."""
+    import geopandas as gpd
+    import shapely
+    name = COUNTIES[key][0]
+    towns, villages = (gpd.read_file(CACHE / "civil" / f"{name}_{w}.geojson").to_crs(UTM) for w in ("cities_towns", "villages"))
+    towns = towns[towns.COUNTY.fillna("").str.contains(name)]
+    tn = set(towns.NAME)
+    cities = set(towns[towns.MUNI_TYPE.str.lower().eq("city")].NAME)
+    rows = []
+    vu = shapely.union_all(villages.geometry.values) if len(villages) else None
+    for r in villages.itertuples():
+        rows.append((r.NAME + (", Village" if r.NAME in tn else ""), r.TOWN if isinstance(r.TOWN, str) and r.TOWN else r.NAME, r.geometry))
+    for r in towns.itertuples():
+        g = r.geometry.difference(vu) if vu is not None and r.MUNI_TYPE.lower() != "city" else r.geometry
+        if not g.is_empty:
+            nm = r.NAME + (", Town" if (r.NAME in cities and r.MUNI_TYPE.lower() != "city") else "")
+            rows.append((nm, nm, g))
+    return rows
+
+
+def build_without_parcels(key, fp, counts, label=""):
+    """Counties whose roll is not public (Dutchess, Nassau): the footprint file without any year. The municipality is
+    read from the State's civil boundaries; `year_raw` is NaN, `muni_year_share` 0.0, `use` 0. The years come from
+    counties_ny_estimates.py."""
+    import geopandas as gpd
+    name = COUNTIES[key][0]
+    pieces = civil_pieces(key)
+    ll = fp.geometry.representative_point()
+    pts = gpd.GeoDataFrame({"fi": np.arange(len(fp))}, geometry=gpd.points_from_xy(ll.x, ll.y), crs=4326).to_crs(UTM)
+    muni = np.full(len(fp), "", object)
+    town = np.full(len(fp), "", object)
+    pg = gpd.GeoDataFrame({"m": [p[0] for p in pieces], "t": [p[1] for p in pieces]}, geometry=[p[2] for p in pieces], crs=UTM)
+    j = gpd.sjoin(pts, pg, predicate="within")
+    j["pa"] = pg.geometry.area.reindex(j.index_right).values
+    j = j.sort_values(["fi", "pa"]).drop_duplicates("fi")      # (the smallest piece: village over town)
+    muni[j.fi.values], town[j.fi.values] = j.m.values, j.t.values
+    miss = np.flatnonzero(muni == "")
+    if len(miss):
+        nn = gpd.sjoin_nearest(gpd.GeoDataFrame({"fi": miss}, geometry=pts.geometry.values[miss], crs=UTM), pg, max_distance=2000).drop_duplicates("fi")
+        muni[nn.fi.values], town[nn.fi.values] = nn.m.values, nn.t.values
+    height = fp.height.values.astype(float)
+    height = np.where(height > 0, height, np.nan)
+    names = fp.name.where(fp.name.notna(), None).values.astype(object)
+    out = gpd.GeoDataFrame({
+        "id": fp.id.values, "county": name, "muni": muni, "town": town,
+        "height_m": height, "height_src": np.where(np.isfinite(height), "overture", ""), "floors": fp.num_floors.values.astype(float),
+        "year_raw": np.nan, "year_src": "", "heap": False, "secondary": False, "prop_class": "", "use": np.zeros(len(fp), np.int8),
+        "year_hist": np.nan, "hist_src": "", "year_hist_ca": np.nan, "muni_year_share": 0.0,
+        "lon": np.round(ll.x.values, 6), "lat": np.round(ll.y.values, 6), "name": pd.Series(names).fillna("").values, "usn": "",
+        "parcel": "", "n_on_parcel": 0, "area_m2": fp.area_m2.values,
+        "footprint_src": fp.source_dataset.replace({"OpenStreetMap": "overture:osm", "Microsoft ML Buildings": "overture:microsoft",
+                                                    "Esri Community Maps": "overture:esri"}).str.replace("NYS ", "nys_bf_").fillna("").values,
+    }, geometry=fp.geometry.values, crs=4326)
+    OUT.mkdir(parents=True, exist_ok=True)
+    if label:
+        (OUT / "parts").mkdir(exist_ok=True)
+        out.to_parquet(OUT / "parts" / f"ny_{key}_{label}.parquet", index=False)
+        (OUT / "parts" / f"ny_{key}_{label}.json").write_text(json.dumps({"heap_rows": [], "counts": counts}))
+        log(f"{name} piece {label}: {len(out)} footprints")
+        return None
+    return finish_without_parcels(key, out, counts)
+
+
+def finish_without_parcels(key, out, counts):
+    name = COUNTIES[key][0]
+    f = OUT / f"ny_{key}.parquet"
+    out.to_parquet(f.with_suffix(".part"), index=False)
+    f.with_suffix(".part").rename(f)
+    st = out.groupby("muni").agg(footprints=("id", "size"), town=("town", "first")).reset_index()
+    rep = {"county": name, "built": time.strftime("%Y-%m-%d"), **counts, "footprints": len(out), "with_year": 0, "no_parcels": True,
+           "municipalities": st.to_dict("records")}
+    (OUT / f"ny_{key}_report.json").write_text(json.dumps(rep, indent=1))
+    (OUT / f"ny_{key}_report.txt").write_text(f"{name}: {len(out)} footprints, no public year built (no parcels in the State's layer)\n"
+                                              + "\n".join(f"{r['muni']} | {r['town']} | {r['footprints']}" for r in rep["municipalities"]) + "\n")
+    log(f"{name}: {len(out)} footprints, no roll; {out.muni.nunique()} municipalities")
+    muni_outlines(key, out)
+    return out
+
+
+def pieces(key):
+    """The county cut into pieces for the build: each city / town outline of the State's civil boundaries (WGS84), then
+    whatever of the county they leave out (coast, islands)."""
+    import geopandas as gpd
+    import shapely
+    name, fips = COUNTIES[key]
+    towns = gpd.read_file(CACHE / "civil" / f"{name}_cities_towns.geojson")
+    towns = towns[towns.COUNTY.fillna("").str.contains(name)]
+    out, seen = [], set()
+    for r in towns.itertuples():
+        lab = re.sub(r"\W+", "_", r.NAME).strip("_")
+        lab = lab + "_city" if r.MUNI_TYPE.lower() == "city" and r.NAME in set(towns[towns.MUNI_TYPE.str.lower() != "city"].NAME) else lab
+        out.append((lab, r.geometry))
+    rest = county_outline(fips).difference(shapely.union_all([g for _, g in out]).buffer(0))
+    if not rest.is_empty and rest.area > 1e-6:
+        out.append(("rest", rest))
+    return out
+
+
+def build_pieces(key, only=None):
+    """Build the county piece by piece (resumable: a finished piece is skipped), then merge."""
+    name = COUNTIES[key][0]
+    for lab, geom in pieces(key):
+        if only and lab not in only:
+            continue
+        if (OUT / "parts" / f"ny_{key}_{lab}.parquet").exists():
+            continue
+        build(key, geom, lab)
+        gc.collect()
+    merge_pieces(key)
+
+
+def merge_pieces(key):
+    import geopandas as gpd
+    name = COUNTIES[key][0]
+    fs = sorted((OUT / "parts").glob(f"ny_{key}_*.parquet"))
+    if len(fs) < len(pieces(key)):
+        log(f"{name}: {len(fs)} of {len(pieces(key))} pieces built; not merged")
+        return
+    g = pd.concat([gpd.read_parquet(f) for f in fs], ignore_index=True)
+    g = gpd.GeoDataFrame(g.drop_duplicates("id"), geometry="geometry", crs=4326).reset_index(drop=True)
+    meta = [json.loads(f.with_suffix(".json").read_text()) for f in fs]
+    counts = {k: int(sum(m["counts"][k] for m in meta)) for k in meta[0]["counts"]}
+    if g.parcel.eq("").all():
+        return finish_without_parcels(key, g, counts)
+    heap_rows = [r for m in meta for r in m["heap_rows"]]
+    cnum = pd.to_numeric(g.prop_class.str[:3], errors="coerce").values
+    kind = np.where((cnum >= 200) & (cnum < 300), "homes", "other")
+    my = np.where(~g.secondary.values, g.year_raw.values, np.nan)
+    county_heaps = {k: sorted(int(v) for v in find_heaps(np.where(kind == k, my, np.nan), np.full(len(g), name), need)[name])
+                    for k, need in (("homes", heap_min), ("other", heap_min_other))}
+    f = OUT / f"ny_{key}.parquet"
+    g.to_parquet(f.with_suffix(".part"), index=False)
+    f.with_suffix(".part").rename(f)
+    report(key, g, heap_rows, county_heaps, counts)
+    muni_outlines(key, g)
+    log(f"{name}: merged {len(fs)} pieces, {len(g)} footprints")
 
 
 def report(key, g, heaps, county_heaps, counts):
@@ -900,12 +1067,15 @@ def main(argv):
     keys = [a.lower() for a in argv if a.lower() in COUNTIES] or list(COUNTIES)
     for key in keys:
         if cmd in ("download", "all"):
-            if download_parcels(key):
-                download_state_footprints(key)
-                download_cris(key)
-                download_civil(key)
+            download_parcels(key)   # (False: not in the public layer; the footprints are still fetched, their years are modelled)
+            download_state_footprints(key)
+            download_cris(key)
+            download_civil(key)
         if cmd in ("build", "all"):
-            build(key)
+            if key in SPLIT:
+                build_pieces(key)
+            else:
+                build(key)
         if cmd in ("check", "all"):
             check(key)
 

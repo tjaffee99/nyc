@@ -56,8 +56,8 @@ import shapely
 import shapely.affinity
 from scipy.spatial import cKDTree
 
-from building_binary import (M_BARK, M_BRICK, M_BROWNSTONE, M_DUTCH, M_EARLY, M_FRAME, M_MASONRY, R_FLAT, R_SHINGLE, R_TILE,
-                             R_WALL)
+from building_binary import (M_BARK, M_BRICK, M_BROWNSTONE, M_CONTAINERS, M_DUTCH, M_EARLY, M_FRAME, M_INDUSTRIAL, M_MASONRY,
+                             R_FLAT, R_SHINGLE, R_TILE, R_WALL)
 from common import INTERIM, MANUAL, NYC_CRS, RAW, YEAR_MIN, log
 
 UTM = NYC_CRS
@@ -542,7 +542,9 @@ def add_predecessors(g):
     roof = np.where(start < 1700, R_TILE, np.where(start < 1830, R_SHINGLE, roof)).astype(np.uint8)
     # a researched wall material (lost buildings, early sites) beats the era's
     md = v.mat_doc.values.astype(str)
-    for words, code, rf in ((("bark",), M_BARK, R_WALL), (("frame", "wood", "timber", "clapboard", "log"), M_FRAME, R_SHINGLE),
+    for words, code, rf in ((("bark",), M_BARK, R_WALL), (("container",), M_CONTAINERS, R_WALL),
+                            (("railcar", "steel", "metal"), M_INDUSTRIAL, R_WALL),
+                            (("frame", "wood", "timber", "clapboard", "log"), M_FRAME, R_SHINGLE),
                             (("brownstone",), M_BROWNSTONE, None), (("brick",), M_BRICK, None),
                             (("stone", "granite", "marble", "limestone", "masonry"), M_MASONRY, None)):
         hit = np.array([any(w in m for w in words) for m in md]) & (md != "")

@@ -46,6 +46,12 @@ BINS = [("pre1940", 1700, 1939, "B25034_E011"), ("1940-1949", 1940, 1949, "B2503
         ("1990-1999", 1990, 1999, "B25034_E005"), ("2000-2009", 2000, 2009, "B25034_E004"),
         ("2010-2019", 2010, 2019, "B25034_E003"), ("2020-2025", 2020, 2025, "B25034_E002")]
 COUNTIES = {"westchester": ("36119", "Westchester"), "rockland": ("36087", "Rockland")}
+# the outer round (2026-11-11; data/research/counties_ny_outer.md): `build_outer` fits one model on every dated county
+# (the two above and the dated outer ones) and writes ny_<county>_estimates.parquet for the outer counties only
+OUTER_COUNTIES = {"putnam": ("36079", "Putnam"), "sullivan": ("36105", "Sullivan"), "ulster": ("36111", "Ulster"),
+                  "dutchess": ("36027", "Dutchess"), "orange": ("36071", "Orange"), "nassau": ("36059", "Nassau"),
+                  "suffolk": ("36103", "Suffolk")}
+ALL = {**COUNTIES, **OUTER_COUNTIES}
 VALID = ["Yonkers", "White Plains", "Scarsdale", "Rye", "Somers", "Harrison", "New Castle", "Pelham"]
 WIKI_TITLE = {  # municipality -> English Wikipedia article for its census table
     "Mamaroneck": "Mamaroneck (town), New York", "Mamaroneck, Village": "Mamaroneck (village), New York",
@@ -103,12 +109,21 @@ def download():
         tarfile.open(RAW / "hisdac/FBUY.tar.gz").extractall(RAW / "hisdac/x")
     pop = RAW / "wiki_pop.json"
     cache = json.loads(pop.read_text()) if pop.exists() else {}
-    for cty in COUNTIES:
+    for cty in ALL:
+        if not (OUT / f"ny_{cty}.parquet").exists():
+            continue
+        if OUTER_COUNTIES.get(cty) and f"county:{cty}" not in cache:   # the county's own census series (fallback of its towns)
+            t = f"{OUTER_COUNTIES[cty][1]} County, New York"
+            cache[f"county:{cty}"] = {"title": t, "series": wiki_series(t)}
+            log("pop", t, len(cache[f"county:{cty}"]["series"]))
         df = pd.read_parquet(OUT / f"ny_{cty}.parquet", columns=["muni", "town"])
         for muni in sorted(set(df.muni) | set(df.town)):
             if (muni in cache and cache[muni]["series"]) or not muni:
                 continue
             title = WIKI_TITLE.get(muni, f"{muni}, New York")
+            for suf, kind in ((", Village", "village"), (", Town", "town")):
+                if muni.endswith(suf) and muni not in WIKI_TITLE:
+                    title = f"{muni[:-len(suf)]} ({kind}), New York"
             ser = wiki_series(title)
             if not ser and title != f"{muni}, New York":
                 ser = wiki_series(f"{muni}, New York")
@@ -179,11 +194,20 @@ def load_county(cty):
     return df, bg
 
 
-def features(df):
+def features(df, cty=None):
     """Per-building covariates (all computed for every building, dated or not)."""
     from scipy.spatial import cKDTree
     pl = pd.read_csv(ROOT / "data/tables/places_counties.csv")
-    pl = pl[pl.tier.isin(["town", "city"]) & pl.county.isin(["Westchester", "Rockland"])]
+    names = ["Westchester", "Rockland"] if cty in (None, "westchester", "rockland") else [ALL[cty][1]]
+    pl = pl[pl.tier.isin(["town", "city"]) & pl.county.isin(names)]
+    if not len(pl):   # no hand-made places for the county: the centres of its cities, villages and towns (State civil boundaries)
+        import geopandas as gp
+        cs = []
+        for w in ("cities_towns", "villages"):
+            g = gp.read_file(ROOT / f"data/raw/counties_ny/civil/{ALL[cty][1]}_{w}.geojson").to_crs(32618)
+            c = g.geometry.representative_point().to_crs(4326)
+            cs.append(pd.DataFrame({"lon": c.x.values, "lat": c.y.values}))
+        pl = pd.concat(cs, ignore_index=True)
     st = pd.read_csv(ROOT / "data/tables/transit_stations.csv")
     st = st[st.system.isin(["mnr", "njt", "rail"]) & st.lon.between(df.lon.min() - .2, df.lon.max() + .2)
             & st.lat.between(df.lat.min() - .2, df.lat.max() + .2)]
@@ -197,17 +221,22 @@ def features(df):
     out["larea"] = np.log(df.area_m2.clip(lower=10))
     out["hgt"] = df.height_m.fillna(df.height_m.median())
     tree = cKDTree(xy)
-    out["dens"] = tree.query_ball_point(xy, 60, return_length=True)
+    out["dens"] = tree.query_ball_point(xy, 60, return_length=True, workers=1)
     # neighbourhood sameness within 100 m: tract houses share size and height
-    nb = tree.query_ball_point(xy, 100)
-    cnt = np.fromiter((len(a) for a in nb), int, len(nb))
-    flat = np.concatenate(nb).astype(int)
-    seg = np.r_[0, np.cumsum(cnt)[:-1]]
-    la, hg = out.larea.values[flat], out.hgt.values[flat]
-    sa, sa2, sh = (np.add.reduceat(v, seg) for v in (la, la * la, hg))
-    out["area_loc"] = sa / cnt
-    out["area_sd"] = np.sqrt(np.maximum(sa2 / cnt - (sa / cnt) ** 2, 0))
-    out["hgt_loc"] = sh / cnt
+    n = len(xy)
+    area_loc, area_sd, hgt_loc = np.zeros(n), np.zeros(n), np.zeros(n)
+    for a in range(0, n, 40000):   # in chunks (Suffolk: 700 thousand footprints, 2 GB)
+        nb = tree.query_ball_point(xy[a:a + 40000], 100)
+        cnt = np.fromiter((len(q) for q in nb), int, len(nb))
+        flat = np.concatenate(nb).astype(int)
+        seg = np.r_[0, np.cumsum(cnt)[:-1]]
+        la, hg = out.larea.values[flat], out.hgt.values[flat]
+        sa, sa2, sh = (np.add.reduceat(v, seg) for v in (la, la * la, hg))
+        area_loc[a:a + 40000] = sa / cnt
+        area_sd[a:a + 40000] = np.sqrt(np.maximum(sa2 / cnt - (sa / cnt) ** 2, 0))
+        hgt_loc[a:a + 40000] = sh / cnt
+        del nb, flat
+    out["area_loc"], out["area_sd"], out["hgt_loc"] = area_loc, area_sd, hgt_loc
     out["nn"] = tree.query(xy, 2)[0][:, 1]
     return out
 
@@ -376,7 +405,7 @@ def muni_dist(df, bg):
 # ------------------------------------------------------------------ build / validate
 def prepare(cty):
     df, bg = load_county(cty)
-    f = features(df)
+    f = features(df, cty)
     X = design(df, f)
     return df, bg, X
 
@@ -390,6 +419,8 @@ def train_mask(df, munis_excluded=()):
 def population(df, pops, cty):
     cs = pd.read_csv(ROOT / "data/tables/population_counties.csv")
     cs = cs[cs.area == cty].set_index("year").population.to_dict()
+    if not cs:   # outer counties: the county's census table from its Wikipedia article (wiki_pop.json, key "county:<name>")
+        cs = {int(k): v for k, v in pops.get(f"county:{cty}", {}).get("series", {}).items()}
     out = {}
     for m in df.muni.unique():
         ser = {int(k): v for k, v in pops.get(m, {}).get("series", {}).items()}
@@ -442,6 +473,71 @@ def run_build():
         est.assign(muni=df.loc[est.index, "muni"].values).to_parquet(INT / f"{c}_mains_est.parquet")
         np.save(INT / f"{c}_expected.npy", exp)
     (INT / "build_summary.json").write_text(json.dumps(summary, indent=1))
+
+
+def run_build_outer(targets):
+    """Estimates for the outer counties. One ridge model on every dated main building of the two inner counties and of the
+    outer counties that carry years; the normal equations are summed county by county (memory). The two inner counties'
+    own files are not rewritten."""
+    INT.mkdir(parents=True, exist_ok=True)
+    pops = json.loads((RAW / "wiki_pop.json").read_text())
+    train = [c for c in ALL if (OUT / f"ny_{c}.parquet").exists() and c not in ("dutchess", "nassau")]
+    A = b = None
+    prepared = {}
+    for c in train:
+        cache = INT / f"trainsums_{c}.npz"   # the normal equations of the county, kept (rebuilt if its footprint file is newer)
+        if cache.exists() and cache.stat().st_mtime > (OUT / f"ny_{c}.parquet").stat().st_mtime and c not in targets:
+            z = np.load(cache)
+            Ac, bc, n = z["A"], z["b"], int(z["n"])
+        else:
+            df, bg, X = prepare(c)
+            m = train_mask(df)
+            n = int(m.sum())
+            Xm, y = X[m].values, within_pct(df, m)[m].values
+            Ac, bc = Xm.T @ Xm, Xm.T @ y
+            np.savez(cache, A=Ac, b=bc, n=n)
+            if c in targets:
+                prepared[c] = (df, bg, X)
+            del df, bg, X
+        if n >= 500:
+            A = Ac if A is None else A + Ac
+            b = bc if b is None else b + bc
+        log(c, "trains on", n)
+    for c in targets:
+        if c not in prepared:
+            prepared[c] = prepare(c)
+    w = np.linalg.solve(A + 5.0 * np.eye(A.shape[0]), b)
+    np.save(INT / "model_w_outer.npy", w)
+    summary = {}
+    for c in targets:
+        df, bg, X = prepared.pop(c)
+        main = ~df.secondary
+        need = df.year_raw.isna()
+        is_main = main | (df.main_id == df.id)
+        idx = df.index[need & is_main]
+        if not len(idx):
+            log(c, "every footprint carries a year")
+            continue
+        score = X.loc[idx].values @ w
+        known = known_tables(df, bg, df.year_raw.notna())
+        est, exp = allocate(df, idx, score, known, population(df, pops, c), muni_dist(df, bg))
+        est["order"] = "model"
+        rest = df.index[need & ~is_main]
+        e2 = df.loc[rest, ["id", "main_id"]].merge(est.drop(columns=["bg"]).rename(columns={"id": "main_id"}),
+                                                   on="main_id", how="left").dropna(subset=["year_est"])
+        e2["bg"] = df.loc[rest].set_index("id").bg.reindex(e2.id).values
+        e2["basis"] = e2.basis + "+outbuilding_of_main"
+        allest = pd.concat([est, e2.drop(columns=["main_id"])], ignore_index=True)
+        allest["year_est"] = allest.year_est.astype("int16")
+        allest[["year_lo", "year_hi"]] = allest[["year_lo", "year_hi"]].astype("int16")
+        allest.to_parquet(OUT / f"ny_{c}_estimates.parquet", index=False)
+        summary[c] = {"rows": len(allest), "undated_total": int(need.sum()), "mains": len(est),
+                      "max_on_one_year": int(allest.year_est.value_counts().iloc[0])}
+        log(c, summary[c])
+        est.assign(muni=df.loc[est.index, "muni"].values).to_parquet(INT / f"{c}_mains_est.parquet")
+        np.save(INT / f"{c}_expected.npy", exp)
+        (INT / f"{c}_summary.json").write_text(json.dumps(summary[c]))
+        del df, bg, X, est, exp
 
 
 def metrics(true, est):
@@ -594,4 +690,7 @@ def run_check():
 
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "build"
-    {"download": download, "build": run_build, "validate": run_validate, "check": run_check}[cmd]()
+    if cmd == "build_outer":
+        run_build_outer([a for a in sys.argv[2:] if a in OUTER_COUNTIES] or list(OUTER_COUNTIES))
+    else:
+        {"download": download, "build": run_build, "validate": run_validate, "check": run_check}[cmd]()

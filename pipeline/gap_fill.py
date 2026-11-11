@@ -1532,6 +1532,10 @@ def step_assemble(workers=3, only=None):
 #                          fronts, and its own building is later (a share of such parcels);
 #   usgs1897_builtup       the parcel lies in built-up ground of the 15-minute sheets of 1897-98 and its
 #                          own building is later (a share; alone only where the gap closes by 1948).
+#   cleared_block+<sheet>  (added 2026-11-11; rules above `cleared_districts`) a street block that was built up and
+#                          cleared and rebuilt: every lot-sized position gets a building, from the neighbourhood's
+#                          own recorded years (1897 as the upper bound where the 1897 sheet shows the block built)
+#                          to the district's clearance years or the year today's building went up.
 # The outline is a rectangle at the street end of the parcel, sized like the old buildings around
 # (large parcels: rows along their street edges, as the Bay's strips_for_lot).
 COUNTIES = ("Bergen", "Essex", "Passaic", "Union", "Westchester", "Rockland")
@@ -1553,16 +1557,18 @@ CORE_MIN = 0.4           # share of an outline that must be heavy ink before the
 CORRIDOR_M = 35.0        # lots of the street grid are added this near a motorway where no parcel exists (the right-of-way)
 TALL_M = 11.0            # a neighbourhood whose buildings are taller than this at the median is a town centre
 SHARE_TALL = 0.58        # share of parcels kept under generalised evidence in a town centre (measured in Manhattan / old Brooklyn)
+# (the four sheets formerly read from the piers part's folder, which no longer holds them, were fetched again into data/raw/gapfill/usgs on 2026-11-11;
+#  https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/GeoTIFF/, USGS public domain)
 # 1940s sheets that draw built block fronts (`blocks`) or every building as a mark (`marks`):
 # file: (lon0, lat0, lon1, lat1, year printed, folder, opening iterations, share of the outline that must be ink)
 GF_USGS = RAW / "gapfill" / "usgs"
 SHEETS_C = {
-    "NJ_Elizabeth_254343_1947_24000_geo.tif": (-74.25, 40.625, -74.125, 40.75, 1947, SHEET_DIR, 2, 0.7),
+    "NJ_Elizabeth_254343_1947_24000_geo.tif": (-74.25, 40.625, -74.125, 40.75, 1947, GF_USGS, 2, 0.7),
     "NJ_Jersey_City_254499_1947_24000_geo.tif": (-74.125, 40.625, -74.0, 40.75, 1947, SHEET_DIR, 2, 0.7),
-    "NJ_Weehawken_255029_1943_25000_geo.tif": (-74.125, 40.75, -74.0, 40.875, 1943, SHEET_DIR, 2, 0.7),
-    "NY_Central_Park_122894_1947_24000_geo.tif": (-74.0, 40.75, -73.875, 40.875, 1947, SHEET_DIR, 2, 0.7),
-    "NJ_Yonkers_255024_1947_24000_geo.tif": (-74.0, 40.875, -73.875, 41.0, 1947, SHEET_DIR, 2, 0.7),
-    "NY_Mt_Vernon_130724_1947_24000_geo.tif": (-73.875, 40.875, -73.75, 41.0, 1947, SHEET_DIR, 2, 0.7),
+    "NJ_Weehawken_255029_1943_25000_geo.tif": (-74.125, 40.75, -74.0, 40.875, 1943, GF_USGS, 2, 0.7),
+    "NY_Central_Park_122894_1947_24000_geo.tif": (-74.0, 40.75, -73.875, 40.875, 1947, GF_USGS, 2, 0.7),
+    "NJ_Yonkers_255024_1947_24000_geo.tif": (-74.0, 40.875, -73.875, 41.0, 1947, GF_USGS, 2, 0.7),
+    "NY_Mt_Vernon_130724_1947_24000_geo.tif": (-73.875, 40.875, -73.75, 41.0, 1947, GF_USGS, 2, 0.7),
     "NY_Mamaroneck_130436_1947_24000_geo.tif": (-73.75, 40.875, -73.625, 41.0, 1947, GF_USGS, 2, 0.7),
     "NY_White_Plains_140271_1947_24000_geo.tif": (-73.875, 41.0, -73.75, 41.125, 1947, GF_USGS, 2, 0.7),
     "NY_Nyack_128840_1943_31680_geo.tif": (-74.0, 41.0, -73.875, 41.125, 1943, GF_USGS, 2, 0.7),
@@ -2742,13 +2748,13 @@ def step_report_counties(workers=3):
                 a_ = int(((mu == town.lower()) & (f["area"].values == cn) & (f.start_year.values <= y) & (f.end_year.values > y)).sum())
                 L.append(f"| {town} | {y} | {ser[str(y)]:,} | {m_}{' (1925)' if y == 1920 else ''} | {a_} | {ser[str(y)] / max(m_, 1):.1f} -> {ser[str(y)] / max(m_ + a_, 1):.1f} |")
     # the cleared districts: density before (first version of the rules) -> after
-    if (WORK / "gapfill_counties_before_cleared.parquet").exists():
+    if (WORK / "counties_before_cleared.parquet").exists():
         L += ["", "## Cleared districts: buildings per hectare of the district's cleared street blocks, map + fill, before -> after (reference blocks)", "",
               "Cleared street blocks = fewer than a third of today's buildings older than 1945. Reference = surviving old blocks of the same town within 1 km "
               "(at least 8 buildings, 70 % dated before 1930); its figure is the same before and after. Share = after / reference.", ""]
         L += step_districts()
         cbr = f[f.evidence.str.startswith("cleared_block")]
-        L += ["", f"Cleared-block rows: {len(cbr)} (before the rule: {len(pd.read_parquet(WORK / 'gapfill_counties_before_cleared.parquet', columns=['id']))} rows in all, "
+        L += ["", f"Cleared-block rows: {len(cbr)} (before the rule: {len(pd.read_parquet(WORK / 'counties_before_cleared.parquet', columns=['id']))} rows in all, "
               f"{len(f)} now). By county: " + ", ".join(f"{k} {v}" for k, v in cbr.groupby('area').size().items()) + ". Blocks that were candidates of rules (b) and (c): "
               f"{st.get('cb_blocks', 0)}; that passed rule (a): {st.get('cb_blocks_ok', 0)}; rows of the rule before the final guards: {st.get('rows_cb', 0)}."]
     # invariants
@@ -3074,8 +3080,8 @@ def district_table(rows_path):
 
 
 def step_districts():
-    """before (rows of the first version of the rules: gapfill_counties_before_cleared.parquet) -> after (gapfill_counties.parquet)."""
-    b = district_table(WORK / "gapfill_counties_before_cleared.parquet")
+    """before (rows of the first version of the rules: counties_before_cleared.parquet) -> after (gapfill_counties.parquet)."""
+    b = district_table(WORK / "counties_before_cleared.parquet")
     a = district_table(OUT_C)
     L = ["| district | ha (blocks) | ref ha | " + " | ".join(f"{y}: bldg/ha before -> after (ref) = share" for y in DIST_YEARS) + " |", "|---|---|---|" + "---|" * len(DIST_YEARS)]
     for name in a:

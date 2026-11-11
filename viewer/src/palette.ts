@@ -49,7 +49,9 @@ export const MATERIALS: RGB[][] = [
   // 14 brownstone fronts (c.1845-1900 row houses)
   [[122, 86, 68], [136, 96, 74], [108, 78, 64], [150, 108, 84], [128, 92, 80]],
   // 15 white and buff glazed brick (post-war apartment houses)
-  [[236, 234, 226], [226, 220, 204], [244, 240, 232], [214, 206, 190]]
+  [[236, 234, 226], [226, 220, 204], [244, 240, 232], [214, 206, 190]],
+  // 16 shipping containers (stacks in the container terminals: generated)
+  [[166, 62, 50], [44, 86, 138], [198, 122, 44], [62, 118, 86], [150, 152, 154], [118, 44, 40], [206, 200, 188], [36, 60, 96]]
 ];
 
 function hash01(i: number): number {

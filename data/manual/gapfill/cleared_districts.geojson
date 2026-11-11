@@ -10,7 +10,9 @@
     "clearance_start": 1955,
     "clearance_end": 1975,
     "source": "https://en.wikipedia.org/wiki/Central_Ward,_Newark; https://en.wikipedia.org/wiki/1967_Newark_riots; https://en.wikipedia.org/wiki/Newark_Housing_Authority",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 0.67,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -73,7 +75,9 @@
     "clearance_start": 1960,
     "clearance_end": 1972,
     "source": "https://en.wikipedia.org/wiki/Interstate_280_(New_Jersey)",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 0.84,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -120,7 +124,9 @@
     "clearance_start": 1953,
     "clearance_end": 1970,
     "source": "https://en.wikipedia.org/wiki/Interstate_78_in_New_Jersey",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 0.69,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -167,7 +173,9 @@
     "clearance_start": 1958,
     "clearance_end": 1972,
     "source": "https://en.wikipedia.org/wiki/Interstate_80_in_New_Jersey",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 1.0,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -214,7 +222,9 @@
     "clearance_start": 1965,
     "clearance_end": 1980,
     "source": "https://en.wikipedia.org/wiki/Paterson,_New_Jersey",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 0.56,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -261,7 +271,9 @@
     "clearance_start": 1955,
     "clearance_end": 1975,
     "source": "https://en.wikipedia.org/wiki/Elizabethport,_Elizabeth,_New_Jersey",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 1.0,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -300,7 +312,9 @@
     "clearance_start": 1960,
     "clearance_end": 1978,
     "source": "https://en.wikipedia.org/wiki/Passaic,_New_Jersey",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 1.0,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -339,7 +353,9 @@
     "clearance_start": 1965,
     "clearance_end": 1980,
     "source": "https://en.wikipedia.org/wiki/Hackensack,_New_Jersey",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 1.0,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -378,7 +394,9 @@
     "clearance_start": 1965,
     "clearance_end": 1980,
     "source": "https://en.wikipedia.org/wiki/Englewood,_New_Jersey",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 0.48,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -417,7 +435,9 @@
     "clearance_start": 1960,
     "clearance_end": 1975,
     "source": "https://en.wikipedia.org/wiki/Garden_State_Parkway; https://en.wikipedia.org/wiki/Interstate_280_(New_Jersey)",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 0.68,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -460,7 +480,9 @@
     "clearance_start": 1965,
     "clearance_end": 1980,
     "source": "https://en.wikipedia.org/wiki/Yonkers,_New_York",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 0.84,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -503,7 +525,9 @@
     "clearance_start": 1967,
     "clearance_end": 1978,
     "source": "https://en.wikipedia.org/wiki/White_Plains,_New_York",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 1.0,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -542,7 +566,9 @@
     "clearance_start": 1965,
     "clearance_end": 1985,
     "source": "https://en.wikipedia.org/wiki/New_Rochelle,_New_York",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 0.82,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",
@@ -581,7 +607,9 @@
     "clearance_start": 1960,
     "clearance_end": 1975,
     "source": "https://en.wikipedia.org/wiki/Mount_Vernon,_New_York",
-    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated)."
+    "note": "Outline: a bounding polygon drawn from the street grid and today's building years (approximate, generous: blocks that still hold old buildings are not touched by the rule). Clearance years are the stage author's reading of the cited pages, not re-checked online in this round (estimated).",
+    "density_factor": 0.94,
+    "density_note": "share of lot positions kept; calibrated (mean of 1925 and 1950) so that map + fill reaches 100 % of the reference blocks' density; 1.0 = no thinning (the shortfall is the evidence rules' coverage, see README)"
    },
    "geometry": {
     "type": "Polygon",

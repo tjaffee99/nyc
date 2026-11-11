@@ -668,7 +668,9 @@ def materials(year, H, area, use, boro, cls, prox, code, lpc_mat, group=None):
         codes, uniq = pd.factorize(pd.Series(group).astype(str), sort=False)
         hsh = np.array([h01(f"m{u}") for u in uniq])[codes]
     attached = np.isin(prox, [2, 3]) | (np.isin(boro, ["1"]) & ~np.isin(prox, [1]))
-    small_res = np.isin(a, ["A", "B", "S"]) | ((use <= 2) & (area < 260) & (H < 16))
+    # (a small footprint on an elevator-apartment lot - class D: Co-op City's low blocks, a project's
+    # wings - is part of the complex: flat roof, the complex's brick, not a house with a pitched roof)
+    small_res = np.isin(a, ["A", "B", "S"]) | ((use <= 2) & (area < 260) & (H < 16) & ~np.isin(a, ["D"]))
     walkup = np.isin(a, ["C"]) | ((use == 2) & (H < 24))
     garage = code == 5110
 

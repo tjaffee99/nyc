@@ -29,7 +29,7 @@ const PALETTE: [number, number, number][] = [
   [0.52, 0.58, 0.38], // 3 tidal marsh
   [0.93, 0.88, 0.74], // 4 beach
   [0.9, 0.84, 0.66], // 5 dunes
-  [0.8, 0.77, 0.52], // 6 grassland (golden hills)
+  [0.63, 0.74, 0.46], // 6 grassland (mown and meadow grass: green here, not California's golden hills)
   [0.56, 0.58, 0.39], // 7 scrub / chaparral
   [0.55, 0.6, 0.38], // 8 oak woodland
   [0.36, 0.48, 0.3], // 9 forest
