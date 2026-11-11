@@ -425,7 +425,7 @@ function trafficLoop(t: number) {
 if (!new URLSearchParams(location.search).has('notraffic')) requestAnimationFrame(trafficLoop);
 
 // ---------------------------------------------------------------- attribution
-$('attribution').innerHTML =
+$('attribution-text').innerHTML =
   'Buildings: <a href="https://opendata.cityofnewyork.us/" target="_blank" rel="noopener">NYC Open Data</a> (footprints, PLUTO, Landmarks Preservation Commission) · ' +
   '3D parts &amp; streets: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> via Overture · ' +
   'Terrain: USGS 3DEP, ESA WorldCover · Landmarks reconstructed from cited references · ' +

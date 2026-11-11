@@ -6,6 +6,7 @@
  * slider or the play button pauses the tour; it resumes at the stop it was on.
  * `?story` (or `?story=12`) in the address starts it at load.
  */
+import {extentDistance} from './layers/extent';
 import type {Map as MlMap} from 'maplibre-gl';
 import {parseCsv} from './data/tables';
 
@@ -26,6 +27,8 @@ type Stop = {
 };
 
 const num = (v: string | undefined, d: number) => (v !== undefined && v !== '' && Number.isFinite(+v) ? +v : d);
+/** Share of each stop's written seconds that the tour dwells (the owner, 2026-11-11: "make the pace of the story faster"). */
+const PACE = 0.62;
 
 const stops: Stop[] = Object.values(files)
   .flatMap(t => parseCsv(t))
@@ -37,7 +40,7 @@ const stops: Stop[] = Object.values(files)
     zoom: num(r.zoom, 14.5),
     pitch: num(r.pitch, 58),
     bearing: num(r.bearing, 29),
-    seconds: Math.max(4, num(r.seconds, 14)),
+    seconds: Math.max(4, num(r.seconds, 14) * PACE),
     title: r.title ?? '',
     text: r.text ?? '',
     url: r.source_url ?? ''
@@ -79,7 +82,8 @@ export function initStory(map: MlMap, host: StoryHost, yearMin: number, yearMax:
   const elPP = q<HTMLButtonElement>('.story-pp');
   const elSay = q<HTMLButtonElement>('.story-say');
 
-  const FLY_MIN = 2600;
+  const FLY_MIN = 1700;
+  let pruned = false;
   let on = false;
   let paused = false;
   let idx = 0;
@@ -96,7 +100,7 @@ export function initStory(map: MlMap, host: StoryHost, yearMin: number, yearMax:
 
   function remaining(): number {
     let s = 0;
-    for (let i = idx; i < stops.length; i++) s += stops[i].seconds + 4;
+    for (let i = idx; i < stops.length; i++) s += stops[i].seconds + 2.6;
     return s;
   }
 
@@ -127,7 +131,7 @@ export function initStory(map: MlMap, host: StoryHost, yearMin: number, yearMax:
     const s = stops[idx];
     const c = map.getCenter();
     const km = Math.hypot((c.lng - s.lon) * 84.4, (c.lat - s.lat) * 110.6);
-    flyMs = Math.min(7500, FLY_MIN + km * 380);
+    flyMs = Math.min(5200, FLY_MIN + km * 240);
     fromYear = host.getYear();
     phase = 'fly';
     t0 = performance.now();
@@ -180,6 +184,11 @@ export function initStory(map: MlMap, host: StoryHost, yearMin: number, yearMax:
   }
 
   function start(i = idx) {
+    // a stop in a county that is not on the map yet is left out (the table may run ahead of the data)
+    if (!pruned) {
+      for (let k = stops.length - 1; k >= 0; k--) if (extentDistance(stops[k].lon, stops[k].lat) < -1) stops.splice(k, 1);
+      pruned = true;
+    }
     host.onStart();
     on = true;
     panel!.hidden = false;

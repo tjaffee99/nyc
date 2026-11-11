@@ -191,17 +191,39 @@ html, body {
 }
 #loading.done { display: none; }
 
+/* the sources: a small mark in the corner that opens on a click, not a bar across the map */
 #attribution {
   position: absolute;
   right: 6px;
-  bottom: 62px;
+  bottom: 58px;
   font-size: 11px;
   color: var(--ink-soft);
-  background: rgba(250, 246, 238, 0.6);
-  padding: 2px 6px;
-  border-radius: 4px;
-  max-width: 60vw;
   text-align: right;
+}
+#attribution summary {
+  list-style: none;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  border-radius: 50%;
+  text-align: center;
+  font: italic 11px var(--serif);
+  color: var(--ink-soft);
+  background: rgba(250, 246, 238, 0.45);
+  opacity: 0.45;
+  cursor: pointer;
+  user-select: none;
+}
+#attribution summary::-webkit-details-marker { display: none; }
+#attribution summary:hover, #attribution[open] summary { opacity: 1; }
+#attribution-text {
+  margin-top: 3px;
+  max-width: min(420px, 80vw);
+  background: rgba(250, 246, 238, 0.94);
+  padding: 6px 8px;
+  border-radius: 6px;
+  line-height: 1.45;
 }
 #attribution a { color: inherit; }
 
@@ -212,7 +234,7 @@ html, body {
   #year-label { bottom: 70px; left: 14px; }
   #era { left: 14px; top: 14px; }
   #population { right: 14px; top: 14px; }
-  #attribution { display: none; }
+  #attribution { bottom: 128px; }
   #info { left: 12px; right: 12px; max-width: none; top: auto; bottom: 150px; }
 }
 [hidden] { display: none !important; }
