@@ -124,6 +124,79 @@ def on_atlas(geoms_utm):
     return out
 
 
+_TOWNS = []
+
+
+def town_curves():
+    """(STRtree of the municipalities' outlines, their geoids, {geoid: (census years, counts)}), or
+    None: town_population.py's table and outlines (decision 54)."""
+    if _TOWNS:
+        return _TOWNS[0]
+    _TOWNS.append(None)
+    try:
+        import shapely
+        from common import INTERIM, TABLES
+        tp, tt = INTERIM / "towns" / "towns.parquet", TABLES / "population_towns.csv"
+        if tp.exists() and tt.exists():
+            towns = gpd.read_parquet(tp).to_crs(4326)
+            t = pd.read_csv(tt, dtype={"geoid": str})
+            t["population"] = pd.to_numeric(t.population, errors="coerce")
+            t["year"] = pd.to_numeric(t.year, errors="coerce")
+            t = t.dropna(subset=["population", "year"])
+            series = {}
+            for gid, grp in t.groupby("geoid"):
+                sv = sorted({float(y): float(v) for y, v in zip(grp.year, grp.population)}.items())
+                if len(sv) >= 4:
+                    series[gid] = (np.array([q[0] for q in sv]), np.array([q[1] for q in sv]))
+            _TOWNS[0] = (shapely.STRtree(towns.geometry.values), towns.geoid.astype(str).values, series)
+    except Exception as e:  # noqa: BLE001
+        log(f"counties: town curves not read ({type(e).__name__}: {e})")
+    return _TOWNS[0]
+
+
+def by_town_growth(lon, lat, year, src, raw):
+    """A placeholder that is a bound ("by 1900") was spread over the 25 years before it, the same
+    in every town. The towns were not built in the same years: Jersey City's old wards before
+    the Civil War, Hoboken from the 1860s, Bayonne and the towns on the Palisades after 1880.
+    Each town's buildings that carry the same placeholder keep their order and take years along
+    the town's own census curve up to the bound - the growth of each decade weighted by how
+    much of it still stands (half lost every 40 years before the bound). Estimated, like the
+    spread it replaces; a town without a census series early enough keeps the old spread."""
+    tc = town_curves()
+    if tc is None:
+        return year, 0
+    import shapely
+    tree, geoids, series = tc
+    sel = np.flatnonzero((src == "heap_by+spread") & np.isfinite(raw) & np.isfinite(year))
+    if not len(sel):
+        return year, 0
+    qi, ti = tree.query(shapely.points(np.asarray(lon)[sel], np.asarray(lat)[sel]), predicate="within")
+    town = np.full(len(sel), -1)
+    town[qi] = ti
+    out = year.copy()
+    moved = 0
+    d = pd.DataFrame({"i": sel, "town": town, "b": raw[sel].astype(int)})
+    for (tn, b), grp in d[d.town >= 0].groupby(["town", "b"]):
+        sv = series.get(geoids[tn])
+        if sv is None or len(grp) < 8 or sv[0][0] > b - 15:
+            continue
+        ys, ps = sv
+        knots = np.r_[ys[0] - 30.0, ys[ys < b], float(b)]
+        pops = np.r_[0.0, ps[ys < b], float(np.interp(b, ys, ps))]
+        grow = np.clip(np.diff(np.maximum.accumulate(pops)), 0.0, None)
+        mid = (knots[:-1] + knots[1:]) / 2
+        grow = grow * 0.5 ** ((b - mid) / 40.0)
+        if grow.sum() <= 0:
+            continue
+        cdf = np.r_[0.0, np.cumsum(grow) / grow.sum()] + np.arange(len(knots)) * 1e-9
+        idx = grp.i.values
+        q = (pd.Series(year[idx]).rank(method="first").values - 0.5) / len(idx)
+        new = np.minimum(np.interp(q, cdf, knots), b + 0.9)
+        moved += int((np.abs(new - year[idx]) > 2).sum())
+        out[idx] = new
+    return out, moved
+
+
 _EPOCHS = []
 
 
@@ -350,6 +423,9 @@ def build(g, outer=False):
     for c, hs in found.items():
         heap |= (county == c) & np.isin(raw, list(hs))
     log("counties: heap years " + "; ".join(f"{c} {sorted(int(v) for v in hs)}" for c, hs in found.items()))
+    # (a pile at 1700 or 1750 is not "about 1700": it is "old, year unknown". As a bound it put
+    # 240 houses of Hudson County in the 1670s-90s; it is read as "built by 1800")
+    raw = np.where(heap & (raw < 1790), 1800.0, raw)
     secondary = g.secondary.fillna(False).astype(bool).values if "secondary" in g else np.zeros(n, bool)
     year = np.where(heap, np.nan, raw)
     src = np.where(np.isfinite(year), np.where(secondary, "parcel_secondary", "parcel"), "").astype(object)
@@ -409,6 +485,11 @@ def build(g, outer=False):
                 rk = (pd.Series(year[m]).rank(method="first").values - 0.5) / m.sum()
                 year[m] = np.quantile(ref, rk)
         log(f"counties: {int(use_est.sum())} footprints without a roll year take the modelled estimate")
+    # bound-type placeholders along each town's census curve (by_town_growth)
+    bb0 = g.geometry.bounds
+    year, grown = by_town_growth(((bb0.minx + bb0.maxx) / 2).values, ((bb0.miny + bb0.maxy) / 2).values, year, src, raw)
+    if grown:
+        log(f"counties: {grown} 'built by' placeholder years follow their town's census growth")
     # standing on a traced atlas: built by its year (on_atlas). Not for a recorded year.
     if np.isin(county, ["Hudson"]).any():
         hud = np.flatnonzero(county == "Hudson")
