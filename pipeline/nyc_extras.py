@@ -127,6 +127,35 @@ def natural_wet(x_utm, y_utm):
     return out
 
 
+_GREENS = []
+
+
+def on_green(x, y):
+    """A town green, a common or a burying ground of today's map (Overture land use: New Haven
+    Green, Morristown Green, the old graveyards): open ground the colonial town was built
+    around. No generated dwelling stands on one."""
+    if not _GREENS:
+        _GREENS.append(None)
+        try:
+            import duckdb
+            con = duckdb.connect()
+            con.execute("SET memory_limit='1500MB'; INSTALL spatial; LOAD spatial;")
+            p = RAW / "overture" / "2026-10-21.0" / "base_land_use.parquet"
+            rows = con.execute(f"""select ST_AsWKB(geometry) from '{p}'
+                where (subtype = 'park' and (class = 'village_green' or regexp_matches(coalesce(name, ''), '(Green|Common|Parade)$')))
+                   or class in ('grave_yard')""").fetchall()
+            geoms = shapely.from_wkb([bytes(r[0]) for r in rows])
+            geoms = gpd.GeoSeries(geoms, crs=4326).to_crs(NYC_CRS).values
+            _GREENS[0] = shapely.STRtree(geoms)
+            log(f"extras: {len(geoms)} greens, commons and burying grounds keep generated dwellings off")
+        except Exception as e:  # noqa: BLE001
+            log(f"extras: greens not read ({type(e).__name__}: {e})")
+    t = _GREENS[0]
+    if t is None:
+        return False
+    return len(t.query(shapely.Point(x, y), predicate="within")) > 0
+
+
 def early_sites():
     """Rows (in UTM) for the Lenape settlements and the colony's outlying buildings."""
     # (early_counties.csv: the towns of the counties around the city, same columns)
@@ -181,7 +210,7 @@ def early_sites():
                         rad = max(spread, 3 * max(w, d)) * math.sqrt(h01(f"{r.id}r{i}_{t_}"))
                         dx, dy = rad * math.sin(ang), rad * math.cos(ang)
                     if all(math.hypot(dx - px, dy - py) > 1.6 * scale * max(w, d) for px, py in placed) \
-                            and not natural_wet(X[k] + dx, Y[k] + dy)[0]:
+                            and not natural_wet(X[k] + dx, Y[k] + dy)[0] and not (not lenape and on_green(X[k] + dx, Y[k] + dy)):
                         found = True
                         break
                 if not found:
