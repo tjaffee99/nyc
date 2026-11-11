@@ -59,7 +59,17 @@ COUNTIES = {
     "essex": ("Essex", "34013", "07"),
     "union": ("Union", "34039", "20"),
     "passaic": ("Passaic", "34031", "16"),
+    # the outer round (2026-11-11): footprints from outer_building.parquet
+    "hunterdon": ("Hunterdon", "34019", "10"),
+    "mercer": ("Mercer", "34021", "11"),
+    "middlesex": ("Middlesex", "34023", "12"),
+    "monmouth": ("Monmouth", "34025", "13"),
+    "morris": ("Morris", "34027", "14"),
+    "ocean": ("Ocean", "34029", "15"),
+    "somerset": ("Somerset", "34035", "18"),
+    "sussex": ("Sussex", "34037", "19"),
 }
+LEGACY = ("hudson", "bergen", "essex", "union", "passaic")   # footprints from region_building.parquet
 RAWDIR = RAW / "counties_nj"
 OUTDIR = INTERIM / "counties"
 MIN_AREA = 12.0          # m2: smaller outlines are dropped
@@ -162,7 +172,7 @@ def load_parcels(key: str):
 
 
 def county_outlines():
-    """TIGER 2024 outlines of the five counties (EPSG:4326), indexed by key."""
+    """TIGER 2024 outlines of the counties (EPSG:4326), indexed by key."""
     import geopandas as gpd
     fips = {v[1][2:]: k for k, v in COUNTIES.items()}
     c = gpd.read_file(f"zip://{RAW / 'tiger' / 'tl_2024_us_county.zip'}",
@@ -229,7 +239,7 @@ def load_footprints(key: str, outline):
     import pyarrow.parquet as pq
     import shapely
     b = outline.bounds
-    path = RAW / "overture" / OVERTURE_RELEASE / "region_building.parquet"
+    path = RAW / "overture" / OVERTURE_RELEASE / ("region_building.parquet" if key in LEGACY else "outer_building.parquet")
     t = pq.read_table(path, filters=[("lon", ">=", b[0] - 0.01), ("lon", "<=", b[2] + 0.01),
                                      ("lat", ">=", b[1] - 0.01), ("lat", "<=", b[3] + 0.01)])
     df = t.to_pandas()
@@ -251,7 +261,11 @@ def load_footprints(key: str, outline):
     stats["dropped_under_12m2"] = int(small.sum())
     g, pt = g[~small].reset_index(drop=True), pt[~small.values]
     g["px"], g["py"] = shapely.get_x(pt), shapely.get_y(pt)
-    hs = pd.read_parquet(download_height_sources(key, outline)).drop_duplicates("id").set_index("id")
+    try:
+        hs = pd.read_parquet(download_height_sources(key, outline)).drop_duplicates("id").set_index("id")
+    except Exception as e:  # noqa: BLE001  the S3 read is optional in the outer tier
+        log(f"height sources {key}: skipped ({str(e)[:80]})")
+        hs = pd.DataFrame({"height_ds": [], "record_id": []}, index=pd.Index([], name="id"))
     g["height_src"] = g.id.map(hs.height_ds).map(HEIGHT_SRC).where(g.height.notna(), "").fillna("overture")
     g["osm_id"] = g.id.map(hs.record_id).where(g.source_dataset == "OpenStreetMap")
     return g, stats
@@ -694,8 +708,8 @@ def run(key: str, outline, force=False):
     OUTDIR.mkdir(parents=True, exist_ok=True)
     out_p = OUTDIR / f"nj_{key}.parquet"
     rep_p = OUTDIR / f"nj_{key}_report.json"
-    src = [RAW / "overture" / OVERTURE_RELEASE / "region_building.parquet", RAWDIR / "parcels" / key / "done.json",
-           Path(__file__)]
+    src = [RAW / "overture" / OVERTURE_RELEASE / ("region_building.parquet" if key in LEGACY else "outer_building.parquet"),
+           RAWDIR / "parcels" / key / "done.json"] + ([] if key in LEGACY else [Path(__file__)])
     if out_p.exists() and rep_p.exists() and not force and all(
             not s.exists() or s.stat().st_mtime <= out_p.stat().st_mtime for s in src):
         log(f"counties_nj {key}: cached")
@@ -713,7 +727,7 @@ def run(key: str, outline, force=False):
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    keys = [a.lower() for a in args] or list(COUNTIES)
+    keys = [a.lower() for a in args] or list(LEGACY)
     if "--download" in sys.argv:
         with ThreadPoolExecutor(3) as ex:
             list(ex.map(download_parcels, keys))
