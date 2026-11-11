@@ -1,0 +1,43 @@
+{
+ "hudson_hoboken_b_1891": {
+  "map_year": 1891,
+  "atlas": "Insurance maps of Hudson County, New Jersey, vol. 7: Hoboken (Spielmann & Brush 1873, Chas. B. Brush 1887, Sanborn-Perris Map Co. 1891), 50 ft to the inch - the plates not in hudson_hoboken_1891",
+  "source": "sanborn_hoboken_1891",
+  "style": "bromley_city",
+  "source_url": "https://www.loc.gov/item/sanborn05511_007/ (Library of Congress, Sanborn Maps Collection, public domain); control points made here from street intersections",
+  "style_override": {
+   "core": 12,
+   "wall_px": 240,
+   "hole_px": 500,
+   "front_px": 2500,
+   "frame": {
+    "db_min": 6.5,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 92
+   }
+  },
+  "plates": [
+   {
+    "id": 91020013,
+    "sheet": "13",
+    "name": "Hoboken plate 13"
+   },
+   {
+    "id": 91020014,
+    "sheet": "14",
+    "name": "Hoboken plate 14"
+   },
+   {
+    "id": 91020015,
+    "sheet": "15",
+    "name": "Hoboken plate 15"
+   },
+   {
+    "id": 91020016,
+    "sheet": "16",
+    "name": "Hoboken plate 16"
+   }
+  ]
+ }
+}

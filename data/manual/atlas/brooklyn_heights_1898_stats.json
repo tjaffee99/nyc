@@ -1,0 +1,146 @@
+{
+ "total": {
+  "layer": "brooklyn_heights_1898",
+  "plates": 3,
+  "buildings": 2541,
+  "frame": 1142,
+  "brick": 1399,
+  "stone": 0,
+  "gasholders": 0,
+  "on_today": 77,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 1.21
+ },
+ "plates": [
+  {
+   "plate": "8512",
+   "image": "1517526",
+   "name": "Wards 2 & 5 and Part of 1 &4. Land Map Section, No.1, Volume 1, Brooklyn Borough, New York",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 21.3,
+   "mpp": 0.31,
+   "n": 4438,
+   "frame": 814,
+   "brick": 806,
+   "stone": 0,
+   "coincide": 31,
+   "share": 0.019,
+   "corrected": false,
+   "paper": [
+    85.0,
+    0.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.65,
+    0.2
+   ],
+   "off_median_m": 1.79,
+   "sheet": "B98-8512",
+   "clipped": 2766,
+   "lettering_dropped": 31,
+   "water_dropped": 15,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 1620,
+   "duplicates_dropped": 4,
+   "status": "ok"
+  },
+  {
+   "plate": "8513",
+   "image": "1517527",
+   "name": "Part of Wards 1,3,4,6 &10. Land Map Sections, No.1&2, Volume 1, Brooklyn Borough, New York",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 12.9,
+   "mpp": 0.309,
+   "n": 4772,
+   "frame": 56,
+   "brick": 121,
+   "stone": 0,
+   "coincide": 6,
+   "share": 0.034,
+   "corrected": false,
+   "paper": [
+    85.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.12,
+    0.63
+   ],
+   "off_median_m": 1.73,
+   "sheet": "B98-8513",
+   "clipped": 4589,
+   "lettering_dropped": 2,
+   "water_dropped": 4,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 177,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "8514",
+   "image": "1517528",
+   "name": "Double Page Plate No. 3: [Bounded by Smith St., Bergen St., Hoyt St., Fulton St., Flatbush",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 4.2,
+   "mpp": 0.308,
+   "n": 4395,
+   "frame": 272,
+   "brick": 472,
+   "stone": 0,
+   "coincide": 40,
+   "share": 0.054,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -1.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.58,
+    0.67
+   ],
+   "off_median_m": 1.54,
+   "street": {
+    "plate": "8514",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 4,
+    "model": "affine",
+    "cv_rms": 4.2,
+    "mpp": 0.308,
+    "windows": 30,
+    "shift_median": [
+     2.4,
+     -2.1
+    ],
+    "shift_abs_median": 3.9,
+    "kind": "affine",
+    "agree": 24,
+    "fit_residual_m": 1.3,
+    "kind2": "affine",
+    "agree2": 30,
+    "fit_residual2_m": 1.6,
+    "after_windows": 31,
+    "after_abs_median": 1.5
+   },
+   "sheet": "B98-8514",
+   "clipped": 3607,
+   "lettering_dropped": 35,
+   "water_dropped": 9,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 744,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  }
+ ]
+}

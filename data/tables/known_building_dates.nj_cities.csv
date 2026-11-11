@@ -1,0 +1,3 @@
+id,name,lat,lon,bin,start_year,end_year,source_url,note
+nj_cities_garden_state_plaza,Westfield Garden State Plaza,40.91779,-74.07621,,1957,9999,https://en.wikipedia.org/wiki/Westfield_Garden_State_Plaza,"exact: opened 1 May 1957 (the article, opened by the New Jersey cities part: data/research/holes_nj_cities.md); the roll's neighbours gave 1949"
+nj_cities_willowbrook,Willowbrook Mall,40.88907,-74.25925,,1969,9999,https://en.wikipedia.org/wiki/Willowbrook_Mall_(New_Jersey),"exact: opened 24 September 1969 (the article); the roll's neighbours gave 1944"
