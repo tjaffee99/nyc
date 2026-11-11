@@ -412,6 +412,17 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
     buildings about half a year later (Bush Terminal's lofts of 1904-14 stood at 1931-35). The
     building points carry `start_free` (the year before the ground rule moved it) and the
     terrain uses that. A researched estimate (`known_est`) is ground evidence like a roll year.
+    Under a building of 300 m² or more the land is no younger than that building
+    (`terrain_tiles.own_years`): a point stands for one cell, a factory covers twenty, and the
+    nearest point to its far corner may be a new neighbour's.
+38. **A generated row must never pass for a real one** (found 2026-11-11). The fill's rows
+    enter the vanished-buildings stage as class `documented`; the label test for that class ran
+    first, so every one of them was labelled as an OpenHistoricalMap record (the popup named
+    the wrong evidence on the site of 2026-11-10), and `gap_fill.py`'s snapshot of "what the
+    map has" then held the fill's own earlier rows: a rerun filled around them instead of
+    replacing them. The label is `gapfill:<evidence>` again and the snapshot leaves out any
+    `procedural` row. After a change to the fill, check
+    `select year_src, count(*) ... where year_confidence = 'procedural'` on the built file.
 
 ## What is not done (as of 2026-11-11)
 
