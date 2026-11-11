@@ -75,6 +75,16 @@
     "id": 92150005,
     "sheet": "5",
     "name": "Paterson 1915 sheet 5"
+   },
+   {
+    "id": 92150002,
+    "sheet": "2",
+    "name": "Paterson 1915 sheet 2"
+   },
+   {
+    "id": 92150003,
+    "sheet": "3",
+    "name": "Paterson 1915 sheet 3"
    }
   ]
  }
