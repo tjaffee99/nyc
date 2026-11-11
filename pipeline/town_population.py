@@ -72,8 +72,8 @@ def outlines():
         g = gpd.read_file(TIGER / f"tl_2024_{st}_cousub.zip")
         g["county_fips"] = g["STATEFP"] + g["COUNTYFP"]
         g = g[g.county_fips.isin(COUNTIES)]
-        g = g[(g.LSAD != "00") & (g.ALAND > 0) & (g.LSAD != "86")
-              & ~g.NAME.str.contains("not defined|water", case=False)]
+        # (Princeton's LSAD is "00" in TIGER 2024: keep it; "Bridgewater" contains "water")
+        g = g[(g.ALAND > 0) & (g.LSAD != "86") & ~g.NAME.str.contains("not defined", case=False)]
         parts.append(g)
     g = pd.concat(parts, ignore_index=True)
     g["name"] = g.apply(say_name, axis=1)
@@ -150,6 +150,15 @@ def raw_page(title: str):
     return None, title
 
 
+# a township whose plain title is a borough's article (found by the duplicate-series check)
+OVERRIDE = {
+    "3402133180": "Hopewell Township, Mercer County, New Jersey",
+    "3402777240": "Washington Township, Morris County, New Jersey",
+    "3400377135": "Washington Township, Bergen County, New Jersey",
+    "4210349408": "Milford Township, Pike County, Pennsylvania",
+}
+
+
 def candidates(row, cname: str):
     n, st, sname = row["name"], row["STATE"], STATE_NAME[row["STATE"]]
     lsadname = re.sub(r" (township|borough|city|town|village)$", lambda m: " " + m.group(1).title(), row["namelsad"])
@@ -179,9 +188,13 @@ def acceptable(txt: str, row, cname: str) -> bool:
     head = txt[:6000]
     if re.search(r"\{\{\s*(disambig|dab|geodis|hndis)", txt[:3000], re.I):
         return False
+    i = txt.find("\n\'\'\'")
+    lead, box = (txt[i:i + 400].lower(), txt[:i]) if i > 0 else ("", txt[:3000])
     if row["STATE"] == "09":
         return True
-    return cname.lower() in txt[:12000].lower() or (row["STATE"] == "42" and "pike" in head.lower())
+    if row["STATE"] == "36" and row["LSAD"] == "43" and re.search(r"is a (\[\[)?(village|hamlet|census|city)", lead[:200]):
+        return False
+    return cname.lower() in box.lower() or (row["STATE"] == "42" and "pike" in box.lower())
 
 
 def balanced_templates(txt: str, name_re: str):
@@ -268,7 +281,7 @@ def infobox_pop(txt: str):
     if not m:
         return None
     n = num(m.group(1))
-    y = re.search(r"\|\s*population_as_of\s*=\s*(\d{4})", txt)
+    y = re.search(r"\|\s*population_as_of\s*=[^\n]*?(\d{4})", txt)
     return (int(y.group(1)) if y else None, n) if n else None
 
 
@@ -304,7 +317,7 @@ def fetch(limit: int | None = None):
         row = {"name": r["name"], "namelsad": r.namelsad, "STATE": geoid[:2], "NAME": tl.loc[geoid, "NAME"],
                "LSAD": tl.loc[geoid, "LSAD"]}
         status, used, series = "failed", "", {}
-        for t in candidates(row, cname):
+        for t in ([OVERRIDE[geoid]] if geoid in OVERRIDE else candidates(row, cname)):
             txt, final = raw_page(t)
             if txt is None or not acceptable(txt, row, cname):
                 continue
