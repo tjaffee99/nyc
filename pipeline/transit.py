@@ -1157,6 +1157,9 @@ def main():
     poly = extent_poly()
     openings = pd.read_csv(TABLES / "transit_openings.csv", dtype=str, keep_default_na=False)
     stations = pd.read_csv(TABLES / "transit_stations.csv", dtype=str, keep_default_na=False)
+    if (TABLES / "transit_stations_outer.csv").exists():      # the outer counties' railroad stations (same columns)
+        stations = pd.concat([stations, pd.read_csv(TABLES / "transit_stations_outer.csv", dtype=str, keep_default_na=False)],
+                             ignore_index=True)
     gt = load_gtfs(g)
     trees = dated_network(openings, gt, stations)
     ohm = ohm_dated(ohm_files)

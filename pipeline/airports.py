@@ -209,6 +209,8 @@ def main():
         log(f"airports: + {sum(len(a) for a in add)} researched pavement polygons / outlines of vanished airfields")
     ports = g[g["class"].isin(AIRPORT_CLASSES) & (g.geom_type == "Polygon")].copy()
     t = pd.read_csv(TABLES / "airports.csv")
+    if (TABLES / "airports_outer.csv").exists():              # the outer counties' airfields (same columns)
+        t = pd.concat([t, pd.read_csv(TABLES / "airports_outer.csv")], ignore_index=True)
     if "runway_width_m" not in t:
         t["runway_width_m"] = np.nan
     ports = ports.merge(t[["name", "opened", "closed", "runway_width_m"]].drop_duplicates("name"), on="name", how="left")
