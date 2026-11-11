@@ -1,0 +1,13 @@
+cure_arena|CURE Insurance Arena|-74.7576|40.2127|1999|https://en.wikipedia.org/wiki/CURE_Insurance_Arena|exact: opened October 6, 1999 (groundbreaking December 2, 1997)
+thunder_ballpark|Trenton Thunder Ballpark|id:87656d3a|x|1994|https://en.wikipedia.org/wiki/Trenton_Thunder_Ballpark|exact: opened May 9, 1994 (groundbreaking September 29, 1993)
+st_mary_cathedral|Cathedral of St. Mary of the Assumption|-74.766|40.2227|1959|https://en.wikipedia.org/wiki/Cathedral_of_St._Mary_of_the_Assumption_(Trenton,_New_Jersey)|exact: second cathedral dedicated March 14, 1959 after the fire of March 14, 1956 destroyed the church of 1871
+state_museum|New Jersey State Museum|-74.7732|40.2211|1964|https://en.wikipedia.org/wiki/New_Jersey_State_Museum|exact: in 1964 the museum moved into facilities created for it in the Capitol Cultural Complex
+adams_sickles|Adams and Sickles Building|id:58c961b6|x|1900|https://en.wikipedia.org/wiki/Adams_and_Sickles_Building|exact: constructed in 1900
+first_presbyterian|First Presbyterian Church|-74.7632|40.2205|1839|https://en.wikipedia.org/wiki/First_Presbyterian_Church_(Trenton,_New_Jersey)|exact: the current church was built in 1839, the third on the site
+hughes_justice|Richard J. Hughes Justice Complex|-74.7641|40.2137|1982|https://en.wikipedia.org/wiki/Richard_J._Hughes_Justice_Complex|exact: completed in 1982 and dedicated 1982
+dmv_building|New Jersey Division of Motor Vehicles Building|-74.762|40.2195|1961|https://en.wikipedia.org/wiki/New_Jersey_Division_of_Motor_Vehicles_Building|exact: completed in 1961 (Kramer Hirsch & Carchidi)
+broad_street_bank|Broad Street National Bank|-74.7621|40.2201|1900|https://en.wikipedia.org/wiki/New_Jersey_Division_of_Motor_Vehicles_Building|exact: the Broad Street National Bank built in 1900 (named in the DMV Building article)
+fisher_federal|Clarkson S. Fisher Federal Building and US Courthouse|-74.7575|40.2216|1932|https://en.wikipedia.org/wiki/Clarkson_S._Fisher_Federal_Building_and_United_States_Courthouse|exact: designed by James A. Wetmore and completed in 1932
+mercer_courthouse|Mercer County Courthouse|-74.7639|40.2171|1903|https://en.wikipedia.org/wiki/Mercer_County_Courthouse_(New_Jersey)|estimate: cornerstone laid May 14, 1902; the Greek Revival courthouse it replaced served until 1903
+mercer_criminal_courthouse|Mercer County Criminal Courthouse|-74.7634|40.2154|2013|https://en.wikipedia.org/wiki/Mercer_County_Courthouse_(New_Jersey)|exact: opened January 14, 2013
+transit_center|Trenton Transit Center|-74.7546|40.2186|1976|https://en.wikipedia.org/wiki/Trenton_Transit_Center|estimate: Penn Central and Amtrak built the new Trenton Rail Station in 1976; the station was renovated 2008 and the page lists rebuilt 1893 1976 2008

@@ -1,0 +1,6 @@
+alexander_library|Archibald S. Alexander Library|-74.4525|40.5048|1956|https://en.wikipedia.org/wiki/Archibald_S._Alexander_Library|exact: construction began 1953; opened as Rutgers' main library in 1956
+college_ave_gym|College Avenue Gymnasium|-74.4529|40.5032|1932|https://en.wikipedia.org/wiki/College_Avenue_Gymnasium|exact: opened 1932
+state_theatre|State Theatre|-74.4449|40.4934|1921|https://en.wikipedia.org/wiki/State_Theatre_(New_Brunswick,_New_Jersey)|exact: opened December 26, 1921 (Thomas W. Lamb)
+nb_station|New Brunswick railroad station|-74.4461|40.4966|1904|https://en.wikipedia.org/wiki/New_Brunswick_station|exact: present station building rebuilt October 1903 - September 28, 1904
+christ_church|Christ Church|-74.4425|40.4959|1852|https://en.wikipedia.org/wiki/Christ_Church,_New_Brunswick,_New_Jersey|exact: in 1852 the parish replaced the 100-year-old structure and enlarged it using many stones of the first building
+second_reformed|Second Reformed Church|-74.4505|40.5013|1928|https://en.wikipedia.org/wiki/Second_Reformed_Church_(New_Brunswick,_New_Jersey)|exact: current church designed by Ludlow and Peabody and dedicated in 1928
