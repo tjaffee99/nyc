@@ -52,7 +52,7 @@ export const CT_TOWNS: Landmark[] = [];
 // Cited (Wikipedia, One Landmark Square): 22 floors, roof 295 ft (89.9 m), Victor H. Bisharat, built
 // 1970-73, neo-futurist, scalloped entrances. Footprint height 89.92 m.
 // Overture building 4781c690-1365-4e53-802d-7bbd3acb1ee7
-const R_landmark: V2[] = @R:4781c690:0.7@;
+const R_landmark: V2[] = @R:4781c690:1.5@;
 function buildLandmark(b: MeshBuilder) {
   const concrete = '#CFC8BA';
   const dark = '#7E7A72';
@@ -325,7 +325,7 @@ CT_TOWNS.push({
 // built 1888, three stories on an ashlar granite base, a six-story central tower with a pyramidal roof.
 // Footprint height 15.9 m (the main roof). 172 Golden Hill Street.
 // Overture building 3a230949-3e5b-45ba-9f58-d5d9ac2450a2
-const R_ch: V2[] = @R:3a230949:0.4@;
+const R_ch: V2[] = @R:3a230949:0.8@;
 function buildCh(b: MeshBuilder) {
   b.color('#7A6C60').prism(R_ch, 0, 2.4);
   b.color('#9E4B3B').prism(R_ch, 2.4, 12.6);
@@ -360,11 +360,11 @@ CT_TOWNS.push({
 const R_mclevy: V2[] = @R:aa06abd4@;
 function buildMcLevy(b: MeshBuilder) {
   b.color('#D6CDB6').prism(R_mclevy, 0, 7.6);
-  b.frame(0, 0, 7.6, 157.5, () => {
-    b.color('#59595C').gable(0, 0, 19.6, 38.6, 0, 2.1, true);
+  b.frame(0, 0, 0, 157.5, () => {
+    b.color('#59595C').gable(0, 0, 18.4, 37.1, 7.6, 2.1, true);
     // the portico at the +y end: four columns and a pediment
-    for (const x of [-6.6, -2.2, 2.2, 6.6]) b.color('#EEE9DA').cylinder(x, 20.4, 0.5, -7.6, 7.0, 8);
-    b.color('#EEE9DA').gable(0, 20.4, 15.4, 3.4, 7.0, 2.4, false);
+    for (const x of [-6.6, -2.2, 2.2, 6.6]) b.color('#EEE9DA').cylinder(x, 17.0, 0.5, 0, 7.6, 8);
+    b.color('#EEE9DA').gable(0, 17.0, 15.4, 3.0, 7.6, 2.4, false);
     b.color('#E9E3D0').box(0, 0, 9.7, 3.6, 3.6, 2.8);
     b.color('#59595C').pyramid(rect(0, 0, 3.8, 3.8), 12.5, [0, 0, 14.6]);
   });
