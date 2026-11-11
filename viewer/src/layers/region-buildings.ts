@@ -9,7 +9,7 @@ import {HEAVY_BASE} from '../remote';
 import type {Layer} from '@deck.gl/core';
 import {buildingsLayer, fromBinary, loadTileInWorker, type BuildingSet} from './buildings';
 import {occupiedMask, replacedMask, type LandmarkSet} from '../landmarks';
-import {extentDistance} from './extent';
+import {extentDistance, MAP_BOX} from './extent';
 
 // landmarks standing on region footprints (Apple Park, Stanford, stadiums…): the
 // footprints under a landmark are hidden, older buildings on the site stand until its
@@ -94,7 +94,7 @@ function tileLayer(
     visibleMinZoom: loadFrom,
     visibleMaxZoom: loadTo,
     maxCacheSize: 900,
-    extent: [-74.52, 40.47, -73.4, 41.38],
+    extent: MAP_BOX,
     getTileData: async ({index: t}: any) => {
       if (!set.has(`${t.x}/${t.y}`)) return null;
       // outside the map's extent (Morgan Hill, Antioch, …): not drawn

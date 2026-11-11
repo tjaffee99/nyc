@@ -13,7 +13,7 @@ import type {Layer, PickingInfo} from '@deck.gl/core';
 import {terrainLayer, setTerrainChangeCallback, refreshDecoSoon} from './layers/terrain';
 import {loadElevation} from './layers/elevation';
 import {addStationLabels, dropLabels, labelLayers, labelZoomKey, loadParkLabels, loadPlaces, placeLabelsOnTerrain, setLabelProjector} from './layers/labels';
-import {extentBounds, extentDistance, extentReady} from './layers/extent';
+import {extentBounds, extentDistance, extentReady, MAP_BOX} from './layers/extent';
 import {hasTransit, loadTransit, stations, tickTransit, transitLayers} from './layers/transit';
 import {loadRegionIndex, regionBuildingLayers, setRegionLandmarks} from './layers/region-buildings';
 import {airportLayers, groundDetailLayers, loadAirports, loadGroundDetail, setGroundDetailRedraw} from './layers/ground-detail';
@@ -150,7 +150,7 @@ map.on('click', e => {
 });
 
 /** Extent of the terrain tiles (the city and the counties around it; pipeline common.REGION_BBOX). */
-const REGION: [number, number, number, number] = [-74.52, 40.47, -73.4, 41.38];
+const REGION = MAP_BOX;
 
 const DEFAULT_YEAR = 1900;
 let yearMoved = false;

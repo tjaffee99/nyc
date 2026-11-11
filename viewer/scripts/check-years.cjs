@@ -46,7 +46,9 @@ const VIEWS = [
   let ready = true;
   try { await page.waitForFunction(() => window.__ready === true, null, {timeout: 240000}); } catch (e) { ready = false; }
   console.log(`ready=${ready}`);
-  for (const [name, hash] of VIEWS) {
+  // an optional second argument picks views by name (a regular expression)
+  const only = process.argv[3] ? new RegExp(process.argv[3]) : null;
+  for (const [name, hash] of VIEWS.filter(v => !only || only.test(v[0]))) {
     const q = Object.fromEntries(hash.split('&').map(kv => kv.split('=')));
     const [lon, lat] = q.c.split(',').map(Number);
     await page.evaluate(({lon, lat, z, p, b, y}) => { window.__map.jumpTo({center: [lon, lat], zoom: z, pitch: p, bearing: b}); window.__setYear(y); },

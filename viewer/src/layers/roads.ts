@@ -18,6 +18,7 @@ import {MeshBuilder} from '../landmarks/kit';
 import {DecoLayer} from './deco-layer';
 import {elevationAt} from './elevation';
 import {LandmarkMeshLayer, type MergedLandmarks} from '../landmarks/merged-layer';
+import {MAP_BOX} from './extent';
 
 // kinds — keep in sync with pipeline/roads.py
 const K = {STREET: 0, MAJOR: 1, FREEWAY: 2, HIGHWAY: 3, CABLE: 4, STREETCAR: 5, RAIL: 6, KEY: 7, BART: 8, FERRY: 9, LIGHTRAIL: 10};
@@ -165,7 +166,7 @@ function streetTiles(
     visibleMaxZoom: loadTo,
     maxCacheSize: 400,
     // the box of the region extracts (pipeline common.REGION_BBOX): the city and the counties around it
-    extent: [-74.52, 40.47, -73.4, 41.38],
+    extent: MAP_BOX,
     getTileData: async ({index: t}: any) => {
       if (!have.has(`${t.x}/${t.y}`)) return null;
       return decodeSet(`${id}-${t.x}-${t.y}`, await loadColumnar(`${HEAVY_BASE}data/region-streets/${z}/${t.x}/${t.y}.bin.gz`));

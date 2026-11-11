@@ -78,3 +78,7 @@ export function extentBounds(): [number, number, number, number] | null {
   const ys = ext.ring.map(p => p[1]);
   return [Math.min(...xs) - 0.12, Math.min(...ys) - 0.1, Math.max(...xs) + 0.12, Math.max(...ys) + 0.1];
 }
+
+/** The box of everything that is built (pipeline/common.py REGION_BBOX): the tiled layers ask
+ *  for tiles only inside it. It was the inner counties' box until the outer counties came. */
+export const MAP_BOX: [number, number, number, number] = [-75.37, 39.47, -71.85, 42.2];
