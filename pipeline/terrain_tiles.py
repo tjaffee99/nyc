@@ -127,7 +127,7 @@ def woods_of_1957(g):
     the model of decision 29."""
     if not _WOODS:
         _WOODS.append(None)
-        fs = sorted((MANUAL / "gapfill").glob("all_woodland_*.geojson"))
+        fs = sorted((MANUAL / "gapfill").glob("all_woodland_*.geojson"))[-1:]     # (the latest edition: 1957-61)
         if fs:
             try:
                 w = pd.concat([gpd.read_file(f) for f in fs], ignore_index=True)

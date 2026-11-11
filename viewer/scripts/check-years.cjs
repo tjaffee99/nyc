@@ -43,7 +43,8 @@ const VIEWS = [
     if (/raw\.githubusercontent\.com/.test(u)) got.fromRawHost++;
     if (hit) { if (r.ok()) got[hit]++; else got.failed++; }
   });
-  await page.goto(`${base}#${VIEWS[0][1]}`, {waitUntil: 'load'});
+  // WIDE=1: with the counties loaded (scope.ts); without it the page loads the core only
+  await page.goto(`${base}#${VIEWS[0][1]}${process.env.WIDE ? '&wide=1' : ''}`, {waitUntil: 'load'});
   let ready = true;
   try { await page.waitForFunction(() => window.__ready === true, null, {timeout: 240000}); } catch (e) { ready = false; }
   console.log(`ready=${ready}`);
