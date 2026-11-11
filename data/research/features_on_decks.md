@@ -66,7 +66,7 @@ a feature counts as covered when its **centroid lies inside** a building / pier 
 | Canarsie Pier | Bayview Playground | Brooklyn | 1 | 120 | playground | 3.5 | -73.8835, 40.6289 |
 
 Reading: **Pier 40** (Hudson River Park, W Houston St): the 1998 roof fields (OSM ways 65223814 soccer, 576166509) sit on the shed roof at
-14.8 m; the 2005 main field (way 23529474, 5,323 m2) is on the former cargo level inside the shed. **Brooklyn Bridge Park**: Pier 5
+14.8 m; the 2005 main field (way 23529474, 5,323 m2) lies in the shed's courtyard (the city's footprint BIN 1012249 has a 14,300 m2 hole), at pier-deck level, open to the sky. (The first run of the cover count above tests centroids against outlines, holes included.) **Brooklyn Bridge Park**: Pier 5
 (three turf fields, opened Dec 2012), Pier 2 (basketball, handball, pickleball, roller rink, play turf, opened May 2014), Pier 3
 (lawn and greenway terrace, Nov 2013), Pier 6 (volleyball courts, playgrounds, 2010), Pier 1's uplands are not decks. **Hudson River
 Park**: Pier 25 (volleyball, mini-golf, playground), Pier 26, Pier 46, Pier 51 (playground), Pier 62 (Chelsea Piers roof), Pier 97 (De Witt
@@ -152,3 +152,27 @@ the footprint of 1945-1986 and under the 30.5 m roof for the years when the land
 - `data/interim/nyc_buildings.parquet` BIN 1084789 (the North River plant) is dated 1945.07 (`neighbours`) and BIN 1090426 (the pool building) is dated 1969.3 (`neighbours`), the other deck buildings (BINs 1090423-1090431) likewise by neighbours: the plant was built 1978-1991 (foundation 1978, works 1986-1991) and the park buildings
   opened with the park in 1993. Suggested rows for `known_building_dates`: 1084789 -> 1978 (estimated end of foundation) / 1986, 1090423-1090431 -> 1993.
   The landmark models hide the generic footprints from 1978 on (`replaces`), not before.
+
+## The change, written (not applied): `data/interim/landmarks_more_c/ground_detail_deck.py` / `.patch`
+
+`diff -u pipeline/ground_detail.py data/interim/landmarks_more_c/ground_detail_deck.py` = `ground_detail_deck.patch` (115 lines, 84 added). It adds
+`deck_floor()` (STRtree of standing and pier rows of `nyc_buildings.parquet`; rules as above: pier row, or roof deck = footprint >= 1.3 x the piece and
+extrusion `height` 2-40 m; covers >= 60 % of the piece; start_year <= piece start + 0.5 and end_year >= piece end; the highest top wins), the
+`floor=` argument of `write_outlines` (`z = fmax(ground, floor) + 0.3`, NaN = none), and one call in `main()` after `Ground()`; the piece starts
+no earlier than its deck + 0.5. The four landmark decks (`LANDMARK_DECKS`: rings of the Riverbank plant, Pier 40, Pier 5, Pier 2 from `nyc-more-c.ts`) are skipped
+(`exclude_landmarks`), so nothing is drawn twice; a new landmark deck means a new ring there. Test: `data/interim/landmarks_more_c/test_deck.py`.
+
+Roof height it takes: `base + height` of the building file as the viewer extrudes it (`nyc_buildings.py`: base = lowest ground corner - 1 m, height = measured
+roof + (mean ground - lowest ground) + 1 m, i.e. roof = mean ground along the outline + measured roof). For the Riverbank plant: base 3.54 + 26.92 = 30.46 m,
+because the ring's mean ground is 9.25 m (the outline runs up the bluff to Riverside Drive) and the measured roof is 21.21 m; the terrain grid under the
+deck itself reads 19.0-19.7 m, i.e. the true deck is at about 19-21 m, so the drawn plant stands about 10 m too high. Features there come out at 30.76 m, as the
+extrusion; the landmark model replaces it, and the plant's `height` should be fixed in `nyc_buildings.py` (use the median ground, not the mean) if other
+stations on slopes show the same.
+
+Test results (vertex z incl. +0.3): Riverbank track and pitch 30.76 (without the exclusion); Pier 5 field 2.80; Pier 25 pitch 2.80; Pier 40 courtyard field 2.80 and its
+two roof fields 15.07; Pier 2 court 11.26 (it lies under an 8,853 m2, 10 m roof structure, OSM 328275185: a canopy, so raising it is wrong; the exclusion list
+covers it, but other canopies could be hit); Central Park's Heckscher ball field unchanged (18.15-18.79); Gantry Plaza (119.8 m), Asphalt Green (92.7 m),
+University Place (126 m), Isham Park, Macombs Dam Park (garage of 2010 vs a field of 1903: its lifespan does not span the piece's): no floor, unchanged. With the exclusion
+on, the Riverbank, Pier 5, Pier 40 and Pier 2 pieces stay at the terrain (1.2-2.8; 19.3-19.97 at Riverbank).
+Limits: a building that stands only part of the piece's life (garage built over an older field) is not a deck (the field is hidden after it); canopies are
+indistinguishable from roofs; not run end-to-end (the stage was not run: only the function on real outlines).

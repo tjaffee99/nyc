@@ -57,17 +57,20 @@ inside the plant's ring, so `replaces` takes them. 28 acres = 113,300 m2 vs the 
 
 Each pier model is the city's pier layer outline (`data/interim/nyc_buildings.parquet`, `doitt_id` `pier:pier_bk_0147`, `pier:pier_bk_0152`) or the shed
 footprint (BIN 1012249) extruded to the top of the deck, with the OSM pitches of the pier as slabs 6 cm above it.
-- `pier40_terminal_1962` [1958.0, 1962.0] -> 1998.0 and `pier40_roof_fields` [1997.5, 1998.5] -> 9999. Wikipedia "Pier 40" (read 2026-11-11):
-  "Construction began in 1958 and the terminal was opened in 1962"; "The roof served as parking for over 700 cars"; "The upper-level recreational
-  area, opened in 1998, features two fields (one small field and one soccer field) and a flying trapeze"; the main field on the former cargo level
-  opened May 2005 (not drawn: it is inside the shed). Roof 14.7 m above the water = the city's measured 13.11 m + its ground 1.6 m; 57,300 m2.
-  Fields: OSM 65223814 (3,185 m2), 576166509 (2,023 m2). The month of the 1998 opening is not given; the 1997.5-1998.5 window is estimated.
+- `pier40_terminal_1962` [1958.0, 1962.0] -> 1998.0, `pier40_roof_fields` [1997.5, 1998.5] -> 2005.4 and `pier40_main_field` [2004.0, 2005.4] -> 9999.
+  Wikipedia "Pier 40" (read 2026-11-11): "Construction began in 1958 and the terminal was opened in 1962"; "The roof served as parking for over 700 cars";
+  "The upper-level recreational area, opened in 1998, features two fields (one small field and one soccer field)"; the main field "occupying the former
+  cargo level" was built from 2004 and opened in May 2005. The city's shed footprint (BIN 1012249) has a **courtyard** (a hole of 14,300 m2): the main
+  field (OSM 23529474, 5,323 m2) lies wholly in it, at deck level, open to the sky; the model draws the shed with the hole on the pier deck slab
+  (`pier:pier_mn_0116`, 3.0 m above the model base = 2.5 m above the water). Roof 14.7 m above the water = the city's measured 13.11 m + its ground 1.6 m
+  (the building file draws 14.77 m). Roof fields: OSM 65223814 (3,185 m2), 576166509 (2,023 m2). The month of the 1998 opening is not given: the
+  1997.5-1998.5 window is estimated. Not modelled: ramps, the garage at the east end (OSM 1115996380, 19 m), the levels inside the shed.
 - `bbp_pier5_fields` [2011.0, 2012.95] -> 9999: Pier 5 "opened in December 2012" (Wikipedia "Brooklyn Bridge Park"); construction of the park began 28
   Jan 2008; the 2011 start is estimated. Three soccer fields, ways 328277180, 328277282, 328277283 (4,454 / 4,494 / 4,540 m2); deck 3.0 m above the model base
   (2.5 m above the water in the city's pier layer: base -1.0 + 3.5).
 - `bbp_pier2_courts` [2013.0, 2014.4] -> 9999: "Piers 2 and 4 in May 2014"; "basketball, handball, bocce, and shuffleboard courts; artificial turf; swings;
   fitness bars; and picnic tables" (Wikipedia). Drawn: the OSM pitches inside the pier (5 basketball, pickleball, handball, play turf, roller rink,
   playground); not drawn: bocce, shuffleboard, tables, the roof structure (way 328275185).
-Numeric check: tris 16 / 20 / 28 / 66; bounds Pier 40 x -174.7..131.2, y -125.8..132.6 (footprint 57,297 m2); Pier 5 x -112..118, y -90..92; Pier 2 x -102..113, y -101..84.
+Numeric check: tris Pier 40 59 / 63 / 65, Pier 5 28, Pier 2 66; bounds Pier 40 x -181.7..131.3, y -131.3..139.4 (shed outline 57,297 m2 less the 14,297 m2 courtyard; the deck slab is the pier row); Pier 5 x -112..118, y -90..92; Pier 2 x -102..113, y -101..84.
 Not verified on screen. Whether `replaces` of a polygon also hides the pier layer's rows (they are building rows with `year_src` pier) rests on the
 viewer matching building centroids; the pier rows' centroids lie inside the rings, but the pier layer was not read in the viewer code.
