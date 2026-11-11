@@ -384,8 +384,7 @@ def build_yards(c):
     # so the tracks are drawn - parallel lines at the yard's bearing, every second track of a
     # yard laid at 4.6 m - and the cars stand until the yard closed. Outline and years are
     # researched (data/research/hudson_waterfront.md); tracks and cars are generated.
-    hp = PORTS / "yards_historic.geojson"
-    if hp.exists():
+    for hp in sorted(PORTS.glob("yards_historic*.geojson")):       # (the later parts add their own files)
         for f in json.load(open(hp))["features"]:
             if float(f["properties"].get("end_year", 9999)) < 9000:
                 f["properties"]["_lost"] = True
