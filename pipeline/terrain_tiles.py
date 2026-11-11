@@ -516,15 +516,18 @@ def park_layers(g, urban_fill):
             shapes.append((geom, names.get(nm.strip().lower(), np.nan), geom.area * 0.575 > 400_000))
     # undated outlines first so dated ones win
     shapes.sort(key=lambda s: (np.isfinite(s[1]), -s[0].area))
+    # (one pass each, not one per outline: the wide region holds fifteen thousand greens and
+    # every pass scans 28 million cells; the order is the loop's - a later shape burns over an
+    # earlier one)
     isp = np.zeros((rows, cols), bool)
-    for geom, yy, bg in shapes:
-        m = rasterize_on(g, [(geom, 1)], fill=0, dtype="uint8").astype(bool)
-        if not m.any():
-            continue
-        isp |= m
-        if np.isfinite(yy):
-            park_y[m] = yy
-        big |= m & bg
+    if shapes:
+        isp = rasterize_on(g, [(s[0], 1) for s in shapes], fill=0, dtype="uint8").astype(bool)
+        dated = [(s[0], float(s[1])) for s in shapes if np.isfinite(s[1])]
+        if dated:
+            park_y = rasterize_on(g, dated, fill=np.nan, dtype="float32")
+        bigs = [(s[0], 1) for s in shapes if s[2]]
+        if bigs:
+            big = rasterize_on(g, bigs, fill=0, dtype="uint8").astype(bool)
     # greens without a date: the year the neighbourhood around was built (estimated)
     und = isp & ~np.isfinite(park_y)
     park_y[und] = urban_fill[und]
