@@ -316,3 +316,53 @@ Yard (outlines sit on roofs; perhaps half of the roofs in the picture are found)
 (mostly on buildings; one parade ground was outlined before the size limit was added). No precision
 figure. Known failure modes: a paved court or lawn of roof size; a ship at a quay inside a site's
 outline; a roof split along its ridge into two rectangles that did not join.
+
+## Cleared blocks (`gap_fill.py counties`, added 2026-11-11, second pass)
+
+The owner: "areas that have been destroyed and rebuilt (Springfield/Belmont, Newark) must appear before they were
+destroyed". The county rules above keep a share of the parcels under the 1897 and 1940s evidence and need old recorded
+buildings around; a district that was cleared in 1955-80 and rebuilt after 1990 has neither (Newark's Central Ward held
+2,649 standing buildings in 1950, its survivors three to four times that per hectare). New rule, evidence
+`cleared_block+<sheet>` (rules in the comment above `cleared_districts()` in `pipeline/gap_fill.py`):
+
+- **Block** = the polygon between today's street centre lines (the stage's `city_blocks`, at most 40 ha).
+- (b) fewer than a third of today's buildings on it date from before 1945 (any year, recorded or not); and
+  (c) it lies inside one of the 14 researched districts (`cleared_districts.geojson`: name, county, clearance years,
+  source URL, density factor) OR at least three buildings stand on it and 60 % of them have a recorded (exact, parcel)
+  year after 1950; and
+  (a) ground: the block's lots rest on the built-up ground of the 1897-98 sheets or on built block fronts of a 1940s sheet
+  (at least half of the lots), inside a district also on the 1940s urban tint (at least 30 % of the lots). Without it, no row:
+  rule (c) alone is never proof that the block was built.
+- **Lots**: today's parcels where they are lot-sized (`parcel_outline`, 40-1,500 m2), else the street-frontage rows of
+  `make_lots` (the city's lot cutter, sized by the old buildings of the nearest block that has five) where a parcel is
+  larger or none exists (closed streets, highway land). Every position gets a building (no share), then a district's
+  `density_factor` thins it (below).
+- **Years**: start from the recorded years of the buildings within 800 m (not 300 m), at most 1897 where the 1897 sheet shows
+  the block built (else the census distribution of the county's people up to 1897, nearer old centres earlier), at most 1944
+  where only a 1940s sheet does; end at the district's clearance years (uniform between them) or when today's building on
+  the spot went up (two years of lead), whichever is earlier; rows with no building today end 1956-84 outside a district.
+  Highway rows end at the motorway's opening year as before. Never on a map building while both stand (final guard), never
+  before the ground (`ground_rule`), never on a street, on water or on a railway. These rows win an overlap with older rules' rows.
+- **Density factor** (`density_factor` of each district, 0.48-1.0): a district's frontage rows are full lots; the surviving old
+  blocks nearby (the reference: at least 8 buildings, 70 % dated before 1930, same town, within 1 km) are less dense than that
+  (industry, yards, a few detached houses), so each district keeps the share of lot positions at which map + fill reaches 100 %
+  of the reference density, the mean of its 1925 and 1950 values (the calibration is the owner's 60-110 % band, not a measured
+  truth); 1.0 where the evidence rules, not the factor, limit the density. Outside the researched districts no thinning.
+- **Districts** are bounding polygons drawn by the stage's author from the street grid and today's building years (approximate and
+  generous: blocks that still hold old buildings fail rule (b) and are not touched). Clearance years and source URLs are the
+  author's reading of the pages named in the file and were not re-checked online in this round: estimated.
+- `GAPFILL_CB=0` runs the stage without the rule (the "before" of the report).
+
+Housekeeping: the 1940s sheets of Elizabeth, Weehawken, Yonkers, Mount Vernon and Central Park (formerly read from the piers part's
+folder, now gone) were fetched again into `data/raw/gapfill/usgs/` (USGS, public domain), and the stage reads them from there;
+`SHEET_SHIFT_FALLBACK` holds the first run's registration for them.
+
+Result and checks: `numbers_counties.md` ("Cleared districts"). 110,054 rows (91,933 without the rule), of them 25,165 cleared-block rows
+(Essex 11,642, Westchester 4,788, Passaic 5,333, Bergen 2,491, Union 911). 9,604 blocks are candidates of (b) and (c); 914 pass (a).
+Invariants as before, all 0: overlaps in time with map buildings and with other rows, rows on streets or water, start >= end.
+Not met: Hackensack (64 % / 49 % of the reference in 1925 / 1950), Passaic Eastside (64 / 63), Elizabethport (73 / 69) and the Route 80 corridor
+of Paterson (74 / 75) stay below or at the band's floor because most of their cleared blocks have no evidence (a) (no 1897 built-up ground,
+no 1940s block-front sheet read there); five districts are 112-128 % of the reference in 1925 (the factor was fitted to the mean of 1925 and 1950),
+and 1900 compares badly with the reference (the reference blocks were not yet built in 1900). Not done: the sheets of Hackensack (1940),
+Orange (1947) and Paterson (1944) are read as tint or not at all, not as block fronts; no precision figure; Union and Rockland have almost no
+cleared districts here (Elizabethport only).
