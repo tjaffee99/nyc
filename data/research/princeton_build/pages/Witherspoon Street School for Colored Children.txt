@@ -1,0 +1,56 @@
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=August 2023}}
+{{Infobox NRHP
+| name                     = Witherspoon Street School for Colored Children
+| nrhp_type                = nrhp
+| image                    = WITHERSPOON STREET SCHOOL FOR COLORED CHILDREN; PRINCETON, MERCER COUNTY.jpg
+| caption                  = The Quarry Street building of the Witherspoon School, now apartments
+| location                 = 35 Quarry Street, [[Princeton, New Jersey]] 08542
+| coordinates              = {{coord|40|21|11.3|N|74|39|46.6|W|display=inline,title}}
+| pushpin_map              = USA New Jersey Mercer County#New Jersey#USA
+| area                     = 
+| built                    = 1858 (184 Witherspoon) <br> 1909 (35 Quarry Street)
+| architect                = 
+| architecture             = Colonial Revival
+| added                    = March 9, 2005
+| ref_num                  = 05000125<ref name="nris">{{NRISref|version=2013a|refnum=05000125}}</ref>
+| designated_other1_name   = New Jersey Register of Historic Places
+| designated_other1_abbr   = NJRHP
+| designated_other1_link   = New Jersey Register of Historic Places
+| designated_other1_date   = January 6, 2005
+| designated_other1_number = 4390<ref name=NJRHP>{{cite web |title=New Jersey and National Registers of Historic Places – Mercer County |url=https://www.nj.gov/dep/hpo/1identify/nrsr_lists/MERCER.pdf#page=11 |publisher=[[New Jersey Department of Environmental Protection]] – Historic Preservation Office |page=11 |date=June 22, 2023 }}</ref>
+| designated_other1_num_position = bottom
+| designated_other1_color  = #ffc94b
+}}
+
+The '''Witherspoon Street School for Colored Children''' educated the African-American children of [[Princeton, New Jersey]] from 1858 until the [[Princeton Public Schools]] were integrated in 1948.  The school was originally located at the building still standing at 184 Witherspoon Street.  As enrollment increased it moved, in 1909, to 35 Quarry Street. The Quarry Street building was expanded in 1939 and again in 1966, giving it its present appearance.  The former school has since been turned into an apartment building. It was added to the [[National Register of Historic Places]] on March 9, 2005, for its significance in education.<ref name="nrhpdoc">{{cite web|url={{NRHP url|id=05000125}}|title=National Register of Historic Places Inventory/Nomination: Witherspoon Street School for Colored Children |publisher=[[National Park Service]]|first1=Julie P. |last1=Carmelich |date=September 2003 }} With {{NRHP url|id=05000125|photos=y|title=accompanying 23 photos}}</ref>
+
+==History and description==
+The school is built with brick and features [[Colonial Revival architecture]]. An ornate [[cupola]] is centered on the roof.<ref name="nrhpdoc"/>
+In 1948 the ''[[Journal of Negro Education]]'' wrote that the Witherspoon Street School had empty spaces while the school for white children was overcrowded.<ref>{{cite journal|last=Jensen|first=Noma|title=A Survey of Segregation Practices in the New Jersey School System|journal=[[The Journal of Negro Education]]|date=Winter 1948|volume=17|issue=1|pages=84–88|publisher=[[Journal of Negro Education]]|url=https://www.jstor.org/stable/2966093|jstor=2966093}} - CITED: p. 86.</ref>
+
+[[File:Witherspoon Street School 1908.jpg|thumb|none|The 1908 champion YMCA team on the steps of the Witherspoon Street School]]
+
+==See also==
+* [[Betsey Stockton]]
+*[[National Register of Historic Places listings in Mercer County, New Jersey]]
+
+==References==
+{{Reflist}}
+
+{{commons category|Witherspoon Street School for Colored Children}}
+
+{{Princeton, New Jersey}}
+{{NRHP in Mercer County, New Jersey}}
+
+[[Category:National Register of Historic Places in Mercer County, New Jersey]]
+[[Category:Brick buildings and structures in New Jersey]]
+[[Category:Colonial Revival architecture in New Jersey]]
+[[Category:Defunct schools in New Jersey]]
+[[Category:Buildings and structures in Princeton, New Jersey]]
+[[Category:New Jersey Register of Historic Places]]
+[[Category:Educational institutions in the United States established in 1858]]
+[[Category:1858 establishments in New Jersey]]
+[[Category:School buildings completed in 1909]]
+[[Category:Historically segregated African-American schools in New Jersey]]
+[[Category:African-American history of New Jersey]]

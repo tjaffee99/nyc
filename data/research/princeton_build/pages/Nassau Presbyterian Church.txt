@@ -1,0 +1,103 @@
+{{Infobox church
+| name                  = Nassau Presbyterian Church
+| full_name             = 
+| other_name            = 
+| image                 = Nassau_Presbyterian_Church_(55144612901).jpg
+| image_size            = 
+| imagelink             = 
+| alt                   = A picture of the front of Nassau Presbyterian Church
+| landscape             = 
+| caption               = 
+| country               = United States
+| location              = 61 [[Nassau Street (Princeton)|Nassau Street]], [[Princeton, New Jersey]] 08542
+| denomination          = [[Presbyterian Church (U.S.A.)]]
+| previous_denomination = 
+| churchmanship         = [[Liberal Christianity|Liberal Protestant]]
+| website               = {{URL|http://nassauchurch.org|nassauchurch.org}}
+| former_name           = First Presbyterian Church of Princeton
+| founded               = 1766 <!-- {{start date|YYYY|MM|DD|df=y}} - but see note below -->
+| founder               = 
+| dedication            = 
+| dedicated             = 
+| consecrated           = 
+| events                = Burned down 1813 and 1835
+| architect             = [[Charles Steadman]]
+| architectural_type    = 
+| style                 = [[Greek Revival architecture|Greek Revival]]
+| years_built           = 
+| groundbreaking        = 
+| construction_cost     = 
+| completed             = 1836
+| capacity              = 
+| length                = <!-- {{convert| }} -->
+| width                 = <!-- {{convert| }} -->
+| height                = <!-- {{convert| }} -->
+| materials             = 
+| embedded              = {{Infobox NRHP
+ | embed = yes
+ | name = Nassau Presbyterian Church
+ | part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+ | part_of_ref_num = 75001143<ref>{{cite web|title=Princeton Historic District|url={{NRHP url|id=75001143}}|website=National Register of Historic Places|publisher=National Park Service}}</ref>
+ | nrhp_type = cp
+ | nocat = yes
+ | image = 
+ | alt = 
+ | caption = 
+ | coordinates = {{coord|40|20|56.4|N|74|39|38.5|W|display=inline,title}}
+ | pushpin_map = USA New Jersey Mercer County#New Jersey#USA
+ | map_alt = A map of Mercer County, New Jersey
+ | area =
+ | architect= 
+ | added = 27 June 1975
+ | governing_body = 
+ | mpsub=
+}}
+}}
+
+The '''Nassau Presbyterian Church''' is a historic congregation located at 61 Nassau Street in [[Princeton, New Jersey]], United States. It has been the home of many important figures in the history of [[Presbyterianism]] in the United States as a result of its proximity to [[Princeton University]] and the [[Princeton Theological Seminary]].  The church operates the [[Princeton Cemetery]] and is a contributing property to the [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]].  The current pastor is the Reverend Dr. David A. Davis.
+
+==History==
+
+[[File:Princeton NJ Presby PHS768.jpg|thumb|left|upright=1.3|First Presbyterian Church on a vintage postcard.]]
+[[File:Princeton NJ 2nd Presby PHS769.jpg|thumb|left|upright=1.3|Second Presbyterian Church on a vintage postcard.]]
+
+===First Church===
+The Presbyterians of central [[New Jersey]] had two places of worship in either [[Lawrenceville, New Jersey#History|Lawrenceville]] or [[Kingston, New Jersey#Kingston Presbyterian Church|Kingston]]. In 1756 the College of New Jersey (now [[Princeton University]]) opened in Princeton and services were held in [[Nassau Hall]]. A few years later funds were collected to build a church to serve the growing population of students and teachers. The newly constructed First Presbyterian Church of Princeton opened in 1766. [[John Witherspoon]], the President of the College, began his 25 years tenure as pastor of First Church in 1768.
+
+===Witherspoon Church and Second Church===
+As time progressed, divisions within the church occurred and the church spun off two local Presbyterian Churches.  After the building burned down in 1835 church notes indicate that African-American members were encouraged to leave the congregation leading to the founding of Witherspoon Street Presbyterian Church.<ref>{{cite news|title=Presbyterian Churches To Hold Joint Services|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=TownTopics19900124-01.2.138&srpos=2&e=-------en-20--1--txt-IN-%22Nassau+Presbyterian%22+history----#|access-date=19 April 2014|newspaper=The Town Topics|date=24 January 1990}}</ref>   Later that same decade the [[Nassau Christian Center|Second Presbyterian Church]] was chartered by those who sought a less formal worship style and desired different pastoral leadership.  Efforts to merge the three congregations back into one were attempted at various times over the years including an effort led by [[Woodrow Wilson]].{{citation needed|date=January 2017}}
+
+===Nassau Presbyterian Church===
+In the early 1970s, First Church and St. Andrews (the new name of Second Church) were without installed pastors.  The churches decided to merge but were concerned about one church absorbing the other.  The decision was made to create a new church out of the two (the Witherspoon Church was invited to the merger but declined) and Nassau Presbyterian Church was chartered in 1973.  The initial congregation had 2,335 members with 1,759 and 576 coming from First and St. Andrew's, respectively.<ref>{{cite web|title=A Brief Account of the Heritage and Creation of Nassau Presbyterian Church|url=http://www.nassauchurch.org/home/history.php|access-date=13 May 2014}}</ref>  The former building of St. Andrews was sold in 1978 to a new church plant of the [[Assemblies of God]], the [[Nassau Christian Center]].<ref>{{cite web|title=Nassau Christian Center History|url=http://www.nassauchristian.org/ncc/welcome/ncc-history/|access-date=13 May 2014|url-status=dead|archive-url=https://web.archive.org/web/20140513100945/http://www.nassauchristian.org/ncc/welcome/ncc-history/|archive-date=13 May 2014}}</ref>
+
+The church is part of the national [[Presbyterian Church USA]].
+
+==Notable ministers and members==
+{{More citations needed section|date=September 2018}}
+*[[Grover Cleveland]]
+*[[Jonathan Edwards (theologian)|Jonathan Edwards]]
+*[[John Witherspoon]]
+*[[Charles Hodge]]
+*[[A.A. Hodge]]
+*[[James McCosh]]
+*[[Joseph Ruggles Wilson]]
+*[[Woodrow Wilson]]
+*[[John Gresham Machen]]
+*[[Charles R. Erdman, Sr.]]
+*[[Bill Bradley]]<ref name="McPhee 1999 p. ">{{cite book | last=McPhee | first=J. | title=A Sense of Where You Are: Bill Bradley at Princeton | publisher=Farrar, Straus and Giroux (BYR) | year=1999 | isbn=978-0-374-70871-9 | url=https://books.google.com/books?id=RC2TZw-B0qQC | access-date=2022-05-20 | page=}}</ref>
+
+==References==
+{{reflist}}
+
+==External links==
+{{commons category|Nassau Presbyterian Church}}
+* [http://www.nassauchurch.org/ Nassau Presbyterian Church]
+
+{{Princeton, New Jersey|state=collapsed}}
+
+[[Category:Presbyterian churches in New Jersey]]
+[[Category:Presbyterian Church (USA) churches]]
+[[Category:Churches in Princeton, New Jersey]]
+[[Category:Charles Steadman Buildings]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]
+[[Category:Presidential churches in the United States]]

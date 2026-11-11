@@ -1,0 +1,113 @@
+{{Short description|Assembly and concert hall at Princeton University}}
+{{Infobox venue
+| name                   = Alexander Hall
+| nickname               = 
+| native_name            = 
+| native_name_lang       = 
+| full_name              = Richardson Auditorium in Alexander Hall
+| former_names           = 
+| logo_image             = Richardson_Auditorium_Logo.gif
+| logo_caption           = 
+| image                  = Alexander Hall, Princeton University.jpg
+| image_size             = 
+| image_alt              = 
+| image_caption          = Alexander Hall at [[Princeton University]]
+| pushpin_map            = 
+| pushpin_map_size       = 
+| pushpin_caption        = 
+| pushpin_label_position = 
+| address                = Class of 1975 Walk, [[Princeton, New Jersey]] 08544
+| location               = 
+| coordinates            = <!-- {{Coord|LAT|LON|type:landmark|display=inline,title}} -->
+| type                   = Concert venue
+| event                  = 
+| groundbreaking         = 1892
+| built                  = 
+| opened                 = {{Start date|1894|06|09|df=y}}
+| renovated              = 1984-85
+| expanded               = 
+| closed                 = 
+| demolished             = 
+| owner                  = [[Princeton University]]
+| operator               = 
+| surface                = 
+| scoreboard             = 
+| production             = 
+| cost                   = 
+| architect              = 
+| project_manager        = 
+| structural_engineer    = 
+| services_engineer      = 
+| general_contractor     = 
+| main_contractors       = 
+| seating_type           = 
+| capacity               = 900
+| suites                 = 
+| record_attendance      = 
+| dimensions             = 
+| field_shape            = 
+| acreage                = 
+| volume                 = 
+| tenants                = 
+| embedded               =
+{{Infobox NRHP
+ | embed = yes
+ | name =Alexander Hall
+ | part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+ | part_of_ref_num = 75001143<ref>{{cite web|title=Princeton Historic District|url={{NRHP url|id=75001143}}|website=National Register of Historic Places|publisher=National Park Service}}</ref>
+ | nrhp_type = cp
+ | image = 
+ | alt = 
+ | image_caption = 
+ | nocat = yes
+ | coordinates = {{coord|40|20|54|N|74|39|38.1|W|display=inline,title}}
+ | pushpin_map = USA New Jersey Mercer County#New Jersey#USA
+ | map_alt = A map of Mercer County, New Jersey
+ | area =
+ | architect= [[William Appleton Potter]]
+ | added = 27 June 1975
+ | governing_body = 
+ | mpsub=
+}}
+| website                = {{URL|http://www.princeton.edu/richaud/|princeton.edu/richaud}}
+| public_transit         = [[Princeton Branch|Princeton Branch (The Dinky)]]
+}}
+'''Richardson Auditorium in Alexander Hall''' is a historic 900-seat<ref>{{cite web|title=Richardson Auditorium|url=http://www.princetonuniversityconcerts.org/plan-your-visit/venues|website=Princeton University Concerts}}</ref> [[Richardsonian Romanesque]] performance hall at [[Princeton University]] in [[Princeton, New Jersey]]. It is home to both the [[Princeton University Orchestra]] and the [[Princeton Symphony Orchestra]].
+
+== History ==
+The name of the hall honors three generations of the Alexander family, who all served as University trustees. Funding for the building was sourced from Mrs. Harriet Crocker Alexander, who donated $350,000 (${{Formatprice|{{Inflation|US|350000|1892}}}} in {{inflation-year|US}} dollars)<ref name=":0">{{Cite web|url=https://www.princeton.edu/news/2016/12/19/alexander-hall-pictures-part-1|title=Alexander Hall in pictures, Part 1|website=Princeton University|language=en|access-date=2019-01-06}}</ref> so its name would honor her in-laws: her husband Charles B. Alexander (Class of 1870), his father Henry M. Alexander (Class of 1840), a University trustee and member of the Committee on Commencement Arrangements, and his grandfather [[Archibald Alexander|Reverend Dr. Archibald Alexander]] (the Presbyterian founder of the Princeton Theological Seminary and its first professor; honorary Princeton doctorate 1810).<ref name="CG">Princeton University - The Campus Guide</ref>
+
+[[File:Alexander Hall, Princeton University, December 2025 (Aerial).jpg|thumb|upright=1.35|Aerial view of Alexander Hall's rose-window facade, looking north, December 2025]]
+Alexander Hall was designed by architect [[William Appleton Potter]]. Construction on the building was completed in 1894, and Alexander Hall held its first annual Commencement ceremony on June 13 of that year.<ref name=":0" /> After the Marquand Chapel caught fire, Protestant chapel services were held in the hall.<ref>{{cite journal | url=https://www.jstor.org/stable/pdf/10.25290/prinunivlibrchro.60.3.0317.pdf | jstor=10.25290/prinunivlibrchro.60.3.0317 | last1=Bush | first1=Sara E. | last2=Kemeny | first2=P. C. | title=The Princeton University Chapels: An Architectural and Religious History | journal=The Princeton University Library Chronicle | year=1999 | volume=60 | issue=3 | pages=317–352 | doi=10.25290/prinunivlibrchro.60.3.0317 }}</ref>
+
+Although Alexander Hall initially functioned as a space for hosting private University affairs — including commencement, faculty meetings, and popular talks — the space was renovated and expanded into a professional-class performance hall in the 1980s following a large donation from David Richardson (Class of 1966) and growing needs on campus for a proper performing space. In 1984, the auditorium within Alexander Hall was officially renamed to Richardson Auditorium.
+
+Following its renovation in the 1980s, the hall now has an elevator-mounted orchestra pit, sound reflectors for improved acoustics, humidity-controlled instrument storage, and a Tiffany Glass mosaic named "Homeric Story".<ref name=":0" /> Today, the building's turrets, rusticated brownstone, and red granite-walls frequently host concerts featuring ensembles and musicians, including conductor [[Gustavo Dudamel]]<ref>{{Cite news|url=https://www.nytimes.com/2018/12/12/arts/music/gustavo-dudamel-met-opera-otello.html|title=Gustavo Dudamel's Favorite Part of 'Otello' Is a Quiet Prayer|last=Cooper|first=Michael|date=2018-12-12|work=The New York Times|access-date=2019-01-06|language=en-US|issn=0362-4331}}</ref> in 2018 and 2019.
+
+Until 2017, when construction on Princeton University's new $330 million performing-arts center was completed, the Princeton University Orchestra rehearsed in the hall thrice per week during the academic year. Following the opening of the Lewis Center Arts, the orchestra now holds its rehearsals in the 3,500 square-foot Lee Rehearsal Room (built for the ensemble) and moves to Richardson Auditorium on the week of the concert.<ref>{{Cite web|url=http://www.towntopics.com/wordpress/2017/11/22/acoustics-of-new-music-space-enhance-the-orchestras-rehearsals/|title=Acoustics of New Music Space Enhance the Orchestra's Rehearsals {{!}} Town Topics|language=en-US|access-date=2019-01-06}}</ref>
+
+Beyond music, the hall maintains a strong bond with the local community as a regular venue for town meetings, and it still occasionally serves as a venue for large student events, famous guest speakers, as well as for other various University affairs.
+
+==Gallery==
+<gallery mode="packed" heights="164">
+File:Holzer, J. A., Homer Story (left detail), 1894.jpg|Detail of the left portion of the mosaic by [[Jacob Adolphus Holzer]], which features Greek heroes preparing for war.
+File:Alexander Hall auditorium Princeton.jpg|Richardson auditorium during a speech by [[Shirley Tilghman]]
+File:Alexander Hall Princeton University NewJersey USA.jpg|Detail of facade with dedication by Harriet Crocker Alexander
+File:Rhind sculpture at Princeton.jpg|Detail of the sculpture on the facade by [[J. Massey Rhind]]
+</gallery>
+
+==References==
+<references />
+
+==External links==
+*[http://watch.njtvonline.org/video/2234910488 Westminster Choir at Alexander Hall]  Documentary produced by [[NJTV]]
+*[http://orchestra.princeton.edu Princeton University Orchestra].
+*[http://princetonsymphony.org Princeton Symphony Orchestra].
+
+{{Princeton}}
+{{Princeton, New Jersey}}
+
+[[Category:Princeton University buildings and structures]]
+[[Category:William Appleton Potter buildings]]
+[[Category:Richardsonian Romanesque architecture in New Jersey]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]

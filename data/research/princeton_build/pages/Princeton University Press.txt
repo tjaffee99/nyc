@@ -1,0 +1,220 @@
+{{Short description|Independent publisher associated with Princeton University}}
+{{Multiple issues|{{More citations needed|date=April 2026}}}}
+{{Use mdy dates|date=October 2023}} {{Use American English|date=October 2023}}
+{{Infobox publisher
+| image        = [[File:Princeton University Press logo.svg|150px]]
+| parent       = 
+| status       = 
+| founded      = {{launch date and age|1905}}
+| founder      = Whitney Darrow
+| successor    = 
+| country      = [[United States]]
+| headquarters = [[Princeton, New Jersey]]
+| distribution = [[Ingram Content Group|Ingram Publisher Services]] (Americas, Asia, Australia)<br />[[John Wiley & Sons]] (EMEA, India)<br />United Publishers Services (Japan)<ref>{{Cite web |url=https://press.princeton.edu/ordering.html |title=North America & International Ordering Information |access-date=September 30, 2017 |archive-date=September 9, 2017 |archive-url=https://web.archive.org/web/20170909040313/http://press.princeton.edu/ordering.html |url-status=dead }}</ref>
+| keypeople    = 
+| publications = [[Book]]s
+| topics       = 
+| genre        = 
+| imprints     = 
+| revenue      = 
+| numemployees = 
+| nasdaq       = 
+| url          = {{Official URL}}
+}}
+
+'''Princeton University Press''' is an independent nonprofit [[Academic publishing|publisher]] closely affiliated with [[Princeton University]]. Founded in 1905, its mission is to disseminate scholarly ideas within academia and among the broader public. With over 10,000 titles in print, Princeton University Press publishes more than 300 new non-fiction books each year. It is headquartered in Princeton, NJ, with additional offices in [[Oxford|Oxford, England]] and [[Beijing|Beijing, China]]. 
+
+Christie Henry became the press' ninth director in 2017.<ref>{{Cite web |title=Princeton UP Names New Director |url=https://www.publishersweekly.com/pw/newsbrief/index.html?record=1350 |access-date=2026-05-06 |website=PublishersWeekly.com |language=en}}</ref> Since then, the press has diversified its offerings to include audiobooks, a speakers' bureau, and representation of other publishers' titles in China.<ref>{{Cite web |last=Maher {{!}} |first=John |title=Princeton UP Launches PUP Audio |url=https://www.publishersweekly.com/pw/by-topic/industry-news/publisher-news/article/77470-princeton-up-launches-pup-audio.html |access-date=2026-05-06 |website=PublishersWeekly.com |language=en}}</ref><ref name=":0">{{Cite web |last=Price |first=Gary |date=2021-06-02 |title=Princeton University Press (PUP) Launches In‑House Speakers' Agency For PUP Authors |url=https://www.infodocket.com/2021/06/02/princeton-university-press-pup-launches-an-in%E2%80%91house-speakers-agency-for-pup-authors/ |access-date=2026-05-06 |website=Library Journal infoDOCKET |language=en-US}}</ref> In 2025, Princeton University Press acquired [[Island Press]], a nonprofit publisher that focuses on environmental issues and the built environment.<ref>{{Cite web |last=Milliot {{!}} |first=Jim |title=Princeton UP Acquires Island Press |url=https://www.publishersweekly.com/pw/by-topic/industry-news/industry-deals/article/98795-princeton-university-press-acquires-island-press.html |access-date=2026-05-06 |website=PublishersWeekly.com |language=en}}</ref> 
+
+==History==
+===20th century===
+Princeton University Press was founded in 1905 by Whitney Darrow, a recent Princeton graduate. Darrow received initial funding for the press from [[Charles Scribner II]], a Princeton trustee and partner in the New York publishing house Charles Scribner's Sons.<ref>{{Cite web |date= |title=Princeton University Press, Erected Through the Generosity of Charles Scribner, a New and Unique Adjunct to the University |url=https://timesmachine.nytimes.com/timesmachine/1912/05/19/100584071.pdf}}</ref> Beginning as a small, for-profit printer, Princeton University Press was reincorporated as a nonprofit in 1910 and gradually developed into a full-fledged book publisher. In 1912, the press published its first book, a new edition of ''Lectures on Moral Philosophy'' by [[John Witherspoon]].<ref>{{Cite web |title=History of the Press {{!}} Princeton University Press |url=https://press.princeton.edu/about/history |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref> 
+
+Early notable publications included ''The Meaning of Relativity'' (1922) by [[Albert Einstein]] — his first book published in the United States — and ''Theory of Games and Economic Behavior'' (1944) by John von Neumann and Oskar Morgenstern, which helped establish the field of [[game theory]]. 
+
+In 1950, the press presented the first volume of ''The Papers of Thomas Jefferson'' at a [[Library of Congress]] ceremony attended by President [[Harry S. Truman]]. In 1969, [[Paul Mellon]] donated the Bollingen Series to the press, adding a backlist that included ''The I Ching, or Book of Changes'' and ''The Collected Works of C. G. Jung''.  
+
+In 1999, the press opened a European office in Woodstock, England, near Oxford.<ref>{{Cite web |title=Twenty-five years and counting for PUP Europe |url=https://www.thebookseller.com/features/twenty-five-years-and-counting-for-pup-europe |access-date=2026-05-06 |website=The Bookseller |language=En}}</ref> 
+
+===21st century===
+In 2012, Princeton University Press (PUP) launched the Princeton Legacy Library, using print-on-demand technology to return more than 2,700 out-of-print titles to availability.<ref name=":1">{{Cite web |title=Princeton Legacy Library {{!}} Princeton University Press |url=https://press.princeton.edu/collections/princeton-legacy-library |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref> In 2014, it created the Digital Einstein Papers, a public platform providing free access to The Collected Papers of Albert Einstein--providing the first comprehensive collection and English translation of Einstein's written legacy.<ref>{{Cite web |title=Albert Einstein {{!}} Princeton University Press |url=https://press.princeton.edu/collected-works/collected-albert-einstein |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>  
+
+Christie Henry became the press's director in 2017, the first woman to hold the position. That same year, the press opened a Beijing office, becoming the first university press to do so. 
+
+In 2018, the press launched Princeton Audio, an in-house audio imprint that has since released more than 200 audiobooks, including [[Karl Marx]]'s ''Capital: Critique of Political Economy, Volume 1''.<ref name=":0" /> In 2022, PUP expanded the program's reach with the debut of an audiobook app and direct-to-consumer website sales, supported through a partnership with Glassboxx.<ref>{{Cite web |date=2024-09-26 |title=From library to Spotify: academic audiobooks hit the mainstream |url=https://www.timeshighereducation.com/depth/library-spotify-academic-audiobooks-hit-mainstream |access-date=2026-05-06 |website=Times Higher Education (THE) |language=en}}</ref><ref>{{Cite web |title=EAD2C {{!}} Princeton University Press |url=https://press.princeton.edu/news/ead2c |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+
+In 2018 the press also launched a strategic initiative to diversify publishing. As part of a commitment to highlight voices and topics that have been historically underrecognized in the academy, the press launched a global equity grant program in 2020 to support authors under contract with resources to help with manuscript development; the majority of grants awarded in this program have been to assist authors with child and family care. In 2021 the press initiated Book Proposal Development Grants. Grantees receive coaching from partner book coaches and Princeton University Press editors, and subsequent consideration for publication. In 2020, the press launched a Publishing Fellowship, aimed at increasing diversity across the publishing industry.<ref>{{Cite web |title=Princeton University Press Publishing Fellowship {{!}} Princeton University Press |url=https://press.princeton.edu/about/princeton-university-press-publishing-fellowship |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref> The program offers full-time, salaried positions that provide immersive training in nonfiction publishing, as well as mentoring and career coaching.   
+
+Princeton University Press joined The [[Association of American Publishers]] trade organization in the [[Hachette v. Internet Archive]] lawsuit in 2020 over concerns that the archive facilitated copyright infringement of their books. The suit resulted in the removal of access to over 500,000 books from global readers.<ref>{{cite web | url=https://help.archive.org/help/why-are-so-many-books-listed-as-borrow-unavailable-at-the-internet-archive/ | title=Why are so many books listed as "Borrow Unavailable" at the Internet Archive – Internet Archive Help Center }}</ref><ref>{{cite web | url=https://publishers.org/who-we-are/our-members/ | title=Our Members - AAP | date=September 26, 2019 }}</ref>
+
+In 2021, the press established PUP Speaks, an in-house speakers' bureau representing select authors for paid speaking events.<ref name=":0" /> In 2021 the press also moved its UK office to Oxford, acquiring 99 Banbury Road and increasing space for the further growth of PUP Europe. 
+
+From its Beijing office, the press developed a business representing other publishers' titles in China. The [[University of Chicago Press]] became a client in 2022, followed by [[W. W. Norton & Company]] in 2025 and [[Johns Hopkins University Press]] in 2026.
+
+In 2023, Princeton University Press entered a publishing partnership with Editorial Planeta US to support simultaneous publication of general interest titles in English and in Spanish. The first title in the partnership was ''Puerto Rico: A National History'' by Jorell Meléndez-Badillo. Meléndez-Badillo collaborated with [[Bad Bunny]], writing short historical narratives to accompany the performer's album, ''[[Debí Tirar Más Fotos]]''.<ref>{{Cite web |date=2025-01-08 |title=Bad Bunny's 'Debí Tirar Más Fotos' is a love letter to Puerto Rico. This professor helped him tell the island's history |url=https://www.latimes.com/delos/story/2025-01-07/bad-bunnys-debi-tirar-mas-fotos-puerto-rico-jorell-melendez-badillo-visualizers |access-date=2026-05-06 |website=Los Angeles Times |language=en-US}}</ref>   
+
+In 2025, Princeton University Press was criticized when several members of its staff appeared in Chinese [[state media]] on an officially-sanctioned tour of sites in [[Xinjiang]].<ref>{{Cite web |last=O'Dwyer |first=Shaun |date=21 July 2025 |title=Princeton University Press Stumbles Into a Xinjiang Tour Debacle |url=https://thediplomat.com/2025/07/princeton-university-press-stumbles-into-a-xinjiang-tour-debacle/ |access-date=2025-07-23 |website=[[The Diplomat (magazine)|The Diplomat]] |language=en-US |archive-date=July 22, 2025 |archive-url=https://web.archive.org/web/20250722131538/https://thediplomat.com/2025/07/princeton-university-press-stumbles-into-a-xinjiang-tour-debacle/ |url-status=live }}</ref><ref>{{Cite web |date=2025-06-29 |title=Princeton University Press Director Accused of Campaigning to Whitewash Uyghur Genocide |url=https://uyghurtimes.com/princeton-university-press-director-accused-of-campaigning-to-whitewash-uyghur-genocide/ |access-date=2025-07-23 |website=Uyghur Times |language=en-US}}</ref><ref>{{Cite web |last= |first= |date=2025-07-03 |title=Justice For All's Save Uyghur Campaign Condemns Princeton University Press Director's Participation in Chinese Propaganda Tour of Occupied East Turkistan |url=https://www.saveuighur.org/condemns-princeton-university-press-directors-participation-in-chinese-propaganda-tour-of-occupied-east-turkistan/ |access-date=2025-07-23 |website=Save Uyghur |language=en-US}}</ref>
+
+In 2025, the press acquired [[Island Press]], a Washington, D.C.-based nonprofit publisher that focuses on environmental topics including conservation, food systems, and urban planning. Island Press became a Princeton University Press imprint on January 1, 2026.<ref>{{Cite web |title=Island Press Imprint News {{!}} Princeton University Press |url=https://press.princeton.edu/news/island-press-imprint-news |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref> 
+
+==Major awards==
+Seven books from Princeton University Press have won [[Pulitzer Prize]]s:
+*''[[Russia Leaves the War]]'' by [[George F. Kennan]] (1957)<ref name="Prizes1957PUP"/>
+*''Banks and Politics in America from the Revolution to the Civil War'' by [[Bray Hammond]] (1958)<ref name="Prizes1958PUP"/>
+*''Between War and Peace'' by [[Herbert Feis]] (1961)<ref name="Prizes1961PUP"/>
+*''Washington: Village and Capital'' by [[Constance McLaughlin Green]] (1963)<ref name="Prizes1963PUP"/>
+*''[[The Greenback Era]]'' by [[Irwin Unger]] (1965)<ref name="Prizes1965PUP"/>
+*''Machiavelli in Hell'' by [[Sebastian de Grazia]] (1989)<ref name="Prizes1990PUP"/>
+*''To the Success of Our Hopeless Cause'' by [[Benjamin Nathans]] (2024)<ref name=":2">{{Cite web |date=2024-08-13 |title=To the Success of Our Hopeless Cause (Pulitzer Prize Winner) {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691117034/to-the-success-of-our-hopeless-cause-pulitzer-prize-winner |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+
+Three books published by Princeton University Press have won the [[National Book Award]]:
+
+* ''Russia Leaves the War'' by George F. Kennan (1957, [[National Book Award for Nonfiction]])<ref>{{Cite web |title=A History of Princeton University Press {{!}} Princeton University Press |url=https://press.princeton.edu/about/history/a-history-of-princeton-university-press |access-date=2025-11-14 |website=press.princeton.edu |language=en}}</ref>
+* ''Monsieur Teste'' by [[Paul Valéry]], trans. [[Jackson Mathews]] (1974, [[List of winners of the National Book Award|Award for Translated Literature]])
+* ''The Agony of Christianity and Essays on Faith'' by [[Miguel de Unamuno]], trans. [[Anthony Kerrigan]] (1975, [[List of winners of the National Book Award|Award for Translated Literature)]]
+
+Two Princeton University Press books were finalists for the National Book Award:  
+* ''The Poison King'' by [[Adrienne Mayor]] (2009)<ref>{{Cite web |title=The Poison King: The Life and Legend of Mithradates, Rome's Deadliest Enemy |url=https://www.nationalbook.org/books/the-poison-king-the-life-and-legend-of-mithradates-romes-deadliest-enemy/ |access-date=2026-05-06 |website=National Book Foundation |language=en-US}}</ref>
+* ''Running Out'' by [[Lucas Bessire]] (2021)<ref>{{Cite web |title=Running Out: In Search of Water on the High Plains |url=https://www.nationalbook.org/books/running-out-in-search-of-water-on-the-high-plains/ |access-date=2026-05-06 |website=National Book Foundation |language=en-US}}</ref>
+
+==Other awards==
+
+Princeton University Press (PUP) books have won five [[Bancroft Prize|Bancroft Prizes]], which are awarded by [[Trustees of Columbia University in the City of New York|the trustees]] of [[Columbia University]] for books about [[diplomacy]] or the [[history of the Americas]], as well as hundreds of awards from academic organizations. Books from Princeton University Press have also been awarded the [[Nautilus Book Award]], a prize for books about social and environmental justice.<ref>{{cite web |title=Princeton University Press history |url=https://www.worldswithoutend.com/publisher.asp?ID=1410 |access-date=|website=Worlds Without End}}</ref> 
+
+More than 50 Princeton University Press authors have been awarded Nobel prizes in economics, physics, chemistry, medicine, and literature.<ref>{{Cite web |title=Awards & Recognition {{!}} Princeton University Press |url=https://press.princeton.edu/awards-recognition |access-date= |website=press.princeton.edu |language=en}}</ref> Most recently, [[Daron Acemoglu]] shared the 2024 Nobel prize in economics for research on economic growth and institutions. In 2023, [[Claudia Goldin]] was awarded the Nobel prize in economics for her work on women's labor market outcomes. Goldin authored ''Career & Family: Women's Century-Long Journey toward Equity'', which was published by Princeton University Press in 2021.<ref name=":3">{{Cite web |date=2021-10-12 |title=Career and Family {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691201788/career-and-family |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref> 
+
+Princeton University Press authors have received the Fields Medal, the Holberg Prize, and the Cundill Prize. Princeton University Press books have been named among the year's best reads by publications around the world.<ref>{{Cite web |title=Best of 2025 {{!}} Princeton University Press |url=https://press.princeton.edu/books/best-of-2025 |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>  
+
+Princeton University Press has achieved significant recognition in the [[Association of American Publishers]] (AAP) PROSE Awards, winning the prestigious R.R. Hawkins Award in 2023 for ''Spiderweb Capitalism'' by Kimberly Kay Hoang and in 2024 for ''The Voices of Nature'' by Nicolas Mathevon.<ref>{{Cite web |date=2023-06-27 |title=The Voices of Nature {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691236759/the-voices-of-nature |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref><ref>{{Cite web |title=Nicolas Mathevon |url=https://www.eneslab.com/nicolas-mathevon |access-date=2026-05-06 |website=ENES lab |language=fr}}</ref> 
+
+Princeton University Press won the prestigious International Excellence Academic and Professional Publisher Award at the 2020 [[London Book Fair]]. This award recognized the press for its innovation, global impact, and excellence in scholarly publishing. 
+
+PUP was shortlisted for the 2025 [[British Book Awards]] Academic, Educational, and Professional Publisher award, marking their third nomination in this category (previously 2021, 2023).
+
+==Papers projects==
+Multi-volume historical documents projects undertaken by the press include:
+* ''[[Einstein Papers Project|The Collected Papers of Albert Einstein]]''
+* ''The Writings of [[Henry David Thoreau|Henry D. Thoreau]]''
+* ''The Papers of [[Woodrow Wilson]]'' (sixty-nine volumes)
+* ''[[The Papers of Thomas Jefferson]]''
+* ''[[Søren Kierkegaard|Kierkegaard]]'s Writings''
+
+''The Papers of Woodrow Wilson'' has been called "one of the great editorial achievements in all history."<ref name="Cooper"/>
+
+==Bollingen Series==
+Since 1969, Princeton University Press has published the Bollingen Series, which features some 275 iconic books in [[psychology]], [[mythology]], [[archaeology]], [[art history]], [[religion]], [[literature]], and related fields, including the collected works of [[C. G. Jung]], [[Samuel Taylor Coleridge]], and [[Paul Valéry]], as well as the A. W. Mellon Lectures in the Fine Arts. Originally published by [[Pantheon Books]], the Bollingen series was given to Princeton University in 1969. The series had its beginnings in the [[Bollingen Foundation]], a 1943 project of Mary and [[Paul Mellon]]'s Old Dominion Foundation. A reissuing of the entire Bollingen series commenced in 2024, and in 2026 the new translation of the ''Critical Edition of the Works of C.E. Jung'' will be published. 
+
+==Other series==
+
+===Sciences===
+* [[Annals of Mathematics Studies]] ([[Sun-Yung Alice Chang|Alice Chang]], [[Phillip A. Griffiths]], [[Assaf Naor]], editors; [[Lillian Pierce]], associate editor)
+* [[Princeton Series in Applied Mathematics]] ([[Ingrid Daubechies]], [[Weinan E]], [[Jan Karel Lenstra]], [[Endre Süli]], editors)
+* [[Princeton Series in Astrophysics]] (David N. Spergel, editor)
+* [[Princeton Series in Complexity]] ([[Simon A. Levin]] and [[Steven H. Strogatz]], editors)
+* [[Princeton Series in Evolutionary Biology]] (H. Allen Orr, editor)
+* [[Princeton Series in International Economics]] ([[Gene Grossman|Gene M. Grossman]], editor)
+* [[Princeton Science Library]]
+
+===Humanities===
+* Princeton Modern Greek Studies<ref>{{Cite web |url=https://www.princeton.edu/hellenic/publications/ |title=Seeger Center for Hellenic Studies – Publications |access-date=June 6, 2016 |archive-date=June 19, 2016 |archive-url=https://web.archive.org/web/20160619131942/http://www.princeton.edu/hellenic/publications/ |url-status=live }}</ref>
+* Ancient Wisdom for Modern Readers<ref>{{Cite web |title=Ancient Wisdom for Modern Readers {{!}} Princeton University Press |url=https://press.princeton.edu/series/ancient-wisdom-for-modern-readers |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* Oddly Modern Fairy Tales<ref>{{Cite web |title=Oddly Modern Fairy Tales {{!}} Princeton University Press |url=https://press.princeton.edu/series/oddly-modern-fairy-tales |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+
+===Nature===
+* Princeton Field Guides<ref>{{Cite web |url=https://press.princeton.edu/series/princeton-field-guides |title=Princeton Field Guides |access-date=June 12, 2024 |archive-date=June 12, 2024 |archive-url=https://web.archive.org/web/20240612070343/https://press.princeton.edu/series/princeton-field-guides |url-status=live }}</ref>
+* Wild Guides (Andy Swash and Robert Still, editors)<ref>{{Cite web |title=WILDGuides {{!}} Princeton University Press |url=https://press.princeton.edu/series/wildguides |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* Pedia series<ref>{{Cite web |title=Pedia Books {{!}} Princeton University Press |url=https://press.princeton.edu/series/pedia-books |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+
+===Princeton Legacy Library===
+The Princeton Legacy Library uses print-on-demand technology to make available previously out-of-print books from Princeton University Press backlist.<ref name=":1" />  
+
+==Notable books==
+* ''[[AI Snake Oil]]'' by [[Arvind Narayanan]] and Sayash Kapoor (2024)   
+* ''Capital, Volume 1'' by [[Karl Marx]] (translation, 2024)<ref>{{Cite web |date=2024-09-17 |title=Capital {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691190075/capital |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* ''To the Success of our Hopeless Cause'' by [[Benjamin Nathans]] (2024)<ref name=":2" />
+* ''The Wife of Bath'' by [[Marion Turner]] (2023)<ref>{{Cite web |date=2023-01-17 |title=The Wife of Bath {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691206011/the-wife-of-bath |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* ''The New Makers of Modern Strategy'', Hal Brands, ed. (2023)<ref>{{Cite web |date=2023-05-02 |title=The New Makers of Modern Strategy {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691204383/the-new-makers-of-modern-strategy |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* ''Viral Justice'' by [[Ruha Benjamin]] (2022)<ref>{{Cite web |date=2022-10-11 |title=Viral Justice {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691222882/viral-justice |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* ''In Praise of Good Bookstores'' by Jeff Deutsch (2022)<ref>{{Cite web |date=2022-04-05 |title=In Praise of Good Bookstores {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691207766/in-praise-of-good-bookstores |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* ''[[1177 B.C.: The Year Civilization Collapsed]]'' by [[Eric H. Cline]] (2021) 
+* ''Career and Family'' by [[Claudia Goldin]] (2021)<ref name=":3" />
+* ''Deaths of Despair and the Future of Capitalism'' by [[Anne Case]] and [[Angus Deaton]] (2020)<ref>{{Cite web |date=2020-03-17 |title=Deaths of Despair and the Future of Capitalism {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691190785/deaths-of-despair-and-the-future-of-capitalism |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* ''The Obama Portraits'' by [[Taína Caragol]], Dorothy Moss, Richard J. Powell, and [[Kim Sajet]], (2020)<ref>{{Cite web |date=2020-02-11 |title=The Obama Portraits {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691203287/the-obama-portraits |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* ''Narrative Economics'' by [[Robert J. Shiller]] (2019)<ref>{{Cite web |date=2019-10-01 |title=Narrative Economics {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691182292/narrative-economics |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* ''Welcome to the Universe'' by [[Neil deGrasse Tyson]], [[Michael A. Strauss]], and [[J. Richard Gott]] (2015)<ref>{{Cite web |date=2016-09-29 |title=Welcome to the Universe {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691157245/welcome-to-the-universe |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* ''The Original Folk and Fairy Tales of the Brothers Grimm'' by [[Brothers Grimm|Jacob Grimm and Wilhelm Grimm]] (translation, 2014)<ref>{{Cite web |date=2014-10-19 |title=The Original Folk and Fairy Tales of the Brothers Grimm {{!}} Princeton University Press |url=https://press.princeton.edu/books/hardcover/9780691160597/the-original-folk-and-fairy-tales-of-the-brothers-grimm |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* ''The Whites of Their Eyes: The Tea Party's Revolution and the Battle over American History'' by [[Jill Lepore]] (2010)<ref>{{Cite web |date=2011-08-28 |title=The Whites of Their Eyes {{!}} Princeton University Press |url=https://press.princeton.edu/books/paperback/9780691153001/the-whites-of-their-eyes |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* ''The Great Contraction 1929–1933'' by [[Milton Friedman]] and [[Anna Jacobson Schwartz]] (1963) with a new Introduction by [[Peter L. Bernstein]] (2008) 
+* ''[[On Bullshit]]'' by [[Harry G. Frankfurt]] (2005) 
+* ''Military Power: Explaining Victory and Defeat in Modern Battle'' by [[Stephen Biddle]] (2004)<ref>{{Cite web |date=2006-07-23 |title=Military Power {{!}} Princeton University Press |url=https://press.princeton.edu/books/paperback/9780691128023/military-power |access-date=2026-05-06 |website=press.princeton.edu |language=en}}</ref>
+* ''[[The Ulama in Contemporary Islam]]'' by The Ulama in Contemporary Islam: Custodians of Change (2002) 
+* ''[[QED: The Strange Theory of Light and Matter]]'' by [[Richard Feynman]] (1985) 
+* ''[[Islamic Revival in British India]]'' by [[Barbara D. Metcalf]] (1982) 
+* ''[[Philosophy and the Mirror of Nature]]'' by [[Richard Rorty]] (1979) 
+* ''[[Anatomy of Criticism]]'' by [[Northrop Frye]] (1957) 
+* The [[Richard Wilhelm (sinologist)|Wilhelm]]/Baynes [[translation]] of the ''[[I Ching]]'', Bollingen Series XIX. First copyright 1950, 27th printing 1997. 
+* ''[[The Hero With a Thousand Faces]]'' by [[Joseph Campbell]] (1949) 
+* ''[[The Open Society and Its Enemies]]'' by [[Karl Popper]] (1945) 
+* ''[[How to Solve It]]'' by [[George Polya]] (1945) 
+* ''[[Atomic Energy for Military Purposes]]'' by [[Henry DeWolf Smyth]] (1945) 
+* ''[[The Meaning of Relativity]]'' by [[Albert Einstein]] (1922) 
+
+==Notable authors==
+* [[Jim Al-Khalili]]  
+* [[Mary Beard]] 
+* [[Ruha Benjamin]] 
+* [[Anne Case]]  
+* [[Eric H. Cline]] 
+* [[Edwidge Danticat]]  
+* [[Angus Deaton]]  
+* [[Albert Einstein]] 
+* [[Harry G. Frankfurt]] 
+* [[Claudia Goldin]] 
+* [[Annette Gordon-Reed]]  
+* [[Sarah Blaffer Hrdy]]  
+* [[Carl Jung]]  
+* [[Adrienne Mayor]]  
+* [[Marietje Schaake]]  
+* [[Robert Shiller]]  
+* [[Anne Marie Slaughter]]  
+* [[Marion Turner]]  
+* [[Neil deGrasse Tyson]] 
+* [[Virginia Woolf]] 
+
+==References==
+<references>
+
+
+<ref name="Prizes1957PUP">{{Cite web |url=http://www.pulitzer.org/awards/1957 |title=The Pulitzer Prizes: 1957 Winners |access-date=July 20, 2009 |archive-date=January 29, 2013 |archive-url=https://web.archive.org/web/20130129140413/http://www.pulitzer.org/awards/1957 |url-status=live }}</ref>
+
+<ref name="Prizes1958PUP">{{Cite web |url=http://www.pulitzer.org/awards/1958 |title=The Pulitzer Prizes: 1958 Winners |access-date=July 20, 2009 |archive-date=September 25, 2011 |archive-url=https://web.archive.org/web/20110925063344/http://www.pulitzer.org/awards/1958 |url-status=live }}</ref>
+
+<ref name="Prizes1961PUP">{{Cite web |url=http://www.pulitzer.org/awards/1961 |title=The Pulitzer Prizes: 1961 Winners |access-date=July 20, 2009 |archive-date=December 24, 2015 |archive-url=https://web.archive.org/web/20151224021644/http://www.pulitzer.org/awards/1961 |url-status=live }}</ref>
+
+<ref name="Prizes1963PUP">{{Cite web |url=http://www.pulitzer.org/awards/1963 |title=The Pulitzer Prizes: 1963 Winners |access-date=July 20, 2009 |archive-date=December 10, 2013 |archive-url=https://web.archive.org/web/20131210221756/http://www.pulitzer.org/awards/1963 |url-status=live }}</ref>
+
+<ref name="Prizes1965PUP">{{Cite web |url=http://www.pulitzer.org/awards/1965 |title=The Pulitzer Prizes: 1965 Winners |access-date=July 20, 2009 |archive-date=December 10, 2013 |archive-url=https://web.archive.org/web/20131210221618/http://www.pulitzer.org/awards/1965 |url-status=live }}</ref>
+
+<ref name="Prizes1990PUP">{{Cite web |url=http://www.pulitzer.org/awards/1990 |title=The Pulitzer Prizes: 1990 Winners |access-date=July 20, 2009 |archive-date=March 17, 2013 |archive-url=https://web.archive.org/web/20130317102345/http://www.pulitzer.org/awards/1990 |url-status=live }}</ref>
+
+<ref name="Cooper">{{cite book |title=Woodrow Wilson: A Biography |last= Cooper|first=John Milton|year=2011 |publisher= Random House |isbn= 978-0-307-27790-9|page=736 |access-date=July 28, 2012 |url=https://books.google.com/books?id=xOZVsyO4K2cC}}
+</ref>
+</references>
+
+==Further reading==
+* {{cite news |title=Book of Lists: Princeton University Press at 100 |publisher=Artforum International |date=April 1, 2005 |last=Banks |first=Eric}}
+* {{cite book|title=A Century in Books: Princeton University Press, 1905–2005|year=2005 |publisher=Princeton University Press |isbn=978-0-691-12292-2}}
+
+==External links==
+{{Wikisource publisher|Princeton University Press}}
+* {{Official website}}
+
+{{Princeton}}
+{{Authority control}}
+
+[[Category:Princeton University publications]]
+[[Category:University presses of the United States]]
+[[Category:Publishing companies established in 1905]]
+[[Category:Book publishing companies based in New Jersey]]
+[[Category:1905 establishments in New Jersey]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]

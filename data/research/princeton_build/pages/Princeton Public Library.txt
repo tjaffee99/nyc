@@ -1,0 +1,67 @@
+{{Short description|Library in Princeton, New Jersey, US}}
+{{Use mdy dates|date=January 2024}} {{Use American English|date=January 2024}}
+{{Infobox library
+| name_en            = <!-- Name in English if different -->
+| logo               = Princeton_Public_Library_Logo.png
+| logo_size          = 
+| logo_alt           = 
+| image              = Princeton Public Library, Princeton NJ.jpg
+| image_size         = 
+| alt                = A picture of the Princeton Public Library
+| caption            = 
+| country            = United States
+| type               = [[Public library]]
+| scope              = 
+| established        = 1909
+| ref_legal_mandate  = 
+| location           = 65 Witherspoon Street, [[Princeton, New Jersey]]
+| coordinates        = {{Coord|40.351727|-74.660327}}
+| branch_of          = 
+| num_branches       = 
+| items_collected    = 
+| collection_size    = 204,144 (2013)
+| criteria           = 
+| legal_deposit      = 
+| req_to_access      = Residence in [[Princeton, New Jersey]] or affiliation with [[Princeton University]]
+| annual_circulation = 555,959 (2013)
+| pop_served         = 28,572 (2012)
+| members            = 30,838 (2012)
+| budget             = $4,948,790 (2012)
+| director           = Jennifer Podolsky
+| num_employees      = 57.3 (FTE) (2013)
+| website            = {{website|http://princetonlibrary.org|princetonlibrary.org}}
+| references         = <ref>{{cite web|title=Annual Report of Princeton Public Library|url=http://issuu.com/princetonpubliclibrary/docs/2012princetonpubliclibraryannualrep|website=Princeton Public Library}}</ref><ref>{{cite web|title=New Jersey Public Library Statistics 2013|url=http://www.njstatelib.org/wp-content/uploads/2014/09/StatsFY15.pdf|website=New Jersey State Library}}</ref>
+| embed              = 
+| module             = 
+}}
+The '''Princeton Public Library''' serves the town of [[Princeton, New Jersey]].  It is the most visited municipal [[public library]] in New Jersey with over 860,000 annual visitors who borrow 550,000 items, ask more than 83,000 reference questions, log onto library computers over 90,000 times, and attend more than 1,300 programs.  Its usage exceeds all but five of New Jersey's twenty-one county systems.  Compared to New Jersey's largest municipal library, [[Newark Public Library|Newark]], Princeton spends four times as much per capita, and has nearly double the number of visitors and circulation in absolute terms despite a tenth the population.
+
+==History==
+[[File:Bainbridge House (Princeton).jpg|thumb|left|Bainbridge House, the location of the library from 1909 through 1966]]
+
+===Bainbridge House===
+
+The town of Princeton's first purpose built libraries, among the first in the country, were those of the [[Princeton Theological Seminary]], Lenox Library (1843),<ref>{{cite web|title=Bicentennial Moment: The Razing of Lenox Library|url=http://www.ptsem.edu/bicentennial/BicentennialCelebration/default.aspx?id=25769804805&menu1_id=7795|website=Princeton Theological Seminary}}</ref> and [[Princeton University]], Chancellor Green Library (1873).<ref>{{cite web|title=Chancellor Green Library|url=http://etcweb.princeton.edu/Campus/text_Chancellor.html|website=Princeton University}}</ref>  The town itself however would not have a library to call its own until the twentieth century.
+
+The Princeton Public Library opened in 1909, and has had three different homes. The library was originally located at the historic Bainbridge House on [[Nassau Street (Princeton)|Nassau Street]], which is the current home of the Princeton Historical Society.  Bainbridge house had been built in 1766 by Job Stockton and was the birthplace of naval hero [[William Bainbridge]].  The house came into the ownership of Princeton University, which rented it to the library for $1 a year.<ref>{{cite news|title=Historians to use Bainbridge House|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19670407-01.2.5&srpos=2&e=-------en-20--1--txt-txIN-%22Princeton+public+library%22+Bainbridge-ILLUSTRATION-----#|newspaper=The Town Topics|date=April 7, 1967}}</ref>
+
+===Witherspoon Street===
+
+The growing library moved in 1966 to a building at 65 Witherspoon Street.  By 2002 the library had a collection of 130,000 books in a building designed for 80,000 and the decision was made to build a new home for the library on the same site.<ref>{{cite news|title=Library|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=TownTopics20011226-01.2.38&srpos=4&e=-------en-20--1--txt-txIN-%22Princeton+public+library%22+demolition-ILLUSTRATION-----#|newspaper=The Town Topics|date=December 26, 2001}}</ref> The library was then moved to a temporary location at 301 North Harrison Street during the construction of the new {{convert|58000|sqft|m2|adj=on}}, state-of-the-art library which was opened at 65 Witherspoon Street in April 2004. The new building and the library's new logos and signage were designed by Hillier Architecture.  The building is named for George and Estelle Sands, who made a $5 million donation, with half going to provide an endowment.  The [[John Seward Johnson II|J. Seward Johnson]] Charitable Trust donated $1 million and the university $400,000.  The total cost of the new building was $18 million with two-thirds of that raised from private donations, $4 million from [[Princeton Township, New Jersey|Princeton Township]], and $2 million from [[Princeton Borough, New Jersey|Princeton Borough]].<ref>{{cite news|last1=Smith|first1=Ken|title=Official Ceremony Opens Princeton Public Library|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=TownTopics20040519-01.2.107&srpos=6&e=-------en-20--1--txt-txIN-%22Princeton+public+library%22+opening-ILLUSTRATION-----#|newspaper=The Town Topics|date=May 19, 2004}}</ref>
+
+==References==
+{{reflist|30em}}
+
+==External links==
+* [http://www.princetonlibrary.org Princeton Public Library]
+
+{{Princeton, New Jersey|state=collapsed}}
+
+{{coord|40.3517|-74.6603|region:US-NJ_type:landmark|display=title}}
+
+{{authority control}}
+
+[[Category:Buildings and structures in Princeton, New Jersey]]
+[[Category:Public libraries in New Jersey]]
+[[Category:Education in Mercer County, New Jersey]]
+[[Category:Libraries established in 1909]]

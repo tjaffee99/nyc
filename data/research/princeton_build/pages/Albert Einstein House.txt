@@ -1,0 +1,68 @@
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=August 2023}}
+{{Infobox NRHP
+| nocat                          = yes
+| name                           = Albert Einstein House
+| nrhp_type                      = nhl
+| nrhp_type2                     = cp
+| part_of                        = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+| part_of_ref_num                = 75001143
+| image                          = Albert-einstein-house.JPG
+| caption                        =
+| location                       = 112 [[Mercer Street (Princeton, New Jersey)|Mercer Street]],<br> [[Princeton, New Jersey]]
+| coordinates                    = {{coord|40.34337|-74.66677|type:landmark_globe:earth_region:US-NJ|display=ti}}
+| pushpin_map                    = USA New Jersey Mercer County#New Jersey#USA
+| built                          = Before 1876
+| architect                      =
+| architecture                   =
+| area                           =
+| added                          = January 7, 1976<ref name="nris">{{NRISref|version=2009a}}</ref>
+| designated_nrhp_type           = January 7, 1976<ref name="nhlsum">{{cite web|url=http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=1711&ResourceType=Building|title=Albert Einstein House|date=2008-06-23|work=National Historic Landmark summary listing|publisher=National Park Service|access-date=2011-11-02|archive-url=https://web.archive.org/web/20090225015049/http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=1711&ResourceType=Building|archive-date=2009-02-25|url-status=dead}}</ref>
+| ref_num                        = 76002297
+| designated_other1_name         = New Jersey Register of Historic Places
+| designated_other1_abbr         = NJRHP
+| designated_other1_link         = New Jersey Register of Historic Places
+| designated_other1_date         = January 1, 1976
+| designated_other1_number       = 1734<ref name=NJRHP>{{cite web|title=New Jersey and National Registers of Historic Places — Mercer County |url=http://www.nj.gov/dep/hpo/1identify/nrsr_lists/mercer.pdf |publisher=[[New Jersey Department of Environmental Protection]] — Historic Preservation Office |page=8 |date=April 5, 2013 |access-date=June 4, 2013 |url-status=dead |archive-url=https://web.archive.org/web/20130516134942/http://www.nj.gov/dep/hpo/1identify/nrsr_lists/mercer.pdf |archive-date=May 16, 2013}}</ref>
+| designated_other1_num_position = bottom
+| designated_other1_color        = #ffc94b
+}}
+The '''Albert Einstein House''' at 112 [[Mercer Street (Princeton, New Jersey)|Mercer Street]] in [[Princeton, New Jersey|Princeton]], [[Mercer County, New Jersey|Mercer County]], [[New Jersey]], United States,<ref>{{Cite web |url=http://www.einstein-website.de/z_biography/princeton-e.html |title=Einstein on the Internet |access-date=January 25, 2008 |archive-date=September 9, 2017 |archive-url=https://web.archive.org/web/20170909034914/http://www.einstein-website.de/z_biography/princeton-e.html |url-status=dead }}</ref> was the home of [[Albert Einstein]] from 1935 until his death in 1955.<ref>[https://web.archive.org/web/20071111164847/http://www.nps.gov/history/nr/feature/JewishHeritage/2007/einstein.htm NPS Jewish Heritage] archived as of November 11, 2007</ref> His second wife, [[Elsa Einstein]], died in 1936 while living in this house.
+
+==History==
+The house was built in 1838, as it originally stood on Alexander Street where Stuart Hall of the [[Princeton Theological Seminary]] was built in that year, also displacing the house now at 108 [[Mercer Street (Princeton, New Jersey)|Mercer Street]].<ref>{{cite web|last1=Thomas|first1=M. Halsey|title=Princeton in 1874: "A Bird's Eye View"|url=http://etcweb.princeton.edu/CampusWWW/Studentdocs/kp/Princeton_in_1874.html|website=Princeton University}}</ref> The home is a simple pattern-book cottage and not in itself of unusual significance.<ref name=nrhpinv3 />{{rp|2}} Elsa Einstein purchased the home from Mary Clark Marden on July 24, 1935, for an undisclosed sum according to the deed which was recorded by the Mercer County Clerk's Office on August 1, 1935.<ref>Mercer County Clerk's Office Deed 2663 of August 2, 1935</ref> For many years, Albert Einstein lived in the house with three women: his sister [[Maja Einstein|Maja]], his step-daughter Margot Einstein-Marianoff (1899–1986), and his secretary [[Helen Dukas]].<ref name="Neffe2007">{{cite book|author=Neffe, Jürgen|title=Einstein: A Biography|url=https://books.google.com/books?id=B8K6n177ZwcC&pg=PA201|page=201|date=17 April 2007|publisher=Farrar, Straus and Giroux|isbn=978-1-4299-9738-6}}</ref>
+
+Albert Einstein reportedly requested that this house not be made a museum, and the family did not want it to be recognized as such. Nonetheless, it was added to the [[National Register of Historic Places]] and further designated a U.S. [[National Historic Landmark]] in 1976.<ref name=nris /><ref name=nhlsum /><ref name="nrhpinv3">{{cite web|url={{NHLS url|id=76002297}} |title=National Register of Historic Places Inventory-Nomination: Albert Einstein House / 112 Mercer Street |date=July 1975 |author=James Sheire |publisher=National Park Service}} and {{NHLS url|id=76002297|title=''Accompanying one photo, exterior, from 1975''|photos=y}}</ref>
+[[File:Nehru and Indira Gandhi visit Einstein.jpg|thumb|left|[[Jawaharlal Nehru]], [[Prime Minister of India|India's first Prime Minister]] and his daughter [[Indira Gandhi]] (future PM) meeting Einstein at 112 Mercer Street in Princeton, 1949]]After Albert Einstein, the house was owned by his sculptor step-daughter Margot Einstein until her death in 1986.<ref>{{cite news|url=https://www.nytimes.com/1986/07/12/obituaries/margot-einstein-86-is-dead-stepdaughter-of-physicist.html|title=Margot Einstein, 86, Is Dead; Stepdaughter of Physicist|work=[[The New York Times]]|date=July 12, 1986}}</ref>
+
+The house was owned by [[Eric Maskin]] and his family until 2012.<ref>{{Cite web |url=http://tax1.co.monmouth.nj.us/cgi-bin/m4.cgi?district=1109&l02=110900039__0100014_________M |title=NJ Tax Records |access-date=January 13, 2016 |archive-date=December 14, 2019 |archive-url=https://web.archive.org/web/20191214061229/http://tax1.co.monmouth.nj.us/cgi-bin/m4.cgi?district=1109&l02=110900039__0100014_________M |url-status=dead }}</ref> He was the Albert O. Hirschman Professor in the School of Social Science at the [[Institute for Advanced Study]] in Princeton until 2011, and the 2007 Nobel Prize winner with two others. He is currently a professor of economics at [[Harvard University]]. Previously it was occupied by 2004 Nobel prize winner physicist [[Frank Wilczek]] when he was a professor in IAS between 1989 and 2001. Reportedly he requested the house from the IAS as his condition to move to Princeton, and he had been holding evening seminars in the house for graduate students. The house is now a private residence even though it is owned by IAS, and is not open to the public. There is no historical marker explaining the house's significance; however, there are strategically placed "Private Residence" signs around the house.
+
+The house is 3,674 square feet, and includes only one bedroom and two baths. In 2012 it was purchased for $1,417,500<ref>[https://njpropertyrecords.com/property/1114_39.01_14  112 MERCER ST PRINCETON, NJ 08540]</ref> by the Institute for Advanced Study. It is on a half-acre parcel that extends 446 feet from the street.
+
+==See also==
+* [[National Register of Historic Places listings in Mercer County, New Jersey]]
+* [[Murder of Cissy Stuart]], a crime which took place in a similar house located down the street
+
+==References==
+{{reflist}}
+
+==External links==
+{{commons category}}
+* [http://www.mercerhill.org/Mercer%20Street/112_mercer_st_.htm Mercer Hill Historic District Organization]
+* [https://books.google.com/books?id=NUMkAAAAQBAJ&q=murder Photograph] of [[Amanda Gefter]] standing in front of the Albert Einstein House
+* {{cite book|author=Lützeler, Paul Michael|title=Hermann Broch: eine Biographie|publisher=Suhrkamp Verlag|year=2011|chapter=Photo of 112 Mercer Street (photographs following page 240)|isbn=9783518751015|chapter-url=https://books.google.com/books?id=S3FTCwAAQBAJ&q=mercer&pg=PA240}}
+
+{{Albert Einstein|state=expanded}}
+{{Princeton, New Jersey}}
+{{NHLs in NJ}}
+{{NRHP in Mercer County, New Jersey}}
+
+{{DEFAULTSORT:Einstein, Albert, House}}
+[[Category:National Historic Landmarks in New Jersey]]
+[[Category:Houses in Princeton, New Jersey]]
+[[Category:Albert Einstein|House]]
+[[Category:National Register of Historic Places in Mercer County, New Jersey]]
+[[Category:New Jersey Register of Historic Places]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]
+[[Category:Houses completed in the 19th century]]
+[[Category:Individually listed contributing properties to historic districts on the National Register in New Jersey]]

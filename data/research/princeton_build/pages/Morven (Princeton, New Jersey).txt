@@ -1,0 +1,82 @@
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=August 2023}}
+{{Infobox NRHP
+| name = Morven
+| nrhp_type =nhl
+| nrhp_type2 = cp
+| nocat = yes
+| part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+| part_of_ref_num = 75001143
+| image = MorvenNJ.jpg
+| caption = Morven in 2006
+| location = 55 Stockton Street,<br/>[[Princeton, New Jersey]], United States
+| coordinates = {{coord|40|20|50.97|N|74|40|1.03|W|display=inline,title}}
+| pushpin_map = USA New Jersey Mercer County#New Jersey#USA
+| area =
+| built = 1730
+| architect =
+| architecture = [[Georgian architecture|Georgian]]
+| designated_nrhp_type = July 17, 1971<ref name="nhlsum">{{cite web|url=http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=1117&ResourceType=Building|title=Morven|date=2008-06-23|work=National Historic Landmark summary listing|publisher=National Park Service|url-status=dead|archive-url=https://web.archive.org/web/20090225015002/http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=1117&ResourceType=Building|archive-date=2009-02-25}}</ref>
+| added = January 25, 1971
+| ref_num=71000503 <ref name="nris">{{NRISref|2006a}}</ref>
+| designated_other1_name = New Jersey Register of Historic Places
+| designated_other1_abbr = NJRHP
+| designated_other1_link = New Jersey Register of Historic Places
+| designated_other1_date = September 11, 1970
+| designated_other1_number = 1738<ref name=NJRHP>{{cite web | title=New Jersey and National Registers of Historic Places — Mercer County | url=http://www.nj.gov/dep/hpo/1identify/nrsr_lists/mercer.pdf | publisher=[[New Jersey Department of Environmental Protection]] — Historic Preservation Office | page=8 | date=April 5, 2013 | access-date=June 4, 2013 | url-status=dead | archive-url=https://web.archive.org/web/20130516134942/http://www.nj.gov/dep/hpo/1identify/nrsr_lists/mercer.pdf | archive-date=May 16, 2013 }}</ref>
+| designated_other1_num_position = bottom
+| designated_other1_color = #ffc94b
+}}
+
+'''Morven''', known officially as '''Morven Museum & Garden''', is a historic 18th-century house in [[Princeton, New Jersey|Princeton]], [[New Jersey]]. It served as the governor's mansion for nearly four decades in the 20th century, and has been designated a [[National Historic Landmark]] for its association with [[Richard Stockton (Continental Congressman)|Richard Stockton]] (1730-1781), a signer of the [[United States Declaration of Independence]].
+
+==History==
+In 1701, Richard Stockton was granted {{convert|5500|acre|ha|adj=on}} by [[William Penn]] which included the land where Morven now stands. In the 1750s, his grandson, also named [[Richard Stockton (Continental Congressman)|Richard Stockton]], had {{convert|150|acre|ha}} on which he built the house that his wife [[Annis Boudinot Stockton]] named "Morven", after a mythical Gaelic kingdom in Ireland.
+
+Commodore [[Robert Stockton]] (1795–1866) later lived in the house that was built on the property. [[Robert Wood Johnson II]], chairman of the company [[Johnson & Johnson]], leased the home after Bayard Stockton died during 1932.<ref>"Edge Buys Historic Mansion at Princeton; Governor Will Later Give it to New Jersey", ''The New York Times'', Nov. 11, 1944, p. 15</ref>
+
+The house remained in Stockton family ownership until 1944, when it was purchased by New Jersey Governor [[Walter E. Edge]]. The sale was subject to the condition that Morven would be given to the state of New Jersey within two years of Edge's death.<ref>Edge, Water Evans, ''A Jerseyman's Journal'', Princeton, NJ: Princeton University Press 1948</ref> Edge transferred ownership of Morven to the state during 1954, several years before he died.<ref>"Jersey Acquires Estate of Edge", ''The New York Times'', Jan. 28, 1954, p. 29</ref>
+
+Morven served as New Jersey's governor's mansion from 1944 until 1981, when it was donated to the [[New Jersey Historical Society]].<ref name=njc>{{cite news |first=Sophie |last=Nieto-Munoz |title=Former N.J. First Lady Debby Kean dies at 76 |url=https://www.nj.com/politics/2020/04/former-nj-first-lady-debbie-kean-dies-at-76.html |work=[[NJ.com]] |date=2021-01-03 |access-date=2021-01-31 |archive-url=https://web.archive.org/web/20200429100002if_/https://www.nj.com/politics/2020/04/former-nj-first-lady-debbie-kean-dies-at-76.html |archive-date=2020-04-29 |url-status=live}}</ref> In 1982, [[Drumthwacket]] was designated as New Jersey Governor's Mansion and converted to the new official residence.<ref name=njc/> Morven underwent research and restoration, and was opened as a museum in 2004.
+
+==Owners==
+*"The Builder" Richard Stockton (c.1665-1709) from 1701 to 1709
+*Honorable John Stockton (1701-1758) from 1709 to 1758
+*"The Signer" [[Richard Stockton (1730–1781)|Richard Stockton]] (1730–1781) from 1758 to 1781
+*"The Duke" [[Richard Stockton (U.S. senator)|Richard Stockton]] (1764-1828) from 1781 to 1828
+*Commodore [[Robert Field Stockton]] (1795–1866) from 1828 to 1866
+*Major Samuel Witham Stockton (1834-1899)
+*[[Walter E. Edge]] from 1944 to 1954
+*Governor's Mansion from 1954 to 1981
+*Museum since 1982
+
+==Architecture==
+Morven is a 2-1/2 story brick building, with a gabled roof and end chimneys.  Two-story wings extend to either side of the main block.  A Greek Revival porch extends across the center three bays of the main block's five-bay facade.  The interior has an atypical central hall plan.  The staircase, normally in the center hall in these plans, is instead placed crosswise in a rear hall which also provides access to the wings.  To the right of the central hall is the Gold Room, a parlor, while the main dining room is on the left.  The left wing housed servant quarters and the kitchen, while the right wing housed the library and a family room.  The interior styling is consistent with late 18th and early 19th century architectural fashions.<ref name="nrhpdoc">{{cite web|url={{NRHP url|id=71000503}}|title=National Register of Historic Places Inventory/Nomination: Morven |publisher=[[National Park Service]]|author= |date= |accessdate=April 19, 2021}} With {{NRHP url|id=71000503|photos=y|title=accompanying pictures}}</ref>
+
+==See also==
+*[[National Register of Historic Places listings in Mercer County, New Jersey]]
+*[[Westland Mansion]], patterned after Morven
+
+==References==
+{{reflist}}
+
+==External links==
+{{commons category|Morven (Princeton)}}
+*[http://www.historicmorven.org Official Website]
+
+{{Princeton, New Jersey}}
+{{NHLs in NJ}}
+{{NRHP in Mercer County, New Jersey}}
+
+[[Category:Houses completed in 1730]]
+[[Category:National Historic Landmarks in New Jersey]]
+[[Category:Historic house museums in New Jersey]]
+[[Category:Museums in Princeton, New Jersey]]
+[[Category:Biographical museums in New Jersey]]
+[[Category:Houses in Princeton, New Jersey]]
+[[Category:National Register of Historic Places in Mercer County, New Jersey]]
+[[Category:New Jersey Register of Historic Places]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]
+[[Category:Stockton family (New Jersey)|+]]
+[[Category:Former governors' mansions in the United States|New Jersey]]
+[[Category:Governor of New Jersey]]

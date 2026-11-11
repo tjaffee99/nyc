@@ -1,0 +1,368 @@
+{{Short description|Private school of theology in New Jersey, US}}
+{{Distinguish|Princeton University}}
+{{Use American English|date=September 2025}}
+{{Use mdy dates |date=July 2025}}
+{{Infobox university
+ | name           = Princeton Theological Seminary
+ | image          = Princeton_Theological_Seminary_official_seal.png{{!}}class=skin-invert
+ | image_size     = 150px
+ | established    = {{start date and age|1812|paren=yes}}
+ | type           = [[Seminary]]
+ | affiliations   = [[Presbyterian Church (USA)]]
+ | endowment      = $1.56 billion (2025)<ref>{{cite web |url=https://edge.sitecorecloud.io/nacubo1-nacubo-prd-dc8b/media/Nacubo/Documents/EndowmentFiles/2025-NCSE-Endowment-Market-Values-for-US-and-Canadian-Institutions-FINAL.xlsx |title=U.S. and Canadian 2025 NCSE Participating Institutions Listed by Fiscal Year 2025 Endowment Market Value |publisher=National Association of College and University Business Officers (NACUBO) |access-date=February 15, 2026 |format=XLSX}}</ref>
+ | accreditation  = {{hlist|[[Middle States Commission on Higher Education|MSCHE]]<ref name=effectiveness>{{Cite web|url=http://ptsem.edu/admissions/information/educational-effectiveness|title=Educational Effectiveness|website=Princeton Theological Seminary|archive-url=https://web.archive.org/web/20170628105208/http://www.ptsem.edu/admissions/information/educational-effectiveness|archive-date=2017-06-28|url-status=live}}</ref>|[[Association of Theological Schools|ATS]]<ref name=ATS>{{cite web |url=https://ats.edu/member-schools/princeton-theological-seminary|title=Princeton Theological Seminary &#124; the Association of Theological Schools}}</ref>}}
+ | president      = [[Jonathan L. Walton]]
+ | academic_staff = 40 (full-time) and 21 (part-time)<ref name="id102007020">{{Cite web|url=https://inside.ptsem.edu/Catalogue/Content.aspx?id=102007020|title=Faculty 2022-2023|website=Official Website|publisher=Princeton Theological Seminary|archive-url=https://web.archive.org/web/20230125031533/https://inside.ptsem.edu/Catalogue/Content.aspx?id=102007020|archive-date=2023-01-25|url-status=live}}</ref>
+ | students       = 285 FTE (2025)<ref>{{cite web |title=Find a School |url=https://www.ats.edu/member-schools/princeton-theological-seminary}}</ref>
+ | doctoral       = 58<ref name="Summary of Students 2021-2022">{{cite web|url=https://inside.ptsem.edu/Catalogue/Content.aspx?name=Summary+of+Students+in+2021-2022|title=Summary of Students in 2021-2022|website=Official Website|publisher=Princeton Theological Seminary|archive-url=https://web.archive.org/web/20230125031514/https://inside.ptsem.edu/Catalogue/Content.aspx?name=Summary+of+Students+in+2021-2022|archive-date=2023-01-25|url-status=live}}</ref>
+ | city           = 64 Mercer Street<br>[[Princeton, New Jersey|Princeton]]
+ | state          = [[New Jersey]]
+ | country        = U.S.
+ | campus         = [[College town|Small city]]
+ | campus_size    = {{Convert|23|acre}}
+ | colors         = {{Color box|#1b365d|border=darkgray}} {{Color box|#d50032|border=darkgray}}  Yale Blue and Scarlet<ref>{{cite book|last1=Haycraft|first1=Frank W.|title=The Degrees and Hoods of the World's Universities and Colleges|date=1927|edition=3rd|publisher=Cheshunt Press|location=Cheshunt|asin=B0007IWKQM}}</ref>
+ | website        = {{URL|ptsem.edu}}
+ | logo           = Princeton_Theological_Seminary_logo.png{{!}}class=skin-invert
+ | logo_upright   = 
+ | footnotes      = 
+}}
+[[Image:Princenton Theological Seminary Campus Map (4514614069).jpg|thumb]]
+'''Princeton Theological Seminary''' ('''PTSem'''), officially '''The Theological Seminary of the Presbyterian Church''',<ref>{{cite book|last1=Moore|first1=William E.|title=The Presbyterian Digest of 1907|date=1907|publisher=Presbyterian Board of Publication and Sabbath-School Work|location=Philadelphia}}</ref> is a [[Private university|private]] [[seminary|school of theology]] in [[Princeton, New Jersey|Princeton]], in the [[U.S. state]] of [[New Jersey]]. Established in 1812, it is the second-oldest seminary in the United States, founded under the auspices of [[Archibald Alexander]], the General Assembly of the [[Presbyterian Church in the United States of America]], and the College of New Jersey (now [[Princeton University]]).<ref name="ptsem1">{{cite web|url=https://library.ptsem.edu/historical-tour-of-princeton-theological-seminary|title=History of the Seminary|website=Official Website|publisher=Princeton Theological Seminary|archive-url=https://web.archive.org/web/20170609212907/https://library.ptsem.edu/historical-tour-of-princeton-theological-seminary|archive-date=2017-06-09|url-status=live}}</ref><ref name=":0">{{cite web|title=Dear Mr. Mudd: Princeton Theological Seminary|url=https://blogs.princeton.edu/mudd/2015/10/dear-mr-mudd-princeton-theological-seminary/|website=Mudd Manuscript Library Blog|date=28 October 2015|publisher=Princeton University|access-date=2015-11-24|archive-url=https://web.archive.org/web/20151125044250/https://blogs.princeton.edu/mudd/2015/10/dear-mr-mudd-princeton-theological-seminary/|archive-date=2015-11-25|url-status=live}}</ref> It is also the largest of [[Presbyterian Church (U.S.A.) seminaries|ten seminaries]] associated with the Presbyterian Church.
+
+The seminary operates the largest theological library in the United States and the second largest in the world (after the Vatican in Rome). It maintains a number of special collections, including the [[Karl Barth|Karl Barth Research Collection]] in the [[Karl Barth#Center for Barth Studies|Center for Barth Studies]]. The seminary also managed an endowment of $1.459 billion in 2022,<ref name=":0" /> making it the third-wealthiest institution of [[Higher education|higher learning]] in the state of New Jersey after Princeton University and [[Rutgers University]].<ref>{{Cite web|url=https://www.nj.com/news/2014/09/new_jerseys_richest_colleges_which_schools_have_the_most_generous_donors.html|title=New Jersey Richest Colleges|date=12 September 2014|url-status=live|archive-url=https://web.archive.org/web/20190908235931/https://www.nj.com/news/2014/09/new_jerseys_richest_colleges_which_schools_have_the_most_generous_donors.html|archive-date=2019-09-08}}</ref>
+
+In the 1980s, it enrolled about 900 students, but as of Fall 2023, the seminary enrolls approximately 276 FTE students.<ref name="ATS">{{cite web |url=https://ats.edu/member-schools/princeton-theological-seminary|title=Princeton Theological Seminary &#124; the Association of Theological Schools}}</ref> While around 26 percent of them are candidates for ministry specifically in the Presbyterian Church, the majority are completing such candidature in other denominations, pursuing careers in academia across a number of different disciplines, or receiving training for other, non-theological fields altogether.<ref>{{Cite web |title=ATS – Member Schools |url=http://www.ats.edu/MemberSchools/Pages/SchoolDetail.aspx?ID=166 |url-status=dead |archive-url=https://web.archive.org/web/20120415071329/http://www.ats.edu/memberschools/pages/SchoolDetail.aspx?ID=166 |archive-date=2012-04-15 |access-date=2012-05-15}}</ref><ref>{{cite web|title=PTS Statistics|url=http://www.ptsem.edu/index.aspx?id=1242|website=Official Website|publisher=Princeton Theological Seminary|url-status=dead|archive-url=https://web.archive.org/web/20151125052657/http://www.ptsem.edu/index.aspx?id=1242|archive-date=2015-11-25}}</ref>
+
+The Seminary holds academic reciprocity with [[Princeton University]] as well as the [[Westminster Choir College]] of [[Rider University]], [[New Brunswick Theological Seminary]], the [[Jewish Theological Seminary of America|Jewish Theological Seminary]], and the [[Rutgers School of Social Work]].
+
+==History==
+[[File:Princeton Theological Seminary.jpg|thumb|upright=1.2|Princeton Seminary in the 1800s]]
+The plan to establish a theological seminary in Princeton was in the interests of advancing and extending the theological curriculum. The educational intention was to go beyond the liberal arts course by setting up a postgraduate, professional school in theology. The plan met with enthusiastic approval on the part of authorities at the College of New Jersey, later to become [[Princeton University]], for they were coming to see that specialized training in theology required more attention than they could give. The General Assembly of the Presbyterian Church established the Theological Seminary at Princeton, New Jersey, in 1812, with the support of the directors of the nearby College of New Jersey, as the second graduate theological school in the United States. The seminary remains an institution of the [[Presbyterian Church (USA)]], being the largest of the ten theological seminaries affiliated with the 1-million-member denomination.<ref name="ptsem1"/><ref name="comparativestats">{{cite web | publisher = PC(USA) | title = PC(USA) Statistical Report General Assembly Minutes | date = 2025 | url = https://prod-pc-biz-media.s3.amazonaws.com/media/Uploads/eff010e6-8a6a-458a-b6db-d3d0c0c92660/Statistical_Reports.pdf | access-date = September 28, 2026 }}</ref>
+
+In 1812, the seminary had three students and [[Archibald Alexander]] was its first professor. By 1815 the number of students had gradually increased, and work began on a building: Alexander Hall was designed by [[John McComb Jr.]], a New York architect, and opened in 1817. The original cupola was added in 1827, but it burned in 1913 and was replaced in 1926. The building was simply called "Seminary" until 1893, when it was officially named Alexander Hall. Since its founding, Princeton Seminary has graduated approximately 14,000 men and women who have served the church in many capacities, from pastoral ministry and pastoral care to missionary work, Christian education and leadership in the academy and business.
+
+The seminary became known during the 19th and early 20th centuries for its defense of [[Calvinistic]] [[Presbyterianism]], a tradition that became known as [[Princeton Theology]] and greatly influenced [[Evangelicalism]] during the period. Some of the institution's figures active in this movement included [[Charles Hodge]], [[B. B. Warfield|B.B. Warfield]], [[J Gresham Machen|J. Gresham Machen]], and [[Geerhardus Vos]].
+
+===Liberalism and split===
+[[File:Princeton_Seminary_class_of_1922_(9314078919).jpg|thumb|Princeton Seminary class of 1922|left]]
+
+In response to the increasing influence of [[Liberal Christianity|theological liberalism]] in the 1920s and the [[Fundamentalist–Modernist Controversy|fundamentalist–modernist controversy]] at the institution, several theologians left to form the [[Westminster Theological Seminary]] under the leadership of [[J. Gresham Machen]].
+
+The college was later the center of the [[Fundamentalist–Modernist Controversy|fundamentalist–modernist controversy]] of the 1920s and 1930s.<ref>{{cite book |last1=Steward |first1=Gary |title=Princeton Seminary (1812–1929): Its Leaders' Lives and Works |date=2014 |publisher=Presbyterian & Reformed |isbn=9781596383975 |location=Phillipsburg NJ}}</ref> In 1929, the seminary was reorganized along modernist lines, and in response, Machen, along with three of his colleagues: [[Oswald T. Allis]], [[Robert Dick Wilson]] and [[Cornelius Van Til]], resigned, with Machen, Allis and Wilson founding [[Westminster Theological Seminary]] in [[Glenside, Pennsylvania]]. In 1958, Princeton became a seminary of the [[United Presbyterian Church in the U.S.A.|United Presbyterian Church in the U.S.A]]., following a merger between the Presbyterian Church in the U.S.A. and the [[United Presbyterian Church of North America]], and in 1983, it would become a seminary of the Presbyterian Church (U.S.A.) after the merger between the UPCUSA and the [[Presbyterian Church in the U.S.]]
+
+===Ties to slavery===
+[[File:Alexander_Hall_and_sign_at_Princeton_Theological_Seminary.jpg|thumb|Alexander Hall and Sign]]
+The seminary has extensive historical ties to slavery, including one of its first professors and 2nd principal Charles Hodge, who was a slave owner and proslavery advocate. Historian William Yoo counts the seminary "among the most complicit educational institutions" for its historical acceptance and propagation of proslavery theology.<ref>{{Cite book |last=Yoo |first=William |title=What Kind of Christianity: A History of Slavery and Anti-Black Racism in the Presbyterian Church |publisher=Westminster John Knox Press |year=2022 |isbn=9780664264673 |location=Louisville, Kentucky |pages=121-2}}</ref> In 2019, the seminary announced that it would spend $27 million on "scholarships and other initiatives to address its historical ties to slavery".<ref>{{cite news
+|title=$27 Million for Reparations Over Slave Ties Pledged by Seminary
+|first=Ed
+|last=Shanahan
+|date=October 21, 2019
+|newspaper=[[The New York Times]]
+|page=A20
+|url=https://www.nytimes.com/2019/10/21/nyregion/princeton-seminary-slavery-reparations.html
+|access-date=October 24, 2019
+|archive-url=https://web.archive.org/web/20191024123439/https://www.nytimes.com/2019/10/21/nyregion/princeton-seminary-slavery-reparations.html
+|archive-date=October 24, 2019
+|url-status=live
+}}</ref> 
+
+==Academics==
+[[File:Stuart Hall at Princeton Theological Seminary.jpg|alt=|thumb|Stuart Hall. The main classroom building of the Princeton Theological Seminary, designed by [[William Appleton Potter]] in [[Venetian Gothic architecture|Venetian Gothic]] style. Built in 1876.]]Princeton Theological Seminary has been accredited by the [[American Theological Library Association|Commission on Accrediting of the Association of Theological Schools (ATS)]] since 1938 and by the [[Middle States Commission on Higher Education]] since 1968.<ref>{{Cite web|url=https://www.ats.edu/member-schools/princeton-theological-seminary|title=Member Profile|website=Commission on Accrediting of the Association of Theological Schools (ATS)|archive-url=https://web.archive.org/web/20170619203308/https://www.ats.edu/member-schools/princeton-theological-seminary|archive-date=2017-06-19|url-status=live}}</ref><ref name=effectiveness>{{Cite web|url=http://ptsem.edu/admissions/information/educational-effectiveness|title=Educational Effectiveness|website=Princeton Theological Seminary|archive-url=https://web.archive.org/web/20170628105208/http://www.ptsem.edu/admissions/information/educational-effectiveness|archive-date=2017-06-28|url-status=live}}</ref>
+
+===Degree programs===
+Source:<ref>{{Cite web |title=Master's Degrees |url=https://ptsem.edu/academics/masters-degrees/ |access-date=September 28, 2026 |website=Princeton Theological Seminary}}</ref>
+* [[Master of Divinity]] (M.Div.)
+* [[Master of Arts in Theological Studies|Master of Theological Studies]] (MTS)
+* [[Master of Arts|Masters of Arts]] in Theology & Ecology (MTE)
+* Hybrid Master of Arts (Theology, Justice, and Public Life)
+* Master of Arts in Christian Education and Formation (MACEF)
+* MDiv/MACEF Dual Degree
+* [[Master of Theology]] (Th.M.)
+* [[Doctor of Philosophy]] (Ph.D.) in the following areas: Biblical Studies; History and Ecumenics; Practical Theology; Religion and Society; and Theology, Ethics, and Politics.<ref>{{Cite web |title=PhD Studies at Princeton Theological Seminary |url=https://ptsem.edu/academics/programs-courses/phd-studies/ |access-date=September 28, 2026 |website=Princeton Theological Seminary}}</ref>
+*Dual M.Div./MSW in partnership with Rutgers School of Social Work<ref>{{Cite web|url=https://inside.ptsem.edu/Catalogue/Content.aspx?name=MDiv+and+MSW+Dual-Degree+Program+in+Ministry+and+Social+Work|title=MDiv and MSW Dual-Degree Program in Ministry and Social Work|date=|archive-url=|archive-date=|url-status=|access-date=September 28, 2026|website=Inside PTS}}</ref>
+
+===Libraries===
+[[File:Wright Library, Princeton Theological Seminary.jpg|thumb|right|Wright Library]]
+The Wright Library is a destination for visiting scholars from around the world. The current library building was completed in 2013 and was renamed on October 13, 2021, after [[Theodore S. Wright]], the first African American to graduate from Princeton Theological Seminary.<ref>{{Cite web |date=2021-10-13 |title=Princeton Seminary Names Library After Theodore Sedgwick Wright |url=https://www.ptsem.edu/news/library-naming |access-date=2023-05-25 |website=Princeton Theological Seminary |language=en}}</ref> The library has over 1,252,503 bound volumes, pamphlets, and microfilms.<ref>[http://libweb.ptsem.edu/about.aspx Princeton Seminary Library] {{webarchive|url=https://web.archive.org/web/20080517212807/http://libweb.ptsem.edu/about.aspx |date=2008-05-17 }}</ref> It receives about 2,100 journals, annual reports of church bodies and learned societies, bulletins, transactions, and periodically issued indices, abstracts, and bibliographies. The libraries are:
+* Princeton Theological Seminary Library ("The Wright Library") was opened in 2013 and holds the bulk of the seminary's collection. The library is also home to the Center for Barth Studies,<ref>[[Karl Barth#Center for Barth Studies|Karl Barth>Center for Barth Studies]]</ref> the Reigner Reading Room,<ref>{{Cite web |url=http://www.ptsem.edu/library/collections/general/reigner/ |title=Reigner Christian Education Resource Collection |access-date=2014-06-11 |archive-url=https://web.archive.org/web/20140605000835/http://www.ptsem.edu/library/collections/general/reigner/ |archive-date=2014-06-05 |url-status=live }}</ref> and special collections including the [[Abraham Kuyper]] collection of Dutch Reformed Protestantism and personal libraries of theologians like [[Ashbel Green]], [[William Buell Sprague]], [[Joseph Addison Alexander]], [[Alexander Balloch Grosart]], [[William Henry Green]], [[Samuel Miller (theologian)|Samuel Miller]], and [[B. B. Warfield]].<ref>{{Cite web |url=http://www.ptsem.edu/library/about/ |title=Princeton Theological Seminary Library |access-date=2014-06-11 |archive-url=https://web.archive.org/web/20140603155310/http://ptsem.edu/library/about/ |archive-date=2014-06-03 |url-status=live }}</ref>
+* Speer Library was opened in 1957 and named in honor of the renowned missionary statesman [[Robert E. Speer]]. It was closed in late 2010 and was replaced by the new library.
+* Henry Luce III Library, dedicated in 1994 and named in honor of a distinguished trustee, [[Henry W. Luce]], has 350,000 volumes and 250 readers. This library merged with Wright Library in 2013.
+
+===Rankings===
+Given its status as an autonomous [[Postgraduate education|postgraduate institution]], Princeton Seminary does not appear in most global or national rankings for universities and colleges. As a [[graduate school]], however, it does see such ranking on occasion. In 2020, it was ranked #53 nationwide – tied with [[University of Iowa]] and [[University of Florida]] – for the field of history by the ''[[U.S. News & World Report]]''.<ref>{{cite web|title=Overview of Princeton Theological Seminary|url=https://www.usnews.com/best-graduate-schools/top-humanities-schools/princeton-theological-seminary-186122|access-date=18 Nov 2020|website=U.S. News & World Report}}</ref> It was also rated at A+ by the American rankings and review company [[Niche (company)|Niche]] in 2020.<ref>{{Cite web|title=Niche Review, Princeton Theological Seminary|url=https://www.niche.com/graduate-schools/princeton-theological-seminary/#about}}</ref> The journal ''[[First Things]]'', an organ of the Institute on Religion and Public Life in [[New York City|New York]], ranked Princeton Seminary fifth among American graduate programs in theology, in 2012.<ref>{{Cite web|url=https://www.firstthings.com/web-exclusives/2012/11/ranking-theology-programs|title=A 2012 Ranking of Graduate Programs in Theology|date=November 26, 2012|website=First Things|archive-url=https://web.archive.org/web/20170819161433/https://www.firstthings.com/web-exclusives/2012/11/ranking-theology-programs|archive-date=August 19, 2017|url-status=live}}</ref>
+
+==Student life==
+[[Image:Charlotte Rachel Wilson Campus at Princeton Theological Seminary.jpg|thumb|right|The physically separate Charlotte Rachel Wilson Campus is where residential quarters are.]]
+
+In 2024, 103 degrees were awarded, 45.6% to women, and 54.4% to men.<ref>{{cite web | url=https://datausa.io/profile/university/princeton-theological-seminary | title=Princeton Theological Seminary &#124; Data USA }}</ref>
+
+===Seminary Chapel===
+[[File:Miller Chapel (front).jpg|thumb|right| Princeton Seminary Chapel]]
+{{main|Princeton Seminary Chapel}}
+
+Built in 1834, Princeton Seminary's chapel was originally named to honor [[Samuel Miller (theologian)|Samuel Miller]], the second professor at the seminary. It was designed in the [[Greek Revival architecture|Greek Revival]] style by [[Charles Steadman]], who also designed the nearby [[Nassau Presbyterian Church]]. Originally located beside Alexander Hall, it was moved in 1933 toward the center of the campus, its steps now leading down onto the seminary's main quad. Miller Chapel underwent a complete renovation in 2000, with the addition of the Joe R. Engle Organ.<ref>{{cite web|title=About PTS|url=http://www.ptsem.edu/index.aspx?id=1240|website=Official Website|publisher=Princeton Theological Seminary|url-status=dead|archive-url=https://web.archive.org/web/20151125042848/http://www.ptsem.edu/index.aspx?id=1240|archive-date=2015-11-25}}</ref>
+
+On January 18, 2022, members of the Association of Black Seminarians physically removed the sign naming the chapel "Miller Chapel" and held a protest calling for the trustees to rename the chapel because of Samuel Miller's direct ties to slavery.<ref>{{Cite web |title=Seminary 'disassociates' chapel from Samuel Miller amid protest by Association of Black Seminarians |url=https://www.dailyprincetonian.com/article/2022/01/princeton-theological-seminary-disassociate-chapel-samuel-miller-association-of-black-seminarians |access-date=2022-12-13 |website=The Princetonian}}</ref> On January 25, 2022, the Board of Trustees of Princeton Seminary voted to rename Miller Chapel in light of the protest. "This decision followed thoughtful deliberation by the Board of Trustees, and it is part of their commitment to the ongoing work of confession and repentance that was part of the historical audit on slavery."<ref>{{Cite web|url=https://www.ptsem.edu/news/board-vote-on-chapel-name|title = Board Vote on Chapel's Name is Another Step Forward in the Seminary's Journey of Repentance|date = 25 January 2022}}</ref>
+
+==Research==
+===Center for Barth Studies===
+[[File:GENERAL_VIEW_OF_FRONT_FACADE_-_Princeton_Theological_Seminary,_Mercer_Street,_Princeton,_Mercer_County,_NJ_HABS_NJ,11-PRINT,18A-2.tif|thumb|Alexander Hall. The original building of the Princeton Theological Seminary, patterned after Nassau Hall, and designed by [[John McComb Jr.]] Built in 1814.]]
+The Center for Barth Studies was established at Princeton Seminary in 1997 and is administered by a board of seminary faculty. The Center sponsors conferences, research opportunities, discussion groups, and publications that seek to advance understanding of the theology of [[Karl Barth]] (1886–1968), the [[German-speaking Switzerland|German Swiss]] professor and pastor widely regarded as the greatest theologian of the 20th century. The [[Karl Barth Research Collection]], part of Special Collections in the Princeton Theological Seminary Libraries, supports the scholarly activities of the [[Center for Barth Studies]]. The Karl Barth Research Collection is acquiring a collection of writings by and about Karl Barth. Although many volumes are still needed, the Research Collection has already acquired Barth's most important works in German and English, several first editions, and an original hand-written manuscript by Karl Barth.<ref>[http://libweb.ptsem.edu/collections/barth/Default.aspx?menu=296&subText=468 Princeton Theological Seminary Library] {{webarchive|url=https://web.archive.org/web/20090321160015/http://libweb.ptsem.edu/collections/barth/Default.aspx?menu=296&subText=468 |date=2009-03-21 }}. Libweb.ptsem.edu. Retrieved on 2013-09-04.</ref>
+
+===Abraham Kuyper Center for Public Theology===
+The key aspect of the Abraham Kuyper Center for Public Theology is the Abraham Kuyper Collection of Dutch Reformed Protestantism in the library's Special Collections, which focuses on the theology and history of [[Dutch Reformed Protestantism]] since the nineteenth century and features a sizable assemblage of primary and secondary sources by and about [[Abraham Kuyper]]. The center maintains in partnership with the [[Vrije Universiteit Amsterdam]] an online [http://www.kuyperresearch.org/ database of secondary literature about Abraham Kuyper].
+
+The center has also established an annual event organized to award the Abraham Kuyper Prize for Excellence in Reformed Theology and Public Life, during which the recipient delivers an address. The Abraham Kuyper Consultation, a series of further lectures, takes place on the following day.
+
+In 2017, there was a controversy surrounding the plan to award the Kuyper Prize to [[Tim Keller (pastor)|Tim Keller]], then Pastor of [[Redeemer Presbyterian Church (New York City)|Redeemer Presbyterian Church]] in New York City. A group of students and faculty protested that Keller should not receive the award due to his non-affirming views regarding [[LGBT clergy in Christianity|LGBTQ]] and women clergy.<ref>{{Cite news|url=https://www.christiancentury.org/blog-post/does-teaching-submission-encourage-abuse|title=Does teaching submission encourage abuse?|work=The Christian Century|access-date=2017-10-27|language=en|archive-url=https://web.archive.org/web/20171028043025/https://www.christiancentury.org/blog-post/does-teaching-submission-encourage-abuse|archive-date=2017-10-28|url-status=live}}</ref> President Barnes initially defended awarding Keller the prize before changing his position.<ref>{{Cite news|url=https://www.christiancentury.org/article/princeton-seminary-cancels-award-tim-keller-not-his-lecture|title=Princeton Seminary cancels award to Tim Keller, but not his lecture|work=The Christian Century|access-date=2017-10-27|language=en|archive-url=https://web.archive.org/web/20171028043037/https://www.christiancentury.org/article/princeton-seminary-cancels-award-tim-keller-not-his-lecture|archive-date=2017-10-28|url-status=live}}</ref> Keller withdrew himself from consideration for the prize and still delivered his lecture. While drawing support from some quarters, the decision to not award Keller the prize also drew criticism in the [[The Wall Street Journal|''Wall Street Journal'']]<ref>{{Cite news|url=https://www.wsj.com/articles/a-seminary-snubs-a-presbyterian-pastor-1490309996|title=A Seminary Snubs a Presbyterian Pastor|last=Thorp|first=Case|date=2017-03-23|work=Wall Street Journal|access-date=2017-10-27|language=en-US|issn=0099-9660|archive-url=https://web.archive.org/web/20171028043333/https://www.wsj.com/articles/a-seminary-snubs-a-presbyterian-pastor-1490309996|archive-date=2017-10-28|url-status=live}}</ref> and [[The Washington Post|''Washington Post'']].<ref>{{Cite news|url=https://www.washingtonpost.com/news/acts-of-faith/wp/2017/04/12/princeton-seminarians-were-outraged-over-tim-keller-heres-kellers-point-i-wanted-my-peers-to-hear/|title=Perspective {{!}} Princeton seminarians were outraged over Tim Keller. Here's Keller's point I wanted my peers to hear.|last=Service|first=Jeff Chu {{!}} Religion News|date=2017-04-12|newspaper=Washington Post|access-date=2017-10-27|language=en-US|issn=0190-8286|archive-url=https://web.archive.org/web/20171028093238/https://www.washingtonpost.com/news/acts-of-faith/wp/2017/04/12/princeton-seminarians-were-outraged-over-tim-keller-heres-kellers-point-i-wanted-my-peers-to-hear/|archive-date=2017-10-28|url-status=live}}</ref>
+
+===Center of Theological Inquiry<!--'Center of Theological Inquiry' redirects here-->===
+In 1978, Princeton Theological Seminary's Board of Trustees established the [[Center of Theological Inquiry]] (CTI) as an independent, [[ecumenical]] institution for advanced theological research, "to inquire into the relationship between theological disciplines, [and of these with] ... both human and natural sciences, to inquire into the relationship between diverse religious traditions ..., to inquire into the present state of religious consciousness in the modern world, and to examine such other facets of religion in the modern world as may be appropriate ..."{{Citation needed|date=June 2025}} Today, the CTI has its own board, funding, mission and staff. The present director is [[Tom Greggs]] and the associate director is Joshua Mauldin.
+
+===Journals===
+[[File:Princeton_Theological_Review,_Volume_1,_Number_1_(1903).djvu|thumb|upright=0.67|Princeton Theological Review, Volume 1, Number 1 (1903)]]
+''Theology Today'' is a peer-reviewed, quarterly journal of Christian theology founded in 1944.
+
+''Koinonia Journal'' was a [[graduate student journal]] published annually by doctoral students at Princeton Theological Seminary from 1989-2011.<ref>{{cite web |title=New in the Theological Commons: Koinonia |url=https://ptsem.edu/library/news/koinonia/ |website=Princeton Theological Seminary |access-date=10 July 2026}}</ref> The publication and its annual forum promoted written and face-to-face interdisciplinary discussion about issues in theology and the study of religion. The forum is still ongoing despite the journal's having ceased publication.
+
+''Princeton Theological Review'' was another [[graduate student journal]] that existed to serve students within the Princeton Theological Seminary body as well as the wider theological community. First published from 1903-1929 as the seminary's journal, it was revived as a student publication in 1994 and continued until 2019.<ref>{{cite web |title=Princeton Theological Review (New Series) |url=https://commons.ptsem.edu/ptrnew |website=Princeton Theological Seminary |access-date=10 July 2026}}</ref>
+
+===Seminary Lectureships===
+[[File:KAGAWA_Toyohiko_Princeton_Theological_Seminary.JPG|thumb|Kagawa Toyohiko at Princeton Theological Seminary, 1914]]
+* [[Abraham Kuyper]] Lecture and Prize, held in April. In 2017, Princeton Theological Seminary reversed its decision to award the Kuyper Prize to [[Tim Keller (pastor)|Tim Keller]] after a group of alumni voiced their objection to the choice due to Keller belonging to a denomination ([[Presbyterian Church in America]]) that ordain neither women nor practicing homosexuals. However, the seminary did allow Keller to deliver the Kuyper Lecture without receiving the Kuyper Prize.<ref>{{cite web |url=https://religionnews.com/2017/03/22/princeton-theological-seminary-reverses-decision-to-honor-redeemers-tim-keller/|title=Princeton Theological Seminary reverses decision to honor Redeemer's Tim Keller|date=22 March 2017}}</ref>
+* The Alexander Thompson Lecture, held biannually in March.
+* The Frederick Neumann Memorial Lecture, held biannually in November.
+* Dr. Geddes W. Hanson Lecture, held biannually, fall semester.
+* Dr. [[Martin Luther King Jr.]] Lecture, held in February.
+* Dr. Sang Hyun Lee Lecture, held biannually, spring semester.
+* The Donald Macleod/Short Hills Community Congregational Church Preaching Lectureship, held biannually, fall semester.
+* [[Toyohiko Kagawa]], Japanese Evangelist and Social Worker; Lecture held triennially spring semester.
+* Students' Lectureship on Missions, held biannually, fall semester.
+* The Princeton Lectures on Youth, Church, and Culture, held in April.
+* The Levi P. Stone Lectures, held biannually in October. Brings an internationally distinguished scholar to the seminary each year to deliver a series of public lectures. Created in 1871 by Levi P. Stone of Orange, New Jersey, a director and also a trustee of the seminary. Previous lecturers include [[Samuel Colcord Bartlett]] (1882), [[Samuel H. Kellogg]] (1892), [[Abraham Kuyper]] (1898), [[Henry Collin Minton]] (1902), [[Herman Bavinck]] (1908), [[Archibald Thomas Robertson]] (1915), Henry E. Dosker (1918), [[Louis Berkhof]] (1921), [[Valentine Hepp]] (1930), [[Hendrik Kraemer]] (1958), [[Karl Menninger]] (1969) and [[Nicholas Wolterstorff]] (1998).
+* Students' Lectureship on Missions, held in October.
+* The Annie Kinkead Warfield Lectures, held biannually in March, are a series of lectures which honor the memory of Annie Kinkead Warfield, wife of [[Benjamin Breckinridge Warfield]], distinguished professor of theology at the seminary from 1887 to 1921. Previous distinguished lecturers include [[Karl Barth]] (1962), [[John Howard Yoder]] (1980), [[T. F. Torrance]] (1981), and [[Colin Gunton]] (1993).
+* Women in Church and Ministry Lecture, held in February.
+
+===Frederick Buechner Prize===
+Acclaimed writer and theologian [[Frederick Buechner]] has long standing ties to Princeton Theological Seminary and the seminary has honored him with the creation of the Buechner Prize for Writing. Princeton sponsored and hosted the Buechner Writing Workshop in June 2015. Also, Princeton Theological Seminary has given copies of Buechner's ''Telling the Truth'' to students as part of their graduation.
+
+==People==
+
+===Principals and Presidents of Princeton Theological Seminary===
+[[File:Theological_Seminary,_Princeton._Brown_Hall_(NYPL_b11707651-G90F457_009ZF).tiff|thumb|Brown Hall, 1860]]
+Prior to the creation of the office of president in 1902, the seminary was governed by the principal.
+
+;Principals
+* [[Archibald Alexander]] (1812–1850)
+* [[Charles Hodge]] (1851–1878)
+* [[Archibald Alexander Hodge]] (1878–1886)
+* [[B. B. Warfield]] (1887–1902)
+
+;Presidents
+[[File:VIEW_OF_FRONT_ENTRANCE_-_Princeton_Theological_Seminary,_Mercer_Street,_Princeton,_Mercer_County,_NJ_HABS_NJ,11-PRINT,18A-4.tif|thumb|upright=0.8|View of front entrance]]
+* [[Francis Landey Patton]] (1902–1913)
+* [[J. Ross Stevenson]] (1914–1936)
+* [[John A. Mackay]] (1936–1959)
+* [[James I. McCord]] (1959–1983)<ref>Narvaez, Alfonso A. (February 21, 1990).[https://www.nytimes.com/1990/02/21/obituaries/rev-dr-james-iley-mccord-70-ex-chief-of-princeton-seminary.html "Rev. Dr. James Iley McCord, 70, Ex-Chief of Princeton Seminary"]. ''[[The New York Times]]''. Retrieved December 24, 2024. "The Rev. Dr. James Iley McCord, the former president of Princeton Theological Seminary and founder of its Center for Theological Inquiry, died of complications of Parkinson's disease on Monday at the Princeton Medical Center.... Dr. McCord headed Princeton Theological Seminary from 1959 to 1983."</ref>
+* [[Thomas W. Gillespie]] (1983–2004)<ref>Pearce, Jeremy. [https://www.nytimes.com/2004/05/30/nyregion/in-person-changes-at-the-other-princeton.html "In Person; Changes at the Other Princeton"], ''[[The New York Times]]'', May 30, 2004. Accessed December 24, 2024. "In an age when university presidents are traded between campuses like so many basketball forwards, Thomas W. Gillespie seems to be a throwback to an earlier era. But now even Dr. Gillespie -- who in 1983 was appointed the fifth president of Princeton Theological Seminary -- intends to move on with his life."</ref>
+* [[Iain R. Torrance]] (2004–2012)
+* [[M. Craig Barnes]] (2013–2023)<ref>{{cite news|last1=Rodgers|first1=Ann|title=Shadyside Presbyterian Church pastor Barnes named president of Princeton seminary|url=http://old.post-gazette.com/pg/12283/1267865-53.stm|work=Pittsburgh Post-Gazette|date=9 October 2012|access-date=20 October 2012|archive-url=https://web.archive.org/web/20121016002046/http://old.post-gazette.com/pg/12283/1267865-53.stm|archive-date=16 October 2012|url-status=dead}}</ref>
+* [[Jonathan L. Walton]] (since 2023) – first black president, and first non-Presbyterian
+
+===Notable faculty (past and present)===
+{{category see also|Princeton Theological Seminary faculty}}
+{{Alumni|people |date=July 2025}}
+{{Dynamic list |date=July 2025}}
+{{div col|colwidth=15em}}
+
+*[[Diogenes Allen]]
+*[[Dale C. Allison]]
+*[[Bernhard Anderson]]
+*[[William Park Armstrong]]
+*[[Emil Brunner]]
+*[[Donald Eric Capps]]
+*[[James H. Charlesworth]]
+*[[Ellen Charry]]
+*[[F. W. Dobbs-Allsopp]]
+*[[Jane Dempsey Douglass]]
+*[[Freda Gardner]]
+*[[L. Gordon Graham]]
+*[[George Hendry]]
+*[[John Hick]]
+*[[Seward Hiltner]]
+*[[Archibald Alexander Hodge]]
+*[[Charles Hodge]]
+*[[Elmer G. Homrighausen]]
+*[[George Hunsinger]]
+*[[James Franklin Kay]]
+*[[J. Gresham Machen]]
+*[[Bruce L. McCormack]]
+*[[Bruce Metzger]]
+*[[Patrick D. Miller]]
+*[[Samuel Miller (theologian)|Samuel Miller]]
+*[[:de:Otto Alfred Piper]]
+*[[Luis N. Rivera-Pagán]]
+*[[J. J. M. Roberts]]
+*[[Katharine Doob Sakenfeld]]
+*[[C. L. Seow]]
+*[[Richard Shaull]]
+*[[Mark S. Smith]]
+*[[Max L. Stackhouse]]
+*[[Loren Stuckenbruck]]
+*[[Mark Lewis Taylor]]
+*[[Wentzel van Huyssteen]]
+*[[Geerhardus Vos]]
+*[[B. B. Warfield]]
+*[[Robert Dick Wilson]]
+*[[Robert Jenson]]
+
+{{div col end}}
+
+===Notable alumni===
+{{alumni|date=September 2023}}
+{{category see also|Princeton Theological Seminary alumni}}
+{{Dynamic list|date=July 2025}}
+{{div col|colwidth=25em}}
+* [[James Waddel Alexander]], 1823
+* [[William Patterson Alexander]] – missionary to Hawaii
+* [[Oswald T. Allis]], 1905
+* [[Rubem Alves]], 1968 – theologian
+* [[Gleason Archer]], 1945 – evangelical theologian
+* [[Albert Barnes (theologian)|Albert Barnes]], 1823
+* [[Howard Baskerville]]
+* [[Louis Berkhof]], 1904
+* [[Loraine Boettner]], 1929
+* [[Greg Boyd (theologian)|Greg Boyd]], 1987
+* [[James Montgomery Boice]], 1963
+* [[William Whiting Borden]]
+* [[Dave Brat]], 1990 – professor, [[Randolph-Macon College]]; Congressional candidate in Virginia's 7th District<ref>{{cite web|title=Meet Dave|url=http://davebrat.com/meet-dave/|website=Dave Brat: Republican for Congress|access-date=2015-12-10|archive-url=https://web.archive.org/web/20190114210327/http://davebrat.com/meet-dave/|archive-date=2019-01-14|url-status=dead}}</ref>
+* [[Robert Jefferson Breckinridge]], 1832
+* [[G. Thompson Brown]], 1950 – missionary; founder, Honam Theological Academy (now [[Honam Theological University and Seminary]])
+* [[Hugh M. Browne]], 1878 – educator; principal, [[Institute for Colored Youth]]
+* [[Ernest T. Campbell]] – pastor, [[Riverside Church]]
+* [[Eugene Cho]], 1997 – president, [[Bread for the World]]<ref>[https://www.uscis.gov/citizenship-resource-center/civic-integration/outstanding-americans-by-choice/rev-eugene-cho-president-and-ceo-bread-for-the-world-washington-dc "Rev. Eugene Cho, President and CEO, Bread for the World, Washington, DC"]. [[United States Citizenship and Immigration Services]]. Retrieved December 24, 2024. "Rev. Cho was also recognized as an everyday hero in the 2012 book ''Everyday Heroes: 50 Americans Changing the World One Nonprofit at a Time'' and was a recipient of the Distinguished Alumni Award from Princeton Theological Seminary in 2017."</ref>
+* [[Hunter Corbett]] – pioneer American missionary to [[Yantai]], [[Shandong]], China
+* [[Jack Cottrell]]
+* [[John Finley Crowe]], 1815 – founder, [[Hanover College]]
+* [[Michael Simpson Culbertson]], 1844 – missionary to China
+* [[Kathy Dawson]] – Associate Professor of Christian Education and Director of M.A.P.T. Program, [[Columbia Theological Seminary]]; Association of Presbyterian Church Educators' 2015 Educator of the Year
+* [[William Dembski]], 1995 – philosopher; mathematician; [[intelligent design|intelligent-design]] advocate<ref>[[William Dembski|Dembski, William]]. [https://stream.org/there-are-new-atheists-in-foxholes-part-3/ "There Are New Atheists in Foxholes, Part 3"]. The Stream. May 27, 2024. Retrieved December 24, 2024. "I found the same thing in my student days at Princeton Theological Seminary, where I needed to supplement the theological liberalism I was being taught with more traditional orthodox scholarship."</ref>
+* [[Hilliard Dogbe]] – presiding bishop, [[African Methodist Episcopal Zion Church]] (Western West Africa Episcopal District); chairman, [[Christian Council of Ghana]]
+* [[John H. Eastwood]], 1941 – [[United States Air Force Chaplain Corps|U.S. Army Air Corps chaplain]] [[464th Tactical Airlift Wing|464th Bombardment Group]] in [[World War II]]
+* [[Sherwood Eddy]], 1896 – missionary to India; leader, [[YMCA]]; writer; educator
+* [[Bart D. Ehrman]], 1985 – professor; writer
+* [[Anna Carter Florence]], 2000
+* [[George Forell]]
+* [[David Otis Fuller]]
+* [[Robert A. J. Gagnon]], 1993
+* [[George Washington Gale]], 1819 – founder, [[Knox College (Illinois)|Knox College]]
+* [[Jim Garlow]] – pastor, [[Skyline Church]]
+* [[James Leo Garrett Jr.]], 1949 – theologian
+* [[William H. Gray (Pennsylvania politician)|William H. Gray]], 1970
+* [[Richard C. Halverson]], 1942 – 60th [[Chaplain of the United States Senate|Chaplain of the U.S. Senate]]<ref>via [[Associated Press]]. [https://www.nytimes.com/1995/12/01/us/richard-halverson-79-a-senate-chaplain.html "Richard Halverson, 79, a Senate Chaplain"]. ''[[The New York Times]]''. December 1, 1995. Retrieved December 24, 2024. "A native of Pingree, N.D., he held degrees from Wheaton College, earned in 1939, and Princeton Theological Seminary, earned in 1942."</ref>
+* [[William Henry Green]], 1846
+* [[Francis James Grimké]], 1878 – African-American Presbyterian pastor; co-founder, [[NAACP]]
+* [[Phineas Gurley]] – [[Abraham Lincoln]]'s pastor
+* [[Kyung-Chik Han]], 1929 – founder, [[Young Nak Presbyterian Church]]; winner, [[Templeton Prize]]
+* [[George C. Heckman]] – presiden, [[Hanover College]] 1870–79
+* [[Charles Hodge]], 1819
+* [[Elmer George Homrighausen]], 1924
+* [[William Imbrie]] – missionary to Japan
+* [[Sheldon Jackson]], 1858 – Presbyterian missionary in the [[Western United States]], including [[Alaska]]
+* [[Thornwell Jacobs]], 1899 – founder, [[Oglethorpe University]]
+* [[Richard A. Jensen]], 1962 – theologian; writer
+* [[William Hallock Johnson]], 1898 – theologian; president, [[Lincoln University (Pennsylvania)|Lincoln University]]
+* [[E. Elizabeth Johnson]], J. Davison Philips Professor of New Testament, [[Columbia Theological Seminary]]
+* [[Toyohiko Kagawa]], 1916
+* [[Margaret Grun Kibben]], 1986, 2002 – received MDiv and DMin; first female [[Chaplain of the U.S. House of Representatives]]
+* [[Guy Kratzer]], 1968 – Pennsylvania State Senator
+* [[Kimberly Bracken Long]], 1990 – Presbyterian pastor; writer; associate professor of worship, [[Columbia Theological Seminary]]
+* [[Elijah Parish Lovejoy]], 1834 – first American martyr for [[freedom of the press]]; Presbyterian pastor; publisher of an [[Abolitionism in the United States|abolitionist]] newspaper in [[Alton, Illinois]]; killed while defending the press from an angry mob<ref>[https://www.nationalabolitionhalloffameandmuseum.org/elijah-parish-lovejoy.html "Elijah Parish Lovejoy"]. [[National Abolition Hall of Fame and Museum]]. Retrieved March 8, 2025. "A graduate of Waterville (Colby) College and Princeton Theological Seminary, Lovejoy was ordained in St. Louis, Missouri, in 1834."</ref>
+* [[Clarence Macartney]], 1905
+* [[John Gresham Machen]], 1905 – founder, [[Westminster Theological Seminary]]
+* [[George Leslie Mackay]] – Canadian missionary to Taiwan
+* [[John Maclean Jr.]], 1818 – president, [[Princeton University]]
+* [[Allan MacRae]], 1927 – founder, [[Faith Theological Seminary]] and [[Biblical Theological Seminary]]
+* [[Basil Manly Jr.]], 1847
+* [[Carl McIntire]] – fundamentalist; attended briefly as a student, but transferred to [[Westminster Theological Seminary]] in 1929 as a result of [[Fundamentalist-Modernist controversy]]
+* [[David McKinney (publisher)|David McKinney]]
+* [[Bruce Metzger]], 1938
+* [[Samuel H. Moffett]], 1942 – missionary; educator
+* [[John Monteith (minister)|John Monteith]], 1816 – first president, [[University of Michigan]]
+* [[Frederick Augustus Muhlenberg (educator)|Frederick Augustus Muhlenberg]], 1839 – educator 
+* [[John Murray (theologian)|John Murray]] –theologian 
+* [[Byron C. Nelson]], 1936 – apologist for [[creationism]]<ref>Branch, Glenn (April 3, 2015). [https://ncse.ngo/haeckeling-darwin-full-nelson "Haeckeling Darwin with a Full Nelson"], [[National Center for Science Education]]. Retrieved March 8, 2025. "Do I tire of skimming through creationist books from the Scopes era? I do not. And to prove it, I've been perusing ''After Its Kind": The First and Last Word on Evolution'' (1927), by Byron C. Nelson.... After the war, he trained as a minister, receiving a B.D. from the Luther Theological Seminary in 1922 and a Th.M. from Princeton Theological Seminary in 1926."</ref>
+* [[John Williamson Nevin]], 1826
+* [[John Livingstone Nevius]] – missionary to China
+* [[Harold Ockenga]] – prominent figure in 1950s [[Neo-Evangelicalism]]; attended briefly as a student, but transferred to [[Westminster Theological Seminary]] in 1929 as a result of [[Fundamentalist–Modernist controversy]]
+* [[Kathleen M. O'Connor]]
+* [[Jeanne Audrey Powers]] – leader, [[United Methodist Church]]; advocate for women and LGBTQ+ people in the church; one of the first women ordained in the denomination<ref>[https://www.bu.edu/sth/rev-jeanne-audrey-powers-sth-58/ Rev. Jeanne Audrey Powers (STH, '58)], [[Boston University]]. Retrieved December 25, 2024. "Rev. Powers received her bachelor of science degree at Mankato State University in 1954. That same year, she was chosen to be a Danforth Graduate Fellow, a prestigious honor that encouraged her to pursue theology at Princeton Theological Seminary."</ref>
+* [[Francis Landey Patton]], 1865<ref>[https://www.princetonianamuseum.org/artifact/90577f9a-ce02-40b9-ad61-a5a0c0dd99aa Patton, Francis Landey], Princetoniana Museum. Retrieved December 25, 2024. "Francis Landey Patton (1843–1932) twelfth president of Princeton, was born in Warwick, Bermuda, on January 22, 1843. His early schooling was at Warwick Academy; later he attended Knox College of the University of Toronto and studied for two years at Princeton Theological Seminary."</ref>
+* [[Abune Paulos]] – patriarch, [[Ethiopian Orthodox Tewahedo Church]]<ref>Childs, David (August 27, 2012). [https://www.the-independent.com/news/obituaries/abune-paulos-religious-leader-and-peace-activist-8082407.html "Abune Paulos: Religious leader and peace activist"], ''[[The Independent]]''. Retrieved December 25, 2024. "In the United States he studied at the St Vladimir's Orthodox Theological Seminary, New York, and afterwards joined the doctoral programme at the Princeton Theological Seminary.... He returned to Princeton in 1984 to complete his doctoral degree, and was elevated to the rank of Archbishop by Patriarch Abune Takla Haymanot in 1986 while still in exile."</ref>
+* [[Bradley Phillips (Wisconsin minister)|Bradley Phillips]], 1849 – member, [[Wisconsin State Assembly]]
+* [[Cornelius Plantinga]], 1982 – theologian and seminary president
+* [[William Swan Plumer]], 1826 – [[Presbyterian Church (U.S.A.)|Presbyterian]] clergyman; writer; educator
+* [[James Reeb]], 1953 – civil-rights martyr
+* [[George S. Rentz]] – ordained in 1909; [[United States Navy Chaplain Corps|U.S. Navy chaplain]] during [[World War I]] and [[World War II]]
+* [[Joseph L. Roberts Jr.]] – American pastor
+* [[Jana Riess]], 1994
+* [[Jay Richards]]
+* [[Stanley P. Saunders]], 1990
+* [[Samuel Simon Schmucker]], 1820
+* [[Louis P. Sheldon]], 1960
+* [[Charles Woodruff Shields]], 1847
+* [[Robert B. Sloan]], 1973 – educator
+* [[DeForest Soaries]]
+* [[William Buell Sprague]], 1819
+* [[Ned B. Stonehouse]], 1927
+* [[Loren Stuckenbruck]]
+* [[Lorna Taylor]]
+* [[Charles Templeton]] – Canadian journalist
+* [[Timothy Tennent]], 1991
+* [[Mark L. Tidd]] – U.S. Navy Admiral, 25th Chief of Chaplains
+*[[Conrad Tillard]] (born 1964; Master of Theology) – Baptist minister; radio host; writer; civil-rights activist; politician
+* [[Henry van Dyke]], 1874
+* [[Cornelius Van Til]], 1924 – [[presuppositional apologetics|presuppositional apologist]]; taught briefly, but later followed [[John Gresham Machen]] to [[Westminster Theological Seminary]] in 1929
+* [[Geerhardus Vos]], 1885
+* [[Benjamin Breckinridge Warfield]], 1876
+* [[Neil Clark Warren]]
+* [[Victor Paul Wierwille]], [[Master of Theology|Th.M]] – founding president, [[The Way International]] biblical research, teaching and fellowship ministry in [[New Knoxville, Ohio]]
+* [[Ralph D. Winter]], B.Div – founder, [[U.S. Center for World Mission]] and [[William Carey International University]]
+*[[Theodore S. Wright]], 1828 – first African-American graduate
+* [[John C. Young (pastor)|John C. Young]], 1828 – pastor; fourth president, [[Centre College]]
+{{div col end}}
+
+==References==
+{{Reflist}}
+
+==Further reading==
+
+* David B. Calhoun, ''History of Princeton Seminary.'' In Two Volumes. Carlisle, Pennsylvania: Banner of Truth, 1996.
+* James Moorhead, ''Princeton Seminary in American Religion and Culture.'' Grand Rapids, Michigan: Eerdmans, 2012.
+* Richard Osmer and Gordon Mikoski, ''With Piety and Learning: The History of Practical Theology at Princeton Theological Seminary 1812–2012.'' Lit Verlag, 2012.
+
+==External links==
+{{commons category|Princeton Theological Seminary}}
+* {{url|ptsem.edu}}, seminary's official website
+* {{Cite NIE|wstitle=Princeton Theological Seminary|short=x}}
+
+{{Princeton Theological Seminary|state=expanded}}
+{{Presbyterian Church in the United States of America}}
+{{Princeton, New Jersey}}
+{{Religious Colleges and Schools in New Jersey}}
+{{Reformed Seminaries in the United States}}
+{{Authority control}}
+{{Coord|40|20|40|N|74|39|52|W|source:nowiki_region:US|display=title}}
+
+[[Category:Princeton Theological Seminary| ]]
+[[Category:Seminaries and theological colleges in New Jersey]]
+[[Category:Presbyterian Church (USA) seminaries]]
+[[Category:Educational institutions established in 1812]]
+[[Category:1812 establishments in New Jersey]]
+[[Category:Presbyterianism in New Jersey]]
+[[Category:Christian seminaries and theological colleges]]
+[[Category:Universities and colleges in Mercer County, New Jersey]]
+[[Category:Reparations for slavery in the United States]]
+[[Category:Schools in Princeton, New Jersey]]
+[[Category:Affirming Christian seminaries and theological colleges in the United States]]

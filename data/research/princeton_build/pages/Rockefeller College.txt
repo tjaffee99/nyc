@@ -1,0 +1,53 @@
+{{Short description|Residential college at Princeton University}}
+{{for|the college at the [[University of Albany]]|Rockefeller College of Public Affairs & Policy}}{{Outdated|date=August 2023}}{{Infobox residential college
+| name           = Rockefeller College
+| type           = [[Residential colleges of Princeton University|Residential college]]
+| university     = [[Princeton University]]
+| shield         = Princeton Rockefeller College CoA.svg
+| shield_size    = 
+| image          = Rockefeller College Courtyard.jpg
+| caption        = Rockefeller College, Madison Hall, inside the courtyard
+| scarf          = 
+| full_name      = John D. Rockefeller 3rd College
+| latin_name     = 
+| latin_motto    = 
+| english_motto  = 
+| named_for      = [[John D. Rockefeller 3rd]]
+| former_names   = 
+| established    = 1982
+| sister_college = 
+| freshman_dorm  = 
+| head           = Adam Finkelstein
+| dean           = Justine Hernandez Levine
+| HoCo_chair     = 
+| undergraduates = 
+| called         = 
+| tutors         = 
+| location       = 
+| coordinates    = {{coord|40.3485|N|74.6622|W|region:US_type:landmark_source:placeopedia|format=dms|display=inline,title}}
+| website        = {{url|http://rockefellercollege.princeton.edu/}}
+}}
+
+'''John D. Rockefeller 3rd College''', or "Rocky", is one of seven residential colleges at [[Princeton University]].<ref>{{cite web | url=https://www.panoramio.com/photo/24229494 | title=Rockefeller College, Princeton University, NJ | publisher=[[Panoramio]] | access-date=June 2, 2011}}</ref> It was founded in 1982, making it the third [[residential college]] to be established at Princeton.<ref>{{ cite web | url=https://www.princeton.edu/reports/2011/campuslife/history/ | title=A Brief History of Social and Residential Life at Princeton | publisher=[[Princeton University (website)|Princeton University]] | access-date=Feb 23, 2016}}</ref> It is named for [[John D. Rockefeller 3rd]], Princeton Class of 1929, who served as a major donor and longtime [[trustee]] of the University.<ref>{{cite web | url=https://books.google.com/books?id=AxNbAAAAYAAJ&q=CURL+%22Rockefeller+College%22&pg=PA108 | title=Princeton Alumni Weekly, Volume 81, October 20, 1980, page 12 | year=1980 | publisher=[[Princeton University Press]] | access-date=Feb 23, 2016 }}</ref>
+
+The college is located in the northwestern corner of the Princeton campus and is largely composed of [[Collegiate Gothic]] style structures.  Madison Hall, home of the college dining hall, office, and common spaces, and the dorms Holder Hall, Buyers Hall (formerly "East Blair Hall"), and part of Campbell Hall are presently part of Rockefeller College.  Witherspoon Hall, built in 1877, is the oldest building in the college, and is characteristically [[Richardsonian Romanesque]], a style which predates the Collegiate Gothic.
+
+The college is home to roughly 500 first-years and sophomores and a small number of upperclassmen.<ref>{{cite web | url=http://rockefellercollege.princeton.edu/ | title=Rockefeller College (home page) | publisher=[[Princeton University (website)|Princeton University]] | access-date=Feb 23, 2016}}</ref> The college staff is led by the head (a faculty member), and also includes a dean, a director of studies, a college administrator, a college secretary, and two graduate student assistant masters.  The current master of Rockefeller College is Clancy Rowley, [[Professor]] of Mechanical and Aerospace Engineering.  A council of current students also contributes to college life, organizing trips, study breaks, and other opportunities.
+
+Beginning with the 2007–2008 school year, Rockefeller College has, along with Princeton's other residential colleges, catered to upperclassmen as well as underclassmen, with new programs and advising.<ref>{{cite web | url=http://rockefellercollege.princeton.edu/about | title=About Rockefeller College | publisher=[[Princeton University (website)|Princeton University]] | access-date=Feb 23, 2016}}</ref> The college now houses mostly first-year and sophomore students, with some spaces for juniors and seniors in addition to [[Resident assistant|Residential College Advisors]].
+
+Rockefeller College's common room, Holder Hall, and Blair Arch (which adjoins Buyers Hall but is technically a part of [[Mathey College]]) were all featured in the film ''[[A Beautiful Mind]]''.<ref>{{cite web | url=http://dailyprincetonian.com/news/2002/03/a-beautiful-mind-garners-four-oscars-as-director-producer-highlight-nash/ | title='A Beautiful Mind' garners four Oscars as director, producer highlight Nash | publisher=The Daily Princetonian | access-date=Feb 23, 2016}}</ref>
+
+==References==
+{{reflist}}
+
+==External links==
+* [http://rocky.princeton.edu/ Rockefeller College website]
+
+{{Princeton}}
+
+[[Category:Universities and colleges established in 1982]]
+[[Category:Educational institutions in the United States established in 1982]]
+[[Category:Colleges of Princeton University]]
+[[Category:Institutions founded by the Rockefeller family]]
+[[Category:1982 establishments in New Jersey]]

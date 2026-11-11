@@ -1,0 +1,72 @@
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=August 2023}}
+{{Infobox NRHP
+| name = Prospect House
+| nrhp_type = nhl
+| nrhp_type2 = cp
+| designated_nrhp_type2 = June 27, 1975
+| nocat = yes
+| part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+| part_of_ref_num = 75001143
+| image = Prospect_House_-_Princeton_University_(55143713252).jpg
+| caption = 
+| location = Princeton University campus, [[Princeton, New Jersey]]
+| coordinates = {{coord|40|20|48.95|N|74|39|24.37|W|display=inline,title}}
+| pushpin_map = USA New Jersey Mercer County#New Jersey#USA
+| area = {{convert|5|acre|ha}}
+| built = {{start date|1851}}
+| architect = [[John Notman]]
+| architecture = [[Italian Villa]]
+| designated_nrhp_type = February 4, 1985<ref name="nhlsum">{{cite web|url=http://tps.cr.nps.gov/nhl/detail.cfm?ResourceID=1903&resourceType=Building|title=Prospect|access-date=2009-09-08|work=National Historic Landmark summary listing|publisher=National Park Service|url-status=dead|archive-url=https://web.archive.org/web/20090225015104/http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=1903&ResourceType=Building|archive-date=2009-02-25}}</ref>
+| added = February 4, 1985
+| ref_num = 85002434<ref name="nris">{{NRISref|2007a}}</ref>
+}}
+'''Prospect House''', known also as just '''Prospect''', is a historic house on the [[Princeton University]] campus in [[Princeton, New Jersey]], United States.  Built in 1851, it is a fine example of the work of architect [[John Notman]] who helped popularize [[Italianate architecture]] in America.<ref name="nrhpinv2"/>  Notable residents include [[Woodrow Wilson]] during his tenure as president of the university.  The building now serves as a faculty club.  It was designated a [[National Historic Landmark]] in 1985 for its architecture and historic associations.
+
+==Description and history==
+Prospect House stands on the Princeton University campus, between the [[Princeton University Art Museum]] and Washington Street.  It stands on {{convert|5|acre|ha}} of landscaped grounds that are a remnant of a once-larger estate.  The house is a two-story stone structure, built out of rustically cut sandstone, with a three-story tower at one end, and a single-story service wing.  The roofs are low-pitch hip roofs, with broad eaves decorated with brackets.  The main facade has a central stone porte-cochere topped by a balustrade.  Flanking this are slightly projecting bays, featuring matching second-story balconies.  A modern dining room addition, designed by [[Warren Platner]], extends to the rear.<ref name="nrhpinv2"/>
+
+Prospect House was built in 1851-52 for Thomas Fuller Potter.  Prior to its construction, the site had been that of a farm whose house had hosted [[George Washington]] both during and after the [[American Revolutionary War]].  The new house was designed by [[John Notman]], a Scottish architect based in [[Philadelphia]] who is credited with introducing the [[Italianate architecture|Italianate style of architecture]] to the United States.<ref name="nrhpinv2"/>
+
+In 1878, it was acquired by brothers Alexander and [[Robert L. Stuart|Robert Stuart]], who gave it to the College of New Jersey, which became [[Princeton University]] and served as the house of the school president.  [[Woodrow Wilson]], the third Princeton president to live here, was resident from 1902 to 1911, when he became [[Governor of New Jersey]] en route to becoming [[President of the United States]].<ref name="nrhpinv2"/>
+
+On February 10, 1913, [[Thomas J. Preston Jr.]], a professor of archeology at Princeton University, married [[Frances Folsom Cleveland]], the widow of President [[Grover Cleveland]] at Prospect House.<ref name="marionstarwedding">{{cite news |title=Frances Folsom Cleveland Weds. Widow of Former President Grover Cleveland Becomes Bride of Thomas J. Preston. Ceremony Is Performed At Princeton Today. |url=https://www.newspapers.com/image/299889508/?terms=%22Thomas%2BJ.%2BPreston%22 |access-date=November 13, 2018 |work=The Marion Star|location=Marion, Ohio |date=February 10, 1913|page=1|via=[[Newspapers.com]]|url-access=registration }}</ref>
+
+In 1968, the president's official residence was moved to another house, and Prospect House was adapted for use as a private clubhouse for the university faculty.<ref name=hist>{{cite web|url=https://www.princeton.edu/prospecthouse/history.html|title=Prospect House History|publisher=Princeton University|accessdate=2021-05-02}}</ref>
+
+It was designated a U.S. [[National Historic Landmark]] in 1985.<ref name="nhlsum"/><ref name="nrhpinv2">{{citation|title=National Register of Historic Places Inventory-Nomination: Prospect|url={{NHLS url|id=85002434}} |format=pdf|publisher=National Park Service}} and {{NHLS url|id=85002434|title=''Accompanying photos, exterior and interior''|photos=y}}&nbsp;{{small|(32&nbsp;KB)}}</ref>
+
+==Gallery==
+<gallery mode="packed" heights="154px" caption="Sculpture">
+File:Prospect House Garden, Centaur by Dimitri Hadzi (1954).jpg|''Centaur'' by [[Dimitri Hadzi]] (1954)
+File:Prospect House Garden, Titan by Michele Oka Doner (2004).jpg|''Titan'' by [[Michele Oka Doner]] (2004)
+</gallery>
+<gallery mode=packed heights=154px caption=Garden>
+File:Prospect House Garden (2).jpg|The garden from the house
+File:Prospect House Garden, Japanese Yew Tree.jpg|[[Taxus|English yew]] tree
+</gallery>
+
+== See also ==
+* [[List of National Historic Landmarks in New Jersey]]
+* [[National Register of Historic Places listings in Mercer County, New Jersey]]
+
+==References==
+{{reflist}}
+*[https://www.princeton.edu/prospecthouse/history.html Prospect House History]
+
+==External links==
+{{commons category|Prospect House}}
+*[https://www.princeton.edu/prospecthouse/ Princeton University: Prospect House]
+
+{{Princeton}}
+{{Princeton, New Jersey}}
+{{NHLs in NJ}}
+{{NRHP in Mercer County, New Jersey}}
+
+[[Category:National Historic Landmarks in New Jersey]]
+[[Category:Houses in Princeton, New Jersey]]
+[[Category:Houses completed in 1851]]
+[[Category:Princeton University buildings and structures]]
+[[Category:National Register of Historic Places in Mercer County, New Jersey]]
+[[Category:1851 establishments in New Jersey]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]

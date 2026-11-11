@@ -1,0 +1,5148 @@
+{
+  "head" : {
+    "vars" : [ "i", "l", "c", "inc", "op", "arch" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q21578"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.656111111 40.345277777)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1746-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q788510"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65003 40.345755)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Palmer Stadium"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1914-10-24T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1914-10-24T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2349578"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65467 40.34835)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton School of Public and International Affairs"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1930-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2603905"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6578 40.3472)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Art Museum"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1882-01-01T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1882-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3297681"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.657367 40.349496)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University Library"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q138518"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.656944444 40.352222222)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1700-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q2396806"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6702 40.3571)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Township"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1838-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4453426"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6607 40.3443)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "McCarter Theatre"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1930-02-21T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1930-02-21T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4719046"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6605 40.3482)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Alexander Hall"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5073173"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6931 40.3108)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chapin School"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1931-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5132268"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.664611111 40.340583333)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cleveland Tower"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1913-01-01T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1913-10-22T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5149360"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6883 40.3622)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Colross"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5227485"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.63371 40.3196)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dataram"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1967-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5276932"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.658867 40.345646)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dillon Gymnasium"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1947-01-01T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1947-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5309311"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.674722222 40.339166666)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Drumthwacket"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5467232"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.661 40.3421)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Forbes College"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5941934"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.686 40.337)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hun School of Princeton"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1914-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6161838"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.692 40.335)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Jasna Polana"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6770646"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.662 40.3166)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "MarketFair"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1987-01-01T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1987-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6772482"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6707 40.3416)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Marquand Park"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1846-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6787079"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6622 40.3481)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mathey College"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1982-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6818298"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6746 40.3297)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mercer Oak"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6915170"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.666953 40.347492)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Morven Museum & Garden"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6967574"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65935 40.348739)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nassau Hall"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6967575"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6618 40.3505)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nassau Inn"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6967577"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6607 40.349)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nassau Presbyterian Church"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1836-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7128270"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.661 40.3497)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Palmer Square"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7163498"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.638 40.3315)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Penns Neck Circle"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7163499"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6375 40.3319)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Penns Neck Baptist Church"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7241162"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.66 40.3489)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "President's House"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1756-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q635642"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.667777777 40.331666666)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Institute for Advanced Study"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1930-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q909696"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.664444444 40.344444444)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Theological Seminary"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1812-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1132579"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.675 40.33)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Battle of Princeton"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q371824"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6152 40.3871)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kingston"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q466718"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.653791 40.351226)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "American School of Classical Studies at Athens"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1881-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1077236"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.602183 40.348825)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Plasma Physics Laboratory"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1951-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1084206"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6212 40.3233)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Junction"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5181964"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.61298 40.32398)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cranbury Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5253440"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.61615 40.368686111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Delaware and Raritan Canal State Park"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1974-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5267388"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.62416667 40.33027778)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Devils Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5267388"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.623055555 40.33)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Devils Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5329304"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6345 40.3997)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "East Rocky Hill"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5353476"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6569 40.357)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton High School"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1898-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5416300"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6456 40.3538)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Evelyn College for Women"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1887-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5470536"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6119 40.3561)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Forrestal Village"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1986-01-01T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1986-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5673694"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.62777778 40.36583333)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Harrys Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5693620"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.62 40.37361111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Heathcote Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5744224"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6469 40.382)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Herrontown Woods Arboretum"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1957-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6264682"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6547 40.3607)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "John Witherspoon Middle School"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6413475"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.62025 40.37375)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kingston Bridge"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1798-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6649025"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.62472222 40.32861111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Little Bear Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6649025"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.624444444 40.328888888)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Little Bear Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6796997"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6414 40.3675)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Maybury Hill"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244935"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6589 40.3992)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Airport"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244947"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.657 40.3691)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Charter School"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1997-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244972"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6233 40.3167)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Junction station"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1864-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1084231"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6519 40.3614)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton North"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3306220"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.616235 40.345398)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Geophysical Fluid Dynamics Laboratory"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1955-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3477514"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6094 40.3167)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Grover's Mill"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3567531"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6529 40.3562)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Westminster Choir College"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1926-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4876351"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.61777778 40.325)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bear Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4876351"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.617222222 40.325)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bear Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5047246"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6025 40.37055556)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Carters Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5167896"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6177 40.3495)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cooperative Institute for Climate Science"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5181964"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.61305556 40.32388889)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cranbury Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244976"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.652 40.34)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Law School"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1847-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244997"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6603 40.3517)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Public Library"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1909-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244998"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6636 40.3614)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Public Schools"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1898-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7245002"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.645 40.338)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Rugby"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1876-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7245019"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65397222 40.34769444)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Tower Club"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7250771"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6568 40.3469)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Prospect House"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7262322"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6514 40.344)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Putnam Collection of Sculpture, Princeton University"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7268309"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65272222 40.348)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Quadrangle Club"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7352047"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6543 40.3434)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Roberts Stadium"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2008-09-02T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2008-09-02T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7492143"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6507 40.3395)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Shea Rowing Center"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7619491"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6525 40.33416667)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stony Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7619491"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.651944444 40.334444444)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stony Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7703174"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65397222 40.34716667)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Terrace Club"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7742785"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6422 40.3483)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "The Ivy Club"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1879-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7777383"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6577 40.348)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Theatre Intime"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7801420"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6523 40.3489)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tiger Inn"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7894669"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.651936 40.348086)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "University Cottage Club"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q8023016"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6562 40.3448)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wilson College, Princeton University"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q14705691"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.63643 40.3432)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lake Carnegie"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16256780"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6548 40.3483)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Center of International Studies"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1951-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16997805"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6569 40.3497)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "John C. Green School of Science"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1874-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q17163997"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.657036 40.350335)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "East Asian Library and the Gest Collection"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q17183598"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6579 40.3479)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Evangelical Fellowship"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1931-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q18155002"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6566 40.3502)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Institute for International and Regional Studies"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2003-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q19865576"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6597 40.3496)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "FitzRandolph Gate"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20011449"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.657 40.3507)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton United Methodist Church"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1911-10-11T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20011474"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6712 40.3657)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tusculum"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1773-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20679800"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65336111 40.34780556)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cannon Club"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q22060949"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.64213889 40.33466667)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Washington Road Elm Allée"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q28133982"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.657431111 40.349451111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cotsen Children's Library"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1997-10-31T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q29098228"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.657581 40.350685)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Garden Theatre"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q30272013"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.660676 40.349782)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Fund For New Jersey"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1958-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q30272469"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.669845 40.36115)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "JM Foundation"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1924-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q30287277"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.663964 40.357681)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hillsborough Jr. Raiders"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1992-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q30288445"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.666728 40.358244)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "The Princeton Festival"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2004-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q48741567"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.656171 40.347897)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University School of Architecture"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1919-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q48855326"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.64867 40.34317)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "1981 NCAA Division I Wrestling Championships"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q48855538"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.64866 40.34317)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "1984 NCAA Division I Wrestling Championships"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q49482817"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6475 40.343888888)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "DeNunzio Pool"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q49559059"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.654722222 40.348611111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Scudder Plaza"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q54954534"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65467 40.34835)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University Department of History"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q55220855"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.656046608 40.350146555)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Harvey S. Firestone Memorial Library"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q56281186"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65467 40.34835)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University Department of Economics"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1913-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q60740204"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65362 40.34914)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Center for Information Technology Policy"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2007-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q60741808"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65467 40.34835)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University Graduate School"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1869-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q60742340"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65362 40.34914)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Julis-Rabinowitz Center for Public Policy and Finance"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2011-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q60742606"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65362 40.34914)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University Department of Chemistry"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1795-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q60742972"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65362 40.34914)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University Department of Mathematics"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1760-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q61675799"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.626944444 40.346111111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sarnoff Princeton heliport"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q64142367"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.656161 40.35107)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Technology Advisors (United States)"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2014-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q64221002"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65362 40.34914)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Liechtenstein Institute on Self-Determination"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2000-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q85794547"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65183834 40.345076524)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University Department of Physics"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q89257222"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.63029 40.34436)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lake Carnegie Historic District"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q104480704"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.667442 40.359281)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "iCeutica (United States)"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2011-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q104854012"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.66165 40.35166)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "NotForgotten Digital Preservation Library"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q107311529"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.660305555 40.351694444)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Farmer's Market"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q112114660"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65495 40.34207)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "New College West"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q114662753"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6458 40.345554)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Fitz-Randolph Observatory"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q116700354"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.661147691 40.352596679)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Paul Robeson birthplace"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q116718727"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65722 40.341389)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University Cogeneration"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q117589940"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.63912 40.3369)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Schenck Covenhoven Graveyard"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q120489600"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.630277777 40.343138888)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Millstone Aqueduct"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q121290057"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.658333333 40.348611111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "East Pyne Hall"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1897-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q121290578"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.658611111 40.349083333)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Chancellor Green Library"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1873-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q122572524"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6609918 40.3639956)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "North Princeton"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q124131471"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.658764474 40.349481179)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Andlinger Center for the Humanities"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2004-05-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q126399050"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.652241523 40.345537082)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Five Disks One Empty"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q126399317"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.657963187 40.348622919)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "John Witherspoon memorial (Princeton University)"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2001-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q133815721"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.644013 40.345676)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "TIGER"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2024-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q133815724"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.642151 40.335747)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "TIGER CUB"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2023-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7245026"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.651050566 40.356461508)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University Department of East Asian Studies"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7245028"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.651544 40.35055)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University School of Engineering and Applied Science"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1921-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7355375"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.618888888 40.384166666)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rockingham"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1710-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7445830"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.652 40.3496)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Seeley G. Mudd Manuscript Library"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1976-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7626428"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6853 40.3678)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stuart Country Day School"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1963-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7996609"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.611 40.373)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Whitman College"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q14705927"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6031 40.3334)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wicoff Elementary School"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16238271"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6212 40.3581)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint Joseph's Seminary"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1914-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16892363"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6519 40.3522)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hoagie Haven"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1974-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q17184112"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6475 40.3838)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stone Hill Church of Princeton"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1956-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q19840596"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6549 40.3519)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Community Japanese Language School"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20011420"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6651 40.382)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Donald Grant Herring Estate"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20657091"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.645555555 40.353888888)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Jugtown Historic District"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20657125"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.620833333 40.373888888)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kingston Mill Historic District"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20657494"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.60388889 40.315)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Old Mill Farms"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20657711"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.61916667 40.39777778)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rockingham"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20880789"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65338889 40.35186111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "St. Paul's School"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1880-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q22083139"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.61472222 40.31444444)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Sherbrook Estates"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q24259777"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.620269444 40.3576)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wilberforce School"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2005-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q26475739"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.61084 40.37712)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "The New School for Music Study"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1960-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q30254155"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.624859 40.33994)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "University Medical Center of Princeton"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1919-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q30272669"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6128 40.355958)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Milbank Foundation"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1995-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q30292366"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.627981 40.358467)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Textile Research Institute"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1930-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34727551"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.628888888 40.398611111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Van Horn Brook"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34806909"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.621666666 40.370277777)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Carnegie Lake Dam"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34812411"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.636666666 40.384722222)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Autumn Hill Park"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34821479"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.608611111 40.315)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Grovers Mill Dam"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34830559"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.659444444 40.378888888)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rocky Hill"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34855569"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.606388888 40.372222222)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cook State Natural Area"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34903399"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.602777777 40.326666666)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Plainsboro Pond Dam"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q43895327"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.600191 40.358338)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Metal Powder Industries Federation"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1944-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q49423939"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.616666666 40.394722222)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kingston Quarry"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q50035618"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.655844 40.373613)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Medical Institute"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1991-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q56460232"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.615277777 40.368611111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Nurseries"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q60674896"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.613333333 40.375833333)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kingston Village Historic District"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q61934363"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.657475 40.394355)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Advanced Media Research (United States)"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2005-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q62896121"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.651111111 40.363611111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Shopping Center"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q64142482"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.602031 40.359625)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Semandex Networks (United States)"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2000-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q73331165"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.612222222 40.376111111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kingston Presbyterian Church"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1852-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q73332954"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6154175 40.3751373)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kingston Presbyterian Church cemetery"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q73770152"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.614444444 40.3775)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Laurel Avenue School"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q74473194"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6027788 40.3809412)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Jedediah Higgins House"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1714-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q74844070"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.617275 40.340136111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Medical Center heliport"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q75832353"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6186496 40.3740627)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kingston United Methodist Church"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1879-01-30T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q85650737"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.60309 40.38034)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Higgins Family Burying Ground"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q89034988"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.623694444 40.339111111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Penn Medicine Princeton Medical Center"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q104479892"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.651413 40.382359)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Agile Therapeutics (United States)"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1997-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q106704632"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.61667 40.39611)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Trap Rock Quarry"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q107518242"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.61507 40.33359)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Firmenich (United States)"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1895-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q110795398"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.646755 40.372738)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Trinity All Saints Cemetery"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q110846840"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.620555555 40.373611111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Kingston Mill"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1888-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q111394885"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.60031 40.33853)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Crowne Plaza Princeton"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q112026740"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6118 40.35556)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "The Westin Princeton at Forrestal Village"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q113327853"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.608888888 40.373611111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Withington Estate"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q116721689"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.62569 40.379736)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Solar Project"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q116722040"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.62393 40.339838)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Energy Center, LLC"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q117505062"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.62027 40.3576)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint Joseph Seminary Cemetery"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q117581909"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65412 40.35256)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Saint Paul's Parish Cemetery"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q117682537"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.60322 40.33372)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Old Bethel Methodist Church Cemetery"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q124296207"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65131 40.35394)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "David Bradford Park"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244928"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6594 40.3435)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton station"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1865-01-01T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1865-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244936"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6659 40.3479)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Battle Monument"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1922-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244937"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.64179 40.32989)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Branch"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1865-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244938"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.676855555 40.330858333)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Battlefield"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1777-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244956"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6906 40.3621)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Day School"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1899-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244960"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6781 40.3267)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Friends School"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1987-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7245025"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.665833333 40.340833333)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University Graduate College"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1913-10-22T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7355041"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6614 40.348)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Rockefeller College"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1982-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7619504"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6775 40.3269)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stony Brook Meeting House and Cemetery"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7747034"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6654 40.3507)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "The Lewis School of Princeton"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1973-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7842655"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6646 40.3472)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Trinity Church"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1870-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7858915"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6611 40.3457)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Two Dickinson Street Co-op"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7972082"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.686 40.3308)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Washington Oak"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7989005"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6677 40.351286)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Westland Mansion"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q14705853"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.7 40.3761)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Academy of the Sacred Heart"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1998-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16836694"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.669 40.355)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Elements"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2008-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16886926"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6443 40.3239)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wicked Winter Renaissance Faire"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16933695"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.659333333 40.348722222)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Historic District"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q17064894"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6598 40.3497)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nassau Street"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q19460903"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.695 40.3681)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cedar Grove"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q19461184"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6942 40.3261)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Coxs Corner"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q19759214"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6598 40.3483)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Oval with Points"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1968-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q19864209"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6638 40.3448)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "American Theological Society"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1912-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q19897856"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6624 40.3491)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nassau Christian Center"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20011436"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6636 40.3451)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Miller Chapel"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1834-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20011482"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6629 40.3531)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Witherspoon Street School for Colored Children"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20657121"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.67322 40.34197)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "King's Highway Historic District"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20657386"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.672083333 40.35725)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mountain Avenue Historic District"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20657548"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.66547222 40.34913889)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Peacock Inn"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20657555"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.63694444 40.33222222)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Penns Neck"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20657618"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.67708333 40.36280556)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Ice Company"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1884-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20679814"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.66341667 40.34791667)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Nassau Club"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q20679856"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.66925 40.34636111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Walter Lowrie House"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1845-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q24232675"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.66659 40.34581)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Wright Library"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q26426093"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.676667 40.329167)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Battlefield / Stony Brook Village Historic District"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q28197588"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.64055556 40.32888889)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Penns Neck"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1865-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34721328"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.689444444 40.335277777)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Strawberry Run"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34846489"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.658888888 40.348055555)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cannon Green"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q34846504"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.670833333 40.341388888)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Marquard Park"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q41568373"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.666076 40.346756)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Center Of Theological Inquiry"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1978-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q43021866"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6632777 40.3105245)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "AMC Marketfair 10"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3480538"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6594 40.3505)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Borough of Princeton"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1813-02-11T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3506959"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.655373 40.34683)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Frist Campus Center"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2000-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3819243"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6574 40.3495)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Scheide Library"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4378798"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65689 40.34888)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University Chapel"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1928-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4887062"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6535 40.3488)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bendheim Center for Finance"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1997-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q4908486"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.648146 40.347051)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bill Clarke Field"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1961-03-31T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1961-03-31T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5002595"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6564 40.3446)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Butler College"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5028631"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65444444 40.34755556)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Campus Club"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1909-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5034445"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.651 40.34830556)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cap and Gown Club"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5128027"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6512 40.3413)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Class of 1952 Stadium"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1995-10-14T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1995-10-14T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5134923"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65055556 40.34861111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cloister Inn"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5148302"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6528 40.3488)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Colonial Club"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5174039"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6547 40.3446)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Cosmic Anisotropy Polarization Mapper"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5875017"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6578 40.3429)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Hobey Baker Memorial Rink"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1923-01-05T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1923-01-05T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6121616"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.648595 40.343449)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Jadwin Gymnasium"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1969-01-01T00:00:00Z"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1969-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6138793"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6495 40.348972222)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "James Madison Program in American Ideals and Institutions"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2000-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6283921"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6589 40.3494)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Joseph Henry House"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q6587721"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65003 40.345755)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton University Stadium"
+      },
+      "op" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1998-09-19T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7079287"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6536 40.3491)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Office of Population Research"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1936-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244940"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.66 40.355)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Cemetery"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1756-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q7244945"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65005556 40.34877778)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Charter Club"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q124310524"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.620269444 40.3576)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "French American School Of Princeton"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q124310536"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.620269444 40.3576)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Abbey"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q125558642"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6410754 40.3577937)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Research Group on Manuscript Evidence"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1990-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q134279080"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6419 40.3591)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Alexander House"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q136445508"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.644722222 40.354444444)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Whole Earth Center"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q138683199"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.654304 40.351809)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "St. Paul's Catholic Church (Princeton, New Jersey)"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q138683543"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.64519 40.372591)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "All Saints Episcopal Church (Princeton, New Jersey)"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q43021888"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.664638888 40.310638888)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Prince Theater"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q43021909"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6613583 40.3510817)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Playhouse"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q43282043"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6663 40.3443)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Albert Einstein House"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q49546198"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.675277777 40.331388888)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Battlefield State Park"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q49546200"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.630277777 40.317222222)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Metro Park"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q61675794"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.647777777 40.322051944)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Carnegie Center heliport"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q61675796"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.716666666 40.346602777)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Educational Testing heliport"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q97040893"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.652556 40.318322)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Siuvo (China)"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q112266140"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6819808 40.3331838)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Stony Brook Bridge"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1792-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q115536709"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.66433 40.348863)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Halstead Observatory"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q116719878"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.70778 40.324722)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bristol Myers Squibb Lawrenceville"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q116724308"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.64512 40.32312)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "101 Carnegie Center Solar, LLC"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q116724418"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65551 40.3147)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "510 Carnegie Center"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q116724419"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.64994 40.32358)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "701 Carnegie Center"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q117493885"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.70167 40.36099)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Mathey Family Cemetery"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q117568117"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.70199 40.37573)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Our Lady of Princeton Convent Cemetery"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q117580256"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.69623 40.3492)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Johnson Family Cemetery"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q117585131"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.63646 40.33132)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Princeton Baptist Church Cemetery"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q117587184"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.66475 40.34735)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Trinity Church Cemetery"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q117843825"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.664456 40.348017)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Bayard Rustin Center for Social Justice"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q120868923"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.668055555 40.331805555)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Fuld Hall"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1939-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q120869083"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.667777777 40.331111111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Institute for Advanced Study Historic District"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q120892032"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.671111111 40.325)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Institute Woods"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q120920354"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.668888888 40.329722222)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Institute Pond"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1960-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q121156934"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.668333333 40.335277777)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Olden Manor"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1720-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q121156934"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.668333333 40.335277777)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Olden Manor"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1873-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q124959558"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.674861111 40.32875)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Thomas Clarke House"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1772-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q124960689"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.681416666 40.314111111)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Benjamin Clarke House"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q126396664"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.65965148 40.342506589)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Lewis Center for the Arts"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q129116544"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.659148576 40.347735637)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Clio Hall"
+      },
+      "inc" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "1893-01-01T00:00:00Z"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q134269862"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.6587 40.3478)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Whig Hall"
+      }
+    }, {
+      "i" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q138587028"
+      },
+      "c" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(-74.709638 40.311968)"
+      },
+      "l" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Glencairn, Lawrenceville"
+      }
+    } ]
+  }
+}

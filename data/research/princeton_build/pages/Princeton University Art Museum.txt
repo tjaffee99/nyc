@@ -1,0 +1,388 @@
+{{Short description|Art museum in New Jersey, US}}
+{{Use mdy dates|date=December 2023}}
+{{Use American English|date=December 2023}}
+{{Infobox museum
+| logo            = PrincetonUniversityArtMuseumLogo.svg
+| image           = Princeton_University_Art_Museum.jpg
+| image_size      = 300px
+| pushpin_map     = 
+| established     = 1882
+| type            = [[Art Museum]]
+| key_holdings    = 
+| collection_size = 117,000
+| visitors        = 200,000<ref>{{cite web|title=Annual Report|url=http://artmuseum.princeton.edu/files/_attachments_pages/fy14_ar_final_lores.pdf|website=Princeton University Art Museum}}</ref>
+| director        = James Christen Steward
+| public_transit  = [[Princeton (NJT station)]]
+| parking         = [[Nassau Street (Princeton)|Nassau Street]], Spring Street Parking Garage
+| website         = {{URL|http://artmuseum.princeton.edu|artmuseum.princeton.edu}}
+| embedded        = {{Infobox NRHP
+  | embed = yes
+  | name = McCormick Hall (1923)
+  | part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+  | part_of_ref_num = 75001143<ref>{{cite web|title=Princeton Historic District|url={{NRHP url|id=75001143}}|website=National Register of Historic Places|publisher=National Park Service}}</ref>
+  | nrhp_type = cp
+  | image = Princeton University Art Museum Side View.JPG
+  | alt = 
+  | caption = 
+  | location = McCormick Hall, [[Princeton, New Jersey|Princeton]], [[New Jersey]]
+  | coordinates = {{coord|40|20|49.9|N|74|39|28.9|W|display=inline,title}}
+  | pushpin_map =Mercer County, New Jersey
+  | area = 
+  | built = 1923
+  | architect = [[Ralph Adams Cram]]
+  | architecture = [[Venetian Gothic]]
+  | designated_nrhp_type = 27 June 1975
+  | mpsub =
+}}
+| former_name     = 
+| location        = 
+}}
+
+The '''Princeton University Art Museum''' ('''PUAM''') is the [[Princeton University]] gallery of art, located in [[Princeton, New Jersey]]. With a collecting history that began in 1755, the museum was formally established in 1882, and now houses over 117,000 works of art ranging from antiquity to the contemporary period.  The Princeton University Art Museum dedicates itself to supporting and enhancing the university's goals of teaching, research, and service in fields of art and culture, as well as to serving regional communities and visitors from around the world.  Its collections concentrate on the Mediterranean region, Western Europe, Asia, the United States, and Latin America.
+
+The museum has a large collection of Greek and Roman antiquities, including ceramics, marbles, bronzes, and Roman mosaics from Princeton University's excavations in [[Antioch]]. Medieval Europe is represented by sculpture, metalwork, and stained glass. The collection of Western European paintings includes examples from the early [[Renaissance]] through the nineteenth century, and there is a growing collection of twentieth-century and contemporary art. Photographic holdings are a particular strength, numbering over 27,000 works from the invention of [[daguerreotype]] in 1839 to the present.  The museum is also noted for its Asian art gallery, which includes a wide collection of Chinese calligraphy, painting, ancient bronze works, [[Chinese jade carving|jade carvings]] as well as porcelain selections.  In addition to its collections, the museum mounts regular temporary exhibitions featuring works from its own holdings as well as loans made from public and private collections around the world.
+
+Admission is free and the museum is open Monday - Wednesday 10:00 am to 5:00 pm, Thursday - Friday 10:00 am to 8:00 pm, Saturday 10:00 am to 5:00 pm, and Sunday 12:00 to 5:00 pm.<ref>{{cite web|title=Visit|url=http://artmuseum.princeton.edu/fr/visit|website=Princeton University Art Museum}}</ref>
+
+A new building for the museum has been constructed on the same site over the course of four years starting in 2021 with [[David Adjaye]] serving as architect.<ref>{{cite news |last1=Ting |first1=Isabel |title=Architect selected for new University Art Museum |url=http://www.dailyprincetonian.com/article/2018/09/new-art-museum |newspaper=Daily Princetonian |date=September 18, 2018}}</ref> Demolition of the former facility began in June 2021; construction of the 145,000 square foot facility began late that year. The Museum reopened on October 31, 2025,<ref>{{Cite web |last=Aton |first=Francesca |date=2025-10-31 |title=Princeton's New Museum Feels Intimate Despite Its Overwhelming Size |url=https://www.artnews.com/art-news/news/princeton-university-art-museum-reopening-1234759500/ |access-date=2025-10-31 |website=ARTnews.com |language=en-US}}</ref> with a 24-hour open house to commemorate the occasion.
+
+The Princeton University Art Museum is part of the Monuments Men and Women Museum Network, launched in 2021 by the [[Monuments Men Foundation for the Preservation of Art]].<ref>{{Cite web|title=Monuments Men Foundation I World War II I Art Preservation I Museum Network Connections|url=https://www.monumentsmenfoundation.org/museum-network-connections|access-date=|website=MonumentsMenFdn|language=en}}</ref> Several "[[Monuments, Fine Arts, and Archives program|monuments men]]" are alumni of [[Princeton University]].
+
+==History==
+
+[[File:Nassau Hall Museum (1886).png|thumb|left|The Faculty Room of [[Nassau Hall]] in 1886, when it served as home to the Art Museum]]
+
+===Beginnings===
+
+The first art work owned and displayed by the College of New Jersey (renamed Princeton University in 1896) was a full-length portrait of [[Jonathan Belcher]], the [[List of colonial governors of New Jersey|governor of the province of New Jersey]] who had promoted the establishment of the college.  The portrait was a donation from Belcher himself, given shortly before the college moved in 1756 to the newly built [[Nassau Hall]].  It was joined by a portrait of King [[George II of Great Britain|George II]], who had issued the [[letters patent]] establishing the college.  The two portraits hung in the central prayer hall, and were displayed alongside various [[antiquities]] and objects of [[natural history]].  The two paintings were destroyed during the 1777 [[Battle of Princeton]] and further objects were lost in the 1802 Nassau Hall fire, but the college continued its commitment to collecting and teaching from works of art and historical note.{{sfn|Steward|2013|p=ix}}
+
+[[File:Princeton University Art Museum (1892).png|thumb|left|The first building purpose-built for the Art Museum, in an 1894 photo]]
+
+===Establishment===
+
+The creation of the Art Museum in a more formal sense took place under the leadership of [[James McCosh]], who served as president of the College of New Jersey from 1868&ndash;88.  The Scottish McCosh brought with him from Europe new progressive academic disciplines, including the history of art.  By 1882, McCosh charged [[William Cowper Prime]], a Princeton alumnus and founding trustee of the [[Metropolitan Museum of Art]], and [[George B. McClellan]], the [[American Civil War|Civil War]] general and then [[governor of New Jersey]], with creating a curriculum in the subject.  They argued: "The foundation of any system of education in Historic Art must obviously be in object study. A museum of art objects is so necessary to the system that without it we are of [the] opinion it would be of small utility to introduce the proposed department.” The intention was to go beyond the fields of art and classics to include, “many other branches of the collegiate course.” They anticipated, “large future growth,” as the college could “look with confidence to her sons, in all parts of the world,” for future donations.{{sfn|Steward|2013|p=ix}}
+
+[[File:Bosch follower Christ Before Pilate (Princeton).jpg|thumb|left|[[Hieronymus Bosch]] or a member of his circle, ''Christ Before Pilate'', ca. 1520, gift of Allan Marquand{{sfn|Steward|2013|p=184}}]]
+
+====Allan Marquand (1882&ndash;1922)====
+
+The museum, and what is now the Department of Art and Archaeology, were formally created in 1882, with [[Allan Marquand]], of the Princeton Class of 1874, serving as the inaugural lecturer in the new department and director of the museum, a position he would hold until his retirement in 1922.  Marquand was previously instructor in Latin and logic at the college and was the son of [[Henry Gurdon Marquand]], a major benefactor of the college and one of the founders of the Metropolitan Museum of Art.  The collections of the museum were initially held in Nassau Hall, along with the growing natural history collection of professor [[Arnold Henry Guyot]], part of which is still on display in Guyot Hall.  A new purpose-built fireproof [[Romanesque Revival architecture|Romanesque Revival]] Museum was designed by [[A. Page Brown]] and completed in 1890 on the site of the current museum.
+
+On completion of the building the museum received the Trumball-Prime collection of pottery and porcelain from William Prime and his wife.  Early additions included the purchase of a large collection of Cypriot pottery from the Metropolitan Museum in 1890, and purchases of [[Etruscan art|Etruscan]], Roman, and South Italian pottery.  Marquand established an endowment from his own resources to enable further purchases and it was significantly augmented by a donation from [[Edward Harkness]].{{sfn|Steward|2013|p=x}}
+
+===Growth===
+
+[[File:Seventy-Years-Ago-(1877)-Eakins.jpg|thumb|[[Thomas Eakins]], ''Seventy Years Ago'', 1877, Gift of Mrs. Frank Jewett Mather Jr.]]
+
+====Frank Jewett Mather Jr. (1922&ndash;46)====
+
+[[File:1896, Degas, Bather (Standing Female Nude).jpg|thumb|[[Edgar Degas]], ''Bather (Standing Female Nude)'', 1917, Gift of Frank Jewett Mather Jr.]]
+
+[[Frank Jewett Mather]] joined the faculty in 1910 and succeeded Marquand as museum director in 1922.  He was a collector of Medieval and Renaissance art but also led the university to large holdings of paintings and [[Printmaking|prints]], including the 1933 bequest of several thousand objects by [[Junius Spencer Morgan II]], of the Princeton Class of 1888.  In 1923, the first of many expansions of the Art Museum was completed with the addition of the [[Venetian Gothic]] McCormick Hall, designed by [[Ralph Adams Cram]] and donated by the family of [[Cyrus McCormick, Jr.]], Class of 1879 and [[Harold Fowler McCormick]], Class of 1895.  The new building enabled the older structure to be devoted solely to the museum, and led to the creation of a hall of casts on the ground floor.
+
+As Marquand had before him, Mather augmented the museum's collections through the use of his personal fortune, with contributions ranging from [[Classical antiquity|Classical]] and [[Pre-Columbian era|Pre-Columbian]] antiquities, to [[illuminated manuscript]]s, and what became one of the finest collections of [[Visual art of the United States|American drawings]] in the country.  Major gifts during the 1930s included a collection of more than 40 Italian paintings from Henry White Cannon, Jr., of the Class of 1910, and more than 500 [[snuff bottle]]s, still one of the finest such collections in the country, from Colonel James A. Blair, Class of 1903.  The decade also saw significant collections of [[Chinese art|Chinese]] and [[Japanese art|Japanese]] art added to support the courses of George Rowley, the first in those fields in an American university.  The [[World War II]] years ushered in the first classes in American art.
+
+Notable exhibitions during Mather's tenure included one of works by [[Paul Cézanne]], borrowed from [[Duncan Phillips (art collector)|Duncan Philips]], and one of highlights from the [[Museum of Modern Art]].  Before his retirement in 1946, he oversaw a massive influx of [[Antioch mosaics]] from the [[Excavation (archaeology)|archaeological digs]] at [[Antioch-on-the-Orontes]] in which the university had played a leading part.  Some of the mosaics can be found today not only in the museum but also in various places in [[Firestone Library]].  He also welcomed the collection of [[Dan Fellows Platt]], a massive assortment of fine objects which arrived by van during the war.{{sfn|Steward|2013|p=x-xii}}
+
+[[File:Alfred Stieglitz - The Steerage - Google Art Project.jpg|thumb|left|[[Alfred Stieglitz]], ''[[The Steerage]]'', 1907, the first photo added to the museum's collection, gift of Frank Jewett Mather Jr.]]
+
+====Ernest DeWald (1946&ndash;60)====
+
+Mather was succeeded by Ernest DeWald, a graduate school alumnus of the Class of 1946, one of the [[Monuments, Fine Arts, and Archives program|Monuments Men]] who had been charged with protecting the cultural heritage of Europe during the war.  A large number of Princetonians, both alumni and faculty, served with the Monuments program, leading the [[Kunsthistorisches Museum]] in [[Vienna]] to loan the museum ''[[The Art of Painting]]'' by [[Johannes Vermeer]] as a sign of gratitude.  DeWald was noted for his [[Conservation (cultural heritage)|conservation]] work, personally cleaning paintings in his office on the top floor of the museum.  For the university's bicentennial in 1946, he refurbished the galleries, including displaying a new collection of [[Hanging scroll|Chinese scrolls]] and [[Chinese paintings|paintings]] donated by Dr. [[DuBois Schanck Morris]], Class of 1893.  Under DeWald's tenure, the museum's collection of Asian art greatly increased, aided by the guidance of Professor Wen C. Fong, Class of 1951, who would go on to be the founding director of the Metropolitan Museum of Art's Asian department.  In 1949, [[Alfred Stieglitz]]'s 1907 ''[[The Steerage]]'' was the first of the museum's now considerable collection of photographs.{{sfn|Steward|2013|p=xii-xiii}}
+
+[[File:Princeton University blob.jpg|thumb|left|[[Henry Moore]], ''[[Oval with Points]]'', 1969–1970, part of the [[Putnam Collection of Sculpture, Princeton University|Putnam Collection]], often called "[[Richard Nixon|Nixon's]] Nose" by students<ref>{{cite book|last1=Rhinehart|first1=Raymond|title=Princeton University: The Campus Guide|date=2000|publisher=Princeton Architectural Press|isbn=978-1568982090|page=10|url=https://books.google.com/books?id=Jw16hrKZffAC&q=%22Nixon%27s+Nose%22+%22Oval+with+Points%22&pg=PA10}}</ref>]]
+
+====Patrick Joseph Kelleher (1960&ndash;73)====
+
+Patrick Joseph Kelleher, Class of 1947 and another Monuments Man, succeeded DeWald as director in 1960.  He spearheaded the construction of a new home for the museum, made possible by the university's landmark $53 million [[Fundraising|capital campaign]].  In 1962 the collections were removed to enable the demolition of the A. Page Brown building and the northern wing of the Ralph Adams Cram structure to make way for a Steinmann and Cain designed, [[International Style (architecture)|International Style]] building, completed in 1966.
+
+Perhaps the most visible art on the campus is the [[Putnam Collection of Sculpture, Princeton University|Putnam Collection of Sculpture]]. The collection is the result of an anonymous million dollar 1968 donation in honor of Lieutenant John B. Putnam Jr.,  of the Princeton Class of 1945, who lost his life in a plane crash during World War II.  The collection was assembled in 1969 and 1970 by a committee led by Kelleher and including [[Alfred H. Barr, Jr.]] and [[Thomas Hoving]]. It contains works by seventeen major twentieth century sculptors, including [[Alexander Calder]], [[Pablo Picasso]], [[Henry Moore]], [[Louise Nevelson]], [[Isamu Noguchi]], [[David Smith (sculptor)|David Smith]], and [[Tony Smith (sculptor)|Tony Smith]].<ref>{{cite book|last1=Maynard|first1=William Barksdale|title=Princeton: America's Campus|date=2012|publisher=Penn State University Press|isbn=978-0271050867|pages=193–95|url=https://books.google.com/books?id=TGnOZrXjyzMC&q=Putnam+collection+Princeton&pg=PA194}}</ref>
+
+Kelleher's directorship also saw an increasing focus on photography as an important element of the museum's collections. David Hunter McAlpin, Class of 1920, gave a major collection of photographs to the museum in 1971 as well as endowing a fund for further purchases and a professorship, the first endowed chair in the history of photography in the country. That professorship was occupied by [[Peter Bunnell]], who would go on to succeed Kelleher as director in 1973.{{sfn|Steward|2013|p=xiii-xiv}}
+
+===Further expansion===
+Peter Bunnell served as director until 1978, training a generation of leading scholars and curators of photography, and giving Princeton a preeminent place in the field with a collection in excess of 27,000 photographs, and significant archives of photographers including [[Clarence Hudson White]], [[Minor White]], and [[Ruth Bernhard]].  In 1980, Allen Rosenbaum became director, focusing on expanding the museums collection of [[Old Master]]s, notably [[Renaissance art|Renaissance]] and [[Baroque]] paintings in the [[Mannerism|Mannerist]] tradition.  In 1989, Rosenbaum oversaw another expansion of the museum's physical plant, the {{convert|27000|sqft}} [[Mitchell Wolfson, Jr.]], Class of 1963, Wing.  The new wing, designed by Mitchell/Giurgola, provided additional exhibition space, a conservation studio, as well as seminar and study-storage rooms for all areas of the museum's collection.
+
+Under Susan M. Taylor's directorship in the first decade of the 21st century, the museum established its first endowed curatorships.  The current director, James Steward, presides over a collection of more than 117,000 objects, supplemented by notable collections on long-term loan, including works of [[modern art]] from the [[Ileana Sonnabend|Sonnabend Collection]] and perhaps the finest collection of paintings by [[Jean-Michel Basquiat]], on loan from Herbert Schorr, Graduate School Class of 1963, and his wife, Lenore.{{sfn|Steward|2013|p=xv-xvii}}
+
+In 2015 the museum was listed by [[Fodor's]] as one of the top 15 United States museums  located in a small-town, further described as "one of the best university art museums in the world."<ref>{{cite web|title=15 Best Small-Town Museums in the U.S.|url=http://www.fodors.com/news/photos/15-best-small-town-museums-in-the-us#!4-princeton-university-art-museum|website=Fodor's Travel|date=March 4, 2015}}</ref>
+
+===Adjaye building===
+[[File:Orientation Gallery at the Princeton University Art Museum.jpg|300px|thumb|The Orientation Gallery in the new museum building]]
+In 2018, architect [[David Adjaye]], his firm Adjaye Associates, and executive architects [[Cooper Robertson]] were commissioned to design a wholly new {{convert|144000|sqft|m2|abbr=off}} facility, which is set to double the museum in size.<ref name="theartnewspaper.com">Nancy Kenney (September 23, 2020), [https://www.theartnewspaper.com/news/stone-bronze-glass-pathways-princeton-university-unveils-david-adjaye Stone, bronze, glass, pathways: Princeton University Art Museum unveils David Adjaye's design] ''[[The Art Newspaper]]''.</ref> The three-story museum consists of nine interlocking pavilions with visible storage space and spots where artworks can be inset into floors and walls;<ref>Alex Greenberger (September 23, 2020), [https://www.artnews.com/gallery/art-news/photos/david-adjaye-princeton-university-art-museum-renderings-1234571562/view-4/ David Adjaye Reveals Elegant Designs for Princeton University’s Art Museum: ‘A Campus Within a Campus’]&nbsp;''[[ARTnews]]''.</ref> one of the pavillions is the Marquand Library, Princeton’s art history library which could not be moved.<ref>{{Cite web |last=Lewis |first=Michael J. |date=2025-10-29 |title=Princeton University's Solemn New Art Museum |url=https://www.wsj.com/arts-culture/fine-art/princeton-universitys-solemn-new-art-museum-537867f3 |access-date=2025-11-01 |website=The Wall Street Journal |language=en-US}}</ref> In addition to the museum galleries, the building will incorporate a home for the university's department of art and archaeology and a triple-height grand hall, numerous classroom spaces, seminar rooms, creativity labs and a rooftop café.<ref name="theartnewspaper.com"/> Construction on the new museum began in summer 2021;<ref>{{cite web|title=Project Fact Sheet|url=https://artmuseum.princeton.edu/about/new-museum-princeton/project-fact-sheet#:~:text=Construction%20start%3A%20summer%202021,Project%20completion%3A%20spring%202025|website=Princeton University Art Museum}}</ref> In 2023, the museum's construction and design was handed off to the firm [[Cooper Robertson]] after Adjaye faced [[David Adjaye#Sexual assault allegations|allegations of sexual assault]].<ref name="WainwrightTheGuardian">{{cite news |last1=Wainwright |first1=Oliver |title=‘We want people to get lost!’ Princeton’s new museum survives scandal to deliver a mazey art ambush |url=https://www.theguardian.com/artanddesign/2025/oct/27/princeton-university-art-museum-david-adjaye-scandal |access-date=14 December 2025 |work=The Guardian |date=27 October 2025}}</ref> 
+
+In anticipation of these disruptions, in September 2019 the museum opened Art@Bainbridge in historic Bainbridge House as a gallery space for experimental work. Two months later it opened a satellite museum store on Palmer Square in downtown Princeton. In late 2021, the museum opened a second, interim gallery space known as Art on Hulfish, largely dedicated to photography and time-based media, which it operated until January 2025, closing it in anticipation of the new museum's opening later in the year.
+
+The new facility opened on October 31, 2025 with a special 24 hour opening period running until the following day. The new building had cost approximately $300 million to build,<ref name="SchulzNJ.com">{{cite news |last1=Schulz |first1=Dana |title=Inside Princeton’s breathtaking new art museum, $300 million and 7 years in the making |url=https://www.nj.com/entertainment/2025/11/inside-princetons-breathtaking-new-art-museum-300-million-and-7-years-in-the-making.html |access-date=14 December 2025 |work=NJ.com |date=12 November 2025 |language=en}}</ref> and the museum's operating budget has risen to $30 million, comparable to the budget of the  [[Harvard Art Museums]] and the [[Frick Collection]].<ref name="SheetsNYT">{{cite news |last1=Sheets |first1=Hilarie M. |title=A Storied Art Collection at Princeton Gets a New Home |url=https://www.nytimes.com/2025/10/16/arts/princeton-university-art-museum.html |access-date=14 December 2025 |work=The New York Times |date=16 October 2025}}</ref>
+
+==Collections==
+
+===African art===
+
+[[File:Ethiopian, Illuminated Manuscript, 18th century.jpg|thumb|[[Ethiopian]], ''[[Illuminated Manuscript]]'', 18th century{{sfn|Steward|2013|p=169}}]]
+The collection of [[African art]] is designed to reveal the diversity of artistic work across the continent.  Objects are on display from west, central, and South Africa, ranging from royal regalia and objects of prestige, to sculptures marking rites of passage, to those intended to facilitate interaction with spiritual entities.
+
+The first bequest to the Museum of African art was made in 1953 by Mrs. Donald B. Doyle, in honor of her husband.  That collection was accumulated before 1923 in what is now the [[Democratic Republic of the Congo]], and includes a distinctively shaped [[Kuba Kingdom|Kuba]] box and a rare double caryatid headrest from the [[Chokwe people]].  More recent gifts have been made by Perry E.H. Smith, including a Chokwe chair, and by H. Kelly Rollings, among whose gifts is an emblem of the Leopard Society, a notable example of an accumulative object from the [[Cross River (Nigeria)|Cross River]] region.  A 1998 bequest of John B. Elliot includes many objects of daily use and adornment, as well as [[Akan people|Akan]] gold pieces, from a linguist's staff to a chief's bracelet.  In 2003, a [[Yoruba people|Yoruba]] stool was acquired, considered a sculptural masterpiece that served as the focus of devotion to the god [[Eshu|Esu]].
+
+The African art collection has grown steadfastly as an area of growing interest{{sfn|Steward|2013|p=147}} over the past twenty years, particularly since the appointment in 1997 of Princeton's first professor of African art history, Chika Okeke-Agulu, and the naming in 2022 of its first curator of African art, Perrin Lathrop.
+
+{{Commons-inline|Category:African art in the Princeton University Art Museum|African art in the Princeton University Art Museum}}
+
+{{clear}}
+
+===American art===
+
+[[File:Winslow Homer - At the Window - Google Art Project.jpg|thumb|150px|[[Winslow Homer]], ''At the Window'', 1872{{sfn|Steward|2013|p=248}}]]
+The university received its first pieces of American art in the 1750s, but only started collecting in earnest under the directorship of Frank Jewett Mather Jr. (1922&ndash;46).  Few museums accorded significance to American art at the time, allowing Princeton to amass a collection that is among the finest of any academic museum.  The collection is particularly strong in painting and sculpture, greatly aided by the large number of portraits of figures affiliated with the university.  The museum is strong in the area of landscape painting, especially from the [[Hudson River School]].
+
+The [[Elias Boudinot|Boudinot Collection]] of primarily 18th century fine and decorative art were formerly on display in period rooms created in the museum facility constructed in the 1960s, and subsequently at the nearby [[Morven (Princeton, New Jersey)|Morven Museum and Garden]], whose original owners, the [[Richard Stockton (Continental Congressman)|Stockton family]], were relatives of the Boudinots.  Alumnus Edward Duff Balken's donation of [[Folk art]] led to a substantial collection in that area.  New acquisitions, enabled by dedicated endowed funds, are focused on areas where the collection has been less strong, notably [[still life]], [[Genre art|genre painting]], works by native makers, and African American art.{{sfn|Steward|2013|p=225}}
+
+{{Commons-inline|Category:American art in the Princeton University Art Museum|American art in the Princeton University Art Museum}}
+
+{{clear}}
+
+<gallery mode="packed" heights="180px">
+File:Elkanah Watson 1782 John Singleton Copley.jpg|[[John Singleton Copley]], ''[[Elkanah Watson]]'', 1782.{{sfn|Steward|2013|p=228}}  The ship in the background represents the departure to America of the acknowledgement of the independence of the United States.<ref>{{cite book|last1=Bayley|first1=Frank William|last2=Perkins|first2=Augustus Thorndike|title=The Life and Works of John Singleton Copley: Founded on the Work of Augustus Thorndike Perkins|date=1915|publisher=Taylor Press|pages=254–5|url={{Google books|NY7qAAAAMAAJ|The Life and Works of John Singleton Copley: Founded on the Work of Augustus Thorndike Perkins|page=254|plainurl=yes}}}}</ref>
+File:1859, Durand, Asher Brown, Landscape.jpg|[[Asher Brown Durand]], ''Landscape'', 1859, part of the [[Hudson River School]]{{sfn|Steward|2013|p=239}}
+File:William Merritt Chase - Shinnecock, Long Island (c.1896).jpg|[[William Merritt Chase]], ''Landscape: Shinnecock, Long Island'', ca. 1896
+File:Oak chair made by Charles Rohlfs, 1898-99, Princeton University Art Museum.JPG|[[Charles Rohlfs]], ''Tall Back Chair'', ca. 1898&ndash;99{{sfn|Steward|2013|p=258}}
+File:Portrait of Charles Percival Buck.jpg|[[Thomas Eakins]], ''Portrait of Charles Percival Buck'', 1904
+File:Rainy Day, Fifth Avenue.jpg|[[Childe Hassam]], ''Rainy Day, Fifth Avenue'', 1916, part of his [[Childe Hassam#The Flag series|Flag series]]{{sfn|Steward|2013|p=256}}
+</gallery>
+
+===Ancient, Byzantine, and Islamic art===
+
+[[File:Roman, Mosaic pavement head of Medusa, late 2nd century A.D.jpg|thumb|Roman, Antioch, mosaic pavement, ''head of Medusa'', late 2nd century A.D.]]
+
+Ancient art has played a central role in the museum's collection since its beginning.  The first major addition to the collection included many [[Etruscan art|Etruscan]] vases, as well as those from [[Art of ancient Egypt|Egypt]], [[Greek art|Greece]], and [[Roman art|Rome]].  There are now more than 5,000 objects in the collection, documenting the early civilizations of [[Mesopotamia]], Iran, [[Anatolia|Asia Minor]], and the [[Levant]].  The great diversity of artifacts also covers the various eras of ancient Egypt, from pottery to stone [[relief]]s, amulets, wall paintings, bronze statuettes, and mummies.  The Greek collection includes significant works of both [[Black-figure pottery|black-figure]] and [[Red-figure pottery|red-figure]] pottery, including the vase used to identify the [[Princeton Painter]].  It spans the broad range of artistic work, from [[Archaic Greece|Archaic]] bronze statuettes to [[terracotta]] figurines, jewelry to funerary reliefs, pottery from [[Rhodes]], [[Cyprus]], and [[Ancient Corinth|Corinth]].
+
+Ancient Italy is in particular well represented in the collection, from the Etruscan vases, metalwork, and sculptures to a great breadth of Roman antiquities.  The Roman collection includes portraits, sculptures, [[sarcophagi]], carved bone, coins, statuettes, and a spectacular silver-gilt wine cup.  The university's heritage of archaeological work in [[Syria (Roman province)|Roman Syria]] has left a legacy of basalt sculptures from [[Hauran]], funerary reliefs from [[Palmyra]], and a renowned collection of [[Antioch mosaics]].
+
+Byzantine and Islamic art are an equally esteemed focus of the collection, with icons and jewelry from [[Constantinople]] sharing a gallery with pottery, metalwork, and glazed tiles from Egypt, Syria, and Iran.
+
+{{Commons-inline|Category:Ancient Art in the Princeton University Art Museum|Ancient, Byzantine, and Islamic art in the Princeton University Art Museum}}
+
+{{clear}}
+
+<gallery mode="packed" heights="200px">
+File:Princeton University Art Museum Ancient Mediterranean Art Gallery.jpg| The Ancient Mediterranean Art Gallery in the new museum
+File:Princeton University Art Museum - Hermaphroditus.jpg|Greek, [[Hellenistic]], ''Statuette of Hermaphrodite'', 2nd century B.C.
+File:Relief with Menander and New Comedy Masks - Princeton Art Museum.jpg|Roman, [[Roman Republic|Republican]] or [[Roman Empire|Early Imperial]], ''Relief of a seated poet ([[Menander]]) with masks of [[New Comedy]]'', 1st century B.C. – early 1st century A.D.
+File:Mosaic pavement drinking contest of Herakles and Dionysos.jpg|Roman, [[Antioch]], [[mosaic]] pavement, ''Drinking contest of Herakles and Dionysos'', early 3rd century A.D.
+File:Greek, Late Byzantine - The Archangel Gabriel, from an Annunciation scene on the King's Door of an iconostasis - Google Art Project.jpg|Greek, Late [[Byzantine]], ''The Archangel [[Gabriel]], from an [[Annunciation]] scene on the King's Door of an [[iconostasis]]'', second half of the 15th century
+</gallery>
+
+===Pre-Columbian art===
+[[File:God L with the Hero Twins.jpg|thumb|300px|[[Mesoamerican chronology#Classic Era|late Classic]], [[Ancient Maya art|Maya]] ('Codex' style), ''[[The Princeton Vase]]'', A.D. 670–750]]
+The collection of [[Pre-Columbian art|the art of the ancient Americas]] includes objects covering five thousand years of history, from the Arctic to Chile.  The collection's primary focus is on small, portable works of art, typically ceramic or stone. Of particular note are the more than twenty prized polychrome ceramic works, the Classic Mayan [[Princeton Vase]], and over thirty ceramic figurines, from the lowland [[Ancient Maya art|Maya]] region.  The collection of [[Olmec]] objects comprises smaller jade, [[Serpentinite|serpentine]], and ceramic works.  Of the collection's works from [[South America]], the most notable are those from the [[Moche culture|Mochica culture]], which flourished in Peru between 200 B.C. and A.D. 700.  The museum's holdings in [[Indigenous peoples of the Americas|Native American]] art include important collections of Arctic [[Walrus ivory|Walrus carvings]], art of the [[Tlingit]] people, and a growing representation from the [[Mississippian culture|Mississippi Valley]] and the [[Southwestern United States|American Southwest]].
+
+The collection of Pre-Columbian works began in the 19th century through the efforts of the Reverend [[Sheldon Jackson]], an 1855 graduate of the [[Princeton Theological Seminary]].  He donated a collection of Native American ethnographic objects to the Seminary, which transferred them to the university's E. M. Museum of Geology and Archaeology, then in 1909 to the Guyot Hall Museum, which, after its closure in 2000, gave them to the Art Museum.  As with the art of Africa and [[Oceania]], Indigenous American art was not a focus of the museum's historic collecting.  Nonetheless, objects were steadily donated during the early decades of the museum, including in the Trumbull-Prime Collection and the donations of Frank Jewett Mather Jr.  The collection of ancient American art received its proper attention following the 1967 appointment of Gillett G. Griffin as faculty curator, a position he held until 2004.  The current collection is largely the result of his efforts, both through his own collections and his influence on donors.{{sfn|Steward|2013|p=107}}
+
+{{Commons-inline|Category:Pre-Columbian art in the Princeton University Art Museum|Art of the Ancient Americas in the Princeton University Art Museum}}
+
+{{clear}}
+
+===Asian art===
+
+[[File:Scroll for Zhang Datong.jpg|thumb|300px|[[Huang Tingjian]], ''Scroll for Zhang Datong'', A.D. 1100,{{sfn|Steward|2013|pp=20–21}} a canonical work of [[Chinese calligraphy]]<ref>{{cite book|last1=Patton|first1=Andy J.|title=""A Painter's Brush That Also Makes Poems": Contemporary Painting After Northern Song Calligraphy"|date=2013|publisher=Electronic Thesis and Dissertation Repository, Paper 1302|url=http://ir.lib.uwo.ca/etd/1302}}</ref>]]
+
+The collection of Asian art began with the foundation of the museum, with the primary focus for the early decades being [[Japanese art]].  Major collections of [[Chinese art]] were incorporated in the 1930s and 40s, including the snuff bottle collection of James A. Blair. [[Dubois Schanck Morris]] presented his collection of 460 paintings in 1947.<ref>{{citation|first= George|last= Rowley|date= 1947 |title= The Morris Collection of Chinese Paintings |journal= Record of the Museum of Historic Art, Princeton University|volume= 6|number= 1/2 |pages= 2–3|doi= 10.2307/3774163|jstor= 3774163|url=https://doi.org/10.2307/3774163|url-access= subscription}}</ref>  The late 1950s brought significant additions of [[Chinese ritual bronzes]] and archaeological artifacts from J. Lionberger Davis, Class of 1900, as well as acquisitions from the Chester Dale and Dolly Carter Collection.
+
+The primary strengths of the museum's collection are in Chinese and Japanese art, including [[Neolithic]] jade and pottery, ritual bronze vesslels, lacquerware, ceramics, sculpture and metalware, and woodblock prints.  The museum's collection of calligraphy and painting is among the finest outside of Asia, including rare masterpieces from the [[Song dynasty|Song]] and [[Yuan dynasty|Yuan dynasties]] such as [[Huang Tingjian]]'s ''Scroll for Zhang Datong''.  The collection also has significant holdings in [[Korean art]], including a growing collection of artifacts ranging from the [[Three Kingdoms of Korea|Three Kingdoms]] period to the [[Joseon dynasty]].  The art of [[Indian art|India]], [[Gandhara]], Southeast Asia, and Central Asia are also represented, with the influence of Islam and Hinduism on the artistic traditions of the subcontinent represented through sculpture, statuettes, and painted miniatures.{{sfn|Steward|2013|p=3}}
+
+{{Commons-inline|Category:Asian Art in the Princeton University Art Museum|Asian art in the Princeton University Art Museum}}
+
+{{clear}}
+
+<gallery mode="packed" heights="180px">
+File:Ni Zan(倪瓚) - Twin Trees by the South Bank (Annan shuangshu) - Google Art Project.jpg|[[Ni Zan]](倪瓚), ''Twin Trees by the South Bank (Annan shuangshu)'', 1353
+File:Japanese Poems from Ancient and Modern Times.jpg|[[Honami Kōetsu|Hon'ami Kōetsu]], ''Selections from the New Collection of Japanese Poems from Ancient and Modern Times (Shinkokin wakashū) with Printed Designs of Plants and Animals'', before 1615
+File:Japanese - Messenger of Love (Fumitsukai byōbu-e) - Google Art Project.jpg|[[Japan]]ese, ''Messenger of Love (Fumitsukai byōbu-e)'', 1624 - 1644
+</gallery>
+
+===Campus Collections===
+[[File:Charles Willson Peale - George Washington at the Battle of Princeton - Google Art Project.jpg|thumb|150px|[[Charles Willson Peale]], ''[[George Washington]] at the [[Battle of Princeton]]'', 1784{{sfn|Steward|2013|pp=226–227}}]]
+The Campus Collections comprise the multitude of paintings, sculptures, memorials, and monuments significant to the university's history and traditions.  Central to the collection are the [[Princeton Portraits]], numbering more than 600 paintings and sculptures which depict figures prominent in the history of the university.  The portraits span the breadth of American history, including the landmark portrait, ''George Washington at the Battle of Princeton'', by [[Charles Willson Peale]].  Washington himself provided the funds for the work.  Another highlight is the series of paintings by renowned sculpture and [[natural history]] artist [[Benjamin Waterhouse Hawkins]] which depict dinosaurs and other prehistoric [[fauna]].  The series was commissioned by Princeton president [[James McCosh]] in 1876 as a progressive response to [[Charles Darwin]]'s theories.
+
+The collection is also home to the celebrated [[Putnam Collection of Sculpture, Princeton University|Putnam Collection]], which comprises 22 works by master artists of the 20th and 21st centuries.  The collection was the result of an anonymous donation in honor of a Princeton alumnus who died in [[World War II]].  It is commonly regarded as one of the greatest collections of public art, providing a ''plein-air'' lesson in art history.  Among the highlights of the collection are ''[[Oval with Points]]'' by [[Henry Moore]] and ''Five Disks: One Empty'' by [[Alexander Calder]],<ref>{{cite web|title=Campus Collections|url=http://artmuseum.princeton.edu/collections/1416/view|website=Princeton University Art Museum}}</ref> whose father, [[Alexander Stirling Calder|A. Stirling Calder]], had previously created a statue of [[Saint George and the Dragon]] on Princeton's Henry Hall.<ref>{{cite book|last1=Maynard|first1=William Barksdale|title=Princeton: America's Campus|date=2012|publisher=Penn State University Press|isbn=978-0271050867|page=248|url=https://books.google.com/books?id=TGnOZrXjyzMC&q=Alexander+Calder}}</ref>  Calder's work was responsible for an accident during its installation where two men were killed after the sculpture was dropped on them due to a crane collapse.  Another highlight of the Putnam collection is [[Pablo Picasso]]'s ''Head of a Woman'', which was designed by Picasso in 1962, though assembled by [[Carl Nesjar]] in 1971.<ref>{{cite book|last1=Maynard|first1=William Barksdale|title=Princeton: America's Campus|date=2012|publisher=Penn State University Press|isbn=978-0271050867|page=194|url=https://books.google.com/books?id=TGnOZrXjyzMC&q=Alexander+Calder}}</ref>
+
+{{Commons-inline|Category:Campus Collections of Princeton University|Campus Collections of Princeton University}}
+
+{{clear}}
+
+<gallery mode="packed" heights="200px">
+File:Netscher, Caspar, William III, King of England, Prince of Orange and Nassau (1650–1702), ca. 1672–89.jpg|[[Caspar Netscher]], ''[[William III of England|William III]], King of England, Prince of Orange and Nassau (1650–1702)'', ca. 1672–89, after whom the name [[Nassau Hall]] and the color orange to represent Princeton were chosen<ref>{{cite web|title=William III, King of England, Prince of Orange and Nassau (1650–1702) (PP1)|url=http://artmuseum.princeton.edu/collections/objects/44861|website=Princeton University Art Museum}}</ref>
+File:Kneller, Godfrey, George II, King of England (1683-1760), ca. 1727-32.jpg|After Sir [[Godfrey Kneller]], ''[[George II of Great Britain|George II]], King of England (1683-1760)'', ca. 1727–32, the monarch who issued the [[letters patent]] establishing the College of New Jersey, now Princeton University<ref>{{cite web|title=George II, King of England (1683–1760) (PP2)|url=http://artmuseum.princeton.edu/collections/objects/45214|website=Princeton University Art Museum}}</ref>
+File:Benjamin Waterhouse Hawkins Pleistocene Fauna of Asia.jpg|[[Benjamin Waterhouse Hawkins]], ''[[Pleistocene]] [[Fauna]] of Asia'', 1876, part of the series commissioned by [[James McCosh]] in response to the new theory of [[evolution]]
+File:Elizabeth Allen Marquand.jpg|[[John Singer Sargent]], ''Elizabeth Allen Marquand'', 1887, mother of the museum's first director, Allan Marquand{{sfn|Steward|2013|p=252}}
+File:Holzer, J. A., Homeric Story (center detail), 1894.jpg|[[Jacob Adolphus Holzer]], ''Homeric Story'', 1894, center detail of the mosaic in [[Alexander Hall (Princeton University)|Alexander Hall]], depicting [[Homer]] seated at center with [[Mentor (Odyssey)|Mentor]], [[Helen of Troy|Helen]], and [[Paris (mythology)|Paris]] on the right and [[Telemachus]], [[Penelope]], [[Odysseus]], and [[Achilles]] on the left
+</gallery>
+
+===European art===
+
+[[File:The Mocking of Christ (van Dyck).jpg|thumb|[[Anthony van Dyck]], ''The Mocking of Christ'', 1628-30{{sfn|Steward|2013|pp=196–197}}]]
+
+The collection of [[European art]] covers nearly nine hundred years, from the twelfth century to the 20th.  The strengths of the museum's holdings within this broad spectrum often reflect the Department of Art and Archaeology's curriculum, though with many unexpected treasures, due to the interests of donors.{{sfn|Steward|2013|p=173}}
+
+The collection of [[medieval art]] is primarily the result of museum purchases, demonstrating the techniques and materials of artists, as well as the secular and spiritual uses of their work.  Among the collection of stained glass is a window from [[Chartres Cathedral]],<ref name=European>{{cite web|title=European Art|url=http://artmuseum.princeton.edu/collections/599/view|website=Princeton University Art Museum|publisher=Princeton University}}</ref> and the collection of medieval sculpture includes a ''[[gisant]]'' of a Spanish knight.<ref>{{cite web|title=Gisant: knight in armor|url=http://artmuseum.princeton.edu/collections/objects/27222|website=Princeton University Art Museum|publisher=Princeton University}}</ref>  Other strengths are [[polychrome sculpture]] from Spain and Germany; French, German, and Italian metalwork; and [[Vitreous enamel|enamels]] and [[Ivory carving|ivories]] from France.
+
+Notable in the early modern collection are the rare thirteenth- and fourteenth-century Italian [[gold-ground painting]]s from [[Siena]] including works by [[Fra Angelico]], [[Francesco Traini]], and [[Guido da Siena]].  The museum is home to an unusual group of Dutch [[Mannerism|Mannerist]] paintings from around 1600, including works by [[Hendrik Goltzius]] and [[Abraham Bloemaert]], the richest of its kind in an American museum. [[Baroque art]] is represented by [[Pietro da Cortona]] and [[Giovanni Battista Gaulli]].  Notable [[rococo]] masters include [[Jean-Siméon Chardin]] and [[François Boucher]]. [[Age of Enlightenment]] paintings include works by [[Angelica Kauffman]], [[Francisco de Goya]], and the studio of [[Jacques-Louis David]].<ref name=European/>
+
+The nineteenth-century collection consists of works from the [[Age of Revolution]] and [[Industrial Age]] which trace academic traditions and preparatory processes.  Themes represented include the rise of [[Landscape painting]], the human figure, the collecting of small sculpture, and the successive cultural and stylistic waves—[[Revivalism (architecture)|revival styles]], [[Orientalism]], [[Impressionism]], and the [[Arts and Crafts movement]].{{sfn|Steward|2013|p=173}}  Among the major artists represented are [[Jean-Léon Gérôme]], [[Gustave Courbet]], [[Claude Monet]], and [[Édouard Manet]].<ref name=European/>
+
+Early-twentieth-century modernist movements are represented by works by [[Odilon Redon]], [[Gabriele Münter]], and Russian master [[Ilya Repin]], whose paintings are rare outside his homeland.  The museum continues to expand its collection of twentieth-century art, allowing visitors and students to assess the European contribution to [[Modernism]].{{sfn|Steward|2013|p=173}}
+
+The [[Henry Pearlman|Henry and Rose Pearlman Foundation]] has placed its collection of [[Post-Impressionist]] art on loan to the museum, including works by [[Vincent van Gogh]], [[Paul Cézanne]], [[Amedeo Modigliani]], [[Henri de Toulouse-Lautrec]], and [[Chaïm Soutine]].<ref name=European/>
+
+{{Commons-inline|Category:European art in the Princeton University Art Museum|European art in the Princeton University Art Museum}}
+
+{{clear}}
+
+<gallery mode="packed" heights="180px">
+File:Guido da Siena - Annunciation - Google Art Project.jpg|[[Guido da Siena]], ''[[Annunciation]]'', 1262-1279{{sfn|Steward|2013|p=176}}
+File:The Four Evangelists (Abraham Bloemaert).jpg|[[Abraham Bloemaert]], ''The Four Evangelists'', ca. 1612-1615{{sfn|Steward|2013|p=193}}
+File:Angelica Kauffmann - Portrait of Sarah Harrop (Mrs. Bates) as a Muse - Google Art Project.jpg|[[Angelica Kauffmann]], ''Portrait of [[Sarah Bates (singer)|Sarah Harrop]] (Mrs. Bates) as a Muse'', ca. 1780&ndash;81
+File:Francisco José de Goya y Lucientes - Monk Talking to an Old Woman - Google Art Project.jpg|[[Francisco de Goya]], ''Monk Talking to an Old Woman'', 1824-25{{sfn|Steward|2013|p=210}}
+</gallery>
+
+===Modern and contemporary art===
+[[File:Water-Lilies-and-Japanese-Bridge-(1897-1899)-Monet.jpg|thumb|[[Claude Monet]], ''Water Lilies and Japanese Bridge'', 1899{{sfn|Steward|2013|p=219}}]]
+
+The Department of Modern and Contemporary Art encompasses works created throughout the world between 1870 and the present, including painting, sculpture, video, and performance.  The systematic collection of modern works began in the late 1940s, with many key pieces received as alumni gifts or bequests.  The collection includes an important group of late landscapes by [[Claude Monet]] as well as an enigmatic painting by Édouard Manet, found in his studio after his death.<ref>{{cite book|last1=Manet|first1=Édouard|last2=Cachin|first2=Françoise|last3=Moffett|first3=Charles S.|last4=Bareau|first4=Juliet Wilson|author4-link=Juliet Wilson-Bareau|title=Manet, 1832-1883|date=1983|publisher=Metropolitan Museum of Art|location=New York City|isbn=978-0870993596|pages=93–95|url={{Google books|sjSya-h9TYQC|title=Manet, 1832-1883|page=94|plainurl=yes}}}}</ref>  Twentieth-century [[modernism]] is represented by a small but stellar group of works by artists including [[Odilon Redon]], [[Vasily Kandinsky]], [[Gabriele Münter]], [[Emil Nolde]], [[Max Ernst]], [[Pablo Picasso]], [[Yves Tanguy]], and [[Jean Arp]].  A rare late work by [[Ilya Repin]] is among his most important works outside his native Russia.
+
+One of the most important works in the museum's [[Post-war|postwar]] collection is [[Willem de Kooning]]'s ''Black Friday'', from his breakthrough exhibition in 1948.  Other artists represented in the strong collection of postwar art include [[Romare Bearden]], [[Lee Bontecou]], [[Dan Flavin]], [[Yayoi Kusama]], [[Sol LeWitt]], [[Morris Louis]], [[Ad Reinhardt]], [[Martha Rosler]], [[David Smith (sculptor)|David Smith]], [[Robert Smithson]], [[Frank Stella]], and [[Hannah Wilke]], among others.  The museum's holding in [[Pop art]] are particularly strong, including works by [[George Segal]], [[Tom Wesselmann]], and [[Andy Warhol]]. The museum renewed its commitment to contemporary art in 2008, with priority given to works that make significant contributions to the field and exemplify the pressing cultural, social, and philosophical issues of their day.  Recent acquisitions include artwork by [[Doug Aitken]], [[Allora & Calzadilla|Jennifer Allora & Guillermo Calzadilla]], [[Polly Apfelbaum]], [[Sanford Biggers]], [[Ellen Gallagher]], [[Wade Guyton]], [[Matthew Day Jackson]], [[Wangechi Mutu]], and [[Javier Téllez]].<ref>{{cite web|title=Modern and Contemporary Art|url=http://artmuseum.princeton.edu/collections/2712/view|website=Princeton University Art Museum|publisher=Princeton University}}</ref>
+
+{{Commons-inline|Category:Modern art in the Princeton University Art Museum|Modern art in the Princeton University Art Museum}}
+
+{{clear}}
+
+<gallery mode="packed" heights="180px">
+File:Édouard Manet - Gitane avec une cigarette.jpg|[[Édouard Manet]], ''Gypsy with a Cigarette'', before 1883{{sfn|Steward|2013|p=214}}
+File:Gauguin, Paul, Figures in an Interior, ca. 1890.jpg|[[Paul Gauguin]], ''Figures in an interior'', ca. 1890
+File:Redon, Odilon, Apparition, 1905-10.jpg|[[Odilon Redon]], ''Apparition'', 1905–10
+File:1914, Henri, Robert, Mildred Clarke von Kienbusch.jpg|[[Robert Henri]], ''Mildred Clarke von Kienbusch'', 1914
+File:George Bellows - California Headlands (1917).jpg|[[George Bellows]], ''California Headlands'', 1917
+</gallery>
+
+===Photography===
+
+[[File:Dumbarton Presbytery.jpg|thumb|[[Hill & Adamson|David Octavius Hill and Robert Adamson]], ''Dumbarton Presbytery'', 1845{{sfn|Steward|2013|p=366}}]]
+
+Princeton's photography collection is one of the leading museum collections in the United States.  The start of the collection was the 1949 gift by retired director Frank Jewett Mather Jr. of [[Alfred Stieglitz]]'s landmark image ''[[The Steerage]]''.  The decisive moment for the medium at Princeton came in 1971 when [[David Hunter McAlpin (art collector)|David Hunter McAlpin]], Class of 1920, made a donation of his collection of 457 prints.  McAlpin was a friend and patron to two generations of American photographers, donating significant representations of the work of Stieglitz, [[Paul Strand]], [[Charles Sheeler]], [[Ansel Adams]], [[Wynn Bullock]], [[Imogen Cunningham]], [[Edward Weston]], and [[Eliot Porter]], among others.  McAlpin also established a fund which has enabled, over time, the purchase of some 400 photographs, including work by [[Hill & Adamson]], [[László Moholy-Nagy]] and [[William Henry Fox Talbot]].<ref name=Photography>{{cite web|title=Photography|url=http://artmuseum.princeton.edu/collections/600/view|website=Princeton University Art Museum|publisher=Princeton University}}</ref>{{sfn|Steward|2013|p=363}}
+
+In 1972, Peter C. Bunnell, later museum director, was hired as the David H. McAlpin Professor of the History of Photography and Modern Art, making Princeton the first American university, and one of only a few worldwide, where photography was taught within the art history curriculum.  In his nearly thirty years at Princeton, he went on to build one of the foremost graduate programs in the field and to build one of the most notable teaching collections of historical photographs.  The construction of the McAlpin Study Center during the expansion of the museum in 1989 created a space for seminars to be taught using original works from the collection.
+
+The collection includes work covering all major movements and historical trends.  Particular strengths include nineteenth-century British photography, French photographs of the 1850s-1870s, and Japanese and American postwar photography.  The museum has major holdings in [[Pictorialism]], anchored by the [[Clarence H. White]] collection and the archives of his eponymous school of photography.  In 1976, [[Minor White]] bequeathed to the museum his negatives, library, correspondence, and close to 20,000 prints of his own and other artists.  Other archives held by the museum include those of [[Ruth Bernhard]] and [[William B. Dyer]].<ref name=Photography/>{{sfn|Steward|2013|p=363}}
+
+{{Commons-inline|Category:Photographs in the Princeton University Art Museum|Photographs in the Princeton University Art Museum}}
+
+{{clear}}
+
+<gallery mode="packed" heights="180px">
+File:Brig on the Water.jpg|[[Gustave Le Gray]], ''Brig on the Water'', 1856{{sfn|Steward|2013|p=369}}
+File:View from Inspiration Point.jpg|[[Carleton Watkins]], ''[[Yosemite Valley|View from Inspiration Point]]'', 1879{{sfn|Steward|2013|p=375}}
+File:Hine, Lewis, Adolescent Girl, a Spinner, in a Carolina Cotton Mill, 1908.jpg|[[Lewis W. Hine]], ''Adolescent Girl, a Spinner, in a Carolina Cotton Mill'', 1908{{sfn|Steward|2013|p=381}}
+</gallery>
+
+===Prints and drawings===
+
+[[File:Dancers-(1900)-Degas.jpg|thumb|[[Edgar Degas]], ''Dancers'', 1900, [[pastel]] with charcoal on tracing paper mounted on cream [[wove paper]]{{sfn|Steward|2013|pp=344–345}}]]
+
+The collection of Prints and Drawings includes 15,000 works on paper as well as a small number of [[Illuminated manuscript]]s, by artists from the fourteenth century to the present.  Notable areas of strength include [[Old master print|old master]] and nineteenth-century European [[Printmaking|prints]], Italian and Spanish [[Renaissance]] and [[Baroque]] [[drawing]]s, eighteenth- and nineteenth-century American and British drawings, [[Watercolor painting|watercolors]], and [[sketchbook]]s, a selection of Indian and Persian [[Persian miniature|miniature painting]], and a large collection of modern and contemporary Latin American works on paper.
+
+The print collection began with the large bequest of [[Junius Spencer Morgan II|Junius Spencer Morgan]], Class of 1888, in 1932, which included old master [[engraving]]s and [[etching]]s, primarily by the notable seventeenth-century printmakers [[Hendrik Goltzius]], [[Jacques Callot]], and [[Stefano della Bella]].  In 1938, another bequest, by [[Dan Fellows Platt]], Class of 1895, laid the foundation of the collection of drawings, with works from the sixteenth to early twentieth centuries, including notable groups by [[Guercino]], [[Salvator Rosa]], [[Giovanni Battista]] and [[Domenico Tiepolo]], and [[George Romney (painter)|George Romney]].  Frank Jewett Mather Jr., the museum's second director, made numerous purchases in the 1940s, including Italian Renaissance drawings, works on paper by [[Samuel Palmer]], and watercolors by [[John Marin]], and [[Paul Cézanne]].  In 1945, Professor Clifton R. Hall bequeathed his collection of old master prints and American watercolors, including three masterpieces by [[Edward Hopper]].  Hall also established an endowment for the Department of Art and Archaeology specifically for the purchase of works on paper, which has enabled the purchase of an exceptional collection of sixteenth- through eighteenth-century Spanish drawings.
+
+Professor Felton Gibbons, following Hall's example, endowed a fund for acquiring works on paper that has allowed gaps in the collection to be filled, including Northern and Central European drawings, and to add to other areas of significance, such as [[German Expressionism]].  The modern and contemporary holdings continue to grow, with an emphasis on artists such as [[Glenn Ligon]], [[Martin Puryear]], [[Robert Rauschenberg]], and [[Kiki Smith]], who are a vital part of the teaching curriculum of the university.{{sfn|Steward|2013|p=313}}
+
+{{Commons-inline|Category:Prints in the Princeton University Art Museum|Prints in the Princeton University Art Museum}}<br>
+{{Commons-inline|Category:Drawings in the Princeton University Art Museum|Drawings in the Princeton University Art Museum}}
+
+{{clear}}
+
+<gallery mode="packed" heights="180px" caption="Prints">
+File:The Engraved Passion.jpg|[[Albrecht Dürer]], ''The Engraved Passion'', 1507–1512, [[engraving]]{{sfn|Steward|2013|p=315}}
+File:Christ Crucified between the Two Thieves (The Three Crosses).jpg|[[Rembrandt van Rijn]], ''Christ Crucified between the Two Thieves ([[The Three Crosses]])'', 1653–1655, [[drypoint]] and [[Burin (engraving)|burin]], fourth of five states plate{{sfn|Steward|2013|p=321}}
+File:Gauguin, Paul, The Universe is Created (L'Univers est créé), from the Noa Noa suite, 1893–94.jpg|[[Paul Gauguin]], ''The Universe is Created'', from the Noa Noa suite, 1893–4, [[woodcut]] printed in black on thin rose-colored wove paper sheet trimmed to block{{sfn|Steward|2013|p=341}}
+File:Henri de Toulouse-Lautrec - The Jockey - Google Art Project (28212228).jpg|[[Henri de Toulouse-Lautrec]], ''The Jockey'', 1899, [[chromolithography|color lithograph]]
+</gallery>
+
+<gallery mode="packed" heights="180px" caption="Drawings">
+File:Luçon Master, Adoration of the Magi, ca. 1405.jpg|Luçon Master, ''[[Adoration of the Magi]]'', ca. 1405, [[tempera]] and [[gold leaf]] on [[parchment]]{{sfn|Steward|2013|p=314}}
+File:1530, Michelangelo Buonarroti, Bust of a Youth and Caricature Head of an Old Man, Both in Left Profile.jpg|[[Michelangelo Buonarroti]], ''Bust of a Youth and Caricature Head of an Old Man, Both in Left Profile'', ca. 1530, black chalk on tan [[laid paper]]
+File:Guercino, Boy in a Large Hat, 1630s-40s.jpg|[[Guercino]], ''Boy in a Large Hat'', 1630s-40s, pen and brown ink with brush and brown wash on beige laid paper{{sfn|Steward|2013|pp=324–335}}
+File:Winslow Homer - Eastern Point Light - Google Art Project.jpg|[[Winslow Homer]], ''Eastern Point Light'', 1880, [[Watercolor painting|watercolor]] over graphite on wove paper (cream-colored wove paper)
+File:Young Woman in a Black and Green Bonnet, Looking Down.jpg|[[Mary Cassatt]], ''Young Woman in a Black and Green Bonnet'', 1890, pastel on tan wove paper{{sfn|Steward|2013|p=342}}
+File:Universalist Church (Edward Hopper, 1926).jpg|[[Edward Hopper]], ''Universalist Church'', 1926{{sfn|Steward|2013|p=350}}
+</gallery>
+
+==Private Collections on long-term loan==
+
+===Henry and Rose Pearlman Collection===
+
+[[File:1904, Cézanne, Mont Sainte-Victoire.jpg|thumb|[[Paul Cézanne]], ''[[Mont Sainte-Victoire (Cézanne)|Mont Sainte-Victoire]]'', {{Circa|1904}}-06<ref>{{cite web|title=Mont Sainte-Victoire (La Montagne Sainte-Victoire)|url=http://www.pearlmancollection.org/artwork/mont-sainte-victoire|publisher=Henry and Rose Pearlman Collection}}</ref>]]
+
+[[Henry Pearlman]] started his collection with the 1945 purchase, for $825, of [[Chaïm Soutine]]'s ''View of Céret'', seen in the window of the [[Parke-Bernet]] auction house while walking down [[Park Avenue]].  Pearlman had made his fortune through founding the Eastern Cold Storage Insulation Corporation in 1919 and knew little of Soutine or contemporary art at the time he started collecting.<ref name=FT>{{cite news|last1=Wullschlager|first1=Jackie|title=Cézanne and modern masterpieces from the Pearlman Collection|url=https://www.ft.com/content/cd34c646-a877-11e3-b50f-00144feab7de|newspaper=Financial Times|date=March 14, 2014}}</ref>  He would go on to amass more than fifty masterworks of late 19th- to mid-20th-century [[avant-garde]] European art, one of the most distinguished private collections of [[modern art]] in the United States.  Among the most notable works are [[Paul Cézanne]]'s ''[[Mont Sainte-Victoire (Cézanne)|Mont Sainte-Victoire]]'', [[Vincent van Gogh]]'s ''Tarascon Stagecoach'', and [[Amedeo Modigliani]]'s portrait of ''[[Jean Cocteau]]''.<ref name=Yale>{{cite web|last1=DeLue|first1=Rachael Z.|title=Cézanne and the Modern: Masterpieces of European Art from the Pearlman Collection|url=http://yalepress.yale.edu/book.asp?isbn=9780300174403|website=Yale University Press}}</ref>
+
+The heart of the collection is the finest and best preserved collection of [[watercolors]] by Cézanne in the world, sixteen works including ''Three Pears'', which was fought over by [[Edgar Degas]] and [[Pierre-Auguste Renoir]], with Degas as the victor, at Cézanne's first sale.<ref name=FT/>  In addition to the thirty-three works by Cézanne, including the watercolors, six oil paintings, six prints, and five drawings, the collection boasts seven paintings by Soutine, two each by Degas and [[Toulouse-Lautrec]], and one each by van Gogh, Renoir, [[Camille Pissarro]], [[Alfred Sisley]], [[Gustave Courbet]], [[Honoré Daumier]], [[Édouard Manet]], [[Maurice Utrillo]], and [[Maurice Prendergast]].  Sculpture is represented through works by [[Paul Gauguin]], [[Wilhelm Lehmbruck]], [[Jacques Lipchitz]], and Amedeo Modigliani, who is also represented by two oil paintings and one drawing.  The one exception to the modern focus of the collection is an [[engraving]] by [[Albrecht Dürer]], ''Adam and Eve''.  Henry Pearlman himself is represented by a bust by [[Giacomo Manzu]] and a portrait by [[Oskar Kokoschka]].<ref>{{cite web|title=Artists|url=http://www.pearlmancollection.org/artists|website=Henry and Rose Pearlman Collection}}</ref>
+
+The collection has been much exhibited, including an international tour in 2014-16 which included the [[Ashmolean Museum]] at [[Oxford University]], where it was the museum's most popular exhibition on record,<ref>{{cite web|last1=Pleming|first1=Clemency|title=Last chance to see the Ashmolean's most popular exhibition ever|url=http://www.ox.ac.uk/news/arts-blog/last-chance-see-ashmolean%E2%80%99s-most-popular-exhibition-ever|website=University of Oxford}}</ref> the [[Musée Granet]] in [[Aix-en-Provence]], the [[High Museum of Art]] in [[Atlanta]], and the [[Vancouver Art Gallery]] in [[Canada]], ending at the Princeton University Art Museum,<ref name=Yale/> where the collection has been on long-term loan since 1976.<ref>{{cite web|title=Henry and Rose Pearlman Collection|url=http://artmuseum.princeton.edu/collections/pearlman|website=Princeton University Art Museum}}</ref>
+
+{{Commons-inline|Category:Henry and Rose Pearlman Collection|the Henry and Rose Pearlman Collection}}
+
+{{clear}}
+
+<gallery mode="packed" heights="180px">
+File:1888, Cézanne, Three Pears.jpg|Paul Cézanne, ''Three Pears'', ca. 1888-90<ref>{{cite web|title=Three Pears (Trois Poires)|url=http://www.pearlmancollection.org/artwork/three-pears|website=Henry and Rose Pearlman Collection}}</ref>
+File:Van Gogh - Die Postkutsche nach Tarascon.jpeg|[[Vincent van Gogh]], ''The Stagecoach to Tarascon'', 1888<ref>{{cite web|title=Vincent van Gogh|url=http://www.pearlmancollection.org/artist/vincent-van-gogh|publisher=The Pearlman Foundation}}</ref>
+File:1890, Degas, After the Bath, Woman Drying Herself.jpg|[[Edgar Degas]], ''After the Bath, Woman Drying Herself'', 1890s<ref>{{cite web|title=After the Bath, Woman Drying Herself (Après le bain, femme s'essuyant)|url=http://www.pearlmancollection.org/artwork/after-bath-woman-drying-herself|publisher=Henry and Rose Pearlman Collection}}</ref>
+File:1916, Modigliani, Jean Cocteau.jpg|[[Amedeo Modigliani]], ''[[Jean Cocteau]]'', 1916<ref>{{cite web|title=Jean Cocteau|url=http://www.pearlmancollection.org/artwork/jean-cocteau|publisher=Henry and Rose Pearlman Collection}}</ref>
+</gallery>
+
+== Looted art controversies ==
+On March 22, 2023, the Office of the Manhattan District Attorney was authorized to seize from the museum eleven items suspected of having been stolen and smuggled before the university acquired them.<ref>{{Cite web |title=Five artifacts linked to alum under investigation for art smuggling will remain at University Art Museum |url=https://www.dailyprincetonian.com/article/2023/04/princeton-university-art-museum-edorado-almagia |access-date=2024-01-25 |website=The Princetonian |language=en-US}}</ref>  In 2024, 16 additional artifacts linked to alleged art smuggler and Princeton alumnus Edoardo Almagià were identified in the museum collection.<ref>{{Cite web |title=16 additional Art Museum objects connected to alleged art smuggler alumnus |url=https://www.dailyprincetonian.com/article/2024/01/princeton-news-broadfocus-edoardo-almagia-new-artifacts-art-museum-2024-provenance-update |access-date=2024-01-25 |website=The Princetonian |language=en-US}}</ref>
+
+==References==
+{{portal|New Jersey}}
+{{Reflist|20em}}
+
+==Bibliography==
+*{{cite book|last1=Antonaras|first1=Anastassios|title=Fire and Sand: Ancient Glass in the Princeton University Art Museum|date=January 8, 2013|publisher=Princeton University Art Museum|location=Princeton, NJ|isbn=978-0300179811}}
+*{{cite book|last1=Banner|first1=Lisa A.|title=Spanish Drawings in the Princeton University Art Museum|year=2012|publisher=Princeton University Art Museum|location=Princeton, NJ|url={{Google books|QKjrugAACAAJ|Spanish Drawings in the Princeton University Art Museum|plainurl=yes}}|isbn=978-0300149319}}
+*{{cite book|title=Cézanne and the Modern: Masterpieces of European Art from the Pearlman Collection|publisher=Princeton University Art Museum|location=Princeton, NJ|date=December 30, 2013|url={{Google books|pDeFngEACAAJ|Cézanne and the Modern: Masterpieces of European Art from the Pearlman Collection|plainurl=yes}}|isbn=978-0300174403}}
+*{{cite book|last1=Fong|first1=Wen C.|title=Images of the Mind: Selections from the Edward L. Elliott Family and John B. Elliott Collections of Calligraphy and Painting at the Art Museum, Princeton University|date=1987|publisher=Princeton University Art Museum|location=Princeton, NJ|url={{Google books|9KRpQgAACAAJ|Images of the Mind: Selections from the Edward L. Elliott Family and John B. Elliott Collections of Calligraphy and Painting at the Art Museum, Princeton University|plainurl=yes}}|isbn=978-0943012049}}
+*{{cite book|last1=Giles|first1=Laura M.|last2=Van Cleave|first2=Claire|title=Italian Master Drawings from the Princeton University Art Museum|date=May 20, 2014|publisher=Princeton University Art Museum|location=Princeton, NJ|url={{Google books|6uYungEACAAJ|Italian Master Drawings from the Princeton University Art Museum|plainurl=yes}}|isbn=978-0300149326}}
+*{{cite book|last1=Hughes|first1=Michael|title=The Blair Bequest: Chinese Snuff Bottles from the Princeton University Art Museum|date=December 1, 2002|publisher=International Chinese Snuff Bottle Society|url={{Google books|aUrrAAAAMAAJ|The Blair Bequest: Chinese Snuff Bottles from the Princeton University Art Museum|plainurl=yes}}|isbn=978-9627502623}}
+*{{cite book|last1=Kelleher|first1=Patrick J.|title=Living with Modern Sculpture: The John B. Putnam Jr. Memorial Collection|year=1982|publisher=Princeton University Art Museum|location=Princeton, NJ|url={{Google books|r6mwAAAAIAAJ|Living with Modern Sculpture: The John B. Putnam Jr. Memorial Collection|plainurl=yes}}}}
+*{{cite book|title=Pop Art: Contemporary Perspectives|year=2007|publisher=Princeton University Art Museum|location=Princeton, NJ|url={{Google book|HsfpAAAAMAAJ|Pop Art: Contemporary Perspectives|plainurl=yes}}|isbn=978-0300122121}}
+*{{cite book|last1=Ridgway|first1=Brunilde Sismondo|title=Greek Sculpture in The Art Museum, Princeton University|publisher=Princeton University Art Museum|location=Princeton, NJ|date=June 13, 1994|url={{Google books|wLVmQgAACAAJ|Greek Sculpture in The Art Museum, Princeton University|plainurl=yes}}|isbn=978-0943012162}}
+*{{cite book|last1=Steward|first1=James Christen|title=Princeton University Art Museum Handbook of the Collections Revised and Expanded Edition|date=2013|publisher=Princeton University Art Museum|location=Princeton, NJ|isbn=978-0943012414|edition=2nd}}
+*{{cite book|last1=Wilmerding|first1=John|last2=Foster|first2=Kathleen|title=American Art in the Princeton University Art Museum: Volume 1: Drawings and Watercolors|date=October 11, 2004|publisher=Princeton University Art Museum|location=Princeton, NJ|isbn=978-0300106060|url={{Google books|UA_KoQEACAAJ|American Art in the Princeton University Art Museum: Volume 1: Drawings and Watercolors|plainurl=yes}}}}
+
+==External links==
+{{Commons category|Princeton University Art Museum}}
+* {{official website}}
+* [https://artsandculture.google.com/partner/princeton-university-art-museum Google Art Project]
+* [http://www.pearlmancollection.org/ The Henry and Rose Pearlman Collection]
+
+{{Princeton}}
+{{Princeton, New Jersey}}
+
+{{authority control}}
+
+[[Category:Princeton University Art Museum| ]]
+[[Category:Princeton University buildings and structures]]
+[[Category:Art museums and galleries in New Jersey]]
+[[Category:University museums in New Jersey]]
+[[Category:Museums in Princeton, New Jersey]]
+[[Category:Art museums and galleries established in 1882]]
+[[Category:1882 establishments in New Jersey]]
+[[Category:Museums of ancient Greece in the United States]]
+[[Category:Museums of ancient Rome in the United States]]
+[[Category:Asian art museums in the United States]]
+[[Category:Mesoamerican art museums in the United States]]
+[[Category:Archaeological museums in New Jersey]]
+[[Category:African art museums in the United States]]
+[[Category:Photography museums and galleries in the United States]]
+[[Category:Museums of American art]]
+[[Category:Modern art museums in the United States]]
+[[Category:Contemporary art galleries in the United States]]

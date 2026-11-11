@@ -1,0 +1,74 @@
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=August 2023}}
+{{Infobox NRHP
+| name                     = Grover Cleveland Home
+| nrhp_type                = nhl
+| nrhp_type2               = cp
+| nocat                    = yes
+| part_of                  = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+| part_of_ref_num          = 75001143
+| image                    = 15 Hodge Road, Princeton, NJ - Grover Cleveland home.jpg
+| caption                  = Westland, home of Grover Cleveland, shown in 2009
+| location                 = 15 Hodge Road, [[Princeton, New Jersey]]
+| coordinates              = {{coord|40|21|4.63|N|74|40|3.72|W|display=inline,title}}
+| pushpin_map              = USA New Jersey Mercer County#New Jersey#USA
+| area                     = 
+| built                    = mid-1800s
+| architect                = 
+| architecture             = 
+| designated_nrhp_type     = June 23, 1965 <ref name="nhlsum">{{cite web|url=http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=326&ResourceType=Building
+|archive-url=https://web.archive.org/web/20070302183018/http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=326&ResourceType=Building
+|url-status=dead
+|archive-date=March 2, 2007
+|title=Grover Cleveland Home|date=2008-06-23|work=National Historic Landmark summary listing|publisher=National Park Service}}</ref>
+| added                    = October 15, 1966
+| ref_num                  = 66000463<ref name="nris">{{NRISref|version=2013a|dateform=mdy}}</ref>
+| designated_other1_name   = New Jersey Register of Historic Places
+| designated_other1_abbr   = NJRHP
+| designated_other1_link   = New Jersey Register of Historic Places
+| designated_other1_date   = May 27, 1971
+| designated_other1_number = 1731<ref name=NJRHP>{{cite web | title=New Jersey and National Registers of Historic Places — Mercer County | url=http://www.nj.gov/dep/hpo/1identify/nrsr_lists/mercer.pdf | publisher=[[New Jersey Department of Environmental Protection]] — Historic Preservation Office | page=8 | date=April 5, 2013 | access-date=June 4, 2013}}</ref>
+| designated_other1_num_position = bottom
+| designated_other1_color  = #ffc94b
+}}
+
+'''Westland Mansion''' was the home of [[Grover Cleveland]], the 22nd and 24th [[president of the United States]], from his retirement in 1897 until his death in 1908. The house is located in the [[Princeton Historic District (Princeton, New Jersey)|historic district]] of [[Princeton, New Jersey]], and is a [[National Historic Landmark]] also known as the '''Grover Cleveland Home'''.<ref name="nrhpdoc">{{cite web|url={{NRHP url|id=66000463}}|title=National Register of Historic Places Inventory/Nomination: Grover Cleveland Home |publisher=[[National Park Service]]|first1=Richard E. |last1=Greenwood |date=March 12, 1975 }} With {{NRHP url|id=66000463|photos=y|title=accompanying 7 photos}}</ref>
+
+==History==
+The house was built by [[Robert F. Stockton]] in 1856. The [[National Park Service]] describes the original house, patterned after [[Morven (Princeton, New Jersey)|Morven]] (a nearby 18th-century mansion also owned by Robert Stockton) as a "2-1/2-story, stone structure covered with stucco painted yellow, [with] twin parlors on the first floor, spacious rooms, high ceilings, and handsome marble mantelpieces."
+
+Stockton, who hailed from a prominent political family, was a United States Senator and naval commodore, notable for the capture of California during the [[Mexican–American War]]. Stockton's grandfather, [[Richard Stockton (Continental Congressman)|Judge Richard Stockton]], was a signer of the [[American Declaration of Independence|Declaration of Independence]]. The original structure consisted of a three-story main residence on roughly 4.5 acres of expansive lawns and fruit orchards. Later, a small wing extending from the rear of the residence was added to house servant's quarters and stables. The wing extension is now a separate home and is separated by a wall at the back of the house. Westland was originally entered from a stone roadway off of Bayard Lane (now Route 206). Nicely kept paths intersected the broad lawn, which was shaded by an assortment of massive pines. At the rear of the house was an orchard of pear and cherry trees and a dovecote to house pigeons and doves.
+
+Purchased by Cleveland after his second term as president in 1896, the house served as home to the former chief executive from 1897 until his death in 1908. Cleveland named it "Westland" in honor of his friend [[Andrew Fleming West]], a humanities professor at [[Princeton University]] who assisted Cleveland in securing the purchase of the home. During Cleveland's occupancy several changes were made to the residence. He added a two-story extension to the right side of the home, with the lower floor serving as his billiard room. Cleveland also made some cosmetic changes to the building's façade in the [[Italianate architecture|Italianate]] style popular at the time.
+
+Cleveland enjoyed his retirement at Westland. Although he had never attended college, he accepted a seat on the Board of Trustees of Princeton University, a position he took seriously, chairing a committee to establish a graduate school. He gave a series of four well-attended lectures at the university, which were later published as a book. The students were fond of Cleveland, serenaded him on his birthdays and, after football games, led victory parades to his home. He also took an active part in the life of the town, maintained a brisk correspondence with friends, and kept socially and politically active. His favorite recreations were billiards and meetings of the Poverty Club, composed of a group of his comrades who played cards regularly at Westland. He died at Westland in 1908 and is buried in [[Princeton Cemetery]].<ref name=NPS>[https://www.nps.gov/parkhistory/online_books/presidents/site36.htm National Park Service site on Westland]</ref> Cleveland's widow, [[Frances Folsom Cleveland Preston|Frances]], continued to reside in the house for many years after his death.
+
+In 2015, the building was sold for $4,325,000.<ref name="Farmer i192">{{cite web |last=Farmer |first=Casey |date=August 11, 2025 |title=President Grover Cleveland’s Former New Jersey Home Sells for $5.28 Million |url=https://www.mansionglobal.com/articles/president-grover-clevelands-former-new-jersey-home-sells-for-5-28-million-31907783 |access-date=August 13, 2025 |website=Mansion Global}}</ref> The house was listed for sale in mid-2024 with an asking price of $5.95 million,<ref name="Zimmer f909">{{cite web |last=Zimmer |first=David M. |date=June 12, 2024 |title=Once home to a retired US president, this NJ home is listed for $5.95M |url=https://www.northjersey.com/story/money/real-estate/2024/06/12/once-home-to-a-retired-us-president-this-nj-home-is-listed-for-5-95m/74006506007/ |access-date=August 13, 2025 |website=Bergen Record}}</ref><ref name="Vogt s067">{{cite web |last=Vogt |first=Erin |date=May 29, 2024 |title=Stunning, historic NJ home of former U.S. president up for sale |url=https://nj1015.com/stunning-historic-nj-home-u-s-president-grover-cleveland-princeton/ |access-date=August 13, 2025 |website=New Jersey 101.5}}</ref> and it was ultimately resold for $5.95 million in August 2025.<ref name="Farmer i192" />
+
+==Current use==
+Always a privately owned residence, the renovated building currently sits on one and a half acres. It has {{Convert|6345|ft2}} of space across three levels, and it contains 6 bedrooms and 7 baths.<ref name="Farmer i192" /> The house has a formal entry, and dining and living rooms that still contain trim from Cleveland's time there. The grounds include a formal garden, pool and garage.<ref>[http://www.zillow.com/homedetails/15-Hodge-Rd-Princeton-NJ-08540/39007411_zpid/ Zillow.com], accessed January 24, 2016</ref> It is not open to the public.<ref name=NPS/>
+
+== See also ==
+* [[National Register of Historic Places listings in Mercer County, New Jersey]]
+* [[List of residences of presidents of the United States]]
+
+==References==
+{{reflist}}
+
+==External links==
+{{commons category}}
+* {{cite web |title=Grover Cleveland Home, Westland, New Jersey |url=https://www.nps.gov/places/grover-cleveland-home-westland-new-jersey.htm |publisher=[[National Park Service]] |date=January 19, 2021}}
+
+{{Grover Cleveland}}
+{{Princeton, New Jersey}}
+{{NHLs in NJ}}
+{{NRHP in Mercer County, New Jersey}}
+
+[[Category:National Historic Landmarks in New Jersey]]
+[[Category:Presidential homes in the United States]]
+[[Category:Houses in Princeton, New Jersey]]
+[[Category:Grover Cleveland]]
+[[Category:National Register of Historic Places in Mercer County, New Jersey]]
+[[Category:New Jersey Register of Historic Places]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]
+[[Category:Individually listed contributing properties to historic districts on the National Register in New Jersey]]

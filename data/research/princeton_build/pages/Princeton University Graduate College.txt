@@ -1,0 +1,103 @@
+{{Short description|Residential college at Princeton University}}
+{{Distinguish|Princeton University Graduate School}}
+{{Update|date=August 2023}}
+{{Use mdy dates|date=October 2023}}
+{{Use American English|date=October 2023}}
+{{Infobox residential college
+| name           = Graduate College
+| type           = [[Residential colleges of Princeton University|Residential college]]
+| university     = [[Princeton University]]
+| shield         = Princeton GC College CoA.svg
+| shield_size    = 
+| image          = Princeton University Graduate College, NJ - looking north.jpg
+| image_size     = 300
+| caption        = Old Graduate College and Cleveland Tower
+| scarf          = 
+| full_name      = 
+| latin_name     = 
+| latin_motto    = 
+| english_motto  = 
+| named_for      = 
+| former_names   = 
+| established    = 1913
+| sister_college = 
+| freshman_dorm  = 
+| head           = 
+| dean           = [[Rodney Priestley]] <ref>https://gradschool.princeton.edu/deans-initiatives-awards-events/about-dean/rodney-d-priestley</ref>
+| HoCo_chair     = 
+| undergraduates = 
+| called         = 
+| tutors         = 
+| location       = 
+| coordinates    = {{coord|40|20|26.0|N|74|39|52.7|W|region:US_type:landmark_source:placeopedia|format=dms|display=inline,title}}
+| website        = {{URL|https://gradschool.princeton.edu/student-experience/residential-life/graduate-college}}
+| embedded       =
+{{Infobox NRHP
+| embed                = yes
+| name                 = Princeton University Graduate College
+| nrhp_type            = cp
+| nocat                = yes
+| part_of              = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+| part_of_ref_num      = 75001143
+| alt                  = 
+| caption              = 
+| location             = College Road, [[Princeton, New Jersey|Princeton, NJ]]
+| pushpin_map          = USA New Jersey Mercer County#New Jersey#USA
+| area                 = 
+| built                = {{Start date|1913}}
+| architect            = [[Ralph Adams Cram]]
+| architecture         = [[Collegiate Gothic]]
+| designated_nrhp_type = June 27. 1975
+}}
+}}
+The '''Graduate College''' at [[Princeton University]] is a [[residential college]] which serves as the center of [[Princeton University Graduate School|graduate student]] life at [[Princeton]], separate from the seven undergraduate residential colleges. Wyman House, adjacent to the Graduate College, serves as the official residence of the current dean of the Graduate School.
+
+Thomson College, the central quadrangle now commonly known as the Old Graduate College, is a memorial to United States senator [[John Renshaw Thomson|John R. Thomson]] 1817 provided by a bequest left by his widow, [[Josephine Ward Thomson|Mrs. J. A. W. Thomson Swann]], the Graduate College's first benefactor.<ref>"The Graduate College, A Brief History" Accessed 05 September 2016 https://www.princeton.edu/~gradcol/perm/hist.htm</ref>
+
+It was dedicated on October 22, 1913, during the tenure of the first dean of the Graduate School, [[Andrew Fleming West]], and was the first residential college in the United States devoted solely to postgraduate liberal studies. The group of  [[Collegiate Gothic]] buildings was designed by [[Ralph Adams Cram]] and located on a hill, one-half mile west of the main campus. Its most prominent architectural landmark is the 173-ft-high  [[Cleveland Tower]], which features one of the largest [[carillon]]s in the United States. Cleveland Tower adjoins the Old Graduate College, which also includes Procter Hall, the Van Dyke Library, Pyne Tower, and North Court. In 1962, the New Graduate College was built to expand the Old Graduate College to the south-west, although it features a more modern architectural style. Colloquially, the Old Graduate College and New Graduate College are often simply referred to by their initials, "OGC" and "NGC", respectively.<ref name="www.princeton.edu-1">{{Cite web |title=New GC Pictures |url=https://www.princeton.edu/~gradcol/album/picsngc.htm |access-date=2026-11-02 |website=www.princeton.edu}}</ref>
+
+[[File:Pyne Tower, Princeton University Graduate College, NJ.jpg|thumb|none|upright|Pyne Tower]]
+The Graduate College currently houses approximately 430 graduate students, mostly in their first-year of graduate study. The Graduate College's Pyne Tower is also the home of the current administrator in residence. It has been featured in the films ''[[Admission (film)|Admission]]'' and ''[[Runner Runner]]''.
+
+== Proctor Hall ==
+The westernmost portion of the Old Graduate College building houses Proctor Hall, a grand dining room named in honor of [[William Cooper Procter]], the co-founder of [[Procter & Gamble]], and a benefactor to the Graduate College's construction. It is an example of [[Collegiate Gothic]] architecture, and was given by Proctor in memory of his parents.<ref>{{Cite web |title=1913: Graduate College {{!}} Princetoniana Museum |url=https://www.princetonianamuseum.org/artifact/ec4573e4-7266-48e8-87d6-f7664dfc7591 |access-date=2026-11-02 |website=www.princetonianamuseum.org}}</ref>
+
+Proctor Hall serves as a dining hall for all Princeton graduate students, though students living at the Graduate College are required to purchase a meal plan, whereas this is optional for graduate students living elsewhere.<ref>{{Cite web |title=Dining on Campus {{!}} Graduate School |url=https://gradschool.princeton.edu/student-experience/residential-life/dining |access-date=2026-11-02 |website=gradschool.princeton.edu |language=en}}</ref>
+
+The western wall of the Hall is dominated by a large stained glass window titled the ''Seven Liberal Arts Window'', designed by [[William Willet|William]] and Annie Lee Willet. It depicts several different fields of study. Other, smaller, stained glass windows exist throughout the Hall's walls as well. An organ gallery overlooks the rest of the Hall from above its eastern entry.<ref>{{Cite web |title=Procter Hall Pictures |url=https://www.princeton.edu/~gradcol/album/picsphall.htm |access-date=2026-11-02 |website=www.princeton.edu}}</ref>
+
+== Art at the Graduate College ==
+
+=== Sculptures ===
+Along with the portraits and stained glass windows in Proctor Hall, the Graduate College hosts several sculptures on its grounds.<ref name="www.princeton.edu-1" />
+
+==== ''Floating Figure'', Gaston Lachaise ====
+[[File:"Floating Figure" by Gaston Lachaise.jpg|thumb|''Floating Figure'', by Gaston Lachaise]]
+Located within the New Graduate College's courtyard, [[Gaston Lachaise]]'s ''Floating Figure'' is a cast bronze sculpture that is part of the University's [[Putnam Collection of Sculpture, Princeton University|John B. Putnam Jr. Memorial Collection]].<ref name="artmuseum.princeton.edu-1">{{Cite web |title=Floating Figure {{!}} Princeton University Art Museum |url=https://artmuseum.princeton.edu/art/collections/objects/31416 |access-date=2026-11-02 |website=artmuseum.princeton.edu |language=en}}</ref><ref name="www.princeton.edu-1" /> The piece is modeled on Lachaise's wife, [[Isabel Dutaud Nagle Lachaise]].<ref>{{Cite web |last=Article |first=US1 |date=2012-05-30 |title=Hidden in Full View: Sculpture at Princeton - Princeton Info |url=https://princetoninfo.com/artsandentertainment/hidden-in-full-view-sculpture-at-princeton/ |access-date=2026-11-02 |language=en-US}}</ref> This cast of ''[[Floating Figure]]'', cast ca. 1969,<ref name="artmuseum.princeton.edu-1" /> is the fourth of seven foundation casts subsequent to the original cast. The other casts are located around the United States of America and Australia. The original cast was itself exhibited at the Metropolitan Museum of Modern Art in 1935.<ref>{{Cite web |date=October 30, 2019 |title=Hear the Curator (y1969-72) {{!}} Princeton University Art Museum |url=https://artmuseum.princeton.edu/art/stories-perspectives/audio/hear-curator-y1969-72 |access-date=2026-11-02 |website=artmuseum.princeton.edu |publisher=Princeton University Art Museum |language=en |format=Audio recording and transcript}}</ref>
+
+==== ''Northwood II'', Kenneth Snelson ====
+[[File:Northwood II.jpg|thumb|''Northwood II'', by Kenneth Snelson.]]
+[[Kenneth Snelson]]'s ''Northwood II'' is a [[Tensegrity]] sculpture, also located within the New Graduate College's courtyard, and also part of the University's [[Putnam Collection of Sculpture, Princeton University|John B. Putnam Jr. Memorial Collection]].<ref name="www.princeton.edu-1" /><ref>{{Cite web |title=Northwood II {{!}} Princeton University Art Museum |url=https://artmuseum.princeton.edu/art/collections/objects/31481 |access-date=2026-11-02 |website=artmuseum.princeton.edu |language=en}}</ref> It consists of six equal length stainless steel tubes arranged in three parallel pairs, and a network of steel cables running between them, causing them to appear as floating.<ref>{{Cite web |date=November 25, 2019 |title=Hear the Curator (y1969-16) {{!}} Princeton University Art Museum |url=https://artmuseum.princeton.edu/art/stories-perspectives/audio/hear-curator-y1969-16 |access-date=2026-11-02 |website=artmuseum.princeton.edu |publisher=Princeton University Art Museum |language=en |format=Audio recording and transcript}}</ref> The [[Smithsonian American Art Museum]]'s Art Inventories Catalog lists the sculpture as dating to 1970, and having been installed in 1973.<ref>{{Cite web |title=Northwood II, (sculpture). |url=https://siris-artinventories.si.edu/ipac20/ipac.jsp?session=17936D82073M5.160431&profile=ariall&source=~!siartinventories&view=subscriptionsummary&uri=full=3100001~!3166~!0&ri=1&aspect=Browse&menu=search&ipp=20&spp=20&staffonly=&term=Snelson,+Kenneth+D.,+1927-2016,+sculptor.&index=AUTHOR&uindex=&aspect=Browse&menu=search&ri=1 |access-date=2026-11-02 |website=Art Inventories Catalog |publisher=[[Smithsonian American Art Museum]] |id=Inventory of American Sculpture, Control Number 76001817}}</ref>
+
+==== Andrew Fleming West Sculpture, Robert Tait McKenzie ====
+The center of the Old Graduate College's courtyard houses [[R. Tait McKenzie]]'s sculpture officially titled ''Andrew Fleming West, Class of 1874 (1853–1943)''.<ref name="artmuseum.princeton.edu-2">{{Cite web |title=Andrew Fleming West, Class of 1874 (1853–1943) {{!}} Princeton University Art Museum |url=https://artmuseum.princeton.edu/art/collections/objects/45706 |access-date=2026-11-02 |website=artmuseum.princeton.edu |language=en}}</ref> The bronze sculpture depicts the inaugural dean of the Graduate School, Andrew Fleming West, sitting in regalia upon a large chair. The bronze cast itself sits on top of a large engraved stone pedestal. The Princeton University Art Museum lists it as a donation by [[William Cooper Procter]].<ref name="artmuseum.princeton.edu-2" /><ref name="artmuseum.princeton.edu-3">{{Cite web |title=Hear the Alumnus and History Columnist (PP90) {{!}} Princeton University Art Museum |url=https://artmuseum.princeton.edu/art/stories-perspectives/audio/hear-alumnus-and-history-columnist-pp90 |access-date=2026-11-02 |website=artmuseum.princeton.edu |language=en |format=Audio recording and transcription}}</ref> Andrew Fleming West reportedly witnessed the unveiling of the statue himself, upon his retirement in 1928.<ref name="artmuseum.princeton.edu-3" />
+
+==References==
+{{Reflist}}
+
+==External links==
+*{{commons category-inline}}
+*[https://gradschool.princeton.edu/student-experience/residential-life/graduate-college Princeton University: The Graduate College]
+*[https://www.princeton.edu/~gradcol/ Princeton University Graduate College: History and Photos]
+
+{{Princeton}}
+
+{{authority control}}
+
+[[Category:Colleges of Princeton University|Graduate College]]
+[[Category:Ralph Adams Cram buildings]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]
+[[Category:1913 establishments in New Jersey]]
+
+
+{{NewJersey-university-stub}}

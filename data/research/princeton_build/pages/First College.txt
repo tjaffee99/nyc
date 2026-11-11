@@ -1,0 +1,65 @@
+{{short description|Residential college at Princeton University}}
+{{Use mdy dates|date=June 2020}}
+{{For|the UC San Diego college|Revelle College}}
+{{Outdated|date=August 2023}}
+{{Infobox residential college
+| name           = First College
+| type           = [[Residential colleges of Princeton University|Residential college]]
+| university     = [[Princeton University]]
+| shield         = 
+| shield_size    = 
+| image          = Image:Walker Hall, Wilson College, Princeton University, Princeton NJ.jpg
+| caption        = Walker Hall
+| scarf          = 
+| full_name      = 
+| latin_name     = 
+| latin_motto    = 
+| english_motto  = 
+| named_for      = 
+| former_names   = Woodrow Wilson College
+| established    = 1950s
+| sister_college = 
+| freshman_dorm  = 
+| head           = AnneMarie Luijendijk
+| dean           = Anne Caswell-Klein
+| HoCo_chair     = 
+| undergraduates = 
+| called         = 
+| tutors         = 
+| location       = 
+| coordinates    = {{coord|40.344826|-74.656203|region:US_type:landmark_source:placeopedia|format=dms|display=inline,title}}
+| website        = {{url|https://firstcollege.princeton.edu/}}
+| closed         = 2022
+}}
+
+'''First College''' (known as '''Woodrow Wilson College''' from 1966 to 2020), the first of [[Princeton University]]'s seven residential colleges, was developed in the late 1950s when a group of students formed the [[Woodrow Wilson]] Lodge as an alternative to the eating clubs. The Woodrow Wilson Lodge members originally met and dined in Madison Hall, which is now part of [[Rockefeller College|John D. Rockefeller III College]]. Inspired by the ideas of Woodrow Wilson, president of Princeton from 1902–1910, the members advocated a more thorough integration of academic, social and residential life on campus. The college closed in 2022 and was subsequently demolished, with students transferring to [[Yeh College]] and [[New College West]].<ref>{{cite news|url=https://www.dailyprincetonian.com/article/2025/06/princeton-news-last-first-college-hobson-construction-woodrow-wilson|title=The last First graduates|work=The Daily Princetonian|author=Helena Richardson|date=June 16, 2025}}</ref>
+
+==History==
+
+In the fall of 1961, President [[Robert Goheen]] dedicated Wilcox Hall, the bequest of a distinguished alumnus, T. Ferdinand Wilcox '00, and the Lodge moved to the new dining facility and became the Woodrow Wilson Society. Wilcox Hall provided a permanent facility for the Woodrow Wilson Society with a dining room, [[library]], [[Cue sports|billiards]] area, lounges for reading and recreation, and rooms for various social activities.
+
+The completed [[dormitory]] quadrangle consisted of Dodge-Osborn Hall, 1937 Hall, 1938 Hall, 1939 Hall and Christian Gauss Hall, honoring the late Dean of the college. Later, the college also included Feinberg Hall, which was completed in 1988, Walker Hall, and 1927-Clapp Hall.
+
+In 1966, the Woodrow Wilson Society was formally reorganized as Woodrow Wilson College with Julian Jaynes of the [[Psychology]] Department as its first Master. He was succeeded by John Fleming of the English Department, Master from 1969–1972; Henry Drewry of History, Master from 1972–1975; Norman Itzkowitz of Near Eastern Studies, Master from 1975–1989; and then again by Fleming, who returned as Master of Wilson College for 1989–1997. [[Miguel A. Centeno]] of the Department of [[Sociology]] was Master from 1997 through the spring of 2004, and Professor Marguerite Browning of the Program in [[Linguistics]] began her term as Master in the Fall of 2004.
+
+Beginning in 2007, then-Woodrow Wilson College became a four-year residential college, with new programs and advising. However, it later reverted to becoming a two-year residential college, only housing freshmen and sophomores, a state in which it remained until its closure.
+
+On June 26, 2020, Princeton University Board of Trustees announced that Woodrow Wilson's name would be removed from the Woodrow Wilson College and the [[Woodrow Wilson School of Public and International Affairs]], citing that his "racist thinking and policies make him an inappropriate namesake for a school whose scholars, students, and alumni must be firmly committed to combatting the scourge of racism in all its forms."<ref>{{Cite web|first1=Zachary|last1=Shevin|first2=Evelyn|last2=Doskoch|first3=Sam|last3=Kagan|title=U. renames Woodrow Wilson School and Wilson College|url=https://www.dailyprincetonian.com/article/2020/06/woodrow-wilson-racism-school-and-college-renamed-black-justice-league|date=2020-06-27|access-date=2020-06-27|website=[[The Daily Princetonian]]}}</ref> Woodrow Wilson College was renamed First College until its scheduled retirement in 2022, when it was replaced by one of two new residential colleges.<ref>{{Cite web|title=Board of Trustees' decision on removing Woodrow Wilson's name from public policy school and residential college|url=https://www.princeton.edu/news/2020/06/27/board-trustees-decision-removing-woodrow-wilsons-name-public-policy-school-and|date=2020-06-27|access-date=2020-06-27|publisher=[[Princeton University]]|language=en}}</ref><ref>{{Cite web|title=President Eisgruber's message to community on removal of Woodrow Wilson name from public policy school and Wilson College|url=https://www.princeton.edu/news/2020/06/27/president-eisgrubers-message-community-removal-woodrow-wilson-name-public-policy|date=2020-06-27|access-date=2020-06-27|publisher=Princeton University|language=en}}</ref><ref>{{Cite news|last=Pietsch|first=Bryan|date=2020-06-27|title=Princeton Will Remove Woodrow Wilson's Name From School|language=en-US|work=[[The New York Times]]|url=https://www.nytimes.com/2020/06/27/nyregion/princeton-university-woodrow-wilson.html|access-date=2020-06-27|issn=0362-4331}}</ref><ref>{{cite web |last1=Princeton University Office of Communications |title=President Eisgruber's message to community on removal of Woodrow Wilson name from public policy school and Wilson College |url=https://www.princeton.edu/news/2020/06/27/president-eisgrubers-message-community-removal-woodrow-wilson-name-public-policy |website=Princeton University |access-date=28 June 2020}}</ref><ref>{{Cite web |date=2020-06-27 |title=Princeton Renames Wilson School and Residential College, Citing Former President's Racism |url=https://paw.princeton.edu/article/princeton-renames-wilson-school-and-residential-college-citing-former-presidents-racism |access-date=2022-12-16 |website=Princeton Alumni Weekly |language=en}}</ref> Hobson College will be the name of the new residential college in honor of Mellody Hobson, who received her degree in 1991. This reform resulted from student pressure on racial equality causing Woodrow Wilson College to be demolished completely. Princeton University announced PAU as the lead architects for the new residential college which is estimated to be completed by Spring 2027.<ref>{{Cite web |date=2021-10-06 |title=Hobson College {{!}} Facilities |url=https://facilities.princeton.edu/projects/hobson-college |access-date=2025-01-29 |website=facilities.princeton.edu |language=en}}</ref> It will be the first residential college at Princeton to be named after a Black woman.<ref>{{Cite web |last=Fazio |first=Marie |date=October 10, 2020 |title=Princeton to Name Residential College After Black Alumna |url=https://www.nytimes.com/2020/10/10/us/mellody-hobson-woodrow-wilson-princeton.html |access-date=November 15, 2022 |website=The New York Times}}</ref>
+
+==Student life==
+First College is no longer being used as a residential college. The college was home to roughly 500 freshmen and sophomores and a small number of upperclass [[Resident assistant|Residential College Advisors]] (RCAs). It was previously led by the master (a faculty member), and also includes a dean, a director of studies, a director of student life, a college administrator, a college assistant, and a college secretary. A council of current students also contributed to college life, organizing trips, study breaks, and other opportunities.
+
+The college at present is under construction, awaiting to be replaced by Hobson College in 2026. Prior to construction, First housed no upperclassmen, with the exception of RCAs. A small number of graduate students lived in First as advisers to undergraduate residents. First was a two-year college, paired with nearby [[Butler College]].  First College students who wished to live in a residential college past their sophomore year had the option into one of the three  four-year colleges, [[Whitman College, Princeton University|Whitman]], [[Mathey College|Mathey]], and Butler. Because of its pairing with Butler College, in the past, priority for housing in Butler was given to students who spent their first two years living in First or Butler. Therefore, although it was possible for First resident to move into any of the three four-year colleges after sophomore year, it was most advantageous for him or her to move into Butler.
+
+==References==
+{{Reflist}}
+
+==External links==
+*[https://firstcollege.princeton.edu/ First College] {{Webarchive|url=https://web.archive.org/web/20201014053808/https://firstcollege.princeton.edu/ |date=October 14, 2020 }}
+
+{{Princeton}}
+
+[[Category:Colleges of Princeton University]]
+[[Category:1961 establishments in New Jersey]]
+[[Category:Buildings and structures in Princeton, New Jersey]]
+[[Category:University and college buildings and structures completed in 1961]]

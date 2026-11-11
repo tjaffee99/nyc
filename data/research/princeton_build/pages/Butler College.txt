@@ -1,0 +1,58 @@
+{{Short description|Residential college at Princeton University}}
+{{Hatnote|For the college in Indiana founded in 1855, see [[Butler University]]. For other uses, see [[Butler College (disambiguation)]]}}
+{{Outdated|date=August 2023}}
+{{Infobox residential college
+| name = Butler College
+| type = [[Residential colleges of Princeton University|Residential college]]
+| university = [[Princeton University]]
+| image = Entrance, Butler College, Princeton University, Princeton NJ.jpg
+| caption = College entrance
+| shield = Princeton Butler College CoA.svg
+| scarf = <!-- {{scarf|{{cell|color1}}{{cell|color2}}...}} -->
+| location = [[Princeton, New Jersey]]
+| quad = 
+| coordinates = {{coord|40.344638|N|74.656369|W|region:US_type:landmark_source:placeopedia|format=dms|display=inline,title}}
+| full_name = Lee D. Butler College
+| established = {{start date|1983|09|25}}
+| named_for = Lee D. Butler
+| former_names =
+| status = Open
+| gender = Mixed
+| sister_college = Hobson College
+| freshman_dorm = 
+| head = Elizabeth M. Armstrong
+| dean = Rashidah Andrews
+| residents = 
+| undergraduates =
+| postgraduates = 
+| website = {{url|https://butlercollege.princeton.edu/}}
+| student_association =
+| jcr_label =
+| jcr = {{unbulleted list|Yoseloff Hall|Bogle Hall|1976 Hall}}
+| mcr_label =
+| mcr= 
+| scr_label =
+| scr= Wilf Hall
+| pushpin_map = USA New Jersey Mercer County#New Jersey
+}}
+
+'''Lee D. Butler College''' is one of the seven residential colleges of [[Princeton University]], founded in 1983.  It houses about 500 freshmen and sophomores, 100 juniors and seniors, 10 Resident Graduate Students, a faculty member in residence, as well as a small number of upperclass [[Resident assistant|Residential College Advisors]].  Butler is a four-year college, paired with the former [[First College]].  This means juniors and seniors are permitted to live in Butler, with priority for housing given to undergraduates who spent their first two years in either Butler or First.
+
+It was opened in 1983 as Lee D. Butler College, the fourth college to be founded, and named after benefactor Lee D. Butler (class of 1922).<ref name='history'>{{cite web|url=https://butlercollege.princeton.edu/about/history|title=History|website=Butler College|access-date=17 Feb 2020}}</ref>
+
+As of the fall of 2009, Butler's main quad consists of newly constructed dormitories. These new constructed dormitories were designed by [[Pei Cobb Freed & Partners Architects LLP]] and structurally engineered by Leslie E. Robertson Associates. These dorms replaced a set of older dormitories, formerly known collectively as the "New New Quad", built in the 1960s and demolished in 2007.  The dormitories now comprising Butler are 1915 Hall, 1967 Hall, 1976 Hall, Bloomberg Hall, Bogle Hall, Wilf Hall, and Yoseloff Hall. 1915 Hall is an older building, while Bloomberg Hall opened in 2004 and the other dormitories opened in 2009. As part of the construction of Hobson College, 1915 Hall is scheduled to be demolished in the summer of 2022. 
+
+The dining hall of the college was [[Gordon Wu]] Hall, which was renovated during the summer of 2009 along with the adjacent First College dining hall, Wilcox Hall.  As a result of this renovation, Wu and Wilcox shared a servery and kitchen, with separate dining areas.  This arrangement is the same as that used by the [[Rockefeller College]] and [[Mathey College]] dining halls, which were renovated in 2007. In 2022, with the demolition of First College, Wilcox Hall closed, as did Wu Hall in 2023. Butler College's official dining hall is now [[Whitman College, Princeton University|Whitman College]]'s, though students often tend to also eat at the shared [[New College West]]-[[Yeh College]] Choi Dining Hall, or the dining hall at the campus Center for Jewish Life.
+
+== References ==
+
+{{Reflist}}
+
+==External links==
+*[https://web.archive.org/web/20081011163255/http://web.princeton.edu/sites/butlercollege/ Princeton University: Butler College]
+
+{{Princeton}}
+{{Authority control}}
+
+[[Category:Colleges of Princeton University]]
+[[Category:1983 establishments in New Jersey]]

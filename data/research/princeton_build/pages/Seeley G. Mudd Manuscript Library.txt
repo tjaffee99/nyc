@@ -1,0 +1,84 @@
+{{Short description|Archive at Princeton}}
+{{Use American English|date=September 2025}}
+{{Infobox library
+| name = Seeley G. Mudd Manuscript Library
+| logo = 
+| image = Mudd Library Princeton.JPG
+| caption = A view of the library from the north
+| country = United States
+| type = Archive & special collections
+| scope = Princeton University history<br/>[[Public policy]]
+| established = 1976
+| ref_legal_mandate = 
+| location = [[Princeton, New Jersey|Princeton]], [[New Jersey]]
+| coordinates = 
+| branch_of = [[Princeton University Library]]
+| num_branches = 
+| items_collected = 
+| collection_size = 45,000 linear feet
+| criteria = 
+| legal_deposit = 
+| req_to_access = 
+| annual_circulation = 
+| pop_served = 
+| members = 
+| budget = 
+| director = 
+| num_employees = 
+| website = https://library.princeton.edu/special-collections/mudd
+| phone_num = 
+| references =
+}}
+The '''Seeley G. Mudd Manuscript Library''' is the institutional archives of [[Princeton University]] and is part of the [[Princeton University Library]]'s department of [https://library.princeton.edu/special-collections/ special collections]. The Mudd Library houses two major collection areas: the history of Princeton and the history of twentieth century public policy.
+
+The Mudd Library was designed by [[Hugh Stubbins]] and cost $2.5 million at the time of its construction. It was the first building to be designed under the University's energy conservation program and was dedicated on October 16, 1976.<ref>{{cite journal|last=Bernstein|first=Fred|title=Princeton architecture: Less is more, but enough is enough|journal=Daily Princetonian|date=28 April 1977|volume=101|issue=61}}</ref><ref>{{cite journal|title=Princeton Notebook|journal=Princeton Alumni Weekly|date=27 September 1976|volume=77|issue=1|pages=6}}</ref> Its creation was supported by the [[Seeley G. Mudd]] Foundation. The Library currently holds 42,000 [[linear feet]] of archived material.<ref>{{cite web|url=https://www.princeton.edu/~mudd/about.html|title=Seeley G. Mudd Manuscript Library: About Us|publisher=Princeton University Library|accessdate=18 February 2012}}</ref>  The building underwent [https://library.princeton.edu/news/general/2021-08-31/mudd-manuscript-library-reopened-august-30 a significant infrastructure renovation] in 2020–21, in which the original HVAC, fire suppression, electrical, security, and plumbing systems were modernized, and a number of alterations to the first floor plan led to the creation of an additional seminar room.
+
+== Notable collections housed at the Mudd Library ==
+
+=== University archives collections ===
+The university archives collections the records of students and faculty at [[Princeton University]], evidence of the university's business, records of student life, and university publications. The university archives is also the repository for Princeton senior theses and doctoral dissertations. The archives were used extensively in the [https://slavery.princeton.edu/ Princeton and Slavery project].
+
+=== Public policy collections ===
+The five major collecting areas for public policy at Mudd Library are foreign policy, jurisprudence, journalism, public policy formation, and international development. The library has collected from individuals and organizations that influenced these areas in the twentieth and twenty-first centuries.
+* [[American Civil Liberties Union]]
+* [[Americans United for Separation of Church and State]]
+* [[Association on American Indian Affairs]]
+* [[Bernard Baruch]]
+* [[James A. Baker III]]
+* [[Grover Cleveland]]
+* [[Council on Foreign Relations]]
+* [[Allen Welsh Dulles]]
+* [[John Foster Dulles]]
+* [[Freedom House]]
+* [[John Marshall Harlan II]]
+* [[Richard Holbrooke]]
+* [[George F. Kennan]]
+* [[Arthur Krock]]
+* [[George McGovern]]
+* [[H. Alexander Smith]]
+* [[Adlai Stevenson II|Adlai Stevenson]]
+* [[Paul Volcker]]
+* [[Woodrow Wilson]]
+* [[Charles W. Yost]]
+
+==References==
+<references/>
+
+== External links ==
+* {{Official website|http://rbsc.princeton.edu/mudd}}
+* [http://blogs.princeton.edu/mudd/ Mudd Manuscript Library Blog]
+* [http://findingaids.princeton.edu/ Princeton University Finding Aids]
+
+{{Woodrow Wilson|state=collapsed}}
+{{George McGovern}}
+
+{{authority control}}
+
+{{coord|40.3496|-74.6520|display=title}}
+
+[[Category:Library buildings completed in 1976]]
+[[Category:Princeton University buildings and structures]]
+[[Category:Libraries in New Jersey]]
+[[Category:University and college academic libraries in the United States]]
+[[Category:Archives in the United States]]
+[[Category:Special collections libraries in the United States]]

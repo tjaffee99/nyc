@@ -1,0 +1,63 @@
+{{short description|Historic church in New Jersey, United States}}
+{{Distinguish|William Miller Chapel and Ascension Rock}}
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=August 2023}}
+{{Infobox NRHP
+| name = Princeton Seminary Chapel
+| nrhp_type = cp
+| nocat = yes
+| part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+| part_of_ref_num = 75001143
+| image = Princeton_Seminary_Chapel_-_Princeton_Theological_Seminary_(55143715027).jpg
+| alt = A picture of the front of Miller Chapel
+| caption = 
+| location = 64 Mercer St., [[Princeton, New Jersey|Princeton, NJ]]
+| coordinates = {{coord|40|20|42.5|N|74|39|48.9|W|display=inline,title}}
+| pushpin_map = 
+| area = 
+| built = {{Start date|1834}}
+| architect = [[Charles Steadman]]
+| architecture = [[Greek Revival architecture|Greek Revival]]
+| designated_nrhp_type = 27 June 1975
+| mpsub =
+}}
+
+The '''Princeton Seminary Chapel''' is the spiritual center of the [[Princeton Theological Seminary]], located in [[New Jersey]], United States, and has been in continuous use since its completion in 1834.  It was built by renowned local architect and builder [[Charles Steadman]] in [[stucco]]ed brick with a simple [[Doric order|Doric]] portico. As the chapel of the oldest [[Presbyterian]] Seminary in the United States, the building has been home to many of the most important Presbyterian theologians, including the great figures of the [[Princeton Theology]].  The [[narthex]] has plaques that honor [[Samuel Miller (theologian)|Samuel Miller]], after whom the chapel is named, [[Charles Hodge]], [[Archibald Alexander Hodge]], [[Caspar Wistar Hodge, Sr.]], and [[B. B. Warfield]].
+
+==History==
+
+[[File:Miller Chapel (old).jpg|thumb|left|Miller Chapel with its pre-1933 design, located adjacent to Alexander Hall, facing Mercer Street.  The Stuart Hall tower, since removed, can be seen at left.]]
+
+The chapel originally faced Mercer Street to the east and slightly behind Alexander Street. It was designed in the Reformed tradition with one worship space, unifying the choir, congregants, and clergy, and with a central pulpit, emphasizing the proclamation of the [[Bible|Word of God]]. Originally a twin building was planned so as to flank Alexander Hall with [[Greek Revival architecture|Greek Revival]] buildings in the same way Nassau Hall was flanked by the original [[American Whig–Cliosophic Society|Whig and Clio Halls]].
+[[File:Interior_View_of_Chapel_at_Princeton_College,_N.J_(NYPL_b11707651-G90F457_011ZF).tiff|left|thumb|Chapel interior (mislabeled), ca 1860]]
+An 1874 renovation added [[Victorian architecture|Victorian]] [[stained glass]] windows and an organ, moving away from the traditional [[Reformed theology|Reformed]] [[Regulative principle of worship|aversion]] to instruments in worship.  In 1933 a more substantial renovation by [[William Adams Delano|Delano & Aldrich]] moved the chapel so as to face the interior of the campus, serving as the cornerstone of two squares, bounded by Alexander and Hodge Halls to the north and Stuart and Brown Halls in the south.  The renovation also enlarged the building and removed the Victorian windows so as to restore a more simple appearance, consistent with the Seminary's Reformed heritage.<ref>{{cite book|last1=Rhinehart|first1=Raymond|title=Princeton University: The Campus Guide|date=March 1, 2000|publisher=Princeton Architectural Press|isbn=978-1568982090|pages=150–152|url=https://books.google.com/books?id=Jw16hrKZffAC&q=%22Miller+Chapel%22&pg=PA151}}</ref>  Later renovations took place in  1964 and 2000.  The chapel is home to the Joe R. Engle Organ, given to the Seminary in 2000.<ref>{{cite web|last1=Tel|first1=Martin|title=The Joe R. Engle Organ|url=http://www.ptsem.edu/uploadedFiles/Student_Life/Chapel/The%20Joe%20R%20Engle%20Organ%20-%20Tel_edited.pdf|website=Princeton Theological Seminary|access-date=2015-05-09|archive-url=https://web.archive.org/web/20150924083110/http://www.ptsem.edu/uploadedFiles/Student_Life/Chapel/The%20Joe%20R%20Engle%20Organ%20-%20Tel_edited.pdf|archive-date=2015-09-24|url-status=dead}}</ref>  In addition to daily services the chapel hosts a variety of concerts during the course of the year.  Weddings in the chapel are limited to those where either the bride, groom, or parent of either, is a student, graduate, trustee, or employee of the seminary.<ref>{{cite web|title=Miller Chapel and Scheide Hall|url=http://www.ptsem.edu/student_life/chapel/default.aspx?id=8662|website=Chapel Office|publisher=Princeton Theological Seminary|access-date=2015-05-07|archive-url=https://web.archive.org/web/20150324013209/http://www.ptsem.edu/Student_life/chapel/default.aspx?id=8662|archive-date=2015-03-24|url-status=dead}}</ref>
+
+On January 25, 2022, the Board of Trustees of Princeton Seminary voted to rename Miller Chapel in light of Samuel Miller's direct ties to slavery. "This decision followed thoughtful deliberation by the Board of Trustees, and it is part of their commitment to the ongoing work of confession and repentance that was part of the historical audit on slavery." The new name is Seminary Chapel.<ref>{{Cite web|url=https://www.ptsem.edu/news/board-vote-on-chapel-name|title = Board Vote on Chapel's Name is Another Step Forward in the Seminary's Journey of Repentance|date = 25 January 2022}}</ref>
+
+==Gallery==
+<gallery mode=packed heights=154px>
+File:Miller Chapel (portico).jpg|The portico with the Doric colonnade 
+File:Miller Chapel (interior).jpg|The interior showing the central place of the pulpit
+File:Miller Chapel Cross.jpg|Detail of the cross
+File:Miller Chapel (organ).jpg|The Joe R. Engle Organ
+</gallery>
+
+==See also==
+* [[Nassau Presbyterian Church]], a nearby church, also designed by Charles Steadman, in a similar style
+
+==References==
+{{reflist}}
+
+==External links==
+{{commons category|Miller Chapel}}
+*[http://www.ptsem.edu/student-life/spiritual-life/building-chapel-policies Princeton Theological Seminary Miller Chapel]
+
+{{Princeton, New Jersey|state=collapsed}}
+
+[[Category:Princeton Theological Seminary]]
+[[Category:Charles Steadman Buildings]]
+[[Category:Religious buildings and structures completed in 1834]]
+[[Category:Churches in Princeton, New Jersey]]
+[[Category:Historic district contributing properties in New Jersey]]
+[[Category:National Register of Historic Places in Mercer County, New Jersey]]
+[[Category:Churches on the National Register of Historic Places in New Jersey]]

@@ -1,0 +1,43 @@
+{{Short description|Bell tower and carillon at Princeton University}}
+{{Infobox building
+|name = Cleveland Tower
+|image = Cleveland Tower, Princeton University Graduate College, NJ.jpg
+|image_size = 
+|caption =
+
+}}
+
+'''Cleveland Tower''' is a [[bell tower]] containing a [[carillon]] on the campus of [[Princeton University]]. It was designed by [[Ralph Adams Cram]] and is one of the defining [[Collegiate Gothic]] architectural features of the university's [[Princeton University Graduate College|Graduate College]]. The tower was built in 1913 as a memorial to former university trustee and  [[President of the United States|U.S. President]] [[Grover Cleveland]]. A [[bust (sculpture)|bust]] of the former president is the centerpiece of the grand chamber at the tower's ground level.
+
+==Class of 1892 Bells==
+[[File:Cleveland Tower, Princeton University Graduate College, NJ - pinnacles.jpg|thumb|left|Carillon location]]
+The tower's [[carillon]] is a gift of the class of 1892, which presented the [[bell]]s as their 35th reunion dedication to the university in 1927. The English foundry [[Gillett & Johnston]] cast the original 35 bells. A plaque near the tower's entrance reads:<ref>{{cite sign |type=Plaque on tower |title=[[:File:Class of 1892 Carillon plaques, Cleveland Tower, Princeton University Graduate College, NJ.jpg|Class of 1892 Carillon]] }}</ref>
+<blockquote>
+''The Class of Eighteen Ninety Two presents the carillon in this tower to Princeton University with love and gratitude and the hope that its bells may ever inspire coming generations of Princeton men to maintain the traditions of their alma mater in the service of God and of their country''
+</blockquote>
+
+Originally dedicated on June 17, 1927, the bells were rededicated<!-- What does this imply?  Was a restoration done?  If so, it should be mentioned.  If not, the claim lacks relevance. --> after decades of varying use and maintenance on June 13, 1993. The Class of 1892 Bells are now one of the largest carillons in the world with 67 bells and a [[bourdon (bell)|bourdon]] (G) weighing {{convert|12,880|lb}}. The Chapel Music Program maintains the carillon program with assistance from an endowment by the class of 1892.<ref>[https://www.princeton.edu/~gradcol/perm/carillon.htm "Princeton University Carillon in Cleveland Tower"], Accessed July 28, 2007</ref> The bells play Sunday afternoons by university [[carillonneur]] Lisa Lonie, and weekday evenings by students, except during exam periods. The summer programs include performances by international guests. A carillon practice room is also housed in the Graduate College basement.{{citation needed|date=November 2025}}
+
+Lisa J. Lonie, University Carillonneur, is the only fourth carillonneur in the instrument's +80 year history and the first female to hold the position.{{citation needed|date=November 2025}}
+
+==See also==
+* American Collegiate Gothic towers:
+** [[Gasson Hall]], Boston College
+** [[Harkness Tower]], Yale University
+** [[Duke Chapel]], Duke University
+** [[Trinity College Chapel, Hartford]]
+* [[List of carillons in the United States]]
+
+==References==
+{{Reflist}}
+
+==External links==
+* {{Commons category-inline}}
+
+{{Princeton}}
+{{Authority control}}
+
+[[Category:Carillons]]
+[[Category:Towers completed in 1913]]
+[[Category:Princeton University buildings and structures]]
+[[Category:1913 establishments in New Jersey]]

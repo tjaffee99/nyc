@@ -1,0 +1,52 @@
+{{short description|Historic house in New Jersey, United States}}
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=August 2023}}
+{{Infobox NRHP
+| name                     = Maybury Hill
+| nrhp_type                = nhl
+| image                    = Maybury-hill-princeton.JPG
+| caption                  = 
+| location                 = 346 Snowden Lane,  [[Princeton, New Jersey]]
+| pushpin_map              = USA New Jersey Mercer County#New Jersey#USA
+| built                    = c. {{start date|1725}}
+| architect                = 
+| architecture             = [[Georgian architecture|Georgian]]
+| designated_nrhp_type     = November 11, 1971<ref name="nhlsum">{{cite web|url=http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=1116&ResourceType=Building|title=Maybury Hill|date=2008-06-23|work=National Historic Landmark summary listing|publisher=National Park Service|access-date=2008-06-24|archive-url=https://web.archive.org/web/20090225014957/http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=1116&ResourceType=Building|archive-date=2009-02-25|url-status=dead}}</ref>
+| added                    = November 11, 1971<ref name="nris"/>
+| area                     = {{convert|9.6|acre|ha}}
+| ref_num                  = 71000502<ref name="nris">{{NRISref|version=2010a}}</ref>
+| coordinates              = {{Coord|40|22|03|N|74|38|29|W|format=dms|display=inline,title|type:landmark_region:US-NJ}}
+| designated_other1_name   = New Jersey Register of Historic Places
+| designated_other1_abbr   = NJRHP
+| designated_other1_link   = New Jersey Register of Historic Places
+| designated_other1_date   = November 11, 1971
+| designated_other1_number = 1748<ref name=NJRHP>{{cite web|title=New Jersey and National Registers of Historic Places — Mercer County |url=http://www.nj.gov/dep/hpo/1identify/nrsr_lists/mercer.pdf |publisher=[[New Jersey Department of Environmental Protection]] — Historic Preservation Office |page=8 |date=April 5, 2013 |access-date=June 4, 2013 |url-status=dead |archive-url=https://web.archive.org/web/20130516134942/http://www.nj.gov/dep/hpo/1identify/nrsr_lists/mercer.pdf |archive-date=May 16, 2013 }}</ref>
+| designated_other1_num_position = bottom
+| designated_other1_color  = #ffc94b
+}}
+'''Maybury Hill''' is a historic house at 346 Snowden Lane, in [[Princeton, New Jersey|Princeton]], [[Mercer County, New Jersey|Mercer County]], [[New Jersey]], United States.  Built about 1725, it was the birthplace and boyhood home of [[Joseph Hewes]] (1730-1779), a signer of the [[United States Declaration of Independence]].  The house, an architecturally excellent example of Georgian domestic architecture, was designated a [[National Historic Landmark]] in 1971 for its association with Hewes.<ref name="nhlsum"/>  It is a private residence not open to the public.
+
+==Description and history==
+Maybury Hill is located in a residential setting of northern Princeton, on the west side of Snowden Lane between Maybury Hill Road and Overbrook Drive.  It is a {{frac|2|1|2}}-story masonry structure, with woodframe ells to the side and rear.  It is built out of fieldstone which was finished in the 20th century in concrete, and is covered by a gabled roof.  It has brick chimneys at each gable end.  The interior follows a typical central hall plan, with a staircase rising in the main hall, a parlor to the left extending the full depth of the main block, and a dining room and kitchen to the right.  Original features in these rooms include exposed beams and wooden paneling, and a tiled fireplace in the dining room.<ref name="nrhpdoc">{{cite web|url={{NRHP url|id=71000502}}|title=National Register of Historic Places Inventory/Nomination: Maybury Hill |publisher=[[National Park Service]]|author= |date= |accessdate=April 19, 2021}} With {{NRHP url|id=71000502|photos=y|title=accompanying pictures}}</ref>
+
+The house was built about 1725, originally as a single block with a detached kitchen structure.  Damaged by fire, it was reconstructed in 1735.  In 1753 an ell was added, joining the main block to the kitchen and giving the house its overall L shape.  It was leased by Arron Hewes between 1730 and 1755, and it is there where his son Joseph Hewes was born in 1730.  Educated at [[Princeton University|Princeton]], Hewes entered business and politics in [[Edenton, North Carolina]], operating a mercantile business and serving in the North Carolina colonial legislature.  During the [[American Revolution]] he served in the [[Continental Congress]], and signed the [[United States Declaration of Independence]].  He died in [[Philadelphia, Pennsylvania|Philadelphia]] in 1779 while serving in Congress.<ref name="nrhpdoc"/>
+
+==See also==
+* [[National Register of Historic Places listings in Mercer County, New Jersey]]
+
+==References==
+{{reflist}}
+
+==External links==
+{{commons category-inline}}
+
+{{Princeton, New Jersey}}
+{{NHLs in NJ}}
+{{NRHP in Mercer County, New Jersey}}
+
+[[Category:Houses completed in 1725]]
+[[Category:Houses on the National Register of Historic Places in New Jersey]]
+[[Category:Houses in Princeton, New Jersey]]
+[[Category:National Historic Landmarks in New Jersey]]
+[[Category:National Register of Historic Places in Mercer County, New Jersey]]
+[[Category:New Jersey Register of Historic Places]]

@@ -1,0 +1,32 @@
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=August 2023}}
+{{Infobox NRHP
+  | name = McCormick Hall
+  | nrhp_type = 
+  | image = McCormick Hall (Hastings, Nebraska) from NW 1.JPG
+  | caption = The building in 2010
+  | location= Hastings College campus, [[Hastings, Nebraska]]
+  | coordinates = {{coord|40|35|32|N|98|22|25|W|region:US_type:landmark|name=McCormick Hall|display=inline,title}}
+  | pushpin_map = Nebraska#USA
+  | built = {{Start date|1883}}
+  | architecture = Italianate
+  | added = May 12, 1975
+  | area = less than one acre
+  | ref_num = 75001086<ref name="nris">{{NRISref|version=2013a}}</ref>
+}}
+'''McCormick Hall''' is a historic building on the campus of [[Hastings College]] in [[Hastings, Nebraska]], United States. It was built in 1883–1884, and designed in the [[Italianate architecture|Italianate architectural style]].<ref name="nrhpdoc">{{cite web|url={{NRHP url|id=75001086}}|title=National Register of Historic Places Inventory/Nomination: McCormick Hall |publisher=[[National Park Service]]|author= |date= |accessdate=March 12, 2019}} With {{NRHP url|id=75001086|photos=y|title=accompanying pictures}}</ref> It was the first building on campus, and it housed the departments of English, Journalism, Speech, Drama, Mathematics and Chemistry.<ref name="nrhpdoc"/> There was also a Presbyterian chapel on the second floor, later a theatre.<ref name="nrhpdoc"/> It has been listed on the [[National Register of Historic Places listings in Adams County, Nebraska|National Register of Historic Places]] since May 12, 1975.<ref name="nris"/>
+
+==References==
+{{reflist}}
+
+{{commons category|McCormick Hall (Hastings, Nebraska)}}
+
+{{National Register of Historic Places}}
+
+{{DEFAULTSORT:McCormick Hall}}
+[[Category:National Register of Historic Places in Adams County, Nebraska]]
+[[Category:Italianate architecture in Nebraska]]
+[[Category:School buildings completed in 1883]]
+[[Category:Hastings College]]
+
+{{Nebraska-NRHP-stub}}

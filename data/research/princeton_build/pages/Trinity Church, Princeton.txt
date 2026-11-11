@@ -1,0 +1,88 @@
+{{COI|date=August 2016}}
+{{Infobox church
+| denomination  = [[Episcopal Church in the United States of America|Episcopal]]
+| name          = Trinity Church
+| image         = Trinity Church; Princeton, NJ.jpg
+| country       = United States
+| location      = [[Princeton, New Jersey|Princeton]], [[New Jersey]]
+| churchmanship = [[High church]]
+| website       = {{official URL}}
+| founded       = 1833
+| architect     = [[Charles Steadman]] (1833), [[Richard Upjohn]] (1870), [[Ralph Adams Cram]] (expansion 1914)
+| style         = [[Greek Revival]] (1833–1870), [[Gothic architecture]] (1870–present)
+| completed     = 1870
+| diocese       = [[Diocese of New Jersey]]
+| province      = [[Province 2 of the Episcopal Church in the United States of America|Province II]]
+| bishop        = [[Sally French]]
+| rector        = Paul Jeanes III
+| embedded      = {{Infobox NRHP
+ | embed = yes
+ | name = Trinity Episcopal Church
+ | part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+ | part_of_ref_num = 75001143<ref>{{cite web|title=Princeton Historic District|url={{NRHP url|id=75001143}}|website=National Register of Historic Places|publisher=National Park Service}}</ref>
+ | nrhp_type = cp
+ | nocat = yes
+ | image = 
+ | alt = 
+ | caption = 
+ | coordinates = {{coord|40|20|49.9|N|74|39|52.6|W|display=inline,title}}
+ | pushpin_map = USA New Jersey Mercer County#New Jersey#USA
+ | map_alt = A map of Mercer County, New Jersey
+ | area =
+ | architect= 
+ | added = 27 June 1975
+ | governing_body = 
+ | mpsub=
+}}
+}}
+
+'''Trinity Church''' is a historic [[Episcopal Church (United States)|Episcopal]] congregation located at 33 Mercer Street in [[Princeton, New Jersey]].  It is the largest Episcopal church in New Jersey.<ref>{{cite web|title=Participation & Giving Trends, Trinity Episcopal Church, Princeton, NJ|url=http://pr.dfms.org/study/exports/7367-5977_20140512_08255818.pdf|publisher=The Episcopal Church|accessdate=13 May 2014}}</ref>
+
+==History==
+Trinity was a relative latecomer in mainly Calvinistic{{citation needed|date=December 2025}} central New Jersey. Princeton Borough, in particular, was a heavily Presbyterian village, anchored by the College of New Jersey (now [[Princeton University]]) and [[Princeton Theological Seminary]]. A handful of local would-be parishioners, including a number with southern connections, founded Trinity in 1833, building a modest Greek Revival meeting hall as their church. Miller Chapel, a stone's throw away on the [[Princeton Theological Seminary]] campus, is a similar building by the same local architect-builder, [[Charles Steadman]], who also designed many houses in the neighborhood.<ref>{{cite news|title=Trinity Church to Mark Anniversary on Sunday|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=TownTopics20080507-01.2.139&srpos=3&e=-------en-20--1--txt-IN-Trinity+Church+Ralph+adams+Cram----#|accessdate=13 May 2014|newspaper=The Town Topics|date=7 May 2008}}</ref>
+
+===Nineteenth century===
+
+[[File:Trinity Church Princeton (1868-1914).jpg|thumb|left|250px|Trinity Church with its original tower and shorter nave before the renovations in 1914]]
+
+In 1870 the original structure gave way to a larger, more assertively Episcopalian building designed in the [[Gothic Revival]] style by [[Richard Upjohn]] and his son. This remained until the first decade of the last century, when architect [[Ralph Adams Cram]] doubled the nave in length. In 1914, Cram was hired again to create a small chapel in the north transept (the [[Lady Chapel]]), a larger French Gothic chancel, and a significantly heightened tower accommodating a small carillon of ten [[Meneely Bell Foundry|Meneely]] bells.<ref>{{cite news|title=Dedication at Trinity Church This Morning|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19150512-01.2.28&srpos=4&e=-------en-20--1--txt-IN-Trinity+Church+Ralph+adams+Cram----#|accessdate=13 May 2014|newspaper=The Daily Princetonian|date=12 May 1915}}</ref>  With some interior alterations, this is today's church building.  A stone over the [[chancel]] door is from the 13th-century [[St Oswald's Church, Malpas|St. Oswald's Church]] near [[Malpas, Cheshire|Malpas]], the original [[Robert F. Stockton|Stockton family]] home.<ref>{{cite book|last1=Collins|first1=Varnum Lansing|title=Guide to Princeton: The Town, the University|date=1919|publisher=Princeton University Press|location=Princeton|page=18|url=https://books.google.com/books?id=ooZDAQAAMAAJ&q=Harrison+Street+Princeton&pg=PA49}}</ref>
+
+In 1850 the church built a [[Gothic Revival architecture|gothic]] schoolhouse (now attached to the parish house and serving as offices) to serve as a [[Sunday school]] for parish children (itself an innovation), and at other times as a school for African-American children, whom the local schools did not serve. In the second half of the 19th century, Trinity founded several nearby missions, of which two survive independently.<ref>{{cite web|title=Trinity Church History|url=http://trinityprinceton.com/about-us/history/|accessdate=13 May 2014}}</ref>
+
+===Twentieth century===
+
+[[File:Ivy Hall (Princeton).jpg|thumb|left|200px|Ivy Hall, built to house [[Princeton University]]'s short-lived law school, later home to [[The Ivy Club]], to which it gave its name, and now home to the choir of Trinity Church]]
+[[File:All Saints Episcopal Church (Princeton, New Jersey) 01.jpg|thumb|All Saints Episcopal Church, planted by Trinity in 1960]]
+
+Through the 1920s, 1930s, and early 1940s, Trinity slowly grew with Princeton. The growth of Princeton Township (surrounding the borough) and today's extensive suburbs were yet to come. During the baby boom of the late 1940s and the 1950s, Trinity experienced explosive growth in young families with children, with a burgeoning Sunday school (at one point claiming five hundred members). Through that period the parish ministry remained essentially traditional, with outreach a minor component and the rector and assisting clergy very much in charge. During the 1950s, a large parish hall (Pierce Hall), kitchen and meeting room were built to accommodate the growing demands for space.
+
+The 1960s witnessed a devastating fire (1963) and reconstruction in the church proper, as well as the beginning of two enduring outreach efforts: Trinity Counseling Service and All Saints' Church, which was created in 1960 as a neighborhood church to serve the fast-growing eastern end of Princeton Township with its own vicar. A stone church with parish house was built at the outset, and it quickly became independent. The two parishes share Trinity-All Saints' Cemetery, next to All Saints', and some other undeveloped property at the site of All Saints'. All Saints' was the brainchild of the Rev. Dr. John Vernon Butler, rector from 1948 to 1959. Dr. Butler, a strong leader, followed the Rev. Arthur Lee Kinsolving (1940–47), who had moved to New York City to lead St. James's, Madison Avenue. Butler served 11 years, then became dean of New York's [[Cathedral of St. John the Divine]], and later rector of [[Trinity Church, New York]].
+
+Next, the Rev. Robert Spears saw Trinity through the fire and rebuilding of the mid-1960s, and after seven years' tenure became bishop of the [[Episcopal Diocese of Rochester]], New York. The Rev. James Whittemore served from 1967 to 1977, during which Trinity evolved into something like its modern form, with expanded lay leadership, liturgical renewal, a revised church, enlarged facilities, and a more diverse and welcoming congregation.{{citation needed|date=January 2017}} A long-awaited{{by whom|date=January 2017}} moment came when parishioner and clergy staff member the Rev. Daphne Hawkes was ordained to the priesthood at Trinity, the first woman priest in the Diocese of New Jersey.{{citation needed|date=January 2017}} Whittemore left to head the [[Seamen's Church Institute of New York and New Jersey|Seamen's Church Institute]] in New York City, now led by former interim rector the Rev. Jean Smith.
+
+The Rev. John Crocker Jr. came to Trinity in 1977 from the Episcopal chaplaincy at [[MIT]] and served until his retirement in 1989. His tenure included expanded outreach, consolidation of the many liturgical changes of the preceding years, and planning for needed facility improvements. In 1991, after an extended interim period, the Ven. Leslie Smith, archdeacon of the neighboring [[Episcopal Diocese of Newark|Diocese of Newark]], became Trinity's next rector, serving until his retirement in mid-2006. 
+
+=== Twenty-first century ===
+The Rev. Paul Jeanes has served at Trinity since 2008, and has seen Trinity through a transition to becoming more culturally, socially, and liturgically inclusive. His emphasis on the spiritual pilgrimage of laity has shifted church programming to include more adult formation and outreach.<ref>{{Cite web |date=2025-12-11 |title=Clergy and Staff |url=http://www.trinityprinceton.org/clergy-staff |access-date=2026-01-09 |website=Trinity Church |language=en-US}}</ref><ref>{{Cite web |last=FaithStreet |title=Staff and Leaders of Trinity Church in Princeton, NJ |url=https://www.faithstreet.com/church/trinity-church-princeton-nj-1/leaders |access-date=2026-01-09 |website=FaithStreet |language=en-us}}</ref><ref>{{Cite web |title=Loving Our Neighbors |url=http://www.trinityprinceton.org/loving-our-neighbors |access-date=2026-01-09 |website=Trinity Church |language=en-US}}</ref>
+
+==Music==
+Starting in 1879, Trinity, like many Episcopal parishes, participated in the Choral Revival in the [[Anglican]] church, with its emphasis on vested choirs of men and boys trained by professional church musicians, and singing high quality church music. Thus began its choir program which now includes girls and women. This rigorous program has continued under a succession of notable Episcopalian and Anglican musicians including [[James Litton]] and [[John Bertalot]].
+
+In February 2022 the parish fired its long time music director and organist Tom Whittemore because of historical sex abuse charges by law enforcement and a joint investigation by the [[Episcopal Diocese of New Jersey]] and the [[Episcopal Diocese of Pennsylvania]].<ref>{{cite web|title=Lay employee fired amid child sex abuse investigation launched by Pennsylvania, New Jersey dioceses|url=https://www.episcopalnewsservice.org/2022/02/25/priest-fired-amid-child-sex-abuse-investigation-launched-by-pennsylvania-new-jersey-dioceses/|accessdate=2 March 2014}}</ref><ref>{{cite web |title=Update on Sexual Abuse Case (9/29/22) |url=https://diopa.org/news/update-on-sexual-abuse-case-9-29-22 |website=Episcopal Diocese of Pennsylvania |publisher=Episcopal Diocese of Pennsylvania |access-date=28 December 2025}}</ref><ref>{{cite web |last1=Jeanes III |first1=Paul |title=Dear Beloved of Trinity |url=https://www.trinityprinceton.org/epistle-online/2022/10/22/a-message-from-the-rector |website=Trinity Church, Princeton |publisher=Trinity Episcopal Church |access-date=28 December 2025}}</ref> Connor Fluharty served as Interim Director of Music in the transition, and in August 2023 Dr. Margaret "Meg" Harper assumed the role of Director of Music. Since then, the music program has expanded and offers regular programming including biweekly Evensong and Compline services Sunday nights at 5pm.
+{{commonscat|Trinity Church, Princeton}}
+
+==References==
+{{reflist}}
+
+==External links==
+* {{Official website}}
+*[https://www.findagrave.com/cemetery/1762144/trinity-all-saints-cemetery Trinity All Saints Cemetery]
+
+{{Princeton, New Jersey|state=collapsed}}
+
+[[Category:Episcopal church buildings in New Jersey]]
+[[Category:Churches in Princeton, New Jersey]]
+[[Category:Richard Upjohn church buildings]]
+[[Category:Ralph Adams Cram church buildings]]
+[[Category:Gothic Revival church buildings in New Jersey]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]

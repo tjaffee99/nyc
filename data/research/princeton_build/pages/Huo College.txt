@@ -1,0 +1,49 @@
+{{short description|Residential college at Princeton University}}
+{{Infobox residential college
+| name           = Huo College
+| type           = [[Princeton University#Residential colleges|Residential college]]
+| university     = [[Princeton University]]
+| shield         = Princeton NCW College CoA.svg
+| shield_size    = 
+| image          = File:New College West, Princeton University.jpg
+| caption        = New College West near completion in 2022
+| scarf          = 
+| full_name      = 
+| latin_name     = 
+| latin_motto    = 
+| english_motto  = 
+| named_for      = 
+| former_names   = 
+| established    = 2022
+| sister_college = [[Yeh College]]
+| freshman_dorm  = 
+| head           = 
+| dean           = 
+| HoCo_chair     = 
+| undergraduates = around 500<ref name="stateof2020">{{cite web |last1=Eisgruber |first1=Christopher |title=State of the University 2020 |url=https://www.princeton.edu/news/2020/02/03/president-eisgrubers-annual-state-university-letter-2020 |website=Princeton University |publisher=Princeton University |access-date=28 June 2020}}</ref>
+| called         = 
+| tutors         = 
+| location       = 
+| coordinates    = {{coord|40.34207|-74.65495|type:edu_globe:earth_region:US-NJ|display=ti}}
+| website        = {{URL|https://huocollege.princeton.edu}}
+}}
+
+'''Huo College''' is the sixth [[Princeton University#Residential colleges|residential college]] at [[Princeton University]].<ref name="stateof2020" /> The construction of Huo College, provisionally known as New College West, helped to increase the undergraduate student body population by 10 percent, or 500 students. It aims to be [[LEED Gold]] certified.<ref name="facilities">{{cite web |title=New Residential Colleges, including Perelman College |url=https://facilities.princeton.edu/projects/new-residential-colleges-including-perelman-college |website=Princeton University Facilities |publisher=Princeton University |access-date=28 June 2020 |archive-date=29 June 2020 |archive-url=https://web.archive.org/web/20200629144858/https://facilities.princeton.edu/projects/new-residential-colleges-including-perelman-college |url-status=dead }}</ref> [[Deborah Berke Partners]] are the architects of the new buildings.<ref name="roinj">{{cite web |last1=Strauss |first1=Eric |title=Perelman gift to fund new residential college at Princeton |url=https://www.roi-nj.com/2018/12/05/education/perelman-gift-to-fund-new-residential-college-at-princeton/ |website=ROI-NJ |publisher=ROI-NJ |access-date=28 June 2020}}</ref> Huo College is adjacent to [[Yeh College]], and shares the same dining facility.<ref name="facilities" /> Huo College houses students displaced by the demolition of [[First College]], which is to be replaced with [[Hobson College]] in 2027.<ref>{{Cite web|date=2021-11-01|title=Home Page {{!}} Construction at Princeton|url=https://construction.princeton.edu/|archive-url=https://web.archive.org/web/20211101154145/https://construction.princeton.edu/|url-status=dead|archive-date=2021-11-01|access-date=2021-11-01}}</ref>
+
+==History and Naming==
+
+The college was originally made possible by a $65 million gift from the Perelman Family Foundation, run by Debra '96 and [[Ronald Perelman]].<ref name="forbes">{{cite web |last1=Adams |first1=Susan |title=The Billionaire Perelmans Give Princeton $65M |url=https://www.forbes.com/sites/susanadams/2018/12/05/the-billionaire-perelmans-give-princeton-69m-and-it-doesnt-even-seem-like-that-much-anymore/#66af6ec743b4 |work=Forbes |access-date=28 June 2020}}</ref> Prior to the removal of the Perelman name in 2021, it would have been the first residential college at Princeton to be named after Jewish people.<ref name="timesisrael">{{cite web |last1=JTA |title=Princeton is naming a residential college after Ronald and Debra Perelman |url=https://www.timesofisrael.com/princeton-is-naming-a-residential-college-after-ronald-and-debra-perelman/ |website=The Times of Israel |publisher=The Times of Israel |access-date=28 June 2020}}</ref> 
+
+In June 2021, prior to the college's opening, Princeton University removed the Perelman name from New College West after the Perelman Family Foundation ceased payments to the University under their gift agreement.<ref name="perelmannameremoved">{{cite web |last1=Tomlinson |first1=Brett |title=Perelman Name Dropped As Two Residential Colleges Move Forward |url=https://paw.princeton.edu/article/perelman-name-dropped-two-residential-colleges-move-forward |website=Princeton Alumni Weekly |publisher=Princeton Alumni Weekly |access-date=2 July 2022}}</ref>
+
+In June 2026, Princeton University announced the renaming of New College West to Huo College, after a gift from graduate alumnus [[Yan Huo]] *94.<ref>{{Cite web |title=Venture Forward gift from Yan Huo *94 names New College West as Huo College {{!}} Princeton Alumni |url=https://alumni.princeton.edu/stories/venture-forward-yan-huo-new-college-west |access-date=2026-06-25 |website=alumni.princeton.edu |language=en}}</ref>
+
+==References==
+{{reflist}}
+
+{{Princeton}}
+
+[[Category:Colleges of Princeton University]]
+[[Category:2022 establishments in New Jersey]]
+[[Category:University and college buildings and structures completed in 2022]]
+[[Category:Buildings and structures in Princeton, New Jersey]]

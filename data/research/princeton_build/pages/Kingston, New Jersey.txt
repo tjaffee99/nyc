@@ -1,0 +1,285 @@
+{{short description|Populated place in Middlesex and Somerset counties, New Jersey, US}}
+{{Distinguish|Barclay-Kingston, New Jersey|Kingston Estates, New Jersey}}
+{{Use American English|date=August 2022}}
+{{Use mdy dates|date=August 2022}}
+{{Infobox settlement
+|official_name            = Kingston, New Jersey
+|type                     = [[Census-designated place]]
+|nickname                 = 
+|motto                    = 
+
+<!-- Images -->
+|image                    = Kingston_Mill.jpg
+|image_size               = 
+|caption                  = [[Kingston Mill Historic District|Kingston Mill]] on the [[Millstone River]]
+|image_flag               = 
+|image_seal               = 
+
+<!-- Maps -->
+|image_map                = Kingston_cdp_nj_023.png
+|map_size                 = 250px
+|map_caption              = Map of Kingston showing section in [[Middlesex County, New Jersey|Middlesex County]]. Inset: Location of Middlesex County in [[New Jersey]].
+|image_map1               = 
+|map_size1                = 
+|map_caption1             = 
+|pushpin_map              = USA New Jersey Middlesex County#USA New Jersey#USA
+|pushpin_label            = Kingston
+|pushpin_caption          = Location in [[Middlesex County, New Jersey|Middlesex County]]##Location in [[New Jersey]]##Location in the United States
+|pushpin_relief           = yes
+
+<!-- Location -->
+|subdivision_type         = Country
+|subdivision_name         = {{flag|United States}}
+|subdivision_type1        = [[U.S. state|State]]
+|subdivision_name1        = {{flag|New Jersey}}
+|subdivision_type2        = [[List of counties in New Jersey|Counties]]
+|subdivision_name2        = [[Middlesex County, New Jersey|Middlesex]] and [[Somerset County, New Jersey|Somerset]]
+|subdivision_type3        = [[List of townships in New Jersey|Townships]]
+|subdivision_name3        = [[South Brunswick, New Jersey|South Brunswick]] and [[Franklin Township, Somerset County, New Jersey|Franklin]]
+|government_footnotes     = 
+|government_type          = 
+|leader_title             = 
+|leader_name              = 
+|leader_title1            = 
+|leader_name1             = 
+|established_title        = 
+|established_date         = 
+
+<!-- Area -->
+|unit_pref                = Imperial
+|area_footnotes           = <ref name="CenPopGazetteer2023">{{cite web |title=2023 U.S. Gazetteer Files: New Jersey|url=https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2023_Gazetteer/2023_gaz_place_34.txt |publisher=United States Census Bureau |accessdate=July 30, 2024}}</ref>
+|area_total_km2           = 5.03
+|area_land_km2            = 4.85
+|area_water_km2           = 0.18
+|area_total_sq_mi         = 1.94
+|area_land_sq_mi          = 1.87
+|area_water_sq_mi         = 0.07
+|area_water_percent       = 3.80
+
+<!-- Population -->
+|population_as_of         = [[2020 United States census|2020]]
+|population_footnotes     = <ref name=Census2020>[https://data.census.gov/profile?g=160XX00US3436930 Census Data Explorer: Kingston CDP, New Jersey], [[United States Census Bureau]]. Accessed June 15, 2023.</ref>
+|population_total         = 1581
+|pop_est_as_of            = 
+|pop_est_footnotes        = 
+|population_est           = 
+|population_density_km2   = 325.81
+|population_density_sq_mi = 843.65
+
+<!-- General information -->
+|time_zone                = [[Eastern Time Zone|Eastern (EST)]]
+|utc_offset               = −05:00
+|time_zone_DST            = [[Eastern Daylight Time|Eastern (EDT)]]
+|utc_offset_DST           = −04:00
+|elevation_footnotes      = <ref>{{Gnis|2389397|Kingston Census Designated Place}}, [[Geographic Names Information System]]. Accessed November 29, 2012.</ref>
+|elevation_m              = 37
+|elevation_ft             = 121
+|coordinates_footnotes    = <ref name="CenPopGazetteer2023"/>
+|coordinates              = {{coord|40.387103|-74.6152|region:US_type:city|display=inline,title}}
+|postal_code_type         = [[ZIP Code]]s
+|postal_code              = 08528 (Kingston)<br/>08540 ([[Princeton, New Jersey|Princeton]])<ref>{{Cite web| url=https://tools.usps.com/zip-code-lookup.htm?citybyzipcode| title=Cities by ZIP Code| publisher=U.S. Postal Service| access-date=August 1, 2024}}</ref>
+|area_code                = [[Area code 609|609]]
+|custom_label_sec1        = [[Federal Information Processing Standard|FIPS code]]
+|custom_data_sec1         = {{FIPS|34|36930}}<ref name="GR2">[https://www.census.gov U.S. Census website], [[United States Census Bureau]]. Accessed September 4, 2014.</ref><ref>[https://mcdc.missouri.edu/applications/geocodes/?state=34 Geographic Codes Lookup for New Jersey], Missouri Census Data Center. Accessed June 9, 2023.</ref>
+|custom_label1_sec1       = [[Geographic Names Information System|GNIS]] feature ID
+|custom_data1_sec1        = 02584006<ref name="GR3">[http://geonames.usgs.gov US Board on Geographic Names], [[United States Geological Survey]]. Accessed September 4, 2014.</ref>
+|website                  = 
+|footnotes                = 
+}}
+
+'''Kingston''' is an [[Local government in New Jersey#Unincorporated communities|unincorporated community]] and [[census-designated place]] (CDP) along the border of [[South Brunswick, New Jersey|South Brunswick Township]] in [[Middlesex County, New Jersey|Middlesex County]] and [[Franklin Township, Somerset County, New Jersey|Franklin Township]] in [[Somerset County, New Jersey|Somerset County]], and also located relatively near [[Princeton, New Jersey|Princeton]] in [[Mercer County, New Jersey|Mercer County]] in the [[U.S. state]] of [[New Jersey]].<ref name=GCTPH1>{{Deprecated archive|url=https://archive.today/20200212201035/http://factfinder.census.gov/bkmk/table/1.0/en/DEC/10_SF1/GCTPH1.CY10/0500000US34035|title=GCT-PH1 - Population, Housing Units, Area, and Density: 2010 - County &ndash; County Subdivision and Place from the 2010 Census Summary File 1 for Somerset County, New Jersey}}, [[United States Census Bureau]]. Accessed February 11, 2013.</ref><ref>[http://www2.census.gov/acs2010_5yr/summaryfile/UserTools/Geography/NJ.xls 2006-2010 American Community Survey Geography for New Jersey], [[United States Census Bureau]]. Accessed February 11, 2013.</ref><ref name=CPH232>[https://www.census.gov/prod/cen2010/cph-2-32.pdf New Jersey: 2010 - Population and Housing Unit Counts - 2010 Census of Population and Housing (CPH-2-32)], [[United States Census Bureau]], August 2012. Accessed February 11, 2013.</ref><ref>{{Deprecated archive|url=https://archive.today/20200212200723/http://factfinder.census.gov/bkmk/table/1.0/en/DEC/10_SF1/GCTPH1.CY10/0500000US34023|title=GCT-PH1 - Population, Housing Units, Area, and Density: 2010 - County &ndash; County Subdivision and Place from the 2010 Census Summary File 1 for Middlesex County, New Jersey}}, [[United States Census Bureau]]. Accessed November 29, 2012.</ref><ref>[http://www.state.nj.us/infobank/localnames.txt Locality Search], State of [[New Jersey]]. Accessed April 18, 2015.</ref> The historic settlement is in the [[Raritan River|Raritan Valley region]], located along the course of the [[Millstone River]]. As of the [[2020 United States census|2020 census]], the CDP's population was 1,581,<ref name=Census2020/> of which 1,272 were in South Brunswick Township and 309 in Franklin Township.<ref>{{Cite web| url=https://data.census.gov/all?t=Populations%20and%20People&g=0700000US340236879036930| title=Total Population in Kingston CDP (Part), South Brunswick Township, Middlesex County, New Jersey - 2020 Decennial Census| website=data.census.gov| access-date=August 1, 2024}}</ref><ref>{{Cite web| url=https://data.census.gov/all?t=Populations%20and%20People&g=0700000US340352490036930| title=Total Population in Kingston CDP (Part), Franklin Township, Somerset County, New Jersey - 2020 Decennial Census| website=data.census.gov| access-date=August 1, 2024}}</ref>
+
+The [[New Jersey State Planning Commission]] created the Kingston Village Advisory Committee in 2001 to address issues related to this distinct area. Both South Brunswick and Franklin appoint members to the committee, which holds an annual meeting to discuss issues pertinent to the Kingston area.<ref>{{Cite web |title=Kingston Village Advisory Committee {{!}} Township of Franklin, NJ |url=https://www.franklintwpnj.org/committees-commissions/kingston-village-advisory-committee |access-date=2022-05-06 |website=www.franklintwpnj.org}}</ref><ref>[http://www.kingstonvac.org/ Home page] {{Webarchive|url=https://web.archive.org/web/20120623021226/http://www.kingstonvac.org/ |date=June 23, 2012 }}, [[Kingston Village Advisory Committee]]. Accessed November 29, 2012.</ref> Kingston is (so far) unique as the only village center that has been officially designated by the [[New Jersey State Planning Commission]].{{citation needed|date=May 2022}}
+
+Kingston is located in five historic districts and is part of the [[Millstone River Valley Scenic Byway]]. The [[Delaware and Raritan Canal]] and [[Rockingham (house)|Rockingham State Historic Site]] are a short distance away.<ref>[[William B. Brahms]] ''Franklin Township, Somerset County, NJ: A History'', FTPL; {{ISBN|0-9668586-0-3}}</ref>
+
+==History==
+Jediah Higgins purchased {{convert|1000|acre|km2}} from the [[Native Americans of the United States|Native Americans]] in the early 18th century and the town of Kingston was established.<ref name=kpc>{{cite web |url=http://www.kingstonpresbyterian.org/index.asp?Type=B_BASIC&SEC={2C83D948-9A35-4C1E-BCB6-E090D3780F0F} |title=Kingston Presbyterian Church |access-date=July 18, 2008 |publisher=Kingston Presbyterian |url-status=dead |archive-url=https://web.archive.org/web/20071013081302/http://www.kingstonpresbyterian.org/index.asp?Type=B_BASIC&SEC=%7B2C83D948-9A35-4C1E-BCB6-E090D3780F0F%7D |archive-date=October 13, 2007 }}</ref> Kingston's location on the [[Lenape]] [[Assunpink Trail]] where it crossed the [[Millstone River]] and later becoming part of the [[King's Highway (Charleston to Boston)|King's Highway]] was the prime factor in its early prominence. Kingston was by far the most active and important village, being situated on both the heavily traveled King's Road and Millstone River, combining commercial activities of both mills and taverns.{{citation needed|date=May 2022}}
+
+==Geography==
+Kingston is in southwestern Middlesex County, in the western end of South Brunswick Township, and in southern Somerset County, occupying the southern tip of Franklin Township. It is bordered to the east by [[Heathcote, New Jersey|Heathcote]] in Middlesex County and to the north by [[East Rocky Hill, New Jersey|East Rocky Hill]] in Somerset County. It is bordered to the west by the [[Millstone River]], which forms the [[Mercer County, New Jersey|Mercer County]] line. The borough of [[Princeton, New Jersey|Princeton]] borders Kingston across the Millstone River.
+
+[[New Jersey Route 27]] is Kingston's Main Street; Route 27 leads southwest {{convert|3.5|mi}} to its terminus in the center of Princeton, and northeast {{convert|12|mi}} to [[New Brunswick, New Jersey|New Brunswick]], the Middlesex county seat.
+
+According to the [[U.S. Census Bureau]], the Kingston CDP has an area of {{convert|1.94|mi2|2}}, of which {{convert|1.87|mi2|2}} are land and {{convert|0.07|mi2|2}}, or 3.55%, are water.<ref name="CenPopGazetteer2023"/> The Millstone River, which runs along the western edge of Kingston, is a north-flowing tributary of the [[Raritan River]] and thus part of the watershed of [[Lower New York Bay]].
+
+==Demographics==
+{{US Census population
+|1990= 1047
+|2000= 1292
+|2010= 1493
+|2020= 1581
+|footnote=Population sources:<br> 1950<ref name=CensusNJ1950CDP>{{Cite web|title= 1950 Census of Population - Number of Inhabitants - New Jersey |url=https://www2.census.gov/library/publications/decennial/1950/population-volume-2/23024255v2p30ch1.pdf|website=[[United States Census Bureau]]|archive-url=https://web.archive.org/web/20250323234824/https://www2.census.gov/library/publications/decennial/1950/population-volume-2/23024255v2p30ch1.pdf| archive-date=March 23, 2025}}</ref> 1960<ref name=CensusNJ1960CDP>{{Cite web|title= 1960 Census of Population - Number of Inhabitants - New Jersey |url=https://www2.census.gov/library/publications/decennial/1960/population-volume-1/21260894v1p32ch2.pdf|website=[[United States Census Bureau]]|archive-url= https://web.archive.org/web/20250322203807/https://www2.census.gov/library/publications/decennial/1960/population-volume-1/21260894v1p32ch2.pdf| archive-date=March 22, 2025}}</ref> 1970<ref name=CensusNJ1970CDP>{{Cite web|title= 1970 Census of Population - Charecteristics of the Population - New Jersey |url=https://www2.census.gov/prod2/decennial/documents/1970a_nj1-01.pdf|website=[[United States Census Bureau]]|archive-url= https://web.archive.org/web/20250413231101/https://www2.census.gov/prod2/decennial/documents/1970a_nj1-01.pdf| archive-date=April 13, 2025}}</ref><br> 1980<ref name=CensusNJ1980CDP>{{Cite web|title= 1980 Census of Population - Volume 1 - Characteristics of the Population - Number of Inhabitants - New Jersey|url=https://www2.census.gov/prod2/decennial/documents/1980a_njAB-01.pdf|website=[[United States Census Bureau]]|archive-url= https://web.archive.org/web/20250208034839/https://www2.census.gov/prod2/decennial/documents/1980a_njAB-01.pdf| archive-date=February 8, 2025}}</ref> 1990<ref name=CensusNJ1990CDP>{{Cite web|title= 1990 Census of Population - Population and Housing Unit Counts - New Jersey|url=https://www2.census.gov/library/publications/decennial/1990/cph-2/cph-2-32.pdf|website=[[United States Census Bureau]]|archive-url= https://web.archive.org/web/20250323205725/https://www2.census.gov/library/publications/decennial/1990/cph-2/cph-2-32.pdf| archive-date=March 23, 2025}}</ref> 2000<ref name=CensusNJ2000CDP>{{Cite web|title=2000 Census of Population and Housing - Population and Housing Unit Counts - New Jersey |url=https://www2.census.gov/library/publications/2003/dec/phc-3-6.pdf|website=[[United States Census Bureau]]|archive-url=https://web.archive.org/web/20250326080925/https://www2.census.gov/library/publications/2003/dec/phc-3-32.pdf| archive-date=March 26, 2025}}</ref><br> 2010<ref name=CensusNJ2010CDP>{{Cite web|title= 2010 Census of Population - Population and Housing Unit Counts - New Jersey |url=https://www2.census.gov/library/publications/decennial/2010/cph-2/cph-2-32.pdf|website=[[United States Census Bureau]]|archive-url=https://web.archive.org/web/20251111220031/https://www2.census.gov/library/publications/decennial/2010/cph-2/cph-2-32.pdf| archive-date=November 11, 2025}}</ref>  2020<ref name=Census2020/>
+}}
+
+Kingston first appeared as a [[census designated place]] in the [[1990 U.S. census]].<ref name=CensusNJ1990CDP/>
+
+===2020 census===
+{| class="wikitable sortable" style="text-align:center;"
+|+'''Kingston CDP, New Jersey – Racial and ethnic composition'''<br><small>{{nobold|''Note: the US Census treats Hispanic/Latino as an ethnic category. This table excludes Latinos from the racial categories and assigns them to a separate category. Hispanics/Latinos may be of any race.''}}</small>
+!Race / Ethnicity <small>(''NH = Non-Hispanic'')</small>
+!Pop 2000<ref name=2000CensusP004>{{Cite web|title=P004: Hispanic or Latino, and Not Hispanic or Latino by Race – 2000: DEC Summary File 1 – Kingston CDP, New Jersey|url=https://data.census.gov/table?g=160XX00US3436930&tid=DECENNIALSF12000.P004|website=[[United States Census Bureau]] |access-date= }}</ref>
+!Pop 2010<ref name=2010CensusP2>{{Cite web|title=P2: Hispanic or Latino, and Not Hispanic or Latino by Race – 2010: DEC Redistricting Data (PL 94-171) – Kingston CDP, New Jersey|url=https://data.census.gov/cedsci/table?q=p2&g=160XX00US3436930&tid=DECENNIALPL2010.P2|website=[[United States Census Bureau]] |access-date= }}</ref>
+!style="background-color: #ffffb3;" |Pop 2020<ref name=2020CensusP2>{{Cite web|title=P2: Hispanic or Latino, and Not Hispanic or Latino by Race – 2020: DEC Redistricting Data (PL 94-171) – Kingston CDP, New Jersey|url=https://data.census.gov/cedsci/table?q=p2&g=160XX00US3436930&tid=DECENNIALPL2020.P2|website=[[United States Census Bureau]] |access-date= }}</ref>
+!% 2000
+!% 2010
+!style="background-color: #ffffb3;" |% 2020
+|-
+|[[Non-Hispanic or Latino whites|White]] alone (NH)
+|874
+|1,053
+|style='background: #ffffe6; |875
+|67.65%
+|70.53%
+|style='background: #ffffe6; |55.34%
+|-
+|[[Non-Hispanic or Latino African Americans|Black or African American]] alone (NH)
+|103
+|82
+|style='background: #ffffe6; |106
+|7.97%
+|5.49%
+|style='background: #ffffe6; |6.70%
+|-
+|[[Native Americans in the United States|Native American]] or [[Alaska Native]] alone (NH)
+|1
+|1
+|style='background: #ffffe6; |1
+|0.08%
+|0.07%
+|style='background: #ffffe6; |0.06%
+|-
+|[[Asian Americans|Asian]] alone (NH)
+|130
+|186
+|style='background: #ffffe6; |322
+|10.06%
+|12.46%
+|style='background: #ffffe6; |20.37%
+|-
+|[[Native Hawaiian]] or [[Pacific Islander Americans|Pacific Islander]] alone (NH)
+|0
+|0
+|style='background: #ffffe6; |0
+|0.00%
+|0.00%
+|style='background: #ffffe6; |0.00%
+|-
+|[[Race and ethnicity in the United States census|Other race]] alone (NH)
+|6
+|2
+|style='background: #ffffe6; |17
+|0.46%
+|0.13%
+|style='background: #ffffe6; |1.08%
+|-
+|[[Multiracial Americans|Mixed race or Multiracial]] (NH)
+|27
+|24
+|style='background: #ffffe6; |53
+|2.09%
+|1.61%
+|style='background: #ffffe6; |3.35%
+|-
+|[[Hispanic and Latino Americans|Hispanic or Latino]] (any race)
+|151
+|145
+|style='background: #ffffe6; |207
+|11.69%
+|9.71%
+|style='background: #ffffe6; |13.09%
+|-
+|'''Total'''
+|'''1,292'''
+|'''1,493'''
+|style='background: #ffffe6; |'''1,581 '''
+|'''100.00%'''
+|'''100.00%'''
+|style='background: #ffffe6; |'''100.00%'''
+|}
+
+===2010 census===
+[[File:Kingston, NJ.jpg|thumb|left|250px|Kingston as seen from northbound [[New Jersey Route 27|Route 27]]]]
+
+====Middlesex County portion====
+The [[2010 United States census]] counted 1,222 people, 533 households, and 303 families in the CDP. The [[population density]] was {{convert|1396.4|/mi2|/km2|disp=preunit|people&nbsp;|people|}}. There were 566 housing units at an average density of {{convert|646.8|/mi2|/km2|disp=preunit|units&nbsp;|units|}}. The racial makeup was 71.28% (871) [[White (U.S. census)|White]], 6.30% (77) [[Black (U.S. census)|Black or African American]], 0.25% (3) [[Native American (U.S. census)|Native American]], 14.73% (180) [[Asian (U.S. census)|Asian]], 0.00% (0) [[Pacific Islander (U.S. census)|Pacific Islander]], 5.32% (65) from [[Race and ethnicity in the United States census|other races]], and 2.13% (26) from two or more races. [[Hispanic (U.S. census)|Hispanic or Latino]] of any race were 10.64% (130) of the population.<ref name=Census2010>{{Deprecated archive|url=https://archive.today/20200212143322/http://factfinder.census.gov/bkmk/table/1.0/en/DEC/10_DP/DPDP1/1600000US3436930|title=DP-1 - Profile of General Population and Housing Characteristics: 2010 Demographic Profile Data for Kingston CDP, New Jersey}}, [[United States Census Bureau]]. Accessed November 29, 2012.</ref>
+
+Of the 533 households, 26.1% had children under the age of 18; 47.8% were married couples living together; 5.6% had a female householder with no husband present and 43.2% were non-families. Of all households, 37.5% were made up of individuals and 11.1% had someone living alone who was 65 years of age or older. The average household size was 2.29 and the average family size was 3.10.<ref name=Census2010/>
+
+22.2% of the population were under the age of 18, 7.4% from 18 to 24, 27.5% from 25 to 44, 30.4% from 45 to 64, and 12.6% who were 65 years of age or older. The median age was 40.9 years. For every 100 females, the population had 94.9 males. For every 100 females ages 18 and older there were 90.6 males.<ref name=Census2010/>
+
+====Somerset County portion====
+The [[2010 United States census]] counted 271 people, 124 households, and 81 families in the CDP. The [[population density]] was {{convert|198.9|/mi2|/km2|disp=preunit|people&nbsp;|people|}}. There were 126 housing units at an average density of {{convert|92.5|/mi2|/km2|disp=preunit|units&nbsp;|units|}}. The racial makeup was 94.10% (255) [[White (U.S. census)|White]], 2.58% (7) [[Black (U.S. census)|Black or African American]], 0.00% (0) [[Native American (U.S. census)|Native American]], 2.21% (6) [[Asian (U.S. census)|Asian]], 0.00% (0) [[Pacific Islander (U.S. census)|Pacific Islander]], 0.74% (2) from [[Race and ethnicity in the United States census|other races]], and 0.37% (1) from two or more races. [[Hispanic (U.S. census)|Hispanic or Latino]] of any race were 5.54% (15) of the population.<ref name=Census2010/>
+
+Of the 124 households, 23.4% had children under the age of 18; 52.4% were married couples living together; 7.3% had a female householder with no husband present and 34.7% were non-families. Of all households, 28.2% were made up of individuals and 10.5% had someone living alone who was 65 years of age or older. The average household size was 2.19 and the average family size was 2.68.<ref name=Census2010/>
+
+16.6% of the population were under the age of 18, 4.1% from 18 to 24, 28.8% from 25 to 44, 31.4% from 45 to 64, and 19.2% who were 65 years of age or older. The median age was 45.5 years. For every 100 females, the population had 103.8 males. For every 100 females ages 18 and older there were 94.8 males.<ref name=Census2010/>
+
+===2000 census===
+As of the [[2000 United States census]]<ref name="GR2" /> there were 1,292 people, 561 households, and 315 families living in the CDP. The [[population density]] was {{convert|554.3|/km2|/mi2|disp=preunit|people|people|abbr=on}}. There were 576 housing units at an average density of {{convert|247.1|/km2|/mi2|disp=preunit|units|units|abbr=on}}. The racial makeup of the CDP was 74.07% [[White (U.S. Census)|White]], 8.05% [[African American (U.S. Census)|African American]], 0.62% [[Native American (U.S. Census)|Native American]], 10.06% [[Asian (U.S. Census)|Asian]], 4.33% from [[Race (United States Census)|other races]], and 2.86% from two or more races. [[Hispanic (U.S. Census)|Hispanic]] or [[Latino (U.S. Census)|Latino]] of any race were 11.69% of the population.<ref name=Census2000>{{Deprecated archive|url=https://archive.today/20200212092309/http://factfinder.census.gov/bkmk/table/1.0/en/DEC/00_SF1/DP1/1600000US3436930|title=DP-1 - Profile of General Demographic Characteristics: 2000 from the Census 2000 Summary File 1 (SF 1) 100-Percent Data for Kingston CDP, New Jersey}}, [[United States Census Bureau]]. Accessed November 29, 2012.</ref>
+
+There were 561 households, out of which 24.4% had children under the age of 18 living with them, 44.7% were [[Marriage|married couples]] living together, 8.4% had a female householder with no husband present, and 43.7% were non-families. 36.4% of all households were made up of individuals, and 8.0% had someone living alone who was 65 years of age or older. The average household size was 2.30 and the average family size was 3.08.<ref name=Census2000/>
+
+In the CDP the population was spread out, with 20.3% under the age of 18, 6.7% from 18 to 24, 36.4% from 25 to 44, 23.1% from 45 to 64, and 13.5% who were 65 years of age or older. The median age was 38 years. For every 100 females, there were 93.4 males. For every 100 females age 18 and over, there were 90.7 males.<ref name=Census2000/>
+
+The median income for a household in the CDP was $65,962, and the median income for a family was $80,242. Males had a median income of $56,371 versus $46,250 for females. The [[per capita income]] for Kingston was $34,457. None of the families and 1.0% of the population were living below the [[poverty line]], including no under eighteens and none of those over 64.<ref name=Census2000/>
+
+==Religion==
+
+===Kingston Presbyterian Church===
+The Kingston Presbyterian Church was organized in 1723 and was initially located in a log building adjacent to the [[Millstone River]]. The old tombstones surround the site where the church once stood in the Kingston Cemetery. The Reverend [[Eleazer Wales]] was the first recorded minister of the church. The original church building in the cemetery burned down in 1791, and new building was erected in 1792 on the original foundation. The congregation used this building until 1852, when the larger building on Main Street in Kingston was constructed on land purchased from Elijah Stout. In 1853, the church building in the cemetery was sold and was later dismantled.<ref name=kpc/>  Two additions were constructed on the 1852 site. Sunday school rooms were added to the back of the structure in the late 1940s. In the late 1980s another addition was added which added a new kitchen facility, additional space in the assembly room, pastors study and office.
+
+[[File:Kingston NJ Presby PHS738.jpg|thumb|left|Kingston Presbyterian Church and Manse pre-1923]]
+
+The church suffered through some difficult times during the remainder of the 1700s. During this period, Princeton University was built and the village of Princeton expanded, while the population of Kingston declined. (At that time, Kingston extended as far as Snowden Lane.) Consequently, the church lost many members to the "new" Presbyterian Church down the road in Princeton.
+
+[[File:Kingston Presbyterian Church in Kingston, New Jersey on October 31, 2019.jpg|thumb|right|Kingston Presbyterian Church circa October 31, 2019]]
+
+It was also during this time that the Revolutionary War was fought in the area, and British officers were quartered in local homes. Gen. Washington became a recognizable figure in the Kingston area at the time. Not only did he lead his troops past the church to escape Cornwallis, but he also had his headquarters hardly a mile from the church while the Continental Congress sat in Nassau Hall.
+
+In 1800, the Kingston Presbyterian Church began a period of prosperity and growth, which continues to this day. The church sent its first foreign missionaries to China in the early 1800s.
+
+===Kingston United Methodist Church===
+During the month of February 1878, the people of the Methodist Episcopal Church at Rocky Hill brought an evangelist, Miss Lizzie Sharp, to conduct revival meetings in their church. There were some twenty or more of Kingston people who attended these meetings, and who decided to form a Methodist church in Kingston. A site was purchased for $250 on what is now Church Street, across from the Kingston Cemetery. Building began September 20, 1878, and was completed and dedicated on January 30, 1879. A nursery was later added.<ref>[http://kingstonmethodist.org/history/ History], Kingston United Methodist Church. Accessed August 11, 2012.</ref>
+
+[[File:Kingston United Methodist Church 0262.jpg|thumb|right|Kingston United Methodist Church November 13, 2019]]
+
+==National Register of Historic Places==
+The following sites and districts in Kingston are listed on the [[National Register of Historic Places]]:<ref>[https://www.nj.gov/dep/hpo/1identify/nrsr_lists/MIDDLESEX.pdf New Jersey and National Registers of Historic Places: Middlesex County], [[New Jersey Department of Environmental Protection]] Historic Preservation Office, updated July 15, 2022. Accessed August 4, 2022.</ref><ref>[https://www.nj.gov/dep/hpo/1identify/nrsr_lists/SOMERSET.pdf New Jersey and National Registers of Historic Places: Somerset County], [[New Jersey Department of Environmental Protection]] Historic Preservation Office, updated July 15, 2022. Accessed August 4, 2022.</ref>
+* [[Rockingham (house)|Rockingham]] Historic Site, George Washington's last war-time headquarters in 1783, added in 1970 it is #70000394.<ref>[https://www.nj.gov/dep/parksandforests/historic/rockingham.html Rockingham Historic Site Overview], [[New Jersey Division of Parks and Forestry]]. Accessed August 4, 2022.</ref>
+* [[Delaware and Raritan Canal|Delaware and Raritan Canal Historic District]] was added in 1973, it is district #73001105.
+* [[Kingston Mill Historic District]] was added in 1986, it is district #86000707.<ref>[https://npgallery.nps.gov/GetAsset/4b524d76-6fd3-484d-9339-9622f0d246c0 Nomination Form for Kingston Mill Historic District], [[National Park Service]]. Accessed August 4, 2022.</ref>
+* Kingston Village Historic District was added in 1990, it is district #89002163.
+* [[King's Highway Historic District (New Jersey)|King's Highway Historic District]] was added in 2000, it is district #00001493.
+* Princeton Nurseries Historic District, was added in August 2018, it is district #08000899.
+
+==Notable people==
+{{Category see also|People from South Brunswick, New Jersey}}
+People who were born in, residents of, or otherwise closely associated with Kingston include:
+* [[Cynthia Gooding]] (1924–1988), [[folk music|folk singer]]<ref>Hiller, Jordan. [http://www.princetonmagazine.com/vintage-princeton-cynthia-gooding-1924-1988/ "Vintage Princeton: Cynthia Gooding (1924-1988)"], ''Princeton magazine''. Accessed August 4, 2022. "Gooding, who lived in Princeton and Kingston from 1964 until her death in 1988, grew up in Rochester, Minnesota."</ref>
+* [[Andrew Zwicker]] (born 1964), physicist and member of the [[New Jersey General Assembly]]<ref>[http://www.andrewzwicker.com About Andrew], Assemblyman Andrew Zwicker. Accessed November 10, 2018. "Andrew resides in the Kingston area of South Brunswick Township with his wife, Barbara Golden, an educator in Hillsborough Township, along with their family, and rescue pitbull-boxer mix, Rocky."</ref><ref>O"Dea, Colleen. [https://www.njspotlight.com/stories/15/12/15/profile-dividing-his-time-between-physics-and-politics-with-a-little-surfing-thrown-in/ "Profile: Pursuing Physics And Politics &ndash; With A Little Surfing Thrown In"], NJ Spotlight, December 16, 2015. Accessed November 10, 2018. "Home: Kingston"</ref>
+
+==References==
+{{Reflist}}
+
+==External links==
+* [https://web.archive.org/web/20060614124647/http://rockingham.net/index.htm Rockingham State Historic Site]
+* Kingston Greenways Association: http://kingstongreenways.org/
+* Friends of Princeton Nursery Lands: http://fpnl.org/
+* Kingston Historical Society: http://www.khsnj.org/
+* [http://www.no92.com No 92]
+* [https://web.archive.org/web/20061004161635/http://www.preservationnj.org/ten_most/ten_most_property_detail.asp?COUNTY=Statewide&PropID=72 Preservation New Jersey: Vanishing Villages]
+* [https://sites.google.com/site/kingstonwomenschorus/home Kingston Women's Chorus]
+* {{cite book |last=Brahms |first=William |author-link=William B. Brahms |title=Images of America: Franklin Township |year= 1997|publisher=[[Arcadia Publishing]] |location= [[Dover, New Hampshire]] |isbn=0-7524-0938-7 }}
+* {{cite book |last=Brahms |first=William |author-link=William B. Brahms |title=Franklin Township, Somerset County, NJ: A History |year= 1998|publisher=FTPL |location= [[Franklin Township, Somerset County, New Jersey|Franklin Township, New Jersey]]|isbn=0-9668586-0-3 }}
+
+{{Middlesex County, New Jersey}}
+{{Somerset County, New Jersey}}
+{{NRHP in Middlesex County, New Jersey}}
+{{Authority control}}
+
+[[Category:Census-designated places in Middlesex County, New Jersey]]
+[[Category:Census-designated places in New Jersey]]
+[[Category:Census-designated places in Somerset County, New Jersey]]
+[[Category:Franklin Township, Somerset County, New Jersey]]
+[[Category:South Brunswick, New Jersey]]

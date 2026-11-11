@@ -1,0 +1,56 @@
+{{Short description|Residential college at Princeton University}}
+
+{{Outdated|date=August 2023}}
+{{Infobox residential college
+| name           = Mathey College
+| type           = [[Residential colleges of Princeton University|Residential college]]
+| university     = [[Princeton University]]
+| shield         = Princeton Mathey College CoA.svg
+| shield_size    = 
+| image          = Mathey_College,_Princeton_University.jpg
+| caption        = 
+| scarf          = 
+| full_name      = 
+| latin_name     = 
+| latin_motto    = 
+| english_motto  = 
+| named_for      =Dean Mathey 
+| established    = November 6, 1983
+| head           = Effie Rentzou
+| dean           = Michael Olin
+| HoCo_chair     = 
+| undergraduates = 800
+| called         = 
+| location       = 
+| coordinates    = 
+| colors         = Maroon
+{{color box|#84001b}}
+| website        = {{url|https://matheycollege.princeton.edu/}}
+|residents=500|architectural_style=Collegiate Gothic|nickname=Matty or The Herd}}
+
+'''Mathey College''' is one of seven residential colleges at [[Princeton University]]. Located in the Northwest corner of the Princeton Campus, its dormitories and other buildings are predominantly in the [[Collegiate Gothic]] style. Since the fall of 2007, Mathey has been a four-year residential college, paired with [[Rockefeller College]].
+
+Most of Mathey College is centered on a large central courtyard featuring a sand volleyball court. Campbell Hall, Joline Hall, Blair Hall, Hamilton Hall (with the dining hall and common room), Edwards Hall, and some of Little Hall (since fall 2007) make up the residential college.  Hamilton Hall, Little Hall, and Edwards Hall are not on the main courtyard, though they are near to it.
+
+Mathey College is famous for Blair Arch, featured prominently in the movie ''[[A Beautiful Mind]]''. As the largest arch at Princeton, Blair Arch hosts many arch sings, [[a cappella]] concerts held in the arch.
+
+Mathey College is named after [[Dean Mathey]], of the Class of 1912, who was a prominent member of the Princeton community.
+
+Today, in 2026, Mathey is known for its recording studio, dark room, and film theater.
+
+The current dean is [[Dr. Michael Olin]], and the current Head of the College, as of July 1, 2026,<ref>{{Cite web |last=Demara |first=White |date=April 7, 2026 |title=Former European Cultural Studies (ECS) Director Effie Rentzou named head of Mathey College |url=https://ecs.princeton.edu/2026/04/21/former-ecs-director-effie-rentzou-named-head-of-mathey-college/ |access-date=July 30, 2026 |website=Princeton.edu |language=en}}</ref> is [[Dr. Effie Rentzou|Effie Rentzou]], Professor of French.
+{{commonscat|Mathey College}}
+
+== References ==
+{{Reflist}}
+
+==External links==
+*{{Official website|http://www.princeton.edu/matheycollege/}}
+
+{{Princeton}}
+{{Authority control}}
+
+{{Coord|40.348114|-74.66216|type:edu_globe:earth_region:US-NJ|display=title}}
+
+[[Category:Colleges of Princeton University]]
+[[Category:1982 establishments in New Jersey]]

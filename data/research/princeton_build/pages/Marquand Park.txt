@@ -1,0 +1,86 @@
+{{Short description|Arboretum in Princeton, Mercer County, New Jersey}}
+{{Infobox park
+| name = Marquand Park
+| other_name =
+
+| image = Marquand park princeton.jpg
+| image_size = 
+| image_caption = 
+| image_alt =
+
+| type = 
+| location = Lovers Lane, [[Princeton, New Jersey|Princeton, NJ]]
+| nearest_city = 
+| area = 
+| elevation = 
+| created = 1846
+| founder = [[Allan Marquand]]
+| designer = [[John Notman]]
+| etymology = 
+| motto = 
+| operator = The Marquand Foundation
+| status = 
+| awards = 
+| open = 
+| parking =
+| public_transit = [[Princeton Branch|Princeton Branch (The Dinky)]]
+
+| plants = 
+| species = [[Dawn redwood]], [[Japanese Maple]]
+| collections =
+
+| website = {{URL|http://www.marquandpark.org|marquandpark.org}}
+
+| embedded =
+{{Infobox NRHP
+ | embed = yes
+ | name = Marquand Park
+ | part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+ | part_of_ref_num = 75001143<ref>{{cite web|title=Princeton Historic District|url={{NRHP url|id=75001143}}|website=National Register of Historic Places|publisher=National Park Service}}</ref>
+ | nrhp_type = cp
+ | nocat = yes
+ | alt = 
+ | caption = 
+ | coordinates = {{coord|40|20|29.4|N|74|40|16.1|W|display=inline,title}}
+ | pushpin_map = USA New Jersey Mercer County#New Jersey#USA
+ | map_alt = A map of Mercer County, New Jersey
+ | area =
+ | architect= 
+ | added = 27 June 1975
+ | governing_body = 
+ | mpsub=
+}}
+}}
+
+'''Marquand Park''' is a {{convert|17|acre|m2|adj=on}} [[arboretum]] and recreational area located in [[Princeton, New Jersey]].  It contains walking paths, a baseball field, and attractions for children such as a sandbox and a play structure.
+
+==History==
+
+Marquand Park was originally the property of the [[Princeton University]] professor [[Judge Richard Field]], who bought {{convert|30|acre|m2}} of farmland in 1842 for his personal estate.  Field began developing part of the estate as an arboretum, and after he died, its development continued under Susan Brown, who acquired the land in 1871, and under Princeton University Professor [[Allan Marquand]], who acquired the property in 1885.
+
+In 1953, {{convert|17|acre|m2}} of the land were given to Princeton borough by the Marquand family, and in 1955 a non-profit foundation was created to care for the park.  Under the care of the Marquand Park Foundation, over 100 new species and trees of shrubs have been donated to the park or purchased by the foundation for it.
+
+==Notable trees==
+
+Eight of the largest trees of their species recorded in [[New Jersey]] can be found in the park.  Other well-known trees there include a [[dawn redwood]], a critically endangered species which was thought to be extinct until a specimen was discovered in Japan in 1945, and a threadleaf [[Japanese Maple]], which is well known for the corkscrew-like shape of its trunk and branches.  (Photographs of the Japanese Maple can be found [http://artandarts.com/japanese-maple-tree-photos-2.htm here].)
+
+==References==
+{{Reflist}}
+
+#Zatz, Arline. ''New Jersey's Great Gardens''. Woodstock, Vermont: The Countryman Press, 1999.
+#Compton, Dorothy and Ramsay L. Raymond. ''A Guide to Marquand Park''. Princeton, New Jersey: Minute Press, 1972.
+#Richie, Peter. ''Marquand Park''. Princeton, New Jersey: Minute Press, 1989.
+#[https://web.archive.org/web/20110506033115/http://www.princetontwp.org/marquand.html Princeton Township - Marquand Park]
+#[http://www.kidsplayparks.com/spot_kid_friendly_parks_Marquand_Park_Princeton_NJ_81875.aspx Marquand Park in Princeton, NJ - Kids Play Parks]
+
+==External links==
+*[http://www.marquandpark.org Official website]
+
+{{Princeton, New Jersey|state=collapsed}}
+
+[[Category:Princeton, New Jersey]]
+[[Category:Parks in Mercer County, New Jersey]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]
+
+
+{{MercerCountyNJ-geo-stub}}

@@ -1,0 +1,101 @@
+{{Infobox church
+| name                  = Princeton United Methodist Church
+| full_name             = 
+| other_name            = 
+| native_name           = 
+| native_name_lang      = 
+| image                 = Princeton United Methodist Church.jpg
+| image_size            = 
+| imagelink             = 
+| alt                   = 
+| landscape             = 
+| caption               = 
+| location              = 7 Vandeventer Ave., [[Princeton, New Jersey]] 08542
+| country               = United States
+| denomination          = [[United Methodist Church]]
+| previous_denomination = [[Methodist Episcopal Church]]
+| churchmanship         = [[Mainline Protestant]]
+| website               = {{URL|http://princetonumc.org|princetonumc.org}}
+| former_name           = Princeton Methodist Episcopal Church
+| founded               = 1847
+| founder               = 
+| dedication            = 
+| dedicated             = October 11, 1911
+| consecrated           = 
+| events                = 
+| status                = 
+| functional_status     = 
+| heritage_designation  = 
+| designated            = 
+| architect             = 
+| architectural_type    = 
+| style                 = [[Gothic architecture|Gothic]]
+| years_built           = 
+| groundbreaking        = June 18, 1910
+| completed             = 
+| construction_cost     = 
+| closed                = 
+| demolished            = 
+| capacity              = 
+| length                = <!-- {{convert| }} -->
+| width                 = <!-- {{convert| }} -->
+| height                = <!-- {{convert| }} -->
+| materials             = 
+| logo                  = Princeton_United_Methodist_Church_Logo.jpg
+| embedded              = {{Infobox NRHP
+ | embed           = yes
+ | name            = Princeton United Methodist Church
+ | part_of         = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+ | part_of_ref_num = 75001143<ref>{{cite web|title=Princeton Historic District|url={{NRHP url|id=75001143}}|website=National Register of Historic Places|publisher=National Park Service}}</ref>
+ | nrhp_type       = cp
+ | nocat           = yes
+ | image           = 
+ | alt             = 
+ | caption         = 
+ | coordinates     = {{coord|40|21|02.6|N|74|39|25.1|W|display=inline,title}}
+ | pushpin_map     = USA New Jersey Mercer County#New Jersey#USA
+ | map_alt         = A map of Mercer County, New Jersey
+ | area            = 
+ | architect       = 
+ | added           = 27 June 1975
+ | governing_body  = 
+ | mpsub           = 
+}}
+}}
+
+'''Princeton United Methodist Church''' is a [[United Methodist]] congregation located at 7 Vandeventer Avenue in [[Princeton, New Jersey]].  The church is located on [[Nassau Street (Princeton)|Nassau Street]], directly across from [[Princeton University]].
+
+==History==
+
+[[File:Princeton Methodist Episcopal Church and Dr. Bartine House.jpg|thumb|left|The original church building with Dr. Bartine's house on the corner]]
+
+Methodist [[Circuit rider (religious)|circuit riders]] made periodic visits to minister in private homes to groups of Princeton Methodists.  A congregation was founded in 1847 under the name, Princeton [[Methodist Episcopal Church]].  The original church building occupied the eastern portion of the present church frontage on Nassau Street, with the corner with Vandeventer occupied by the house of Dr. Bartine, a physician and church member.  The first floor was the sanctuary while the basement provided rooms for [[Sunday School]]. The first pastor was Joseph Ashbrook.<ref>{{cite web|title=Church History|url=http://princetonumc.org/about_us/church-history/|website=Princeton United Methodist Church}}</ref>
+
+By 1905 plans were drawn up for a new church.  The Rev. Dr. James M. Buckley described the need:
+<blockquote>
+Princeton is one of the most beautiful places in the land.  Presbyterians have poured out their money, until, including the buildings of the Theological Seminary and the University, the town contains the finest assembly of educational buildings in the land.  It was a great grief to me to look upon the little Methodist Church, in a most conspicuous place, not because it is a Methodist Church, but because of its insignificance and entire inadequacy to represent the denomination in that classic town.  All this becomes more significant when we remember that the President of the University expects to secure $12,500,000 for additional buildings and endowments.  When this vast sum becomes operative in the work of the Institution, Princeton will be one of the greatest educational centers of the world.<ref>{{cite book|title=Minutes of the ... Session of the New Jersey Annual Conference of the Methodist Episcopal Church|date=1905|publisher=The Conference|pages=93–94|url=https://books.google.com/books?id=6ugpAAAAYAAJ&dq=%22Princeton+Methodist+Episcopal+Church%22&pg=PA93}}</ref>
+</blockquote>
+The present sanctuary was dedicated in 1911, with Dr. Bartine's property bought out and donated by [[Moses Taylor Pyne]], himself and [[Episcopal Church (United States)|Episcopalian]].  An education wing was opened in 1959, and an expansion to that wing in 2002.
+
+The church installed electronic bells in 1997 which play after the clock strikes (also electronic) at noon and 5pm on weekdays.  On Sundays a hymn is played at 10:45am and 12:15pm.  A hymn is played appropriate to the [[Liturgical year|church season]] drawn from a selection of 300 traditional, Methodist, or gospel hymns.  The church has a service at 10:00 am on Sundays with children's programming during worship.<ref>{{cite web|title=Princeton United Methodist Church|url=http://www.umc.org/find-a-church/church/13926|website=Find-A-Church|publisher=United Methodist Church}}</ref>
+
+==Gallery==
+<gallery mode=packed heights=154px>
+File:Princeton Methodist Episcopal Church fire.jpg|The old church after a fire
+File:Princeton Methodist Episcopal Church sanctuary.jpg|Interior of the old church
+File:Princeton Methodist Episcopal Church Sunday School.jpg|Sunday school room in the basement of the old church
+</gallery>
+
+==References==
+{{reflist|30em}}
+
+==External links==
+{{commons category|Princeton United Methodist Church}}
+* [http://princetonumc.org Official Church Website]
+
+{{Princeton, New Jersey|state=collapsed}}
+
+[[Category:Churches in Princeton, New Jersey]]
+[[Category:United Methodist churches in New Jersey]]
+[[Category:Gothic Revival church buildings in New Jersey]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]

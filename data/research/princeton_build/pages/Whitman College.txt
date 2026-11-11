@@ -1,0 +1,185 @@
+{{Short description|Private college in Walla Walla, Washington, US}}
+{{about|the college in Washington|the residential college at Princeton University|Whitman College, Princeton University}}
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=July 2014}}
+{{Infobox university
+ | name                  = Whitman College
+ | former_names          = Whitman Seminary (1859–1882)
+ | image                 = Seal_of_Whitman_College.svg
+ | image_size            = 150
+ | caption               = 
+ | established           = {{start date and age|1859|12|20}}
+ | type                  = [[Private university|Private]] [[Liberal arts colleges in the United States|liberal arts college]]
+ | motto                 = Per ardua surgo
+ | motto_lang            = la
+ | motto_eng             = Through adversities I rise
+ | president             = [[Sarah Bolton (physicist)|Sarah Bolton]]
+ | religious_affiliation = Protestant (ceased in 1907)
+ | academic_affiliations = Oberlin Group<br>[[Annapolis Group]] <br>[[Consortium of liberal arts colleges|CLAC]]
+ | endowment             = $847.6 million (2025)<ref>{{cite web |url=https://edge.sitecorecloud.io/nacubo1-nacubo-prd-dc8b/media/Nacubo/Documents/EndowmentFiles/2025-NCSE-Endowment-Market-Values-for-US-and-Canadian-Institutions-FINAL.xlsx |title=U.S. and Canadian 2025 NCSE Participating Institutions Listed by Fiscal Year 2025 Endowment Market Value |publisher=National Association of College and University Business Officers (NACUBO) |access-date=February 17, 2026 |format=XLSX}}</ref>
+ | city                  = [[Walla Walla, Washington]]
+ | country               = U.S.
+ | coordinates           = {{coord|46.0707|-118.3289|display=inline,title}}
+ | campus                = Rural, small town, {{convert|117|acre}}
+ | campus_size           = 
+ | undergrad             = 1,544 (2023)<ref>{{cite web | url=https://nces.ed.gov/collegenavigator/?q=Whitman+College&s=all&id=237057 | title=College Navigator - Whitman College }}</ref>
+ | faculty               = 192	 (2023) Full-time <ref>{{cite web | url=https://nces.ed.gov/collegenavigator/?q=Whitman+College&s=all&id=237057 | title=College Navigator - Whitman College }}</ref>
+ | sporting_affiliations = [[National Collegiate Athletic Association|NCAA]] [[NCAA Division III|Division III]] – [[Northwest Conference|NWC]]
+ | sports_nickname       = Blues
+ | colors                = {{color box|#002868}}{{color box|#FFC627}} Blue and yellow<ref>{{Cite web|title=Our Brand Identity and Usage Guide
+|url=https://brand.whitman.edu/|language=en|access-date=July 1, 2026|archiveurl=https://web.archive.org/web/20260126180151/https://brand.whitman.edu/|archivedate=January 26, 2026}}</ref> (or gold<ref>{{Cite web|title=Whitman Colors|url=https://www.whitman.edu/alumni/be-connected/whitman-traditions/whitman-colors|language=en|access-date=July 1, 2026|archiveurl=https://web.archive.org/web/20260212215422/https://www.whitman.edu/alumni/be-connected/whitman-traditions/whitman-colors|archivedate=February 12, 2026}}</ref>)
+ | website               = {{url|https://www.whitman.edu/| whitman.edu}}
+ | logo                  = Whitman_College_Wordmark_Clock_Tower.svg
+ | logo_size             = 
+}}
+
+'''Whitman College''' is a [[private university|private]] [[liberal arts college]] in [[Walla Walla, Washington]], United States. The school offers 53 majors and 33 minors in the liberal arts,<ref>{{cite web|url=http://www.whitman.edu/academics/departments-and-programs|title=Departments and Programs|access-date=April 14, 2017}}</ref> and it has a student-to-faculty ratio of 9:1.<ref name="FastFacts"/>
+
+Founded as a [[seminary]] by a territorial legislative charter in 1859, the school became a four-year degree-granting institution in 1882 and abandoned its religious affiliation in 1907.<ref name="whitman.edu">[https://www.whitman.edu/Documents/Offices/Registrar/Catalog/Whitman%20College.pdf History of Whitman College], Retrieved May 15, 2017.</ref> It is [[Higher education accreditation in the United States|accredited]] by the [[Northwest Commission on Colleges and Universities]] and competes athletically in the [[NCAA Division III]] as a member of the [[Northwest Conference]].<ref name="FastFacts">[https://www.whitman.edu/about/fast-facts Fast Facts About Whitman College], Retrieved September 20, 2015.</ref>
+
+== History ==
+
+=== Whitman Seminary ===
+In 1859, soon after the United States military declared that the land east of the Cascade Mountains was open for settlement by American pioneers, [[Cushing Eells]] traveled from the [[Willamette Valley]] to Waiilatpu, near present-day Walla Walla, where 12&nbsp;years earlier, [[Congregationalist]] [[missionary|missionaries]] [[Marcus Whitman]] and [[Narcissa Whitman]], along with 12&nbsp;others, were killed by a group of [[Cayuse people|Cayuse]] Indians during the [[Whitman Massacre]]. While at the site, Eells became determined to establish a "monument" to his former missionary colleagues in the form of a school for pioneer boys and girls. Eells obtained a charter for '''Whitman Seminary''', a pre-collegiate school, from the territorial legislature. From the American Board of Commissioners for Foreign Missions, he acquired the Whitman mission site. Eells soon moved to the site with his family and began working to establish Whitman Seminary.
+
+Despite Eells's desire to locate Whitman Seminary at the Whitman mission site, local pressure and resources provided a way for the school to open in the burgeoning town of Walla Walla. In 1866, Walla Walla's wealthiest citizen, [[Baker Boyer Bank|Dorsey Baker]], donated land near his house to the east of downtown. A two-story wood-frame building was quickly erected and classes began later that year. The school's first principal, local Congregational minister Peasly B. Chamberlin, resigned within a year and Cushing Eells was called upon to serve as principal, which he did until 1869. After Eells's resignation in 1869, the school struggled—and often failed—to attract students, pay teachers, and stay open for each term.<ref name="historylink.org">{{cite web|last=Paulus|first=Michael|title=Whitman College|url=http://www.historylink.org/index.cfm?DisplayPage=output.cfm&File_Id=8337|date=October 19, 2007|access-date=June 13, 2017}}</ref>
+
+=== From seminary to college ===
+Whitman's trustees decided in 1882 that while their institution could not continue as a prep school, it might survive as the area's only college.  Alexander Jay Anderson, the former president of the Territorial University (now the University of Washington), came to turn the institution into a college and become its president.  After modeling the institution after New England liberal arts colleges, Anderson opened the school, '''Whitman College''', on September 4, 1882 ([[Marcus Whitman]]'s birthday) with an enrollment of 60 students and three senior faculty (Anderson, his wife and son).  In 1883, the school received a collegiate charter and began expanding with aid from the [[Congregational American College and Education Society]].<ref name="historylink.org"/>
+
+=== Financial turmoil and new leadership ===
+[[File:Ladies' Hall, Whitman College, Walla Walla, Washington, ca 1892 (WASTATE 260).jpeg|thumb|left|230px|Ladies' Hall, c. 1892]]
+Despite local support for Whitman College and help from the Congregational community, financial troubles set in for the school. After losing favor with some of the school's supporters, Anderson left Whitman in 1891 to be replaced by Reverend James Francis Eaton. The continuing recession of the 1890s increased the institution's financial worries and lost Eaton his backing, leading to his resignation in 1894.<ref name="historylink.org"/>
+
+The Reverend [[Stephen Penrose]], an area Congregational minister and former trustee, became president of the college and brought the school back to solvency by establishing Whitman's endowment with the aid of D. K. Pearsons, a Chicago philanthropist. By popularizing Marcus Whitman's life and accomplishments (including the false claim that the missionary had been pivotal in the annexation by the United States of the [[Oregon Territory]]), Penrose was able to gain support and resources for the college. Under his leadership, the faculty was strengthened and the first masonry buildings, Billings Hall and the Whitman Memorial Building, were constructed.<ref name="historylink.org"/>
+
+=== End of religious affiliation ===
+[[File:Excursion party in front of Whitman College, Walla Walla, September 1908 (WASTATE 1472).jpeg|thumb|230px|Excursion party in front of Whitman College, 1908]]
+In 1907, Penrose began a plan called "Greater Whitman" which sought to transform the college into an advanced technical and science center.  To aid fundraising, Penrose abandoned affiliation with the Congregational Church and became unaffiliated with any denomination.  The prep school was closed and fraternities and sororities were introduced to the campus.  Ultimately, this program was unable to raise enough capital; in 1912, the plan was abandoned, and Whitman College returned to being a small liberal arts institution, albeit with increased focus on co-curricular activities.<ref name="historylink.org"/> Penrose iterated the school's purpose "to be a small college, with a limited number of students to whom it will give the finest quality of education".<ref>Edwards, Thomas G. ''The Triumph of Tradition: The Emergence of Whitman College, 1859–1924'' Whitman College 1993 p 424</ref>  In 1920 Phi Beta Kappa installed a chapter,<ref name="historylink.org"/> the first for a Northwest college,<ref>{{cite web|url=http://www.whitman.edu/content/about/tradition/history-of-the-college|title=About Whitman College|access-date=December 7, 2016}}</ref> and Whitman had its first alum [[Rhodes Scholar]].<ref name="historylink.org"/>
+
+=== World War II ===
+During [[World War II]], Whitman was one of 131 colleges and universities nationally that took part in the [[V-12 Navy College Training Program]] which offered students a path to a Navy commission.
+
+== Campus ==
+Whitman's 117-acre campus is located in downtown Walla Walla, Washington. Most of the campus is centered around a quad, which serves as the location for intramural field sports.  Around this, Ankeny Field, sits Penrose Library, Olin Hall and Maxey Hall, and two residence halls, Lyman and Jewett. South of Ankeny Field, College Creek meanders through the main campus, filling the artificially created "Lakum Duckum", the heart of campus and the habitat for many of Whitman's beloved ducks.
+
+The oldest building on campus is the administrative center, Whitman Memorial Building, commonly referred to as "Mem". Built in 1899, the hall, like the college, serves as a memorial to [[Marcus Whitman|Marcus]] and [[Narcissa Whitman|Narcissa Prentiss Whitman]]. The building is the tallest on campus and was placed on the National Historical Register of Historic Places in 1974. The oldest residence halls on campus, Lyman House and Prentiss Hall, were built in 1924 and 1926. Over the next fifty years, the college built or purchased several other buildings to house students, including the former Walla Walla Valley General Hospital, which was transformed into North Hall in 1978. In addition to the nine residence halls, many students choose to live in one of eleven "Interest Houses," run for sophomore, juniors, and seniors committed to specific focuses such as community service, fine arts, environmental studies, multicultural awareness, or the French, Spanish, or German languages. These houses, like most of the residential architecture of Walla Walla, are in the [[Queen Anne style architecture in the United States|Victorian]] or [[American Craftsman|Craftsman]] style.
+
+In addition to property in Walla Walla, the college also has about {{convert|22000|acre|km2}} of other land holdings – mainly in the form of wheat farms in Eastern Washington and Oregon. Of special note: the Johnston Wilderness Campus, which is used for academic and social retreats.
+
+<gallery mode=packed heights= 90>
+file:Cordiner Concert Hall, Whitman College, Walla Walla (10488931064).jpg|Cordiner Concert Hall 
+file:Whitman-college-hunter-conservatory.jpg|Hunter Conservatory
+file:Whitman-college-quad.jpg|A view toward the Quad from the steps of Penrose Library 
+File:Memorial Building Whitman College.jpg|The Memorial Building, Whitman College 
+file:Whitman-college-admission-office.jpg|Admission Office in the summer of 2009 
+</gallery>
+
+== Academics ==
+Whitman College focuses solely on undergraduate studies in the liberal arts.  All students must take a two-semester course their first year, Encounters, which examines cultural interactions throughout history and gives students a grounding in the liberal arts. Students choose from courses in 48&nbsp;[[academic major|major]] fields and 34&nbsp;minor fields<ref name="Catalog">{{cite web|title=Whitman College Catalog|url=https://www.whitman.edu/academics/catalog|publisher=Whitman College|access-date=29 Sep 2016}}</ref> and have wide flexibility in designing independent study programs, electing special majors, and participating in internships and study-abroad programs. Whitman College offers several grants including the Soden and Whitman Internship Grants.<ref>{{Cite web |title=German Studies Student Research Spotlight |url=https://calendar.whitman.edu/event/german_studies_student_research_spotlight |access-date=2025-12-22 |website=Events Calendar |language=en}}</ref> In addition, Whitman is noted for a strong [[Science education|science program]]. Its three most popular majors, based on 2021 graduates, were:<ref>{{cite web |url=https://nces.ed.gov/collegenavigator/?q=Whitman&s=all&id=237057#programs |website=nces.ed.gov |publisher=U.S. Dept of Education |title=Whitman College |access-date=February 21, 2023}}</ref> Biological and Biomedical Sciences (33), Research and Experimental Psychology (32), and Economics (30).
+
+In early 2021, Whitman president Kathleen Murray proposed substantial cuts to a number of social science, humanities, arts, and other academic programs in anticipation of a $3.5 million budget deficit for the 2021–2022 academic year, prompting criticism from students, faculty, and alumni.<ref>{{cite news |last1=Murray |first1=Kathy |title=Preliminary Working Group Reports |url=https://www.whitman.edu/president/financial-sustainability-working-groups/february-2-2021-preliminary-working-group-reports |access-date=6 March 2021 |work=Whitman College |date=February 2, 2021 |language=en}}</ref><ref>{{cite news |last1=Murray |first1=Kathy |title=Final Working Group Reports |url=https://www.whitman.edu/president/financial-sustainability-working-groups/march-3-2021-final-working-group-reports |access-date=6 March 2021 |work=Whitman College |date=March 3, 2021 |language=en}}</ref><ref>{{cite news |last1=Burnham |first1=Burnham |title=Whitman College considers cuts to prevent future budget crisis |url=https://www.union-bulletin.com/news/education/whitman-college-considers-cuts-to-prevent-future-budget-crisis/article_04165240-f5c6-5591-a7d4-ffdb8ebb2af1.html |access-date=6 March 2021 |work=Union-Bulletin.com |agency=Walla Walla Union-Bulletin |date=25 February 2021 |language=en}}</ref><ref>{{cite news |last1=Allen |first1=Henry |title=OP-ED: Whitman proposes deep cuts to humanities, arts and languages |url=https://whitmanwire.com/opinion/2021/02/09/op-ed-whitman-proposes-deep-cuts-to-humanities-arts-and-languages/ |access-date=6 March 2021 |work=Whitman Wire |date=9 February 2021}}</ref>
+
+Degrees are awarded after successful completion of senior "comprehensive exams".  These exams vary depending on the students' primary focus of study, but commonly include some combination of (i)&nbsp;a&nbsp;senior thesis, (ii)&nbsp;written examination, and (iii)&nbsp;oral examination. The oral examination is either a defense of the student's senior thesis, or is one or multiple exams of material the student is expected to have learned during their major. The written exam is either a [[Graduate Record Examination|GRE]] subject test or a test composed by the department.
+{{Infobox US university ranking
+| USNWR_LA = 53
+| Wamo_LA = 53
+| Forbes = 89
+| THE_WSJ = 98
+}}
+
+For students who are interested in [[foreign policy]], Whitman is one of 16 institutions participating in the two-year-old [[Thomas R. Pickering Foreign Affairs Fellowship]] program.<ref>{{Cite web|url=http://www.woodrow.org/public-policy/undergraduate.php|archive-url=https://web.archive.org/web/20070513184559/http://www.woodrow.org/public-policy/undergraduate.php|url-status=dead|title=Woodrow Wilson National Fellowship Foundation: Undergraduate Foreign Affairs<!-- Bot generated title -->|archive-date=May 13, 2007}}</ref><ref>[https://www.careers.state.gov/student/programs/pickering.html] {{webarchive|url=https://web.archive.org/web/20070412182734/http://www.careers.state.gov/student/programs/pickering.html|date=April 12, 2007}}</ref> The [[State Department]] pays for fellows to obtain their master's degree at the university of their choice in return for three years of service as a [[United States Foreign Service|Foreign Service]] Officer. Whitman has a number of [[alumni]] who serve in [[diplomatic corps]].
+
+=== Combined programs ===
+Whitman also offers combined programs in conjunction with several institutions throughout the United States:<ref>{{cite web|url=https://www.whitman.edu/academics/departments-and-programs|title=Departments and Programs|access-date=December 7, 2016}}</ref>
+
+* [[Double degree|3–2&nbsp;programs]] in engineering with the [[California Institute of Technology]], [[Columbia University]], [[University of Washington]], and [[Washington University in St. Louis]];
+* 3–2&nbsp;programs in forestry and environmental management with [[Duke University]], leading to a Master of Environmental Management or an [[MBA]] degree;
+* A 3–2&nbsp;program in oceanography at University of Washington, leading to a Whitman B.A. and a University of Washington B.S. in Oceanography.
+
+=== Off-campus programs ===
+Whitman offers a "Semester in the West" program, a field study program in [[environmental studies]], focusing on ecological, social, and political issues confronting the [[Western United States|American West]]. During every other fall semester since 2002, 21&nbsp;students leave Walla Walla to travel throughout the interior West for field meetings with a variety of leading figures in conservation, ecology, environmental writing, and social justice.<ref>{{Cite web|url=http://semesterinthewest.org/|title=Semester in the West|website=Semester in the West}}</ref>
+
+Whitman also offers "The U.S.-Mexico Border Program" every other June. The program is based in Arizona and Sonora, Mexico, and exposes students to a wide range of competing perspectives on the politics of immigration, border enforcement, and globalization.<ref>{{cite web |url=https://www.whitman.edu/academics/departments-and-programs/politics/community-based-learning/the-us-mexico-border-program |title=U.S.-Mexico Border Program}}</ref>
+
+Since 1982, "Whitman in China" provides Whitman alumni the opportunity to teach English at [[Northwestern Polytechnical University]], [[Shantou University]], or [[Yunnan University]]. Participants receive an immersion experience in urban Chinese culture, where they can witness the rapid modernization of the country.  At the same time, Whitman alumni give Chinese university students the rare chance to study with an English native speaker.<ref>{{cite web|url=https://www.whitman.edu/academics/majors-and-programs/chinese/study-in-china |title=Study in China|access-date=17 April 2026|website=Whitman.edu|url-status=live}}</ref>
+
+Whitman also offers a large range of year- or semester-long off-campus study programs - 88 programs across 40 countries,<ref>{{cite web|url=https://www.whitman.edu/about/fast-facts |title=Fast Facts}}</ref> and a few short-term, faculty-led programs.<ref>{{cite web|url=https://www.whitman.edu/off-campus-studies/ocs-programs/crossroads-faculty-led-courses |title=Faculty-led off-campus courses}}</ref>
+
+=== Student Engagement Center ===
+In 2010, under the leadership of (former) President George Bridges, Whitman centralized and integrated various programs intended to help students connect their in-class learning to off-campus work, volunteer, and internship opportunities in the Walla Walla Valley. The office that emerged, the Student Engagement Center (SEC),  houses community service and career services in one place. Students and alumni can get assistance with resumes, cover letters, networking, internships, interviews, grad school applications, and civic engagement in the SEC.
+
+=== Admissions ===
+Whitman's admission selectivity is considered "more selective" by ''[[U.S. News & World Report]]''.<ref name="USN&WR">{{cite magazine |url=http://colleges.usnews.rankingsandreviews.com/best-colleges/whitman-college-3803 |title=National Liberal Arts Colleges Rankings |magazine=U.S. News & World Report |year=2020}}</ref>  For the Class of 2030 (enrolling Fall 2026), Whitman received 6,950 first-year applications and accepted 2,791 (40.1%), with 373 enrolling.<ref name="CDS">{{cite web|url=https://www.whitman.edu/documents/offices/institutional-research/2026/2025%20Whitman%20CDS.pdf |title=Whitman College Common Data Set 2025-26, Part C |publisher=Whitman College}}</ref>  The middle 50% range of [[SAT]] scores for enrolling freshmen was 650-740 for evidence-based reading and writing, and 660-770 for math.<ref name="CDS" />  The middle 50% [[ACT (test)|ACT]] score range was 26-32 for math, 29-35 for English, and 29-33 for the composite.<ref name="CDS" />
+
+For 2020, students of color (including non-citizens) made up 36.8% of the incoming class;<ref name="CDS" /> international students were 8.8% of enrolling freshmen.<ref name="CDS" />
+
+In May 2022, Whitman College announced a $10 million donation made in memory of long-time professor of 35 years J.Walter Weingart. The donation is set to fund full scholarships for all in-state students with financial need. The J. Waler and Katherine Weingart opportunity scholarship will begin distribution in 2023 and will annually support 500 in-state students.<ref>{{cite journal|date=10 May 2022|url=https://philanthropynewsdigest.org/news/whitman-college-receives-10-million-gift-for-financial-aid|title=Whitman College receives $10 million gift for financial aid|journal=Philanthropy News Digest|access-date=10 May 2022}}</ref>
+
+== Athletics ==
+[[File:Whitman athletics logo.png|thumb|120px|Whitman athletics Logo]]
+Whitman athletics teams are named the Blues. The college holds membership in the [[National Collegiate Athletic Association|NCAA]]'s [[Northwest Conference]] ([[NCAA Division III|Division III]]) and fields nine [[varsity team]]s each for men and women. More than 20 percent of students participate in a varsity sport. In addition, 70 percent of the student body participates in [[intramural sports|intramural]] and club sports. These sports include [[rugby union]], [[water polo]], [[lacrosse]], [[dodgeball]], and nationally renowned [[cycle sport|cycling]] and [[Ultimate (sport)|ultimate]] teams. In 2016, the college adopted the new mascot for the school and its athletes of the "Blues", named after [[Blue Mountains (Pacific Northwest)|the local mountain range]]. Whitman's athletic teams had formerly used the nickname "Missionaries".
+
+As a junior in 2012–13, basketball player [[Ben Eisenhardt]] led the Northwest Conference (NWC) in scoring (442 points), became the first Missionary to be named to the [[National Association of Basketball Coaches]] Division 3 [[All-American]] Third Team as a junior, and was named NWC Player of the Year.<ref name="auto2">{{Cite web|url=https://athletics.whitman.edu/sports/mens-basketball/roster/ben-eisenhardt/222|title=Ben Eisenhardt - 2013-2014 - Men's Basketball|website=Whitman College Athletics}}</ref><ref name="auto1">{{Cite web|url=https://whitmanwire.com/sports/2014/11/20/dream-continues-for-whitmans-own-ben-eisenhardt/|title=Dream continues for Whitman's own Ben Eisenhardt|first=Dylan|last=Snyder|website=Whitman Wire}}</ref>
+
+The club-sport-level Whitman cycling team has won the DII National Championships for two years, and four times in six years, making them the athletic team at Whitman with the most national championships. The women's ultimate team, also a club sports team, finished second in Division I play in 2016 after a defeat to Stanford. Again in 2026 they would finish second, this time in Division III play, after a defeat to Middlebury in the championship game.<ref>{{cite web|title=Stanford 1st, Whitman 2nd in 2016 Women's Ultimate Division I Championships|url=http://www.usaultimate.org/news/2016-college-championships-day-four-recap-women%E2%80%99s-division/|access-date=10 June 2016|website=USA Ultimate}}</ref>
+
+The [[College football|football]] program began in 1892 and ended in March 1977; the last winning season was in&nbsp;1969.<ref name="wdgrd">{{cite news |url=https://news.google.com/newspapers?id=HXVhAAAAIBAJ&sjid=su0DAAAAIBAJ&pg=6063%2C76510dky |work=Spokesman-Review |location=Spokane, Washington |agency=Associated Press |title=Whitman drops grid |date=March 1, 1977 |page=15}}</ref><ref name="wmdfb">{{cite news |url=https://news.google.com/newspapers?id=3PlLAAAAIBAJ&sjid=7fgDAAAAIBAJ&pg=6716%2C120333 |work=Spokane Daily Chronicle |location=Washington|agency=Associated Press |title=Whitman drops football |date=March 1, 1977 |page=24}}</ref><ref name="wmnmdfb">{{cite news |url=https://news.google.com/newspapers?id=zDJPAAAAIBAJ&sjid=O48DAAAAIBAJ&pg=1387%2C3124755 |work=Ellensburg Daily Record |location=Washington |agency=UPI |title=Whitman may drop football |date=March 1, 1977 |page=6}}</ref>
+
+== Student life ==
+Of the 1,579 undergraduate students enrolled in Whitman College in the fall of 2019, 55.3% were female and 44.7% male.<ref name="CDS" /> There are over one hundred student activities, many of which focus on student activism and social improvement, such as Whitman Direct Action and Global Medicine.
+
+=== Outdoor Program ===
+Whitman College has an active and well-resourced outdoor activities program. This program covers a variety of activities including weekend trips, classes, an indoor [[rock climbing]] gym, a rental shop for outdoor supplies, clubs, and competitive teams. Whitman students are charged in their student fees to have money available to pay for trips and activities.<ref>{{Cite web |title=Outdoor Program Trips |url=https://www.whitman.edu//life-at-whitman/outdoor-program/trips-and-activities/outdoor-program-trips |access-date=2025-12-22 |website=Whitman College |language=en}}</ref>
+
+=== Greek life ===
+[[Fraternities and sororities|Greek life]] has a long history at Whitman, with many chapters dating back to a century or more and having the first chapters in the [[Pacific Northwest]]. Some claim that around 33% of students are involved in the Greek system.
+
+=== KWCW 90.5 FM ===
+KWCW 90.5 FM is a [[List of broadcast station classes|Class A]] radio station owned and operated by the Whitman [[Students' Union]], the Associated Students of Whitman College (ASWC).<ref>{{cite web|url=https://radio-locator.com/cgi-bin/finder?sr=Y&s=C&call=KWCW|title=KWCW-FM 90.5 MHz - Walla Walla, WA|website=radio-locator.com}}</ref><ref>{{cite web|url=https://kwcwradio.tumblr.com/post/178595457888/i-hope-you-are-all-having-a-great-weekend|title=KWCW 90.5 Walla Walla|website=KWCW 90.5 Walla Walla}}</ref><ref>{{cite web|url=http://www.kwcw.net/|title=KWCW|date=July 26, 2011|archive-url=https://web.archive.org/web/20110726211635/http://www.kwcw.net/|archive-date=July 26, 2011}}</ref><ref>{{cite web|url=http://www.whitman.edu/kwcw/schedule.htm|title=KWCW 90.5 FM Walla Walla|date=January 11, 2006|archive-url=https://web.archive.org/web/20060111115049/http://www.whitman.edu/kwcw/schedule.htm|archive-date=January 11, 2006}}</ref>
+
+"K-dub" as it is known to students, is located inside the Reid Campus Center on Whitman Campus. At a power of 160 watts, the station's range is approximately 15 miles (24&nbsp;km), broadcasting as well as streaming online<ref>{{cite web|url=http://player.abovecast.com/?host=shoutcast.whitman.edu&port=8000&id=&title=KWCW&site=|title=KWCW|website=player.abovecast.com}}</ref><ref>{{Cite web | url=http://shoutcast.whitman.edu:8000/ |title = SHOUTcast Server}}</ref>
+
+==Notable people==
+=== Notable alumni ===
+{{Main|List of Whitman College alumni}}
+Alumni have received 1 [[Nobel Prize]] in physics, 1 [[Presidential Medal of Freedom]], 5 [[Rhodes Scholarship|Rhodes Scholarships]],<ref>{{Cite web |title=U.S. Rhodes Scholarships Number of Winners by Institution U.S. Rhodes Scholars 1904 – 2023 |url=https://www.rhodeshouse.ox.ac.uk/media/46976/2023-rs-number-of-winners-by-institution.pdf |access-date=January 15, 2024 |archive-date=November 22, 2022 |archive-url=https://web.archive.org/web/20221122231744/https://www.rhodeshouse.ox.ac.uk/media/46976/2023-rs-number-of-winners-by-institution.pdf |url-status=dead }}</ref> and 93 [[Fulbright Program|Fulbright Fellowships]].<ref name=":0">{{Cite web |title=Fellowship and Scholarship Recipients |url=https://us.fulbrightonline.org/alumni/grantee-directory?name=&us_institution%5B%5D=6248&sort=&page=1 |access-date=2020-05-18 |website=Whitman College |language=en}}</ref><ref>{{Cite web |last=Whitman College |date=2021 |title=Whitman Newsroom |url=https://www.whitman.edu/newsroom/schwarzman-scholars}}</ref>
+===Notable faculty===
+* [[Mary McClung]], professor of theatrical [[costume design]] and [[puppetry]] at [[West Virginia University]]<ref>{{Cite web|url=http://wvutoday-archive.wvu.edu/n/2010/11/15/wvu-s-mary-mcclung-recognized-as-one-of-nation-s-most-inventive-costume-designers.html|title=WVU's Mary McClung recognized as one of nation's most inventive costume designers|publisher=[[West Virginia University]]|access-date=December 12, 2025|date=November 15, 2010|first=Charlene|last=Lattea}}</ref>
+
+== References ==
+{{reflist}}
+
+== Further reading ==
+{{ref begin}}
+* {{cite book|author=Eells, Myron|title=The hand of God in the history of the Pacific Coast : annual address delivered before the trustees, faculty, students and friends of Whitman College at the sixth commencement, June 1, 1888|year=1888 |url=http://www.secstate.wa.gov/history/publications_detail.aspx?p=85}}
+* {{Cite book |last1=Edwards |first1=G. Thomas |title=Student Activism at Pomona, Willamette, and Whitman, 1965–1971 |date=2008 |publisher=[[Whitman College and Northwest Archives]] |location=Walla Walla, Washington |url=http://www.campusactivism.org/server-new/uploads/student_activism_historypomona_willamette_whitman.pdf |oclc=228308410 |author-link=G. Thomas Edwards |access-date=2021-04-07 |archive-date=2021-10-19 |archive-url=https://web.archive.org/web/20211019075449/http://www.campusactivism.org/server-new/uploads/student_activism_historypomona_willamette_whitman.pdf |url-status=live }}
+{{ref end}}
+
+==External links==
+{{Commons category}}
+{{wikisource category}}
+* {{Official website}}
+* [https://whitmanblues.com/ Athletics website]
+
+{{navboxes
+|title = Articles related to Whitman College
+|titlestyle = background:#002868; color:white; border:2px solid #FFC627
+|list =
+{{Colleges and universities in Washington (state)}}
+{{Annapolis Group}}
+{{Oberlin Group}}
+{{Colleges That Change Lives}}
+{{CLAC}}
+{{Northwest Conference navbox}}
+}}
+{{authority control}}
+
+[[Category:Whitman College| ]]
+[[Category:Private universities and colleges in Washington (state)]]
+[[Category:Universities and colleges established in 1859]]
+[[Category:Educational institutions in the United States established in 1859]]
+[[Category:Liberal arts colleges in Washington (state)]]
+[[Category:Universities and colleges accredited by the Northwest Commission on Colleges and Universities]]
+[[Category:Universities and colleges in Walla Walla, Washington]]
+[[Category:1859 establishments in Washington Territory]]

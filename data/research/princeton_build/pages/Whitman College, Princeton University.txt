@@ -1,0 +1,59 @@
+{{Short description|Residential college at Princeton University}}
+
+{{Outdated|date=August 2023}}{{Infobox residential college
+| name           = Whitman College
+| type           = [[Residential colleges of Princeton University|Residential college]]
+| university     = [[Princeton University]]
+| shield         = Princeton Whitman College CoA.svg
+| shield_size    = 
+| image          = Image:Princeton University Whitman College.JPG
+| caption        = 
+| scarf          = 
+| full_name      = 
+| latin_name     = 
+| latin_motto    = 
+| english_motto  = 
+| named_for      = [[Meg Whitman]]
+| former_names   = 
+| established    = 2007
+| sister_college = 
+| freshman_dorm  = 
+| head           = Claire Gmachl
+| dean           = Jaclyn Schwalm
+| HoCo_chair     = 
+| undergraduates = 
+| called         = 
+| tutors         = 
+| location       = 
+| coordinates    = {{coord|40.34382| -74.65801|region:US_type:landmark_source:placeopedia|format=dms|display=inline,title}}
+| website        = {{url|https://whitmancollege.princeton.edu/}}
+}}
+
+'''Whitman College''' is one of seven [[residential college]]s at [[Princeton University]], [[New Jersey]], [[United States]]. The college is named after [[Meg Whitman]], a former [[CEO]] of [[eBay]], who donated $30 million to build the college. The structures were designed by the architect  [[Demetri Porphyrios]], the winner of the 2004 [[Driehaus Architecture Prize|Driehaus Prize]]. Whitman College was completed in the fall of 2007, and first occupied during the 2007–08 academic year.
+
+Whitman is a four-year residential college, open to students of all four academic classes. Its sister college is [[Forbes College]]. Although it is possible for any upperclassman to live in Whitman, priority for housing room draw is given to those upperclassmen who lived in either Whitman or Forbes as underclassmen.
+
+[[File:Whitman College Princeton University Corner.JPG|thumb|right|Whitman College]]
+
+The head of Whitman is Claire F. Gmachl; she is the Eugene Higgins Professor of [[Electrical Engineering]] at [[Princeton University]]. The Dean is Jaclyn Schwalm. The Assistant Dean/Director of Studies is Matthew Newmam, the Assistant Dean/Director of Student Life is Momo Wolapaye, the Program Administrator is Kristin Frasier, and the Office Coordinator is Sara Krause.{{cn|date=February 2026}} [[Josue Lajeunesse]], a custodian at Whitman College, is a main subject of the documentary film The Philosopher Kings, and is also an active humanitarian working to make clean water accessible to the people of his home village of [[Lasource]], Haiti.<ref name="Princeton News">{{cite news|url=https://www.princeton.edu/main/news/archive/S25/98/51K97/|title='Life's wisdom in unlikely places': Documentary features University janitor's efforts to help others|last=Aronson|first=Emily|date=3 December 2009|publisher=[[Princeton University]]|access-date=18 December 2009|location=[[Princeton, New Jersey]], USA}}</ref>
+
+The residential college comprises seven dormitories: Baker Hall, Hargadon Hall, Fisher Hall, Lauritzen Hall, Class of 1981 Hall, Murley-Pivirotto Family Tower, and Wendell Hall.  The college's dining hall is called Community Hall, so named not for the University community but rather after the eBay community.<ref>[http://www.dailyprincetonian.com/archives/2007/09/13/news/18559.shtml Who bought the buildings that compose Whitman College?] ''[[The Daily Princetonian]]'', September 13, 2007.</ref>
+
+Whitman College participates in seasonal intramural athletics, including soccer, volleyball and Ultimate Frisbee. Whitman also organizes a variety of other recreational activities, including a craft circle and the [[Jane Austen]] [[literary society]].
+
+In 2007, the college was criticized in a ''[[Bloomberg Businessweek]]'' article for its "over-the-top comforts."
+{{quote |"It's only fitting that Whitman College, Princeton's new student residence, is named for eBay CEO Meg Whitman, because it's a billionaire's mansion in the form of a dorm... Each student room has triple-glazed [[mahogany]] casement windows made of [[came|leaded glass]]. The dining hall boasts a 35-foot ceiling gabled in oak and a 'state of the art servery.' By the time the 10-building complex in the Collegiate Gothic style opened in August, it had cost Princeton $136 million... Gold-plating new dorms raises issues of taste and donor ego. More than before, impressionable students and ambitious parents have come to view college as a form of conspicuous consumption."<ref>{{cite magazine |url=http://www.businessweek.com/magazine/content/07_50/b4062038784589.htm |archive-url=https://web.archive.org/web/20071202184726/http://www.businessweek.com/magazine/content/07_50/b4062038784589.htm |url-status=dead |archive-date=December 2, 2007 |title=The Dangerous Wealth of the Ivy League |author=Anthony Bianco |date=November 29, 2007 |magazine=[[Bloomberg Businessweek]] |access-date=18 October 2011 }}</ref>}}
+
+==References==
+{{reflist}}
+
+==External links==
+{{Commonscat|Whitman College (Princeton)}}
+* [http://whitman.princeton.edu Official website]
+* [https://www.princeton.edu/complit/people/display_person.xml?netid=sandralb&display=All]
+
+{{Princeton|state=collapsed}}
+
+[[Category:Colleges of Princeton University]]
+[[Category: 2007 establishments in New Jersey]]
+[[Category:New Classical architecture in the United States]]

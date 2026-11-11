@@ -1,0 +1,124 @@
+{{For|the Chicago neighborhood|Palmer Square, Chicago}}
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=August 2023}}
+{{Infobox urban feature
+|name = Palmer Square
+|image = Palmer Square in Princeton.jpg
+|image_caption = 
+|place_type = [[Town square|Public Square]]
+|opened = 1939
+|manager = Palmer Square Management LLC
+|amenities = Shopping, dining, hotel, post office
+|features = Palmer Square Post Office, Nassau Inn
+|constructed = 1936–1939
+|cost = 
+|area = 1/2 acre (main green), 10 acres (entire complex)
+|location = [[Princeton, New Jersey]]
+|pushpin_map = USA New Jersey Mercer County
+|coordinates = {{coord|40|21|00.4|N|74|39|41.5|W|display=inline,title}}
+}}
+'''Palmer Square''' is a public square and planned development in the heart of [[Princeton, New Jersey]] across from [[Nassau Street (Princeton)|Nassau Street]] and [[Princeton University]] that today forms a collection of shops, restaurants, offices and residential spaces.
+
+Originally built from 1936 to 1939 by Edgar Palmer, heir to the [[New Jersey Zinc]] fortune, the Square was created by architect Thomas Stapleton in the [[Colonial Revival]] style as the town's complement to [[Princeton University]], which sits directly across [[Nassau Street (Princeton)|Nassau Street]] from the Square.
+
+==History==
+[[File:Baker's Alley.jpg|thumb|left|Baker's Alley looking south toward Nassau Street c. 1925, a historic African-American neighborhood displaced by Palmer Square]]
+
+In order to build the original Square, Baker Street was removed in 1929 and its houses, the center of the original [[African-American neighborhood]] of Princeton, were moved to Birch Avenue.<ref>{{Cite web |url=http://phs.prs.k12.nj.us/pulse/landmarks/landmarks.html |title=History of African Americans in Princeton, includes pictures of moved houses |access-date=2008-03-15 |archive-url=https://web.archive.org/web/20080325143716/http://phs.prs.k12.nj.us/pulse/landmarks/landmarks.html |archive-date=2008-03-25 |url-status=dead }}</ref> Contemporary accounts of the project portrayed the African-American neighborhood as "a dingy small-town slum."<ref name=AF>{{cite news |last1=Stapleton |first1=Thomas |title=Palmer Square, Princeton, New Jersey |url=https://archive.org/details/usmodernist-AF-1938-04/page/316/mode/2up |work=Architectural Forum |volume=68 |issue=4 |date=April 1938 |pages=317-324}}</ref>
+
+Thomas Stapleton designed the square to be reminiscent of [[American colonial architecture]], incorporating features directly inspired by the then-new [[Colonial Williamsburg]]. Emphasis was placed on buildings at the corner of the square and on the cross-axis, and facades and building materials such as specialty [[woodwork]] and [[Ludowici Roof Tile|Ludowici tile]] were specified to follow Williamsburg's design.<ref name="AF" /> The early plans for Rockefeller Center contemplated an {{usurped|1=[https://web.archive.org/web/20040530180756/http://www.nyc-architecture.com/MID/MID055.htm Opera House]}} at the end while Palmer had the Playhouse Movie Theater.
+
+Edgar Palmer's vision was to provide jobs during the depression and create a fully integrated mixed-use downtown that would act as a commercial complement to Princeton University. The plans included the playhouse, the Princeton Post Office, and even the Borough Hall, though this structure was never built.
+
+Construction of the Square was delayed until 1936 by the depression, and plans to extend the Square past [[Hulfish Street]] were put on hold after the initial phase of construction was completed, and were not realized until the 1980s, along with an expansion of the [[Nassau Inn]].<ref name=Historical>[http://www.princetonhistory.org/collections/historic-sites.cfm Princeton Historical Society]</ref>
+
+The [[Nassau Inn]], which was formerly located directly on Nassau Street, was the centerpiece of the development. A small park sits in front of the Inn, which includes the Borough's Christmas tree.<ref>[http://www.nj.com/mercer/index.ssf/2012/11/photos_annual_christmas_tree_l.html Annual Christmas Tree Lighting NJ.com<!-- Bot generated title -->]</ref> Between the park and Nassau Street, a smaller square holds a bronze statue of a tiger.<ref name="Historical" />
+
+Over 75 years the different components of Palmer Square have come together, with a new addition or component being added approximately every decade since the 1930s.{{citation needed|date=June 2025}}
+
+===Present day===
+[[File:Palmer Square Townhomes Exterior a.jpg|thumb|left|New Palmer Square residential component]]Palmer Square has evolved into the primary dining and shopping destination in downtown Princeton. Seasonal events take place throughout the year on The Green.  A collection of residences has been added to Palmer Square, effectively completing Edgar Palmer's original vision.<ref>{{Cite web |url=http://www.aspiremetro.com/edgar-palmers-vision-of-princeton-75-years-later/ |title=Aspire Magazine |access-date=2013-10-08 |archive-url=https://web.archive.org/web/20131008182923/http://www.aspiremetro.com/edgar-palmers-vision-of-princeton-75-years-later/ |archive-date=2013-10-08 |url-status=dead }}</ref>  Located on [[Paul Robeson]] Place between Chambers and Witherspoon Streets, The [https://web.archive.org/web/20131023065115/http://palmersquareresidences.com/site/ Residences at Palmer Square] include single-level condominium flats and multi-story townhomes.  Minno & Wasko Architects and Planners of [[Lambertville, NJ]] mimicked Thomas Stapleton's original [[Colonial Revival style]] with new elevations that complement the brick, [[Federal-style]] exteriors and Colonial-era structures of the immediate Palmer Square environment.  Plans for the Residences came together over a three-year period and the [http://www.towntopics.com/jan2605/other1.html Princeton Regional Planning Board] had significant input into the exterior design.   The residential component's proximity to the Palmer Square retail and other Princeton attractions resulted in a 95% walkbility score from [http://www.walkscore.com/score/palmer-square-princeton-nj-08542 walkscore.com].
+
+One Palmer Square is a major office building, home to [[J. Crew]] and [[PNC Bank]] (formerly Princeton Bank and Trust). The plaza in front of One Palmer Square is the main downtown bus stop, and includes a sculpture by [[John Seward Johnson II|Seward Johnson]].
+
+==Buildings==
+===Post Office===
+{{Infobox NRHP
+| name                 = Palmer Square Post Office
+| nrhp_type            = cp
+| nocat                = yes
+| part_of              = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+| part_of_ref_num      = 75001143<ref>{{cite web|title=Princeton Historic District|url={{NRHP url|id=75001143}}|website=National Register of Historic Places|publisher=National Park Service}}</ref>
+| image                = Post Office (Princeton, New Jersey).jpg
+| alt                  = 
+| caption              = 
+| location             = 20 Palmer Square E, [[Princeton, New Jersey|Princeton, NJ]]
+| built                = {{Start date|1937}}
+| architect            = 
+| architecture         = 
+| designated_nrhp_type = 27 June 1975
+| mpsub                = 
+}}
+[[File:Post Office mural (Princeton, New Jersey).jpg|thumb|left|The mural ''Columbia under the Palm'', by [[Karl Free]] (1939)]]
+A centerpiece of Palmer Square is the post office, which sits in the square's most prominent position. Built during the [[New Deal]], it is known for its mural, ''Columbia Under the Palm'', painted by [[Karl Free]] for the [[Section of Painting and Sculpture]]. The mural has come under criticism for its depiction of European settlers bringing learning to enlighten the indigenous peoples.<ref>{{cite web|title=Palmer Square Post Office Mural|url=http://livingnewdeal.org/projects/palmer-square-post-office-mural-princeton-nj/|website=The Living New Deal}}</ref><ref>{{Cite news|url=https://www.villagevoice.com/2000/04/11/savage-art/|archive-url=https://web.archive.org/web/20180402230005/https://www.villagevoice.com/2000/04/11/savage-art/|url-status=dead|archive-date=April 2, 2018|title=Savage Art|date=2000-04-11|work=Village Voice|access-date=2018-04-02}}</ref>  The caption of the mural reads:
+<blockquote>
+''America! with Peace and Freedom blest,'' <br>
+''Science invites, urged by the Voice divine,'' <br>
+''Pant for true Fame and scorn inglorious rest,'' <br>
+''Exert thyself till every Art be thine.''
+</blockquote>
+
+As Princeton expanded, and especially the use of its name as a mailing address for areas of surrounding towns, a new main Princeton post office was opened at 213 Carnegie Center in [[West Windsor, New Jersey]].  The Palmer Square post office was first put up for sale in 1997 as the Postal Service sought to downsize from the 11,000 square foot facility.  Those efforts intensified in 2011 when employees were informed that the office would relocate to a smaller space, but that sale was blocked by the New Jersey Historic Preservation Office.  The building was finally sold in 2013 to LCOR Ventures<ref>{{cite web|title=The plot thickens: An OIG solicitation, the Palmer Square Post Office, and the CBRE-LCOR connection|url=http://www.savethepostoffice.com/plot-thickens-oig-solicitation-palmer-square-post-office-cbre-lcor-connection|website=Save the Post Office|date=December 28, 2013 }}</ref> and plans were announced to open a new post office behind a proposed [[7-Eleven]] store at 259 Nassau Street.<ref>{{cite news|last1=Zaman|first1=Zaynab|title=Planning board approves plan to build new post office, 7-Eleven|url=http://dailyprincetonian.com/news/2015/04/planning-board-approves-plan-to-build-new-post-office-7-eleven/|newspaper=The Daily Princetonian|date=April 14, 2015}}</ref>
+
+===Stores===
+====Anchors====
+*[[Arhaus]] 
+*[[J Crew]]
+*[[Ralph Lauren]]
+*[[Hermès]]
+
+====Other====
+*[[J. Barbour and Sons|Barbour]]
+*[[Alo Yoga|Alo]]
+*[[Madewell]]
+*[[Warby Parker]]
+*[[Urban Outfitters]]
+*[[Lululemon]]
+*[[Le Labo]]
+*[[Brandy Melville]]
+*[[Highbar Boutique]]
+*[[Lindt]]
+*[[Miya Table and Home]]
+*[[Bluemercury]]
+*The Princeton Corkscrew Wine Shop
+*The Bent Spoon
+*Princeton University Art Museum Store 
+*Zoe 
+*Nic and Zoe 
+*Lace Silhouettes 
+*Dandelion 
+*Thomas Sweets 
+*Olsson's Fine Foods 
+*Rouge 
+*[[Custom Ink]] 
+*Rojo's 
+*jaZams 
+*Playa Bowls 
+*Halo Pub 
+*Princeton Floral 
+*Arhaus
+
+== References ==
+{{Reflist}}
+
+== External links ==
+{{Commons category|Palmer Square}}
+*{{Official website|http://www.palmersquare.com}}
+{{List of United States post offices in New Jersey}}
+{{Princeton, New Jersey|state=collapsed}}
+{{Authority control}}
+
+[[Category:Princeton, New Jersey]]
+[[Category:Historic district contributing properties in New Jersey]]
+[[Category:National Register of Historic Places in Mercer County, New Jersey]]
+[[Category:Post office buildings on the National Register of Historic Places in New Jersey]]

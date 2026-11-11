@@ -1,0 +1,291 @@
+{{Short description|Laboratory in Princeton, New Jersey, United States}}
+{{Use American English|date=August 2026}}
+{{Use mdy dates|date=August 2026}}
+{{Infobox laboratory
+|name             = Princeton Plasma Physics Laboratory
+|image            = PPPL.svg
+|established      = {{Start date and age|1961}}
+|research_field   = [[Nuclear fusion]], [[Plasma Physics]], [[High-performance computing]]
+|vice-president   = [[David J. McComas]]
+|director         = [[Steven Cowley]]<ref>{{Cite web|url=https://www.pppl.gov/news/press-releases/2018/06/10-questions-steven-cowley-new-director-princeton-plasma-physics|title=10 Questions for Steven Cowley, New Director of the Princeton Plasma Physics Laboratory &#124; Princeton Plasma Physics Lab|website=www.pppl.gov}}</ref>
+|budget           = $116 million (2021)
+|address          = 100 Stellarator Road, [[Princeton, New Jersey]]
+|city             = [[Plainsboro Township, New Jersey]]
+|country          = United States
+|coordinates      = {{Coord|40.348825|N|74.602183|W|type:landmark|display=inline,title}}
+|pushpin_map      = USA New Jersey
+|zipcode          = 08536
+|campus           = Forrestal Campus
+|affiliations     = [[United States Department of Energy]]
+|operating_agency = Princeton University
+|nobel_laureates  = <!-- No. of Nobel Laureates for work done in lab -->
+|website          = {{URL|https://www.pppl.gov|pppl.gov}}
+|footnotes        = 
+}}
+The '''Princeton Plasma Physics Laboratory''' ('''PPPL''') is a [[United States Department of Energy]] [[United States Department of Energy National Labs|national laboratory]] for [[plasma physics]] and [[nuclear fusion]] science. Its primary mission is research into and development of [[fusion energy|fusion as an energy source]]. It is known for the development of the [[stellarator]] and [[tokamak]] designs, along with numerous fundamental advances in plasma physics and the exploration of many other plasma confinement concepts.
+
+PPPL grew out of the top-secret [[Cold War]] project to control thermonuclear reactions, called '''Project Matterhorn'''. The focus of this program changed from [[H-bomb]]s to fusion power in 1951, when [[Lyman Spitzer]] developed the stellarator concept and was granted funding from the [[United States Atomic Energy Commission|Atomic Energy Commission]] to study the concept. This led to a series of machines in the 1950s and 1960s. In 1961, after declassification, Project Matterhorn was renamed the Princeton Plasma Physics Laboratory.<ref>Tanner, Earl C. (1977) ''Project Matterhorn: an informal history'' Princeton University Plasma Physics Laboratory, Princeton, New Jersey, p. 77, {{OCLC|80717532}}.</ref>
+
+PPPL's stellarators proved unable to meet their performance goals. In 1968, Soviet claims of excellent performance on their [[T-3 tokamak]] generated brief scepticism until verified by [[Culham Centre for Fusion Energy|British scientists]]. PPPL's [[Model C stellarator]] was quickly converted to a tokamak, and reproduced T-3's high performance. Until the 1990s, PPPL became a worldwide leader in tokamak theory and design, building a series of record-breaking machines including the [[Princeton Large Torus]] and [[Tokamak Fusion Test Reactor|TFTR]]. In 1993, TFTR was the first machine in the world to produce significant amounts of power from fusion, remaining the world record holder [[Joint European Torus|until 1997]].
+
+Dozens of smaller machines were also built to test particular problems and solutions, including the ATC, [[National Spherical Torus Experiment|NSTX]], and [[Lithium Tokamak Experiment|LTX]]. PPPL is operated by [[Princeton University]] on the Forrestal Campus in [[Plainsboro Township, New Jersey]].
+
+==History==
+===Formation===
+In 1950, [[John Archibald Wheeler|John Wheeler]] was setting up a secret [[H-bomb]] research lab at [[Princeton University]]. [[Lyman Spitzer|Lyman Spitzer, Jr.]], an avid mountaineer, was aware of this program and suggested the name "Project Matterhorn".<ref>{{cite web |title=Timeline |website=Princeton Plasma Physics Laboratory |url=https://www.pppl.gov/about/history/timeline |ref=CITEREFTimeline}}</ref>
+
+Spitzer was a professor of astronomy who studied [[plasma (physics)|plasma]] in interstellar space. While leaving for a ski trip to [[Aspen, Colorado|Aspen]] in February 1951, his father told him about a front page ''[[New York Times]]'' story reporting claims from [[Argentina]] that its [[Huemul Project]] had achieved nuclear fusion.<ref>Burke, James (1999) ''The Knowledge Web: From Electronic Agents to Stonehenge and Back – And Other Journeys Through Knowledge'' Simon & Schuster, New York, pp.&nbsp;241–242, {{ISBN|0-684-85934-3}}.</ref> Spitzer ultimately dismissed these claims, which proved erroneous, but while riding the [[chairlift]] at Aspen he struck upon a new concept to confine a dense terrestrial plasma for long periods at high fusion temperatures. He called this concept the [[stellarator]].
+
+Later that year he took this design to the [[United States Atomic Energy Commission|Atomic Energy Commission]] in Washington.<ref>{{cite report|url=https://www.osti.gov/biblio/4285898|title=A Proposed Stellarator|last=Spitzer|first=L.|date=23 July 1951|doi=10.2172/4285898}}</ref> As a result of this meeting and a review of the invention by scientists throughout the nation, the stellarator proposal was funded in 1951. As the device would produce high-energy [[neutron]]s, which could be used for breeding weapon fuel, the program was classified and carried out as part of Project Matterhorn. Matterhorn ultimately ended its involvement in the bomb field in 1954, becoming entirely devoted to the fusion power field.
+
+In 1958, this magnetic fusion research was declassified following the [[International Atomic Energy Agency#History|United Nations International Conference on the Peaceful Uses of Atomic Energy]].  This generated an influx of graduate students eager to learn the "new" physics, which in turn influenced the lab to concentrate more on basic research.<ref>Bromberg, Joan Lisa (1982) ''Fusion: Science, Politics, and the Invention of a New Energy Source'' [[MIT Press]], Cambridge, Massachusetts, [https://books.google.com/books?id=ECOvgg7b3MQC&pg=PA97 p. 97], {{ISBN|0-262-02180-3}}.</ref>
+
+The early figure-8 stellarators included: Model-A, Model-B, Model-B2, Model-B3.<ref name=Stix/> Model-B64 was a square with round corners, and Model-B65 had a racetrack configuration.<ref name=Stix>{{Cite web|url=http://www.jspf.or.jp/JPFRS/PDF/Vol1/jpfrs1998_01-003.pdf |archive-url=https://ghostarchive.org/archive/20221009/http://www.jspf.or.jp/JPFRS/PDF/Vol1/jpfrs1998_01-003.pdf |archive-date=2022-10-09 |url-status=live|title=Highlights in Early Stellarator Research at Princeton. Stix. 1997}}</ref> The last and most powerful early Princeton stellarator was the "racetrack" [[Model C stellarator|Model&nbsp;C]], operating from 1961 to 1969.<ref>{{Cite journal |last1=Yoshikawa |first1=S. |last2=Stix |first2=T.H. |date=1985-09-01 |title=Experiments on the Model C stellarator |url=https://iopscience.iop.org/article/10.1088/0029-5515/25/9/047 |journal=Nuclear Fusion |volume=25 |issue=9 |pages=1275–1279 |doi=10.1088/0029-5515/25/9/047 |issn=0029-5515|url-access=subscription }}</ref>
+
+===Tokamak===
+By the mid-1960s it was clear something was fundamentally wrong with the Princeton stellarators, as they leaked fuel at rates far beyond what theory predicted, rates that carried away energy from the plasma that was far beyond what the fusion reactions could ever produce. Spitzer became extremely skeptical that fusion energy was possible and expressed this opinion in very public fashion in 1965 at an international meeting in the UK.{{citation needed|date=October 2026}} At the same meeting, the Soviet delegation announced results about 10 times better than any previous device, which Spitzer dismissed as a measurement error.{{citation needed|date=October 2026}}
+
+At the next meeting in 1968, the Soviets presented considerable data from their devices that showed even greater performance, about 100 times the [[Bohm diffusion]] limit. An enormous argument broke out between the AEC and the various labs about whether this was real.{{citation needed|date=October 2026}} When a UK team verified the results in 1969, the AEC suggested PPPL to convert their Model&nbsp;C to a tokamak to test it, as the only lab willing to build one from scratch, [[Oak Ridge National Laboratory|Oak Ridge]], would need some time to build [[ORMAK|theirs]]. Seeing the possibility of being bypassed in the fusion field, PPPL eventually agreed to convert the Model&nbsp;C to what became the Symmetric Tokamak (ST), quickly verifying the approach.
+
+Two small machines followed the ST, exploring ways to heat the plasma, and then the [[Princeton Large Torus]] (PLT) to test whether the theory that larger machines would be more stable was true. Starting in 1975, PLT verified these "scaling laws" and then went on to add [[neutral beam injection]] from Oak Ridge that resulted in a series of record-setting plasma temperatures, eventually topping out at 78&nbsp;million [[kelvin]]s<!-- the SI unit is in lower case and pluralized regularly -->, well beyond what was needed for a practical fusion power system. Its success was major news.
+
+With this string of successes, PPPL had little trouble winning the bid to build an even larger machine, one specifically designed to reach [[fusion energy gain factor|"breakeven"]] while running on an actual fusion fuel, rather than a test gas. This produced the [[Tokamak Fusion Test Reactor]], or TFTR, which was completed in 1982. After a lengthy breaking-in period, TFTR began slowly increasing the temperature and density of the fuel, while introducing [[deuterium]] gas as the fuel. In April 1986, it demonstrated a combination of density and confinement, the so-called [[fusion triple product]], well beyond what was needed for a practical reactor. In July, it reached a temperature of 200&nbsp;million kelvins, far beyond what was needed. However, when the system was operated with both of these conditions at the same time, a high enough triple product and temperature, the system became unstable. Three years of effort failed to address these issues, and TFTR never reached its goal.<ref>{{cite journal |title=Results and Plans for the Tokamak Fusion Test Reactor |first=Dale |last=Meade |journal=Journal of Fusion Energy |volume = 7|issue=2–3 |date= September 1988 |page=107|doi = 10.1007/BF01054629|bibcode=1988JFuE....7..107M |s2cid=120135196 }}</ref> The system continued performing basic studies on these problems until being shut down in 1997.<ref name="TFTR-end">Staff (1996) "Fusion Lab Planning Big Reactor's Last Run", ''[[The Record (Bergen County)|The Record]]'', 22 December 1996, p.&nbsp;N-07.</ref> Beginning in 1993, TFTR was the first in the world to use 1:1 mixtures of [[deuterium]]–[[tritium]]. In 1994 it yielded an unprecedented 10.7&nbsp;megawatts of fusion power.<ref name="TFTR-end"/>
+
+===Later designs===
+In 1999, the [[National Spherical Torus Experiment]] (NSTX), based on the spherical tokamak concept, came online at the PPPL.
+
+In 2004, PPPL began construction of a modular coil optimized stellarator, [[NCSX]]. It was cancelled by DOE in 2008 after budget and construction time overruns, while 80% complete.
+
+In 2015, PPPL completed an upgrade to NSTX to produce [[NSTX-U]] that made it the most powerful experimental fusion facility, or tokamak, of [[spherical tokamak|its type]] in the world.<ref>{{Cite web |url=https://www.pppl.gov/nstx |title=National Spherical Torus Experiment Upgrade (NSTX-U) |website=Princeton Plasma Physics Lab}}</ref> It suffered extensive damage in operation and operations were suspended from July 2016. A recovery project began with an estimated total cost in 2021 of $199.4 million.<ref>{{cite report|url=https://www.energy.gov/sites/default/files/2021-12/DOE-OIG-22-13.pdf|title=Inspection Report|id=DOE-OIG-22-13|publisher=[[US Department of Energy]] Office of Inspector General|date=December 2021}}</ref> As of 2026, NSTX-U was expected to re-start in 2027.<ref>{{cite web|url=https://www.iter.org/node/20687/heart-nstx-u-arrives-princeton|title=The heart of NSTX-U arrives in Princeton|date=22 June 2026|last=Shea|first=Addison|publisher=ITER Organization}}</ref>
+
+In 2024, the lab announced MUSE, a new [[stellarator]]. MUSE uses rare-earth permanent magnets with a field strength that can exceed 1.2 [[Tesla (unit)|teslas]]. The device uses quasiaxisymmetry, a subtype of [[quasisymmetry]]. The research team claimed that its use of quasisymmetry was more sophisticated than prior devices.<ref>{{Cite web |last=Paul |first=Andrew |date=2024-04-05 |title=Stellarator fusion reactor gets new life thanks to a creative magnet workaround |url=https://www.popsci.com/environment/stellarator-fusion-reactor/ |access-date=2024-04-11 |website=Popular Science |language=en-US}}</ref> Two companies founded by former PPPL researchers to commercialize related stellarator technology are [[Thea Energy]] and [[Stellarex]].
+
+==Directors==
+The following persons served as the Princeton Plasma Physics Laboratory director:<ref>{{cite web |title=History |url=https://www.pppl.gov/history.cfm |website=Princeton Plasma Physics Laboratory |archive-url=https://web.archive.org/web/20090512012758/www.pppl.gov/history.cfm |archive-date=2009-05-12}}</ref>
+
+{| class="wikitable"
+|-
+!{{abbr|No.|Number}}
+!Image
+!Director
+!Term start
+!Term end
+!{{abbr|Refs.|References}}
+|-
+|1
+|[[File:1946- Lyman Spitzer (4526166350).jpg|70px]]
+|[[Lyman Spitzer]]{{efn|name="Spitzer"|Spitzer was director of Project Matterhorn}}
+|1951
+|1961
+|
+|-
+|2
+|
+|[[Melvin B. Gottlieb]]{{efn|name="Gottlieb|In 1961 Gottlieb became the first director of the renamed Princeton Plasma Physics Laboratory.<ref>{{cite book |last=Bromberg |first=Joan Lisa |year=1982 |title=Fusion: Science, Politics, and the Invention of a New Energy Source |publisher=MIT Press |location=Cambridge, Massachusetts |url=https://books.google.com/books?id=ECOvgg7b3MQC&pg=PA130 |page=130 |isbn=0-262-02180-3}}</ref>}}
+|1961
+|1980
+|
+|-
+|3
+|[[File:Portrait of Harold Furth.jpg|70px]]
+|[[Harold Fürth]]
+|1981
+|1990
+|
+|-
+|4
+|
+|[[Ronald C. Davidson]]
+|1991
+|December 31, 1996
+|<ref name="TFTR-end"/><ref>{{cite web |url=https://aries.pppl.gov/FPA/ARC96/fpn19.shtml |title=Davidson Stepping Down at PPPL |date=October 18, 1996 |work=Fusion Power Associates}}</ref>
+|- bgcolor="#e6e6aa"
+|interim
+|
+|John A. Schmidt
+|January 1, 1997
+|June 30, 1997
+|<ref name="TFTR-end"/>
+|-
+|5
+|
+|[[Robert J. Goldston]]
+|July 1, 1997
+|2008
+|<ref>{{cite news |last=Stern |first=Robert |title=Princeton fusion center to lose influential leader |newspaper=[[The Star-Ledger]] |location=Newark, New Jersey |date=December 15, 2007 |page=20}}</ref><ref>{{cite web |url=https://pr.princeton.edu/news/97/q2/0626goldston.html |title=Professor Robert J. Goldston to Lead Princeton Plasma Physics Laboratory |date=June 26, 1997 |publisher=Princeton University}}</ref><ref>{{cite web |url=https://www.princeton.edu/news/2007/12/13/pppl-director-goldston-step-down-search-begins-successor |title=PPPL Director Goldston to step down, search begins for successor |first=Cass |last=Cliatt |date=December 13, 2007 |publisher=Princeton University}}</ref>
+|-
+|6
+|
+|Stewart C. Prager
+|2008
+|September 26, 2016
+|<ref>{{cite web |url=http://media-newswire.com/release_1068963.html |title=Press Release, Prager to lead DOE's Princeton Plasma Physics Laboratory |access-date=2008-08-09}}</ref><ref>{{cite web |url=https://www.princeton.edu/news/2008/07/18/prager-lead-does-princeton-plasma-physics-laboratory |title=Prager to lead DOE's Princeton Plasma Physics Laboratory |first=Ruth |last=Stevens |date=July 18, 2008 |publisher=Princeton University}}</ref><ref>{{cite web |url=https://qedfusion.org/FPA/ARC16/fpn16-33.shtml |title=Stewart Prager Steps Down as Director of PPPL |date=September 26, 2016 |work=Fusion Power Associates}}</ref>
+|- bgcolor="#e6e6aa"
+|interim
+|
+|Terrence K. Brog
+|September 26, 2016
+|September 2017
+|<ref>{{Cite web |url=https://www.pppl.gov/news/2016/09/pppl-director-stewart-prager-steps-down |title=PPPL Director Stewart Prager Steps Down |website=Princeton Plasma Physics Lab |date=September 26, 2016 |first=Larry |last=Bernard |archive-url=https://web.archive.org/web/20160929233218/http://www.pppl.gov:80/news/2016/09/pppl-director-stewart-prager-steps-down |archive-date=2016-09-29 }}</ref>
+|- bgcolor="#e6e6aa"
+|interim
+|
+|Richard J. Hawryluk
+|September 2017
+|June 30, 2018
+|<ref>{{Cite web |url=https://www.pppl.gov/news/2017/09/pppl-has-new-interim-director-and-moving-ahead-construction-prototype-magnets |title=PPPL has a new interim director and is moving ahead with construction of prototype magnets |website=Princeton Plasma Physics Lab |date=September 8, 2017 |first=Jeanne Jackson |last=DeVoe |archive-url=https://web.archive.org/web/20170912234528/https://www.pppl.gov/news/2017/09/pppl-has-new-interim-director-and-moving-ahead-construction-prototype-magnets |archive-date=2017-09-12 }}</ref>
+|-
+|7
+|[[File:Professor Steven Cowley FRS.jpg|70px]]
+|[[Steven Cowley]]
+|July 1, 2018
+|present
+|<ref>{{cite web |url=https://www.princeton.edu/news/2018/05/16/steven-cowley-named-director-does-princeton-plasma-physics-laboratory |date=2018-05-16|title=Steven Cowley named director of DOE's Princeton Plasma Physics Laboratory |url-status=live |archive-url=https://web.archive.org/web/20180516154600/https://www.princeton.edu/news/2018/05/16/steven-cowley-named-director-does-princeton-plasma-physics-laboratory |archive-date=2018-05-16}}</ref>
+|-
+|}
+
+Table notes:
+{{notelist|refs=
+}}
+
+== Timeline of major research projects and experiments ==
+<timeline>
+DateFormat = yyyy
+ImageSize  = width:1000 height:auto barincrement:25
+PlotArea   = left:125 right:65 bottom:70 top:15
+
+Colors     =
+  id:canvas      value:rgb(0.97,0.97,0.97)
+  id:grid1       value:rgb(0.80,0.80,0.80)
+  id:grid2       value:rgb(0.86,0.86,0.86)
+  id:dir         value:rgb(0.86,0.86,0.26)
+  id:dir2        value:rgb(0.96,0.96,0.26)
+  id:lightblue   value:rgb(0.60,0.99,0.99)
+
+  id:sphe        value:rgb(0.80,0.80,0.99)     legend: Spherator
+  id:sphtok      value:rgb(0.58,0.90,0.98)     legend: Spherical_Tokamak
+  id:stella      value:rgb(0.95,0.70,0.70)     legend: Stellarator
+  id:tok         value:rgb(0.38,0.70,0.88)     legend: Tokamak
+  id:other       value:rgb(0.38,0.88,0.38)     legend: Other
+
+Period     = from:1950 till:2026
+TimeAxis   = orientation:horizontal format:yyyy
+ScaleMajor = unit:year  increment:5  start:1950 gridcolor:grid1
+ScaleMinor = unit:year  increment:1   start:2026 gridcolor:grid2
+AlignBars  = justify
+Legend     = position:bottom
+
+BackgroundColors = canvas:canvas bars:canvas
+
+BarData=
+  bar:dir        text: Directors
+  barset:fusion  
+  bar:fusion1    text: Fusion program
+  bar:fusion2
+  bar:fusion3    text: Other_fusion_related
+  bar:fusion4
+  bar:fusion5
+  bar:fusion6
+  barset:other   
+  
+PlotData=
+  width:25 fontsize:9 textcolor:black anchor:from align:left color:dir shift:(0,-4) bar:dir
+  from:1951  till:1961  text: "[[Lyman Spitzer|Spitzer]]"
+  from:1961  till:1980  color: dir2  text: "[[Melvin B. Gottlieb|Gottlieb]]"
+  from:1981  till:1990  text: "[[Harold Fürth|Fürth]]"
+  from:1991  till:1996  color: dir2  text: "[[Ronald C. Davidson|Davidson]]"
+  from:1997  till:2008  text: "[[Robert J. Goldston|Goldston]]"
+  from:2008  till:2016  color: dir2  text: "Prager"
+  from:2018  till:end   text: "[[Steven Cowley|Cowley]]"
+
+  width:25 fontsize:10 textcolor:black anchor:from align:left color:tok
+  bar:fusion1  from:1953  till:1962  shift:(0,-4)  color:stella  text: "Model A/B stellarators" 
+  bar:fusion2  from:1962  till:1969  shift:(0,-4)  color:stella  text: "[[Model C stellarator]]"
+  bar:fusion1  from:1970  till:1974  shift:(0,-4)  color:tok  text: "Symmetric Tokamak"
+  bar:fusion2  from:1975  till:1986  shift:(0,-4)  color:tok  text: "[[Princeton Large Torus]]"
+  bar:fusion1  from:1982  till:1997  shift:(0,-4)  color:tok  text: "[[Tokamak Fusion Test Reactor]]"
+  bar:fusion1  from:1999  till:2012   shift:(0,-4)  color:sphtok  text: "[[NSTX]]"
+  bar:fusion1  from:2016  till:2017   shift:(0,-4)  color:sphtok  text: "[[National Spherical Torus Experiment#Upgrade_2012–2015|NSTX-U]]"
+
+  width:25 fontsize:10 textcolor:black anchor:from align:left color:other barset:other
+  bar:fusion3  from:1971  till:1976  shift:(0,-4)  color:sphe  text: "Floating Multipole-1"
+  bar:fusion4  from:1972  till:1976  shift:(0,-4)  color:tok   text: "Adiabatic Toroidal Compressor"
+  bar:fusion5  from:1978  till:1983  shift:(0,-4)  text: "Poloidal Divertor Experiment"
+  bar:fusion6  from:1984  till:1992  shift:(0,-4)  text: "Princeton Beta Experiment"
+  bar:fusion3  from:2005  till:2008  shift:(0,-4)  color:sphtok  text: "Current Drive Experiment"
+  bar:fusion4  from:2008  till:end   shift:(0,-4)  color:sphtok  text: "[[Lithium Tokamak Experiment]]"
+  bar:fusion5  from:1995  till:end   shift:(0,-4)  text: "Magnetic Reconnection Experiment"
+  bar:fusion6  from:1999  till:end   shift:(0,-4)  text: "Hall Thruster Experiment"
+  from:2008  till:end   shift:(0,-4)  text: "[[Princeton field-reversed configuration|Field Reversed Configuration]]"
+
+</timeline>
+<!--  unknown end year
+  from:1958  till:???   shift:(0,-4)  text: "L-1"
+  from:1966  till:???   shift:(0,-4)  text: "Linear Multipole-1"
+  from:1982  till:???   shift:(0,-4)  text: "Advanced Concepts Torus-1"
+  from:1988  till:???   shift:(0,-4)  text: "Princeton Beta Experiment-Modification"
+  source: http://www.firefusionpower.org/ASME_PPPL_Historical_DMM-4.pdf
+-->
+
+== Other domestic and international research activities==
+
+Laboratory scientists are collaborating with researchers on fusion science and technology at other facilities, including [[DIII-D]] in San Diego, [[Experimental Advanced Superconducting Tokamak|EAST]] in China, [[Joint European Torus|JET]] in the United Kingdom, [[KSTAR]] in South Korea, the [[Large Helical Device|LHD]] in Japan, the [[Wendelstein 7-X]] (W7-X) device in Germany, and the [[International Thermonuclear Experimental Reactor]] (ITER) in France.<ref>{{Cite web |url=https://www.pppl.gov/research/iter-and-other-collaborations |title=ITER and other Collaborations |website=www.pppl.gov}}</ref> 
+
+PPPL manages the U.S. ITER project activities together with [[Oak Ridge National Laboratory]] and [[Savannah River National Laboratory]]. The lab delivered 75% of components for the fusion energy experiment's electrical network in 2017 and has been leading the design and construction of six diagnostic tools for analyzing ITER plasmas. The PPPL physicist Richard Hawryluk served as ITER Deputy Director-General from 2011 to 2013. In 2022, PPPL staff developed with researchers from other national labs and universities over several months a US ITER research plan during the joint Fusion Energy Sciences Research Needs Workshop.<ref>{{Cite web |url=https://www.iterresearch.us/ |title=Fusion Energy Sciences Research Needs Workshop |website=www.iterresearch.us}}</ref> 
+
+Staff are applying knowledge gained in fusion research to a number of theoretical and experimental areas including [[materials science]], [[solar physics]], [[chemistry]], and [[manufacturing]]. PPPL also aims to speed the development of fusion energy through the development of an increased number of public-private partnerships.<ref>{{Cite web |url=https://innovation.princeton.edu/news/2021/future-entrepreneurs-get-outside-their-comfort-zone-energy-i-corps-workshop |title=Future entrepreneurs get outside their comfort zone in Energy I-Corps workshop |website=innovation.princeton.edu}}</ref><ref>{{Cite web |url=https://www.newswise.com/doescience/new-public-private-partnership-comes-to-pppl-through-a-novel-program-to-speed-the-development-of-fusion-energy/?article_id=764674 |title=New public-private partnership comes to PPPL through a novel program to speed the development of fusion energy |website=www.newswise.com}}</ref><ref>{{Cite web |url=https://www.miragenews.com/princeton-plasma-physics-lab-teams-up-with-tech-939175/ |title=Princeton Plasma Physics Lab Teams Up With Tech Start-Up |website=www.miragenews.com}}</ref>
+
+=== Partnerships ===
+PPPL collaborates with public institutions and private industry on fusion energy development, primarily through the U.S. Department of Energy's Innovation Network for Fusion Energy (INFUSE) program, which was launched in 2019 to give private companies access to national laboratory capabilities.<ref name=":0">{{Cite web |title=New public-private partnership comes to PPPL through a novel program to speed the development of fusion energy {{!}} Princeton Plasma Physics Laboratory |url=https://www.pppl.gov/news/2022/new-public-private-partnership-comes-pppl-through-novel-program-speed-development-fusion |access-date=2026-07-06 |website=www.pppl.gov |language=en}}</ref> The laboratory's corporate partners have included Tokamak Energy, Commonwealth Fusion Systems, TAE Technologies, General Fusion and Microsoft, working on projects ranging from plasma turbulence modeling to machine learning for predicting tokamak disruptions.<ref name=":0" /> In 2025, PPPL researchers participated in three of the 20 INFUSE projects funded by the department, including collaborations with Helion Energy and Thea Energy.<ref>{{Cite web |title=Brief: DOE awards $6.1M to accelerate fusion energy through private-public partnerships {{!}} Princeton Plasma Physics Laboratory |url=https://www.pppl.gov/news/2025/brief-doe-awards-61m-accelerate-fusion-energy-through-private-public-partnerships |access-date=2026-07-06 |website=www.pppl.gov |language=en}}</ref> The laboratory is also developing the Fusion Research and Technology Hub (FuRTH), a facility intended to allow private companies to install and operate experimental fusion systems using PPPL infrastructure such as radiation shielding and industrial-scale power and cooling systems.<ref>{{Cite web |title=Going further with fusion, together {{!}} Princeton Plasma Physics Laboratory |url=https://www.pppl.gov/news/2026/going-further-fusion-together |access-date=2026-07-06 |website=www.pppl.gov |language=en}}</ref> 
+
+Several additional partnerships were announced in 2026. In April, PPPL began leading a $12.5 million DOE-funded project to install X-ray imaging diagnostics on the WEST tokamak in France and the JT-60SA tokamak in Japan, with vacuum chambers, stands, mounts and other components built and tested by R-V Industries, a private manufacturer based in Honey Brook, Pennsylvania.<ref>{{Cite web |title=Expanding America’s role in fusion systems in France and Japan {{!}} Princeton Plasma Physics Laboratory |url=https://www.pppl.gov/news/2026/expanding-america%E2%80%99s-role-fusion-systems-france-and-japan |access-date=2026-07-06 |website=www.pppl.gov |language=en}}</ref> In May, the venture firm SOSV announced that PPPL would provide technical collaboration and in-kind support to the HAX Plasma Forge, a startup incubator for plasma technology companies headquartered at SRI in Princeton, New Jersey, and backed by $51 million in funding from SOSV and the New Jersey Economic Development Authority.<ref>{{Cite web |last=Turner |first=Duncan |date=2026-05-28 |title=Announcing HAX Plasma Forge's New Home at Princeton’s SRI |url=https://sosv.com/the-hax-plasma-forge-finds-a-home-at-princetons-sri/ |access-date=2026-07-06 |website=SOSV |language=en-US}}</ref> In June, Thea Energy, a stellarator company that spun out of Princeton University and PPPL in 2022, announced a collaboration with PPPL, Argonne National Laboratory, NVIDIA and Synopsys to develop a digital twin of its planned Helios fusion power plant, with PPPL supplying plasma modeling expertise and high-fidelity simulation codes.<ref>{{Cite web |title=Thea Energy Accelerates Fusion Energy with Helios Power Plant Digital Twin and AI Surrogate Models in Collaboration with NVIDIA, Synopsys, Argonne National Laboratory, and Princeton Plasma Physics Laboratory - Thea Energy |url=https://thea.energy/press-release/thea-energy-accelerates-fusion-energy-with-helios-power-plant-digital-twin-and-ai-surrogate-models-in-collaboration-with-nvidia-synopsys-argonne-national-laboratory-and-princeton-plasma-physics-lab/ |access-date=2026-07-06 |language=en-US}}</ref>That same month, PPPL signed a memorandum of understanding with the United Kingdom Atomic Energy Authority establishing a program of collaboration that includes reciprocal staff exchanges, access to major research facilities, joint projects and cooperation on ITER diagnostics and advanced computing.<ref>{{Cite web |title=US-UK fusion agreement builds on King’s Address to Congress |url=https://www.gov.uk/government/news/us-uk-fusion-agreement-builds-on-kings-address-to-congress |access-date=2026-07-06 |website=GOV.UK |language=en}}</ref>
+
+===Plasma science and technology===
+* Beam Dynamics and Nonneutral Plasma
+* Laboratory for Plasma Nanosynthesis (LPN)<ref>[https://nano.pppl.gov/ "Laboratory for Plasma Nanosynthesis (LPN)"], Princeton Plasma Physics Laboratory, accessed 16 May 2018.</ref>
+
+===Theoretical plasma physics===
+* DOE Scientific Simulation Initiative
+* U.S. MHD Working Group
+* Field Reversed Configuration (FRC) Theory Consortium
+* Tokamak Physics Design and Analysis Codes
+* TRANSP Code
+* National Transport Code Collaboration (NTCC) Modules Library
+
+===AI/ML for fusion===
+
+In 2024, PPPL announced a [[reinforcement learning]] model that could forecast tearing mode instabilities up to 300 milliseconds in advance. That is enough time for the plasma controller to adjust operating parameters to prevent the tear and maintain [[High-confinement mode|H-mode]] performance.<ref>{{Cite web |date=March 4, 2024 |title=AI can predict and prevent fusion plasma instabilities in milliseconds |url=https://www.ans.org/news/article-5835/ai-can-predict-and-prevent-fusion-plasma-instabilities-in-milliseconds/ |access-date=2024-05-20 |website=www.ans.org |language=en}}</ref><ref>{{Cite journal |last1=Seo |first1=Jaemin |last2=Kim |first2=SangKyeun |last3=Jalalvand |first3=Azarakhsh |last4=Conlin |first4=Rory |last5=Rothstein |first5=Andrew |last6=Abbate |first6=Joseph |last7=Erickson |first7=Keith |last8=Wai |first8=Josiah |last9=Shousha |first9=Ricardo |last10=Kolemen |first10=Egemen |date=2024 |title=Avoiding fusion plasma tearing instability with deep reinforcement learning |journal=Nature |language=en |volume=626 |issue=8000 |pages=746–751 |doi=10.1038/s41586-024-07024-9 |pmid=38383624 |issn=1476-4687|pmc=10881383 |bibcode=2024Natur.626..746S }}</ref>
+
+PPPL is also leading the Simulation, Technology, and Experiment Leveraging Learning-Accelerated Research enabled by AI (STELLAR-AI ): a high performance computing platform for fusion energy simulations that will include CPUs, GPUs, and QPUs. The platform is a part of the DOE's national [[Genesis Mission]].<ref>{{Cite web |title=PPPL-led STELLAR-AI to advance fusion research |url=https://www.ans.org/news/2026-01-28/article-7714/ppplled-stellarai-to-advance-fusion-research/ |access-date=2026-02-03 |website=www.ans.org |language=en}}</ref> STELLAR-AI will be used for both tokamak and stellarator research, as it is being used to make a digital twin of NSTX-U and for a separate project known as StellFoundry. PPPL's StellFoundry project is using AI to expedite stellarator design, so that the configurations that are ideal for producing the temperatures, pressures and stability needed for efficient energy production via fusion.<ref>{{Cite web |title=Bringing fusion energy to the grid using artificial intelligence {{!}} Princeton Plasma Physics Laboratory |url=https://www.pppl.gov/news/2026/bringing-fusion-energy-grid-using-artificial-intelligence |access-date=2026-02-03 |website=www.pppl.gov |language=en}}</ref> 
+
+The Lab also conducts AI for fusion research on tokamaks at other facilities. PPPL researchers were involved in experiments where they successfully demonstrated the use of their machine learning system on [[DIII-D]] and [[KSTAR]], using it to suppress instabilities known as edge localize modes while maintaining plasma performance.<ref>{{Cite web |title=AI approach elevates plasma performance and stability across fusion devices {{!}} Princeton Plasma Physics Laboratory |url=https://www.pppl.gov/news/2024/ai-approach-elevates-plasma-performance-and-stability-across-fusion-devices |access-date=2026-02-03 |website=www.pppl.gov |language=en}}</ref> The Lab's researchers were also involved in a project to create an AI system that provide missing sensor data. The system, known as Diag2Diag, offers more detailed data than the real-world sensor could have provided and could ultimately reduce the cost of commercial fusion systems by reducing the number of diagnostics required.<ref>{{Cite web |title=New AI enhances the view inside fusion energy systems {{!}} Princeton Plasma Physics Laboratory |url=https://www.pppl.gov/news/2025/new-ai-enhances-view-inside-fusion-energy-systems |access-date=2026-02-03 |website=www.pppl.gov |language=en}}</ref><ref>{{Cite journal |last1=Jalalvand |first1=Azarakhsh |last2=Kim |first2=SangKyeun |last3=Seo |first3=Jaemin |last4=Hu |first4=Qiming |last5=Curie |first5=Max |last6=Steiner |first6=Peter |last7=Nelson |first7=Andrew Oakleigh |last8=Na |first8=Yong-Su |last9=Kolemen |first9=Egemen |date=2025-09-26 |title=Multimodal super-resolution: discovering hidden physics and its application to fusion plasmas |journal=Nature Communications |language=en |volume=16 |issue=1 |page=8506 |doi=10.1038/s41467-025-63492-1  |doi-access=free|issn=2041-1723 |pmc=12475251 |pmid=41006246 |bibcode=2025NatCo..16.8506J }}</ref> Other AI research at PPPL includes improved models for plasma heating<ref>{{Cite web |title=New AI models of plasma heating lead to important corrections in computer code used for fusion research {{!}} Princeton Plasma Physics Laboratory |url=https://www.pppl.gov/news/2024/new-ai-models-plasma-heating-lead-important-corrections-computer-code-used-fusion |access-date=2026-02-03 |website=www.pppl.gov |language=en}}</ref><ref>{{Cite journal |last1=Sánchez-Villar |first1=Á. |last2=Bai |first2=Z. |last3=Bertelli |first3=N. |last4=Bethel |first4=E.W. |last5=Hillairet |first5=J. |last6=Perciano |first6=T. |last7=Shiraiwa |first7=S. |last8=Wallace |first8=G.M. |last9=Wright |first9=J.C. |date=2024-08-12 |title=Real-time capable modeling of ICRF heating on NSTX and WEST via machine learning approaches |url=https://validate.perfdrive.com/fb803c746e9148689b3984a31fccd902/?ssa=1af35443-96e5-4b1f-9bd7-d4efead4bab7&ssb=20808275581&ssc=https%3A%2F%2Fiopscience.iop.org%2Farticle%2F10.1088%2F1741-4326%2Fad645d&ssi=1c1381ec-cnvj-47ff-86ec-1f92e0f0a0c1&ssk=botmanager_support@radware.com&ssm=17098571354796396103786844098971&ssn=b0ebce7e20c872c1b78e9effdeb2dbcdd38c7e6f97bc-f694-4831-999195&sso=1965d30a-5964eaee257af1d86945ebf12ebeb8f98564825c0c56edce&ssp=00473350121770118884177016495367193&ssq=57895992847504088738928475983053431201269&ssr=MjA4LjgwLjE1My43Mg==&sst=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Citoid/WMF (mailto:noc@wikimedia.org)&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDA3ZTZmOTdiYy1mNjk0LTQ4MzEtOTMwYS01OTY0ZWFlZTI1N2ExLTE3NzAxMjg0NzU1NDcwLTAwMjE2ZjQ4MTc4ZThlYTgwMDgxMCIsInV6bXgiOiI3ZjkwMDA5Y2VmZTlmOC1mNDM3LTRmOGQtYjdlMy04NzlhNTA3NDNmOGMxLTE3NzAxMjg0NzU1NDcwLWJiNDQ2NWM4MWZmZGFmODUxMCIsInJkIjoiaW9wLm9yZyJ9 |journal=Nuclear Fusion |volume=64 |issue=9 |page=096039 |doi=10.1088/1741-4326/ad645d |bibcode=2024NucFu..64i6039S |issn=0029-5515}}</ref> and better identification methods for the magnetic shadows in fusion reactors.<ref>{{Cite web |title=Finding the shadows in a fusion system faster with AI {{!}} Princeton Plasma Physics Laboratory |url=https://www.pppl.gov/news/2025/finding-shadows-fusion-system-faster-ai |access-date=2026-02-03 |website=www.pppl.gov |language=en}}</ref><ref>{{Cite journal |last1=Corona |first1=D. |last2=d'Abusco |first2=M. Scotto |last3=Churchill |first3=M. |last4=Munaretto |first4=S. |last5=Kleiner |first5=A. |last6=Wingen |first6=A. |last7=Looby |first7=T. |date=2025-08-01 |title=Shadow masks predictions in SPARC tokamak plasma-facing components using HEAT code and machine learning methods |url=https://www.sciencedirect.com/science/article/pii/S0920379625002108 |journal=Fusion Engineering and Design |volume=217 |article-number=115010 |doi=10.1016/j.fusengdes.2025.115010 |bibcode=2025FusED.21715010C |osti=2566826 |issn=0920-3796}}</ref>
+
+==Transportation==
+[[TigerTransit]]'s Route 3 runs to Forrestal Campus and terminates at PPPL.
+
+==See also==
+*[[List of plasma physics software]]
+*[[Project Sherwood]]
+*[[National Compact Stellarator Experiment]] (NCSX)
+
+==References==
+{{reflist}}
+
+==External links==
+* {{Commons category-inline}}
+* [https://web.archive.org/web/20100806091710/diglib.princeton.edu/xquery?_xq=getCollection&_xsl=collection&_pid=ppl1 Project Matterhorn Publications and Reports, 1951–1958]. Princeton University Library Digital Collections
+* {{official website|name=Princeton Plasma Physics Laboratory Official Website}}
+
+{{Princeton}}
+{{U.S. National Labs}}
+{{Princeton, New Jersey}}
+{{Fusion research laboratories}}
+{{Authority control}}
+
+[[Category:Plainsboro Township, New Jersey]]
+[[Category:Princeton University]]
+[[Category:United States Department of Energy national laboratories]]
+[[Category:Federally Funded Research and Development Centers]]
+[[Category:Princeton Plasma Physics Laboratory| ]]
+[[Category:1961 establishments in New Jersey]]
+[[Category:Research institutes in New Jersey]]

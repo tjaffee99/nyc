@@ -1,0 +1,60 @@
+{{Short description|Student center at Princeton University}}
+{{Use American English|date=May 2026}}
+{{Use mdy dates|date=May 2026}}
+{{Infobox building
+| name = Frist Campus Center
+| image = Princeton Frist Campus Center back.jpg
+| former_names = Palmer Physical Laboratory
+| opened_date = September, 2000
+| owner = [[Princeton University]]
+| architect = [[Robert Venturi]]
+| embedded =
+{{Infobox NRHP
+ | embed = yes
+ | name = Palmer Physical Laboratory
+ | part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+ | part_of_ref_num = 75001143<ref>{{cite web|title=Princeton Historic District|url={{NRHP url|id=75001143}}|website=National Register of Historic Places|publisher=National Park Service}}</ref>
+ | nrhp_type = cp
+ | image = Palmer Physical Laboratory entrance.jpg
+ | alt = 
+ | caption = 
+ | location = Frist Campus Center, [[Princeton, New Jersey|Princeton]], [[New Jersey]]
+ | coordinates = {{coord|40|20|48.8|N|74|39|19.0|W|display=inline,title}}
+ | pushpin_map = Mercer County, New Jersey
+ | area = 
+ | built = 1909<ref>{{cite book|last1=Letich|first1=Alexander|title=A Princeton Companion|date=1978|publisher=Princeton University Press|url=http://etcweb.princeton.edu/CampusWWW/Companion/palmer_hall.html|access-date=2015-08-10|archive-date=2007-11-05|archive-url=https://web.archive.org/web/20071105222958/http://etcweb.princeton.edu/CampusWWW/Companion/palmer_hall.html|url-status=dead}}</ref>
+ | architect = [[Henry Janeway Hardenbergh]]
+ | architecture = [[Collegiate Gothic]]
+ | designated_nrhp_type = 27 June 1975
+ | mpsub =
+}}
+}}
+
+'''Frist Campus Center''' is a focal point of social life at [[Princeton University]]. The campus center is a combination of the former Palmer Physics Lab, and a modern addition completed in 2001. It was endowed with money from the fortune the Frist family has made in the private hospital business.{{citation needed|date=October 2017}}
+
+Designed by Venturi, Scott Brown & Associates, the firm of acclaimed architects [[Robert Venturi]] (a Princeton alumnus) and [[Denise Scott Brown]], the building consists of a modern expansion to the existing Collegiate Gothic Palmer Hall. The new building volume fills in the courtyard of the previous C-shaped structure, and extends across its open side to create a new east facade.  In 2008 and 2009, extensive renovations<ref>{{Cite web|url=https://www.princeton.edu/frist/timeline.html|title=Frist Campus Center Timeline|website=www.princeton.edu}}</ref> were performed on the 100 level by [http://jamesbradberry.com James Bradberry Architects]
+
+Room 302 is a lecture hall restored to its condition at the time that [[Albert Einstein]] lectured there.
+
+This building has also been used for external shots of the fictitious [[Princeton–Plainsboro Teaching Hospital]] in the [[television series]] ''[[House (TV series)|House]]''.
+
+==References==
+{{Reflist}}
+
+==External links==
+{{Commons category|Frist Campus Center}}
+* [https://web.archive.org/web/20090313210638/http://www.dailyprincetonian.com/2009/03/13/23091/ Daily Princetonian]
+* [https://www.princeton.edu/frist/ Frist Campus Center]
+
+{{Princeton}}
+{{Authority control}}
+
+[[Category:1909 establishments in New Jersey]]
+[[Category:2000 establishments in New Jersey]]
+[[Category:Princeton University buildings and structures]]
+[[Category:Robert Venturi buildings]]
+[[Category:House (TV series)]]
+[[Category:Frist family]]
+
+
+{{NewJersey-struct-stub}}

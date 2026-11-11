@@ -1,0 +1,112 @@
+{{short description|Main library of the university}}
+{{Use American English|date=September 2025}}
+{{Infobox library
+| name = Princeton University Library
+| logo = Princeton University Library logo.jpg
+| image = Princeton_University_Library_(55144982920).jpg
+| caption = 
+| country = United States
+| type = [[Academic library]] system
+| scope = 
+| established = 
+| ref_legal_mandate = 
+| location = Princeton, New Jersey
+| coordinates = 
+| branch_of = 
+| num_branches = 10
+| items_collected = 
+| collection_size = 7.3 million volumes, 83,000 serial titles, 6.7 million microforms, 49,000 linear feet of manuscripts (ARL Stats 2011)
+| criteria = 
+| legal_deposit = 
+| req_to_access = 
+| annual_circulation = 
+| pop_served = 
+| members = 
+| budget = 
+| director = Anne Jarvis
+| num_employees = 375 (FTE)
+| website = http://library.princeton.edu/
+| phone_num = 
+| module = {{Infobox NRHP
+ | embed = yes
+ | name = Firestone Library
+ | part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+ | part_of_ref_num = 75001143<ref>{{cite web|title=Princeton Historic District|url={{NRHP url|id=75001143}}|website=National Register of Historic Places|publisher=National Park Service}}</ref>
+ | nrhp_type = cp
+ | image =
+ | alt =
+ | caption =
+ | location = 1 Washington Road, [[Princeton, New Jersey|Princeton, NJ]]
+ | coordinates = {{coord|40|20|57.9|N|74|39|26.9|W|display=inline,title}}
+ | pushpin_map =Mercer County, New Jersey
+ | area =
+ | built = 1948
+ | architect =Robert B. O'Connor and Walter H. Kilham Jr.
+ | architecture = [[Collegiate Gothic]]
+ | designated_nrhp_type = 27 June 1975
+ | mpsub =
+}}
+}}
+
+'''Princeton University Library''' is the main library system of [[Princeton University]]. With holdings of more than 7 million books, 6 million microforms, and 48,000 linear feet of manuscripts, it is among the largest libraries in the world by number of volumes.<ref>{{cite web |title=Firestone Library |url=http://library.princeton.edu/firestone |website=Princeton University Libraries}}</ref> The main headquarters of the university system is the Harvey S. Firestone Memorial Library building, named after tire [[magnate]] [[Harvey Samuel Firestone|Harvey Firestone]].<ref>{{cite web|title=Princeton University Library|url=https://www.princeton.edu/main/library/|website=Princeton University}}</ref> Additionally, Princeton is part of the Research Collections and Preservation Consortium (ReCAP) along with [[Columbia Libraries]], [[Harvard Library]], [[Yale University Library]], and [[New York Public Library]].<ref>{{Cite web|url=https://recap.princeton.edu/|title=About ReCAP &#124; ReCAP|website=recap.princeton.edu}}</ref>
+
+==Firestone Library==
+[[File:Firestone-interior.jpg|thumb|left|Interior of Firestone Library before renovation]]
+[[File:Firestone Library.jpg|thumb|The ornate front windows of the Firestone Library]]
+Firestone Library opened in 1948, as the first large American university library constructed after [[World War II]].<ref>{{cite web|url=http://library.princeton.edu/about/history.php|title=Library History – Princeton University Library|website=library.princeton.edu}}</ref> It was designed by architects Robert B. O'Connor and Walter H. Kilham Jr.<ref>{{cite news |date=November 17, 1993 |title=Robert B. O'Connor, Architect, Dies at 97 |newspaper=The New York Times |url=https://www.nytimes.com/1993/11/17/obituaries/robert-b-o-connor-architect-dies-at-97.html}}</ref><ref>{{Cite journal |last=Fraser |first=Robert S. |date=Spring 1975 |title=Building from a Bookcase: A History of the Princeton University Library |url=https://www.jstor.org/stable/26403969 |journal=The Princeton University Library Chronicle |volume=36 |issue=3 |pages=217–221 |doi=10.2307/26403969 |jstor=26403969|url-access=subscription }}</ref> Roughly 1.5 million volumes were moved during the summer of 1948 from East Pyne Hall, which until then had served as the University's main library. The library building was expanded in 1971 and again in 1988 and currently has more than {{convert|70|mi|km}} of bookshelves,<ref>{{cite web|url=https://www.princeton.edu/main/about/history/glance/|title=Princeton History at a Glance|website=princeton.edu}}</ref> making Firestone one of the largest open-stack libraries in existence.<ref>{{cite web|url=https://www.princeton.edu/ua/sections/10/|title=Princeton University Undergraduate Announcement 2011-2012|website=princeton.edu}}</ref> Though not the largest university library in the world, the library has more books per enrolled student than that of any other university in the United States.<ref>{{cite web|url=http://nces.ed.gov/surveys/libraries/compare/index.asp?LibraryType=Academic|title=NCES Library Comparison|website=nces.ed.gov}}</ref>
+
+The Firestone building itself does not appear very large from the outside, because most of its books are stored in three partially underground levels that extend beyond the footprint of the main building. Firestone has four smaller above-ground floors. Princeton's book collection has outgrown Firestone's present capacity. Therefore, volumes relating to many academic subjects are no longer housed at Firestone, but at approximately a dozen other library buildings or spaces located around the campus.
+
+Firestone contains many study spaces, most prominently the Trustee Reading Room (an open study space bounded on one side by glass panels containing the names of all present and past university trustees and presidents) and the atrium. It contains a small number of the original carrels (offices about the size of a large closet) reserved for faculty, graduate students, and undergraduate seniors working on their theses. Many academic departments also maintain seminar and study rooms within Firestone.
+
+===Special Collections===
+In addition to its open-stack collections, Firestone also houses the Department of Special Collections, which includes The [[Scheide Library]], a now permanent part of the library's collections following the death of William H. Scheide. This marks the largest gift in University's history.<ref>{{cite web|url=https://www.princeton.edu/main/news/archive/S42/38/60E50/index.xml?section=featured|access-date=14 October 2015|title=Scheide donates rare books library to Princeton; collection is largest gift in University's history}}</ref> It also includes the [[Cotsen Children's Library]], an extensive collection presented to the library by its owner Lloyd E. Cotsen in 1997.<ref>{{cite web|url=http://cotsen.org/about-lloyd-cotsen/|title=About Cotsen – Cotsen Foundation|website=cotsen.org|access-date=2016-07-19|archive-url=https://web.archive.org/web/20160715210552/http://cotsen.org/about-lloyd-cotsen/|archive-date=2016-07-15|url-status=dead}}</ref><ref>{{cite web|url=https://www.princeton.edu/cotsen/|title=Cotsen Children's Library – Princeton University Library|website=www.princeton.edu}}</ref>
+
+Also included in special collections are the autographed manuscript of [[F. Scott Fitzgerald]]'s ''[[The Great Gatsby]]'', [[Mario Vargas Llosa]]'s Papers, [[Toni Morrison]]'s Papers,<ref>{{cite web|url=https://www.princeton.edu/main/news/archive/S41/34/81I56/|access-date=14 October 2015|title=Toni Morrison papers to reside at Princeton}}</ref> and [[George F. Kennan]]'s ''[[Long Telegram]]''. Another notable collection is a vellum fragment of an original [[Gutenberg Bible]].<ref>{{cite web |last1=White |first1=Eric |title=Princeton Acquires a Vellum Fragment of the Gutenberg Bible Preserved as a Book Cover |url=https://blogs.princeton.edu/notabilia/2017/04/18/princeton-acquires-a-vellum-fragment-of-the-gutenberg-bible-preserved-as-a-book-cover/ |website=Princeton Notabilia|date=18 April 2017 }}</ref>
+
+Since the 1970s, the library has collected Latin American and Spanish ephemera to document with non-governmental primary sources the political developments, a rare emphasis on systematically acquiring these materials.<ref>{{Cite journal|title = Latin American and Iberian Primary Sources|last = Johnson|first = Peter|date = 1996|journal = Princeton University Library Chronicle|issn = 0032-8456|volume = 57|issue = 3}}</ref> In early 2015, the Digital Archive of Latin American and Caribbean Ephemera became available, thanks to a grant from the [[Council on Library and Information Resources]]. This expands access to some of the items not previously catalogued in sub-collections and microfilmed.<ref>{{Cite web|title = Latin American Ephemera Digital Archive: About|url = http://lae.princeton.edu/about|website = lae.princeton.edu|access-date = 2016-01-16}}</ref>
+
+The library also contains a social science data center, and a variety of library services.
+
+==Other libraries==
+Other campus libraries include the following:
+* [[Princeton University School of Architecture|Architecture Library]]
+* [[East Asian Library and Gest Collection Princeton University|East Asian Library and Gest Collection]]
+* [[Princeton University School of Engineering and Applied Science|Engineering Library]]
+* Lewis Science Library
+* Marquand Library of Art and Archaeology
+* [[Seeley G. Mudd Manuscript Library]]
+* Furth Plasma Physics Library
+* Mendel Music Library
+* [[Scheide Library]]
+* Stokes Library for [[Woodrow Wilson School of Public and International Affairs|Public and International Affairs & Population Research]]
+
+In addition, ReCAP (Research Collections and Preservation Consortium) and two annexes, the Forrestal Annex (Annex A) and Fine Hall Annex (Annex B), located at the Princeton University [[Forrestal Village|Forrestal]] campus, are used to store volumes and materials that are less frequently used.
+<ref>{{cite web|title=Princeton University Library|url=http://library.princeton.edu/libraries/libraries.php|work=Other Libraries|access-date=18 February 2012}}</ref>
+
+Lewis Science Library, designed by [[Frank Gehry]], is the campus' newest library building, having opened in the Fall of 2008. Lewis consolidates research collections and staff for the physical and life sciences, as well as maps and geospatial information.<ref>{{cite web|title=Architect Gehry seeks to inspire with Lewis Library design|url=https://www.princeton.edu/pr/pwb/volume98/issue02/lewislibrary/|access-date=6 October 2015}}</ref>[[File:Dulles Reading Room.jpg|left|259x259px|Exterior of Dulles Reading Room|alt=Exterior of Dulles Reading Room|thumb]]
+==Access to library services==
+Currently only registered students, alumni, university faculty, staff, their spouses, domestic partners and dependents, students of [[Princeton Theological Seminary]], the [[Institute for Advanced Study]], and visiting faculty are permitted open (free) access and borrowing privileges in the Princeton University library system. Patrons of the [[Princeton Public Library]] may borrow daily access to Firestone.  In general, non-university patrons may use the library for research but are not given borrowing privileges and must purchase an access card in order to enter and use the library facilities.<ref>{{Cite web|url=http://library.princeton.edu/about/access-firestone.php|archiveurl=https://web.archive.org/web/20100604132148/http://library.princeton.edu/about/access-firestone.php|url-status=dead|title=Princeton University Library Access Policies|archivedate=June 4, 2010}}</ref><ref>{{cite web|url=http://library.princeton.edu/services/circulation.php|title=Library Services – Princeton University Library|website=library.princeton.edu}}</ref>
+
+==See also==
+* [[Google Books Library Project]]
+* [[Princeton Papyri]]
+* ''[[The Ocean Full of Bowling Balls]]'' – a [[J. D. Salinger]] story held only in this library
+
+==References==
+<references />
+
+==External links==
+{{commons category|Princeton University Library}}
+* [http://library.princeton.edu/ Official website]
+* [https://libguides.princeton.edu/ Research Guides] on Princeton University Library website
+* [https://library.princeton.edu/about/library-history Library History] on Princeton University Library website
+* [https://web.archive.org/web/20070205191022/http://www.dailyprincetonian.com/archives/2004/02/18/news/9655.shtml Rare books curator reflects on libraries' past and future (archived 2007)] by Elizabeth Linder, ''Daily Princetonian'', 2004
+
+{{Princeton}}
+
+{{authority control}}
+
+[[Category:Princeton University buildings and structures]]
+[[Category:Libraries in New Jersey]]
+[[Category:University and college academic libraries in the United States]]

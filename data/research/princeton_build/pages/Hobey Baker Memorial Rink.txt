@@ -1,0 +1,81 @@
+{{Short description|Hockey arena in New Jersey, U.S.}}
+{{Infobox_Stadium
+| name           = Hobey Baker Memorial Rink
+| nickname       = 
+| image          = Inside the Hobey Baker Memorial Rink.jpg
+| image_caption  = Hobey Baker Rink in 2024
+| location       = [[Princeton, New Jersey]]
+| groundbreaking = 1922
+| opened         = {{Start date|1923|01|05}}<ref>{{cite news |date=6 January 1923 |url=https://www.nytimes.com/1923/01/06/archives/st-nicks-beaten-by-tigers-on-ice-princeton-formally-opens-the-hobey.html |title=St. Nicks Beaten by Tigers on Ice; Princeton Formally Opens the Hobey Baker Memorial Rink With a 3 to 2 Victory |work=The New York Times |access-date=5 March 2026}}</ref>
+| closed         = 
+| demolished     = 
+| owner          = [[Princeton University]]
+| operator       = Princeton University
+| surface        = 200x85 ft (hockey)
+| cost           = 
+| architect      = 
+| former_names   = 
+| tenants        = [[Princeton Tigers]]<br> ([[Princeton Tigers men's ice hockey|men's]] and [[Princeton Tigers women's ice hockey|women's]] ice hockey)
+| capacity       = 2,054 (hockey)<ref name="HBR" />
+}}
+{{Multiple image
+| header = 
+| align = right
+| direction = 
+| total_width = 240
+| perrow = 1/1
+| image1= Hobey Baker Memorial Rink At Princeton University 2024 008.jpg
+| caption1 = Exterior
+| image2= Hobey Baker Rink scoreboard.jpg
+| caption2 = Scoreboard
+}}
+'''Hobey Baker Memorial Rink''' is a 2,054-seat hockey [[arena]] in [[Princeton, New Jersey]]. It is home to the [[Princeton University]] [[Princeton Tigers|Tigers]] [[Princeton Tigers men's ice hockey|men's]] and [[Princeton Tigers women's ice hockey|women's]] [[College ice hockey|ice hockey]] teams as well as the venue for club and intramural hockey teams, intramural [[broomball]], [[figure skating]] and recreational skating. It is the only ice skating rink on the Princeton University campus.  
+
+==Description and history==
+The rink is named in honor of former Princeton star [[Hobey Baker|Hobart A.H. "Hobey" Baker]], '14.  Baker was a football and hockey star who died shortly after World War I.  In December 1921, it was decided to build an on-campus arena for the hockey team, and to name it after Baker.  
+
+It is the oldest arena still in use in [[National Collegiate Athletic Association|NCAA]] [[Division I (NCAA)|Division I]] hockey, following the closure and demolition of [[Matthews Arena]] at [[Northeastern University (Boston, Massachusetts)|Northeastern University]]; however, Northeastern only began playing at Matthews Arena in 1930, giving Princeton the distinction of being the school that has played in its current home the longest.<ref>{{cite web|last=Klein|first=Christopher|date=4 January 2010|title=100 years on ice: What the puck?|url=https://www.espn.com/espn/thelife/news/story?id=4796116|work=ESPN.com|access-date=15 July 2012}}</ref>
+
+After the fire that destroyed [[University Gymnasium (Princeton University)|University Gymnasium]] in 1944 the basketball team played at the rink while [[Dillon Gymnasium]] was being built. 
+
+Near the end of September 2017, the rink hosted its first, and, as of 2026, only, women's professional game, as the then-[[Metropolitan Riveters]] of the National Women's Hockey League took on visiting [[Luleå HF/MSSK|Luleå HF]] of the Swedish Women's Hockey League; Luleå won the game, 4-2, winning the first game of the Champions Cup, which had been planned to be an annual series, but would only result in one more three-game series held over in Sweden, the following year, which the Swedish team would also win.<ref>{{Cite web |last=Oliver |first=Nathaniel |date=October 1, 2018 |title=5 Champions Cup Takeaways: Rivs vs Luleå |url=https://thehockeywriters.com/5-champions-cup-takeaways-rivs-vs-lulea/ |website=The Hockey Writers |access-date=March 5, 2026}}</ref>
+
+===Renovations===
+While the game experience in the rink is largely unaltered since the building opened, many upgrades and renovations have been performed behind the scenes for players and spectator comfort.<ref name="HBR" />
+
+Efforts to modernize the arena began in the mid-1970s with major improvements including the addition of locker rooms, a skate sharpening room and a stick storage room in 1981, a new scoreboard and lighting improvements in 1984 and a renovation of the roof in 2002. 
+
+2016 season saw the introduction of a new sound system in the rink, as well as a team video room, including a smart board and theater-style seating.<ref name="HBR" /> The men's and women's locker rooms were renovated in 2017, and a new scoreboard was installed in 2018.<ref name="HBR" />
+
+A major renovation of the rink occurred during the summer of 2025 which included replacement of the ice plant, rink floor, boards, glass, roof, HVAC systems, and electrical systems.<ref>{{cite web|url=https://goprincetontigers.com/news/2025/11/26/general-home-cookin-at-baker-rink-renovations-paying-off-during-hot-start-for-hockey-teams|title=Home Cookin' At Baker Rink! Renovations Paying Off During Hot Start For Hockey Teams|work=Princeton University|date=November 26, 2025|access-date=December 12, 2025}}</ref>
+
+==See also==
+*[[Hobey Baker Award]]
+
+==References==
+<references>
+<ref name="HBR">{{cite web |title=Hobey Baker Rink |url=https://goprincetontigers.com/facilities/hobey-baker-rink/10 |website=Go Princeton Tigers |publisher=Princeton University Athletics |access-date=24 November 2024 |archive-url=https://web.archive.org/web/20230316110518/https://goprincetontigers.com/facilities/hobey-baker-rink/10 |archive-date=16 March 2023}}</ref>
+</references> 
+
+==External links==
+* {{commonscat-inline|Hobey Baker Memorial Rink}}
+* [http://www.goprincetontigers.com/ViewArticle.dbml?DB_OEM_ID=10600&ATCLID=295181 Entry at Princeton athletics site]
+* [https://rinkatlas.com/rinks/19 RinkAtlas listing for Baker Rink at Princeton University]
+
+{{ECAC Hockey League}}
+{{Princeton Tigers men's basketball navbox}}
+{{Princeton Tigers men's ice hockey navbox}}
+{{Princeton Tigers women's ice hockey navbox}}
+{{coord|40.3429|-74.6578|region:US-NJ_type:landmark|display=title}}
+
+[[Category:College ice hockey venues in the United States]]
+[[Category:Ice hockey venues in New Jersey]]
+[[Category:College basketball venues in New Jersey]]
+[[Category:Princeton Tigers sports venues|Baker Rink]]
+[[Category:Princeton Tigers men's basketball]]
+[[Category:1923 establishments in New Jersey]]
+[[Category:Sports venues completed in 1923]]
+[[Category:Indoor arenas in New Jersey]]
+
+
+{{NewJersey-stadium-stub}}

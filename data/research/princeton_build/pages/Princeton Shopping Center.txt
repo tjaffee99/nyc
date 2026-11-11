@@ -1,0 +1,66 @@
+{{Short description|Shopping mall in New Jersey}}
+{{Use mdy dates|date=April 2025}}
+{{Use American English|date=February 2025}}
+{{Infobox shopping mall
+| name = Princeton Shopping Center
+| image = Princeton Shopping Center mid gate.JPG
+| caption = Entrance gate of the center, 2018
+| location = [[Princeton, New Jersey]], U.S.
+| coordinates = {{coord|40|21|49|N|74|39|04|W|display=inline,title}}
+| opened = 1954
+| developer = Theodore Potts
+| manager = 
+| owner = Edens
+| number_of_stores = around 40
+| number_of_anchors = 1
+| floor_area = {{convert|255,000|sqft|abbr=off|sp=us}}
+| floors = 1 overall<br/>2 in anchor store
+| website = {{URL|http://www.princetonshoppingcenter.com/}}
+}}
+The '''Princeton Shopping Center''' is an open-air [[shopping mall]] in [[Princeton, New Jersey]].
+
+Encompassing {{convert|255,000|sqft|abbr=off|sp=us}} and around fifty stores and restaurants,<ref name="toft-sale"/><ref name="bearse"/> the center is known for its distinctive [[mid-century modern|mid-century design]].<ref name="rew-2007"/><ref>{{cite web | url=http://www.ajohnsonarchitect.com/portfolio_entry/princeton-shopping-center/ | title=Princeton Shopping Center | publisher=Anthony Johnson Architect | access-date=March 10, 2019}}</ref> It is also known for its community-based atmosphere and appeal.<ref name="toft-sale"/> It exists as a rectangular series of low-profile, single-story structures with roofs that protrude to give shelter walkways, with a large open courtyard in the middle.<ref name="rew-2007"/>  At one end is a two-level anchor store that has housed [[Bamberger's]], Epstein's and [[McCaffrey's Food Markets]] in turn. It has a large surrounding parking area, as well as a bus stop that is serviced by both [[New Jersey Transit]] and Princeton's Muni bus.<ref>{{cite web | url=https://www.ias.edu/campus-resources/moving-to-ias/tansportation-services/bus-services | title=Bus Services | publisher=Institute for Advanced Study | access-date=March 16, 2019}}</ref><ref>{{cite web | url=https://www.princetonnj.gov/1212/Princeton-Municipal-Transit-Bus-Schedule | title=Princeton Muni Bus Service | access-date=January 8, 2024}}</ref> Its distinctive layout features expansive entrances, over 40 local and national retailers, and a beautifully landscaped two-acre courtyard often referred to as “the living room of Princeton.”<ref>{{cite web |title=Princeton Shopping Center |url=https://www.experienceprinceton.org/directory/princeton-shopping-center |website=Experience Princeton |publisher=Experience Princeton |access-date=12 October 2025}}</ref> 
+
+The center has long featured a weekly concert series held in its courtyard during summers.<ref name="bearse">{{cite book | url=https://books.google.com/books?id=ia5qlL4YCh0C&pg=PA73 | title=Princeton: Still Making History | first=Myrna | last=Bearse | publisher=Indigo Custom Publishing | location=Macon, Georgia | date=2005 | pages=27, 73}}</ref>  As Princeton's ''[[Town Topics (newspaper)|Town Topics]]'' newspaper has noted, the relaxed atmosphere but still well-populated nature of the center has attracted people to it: "the Shopping Center is a proven anomaly ... the open-air, California-style facility, unlike most malls and front-lot strip malls, is being celebrated in a time when suburban developmental stylings are perhaps not necessarily in style."<ref name="tt-50">{{cite news | url=http://www.towntopics.com/sep2706/story3.html | title=Princeton Shopping Center Looks Ahead as Town's Second 'Downtown' Turns 50 | first=Matthew | last=Hersh | newspaper=Town Topics | date=September 27, 2006}}</ref>
+
+==History==
+The center was built in the [[Princeton Township, New Jersey|Princeton Township]] portion of the Princeton area (in the era when it was a distinct entity, before merging with [[Borough of Princeton, New Jersey|Borough of Princeton]] in 2013).<ref name="township">{{cite news | url=https://www.newspapers.com/image/199967362/?terms=%22princeton%2Bshopping%2Bcenter%22%2Banchor%2B%22mccaffrey%27s%22 | title=In Princeton, vote brings an opportunity to share the yoke | first=Kevin | last=Riordan | newspaper=The Philadelphia Inquirer | date=November 20, 2011 | page=B2 | via=Newspapers.com}}</ref>
+The developer was Theodore Potts, who in 1950 obtained township planning approval for the project.<ref name="tt-focus">{{cite news | url=http://www.towntopics.com/may1408/story1.html | title=Shopping Center Coming Into Focus | newspaper=Town Topics | location=Princeton | date=May 14, 2008}}</ref>  The project overall encompassed {{convert|28|acre}}, with {{convert|8|acres}} going to an adjacent recreational area,<ref name="psc-hist">{{cite web | url=http://www.princetonshoppingcenter.com/history/ | title=The History of Princeton Shopping Center | publisher=Princeton Shopping Center | access-date=10 March 2019}}</ref> now known as Grover Park.
+
+Construction of the anchor store, then known under the name L. Bamberger & Co., began in May 1951.<ref name="bambergers">{{cite book | url=https://books.google.com/books?id=9FVmDQAAQBAJ&pg=PT57 | title=Bamberger’s: New Jersey’s Greatest Store | first=Michael J. | last=Lisicky | publisher=The History Press | location=Charleston, South Carolina | date=2016 | pages=57, 59, 123, 128}}</ref>  At that point Bamberger only had stores in Newark and Morristown; another in Plainfield was also in development at that point.<ref>{{cite news | url=https://www.nj.com/essex/index.ssf/2013/11/glimpse_of_history_newarks_bambergers_was_flagship_location.html | title=Glimpse of History: Newark's Bamberger's was flagship location | newspaper=The Star-Ledger | location=Newark, New Jersey | date=November 25, 2013 | first=Greg | last=Hatala}}</ref>
+When it opened on September 9, 1954, Bamberger's occupied two stories and 60,000 square feet, significantly smaller than other Bamberger's locations.<ref name="bambergers"/>  As a result, it only carried a portion of the lines that the larger stores had, such as the flagship location in Newark;<ref name="bambergers"/> among the lines missing were furniture, glass, and silver.<ref name="cnjhn-80"/>
+Nevertheless, Bamberger's officials always liked the store and kept it going.<ref name="bambergers"/>
+The Bamberger's there finally closed in 1980, in part because a large Bamberger's had opened as an anchor store at [[Quaker Bridge Mall]], only five miles away, in 1976.<ref name="bambergers"/><ref name="cnjhn-80"/>
+
+It was replaced in the Princeton Shopping Center later that year by Epstein's, a New Jersey family department store chain whose generally smaller size and orientation towards personalized service was a better fit for the center.<ref name="cnjhn-80">{{cite news | url=https://www.newspapers.com/image/316604271/?terms=%22princeton%2Bshopping%2Bcenter%22%2B%22epstein%27s%22 | title=Bam's out, Epstein in at Princeton center | first=Winifred I. | last=Cook | newspaper=The Central New Jersey Home News | date=April 10, 1980 | page=18 | via=Newspapers.com}}</ref>  Epstein's also had the belief that it was better to be a bigger store in a smallish center, as opposed to being a run-of-the-mill store in a large mall.<ref name="cn-92"/>
+Epstein's moved out in 1990, relocating to the [[Princeton MarketFair]].<ref name="cn-92">{{cite news | url=https://www.newspapers.com/image/223618401/?terms=%22princeton%2Bshopping%2Bcenter%22%2Bepstein%27s | title=Epstein's: there's still a spot for family department stores | first=Marilyn | last=Ostermiller | newspaper=The Sunday Courier-News | location=Bridgewater, New Jersey | date=November 1, 1992 | page=D1 | via=Newspapers.com}}</ref>
+
+It was replaced in 1992 on the first floor of the anchor building by McCaffrey's Food Markets, a regional chain of supermarkets in southeastern Pennsylvania and west-central New Jersey.<ref>{{cite news | url=http://www.towntopics.com/wordpress/2012/09/05/mccaffreys-princetons-hometown-market-is-celebrating-its-20th-anniversary-this-month/ | title=McCaffrey’s, Princeton’s Hometown Market, Is Celebrating Its 20th Anniversary This Month | newspaper=Town Topics | location=Princeton | date=September 5, 2012}}</ref>  McCaffrey's became what one writer termed the "go-to supermarket" in the immediate area.<ref name="township"/>  The second floor of the building has a McCaffrey's eating area and also the locations of a yoga facility, a ballet school for youngsters, and other offices.<ref>{{cite web | url=http://www.princetonshoppingcenter.com/services/ | title=Services | publisher=Princeton Shopping Center | access-date=10 March 2019}}</ref>
+
+<!-- 50th anniv (2004 I guess) http://www.towntopics.com/sep2706/story3.html has why people like it --><!-- some more history pointers at https://www.flickr.com/photos/48018466@N00/11243579506 -->
+For many years the center was owned by [[George Comfort & Sons]],<ref name="toft-sale"/> a New York-based company.<ref name="rew-2007"/>
+The center underwent a renovation in 2007, under the supervision of Rosen Johnson Architects.<ref name="rew-2007">{{cite news | url=https://www.thefreelibrary.com/Upgrades+in+the+bag+for+Princeton+Shopping+Center.-a0168435465| title=Upgrades in the bag for Princeton Shopping Center|newspaper=Real Estate Weekly | date=August 29, 2007 | via= [[The Free Library]] }}</ref>  The redoing of the center involved the digging up and replacing many of the courtyard's trees and gardens, to the consternation of some longtime shoppers.<ref name="tt-focus"/>
+
+In 2012, the center was sold to [[Edens (company)|Edens]], a South Carolina-based company, which pledged to keep up the community atmosphere which had made the center a success.<ref name="toft-sale">{{cite news | url=https://www.nj.com/mercer/2012/05/princeton_shopping_centers_new.html | title=Princeton Shopping Center's new ownership plans to keep up with community atmosphere | first=Joyce J. | last=Persico | newspaper=The Times of Trenton | date=May 21, 2012}}|</ref>
+
+==Gallery==
+<gallery mode=packed heights=180px>
+Princeton Shopping Center courtyard looking south concert.jpg|A summer concert in the courtyard of the center
+Princeton Shopping Center north entrance.JPG|Street entrance to the center; the two-story anchor building is seen on the left
+Princeton Shopping Center courtyard looking north.JPG|The inner courtyard of the center and its covered walkways
+</gallery>
+
+==References==
+{{reflist}}
+
+==External links==
+* [http://www.princetonshoppingcenter.com Official website]
+
+{{Princeton, New Jersey|state=collapsed}}
+{{Shopping malls in New Jersey}}
+{{New York City Malls}}
+
+[[Category:Shopping malls in New Jersey]]
+[[Category:Buildings and structures in Princeton, New Jersey]]
+[[Category:Shopping malls established in 1954]]
+[[Category:1954 establishments in New Jersey]]

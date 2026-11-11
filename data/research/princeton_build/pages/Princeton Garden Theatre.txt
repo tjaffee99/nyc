@@ -1,0 +1,74 @@
+{{Short description|Movie theater in Princeton, New Jersey}}
+{{Infobox venue
+| name                   = Princeton Garden Theatre
+| nickname               = "The Garden", "The Pit" (formerly)<ref>{{cite journal|title=New Policy at the Pit|newspaper=The Daily Princetonian|date=May 2, 1949|volume=73|issue=70|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19490502-01.2.11&srpos=11&e=-------en-20--1--txt-txIN-%22The+Pit%22------#|page=2}}</ref>
+| fullname               = 
+| former_names           = Eric Garden Theater (1975-1997)<ref>{{cite journal|last1=Bradner|first1=Carolyn|title=University debates re-opening theater|newspaper=The Daily Princetonian|date=October 20, 1993|volume=117|issue=101|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19931020-01.2.5&srpos=16&e=-------en-20--1--txt-txIN-%22Eric+Garden+Theater%22------#|page=1}}</ref><ref>{{cite journal|title=In Our Garden|newspaper=The Daily Princetonian|date=October 2, 1997|volume=121|issue=85|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19971002-01.2.31.1&srpos=1&e=-------en-20--1-byDA.rev-txt-txIN-%22Eric+Garden+Theater%22------#|page=11}}</ref>
+| logo_image             = 
+| logo_caption           = 
+| image                  = File:Garden Theater (Princeton, New Jersey).jpg
+| image_size             = 
+| image_alt              = 
+| image_caption          = The Garden Theater, with [[Princeton Historic District (Princeton, New Jersey)|Bainbridge House]] on the left
+| pushpin_map            = 
+| pushpin_map_size       = 
+| pushpin_caption        = 
+| pushpin_label_position = 
+| address                = 160 Nassau St., [[Princeton, New Jersey|Princeton, NJ]] 08542
+| location               = 
+| coordinates            = {{Coord|40.350685|-74.657581|type:landmark|display=inline,title}}
+| type                   = [[Movie theater]]
+| event                  = 
+| groundbreaking         = 
+| built                  = 
+| opened                 = {{Start date|1920|09|20|df=y}}<ref name=rose>{{cite web|title=History|url=http://princetongardentheatre.org/history|website=Princeton Garden Theatre}}</ref>
+| renovated              = 2001<ref>{{cite journal|title=It's "Reel-y" Open|newspaper=The Town Topics|date=June 6, 2001|page=6|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=TownTopics20010606-01.2.17&srpos=1&e=-------en-20--1-byDA-txt-txIN-reel%252Dy-ARTICLE-----}}</ref>
+| expanded               = 
+| closed                 = 1992-93<ref>{{cite journal|last1=Yessios|first1=Dorina|title=Garden Theater to open tomorrow, after remaining closed for one year|newspaper=The Daily Princetonian|date=November 23, 1993|volume=117|issue=120|page=1|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19931123-01.2.3&srpos=3&e=-------en-20--1-byDA-txt-txIN-Garden+theater+to+open+after+remaining+closed+for+one+year-ARTICLE-----}}</ref>
+| demolished             = 
+| owner                  = [[Princeton University]]
+| operator               = Renew Theaters<ref>{{cite journal|last1=Windemuth|first1=Anna|title=Garden Theatre to be renovated this summer|newspaper=The Daily Princetonian|date=April 4, 2014|volume=138|issue=39|page=1|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian20140404-01.2.6&srpos=1&e=-------en-20--1-byDA-txt-txIN-%22Renew+Theaters%22-ARTICLE-----#}}</ref>
+| production             = 
+| cost                   = $60,000 (1920)<ref name=original>{{cite journal|title=Site has been cleared for Princeton theatre|newspaper=The Daily Princetonian|date=January 9, 1920|volume=40|issue=190|page=3|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19200109-01.2.21&srpos=1&e=-------en-20--1--txt-txIN-Site+has+been+cleared+for+Princeton+theatre------}}</ref>
+| architect              = 
+| builder                = Mathews Construction Co. of Princeton
+| seating_type           = [[Stadium seating]]
+| screens                = 2
+| capacity               = 1000 (original),<ref name=original/> 380 (current)<ref>{{cite journal|last1=Javier|first1=Carla|title=Garden Theatre boasts new renovations|newspaper=The Daily Princetonian|date=September 18, 2014|volume=138|issue=73|page=3|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian20140918-02.2.8&srpos=1&e=-------en-20--1--txt-txIN-garden+theatre+boasts+new+renovations------}}</ref>
+| dimensions             = 
+| embedded               = 
+| website                = {{URL|http://princetongardentheatre.org|princetongardentheatre.org}}
+| public_transit         = [[Suburban Transit|Coach]] line 100, [[Princeton Branch|Princeton Dinky]]
+}}
+
+The '''Princeton Garden Theatre''' is a historic [[movie theater]] on [[Nassau Street (Princeton)|Nassau Street]] in [[Princeton, New Jersey]].  Owned by [[Princeton University]], it is operated by Renew Theaters, a non-profit which manages [[Classical Hollywood cinema|golden-age]] movie theaters.  The theater shows first run movies of high artistic quality as well as classic and foreign language films, and Saturday kids' matinees.  The Garden live broadcasts performances from the [[National Theatre Live|Royal National Theatre]] and host talks and lectures from filmmakers including [[Terrence Malick]] and [[Peter Saraf]].<ref>{{cite web|title=About|url=http://princetongardentheatre.org/about|website=Princeton Garden Theatre}}</ref><ref>{{cite web|last1=Calvario|first1=Liz|title=Terrence Malick Will Make Rare Live Appearance in New Jersey in October|url=http://www.indiewire.com/2016/09/terrence-malick-to-make-appearance-new-jersey-princeton-theater-1201730318/|website=Indiewire.com|date=September 24, 2016}}</ref><ref>{{cite web|last1=F.|first1=Eli|title=The Making of Jeff Nichols' 'Loving' and Depicting the "Original Sin" of America|url=https://thefilmstage.com/features/the-making-of-jeff-nichols-loving-and-depicting-the-original-sin-of-america/|website=theFilmStage.com|date=December 19, 2016}}</ref>  In March 2017 the Garden was named New Jersey's best movie theater by [[NJ.com]].<ref>{{cite web|last1=Olivier|first1=Bobby|title=Here's the winner in our search for N.J.'s best movie theater|url=http://www.nj.com/entertainment/index.ssf/2017/03/central_jersey_film_hall_named_njs_best_movie_thea.html|website=NJ.com|date=March 3, 2017}}</ref> It offers screenings for [[List of film festivals in New Jersey|a number of area film festivals]].
+
+In addition to walk-up ticket sales and concessions, the Garden Theatre relies on a core of members in order to meet its operating costs.  Garden Theatre Members subscribe once per year with tax-deductible donations of various amounts and receive discounted admissions for all screenings.<ref>{{Cite web |title=Garden Theatre Membership |url=https://princetongardentheatre.org/membership}}</ref>    
+
+The Garden Theatre runs classic films all summer as part of its Hollywood Summer Nights series.
+
+==History==
+
+===Early plans===
+
+The original impetus for the Garden Theatre came from a desire to improve the quality of performing spaces in the town.  As early as 1909, a proposal was made to build a new home for the [[Princeton Triangle Club]] which performed in a structure on campus called the Casino considered to have poor acoustics.  [[Alexander Hall (Princeton University)|Alexander Hall]] was thought to have an awkward stage and to be too large for smaller gatherings.  In 1914, Professor Donald Clive Stuart, an advocate of the [[Little Theatre Movement]], proposed a new facility similar in size to the [[Princess Theatre (New York City, 1913–1955)|Princess Theatre]] in New York which would also be suitable for [[Film|motion pictures]] drawn from the [[Rialto Theatre (New York City)|Rialto Theatre]].<ref>{{cite journal|title=Plans under consideration for theater in Princeton|newspaper=The Daily Princetonian|date=March 19, 1918|volume=39|issue=298|page=4|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19180319-01.2.30&srpos=2&e=--1918---1920--en-20--1--txt-txIN-theater------#}}</ref>
+
+===Construction===
+
+A more concrete plan took form in 1919 with the creation of the Princeton Theater Company.  The company secured the site at the corner of Nassau Street and Vandeventer Avenue adjacent to and behind Bainbridge House, a historic structure that had served as the British headquarters during the [[American Revolution|Revolutionary War]] [[Battle of Princeton]].  The theater took its name from the rose garden that once stood beside the house.<ref name=rose/>  The original plans, while expecting that moving pictures would be the chief attraction, called for the construction of a sizable stage to allow for live theater.  With the remaining live theater spaces in [[Trenton, New Jersey|Trenton]] being converted to movie theaters it was expected that the Garden would provide a space for openings of shows by New York theater companies.<ref>{{cite journal|title=Plans completed for Princeton's Theatre|newspaper=The Daily Princetonian|date=November 25, 1919|volume=40|issue=170|page=1|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19191125-01.2.2&srpos=1&e=--1918---1920--en-20--1--txt-txIN-theater------#}}</ref>  As construction progressed it was decided to drop plans for a stage, while allowing for the possibility that one would be added in future, and restrict the Garden to cinema and the occasional lecture.  As completed in 1920 the theater cost $60,000, including the organ, and had 1000 seats, 780 in the orchestra and 220 in the gallery which also had a number of boxes.<ref name=original/>  With the garden strictly a movie theater, the desire for a new space for live performances in Princeton was ultimately fulfilled with the opening of [[McCarter Theatre]] in 1930.<ref>{{cite journal|title=Doors of new Triangle club theatre opened with 'Godlen Dog' performance this evening; formal dedication to come tomorrow night|newspaper=The Daily Princetonian|date=February 20, 1930|volume=55|issue=8|page=1|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19300220-01.2.8&srpos=46&e=-------en-20--41-byDA-txt-txIN-mccarter+theatre------}}</ref>  While it is sometimes claimed that the Garden was initially home to the Princeton Triangle Club that was only a proposed use during early planning and never came to pass.<ref>{{cite news|last1=Lockwood Jr.|first1=W.W.|title=Garden Theater Was Never a Home For the Princeton Triangle Club|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=TownTopics20010418-01.2.78&srpos=1&e=-------en-20--1--txt-txIN-Princeton+garden+theatre+triangle+club------#|newspaper=The Town Topics|date=April 18, 2001}}</ref>
+
+===Early decades===
+
+[[image:Thomasmeighan.jpg|thumb|left|[[Thomas Meighan]], star of ''[[Civilian Clothes]]'', the first movie to play at the Garden]]
+
+The Garden opened on September 20, 1920, with a showing of ''[[Civilian Clothes]]'', a [[silent film|silent]] comedy starring [[Thomas Meighan]].  The movie was accompanied by a live orchestra and palms and ferns were arranged on the stage.<ref name=rose/>
+
+==References==
+{{reflist|30em}}
+
+{{Princeton, New Jersey|state=collapsed}}
+
+[[Category:Cinemas and movie theaters in New Jersey]]
+[[Category:Theatres completed in 1920]]
+[[Category:1920 establishments in New Jersey]]
+[[Category:Buildings and structures in Princeton, New Jersey]]

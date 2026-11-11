@@ -1,0 +1,36 @@
+{{Distinguish|Sen. Walter Lowrie House}}
+{{Use American English|date=September 2025}}
+{{Infobox NRHP
+| name            = Walter Lowrie House
+| nrhp_type       = cp
+| nocat           = yes
+| part_of         = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+| part_of_ref_num = 75001143
+| image           = Walter Lowrie House (Princeton, New Jersey).jpg
+| caption         = 
+| location        = 83 Stockton Street, [[Princeton, New Jersey]], United States
+| coordinates     = {{coord|40|20|46.9|N|74|40|09.3|W|display=inline,title}}
+| pushpin_map     = USA New Jersey Mercer County#New Jersey#USA
+| area            = 
+| built           = 1845
+| architect       = [[John Notman]]
+| architecture    = [[Italianate architecture|Italianate]]
+| added           = 27 June 1975
+}}
+
+The '''Walter Lowrie House''' is located at 83 Stockton Street in [[Princeton, New Jersey]], United States, and is the [[official residence]] of the president of [[Princeton University]].  The mansion was built in 1845 by [[Commodore (rank)|Commodore]] [[Robert F. Stockton]] for his son [[John P. Stockton]], both [[United States Senate|senators]] from [[New Jersey]].  Prior to being a senator the younger Stockton had served as the [[New Jersey Attorney General|Attorney General of New Jersey]] and later as [[United States Ambassador to Italy|ambassador to Italy]].  Commodore Stockton was the son of [[Richard Stockton (U.S. senator)|Richard Stockton]], another New Jersey Senator, and grandson of [[Richard Stockton (Continental Congressman)|Richard Stockton]], a signer of the [[United States Declaration of Independence|Declaration of Independence]]. The latter Richard Stockton built [[Morven (Princeton, New Jersey)|Morven]] in the 18th century, which sits a short distance up Stockton Street.  His grandfather's home, known as the "Barracks" is found at 32 Edgehill Street, the street which fronts the gate to the Walter Lowrie House property.  It was built in the 17th century and gained its name from having served as a barracks in either the [[French and Indian War]] or the [[American Revolution]].<ref>{{cite book|last1=Hageman|first1=John Frelinghuysen|title=History of Princeton and Its Institutions, Volume 1|date=1879|publisher=J.B. Lippincott & Company|page=[https://archive.org/details/historyprinceto00hagegoog/page/n90 65]|url=https://archive.org/details/historyprinceto00hagegoog|quote=barracks.}}</ref>
+
+The Walter Lowrie House was the work of architect [[John Notman]], who designed a number of mansions for the Stockton family including nearby Guernsey Hall and [[Prospect House (Princeton, New Jersey)|Prospect House]].  Notman popularized the [[Italianate architecture|Italianate revival architecture]] in the United States and his Princeton homes are prime examples of that style.<ref>{{cite web|title=CHAPTER III: PRINCETON AT MID-CENTURY, 1846-1868|url=http://etcweb.princeton.edu/Campus/chap3.html|website=Princeton University|access-date=2015-07-07|archive-date=2012-03-14|archive-url=https://web.archive.org/web/20120314021758/http://etcweb.princeton.edu/Campus/chap3.html|url-status=dead}}</ref>
+
+The home was purchased from John P Stockton by [[Paul Tulane]], best known for endowing [[Tulane University]] in [[New Orleans]].  In 1895 it was acquired by George Allison Armour, whose daughter Barbara would take up the residence in 1930 along with her husband, [[Walter Lowrie (author)|Walter Lowrie]].  Walter Lowrie had served for many years as the [[Episcopal Church (United States)|Episcopal]] [[Rector (ecclesiastical)|rector]] of [[St Paul's Within the Walls]], sometimes known as the American Church in Rome.  Lowrie was a noted [[Kierkegaard]]ian theologian and translator, spending his retirement in Princeton publishing academic works, including twelve volumes of Kierkegaard translations.  After his death in 1959, his wife donated the home to [[Princeton University]] in memory of her husband, who had been a member of the Princeton class of 1890.  It was used as a guest house by the university from 1960 to 1968 and subsequently became the official residence of the president of the university.<ref>{{cite book|last1=Leitch|first1=Alexander|title=A Princeton Companion|date=1978|publisher=Princeton University Press|url=http://etcweb.princeton.edu/CampusWWW/Companion/lowrie_house.html}}</ref>  The official residence had originally been [[President's House (Princeton University)|Maclean House]], built 1756.<ref>{{cite web|title=Princeton Historic Sites and People|url=https://www.princetonhistory.org/collections/historic-sites.cfm|website=Historical Society of Princeton}}</ref>  From 1878-1968, it had been Prospect House but was moved to Walter Lowrie House, which is off campus grounds. Prospect House then became the site of a faculty club.<ref>{{cite web|title=Prospect House History|url=https://www.princeton.edu/prospecthouse/history.html|website=Princeton University}}</ref>
+
+==References==
+{{reflist}}
+
+{{Princeton}}
+{{Princeton Presidents}}
+
+[[Category:Houses in Princeton, New Jersey]]
+[[Category:Princeton University buildings and structures]]
+[[Category:Official residences in the United States]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]

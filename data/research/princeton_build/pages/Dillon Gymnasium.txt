@@ -1,0 +1,72 @@
+{{Short description|Athletic facility in Princeton, New Jersey}}
+{{Infobox venue
+  | name           = Herbert L. Dillon Gymnasium
+  | nickname       = 
+  | image          = File:Dillon Gymnasium Tower.jpg
+  | location       = Princeton University<br>Princeton, NJ 08542
+  | groundbreaking = 1947
+  | opened         = 1947
+  | closed         = 
+  | demolished     = 
+  | owner          = 
+  | operator       = 
+  | surface        = 
+  | cost           = 
+  | architect      = 
+  | former_names   = 
+  | tenants        = [[Princeton Tigers]]<br>(Volleyball & wrestling)
+  | capacity       = 1,500 (approximate)
+  | embedded       =
+{{Infobox NRHP
+  | embed = yes
+  | name = Dillon Gymnasium
+  | part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+  | part_of_ref_num = 75001143<ref>{{cite web|title=Princeton Historic District|url={{NRHP url|id=75001143}}|website=National Register of Historic Places|publisher=National Park Service}}</ref>
+  | nrhp_type = cp
+  | image = 
+  | alt = 
+  | image_caption = 
+  | location = Elm Drive, [[Princeton University]], [[Princeton, New Jersey|Princeton, NJ]]
+  | coordinates = {{coord|40|20|44.1|N|74|39|31.7|W|display=inline,title}}
+  | pushpin_map = Mercer County, New Jersey
+  | area = 
+  | built = 1947
+  | architect =[[Aymar Embury II|Aymar Embury]], class of 1900
+  | architecture = [[Collegiate Gothic]]
+  | designated_nrhp_type = 27 June 1975
+  | mpsub =
+}}
+}}
+
+'''Dillon Gymnasium''' is an on-campus multi-purpose athletic facility on the campus of [[Princeton University]] in [[Princeton, New Jersey]].  It was built in 1947 to replace University Gymnasium, which had burned to the ground in 1944.  It houses a 1,500-seat gymnasium, squash courts and a pool.
+
+From 1947 to 1969 it housed the men's basketball team before the building of [[Jadwin Gymnasium]].  It currently houses the men's and women's volleyball teams and the wrestling team.  It is named for Herbert L. Dillon, class of 1907, a one-time football captain and a principal donor to the building which bears his name.<ref>{{cite book|last1=Leitch|first1=Alexander|title=A Princeton Companion|date=1978|publisher=Princeton University Press|page=137|url=http://etcweb.princeton.edu/CampusWWW/Companion/dillon_gymnasium.html}}</ref>
+
+As the headquarters of [[Princeton University]]'s Campus Recreation program, Dillon is also home to the {{convert|8000|sqft|m2|adj=on}} '''Stephens Fitness Center''', a {{convert|1280|sqft|m2|adj=on}} Dance Studio, a {{convert|1250|sqft|m2|adj=on}} Martial Arts Room, and a Spinning Room with 14 bikes.<ref>{{cite web|title=Dillon Gym|url=https://www.princeton.edu/campusrec/dillon-gym/description-of-facilities/Description-Dillon.pdf|website=Campus Recreation|publisher=Princeton University|access-date=2016-03-31|archive-url=https://web.archive.org/web/20160413220348/https://www.princeton.edu/campusrec/dillon-gym/description-of-facilities/Description-Dillon.pdf|archive-date=2016-04-13|url-status=dead}}</ref>
+
+On 15 February 1964 [[Bill Bradley]] scored 51 points here in a basketball game for Princeton University, allowing Princeton to defeat [[Harvard University]], 87-56, before 2,700 fans.<ref>{{Cite news|url=https://www.nytimes.com/1964/02/16/archives/bradley-scores-51-as-princeton-wins.html|title=Bradley Scores 51 as Princeton Wins|newspaper=The New York Times|date=16 February 1964}}</ref>
+
+==References==
+{{Reflist}}
+
+==External links==
+* {{Official website|https://goprincetontigers.com/facilities/dillon-gymnasium/15}}
+
+{{Princeton Tigers men's basketball navbox}}
+{{Princeton}}
+
+[[Category:College basketball venues in New Jersey]]
+[[Category:College volleyball venues in New Jersey]]
+[[Category:College wrestling venues in the United States]]
+[[Category:Defunct college basketball venues in the United States]]
+[[Category:Princeton Tigers men's basketball]]
+[[Category:Princeton Tigers men's volleyball]]
+[[Category:Princeton Tigers wrestling]]
+[[Category:Princeton Tigers sports venues]]
+[[Category:Sports venues on the National Register of Historic Places in New Jersey]]
+[[Category:Sports venues completed in 1947]]
+[[Category:University and college buildings and structures completed in 1947]]
+[[Category:1947 establishments in New Jersey]]
+[[Category:Indoor arenas in New Jersey]]
+
+{{NewJersey-stadium-stub}}

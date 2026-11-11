@@ -1,0 +1,345 @@
+{{Short description|Political, literary, and debating society at Princeton University}}
+{{Infobox fraternity
+| name = American Whig–Cliosophic Society
+| caption = 
+| crest = American_Whig–Cliosophic_Society_logo.png
+| image_size = 
+| founded = {{start date and age|1765}}
+| birthplace = [[Princeton University]]
+| affiliation = Independent
+| type = Literary
+| emphasis = [[Debate]]
+| status = Active
+| scope = Local
+| colors = '''Historic Colors''':<ref name=":10">{{Cite book |last=Cameron |first=Henry Clay |url=https://static1.squarespace.com/static/590be125ff7c502a07752a5b/t/5cd7936b6e9a7f57d7774668/1557631875004/Cameron%2C+Henry+Clay%2C+History+of+the+American+Whig+Society.pdf |title=Addresses and proceedings at the celebration of the one hundredth anniversary of the founding of the American Whig society: of the College of New Jersey, Princeton, N.J., June 29th, 1869 |publisher=Stelle & Smith Publishers |year=1871|pages=145, 183}}</ref><br />Whig: {{color box|#0141c1|}} Blue<br />Clio: {{color box|#ec8fd0}} Pink<br/>'''Contemporary Colors''':<ref>{{Cite web |title=Whig-Clio hosts debate for N.J.-12 Democratic Congressional candidates |url=https://www.dailyprincetonian.com/article/2026/04/princeton-news-broadfocus-whig-clio-hosts-debate-nj-12-democratic-congressional-candidates |access-date=August 24, 2026 |website=[[The Daily Princetonian]] |language=en-US}}</ref><br />Whig: {{color box|#0141c1|}} Blue<br />Clio: {{color box|#ac0000}} Red
+| chapters = 1
+| nickname = Whig-Clio
+| address = Whig Hall
+| city = [[Princeton, New Jersey|Princeton]]
+| state = [[New Jersey]]
+| ZIP code = 08544
+| country = United States
+| website = {{URL|http://whigclio.princeton.edu/}}
+}}
+
+The '''American Whig–Cliosophic Society''', sometimes abbreviated as '''Whig-Clio''', is a political, literary, and [[Debate|debating]] society at [[Princeton University]] and the oldest debate union in the [[United States]].<ref name=":6">{{Cite web |title=Whig and Clio Debating and Literary Societies |url=https://princetoniana.princeton.edu/history/early-years/whig-clio |access-date=May 16, 2024 |website=Princetoniana |publisher=[[Princeton University]] |language=en}}</ref> Its precursors, the American Whig Society and the Cliosophic Society, were founded at Princeton in 1769 and 1765.
+
+The Society frequently hosts events open to all Princeton students, as well as to faculty and community members. These include the Society's monthly Senate Debates on topics related to national or campus policy, lectures, discussion dinners with guest speakers, and social events. The Society also oversees four subsidiary groups: the International Relations Council (IRC), Princeton's Model Congress (PMC), Princeton Debate Panel (PDP), and Princeton Mock Trial (PMT).
+
+The two original societies continue as "houses" within the larger American Whig–Cliosophic Society, with Whig considered the more liberal house and Clio the more conservative.<ref name="slavery">{{cite web |last1=Niu |first1=Samuel |title=The Whig-Cliosophic Society and Slavery |url=https://slavery.princeton.edu/stories/the-whig-cliosophic-society-and-slavery |access-date=25 December 2021 |website=Princeton & Slavery |publisher=Princeton University |language=en}}</ref>
+== History ==
+[[File:John Witherspoon (NPG).jpg|thumb|[[John Witherspoon]], sixth president of Princeton University, who allowed for the creation of the Whig and Clio societies]]
+
+=== Origins and early years ===
+The American Whig–Cliosophic Society has its ancestry in the literary institutions of the Plain-Dealing Club (Whig) and the Well-Meaning Club (Clio), both formed around 1765.{{Sfn|Looney|1996|p=4}} An intense rivalry between these clubs led to their suppression by the university in 1769.{{Sfn|Looney|1996|p=4}} Persuasion from [[William Paterson (judge)|William Paterson]] and other alumni led to president [[John Witherspoon]] to permit successor organizations.{{Sfn|Durkee|2022|p=488}} Shortly thereafter, the American Whig Society formed on June 24, 1769 by several students including [[Philip Freneau|Philip M. Freneau]], and [[Hugh Henry Brackenridge]]; when James Madison enrolled at the college the following month, he became a member. The Cliosophic Society formed on June 8, 1770 by Nathan Perkins, Robert Stewart, John Smith, and Issac Smith.{{Sfn|Looney|1996|p=4}}<ref>{{Cite book |last=Giger |first=G. Musgrave |url=https://www.logcollegepress.com/s/Giger-George-Musgrave-History-of-the-Cliosophic-Society.pdf |title=History of the Cliosophic Society, from 1765 to 1865 |date=1865 |publisher=Sherman & Co., Printers |location=Philadelphia |pages=68}}</ref>{{Efn|Clio formally acknowledged the Well-Meaning Club in 1820 as its ancestor, moving its founding date back to 1765.{{Sfn|Looney|1996|p=4}} The connection between the Whig and the Plain-Dealing Club is uncertain, with no member of the Whig guaranteed to have been a member of the ancestor club. Clio's relationship with the Well-Meaning Club is more certain, with several of the founders of the club at Clio's founding; any member of the club was also made a member of Clio. On the contrary, it is unclear when Whigs began recognizing members of the Plain-Dealing Club as their own. Separately, Clio had separate motivations for recognizing the Well-Meaning Club, as the founders were more prominent: [[William Paterson (judge)|William Paterson]], [[Oliver Ellsworth]], [[Luther Martin]], [[Tapping Reeve]], Robert Ogden, [[Jonathan Edwards (the younger)|Jonathan Edwards]], [[Waightstill Avery]], and [[Hezekiah Balch|Hezekiah James Balch]]. The Plain-Dealing Club did not have a similar level of prominent founders, leaving Whigs to remain with their 1769 founding.<ref>{{Cite book |last=Beam |first=Jacob Newton |url=https://hdl.handle.net/2027/uc1.$b18338 |title=The American Whig Society of Princeton University |date=1933 |publisher=Society |pages=13–17 |hdl=2027/uc1.$b18338 |language=en}}</ref>}}
+
+Whig derived its name from the "American Whig" essays by [[William Livingston]], a trustee of the college, while Clio derived its name from Paterson's "Cliosophic Address" at a recent commencement; the name was a translation of the Greek for "praise of wisdom" (there was no association with Clio, the muse of history).{{Sfn|Durkee|2022|p=488}} Both societies were assigned rooms in [[Nassau Hall]].{{Sfn|Looney|1996|p=5}}
+
+The societies in their early years served as institutions for members to practice oratory skills, engage in discussions about contemporary issues, and engage in literary activities. Before the [[American Revolution]], they provided future leaders like [[James Madison]], [[Aaron Burr]], and others a place to develop these skills.{{Sfn|Looney|1996|p=6}}{{Sfn|Durkee|2022|p=488}} However, much of the history of the society's other activities during this time were lost in a fire in 1802; the only documents remaining from this period relate to the recurring "Paper Wars," where members of each society would deride each other through verse.{{Sfn|Looney|1996|p=7}} The societies became dormant during the Revolution, with Clio resuming in 1781 and Whig in 1782.{{Sfn|Looney|1996|p=8}}{{Sfn|Durkee|2022|p=488}} From this point until around the 1880s when the societies had their greatest influence on Princeton campus life.{{Sfn|Durkee|2022|p=488}}
+
+To one historian, the societies "functioned as colleges within the College of New Jersey," with each respective society having its officers, traditions, curriculum, bylaws, libraries, and diplomas.{{Sfn|Looney|1996|p=16}} Talented members were given exclusive opportunities to deliver special addresses and speak in debates. Meetings were held to allow members to practice ahead of these events.{{Sfn|Looney|1996|pp=14–15}} Admittance was selective, focusing on academically accomplished students,{{Sfn|Looney|1996|p=13}} and much of the societies' efforts were focused on glory and high achievement over the rest of the student body.{{Sfn|Looney|1996|p=16}} The societies served the additional purpose of providing social opportunities to students who were under a rigorous and tightly controlled schedule.{{Sfn|Looney|1996|p=16}}
+[[File:Whig and Clio Halls, Princeton University-LCCN2008679654.tif|thumb|Whig and Clio halls in 1903]]
+[[File:Whig Hall Snow.jpg|thumb|Whig Hall, 2024]]
+[[File:Clio Hall Snow.jpg|thumb|Clio Hall, 2024]]
+
+=== 19th and 20th centuries ===
+The societies moved to the university's new library building, Stanhope Hall, in 1805.{{Sfn|Looney|1996|p=10}}
+
+In the decades before the [[American Civil War|Civil War]], the societies frequently debated the subject of [[slavery]]. Despite their regional differences, both societies voted regularly in support of slavery's continuation and opposition to emancipation. The subject united the two societies, which otherwise often disagreed.<ref name="slavery" /> Clio's members were usually northerners, while Whigs typically came from the southern states.<ref name="slavery" />
+
+Competition from [[eating clubs]], sports teams, and other student activities eventually drew members away from the societies. Prompted by declining memberships, the societies were merged to form the American Whig–Cliosophic Society in 1928.
+
+The Society's first female president was Tina Ravitz in 1975.{{Sfn|Looney|1996|p=Xi}}
+
+=== Contemporary times ===
+The organization's modern role is to serve as an umbrella organization for political and debating activity at Princeton, as well as host speakers, dinners, lectures, and social events.
+
+In 2024, the society voted to adopt a policy of institutional neutrality based on the [[University of Chicago]]'s [[Kalven Report]] and banned considering a speaker's political, ideological, and religious beliefs when inviting them.<ref>{{Cite web |date=January 18, 2024 |title=Freedom of Expression Code |url=https://whigclio.princeton.edu/freedom-of-expression-code/ |access-date=May 16, 2024 |website=The American Whig-Cliosophic Society |language=en-US}}</ref><ref>{{Cite web |date=January 18, 2024 |title=Speaker's Code |url=https://whigclio.princeton.edu/speakers-code/ |access-date=May 16, 2024 |website=The American Whig-Cliosophic Society |language=en-US}}</ref> The society held a candidate forum for the 2024 [[Democratic Party (United States)|Democratic]] [[Partisan primary|primary]] in [[New Jersey's 3rd congressional district]], the first event of its kind in the society's history.<ref>{{Cite web |last=Roth |first=Charlie |date=April 16, 2024 |title=Whig-Clio set to host first congressional primary candidate forum in its history |url=https://www.dailyprincetonian.com/article/2024/04/princeton-news-broadfocus-american-whig-clio-cliosophic-society-forum-history-congress-congressional-primary |access-date=July 6, 2024 |website=[[The Daily Princetonian]] |language=en-US}}</ref>
+
+== Symbols ==
+Originally, the Whig and Cliosophic debating societies' unofficial colors were red and blue.<ref name=":9">{{Cite web |last=Bernstein |first=Mark F. |date=May 26, 2023 |title=Faux Pas or Fashion Revolution? |url=https://paw.princeton.edu/article/faux-pas-or-fashion-revolution |access-date=2024-12-28 |website=Princeton Alumni Weekly |language=en}}</ref> However, its colors changed after the [[American Civil War|Civil War]] when Princeton University adopted orange and black as its colors.<ref name=":9" />
+
+== Subsidiaries ==
+[[File:Samuel Alito official photo.jpg|thumb|[[Samuel Alito]], former captain of the Princeton Debate Panel]]
+
+=== Princeton Debate Panel ===
+
+The Princeton Debate Panel (PDP) is a collegiate [[debating society]] that competes in sanctioned debates by the [[American Parliamentary Debate Association]] (APDA) league, of which it was a founding member.<ref name=":1">{{Cite web |date= |title=Princeton Debate Panel |url=https://whigclio.princeton.edu/subsidiaries/pdp/ |access-date=May 16, 2024 |website=The American Whig-Cliosophic Society |language=en-US}}</ref> In the APDA, PDP has won the Team of the Year award a record eight times and the Speaker of the Year Award a record nine times.<ref name=":1" /> PDP hosts a high school and a collegiate tournament during the academic year.<ref name=":1" />
+
+=== Princeton Mock Trial ===
+
+Princeton Mock Trial (PMT) is a [[mock trial]] program that competes with three teams.<ref name=":2">{{Cite web |date= |title=Princeton Mock Trial |url=https://whigclio.princeton.edu/subsidiaries/mock-trial/ |access-date=May 16, 2024 |website=The American Whig-Cliosophic Society |language=en-US}}</ref> In the [[American Mock Trial Association]], it ranked 67th in the 2023–2024 season,<ref>{{Cite web |title=American Mock Trial Association 2023-2024 Team Power Rankings |url=https://www.collegemocktrial.org/TPR2023-24.pdf |access-date=May 16, 2024 |website=American Mock Trial Association}}</ref> 124th in the 2022–2023 season,<ref>{{Cite web |title=American Mock Trial Association 2022-2023 Team Power Rankings |url=https://www.collegemocktrial.org/TPR2022-23.pdf |access-date=May 16, 2024 |website=American Mock Trial Association}}</ref> and 175th in the 2021–2022 season.<ref>{{Cite web |title=American Mock Trial Association 2021-2022 Team Power Rankings |url=https://www.collegemocktrial.org/TPR2022.pdf |access-date=May 16, 2024 |website=American Mock Trial Association}}</ref> It ranked 2nd in the American Mock Trial Association National Championship in 2014.<ref>{{Cite web |title=National Championship Trial Results |url=https://www.collegemocktrial.org/about-amta/history-/national-championship-trial-results/ |access-date=May 16, 2024 |website=American Mock Trial Association}}</ref> It annually hosts two Moot Court tournaments for local high schools.<ref name=":2" />
+
+=== International Relations Council ===
+The International Relations Council (IRC) is a forum for international issues on campus.<ref name=":3">{{Cite web |date= |title=International Relations Council |url=https://whigclio.princeton.edu/subsidiaries/irc/ |access-date=May 16, 2024 |website=The American Whig-Cliosophic Society |language=en-US}}</ref> It houses the Princeton [[Model United Nations]] program, which hosts a high school conference, Princeton Model United Nationals Conference and a collegiate conference, Princeton Diplomatic Invitational.<ref name=":3" /> The program also features the Princeton Model UN Travel Team, which competes on the regional and international collegiate circuits.<ref name=":3" />
+
+=== Model Congress ===
+Princeton Model Congress (PMC) hosts an annual [[Model Congress|model congress]] conference in [[Washington, D.C.|Washington D.C.]] for high schoolers.<ref name=":4">{{Cite web |date= |title=Princeton Model Congress |url=https://whigclio.princeton.edu/subsidiaries/model-congress/ |access-date=May 16, 2024 |website=The American Whig-Cliosophic Society |language=en-US}}</ref> The conference simulates all three branches of federal government and draws approximately 1,200 participants.<ref name=":4" />
+
+=== Honorary Debate Panel ===
+
+The Honorary Debate Panel (WCHDP) sponsors and promotes prize debates at Princeton University.<ref name=":5">{{Cite web |date= |title=Honorary Debate Panel |url=https://whigclio.princeton.edu/subsidiaries/honorary-debate-panel/ |access-date=May 16, 2024 |website=The American Whig-Cliosophic Society |language=en-US}}</ref> Annually-held debates and oratory contests include the Lynde Prize Debate, the Class of 1876 Memorial Prize for Debate in Politics, the Maclean Prize and Junior Orator Awards, the Walter E. Hope Prizes in Speaking and Debating, the Spencer Trask Medals for Debating, and the William Rusher ’44 Prize in Debating.<ref name=":5" />
+
+== Membership ==
+To become a member, Princeton students are required to attend and sign in at three Whig-Clio events.<ref name=":8">{{Cite web |title=The American Whig-Cliosophic Society |url=https://whigclio.princeton.edu/ |access-date=2024-08-05 |website=The American Whig-Cliosophic Society |language=en-US}}</ref> Members of Whig-Clio subsidiaries are automatically considered members in the American Whig–Cliosophic Society.<ref name=":8" />
+
+== Awards ==
+[[File:AdlaiEStevenson1900-1965.jpg|thumb|[[Adlai Stevenson II]], a member of the Whig Society and recipient of the James Madison Award]]
+
+The James Madison Award for Distinguished Public Service is a longstanding tradition and the highest distinction bestowed by the Whig-Cliosophic Society to individuals committed to the "betterment of society" who have confronted "some of society's biggest challenges". The first woman recipient was [[Golda Meir]] in December 1974.{{Sfn|Looney|1996|p=Xi}} The full list of recipients is below.<ref>{{cite web |date=December 7, 2020 |title=James Madison Award for Distinguished Public Service |url=https://whigclio.princeton.edu/james-madison-award-for-distinguished-public-service/ |website=The American Whig-Cliosophic Society |publisher= |quote=}}</ref>
+
+In March 2021, the Society voted to revoke [[United States Senate|Senator]] Ted Cruz's award after he attempted to overturn the results of the [[2020 United States presidential election|2020 U.S. presidential election]] based on false claims of voter fraud.<ref>{{Cite news |last1=Mukherji |first1=Aniket |last2=Blake |first2=Kalena |date=March 4, 2021 |title=Whig-Clio votes to rescind James Madison Award from Sen. Ted Cruz '92 |url=https://www.dailyprincetonian.com/article/2021/03/whig-clio-vote-rescind-james-madison-award-senator-ted-cruz/ |work=[[The Daily Princetonian]]}}</ref> The Society reversed course a month later and decided not to revoke the award.<ref>{{cite news |last1=Kane |first1=Christopher |date=11 April 2021 |title=Whig-Clio Reverses Course After Voting To Rescind Sen. Ted Cruz's James Madison Award |url=http://theprincetontory.com/whig-clio-votes-to-rescind-sen-ted-cruzs-james-madison-award-following-assembly/ |access-date=25 December 2021 |work=Princeton Tory}}</ref>  
+{| class="wikitable sortable mw-collapsible mw-collapsed" |
+! scope="row" |{{Abbr|No.|Number}}
+! scope="col" |Recipient
+! scope="col" |Year
+|-
+| align="center" | 1
+| [[Dean Acheson]]
+| align="center" | 1960
+|-
+| align="center" | 2
+| [[Robert Meyner]]
+| align="center" | 1961
+|-
+| align="center" | 3
+| [[Stuart Symington]]
+| align="center" | 1962
+|-
+| align="center" | 4
+| [[Maxwell Taylor]]
+| align="center" | 1963
+|-
+| align="center" | 5
+| [[Adlai Stevenson II|Adlai Stevenson]]
+| align="center" | 1964
+|-
+| align="center" | 6
+| [[Harlan Cleveland]]
+| align="center" | 1965
+|-
+| align="center" | 7
+| [[Claiborne Pell]]
+| align="center" | 1966
+|-
+| align="center" |8
+|[[Allen Dulles]]
+| align="center" |1966
+|-
+| align="center" | 9
+| [[John Marshall Harlan II|John Harlan]]
+| align="center" | 1967
+|-
+| align="center" | 10
+| [[Roy Wilkins]]
+| align="center" | 1968
+|-
+| align="center" | 11
+| [[Earl Warren]]
+| align="center" | 1969
+|-
+| align="center" | 12
+| [[Averell Harriman]]
+| align="center" | 1970
+|-
+| align="center" | 13
+| [[Robert F. Goheen]]
+| align="center" | 1971
+|-
+| align="center" | 14
+| [[Walter Cronkite]]
+| align="center" | 1972
+|-
+| align="center" | 15
+| [[J. W. Fulbright]]
+| align="center" | 1973
+|-
+| align="center" | 16
+| [[Golda Meir]]
+| align="center" | 1974
+|-
+| align="center" | 17
+| [[William O. Douglas]]
+| align="center" | 1975
+|-
+| align="center" | 18
+| [[Mike Mansfield]]
+| align="center" | 1976
+|-
+| align="center" | 19
+| [[Leon Jaworski]]
+| align="center" | 1978
+|-
+| align="center" | 20
+| [[Roger Nash Baldwin|Roger Baldwin]]
+| align="center" | 1979
+|-
+| align="center" | 21
+| [[Millard C. Farmer]]
+| align="center" | 1980
+|-
+| align="center" | 22
+| [[Potter Stewart]]
+| align="center" | 1981
+|-
+| align="center" | 23
+| [[Jacob K. Javits]]
+| align="center" | 1982
+|-
+| align="center" | 24
+| [[Bob Hope]]
+| align="center" | 1984
+|-
+| align="center" | 25
+| [[George F. Kennan|George Kennan]]
+| align="center" | 1985
+|-
+| align="center" | 26
+| [[Paul Volcker]]
+| align="center" | 1986
+|-
+| align="center" | 27
+| [[Warren Burger]]
+| align="center" | 1987
+|-
+| align="center" | 28
+| [[Barry Goldwater]]
+| align="center" | 1988
+|-
+| align="center" | 29
+| [[C. Leslie Rice|C. Leslie Rice, Jr.]]
+| align="center" | 1989
+|-
+| align="center" | 30
+| [[Ralph Nader]]
+| align="center" | 1990
+|-
+| align="center" | 31
+| [[Jesse Jackson]]
+| align="center" | 1991
+|-
+| align="center" | 32
+| [[Sarah Brady]]
+| align="center" | 1994
+|-
+| align="center" | 33
+| [[Robert MacNeil]]
+| align="center" | 1995
+|-
+| align="center" | 34
+| [[Patricia Schroeder]]
+| align="center" | 1997
+|-
+| align="center" | 35
+| [[Bill Clinton]]
+| align="center" | 2000
+|-
+| align="center" | 36
+| [[Kofi Annan]]
+| align="center" | 2002
+|-
+| align="center" | 37
+| [[William Frist]]
+| align="center" | 2003
+|-
+| align="center" | 38
+| [[Sandra Day O'Connor]]
+| align="center" | 2003
+|-
+| align="center" | 39
+| [[George Shultz]]
+| align="center" | 2004
+|-
+| align="center" | 40
+| [[Stephen Breyer]]
+| align="center" | 2006
+|-
+| align="center" | 41
+| [[Antonin Scalia]]
+| align="center" | 2008
+|-
+| align="center" | 42
+| [[Jeffrey Sachs]]
+| align="center" | 2009
+|-
+| align="center" | 43
+| [[Prince Hans-Adam II]]
+| align="center" | 2010
+|-
+| align="center" | 44
+| [[Chen Guangcheng]]
+| align="center" | 2013
+|-
+| align="center" | 45
+| [[Ben Bernanke]]
+| align="center" | 2014
+|-
+| align="center" | 46
+| [[Jimmy Carter]]
+| align="center" | 2015
+|-
+| align="center" | 47
+| [[Ted Cruz]]
+| align="center" | 2016
+|-
+| align="center" | 48
+| [[Terri Sewell]]
+| align="center" | 2020
+|-
+| align="center" | 49
+| [[Mark Milley]]
+| align="center" | 2023
+|-
+| align="center" |50
+|[[Joe Manchin]]
+| align="center" |2025
+|}
+
+== Governing Council ==
+The Governing Council is the primary decision-making body of the Society when the Assembly, the body that includes all undergraduate members in good standing, is not in session. It consists of the executive officers, non-executive officers, and subsidiary heads. The executive officers, who include the President, Vice President, Secretary, President of the Senate, Director of Program, Speaker of the Whig Party, and Chair of the Cliosophic Party, are elected by the members of the Society to one-year terms and each have one vote on the Council.<ref name=":0">{{Cite web |date= |title=Constitution of the American Whig-Cliosophic Society |url=https://whigclio.princeton.edu/constitution/ |access-date=May 16, 2024 |website=The American Whig-Cliosophic Society |language=en-US}}</ref> The Council is responsible for confirming events, appointing non-executive officers, and making other important decisions for the Society. A quorum for binding decisions is at least half of the voting members, and votes are typically conducted by secret ballot. The Council's decisions can be overturned by the Assembly or deemed unconstitutional by the Constitutional Compliance Committee.<ref name=":0" /> The current Governing Council is led by President Alejandra Ramos.
+
+== Notable members ==
+
+{{Main|List of American Whig–Cliosophic Society members}}
+
+The Society has had many notable members throughout its history. In politics and government, members have included U.S. Presidents [[James Madison]]<ref name=":7">{{Cite web |date= |title=Notable Alumni |url=https://whigclio.princeton.edu/notable-alumni/ |access-date=May 16, 2024 |website=The American Whig-Cliosophic Society |language=en-US}}</ref> and [[Woodrow Wilson]];<ref>{{Cite news |date=1975-09-28 |title=Whig-Clio Society at Princeton Observes Its 200th Anniversary |url=https://www.nytimes.com/1975/09/28/archives/whigclio-society-at-princeton-observes-its-200th-anniversary.html |access-date=2024-05-16 |work=[[The New York Times]] |language=en-US |issn=0362-4331}}</ref> Vice Presidents [[Aaron Burr]]<ref name=":7" /> and [[George M. Dallas]];<ref>{{Cite news |date=July 25, 1975 |title=Senate Debates Team Students With Guest Figures |url=https://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19750725-01.2.174&srpos=7&e=-------en-20--1--txt-txIN-dallas------ |work=[[The Daily Princetonian]] |pages=72 |volume=99, Special Class Of 1979 Issue |issue=73}}</ref> and Supreme Court Justices [[Samuel Alito]],<ref name=":7" /> [[Oliver Ellsworth]],<ref name=":7" /> and [[William Paterson (judge)|William Paterson]].<ref name=":6" /> Influential scholars such as [[John Rawls]]<ref>{{Cite news |date=April 12, 1940 |title=J. P. HUMES '43 CHOSEN HEAD OF DEBATING CLUB Newly Formed Group, Holding First Meeting, Decides Upon Seven Freshmen For Officers. WILL JOIN WHIG-CLIO IN FALL |url=https://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19400412-01.2.3&srpos=2&e=-------en-20--1-byDA-txt-txIN-rawls------ |work=[[The Daily Princetonian]] |pages=1 |volume=65 |issue=52}}</ref> and [[Joseph Nye]]<ref>{{Cite news |last=Deford |first=Frank |date=January 7, 1958 |title=Holt, Nye Among 32 Selected For U.S. Rhodes Scholarships Harvard Winners Top Oxford List |work=[[The Daily Princetonian]] |pages=1 |volume=81 |issue=142}}</ref> have also been members. The society has also included renowned writers and journalists, including [[F. Scott Fitzgerald]]<ref>{{Cite news |date=October 15, 1913 |title=OVER THREE HUNDRED FRESHMEN JOIN HALLS Small Percentage Of Entering Men Sign Up For Literary Societies WHIG AHEAD Has 174 Signed Up While 148 Signify Intention Of Joining Clio Hall |url=https://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19131015-01.2.7&srpos=5&e=-------en-20--1-byDA-txt-txIN-fitzgerald------ |work=[[The Daily Princetonian]] |pages=1 |volume=37 |issue=93}}</ref> and [[Booth Tarkington]].<ref>{{Cite news |date=June 15, 1967 |title=Whig, Clio Were Once Rivals |url=https://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19670615-01.2.81&srpos=2&e=-------en-20--1--txt-txIN------- |work=[[The Daily Princetonian]] |pages=1 |volume=91, Special Class Of 1971 Issue |issue=72}}</ref> Other prominent members have included [[Adlai Stevenson II]],<ref name=":7" /> [[John Foster Dulles]], Ted Cruz,<ref name=":7" /> [[Ralph Nader]],<ref name="Bowen2002">{{cite book |author=Nancy Bowen |url=https://books.google.com/books?id=g88RWOBJz1UC&pg=PA26 |title=Ralph Nader: Man With a Mission |date=1 April 2002 |publisher=Millbrook Press |isbn=978-0-7613-2365-5 |page=26 |access-date=16 May 2012}}</ref> [[Mitch Daniels]], [[Charles Yost]], and [[Paul Sarbanes]].<ref>{{Cite news |date=May 14, 1952 |title=Undergraduates To Elect Sophomore Councilmen |url=https://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19520514-01.2.10&srpos=1&e=-------en-20--1-byDA-txt-txIN-sarbanes------ |url-status= |work=[[The Daily Princetonian]] |pages=1 |volume=75 |issue=262}}</ref>
+
+==Controversies==
+In 2018, Whig-Clio co-presidents disinvited conservative [[University of Pennsylvania]] law professor [[Amy Wax]] after she had made controversial remarks about the quality of her Black students.<ref>{{Cite news |last=Zymeri |first=Jeff |date=January 3, 2019 |title=U. Debating Society Whig-Clio Struggles to Grapple with Internal Dissension, Charges of Anti-Conservative Bias |url=https://www.theprincetontory.com/u-debating-society-whig-clio-struggles-grapple-internal-dissension-charges-anti-conservative-bias/ |work=The Princeton Tory}}</ref>
+
+In 2020, a conservative member of the society stated that he had proposed inviting [[The Washington Post|''The'' ''Washington Post'']] columnist [[George Will]] and federal judge [[Neomi Rao]] to speak at the society, but the Governing Council had voted not to.<ref>{{Cite news |last=Hoffman |first=Adam |date=January 4, 2021 |title=The New Strategy to Suppress Conservative Voices on Campus |url=https://www.nationalreview.com/2021/01/the-new-strategy-to-suppress-conservative-voices-on-campus/ |work=The National Review}}</ref>
+
+==See also==
+* [[Father Bombo's Pilgrimage to Mecca]]
+* [[List of college literary societies]]
+
+== Notes ==
+{{Notelist}}
+
+==References==
+{{Reflist}}
+
+=== Works cited ===
+
+* {{Cite book |last=Looney |first=J. Jefferson |title=Nurseries of Letters and Republicanism: A Brief History of the American Whig-Cliosophic Society and its Predecessors, 1765-1941 |publisher=American Whig-Cliosophic Society |year=1996 |location=Princeton}}
+* {{Cite book |last=Durkee |first=Robert |title=The New Princeton Companion |publisher=Princeton University Press |year=2022 |location=Princeton}}
+
+== Further reading ==
+
+* {{Citation |last=McLachlan |first=James |chapter=The Choice of Hercules American Student Societies in the Early 19th Century |date=1974 |title=The University in Society, Volume II |pages=449–494 |chapter-url=https://www.degruyter.com/document/doi/10.1515/9780691196701-004/html?lang=en |access-date= |place=Princeton |publisher=Princeton University Press |language=en |doi=10.1515/9780691196701-004 |isbn=978-0-691-19670-1|chapter-url-access=subscription }}
+* {{Cite book |last=Williams |first=Charles Richard |url=https://books.google.com/books?id=LPQaAAAAYAAJ |title=The Cliosophic Society, Princeton University: A Study of Its History in Commemoration of Its Sesquicentennial Anniversary |publisher=Princeton University Press |year=1916 |location=Princeton}}
+
+==External links==
+* [http://whigclio.princeton.edu/ Official web site]
+
+{{Princeton|state=collapsed}}
+{{College Literary Societies|state=collapsed}}
+{{James Madison}}
+{{Authority control}}
+
+{{DEFAULTSORT:American Whig-Cliosophic Society}}
+[[Category:Student debating societies]]
+[[Category:Princeton University]]
+[[Category:College literary societies in the United States]]
+[[Category:1765 establishments in New Jersey]]
+[[Category:Student organizations established in the 1760s]]

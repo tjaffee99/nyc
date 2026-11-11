@@ -1,0 +1,76 @@
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=April 2012}}
+{{Infobox NRHP
+| name                     = President's House
+| nrhp_type                = nhl
+| nrhp_type2               = cp
+| nocat                    = yes
+| part_of                  = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+| part_of_ref_num          = 75001143
+| image                    = Maclean_house.jpg
+| caption                  = 
+| location                 = Princeton, New Jersey
+| coordinates              = {{coord|40.34914372914301| -74.66019829757528|display=inline,title}}
+| pushpin_map              = USA New Jersey Mercer County#New Jersey#USA
+| area                     = 
+| built                    = 1756
+| architect                = [[Robert Smith (architect)|Robert Smith]]
+| architecture             = [[Georgian architecture|Georgian]]
+| designated_nrhp_type     = July 17, 1971<ref name="nhlsum">{{cite web|url=http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=1118&ResourceType=Building|title=President's House|access-date=2009-09-09|work=National Historic Landmark summary listing|publisher=National Park Service|archive-url=https://web.archive.org/web/20090225013425/http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=1118&ResourceType=Building|archive-date=February 25, 2009|url-status=dead}}</ref>
+| added                    = July 17, 1971<ref name="nris">{{NRISref|2007a}}</ref>
+| ref_num                  = 71000504
+| designated_other1_name   = New Jersey Register of Historic Places
+| designated_other1_abbr   = NJRHP
+| designated_other1_link   = New Jersey Register of Historic Places
+| designated_other1_date   = July 17, 1971
+| designated_other1_number = 1740<ref name=NJRHP>{{cite web | title=New Jersey and National Registers of Historic Places — Mercer County | url=http://www.nj.gov/dep/hpo/1identify/nrsr_lists/mercer.pdf | publisher=[[New Jersey Department of Environmental Protection]] — Historic Preservation Office | page=8 | date=April 5, 2013 | access-date=June 4, 2013 | url-status=dead | archive-url=https://web.archive.org/web/20130516134942/http://www.nj.gov/dep/hpo/1identify/nrsr_lists/mercer.pdf | archive-date=May 16, 2013 | df=mdy-all }}</ref>
+| designated_other1_num_position = bottom
+| designated_other1_color  = #ffc94b
+| designated_nrhp_type2    = June 27, 1975
+}}
+The '''President's House''', also known as the '''John Maclean House''', or simply the '''Maclean House''', in [[Princeton, New Jersey|Princeton]], [[Mercer County, New Jersey|Mercer County]], [[New Jersey]], United States, was built to serve as the home of the President of the College of New Jersey, which later became [[Princeton University]].  It was completed in 1756, the same year as [[Nassau Hall]].<ref>[http://alumni.princeton.edu/main/news/calendar/250th/ 250th Anniversary Celebration of Nassau Hall and Maclean House] {{webarchive|url=http://archive.wikiwix.com/cache/20110223141311/http://alumni.princeton.edu/main/news/calendar/250th/ |date=February 23, 2011 }}</ref> United States [[Founding Fathers of the United States|Founding Father]] [[John Witherspoon]] lived here from 1768 through 1779, during which time he served as a delegate to the [[Continental Congress]] and signed the [[United States Declaration of Independence|Declaration of Independence]].  [[George Washington]] occupied Maclean House in January 1777, during the [[Battle of Princeton]] and in 1783 while Congress met in Nassau Hall.<ref name="nhlsum" />
+
+It now serves as the home of the Alumni Association of Princeton University and houses over 20 staff, hosts many alumni functions and showcases Princeton memorabilia and a library of Princetoniana.<ref>{{Cite web | url=https://alumni.princeton.edu/| title=Home Princeton Alumni| accessdate=2023-10-28}}</ref>
+
+It was declared a [[National Historic Landmark]] in 1971.<ref name="nhlsum" /><ref name="nrhpinv2">{{Cite book|title=National Register of Historic Places Inventory-Nomination: Maclean House / President's House (1756–1879) / Dean's House (1879–1968)|url={{NHLS url|id=71000504}} |format=pdf|date=February 8, 1971 |author=Charles W. Snell |publisher=National Park Service}} and {{NHLS url|id=71000504|title=''Accompanying photo, exterior, from 1968''|photos=y}}&nbsp;{{small|(32&nbsp;KB)}}</ref>
+
+== Slavery at the President's House ==
+At least five Princeton presidents who occupied the President's House between 1756 and 1822 owned slaves who lived and worked in the house.<ref name=":0">{{Cite web|url=https://slavery.princeton.edu/stories/presidents-house|title=Slavery at the President's House|last=Morales|first=R. Isabela|date=November 6, 2017|website=The Princeton & Slavery Project|access-date=December 19, 2017}}</ref> These presidents included [[Aaron Burr Sr.]], [[Jonathan Edwards (theologian)|Jonathan Edwards]], [[Samuel Finley]], [[Samuel Stanhope Smith]], and [[Ashbel Green]]. Slaves lived in the quarters on the second floor of the detached "Kitchen House" to the rear of the main building.<ref name=":0" />
+
+After his death in 1766, Samuel Finley's personal property was auctioned off at the President's House.<ref name=":1">{{Cite news|url=https://www.nytimes.com/2017/11/06/arts/princeton-digs-deep-into-its-fraught-racial-history.html?rref=collection%2Fbyline%2Fjennifer-schuessler&action=click&contentCollection=undefined&region=stream&module=stream_unit&version=latest&contentPlacement=2&pgtype=collection|title=Princeton Digs Deep Into Its Fraught Racial History|last=Schuessler|first=Jennifer|date=November 6, 2017|work=The New York Times|access-date=December 19, 2017}}</ref><ref name=":2">{{Cite web|url=https://slavery.princeton.edu/stories/princeton-and-slavery-holding-the-center|title=Princeton and Slavery: Holding the Center|last=Hollander|first=Craig|last2=Sandweiss|first2=Martha A.|date=November 6, 2017|website=The Princeton & Slavery Project|access-date=December 19, 2017}}</ref> Advertisements for the estate sale described "two negro women, a negro man, and three Negro children" to be sold alongside livestock, furniture, and books.<ref name=":0" /><ref name=":1" /><ref name=":2" />
+
+In 2017, the [[Princeton University Art Museum]], in collaboration with the [[Princeton University#Princeton and slavery|Princeton & Slavery Project]], commissioned American artist [[Titus Kaphar]] to create a public art piece in front of the President's House.<ref name=":3">{{Cite news|url=https://www.huffingtonpost.com/entry/princeton-slavery-titus-kaphar_us_5a0b032ce4b0b17ffce05c03|title=Princeton Confronts Its Slave-Owning Past with An 'Anti-Monument'|last=Frank|first=Priscilla|date=November 28, 2017|work=The Huffington Post|access-date=December 20, 2017}}</ref><ref name=":4">{{Cite news|url=https://www.theatlantic.com/education/archive/2017/11/can-art-amend-princetons-history-of-slavery/545480/|title=A Contemporary Artist Is Helping Princeton Confront Its Ugly Past|last=Urist|first=Jacoba|date=November 9, 2017|work=The Atlantic|access-date=December 20, 2017}}</ref> His sculpture ''Impressions of Liberty'', unveiled in November 2017, depicts the face of Samuel Finley in relief, along with the figures of enslaved people sold at the house after his death.<ref name=":3" /><ref name=":4" />
+
+The President's House is the first stop on the Stories of African American Life at Princeton walking tour. The house also appears on the Princeton University Art Museum's mobile tour of Art and Slavery at Princeton.<ref>{{Cite web | url=https://artmuseum.princeton.edu/visit/campus-art/tours/art-slavery-princeton| title=Art and Slavery at Princeton| accessdate=2023-10-28}}</ref>
+
+== See also ==
+* [[List of National Historic Landmarks in New Jersey]]
+* [[National Register of Historic Places listings in Mercer County, New Jersey]]
+
+== References ==
+{{reflist|colwidth=30em}}
+
+==Further reading==
+* William K. Selden: ''Maclean House of Princeton University''. A National Historic Landmark. Little Book Series. Princeton University, Princetoniana, 2006 ([https://princetoniana.princeton.edu/sites/princetoniana/files/things-princeton/publications/LittleBookMacleanHouse.pdf Online-PDF]).
+
+==External links==
+{{commonscat|MacLean House (Princeton University)}}
+*{{HABS |survey=NJ-800 |id=nj0102 |title=John Witherspoon House, 166 Cherry Hill Road, Princeton, Mercer County, NJ |photos=9 |cap=1 |supp=yes}}
+*{{HABS |survey=NJ-801 |id=nj0101 |title=John Witherspoon Barn |photos=3 |cap=1 |supp=yes |link=no}}
+*{{HABS |survey=NJ-802 |id=nj0103 |title=John Witherspoon Springhouse |photos=1 |cap=1 |supp=yes |link=no}}
+
+{{Princeton}}
+{{Princeton, New Jersey}}
+{{NHLs in NJ}}
+{{NRHP in Mercer County, New Jersey}}
+
+[[Category:Houses completed in 1756]]
+[[Category:National Historic Landmarks in New Jersey]]
+[[Category:Historic American Buildings Survey in New Jersey]]
+[[Category:Houses in Princeton, New Jersey]]
+[[Category:Princeton University buildings and structures]]
+[[Category:National Register of Historic Places in Mercer County, New Jersey]]
+[[Category:New Jersey Register of Historic Places]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]
+[[Category:Homes of United States Founding Fathers]]
+[[Category:University and college presidents' houses in the United States]]

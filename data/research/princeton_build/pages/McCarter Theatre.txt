@@ -1,0 +1,96 @@
+{{more citations needed|date=June 2024}}
+{{Short description|Theater on the campus of Princeton University}}
+{{Infobox venue
+| name             = McCarter Theatre Center
+| native_name      = 
+| native_name_lang = <!-- ISO 639-2 code e.g. "fr" for French. If more than one, use {{lang}} instead -->
+| image            = McCarter Theatre Center, Princeton, New Jersey 2018.jpg
+| image_size       = 250px
+| image_alt        = 
+| image_caption    = The entrance of McCarter Theatre Center
+| image_map        = 
+| map_caption      = 
+| pushpin_map      = 
+| pushpin_caption  = 
+| address          = 91 University Place
+| city             = [[Princeton, New Jersey]]
+| country          = [[United States]]
+| designation      = 
+| coordinates      = {{coord|40|20|39.51|N|74|39|38.53|W|region:US-NJ|display=inline,title}}
+| architect        = 
+| owner            = [[Princeton University]]
+| tenants          = 
+| operator         = McCarter Theatre Center
+| capacity         = 
+| type             = [[Regional theater in the United States|Regional theater]]
+| opened           = February 21, 1930
+| reopened         = 
+| years_active     = 
+| rebuilt          = 
+| closed           = 
+| demolished       = 
+| nickname         = 
+| production       = 
+| current_use      = 
+| public_transit   = [[Princeton (NJT station)]]
+| website          = {{URL|www.mccarter.org}}
+}}
+
+[[Image:McCarter Theater auditorium Princeton.jpg|thumb|Main Auditorium of McCarter Theatre Center]]
+[[Image:McCarter Theater Princeton foyer.jpg|thumb|Foyers of McCarter Theatre Center]]
+'''McCarter Theatre Center''' is a not-for-profit, professional company on the campus of [[Princeton University]] in [[Princeton, New Jersey]]. It was incorporated as a nonprofit in 1963. A two-time Tony Award winner, the McCarter's legacy traces back to the theatre's first performances in 1930. [[Thornton Wilder]]'s ''[[Our Town]]'', [[George S. Kaufman|Kaufmann]] and [[Moss Hart|Hart]]'s ''You Can't Take It With You'', and [[William Inge]]'s [[Bus Stop (play)|''Bus Stop'']] all had their premieres on the McCarter stage.
+
+==History==
+Built as a permanent home for the [[Princeton University Triangle Club]] (who continue to perform at McCarter) with funds from [[Thomas N. McCarter]], class of 1888, McCarter Theatre opened on February 21, 1930, with a special performance of the 40th annual Triangle show, ''The Golden Dog''.<ref name=":0">{{Cite web |last=McCIeery |first=William |title=1930: McCarter Theater |url=https://www.princetonianamuseum.org/artifact/9b154e23-ff9a-4c86-9268-1d1f4e464003 |access-date=June 18, 2024 |website=Princetoniana Museum}}</ref> One of its stars was [[Joshua Logan]], then a junior, and sophomore [[James Stewart]] was in the chorus; both went on to international fame.
+
+During the 1930s, McCarter gained popularity as a pre-[[Broadway theatre|Broadway]] showcase, due to its large seating capacity, its 40-foot [[proscenium]] stage, and its short distance from New York. [[Thornton Wilder]]'s ''[[Our Town]]'' had its world premiere at McCarter, as did [[George S. Kaufman]] and [[Moss Hart]]'s ''[[You Can't Take It with You (play)|You Can't Take It with You]]'', [[James Thurber]] and [[Elliott Nugent]]'s ''The Male Animal'' (starring [[Gene Tierney]]), [[Philip Barry]]'s ''Without Love'' (starring [[Katharine Hepburn]]) and [[William Inge]]'s ''[[Bus Stop (William Inge play)|Bus Stop]]'' (starring [[Kim Stanley]] and [[Elaine Stritch]]).
+
+McCarter hosted the Princeton University Concerts for fifty years before they moved to Richardson Auditorium. The [[Philadelphia Orchestra]] began these concerts at McCarter in 1932, and the [[Cleveland Orchestra]], the [[New York Philharmonic]], [[Rudolf Serkin]], [[Jascha Heifetz]], [[Myra Hess]], [[Zino Francescatti]], and [[Gregor Piatigorsky]] followed, among others.<ref name=":0" />
+
+The first dancer to perform there was [[Ruth St. Denis]], who appeared in a solo evening on March 7, 1930, and returned that same fall with [[Ted Shawn]] and the full troupe of the pioneering Denishawn dancers. Few others of significance followed, except for a single performance in 1935 by the [[American Ballet]]"– the first troupe of dancers assembled in this country by an émigré Russian choreographer named [[George Balanchine]].
+
+In the post World War II years, Broadway dropped out-of-town try-outs, so that the theatre could no longer be self-supporting. In 1950, Princeton University and the Triangle Club agreed that the university should acquire the building and assume responsibility for its operating costs. The season 1960–1961 saw the establishment of a new company producing original work under the artistic direction of [[Ellis Rabb]]. Actors in the new company included [[Rosemary Harris]], [[Donald Moffat]], [[Frances Sternhagen]], and [[Edward Asner]].
+
+In 1963, Princeton University transferred its direct operation of McCarter to the McCarter Theatre Company, which was separately incorporated at that time. Executive Director Milton Lyon was followed most notably by [[Arthur Lithgow]], [[Michael Kahn (theatre director)|Michael Kahn]], and, in the role of artistic director, Nagle Jackson and [[Emily Mann (director)|Emily Mann]]. Mann's tenure as [[Artistic Director]] was notable for its emphasis on new work with playwrights including [[Athol Fugard]]. McCarter commissioned the production and premiered the performance of ''[[Vanya and Sonia and Masha and Spike]]'' by [[Christopher Durang]], which went on to win the 2013 [[Tony Award for Best Play]].<ref>{{Cite web|url=https://www.latimes.com/entertainment/envelope/la-et-cm-tony-awards-2013-nomination-list-story.html|title=Tony Awards 2013 winners and nominees: Complete list|date=30 April 2013|newspaper=[[Los Angeles Times]]|access-date=13 December 2021}}</ref><ref>{{Cite web |title='Vanya And Sonia And Masha And Spike' Wins Best Play At Tony Awards |url=https://www.cbsnews.com/newyork/news/vanya-and-sonia-and-masha-and-spike-wins-best-play-at-tony-awards/ |access-date=2022-07-18 |website=www.cbsnews.com |language=en-US}}</ref>
+
+In the 1990s and early 2000s McCarter underwent major renovations and expansions including construction of a smaller second theater adjacent to the main auditorium (the [[Roger Berlind|Roger S. Berlind]] Theater, named for the Princeton graduate and producer), allowing two productions to be mounted simultaneously.<ref>{{Cite web |last=Daniels |first=Robert L. |date=2000-03-06 |title=Glengarry Glen Ross |url=https://variety.com/2000/legit/reviews/glengarry-glen-ross-3-1200461397/ |access-date=2022-07-18 |website=Variety |language=en-US}}</ref> The Berlind Theater (completed 2003) was designed by theater architect [[Hugh Hardy]], who as a student had designed sets for productions by [[Theatre Intime]] and [[Princeton Triangle Club|Triangle Club]].<ref>{{Cite web |title=Lives: Hugh Hardy ’54 *56 {{!}} Princeton Alumni Weekly |url=https://paw.princeton.edu/article/lives-hugh-hardy-54-56 |access-date=2026-01-05 |website=paw.princeton.edu |language=en}}</ref><ref>{{Cite web |title=New Jersey's McCarter Officially Unveils New Roger Berlind Theatre {{!}} Playbill |url=http://www.playbill.com/article/new-jerseys-mccarter-officially-unveils-new-roger-berlind-theatre-com-115105 |archive-url=https://web.archive.org/web/20191210053846/http://www.playbill.com/article/new-jerseys-mccarter-officially-unveils-new-roger-berlind-theatre-com-115105 |archive-date=2019-12-10 |access-date=2026-01-05 |website=Playbill |language=en |url-status=live }}</ref>
+
+Artistic Director Sarah Rasmussen was appointed in late 2020; Executive Director Martin Miller joined the theatre in 2023. McCarter publicity claims that 100,000 community members participate in the company's work every year, among them 6,000 students.
+
+It is a member company of the [[New Jersey Theatre Alliance]].
+
+==Theater series==
+Under former [[Artistic Director]] [[Emily Mann (director)|Emily Mann]], noteworthy productions include the premieres of new [[Play (theatre)|plays]] by [[Athol Fugard]], [[Edward Albee]], [[Nilo Cruz]], [[Christopher Durang]], [[Regina Taylor]], [[Beth Henley]], [[Dael Orlandersmith]], [[Steven Dietz]], [[Marina Carr]], [[John Henry Redwood]], [[Eric Bogosian]], [[Theresa Rebeck]] and Emily Mann.  Many, including ''[[Having Our Say]]'', ''[[Anna in the Tropics]]'', ''[[Crowns (play)|Crowns]]'', ''[[Valley Song]]'' and ''[[Yellowman (play)|Yellowman]]'', have gone on to be some of the most frequently [[produce]]d plays in the [[Theater of the United States|American theater]].  In addition, McCarter is recognized for its re-investigations of the classic canon, including [[Stephen Wadsworth]]'s adaptations of plays by [[Marivaux]], [[David Leveaux]]'s production of ''[[Electra (Sophocles play)|Electra]]'', [[featuring]] [[Zoë Wanamaker]], and Emily Mann's adaptations of [[Anton Chekhov]]'s ''[[The Cherry Orchard]]'' and ''[[Uncle Vanya]]''.{{citation needed|date=May 2021}}
+
+Two of its 2006–2007 productions, ''[[Translations (play)|Translations]]'' and ''[[Radio Golf]],''<ref>{{Cite web |last=Sommer |first=Elyse |date=2007 |title=Radio Golf On Broadway |url=http://www.curtainup.com/radiogolfnj.html |access-date=June 18, 2024 |website=Curtain Up}}</ref> moved to Broadway, where they were nominated for [[Tony Award]]s.
+
+== References ==
+{{Reflist}}
+
+==External links==
+{{commons category}}
+* [http://www.mccarter.org/ McCarter Theatre official website]
+* {{IBDB name|109821}}
+* [https://www.princeton.edu/main/news/archive/S10/72/04S93/index.xml Firestone Library exhibition marks 75th anniversary of McCarter Theatre]
+* [http://archives.nypl.org/the/21443 McCarter Theatre production materials, 1994-2007], held by the Billy Rose Theatre Division, [[New York Public Library for the Performing Arts]]
+* [https://www.tapinto.net/towns/princeton/sections/arts-and-entertainment/articles/who-could-ever-replace-bill-lockwood-at-mccarter-meet-paula-abreu TAPinto Princeton article on appointment of Director of Special Programming Paula Abreu]
+* [https://www.americantheatre.org/2020/04/23/sarah-rasmussen-named-mccarter-theatre-artistic-director/ American Theatre Magazine article on appointment of Artistic Director Sarah Rasmussen]
+* [https://www.americantheatre.org/2023/06/28/exec-director-martin-miller-to-leave-theatresquared-for-mccarter/ American Theatre Magazine article on appointment of Executive Director Martin Miller]
+
+{{TonyAward RegionalTheatre 1976-2000}}
+{{Princeton}}
+{{Princeton, New Jersey}}
+
+{{authority control}}
+
+{{DEFAULTSORT:Mccarter Theatre}}
+[[Category:Theatres completed in 1930]]
+[[Category:1930 establishments in New Jersey]]
+[[Category:League of Resident Theatres]]
+[[Category:Princeton University buildings and structures]]
+[[Category:Regional theatre in the United States]]
+[[Category:Tony Award winners]]
+[[Category:Non-profit organizations based in Princeton, New Jersey]]
+[[Category:Theatres in New Jersey]]
+[[Category:Theatre companies in New Jersey]]
+[[Category:Tourist attractions in Mercer County, New Jersey]]

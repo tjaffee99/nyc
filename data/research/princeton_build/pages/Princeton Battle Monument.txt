@@ -1,0 +1,122 @@
+{{Short description|Monument in Princeton, New Jersey, US}}
+{{Use mdy dates|date=March 2025}}
+{{Infobox military memorial
+|name=Princeton Battle Monument
+|body=State of New Jersey
+|image=Battle of Princeton Monument.jpg
+|caption=
+|commemorates=The Battle of Princeton, 3 January 1777
+|location=[[Princeton, New Jersey]]
+|designer=[[Frederick William MacMonnies|Frederick MacMonnies]], [[Thomas Hastings (architect)|Thomas Hastings]]
+|inscription=Here memory lingers to recall the guiding mind whose daring plan outflanked the foe and turned dismay to hope when Washington, with swift resolve, marched through the night to fight at dawn and venture all in one victorious battle for our freedom.
+|established= <!-- {{Start date|YYYY|MM|DD}} -->
+|unveiled=1922
+|source=
+|embedded=
+{{Infobox NRHP
+ | embed = yes
+ | name = Princeton Battle Monument
+ | part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+ | part_of_ref_num = 75001143<ref>{{cite web|title=Princeton Historic District|url={{NRHP url|id=75001143}}|website=National Register of Historic Places|publisher=National Park Service}}</ref>
+ | nrhp_type = cp
+ | nocat = yes
+ | image = 
+ | alt = 
+ | caption = 
+ | coordinates = {{coord|40|20|52.1|N|74|39|57.1|W|display=inline,title}}
+ | pushpin_map = USA New Jersey Mercer County#New Jersey#USA
+ | map_alt = A map of Mercer County, New Jersey
+ | area =
+ | architect= 
+ | added = 27 June 1975
+ | governing_body = 
+ | mpsub=
+}}
+}}
+
+The '''Princeton Battle Monument''' is located in [[Borough of Princeton|Princeton, New Jersey]], adjacent to [[Morven (Princeton, New Jersey)|Morven]] and Princeton's borough hall.  The monument commemorates the January 3, 1777 [[Battle of Princeton]] and depicts [[George Washington|General George Washington]] leading his troops to victory and the death of [[Hugh Mercer|General Hugh Mercer]].  It stands {{convert|50|ft}} tall and was inspired by carvings on the [[Arc de Triomphe]] in [[Paris]].<ref>{{cite web|title=Princeton Historic District|url={{NRHP url|id=75001143}}|website=National Register of Historic Places|publisher=National Park Service}}</ref>  Designed to visually anchor the western end of [[Nassau Street (Princeton)|Nassau Street]], the monument and its park are a legacy of the [[City Beautiful movement]].
+
+==History==
+
+[[File:The Death of General Mercer at the Battle of Princeton January 3 1777.jpeg|thumb|left|''[[The Death of General Mercer at the Battle of Princeton, January 3, 1777]]'' by [[John Trumbull]]]]
+[[File:George Washington at Princeton.jpg|thumb|left|''[[Washington at Princeton]]'' by [[Charles Willson Peale]] (1779)]]
+
+===Design===
+[[File:President Harding dedicating the Princeton Battle Monument.png|thumb|right|President [[Warren G. Harding]] at the dedication of the monument]]
+An act of [[Congress of the United States|Congress]] on June 8, 1906, appropriated $30,000 to be given to the Princeton Battle Monument Association for the erection of a monument commemorating the Battle of Princeton.  The association, which dates back to 1887 and includes such local notables as [[Allan Marquand]] and [[Moses Taylor Pyne]], was required to match the $30,000 with an equal sum raised independently.<ref>{{cite book|last1=Marquand|first1=Allan|title=The Princeton Battle Monument|date=1922|publisher=Princeton University Press|location=Princeton|page=6|url=https://archive.org/stream/princetonbattl00prin/princetonbattl00prin_djvu.txt}}</ref>  On February 24, 1908, having raised the requisite funds, the association commissioned prominent [[Beaux-Arts architecture|Beaux Arts]] sculptor [[Frederick William MacMonnies|Frederick MacMonnies]] to build the monument.<ref>{{cite book|last1=United States. Army. Corps of Engineers|title=Report of the Chief of Engineers U.S. Army, Part 1|date=1912|location=Washington|publisher=U.S. Government Printing Office|page=1503|url=https://books.google.com/books?id=XZxIAAAAMAAJ&q=Princeton+Battle+Monument&pg=PA1503}}</ref>  The architectural design was done by [[Thomas Hastings (architect)|Thomas Hastings]] of the acclaimed firm [[Carrère and Hastings]].
+
+It was difficult to find an appropriate location for the monument, and it was first planned for the piece of land at the corner of Mercer and Nassau Streets.  That triangular plot was cleared of buildings in 1913 but ultimately used for the Princeton War Memorial. In 1914, a piece of property was donated by the Princeton Inn Company.  The Inn, which stood on the current location of the [[Borough of Princeton, New Jersey|Princeton Borough]] Hall, donated a {{convert|500|ft}} stretch of land between Bayard Lane and Morven, from Stockton Street north to the row of chestnut trees in front of the inn.  This property provided not only enough space for the monument and a park but also a highly visible location where the monument could stand at the end of a long vista from Nassau Street.<ref>{{cite news|title=Will Erect Monument on Site of Princeton Battle|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19171119-01.2.10&srpos=27&e=-------en-20--21--txt-txIN-Princeton+Battle+Monument------#|newspaper=The Daily Princetonian|date=November 19, 1917}}</ref>
+
+The MacMonnies design is a light-grey [[bas-relief]] with George Washington on horseback as the dominant figure.  Washington is depicted sternly refusing defeat and inspiring his battle-weary troops to victory.  Beneath Washington is a young woman personifying [[Columbia (name)|Liberty]], wearing a [[Phrygian cap]] and holding a banner to urge the soldiers onward.<ref>{{cite web |title=The Battle of Princeton, (sculpture) |url=https://siris-artinventories.si.edu/ipac20/ipac.jsp?&menu=search&index=.NW&term=IAS%20NJ000542 |work=Inventory of American Sculpture, Smithsonian Institution Research Information System|publisher=[[Smithsonian American Art Museum]]|quote=allegory, equestrian}}</ref><ref>{{cite book|last1=Collins|first1=Varnum Lansing|title=Guide to Princeton: The Town, the University|date=1919|publisher=Princeton University Press|location=Princeton|page=19|url=https://books.google.com/books?id=ooZDAQAAMAAJ&q=Harrison+Street+Princeton&pg=PA49}}</ref>  She is flanked by troopers and a [[Drummer boy (military)|drummer boy]] of the [[Continental Army]].<ref>{{cite journal|title=The Princeton Battle Monument|journal=Princeton Alumni Weekly|date=May 31, 1916|volume=16|issue=34|page=795|url=https://books.google.com/books?id=ThJbAAAAYAAJ&q=Battle+of+Princeton+Monument&pg=PA795}}</ref>  Beneath can be seen the death of General Mercer, after whom the local [[Mercer County, New Jersey|county]] would be named.  The structure was originally intended to be bronze and granite, but by 1918, it was decided that [[Indiana Limestone]] would be preferable.<ref>{{cite book|last1=United States. Army. Office of the Chief of Engineers|title=Report of the Chief of Engineers U.S. Army 1918, Part I|date=1922|publisher=Government Printing Office|location=Washington|page=1995|url=https://books.google.com/books?id=0qhTAAAAYAAJ&q=Princeton+Battle+Monument&pg=PA1995}}</ref>
+
+The monument, which was carved [[in situ]] by the [[Piccirilli Brothers]],<ref>Clark, Robert Judson, Frederick MacMonnies and the Princeton Battle Monument, Record of the Art Museum Princeton University, Volume 43 / Number 2 / 1984 p. 43</ref> was completed in 1922 and dedicated by [[Warren G. Harding|President Warren G. Harding]].  A 21-gun salute by the Princeton University [[Field Artillery]] [[Reserve Officers' Training Corps|ROTC]] and an invocation by the Right Reverend Paul Matthews, bishop of the [[Episcopal Diocese of New Jersey]], marked the festivities. The President received an honorary Doctor of Laws degree from [[Princeton University]] on the same day.<ref>{{cite news|title=Harding to Dedicate Monument Today; University Will Honor Chief Executive|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=Princetonian19220609-01.2.10&srpos=45&e=-------en-20--41-byDA-txt-txIN-%22Princeton+Battle+Monument%22------#|newspaper=The Daily Princetonian|date=June 9, 1922}}</ref>
+
+===Illumination and restoration===
+
+Nighttime illumination of the monument was part of the original plan for its construction, but it was only in 2007, 85 years after the completion of the monument, that the lighting work finally got underway after a successful fundraising effort by the Princeton Parks Alliance.  Charles Stone of the New York firm Fischer Marantz Stone designed the lighting scheme.  After years of neglect and unsuccessful restorations, the monument underwent professional conservation treatment in 2006 and 2007 as part of the State of New Jersey's historic preservation initiative. The treatment was carried out by Aegis Restauro, LLC, led by conservators Zbigniew Pietruszewski and Joanna Pietruszewski and Farewell, Mills and Gatsch Architects.<ref>{{cite web|title=Project: Princeton Battle Monument, Princeton, New Jersey|url=http://www.aegisrestauro.com/portfolios/conservation/project-overview.php?ProjectID=1|website=Aegis Restauro}}</ref> In September 2007, the Monument was ceremoniously rededicated when the lights were switched on for the first time.<ref>{{cite web|title=Projects: Public: Princeton Battle Monument|url=http://www.pdguild.com/projects/public/battle.html|website=Princeton Design Guild|access-date=2015-05-14|archive-url=https://web.archive.org/web/20150525153859/http://www.pdguild.com/projects/public/battle.html|archive-date=2015-05-25|url-status=dead}}</ref>
+
+In 2023, nonprofit Sustainable Princeton raised $36,000 to begin revitalizing the garden beds surrounding the monument and park. The purpose of the project was to clear the invasive species of plants and fill them with native species of flowers, shrubs, and grasses to beautify the area and educate the public and the importance of native species. The gardens are a Certified Wildlife Habitat and a Monarch Waystation.<ref>{{Cite web |title=Monument Park Garden Revitalization Project |url=https://www.sustainableprinceton.org/focus/protect-local-ecosystem/monumentpark/ |access-date=2025-11-05 |website=Sustainable Princeton |language=en-US}}</ref>
+In 2026, [[White nationalism|White Nationalist]] group [[United Youth Clubs|Atlantic Youth Club]] protested in front of the monument with other [[White supremacy|White Supremacist]] groups. The protest was condemned by Princeton mayor Mark Freda, saying "This is deplorable, and does not reflect the feelings or culture of Princeton"<ref>{{Cite web |last=Salvadore |first=Sarah |last2=Staff |first2=Patch |date=2026-08-31 |title=Masked ‘Keep New Jersey White’ Protesters March Through Affluent NJ Town |url=https://patch.com/new-jersey/princeton/groups-tied-white-supremacy-march-princeton-without-permit-police-say |access-date=2026-09-03 |website=Princeton, NJ Patch |language=en}}</ref>. New Jersey Senator [[Andrew Zwicker]] also condemned the protest saying "Some cowards in masks won't change the fact that our communities in Princeton and all across New Jersey are better because of our diversity. Any real New Jerseyan knows this, and anyone hateful enough to hold up a sign saying otherwise doesn't belong here".<ref>{{Cite news |date=2026-08-31 |title=Senator Andrew Zwicker (@AndrewZwicker) on X |url=https://x.com/AndrewZwicker/status/2094392822921101660 |access-date=2026-09-03 |work=X (formerly Twitter) |language=en-US}}</ref>  
+
+===Inscription===
+
+The inscription on the rear face of the monument, composed by [[Andrew Fleming West]], reads:
+<div class="center" style="width: auto; margin-left: auto; margin-right: auto;">
+<blockquote>
+''Here memory lingers to recall the guiding mind,'' <br> 
+''Whose daring plan outflanked the foe and turned dismay to hope,'' <br>
+''When Washington, with swift resolve, marched through the night,'' <br>
+''To fight at dawn and venture all in one victorious battle for our freedom.''
+</blockquote>
+</div>
+A [[Latin]] phrase reads:
+<div class="center" style="width: auto; margin-left: auto; margin-right: auto;">
+<blockquote>
+''Saecula Praetereunt Rapimur Nos Ultro Morantes Adsis Tu Patriae Saecula Qui Dirigis''<br>
+''The ages pass away.  We, too, though lingering, are hurried on.  O Thou who guides the ages, stay to guard our land.''
+</blockquote>
+</div>
+
+==Gallery==
+<gallery mode=packed heights=200px caption="The Monument and Park">
+File:Battle of Princeton Monuent south face.jpg|The south facade; the sides of the monument show the [[Great Seal of the United States|seal of the United States]] and the original [[Thirteen Colonies|thirteen colonies]].
+File:Princeton Battle Monument Mall.jpg|The mall leading to the monument, which aligns with Nassau Street.  The cherry trees are a modern addition and first bloomed in 2002.<ref>{{cite news|title=First Blooming|url=http://papersofprinceton.princeton.edu/princetonperiodicals/cgi-bin/princetonperiodicals?a=d&d=TownTopics20020417-01.2.191&srpos=2&e=-------en-20--1--txt-txIN-Princeton+Battle+Monument------#|newspaper=Town Topics|date=April 17, 2002}}</ref>
+File:Battle of Princeton Monument (rear).jpg|The rear face of the monument showing the inscription.
+File:Battle of Princeton Monument north face.jpg|The north facade, note the "[[File:Toxic.png|18px]] Or Liberty" at bottom center
+</gallery>
+<gallery mode=packed heights=164px caption="Statues in the Park">
+File:USS Princeton (1843) Bell.jpg|The bell of the first of six ships named [[USS Princeton (1843)|USS ''Princeton'']] in the [[U.S. Navy]], on board which occurred the explosion known as the [[USS Princeton disaster of 1844|USS ''Princeton'' disaster of 1844]]
+File:''The Little Vintner of Colmar'' by Frédéric Auguste Bartholdi (Princeton replica).jpg|A replica of ''The Little Vintner of Colmar'' by [[Frédéric Auguste Bartholdi]], given to Princeton in 1988 by its sister city, [[Colmar, France]]
+File:Bust of Albert Einstein (Princeton).jpg|Bust of [[Albert Einstein]], who lived in Princeton from his flight from Germany in 1933 until his death in 1955
+File:''Newspaper Reader'' by J. Seward Johnson Jr. (1975).jpg|The ''Newspaper Reader'' by [[John Seward Johnson II|J. Seward Johnson Jr.]] (1975)
+</gallery>
+
+==See also==
+{{commons category|Princeton Battle Monument}}
+*[[Battle of Princeton]]
+*[[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+*[[King's Highway Historic District (New Jersey)|King's Highway Historic District]]
+*[[List of statues of George Washington]]
+*[[List of sculptures of presidents of the United States]]
+
+==References==
+{{Reflist}}
+
+{{Princeton, New Jersey|state=collapsed}}
+{{George Washington}}
+{{Frederick William MacMonnies}}
+
+[[Category:American Revolutionary War monuments and memorials]]
+[[Category:American Revolutionary War sites]]
+[[Category:Buildings and structures in Princeton, New Jersey]]
+[[Category:Monuments and memorials in New Jersey]]
+[[Category:Outdoor sculptures in New Jersey]]
+[[Category:1922 sculptures]]
+[[Category:Stone sculptures in New Jersey]]
+[[Category:1922 establishments in New Jersey]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]
+[[Category:Sculptures by the Piccirilli Brothers]]
+[[Category:Statues of George Washington]]
+[[Category:Monuments and memorials to George Washington in the United States]]
+[[Category:Sculptures by Frederick William MacMonnies]]
+[[Category:Equestrian statues in New Jersey]]

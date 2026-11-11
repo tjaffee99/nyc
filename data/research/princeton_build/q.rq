@@ -1,0 +1,5 @@
+SELECT ?i ?l ?c ?inc ?op ?arch WHERE {
+ SERVICE wikibase:box { ?i wdt:P625 ?c . bd:serviceParam wikibase:cornerSouthWest "Point(-74.72 40.31)"^^geo:wktLiteral . bd:serviceParam wikibase:cornerNorthEast "Point(-74.60 40.40)"^^geo:wktLiteral }
+ OPTIONAL{?i wdt:P571 ?inc} OPTIONAL{?i wdt:P1619 ?op}
+ ?i rdfs:label ?l FILTER(lang(?l)="en")
+}

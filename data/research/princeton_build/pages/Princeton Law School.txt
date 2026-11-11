@@ -1,0 +1,73 @@
+{{Short description|19th-century department of the US university}}
+{{Use American English|date=September 2025}}
+{{Infobox NRHP
+| name            = Ivy Hall
+| nrhp_type       = cp
+| nocat           = yes
+| part_of         = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+| part_of_ref_num = 75001143
+| image           = Ivy Hall (Princeton).jpg
+| caption         = Ivy Hall, built to house the law school, later home to [[The Ivy Club]], to which it gave its name, and now home to the choir of [[Trinity Church, Princeton]]
+| location        = Mercer and Alexander St, [[Princeton, New Jersey]]
+| coordinates     = {{coord|40|20|48.2|N|74|39|53.5|W|display=inline,title}}
+| pushpin_map     = USA New Jersey Mercer County#New Jersey#USA
+| area            = 
+| built           = 1846
+| architect       = [[John Notman]]<ref>{{cite journal |last1=Dallett |first1=Francis James |title=John Notman, Architect |journal=The Princeton University Library Chronicle |date=1959 |volume=20 |issue=3 |page=133 |doi=10.2307/26403286 |url=https://www.jstor.org/stable/26403286 |access-date=15 November 2023|url-access=subscription }}</ref>
+| architecture    = [[Italianate architecture|Italianate]]
+| added           = June 27, 1975
+}}
+
+The '''Law School at the College of New Jersey''' (now [[Princeton University]]) was a department of Princeton University from 1847 until 1852.
+
+== History ==
+In the 1820s, an attempt was made to organize teaching in law, but this plan ended following the death of the designated professor.
+
+The Law School at the College of New Jersey began instruction in 1847 as a modest effort consisting of three professors: [[Joseph Coerten Hornblower]], [[Richard Stockton Field]], and [[James S. Green (New Jersey lawyer)|James S. Green]].<ref name=":0">{{Cite web |date=2014-10-13 |title=Is or was there a Princeton Law School? Not really! |url=https://universityarchives.princeton.edu/2014/10/is-or-was-there-a-princeton-law-school-not-really/ |access-date=2025-01-20 |website=University Archives |language=en-US}}</ref> Only seven students obtained a law degree before the school closed in 1852. The short-lived experiment was the furthest the university got in a recurring ambition, marked by varying levels of effort, to establish a [[law school]].
+
+In 1890, Princeton President [[Francis Landey Patton]] lamented that Princeton had faculties of philosophy and theology but needed to send Princeton graduates to [[Harvard Law School|Harvard]] or [[Columbia Law School|Columbia]] to study law.<ref name=":0" />
+
+From 1923 to 1925, the university once again formed appreciable plans for the start of a law school but abandoned the idea due to cost and financial risk.<ref name=":0" /> 
+
+In 1974, then president of Princeton, [[William G. Bowen]], selected a committee to investigate and advise on the achievability of a law school.<ref>{{Cite news |last=Times |first=Maxine Lipeles Special to The New York |date=1974-12-29 |title=Princeton Weighing Law School Plan |url=https://www.nytimes.com/1974/12/29/archives/princeton-weighing-law-school-plan-committee-appointed.html |access-date=2025-01-20 |work=The New York Times |language=en-US |issn=0362-4331}}</ref> The committee recommended plans for a law school be deferred after citing high construction costs.
+
+Besides Princeton, [[Brown University|Brown]] and [[Dartmouth College|Dartmouth]] are the two other [[Ivy League]] schools to lack a law school.
+
+== Law at Princeton University today ==
+Princeton University does not have a law school currently. Princeton, instead, focuses on the undergraduate educational experience.<ref>{{Cite web |last=Berger |first=Allison |date=2016-01-04 |title=A Lawless University: The History of Princeton Law {{!}} The Princeton Tory |url=https://www.theprincetontory.com/a-lawless-university-the-history-of-princeton-law/ |access-date=2026-03-31 |language=en-US}}</ref>
+
+However, through the University's [[Princeton School of Public and International Affairs]], Princeton maintains graduate programs in law and public policy.<ref>{{Cite web |title=Graduate Programs |url=https://spia.princeton.edu/academics/graduate-programs |access-date=2026-03-31 |website=Princeton School of Public and International Affairs |language=en}}</ref> In this program students can earn a [[Master of Public Affairs|Master in Public Affairs]] (M.P.A.), a [[Master of Public Policy|Master in Public Policy]] (M.P.P.), or a [[Doctor of Philosophy|Ph.D.]] in Public Affairs. There is also the possibility of enrolling in a joint degree program, where students can earn a [[Juris Doctor]] (J.D.) from collaborating universities.<ref>{{Cite web |title=Princeton School of Public and International Affairs {{!}} Graduate School |url=https://gradschool.princeton.edu/academics/degrees-requirements/fields-study/princeton-school-public-and-international-affairs |access-date=2026-03-31 |website=gradschool.princeton.edu |language=en}}</ref> 
+
+There is also the Program in Law and Public Policy (P•LAW) "faculty affiliates teach and publish widely on topics from constitutional law and U.S. history to criminal justice, technology and foreign relations, engaging the University, the Princeton community, and the general public about the many ways law impacts American life."<ref>{{Cite web |title=About {{!}} Program in Law and Public Policy |url=https://plaw.law.princeton.edu/about |access-date=2026-03-31 |website=plaw.law.princeton.edu |language=en}}</ref> Although this program teaches graduate and undergraduate coursework, via their scholars and fellowship programs, it does not award graduate degrees.<ref>{{Cite web |title=Students {{!}} Program in Law and Public Policy |url=https://plaw.law.princeton.edu/students |access-date=2026-03-31 |website=plaw.law.princeton.edu |language=en}}</ref>
+
+Though formally housed in the department of politics, [[Robert P. George]] also holds the title of McCormick Professor of [[Jurisprudence]].<ref>{{Cite web |title=Robert P. George {{!}} Princeton Politics |url=https://politics.princeton.edu/people/robert-p-george |access-date=2025-01-20 |website=politics.princeton.edu}}</ref>
+
+Princeton University does award honorary degrees of law. [[Sonia Sotomayor]], then Circuit Judge of the United States Court of Appeals for the Second Circuit and currently [[Associate Justice]] of the [[Supreme Court of the United States]], received an Honorary Doctor of Laws Degree from Princeton University.<ref>{{cite press release |title=Seven leaders in arts, humanities, sciences and public affairs receive honorary degrees |date=2001-06-05 |publisher=[[Princeton University]] |url=http://www.princeton.edu/pr/news/01/q2/0605-honorary.htm |access-date=2011-09-27}}</ref>
+
+==Mistaken and fictional references==
+At a press conference of law school deans in 1998 decrying the annual ''[[US News]]'' [[Law School Rankings]], then [[New York University School of Law]] Dean [[John Sexton]] quipped, "If they were asked about Princeton Law School, it would appear on the top 20 -- but it doesn't exist"<ref>{{Cite news |last=Hoffman |first=Jan |date=1998-02-19 |title=Judge Not, Law Schools Demand Of a Magazine That Ranks Them |url=https://www.nytimes.com/1998/02/19/nyregion/judge-not-law-schools-demand-of-a-magazine-that-ranks-them.html |access-date=2025-01-20 |work=The New York Times |language=en-US |issn=0362-4331}}</ref>  Sexton was denouncing the ''US News'' usage of reputation survey results from judges, lawyers and law school deans in its ranking formula, expressing doubt over the expertise of some surveyed.
+
+A 2003 ''[[National Review]] Online'' commentary blundered when the author, Candace de Russy, identified the law school at Princeton as real: "These yearnings are embodied in a doctrine called ‘transnational progressivism,’ which is gaining prominence in law schools, for example, at Princeton and [[Rutgers University|Rutgers]]".<ref>{{cite web|url=http://www.nationalreview.com/comment/comment-derussy040703.asp|archive-url=https://web.archive.org/web/20030407160708/http://www.nationalreview.com/comment/comment-derussy040703.asp|archive-date=2003-04-07|title=Liberate the Universities|access-date=2011-09-27|author=Candace de Russy|date=2003-04-07|work=[[National Review Online]]}}</ref>
+
+Similarly, during the [[Senate Judiciary Committee]] vote for [[Supreme Court of the United States|Supreme Court]] nominee [[Samuel Alito]], Sen. [[Dick Durbin|Richard Durbin]] attested that now Justice Alito hailed from "Princeton Law." Alito attended Princeton University for his undergraduate studies, but received his law degree from [[Yale Law School]].
+
+==References==
+<references/>
+
+==Sources==
+*{{cite book|author=Leitch, Alexander|title=A Princeton Companion| publisher=Princeton University Press|year=1978|isbn=0-691-04654-9}}
+
+==External links==
+*[https://blogs.princeton.edu/mudd/2014/10/is-or-was-there-a-princeton-law-school-not-really/ Is or was there a Princeton Law School? Not really!]
+*[http://etc.princeton.edu/CampusWWW/Companion/law_school.html Law School Excerpt from ''A Princeton Companion'']
+*[https://web.archive.org/web/20060205183332/http://www.umiacs.umd.edu/~wpwy/ "If Princeton Had a Law School"] - a poem
+{{Princeton}}
+
+{{authority control}}
+
+[[Category:Law schools in New Jersey]]
+[[Category:Princeton University]]
+[[Category:Defunct private universities and colleges in New Jersey]]
+[[Category:Buildings and structures in Princeton, New Jersey]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]
+[[Category:Defunct law schools]]

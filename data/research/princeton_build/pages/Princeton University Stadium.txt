@@ -1,0 +1,5 @@
+#REDIRECT [[Powers Field at Princeton Stadium]]
+
+{{Redirect category shell|
+{{R from move}}
+}}

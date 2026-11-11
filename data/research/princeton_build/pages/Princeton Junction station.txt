@@ -1,0 +1,140 @@
+{{Short description|NJ Transit and Amtrak station}}
+{{Use American English|date=February 2025}}
+{{Use mdy dates|date=May 2023}}
+{{Infobox station
+| name = Princeton Junction<br />{{small|at West Windsor}}
+| style = NJ Transit
+| image = Princeton---Princeton-Junction---Train-Station---Platform---(Gentry).jpg
+| caption = Princeton Junction station in 2006
+| address = 2 Wallace Circle
+| borough = [[Princeton Junction, New Jersey]]
+| country = United States
+| coordinates = {{coord|40.3167|-74.6233|region:US-NJ_type:railwaystation|display=inline,title}}
+| owner = [[New Jersey Transit]]
+| line = [[Amtrak]] [[Northeast Corridor]]<br />NJ Transit [[Princeton Branch]] <!-- the physical "line" is not the same as "services" which are detailed below -->
+| platform = 3 [[side platform]]s
+| tracks = 4 (Northeast Corridor)<br>1 (Princeton Branch)
+| connections = {{Unbulleted list
+ | {{bus icon}} [[NJ Transit Bus]]: {{NJ bus link|600|612}}
+ | {{bus icon}} [[Tiger Transit]]: {{Princeton bus link|Route 4}}
+ }}
+| parking = 4,161 spaces<ref>{{cite web |url=http://www.njtransit.com/rg/rg_servlet.srv?hdnPageAction=TrainStationLookupFrom&selStation=125 |title=Princeton Junction |publisher=New Jersey Transit |access-date=December 17, 2016 |archive-date=September 22, 2019 |archive-url=https://web.archive.org/web/20190922013834/https://www.njtransit.com/rg/rg_servlet.srv?hdnPageAction=TrainStationLookupFrom&selStation=125 |url-status=dead }}</ref>
+| cyclepark = 
+| accessible = Yes
+| code = {{Amtrak code|PJC}}
+| iata = ZTJ
+| zone = 19 (NJT)<ref name="timetables">{{Cite web |url=http://www.njtransit.com/pdf/rail/R0070.pdf |title=Northeast Corridor Timetables |publisher=[[New Jersey Transit Rail Operations]] |access-date=November 27, 2010}}</ref>
+| opened = November&nbsp;23, 1863<ref name="1863baer" />
+| electrified = January&nbsp;16, 1933<ref>{{cite news |title=P.R.R. Opens Electric Service Between N.Y. and Phila. Today |url=https://www.newspapers.com/clip/69040597/trenton-electric-january-16-1933/ |access-date=January 31, 2021 |work=[[The Courier-Post]] |date=January 16, 1933 |location=[[Camden, New Jersey]] |page=3|via=[[Newspapers.com]]}} </ref> (partial service)<br />February&nbsp;1, 1933<ref>{{cite news |title=Electric Service Line Wednesday |url=https://www.newspapers.com/clip/69039494/nbk-to-tre-electric-january-29-1933/ |access-date=January 31, 2021 |work=[[The Home News Tribune|The Sunday Times]] |date=January 29, 1933 |location=[[New Brunswick, New Jersey]] |pages=1–[https://www.newspapers.com/clip/69039543/nbk-to-tre-part-2-january-29-1933/ 2]|via=[[Newspapers.com]]}} </ref> (full service)
+| rebuilt = 
+| years1 = December 27, 1953
+| events1 = Station depot burned<ref name="1953fire">{{cite news |title=P.R.R. Station Burns to Ground |url=https://www.newspapers.com/clip/33504476/princeton_junction_december_28_1953/ |access-date=July 3, 2019 |work=The Daily Home News |date=December 28, 1953 |page=4|via=[[Newspapers.com]]}} </ref>
+| mpassengers = {{railpassnum |system={{rint|njt}} NJ Transit |passengers={{NJT rail ridership|Princeton Junction|ridership}}|pass_rank={{NJT rail ridership|Princeton Junction|rank}} |pass_year={{NJT rail ridership|Princeton Junction|year}} |pass_percent=}}
+{{railpassnum|system={{rint|us|amtrak}} Amtrak|passengers={{Amtrak ridership|Princeton Junction}} annually{{Amtrak ridership|citationNJ}}|pass_year={{Amtrak ridership|date}}}}
+| services = {{Adjacent stations|system1=Amtrak
+|line1=Carolinian|left1=Trenton|right1=New Brunswick|oneway-right1=true
+|line2=Keystone Service|left2=Trenton|right2=New Brunswick|note-mid2=Limited service
+|line3=Northeast Regional|left3=Trenton|right3=New Brunswick
+|line4=Acela|nonstop4=yes
+|line5=Cardinal|nonstop5=yes
+|line6=Crescent|nonstop6=yes
+|line7=Palmetto|nonstop7=yes
+|line8=Pennsylvanian|nonstop8=yes
+|line9=Silver Meteor|nonstop9=yes
+|line10=Vermonter|nonstop10=yes
+|system11=NJ Transit
+|line11=Northeast Corridor|left11=Hamilton|right11=Jersey Avenue|note-right11=weekdays
+|line12=Princeton|left12=Princeton
+}}
+| other_services_collapsible = yes
+| other_services_header = Former services
+| other_services = {{Adjacent stations|system1=Pennsylvania Railroad
+|line2=main|left2=Trenton|right2=Plainsboro
+|line3=Princeton Branch|left3=Penns Neck
+|system4=Amtrak
+|line5=Crescent|left5=Trenton|right5=New Brunswick|oneway-left5=yes,
+|line6=Pennsylvanian|left6=Trenton|right6=Newark, New Jersey
+}}
+| mapframe = yes
+| mapframe-zoom = 12
+| mapframe-marker-color = #000
+| mapframe-marker = rail
+}}
+
+'''Princeton Junction station''' (signed as '''Princeton Junction at West Windsor''') is a railroad station in [[Princeton Junction, New Jersey|Princeton Junction]], a section of [[West Windsor Township, New Jersey|West Windsor Township]], [[Mercer County, New Jersey]]. The station services both [[NJ Transit|New Jersey Transit]]'s [[Northeast Corridor Line]] and [[Princeton Branch]] services along with the {{lnl|Amtrak|Carolinian}}, ''[[Keystone Service]]'', and ''[[Northeast Regional]]'' and  of [[Amtrak]]. Other Amtrak services bypass the station. Princeton Junction station contains two high-level [[side platforms]] to service Northeast Corridor Line and Amtrak services, which use the four mainline tracks. There is also a single high-level side platform and a single track that services the Princeton Branch.
+
+Service at Princeton Junction began on November&nbsp;23, 1863, when a single track of a new alignment of the [[Camden and Amboy Railroad]] opened between [[Trenton Transit Center|Clinton Street station]] in [[Trenton, New Jersey|Trenton]] and the Deans Pond section of [[South Brunswick, New Jersey|South Brunswick]] in [[Middlesex County, New Jersey|Middlesex County]], replacing main line service through downtown [[Princeton, New Jersey|Princeton]]. Service on the branch line to replace it began on May&nbsp;29, 1865. The first station depot built at Princeton Junction burned down in a fire on August&nbsp;7, 1892. The new station depot that replaced it in 1893 came down in another fire, this one on December&nbsp;27, 1953. The current station was built in the 1980s.
+
+== History ==
+=== Construction and first fire (1863&ndash;1893) ===
+Railroad service through [[West Windsor, New Jersey|West Windsor]] dates back to the realignment of the [[Camden and Amboy Railroad]] from [[Princeton, New Jersey|Princeton]] via [[Kingston, New Jersey|Kingston]]. The railroad closed bids for a new direct line between the [[Deans, New Jersey|Deans Pond section]] of [[South Brunswick, New Jersey|South Brunswick]] on April&nbsp;13, 1863. Construction re-started in June&nbsp;1863. The first train crossed this stretch on November&nbsp;23, when a single track opened between [[Trenton Transit Center|Clinton Street station]] in Trenton and Deans Pond.<ref name="1863baer">{{cite web |last=Baer |first=Christopher T. |url=http://www.prrths.com/newprr_files/Hagley/PRR1863.pdf |title=A General Chronology of the Pennsylvania Railroad Company, Its Predecessors and Successors and Its Historical Context: 1863 |publisher=[[Pennsylvania Railroad Technical & Historical Society]] |date=April 2015 |accessdate=February 17, 2025|pages=29, 52, 96}}</ref> A new station called Princeton Junction opened with this new line and a new stagecoach was approved to bring people from Princeton to the new rail alignment in January&nbsp;1864. The railroad approved a new branch to Princeton on April&nbsp;25, 1864, purchasing a new rail car for the line on September&nbsp;26. The second track opened on September&nbsp;26, 1864, eliminating all but one train via Kingston. The railroad would offer a horse-drawn omnibus service to Princeton from Princeton Junction.<ref>{{cite web |last=Baer |first=Christopher T. |url=http://www.prrths.com/newprr_files/Hagley/PRR1864.pdf |title=A General Chronology of the Pennsylvania Railroad Company, Its Predecessors and Successors and Its Historical Context: 1864 |publisher=[[Pennsylvania Railroad Technical & Historical Society]] |date=April 2015 |accessdate=February 17, 2025|pages=3, 31, 32, 74}}</ref> The new Princeton Branch opened on May&nbsp;29, 1865, eliminating the omnibus service and passenger service via Kingston. The alignment between Princeton and Trenton was removed in June&nbsp;1865 and by September, the entire line to Kingston had been removed. That same month, the railroad built a new turntable and a freight depot at Princeton Junction to facilitate smoother service on the branch.<ref>{{cite web |last=Baer |first=Christopher T. |url=http://www.prrths.com/newprr_files/Hagley/PRR1865.pdf |title=A General Chronology of the Pennsylvania Railroad Company, Its Predecessors and Successors and Its Historical Context: 1865 |publisher=[[Pennsylvania Railroad Technical & Historical Society]] |date=April 2015 |accessdate=February 17, 2025|pages=42, 54, 66}}</ref>
+
+The original station depot at Princeton Junction, built in 1865, caught fire on the morning of August&nbsp;7, 1892. The fire resulted in the complete demolition of the station depot and everything inside it. No source was found for the fire in a following investigation. The railroad announced that they would replace the station depot.<ref>{{cite news |title=A Station Burned |url=https://www.newspapers.com/article/monmouth-democrat-princeton-junction-au/166112307/ |access-date=February 18, 2025 |work=[[Monmouth Democrat]] |agency=True American |date=August 11, 1892 |page=2|via=[[Newspapers.com]]}}</ref> By December&nbsp;1892, the railroad announced that the new station depot would be a three-story tall brick building with a hardwood interior with then-modern conveniences for passengers.<ref>{{cite news |title=Princeton Junction is to be favored with a new station... |url=https://www.newspapers.com/article/the-daily-times-princeton-junction-dece/166112549/ |access-date=February 18, 2025 |work=[[The Home News Tribune|The Daily Times]] |date=December 14, 1892 |location=[[New Brunswick, New Jersey]] |page=2|via=[[Newspapers.com]]}}</ref> The new station opened in 1893.<ref>{{cite web |last=Baer |first=Christopher T. |url=http://www.prrths.com/newprr_files/Hagley/PRR1893.pdf |title=A General Chronology of the Pennsylvania Railroad Company, Its Predecessors and Successors and Its Historical Context: 1893 |publisher=[[Pennsylvania Railroad Technical & Historical Society]] |date=April 2015 |accessdate=February 18, 2025|page=100}}</ref>
+
+=== Death of Charles Rogers (1913&ndash;1916) ===
+The condition of the tracks at Princeton Junction became a problem with the death of a local cement contractor, Charles Rogers, of [[Bradley Beach, New Jersey|Bradley Beach]] in [[Monmouth County, New Jersey|Monmouth County]]. On June&nbsp;13, 1913, Rogers was on his way back to the farm in the area that he had purchased for the family. His wife was waiting for him on a platform nearby to get him to the family wagon to the farm. After departing his train, Rogers stepped across the tracks to access a telephone and was struck by a nearby freight train. The station had a physical grade crossing near the station depot that provided access to a nearby hotel, where the telephone was located. Due to some freight cars on a siding at the station, Rogers' view was inhibited of the oncoming freight. After being crushed, his wife passed out on the platform and taken for emergency medical care. The [[Mercer County, New Jersey|Mercer County Coroner]] informed her of her husband's death and she was taken by automobile to Princeton where the family wagon would meet her.<ref>{{cite news |title=Charles A. Rogers is Crushed Under Train |url=https://www.newspapers.com/article/asbury-park-press-rogers-accident-june/166114768/ |access-date=February 18, 2025 |work=[[The Asbury Park Press|Asbury Park Evening Press]] |date=June 14, 1913 |page=1|via=[[Newspapers.com]]}}</ref>
+
+A coroner's hearing held on June&nbsp;21 declared that the railroad was responsible for the death of Rogers because of the grade crossing. The railroad had left the grade crossing unstaffed and that if someone had been watching the tracks at the crossing, Rogers' death would have been prevented. The coroner's hearing also recommended that the railroad should build a tunnel under the tracks to prevent a repeat of the same type of incident.<ref>{{cite news |title=Railroad Responsible for Death |url=https://www.newspapers.com/article/the-freehold-transcript-and-the-monmouth/166115042/ |access-date=February 18, 2025 |work=The Freehold Transcript |date=June 27, 1913 |page=8|via=[[Newspapers.com]]}}</ref> Lena Rogers sued the railroad in the [[Supreme Court of New Jersey]] in January&nbsp;1914 for $25,000 for the death of her husband.<ref>{{cite news |title=Sues Railroad for $25,000 |url=https://www.newspapers.com/article/the-freehold-transcript-and-the-monmouth/166115558/ |access-date=February 18, 2025 |work=The Freehold Transcript |date=January 2, 1914 |page=6|via=[[Newspapers.com]]}}</ref> Trial began on March&nbsp;3, 1916, after the railroad's petition to dismiss was denied by the judge. The railroad claimed that Rogers had not performed due diligence before crossing the tracks for the telephone.<ref>{{cite news |title=Refuse Non-Suit in Favor R.R. |url=https://www.newspapers.com/article/trenton-evening-times-rogers-suit-march/166116297/ |access-date=February 18, 2025 |work=Trenton Evening Times |date=March 3, 1916 |page=1|via=[[Newspapers.com]]}}</ref> On March&nbsp;7, the court ruled that the railroad would have to pay Rogers' estate $5,000 due to the negligence of the railroad, one-fifth of what was asked by the Rogers family.<ref>{{cite news |title=Must Pay $5,000 for Death of Man |url=https://www.newspapers.com/article/trenton-evening-times-charles-rogers-ma/166116798/ |access-date=February 18, 2025 |work=Trenton Evening Times |date=March 8, 1916 |page=10|via=[[Newspapers.com]]}}</ref>
+
+=== Second fire, decline and rebuilding (1953&ndash;1986) ===
+[[File:Metroliner passing through Princeton Junction station, December 1978.jpg|thumb|left|Amtrak ''Metroliner'' passing through the station in 1978]]
+The second fire to ravage a station depot at Princeton Junction occurred on December&nbsp;27, 1953. The caretaker, Virginia Worillow, a 62-year old lady, was rescued from the depot by the [[New Jersey State Police]] and a local fire department. Worillow noted that mice had a habit of biting through electrical wires at Princeton Junction station, leading to a fire several years prior. This time, the entire depot was demolished and her dog was killed in the fire.<ref name="1953fire" /> In January&nbsp;1955, the Pennsylvania Railroad announced that they would remove one track from the Princeton Branch and some of the yard tracks at the Princeton Yard. All the yard tracks would be turned over to [[Princeton University]] and cut $10,000 from their taxes. Their intent was to keep operating the service but just with one track.<ref>{{cite news |title=Removal of Tracks Should Cut Taxes in New Jersey-PRR |url=https://www.newspapers.com/article/the-freehold-transcript-and-the-monmouth/166281241/ |access-date=February 20, 2025 |work=The Freehold Transcript |date=January 13, 1955 |page=3|via=[[Newspapers.com]]}}</ref>
+
+In 1965, a prototype for the high-speed [[Budd Metroliner|Metroliner]] passed through the station at the record speed (at that time) of {{convert|164|mph}} on a short demonstration run. Very few sections of the Northeast Corridor were capable of handling that speed, and most had to be upgraded before Penn Central's ''Metroliner'' service was introduced in 1969. A speed of {{Convert|170.8|mph|km/h|abbr=on}} was achieved on the same portion of the track on December 20, 1967, when the U.S.-built [[UAC TurboTrain]] set the rail speed record in North America. A plaque at the station commemorates the event.<ref>{{Cite web |url=https://ewh.ieee.org/cmte/asmeltc/hsr_plaque.htm |title=Dedication of plaque commemorating high speed rail in America |website=National Capital Land Transportation Committee}}</ref><ref>{{Cite web |url=http://www.ns3010.rrpicturearchives.net/showPicture.aspx?id=891806 |title=High speed rail commemorative plaque in Princeton Junction station |website=www.ns3010 .rrpicturearchives.net}}</ref>
+
+In June&nbsp;1983, [[NJ Transit|New Jersey Transit]] purchased 12 active and four closed stations from [[Amtrak]] along the line, including Princeton Junction for $408,000.<ref>{{cite news |last1=Baehr |first1=Guy T. |title=NJ Transit Buys Stations From Amtrak |url=https://www.newspapers.com/article/the-star-ledger-nj-transit-june-12-198/166282678/ |access-date=February 20, 2025 |work=[[The Star-Ledger]] |date=June 12, 1983 |location=[[Newark, New Jersey]] |page=36|via=[[Newspapers.com]]}}</ref> In September&nbsp;1986, West Windsor Township agreed to lease the station from NJ Transit through 1991, with options to extend the agreement. West Windsor would implement its own parking system and 650 parking spaces would be added to the station for the 4,000 commuters of NJ Transit and Amtrak that used the station.<ref>{{cite news |title=3 Towns Join Program to Lease Rail Stations |url=https://www.newspapers.com/article/asbury-park-press-princeton-junction-se/166282879/ |access-date=February 20, 2025 |work=[[The Asbury Park Press]] |date=September 26, 1986 |page=C17|via=[[Newspapers.com]]}}</ref>
+
+Amtrak began experimental service at Princeton Junction on April&nbsp;28, 1986, with ''Metroliner'' train 101 from [[Pennsylvania Station (New York)|New York Penn Station]] stopping at 6:41&nbsp;a.m. on its way to [[Washington Union Station]]. A northbound ''Metroliner'' from Washington Union would stop at Princeton Junction at 7:06&nbsp;p.m. Amtrak's experimental service was because the area had growth that the rail organization wanted to tap into. The installation of high-level [[side platforms]] at Princeton Junction also aided in their decision making.<ref>{{cite news |title=Princeton Stop for Amtrak |url=https://www.newspapers.com/article/the-star-ledger-princeton-junction-amtra/166283617/ |access-date=February 20, 2025 |work=[[The Star-Ledger]] |date=April 26, 1986 |location=[[Newark, New Jersey]] |page=7|via=[[Newspapers.com]]}}</ref>
+
+=== Recent history ===
+The present station house was built in 1987.<ref>{{cite web |url=http://www.greatamericanstations.com/Stations/PJC/Station_view |title=Princeton Junction, NJ |website=Great American Stations |access-date=April 27, 2016|publisher=[[Amtrak]]}}</ref> Most of Amtrak's Princeton Junction service prior to 2005 was [[Clocker (train)|''Clocker'']] service commuter traffic to New York, [[Newark, New Jersey|Newark]], or [[Philadelphia]]. On October 28, 2005, the ''Clockers'' were replaced by NJT trains that run only as far south as Trenton.<ref>{{cite news |title=NJ Transit Adds Service With Changes |url=https://www.newspapers.com/article/town-news-nj-transit-october-26-2005/165341743/ |access-date=February 12, 2025 |work=Town News |date=October 26, 2005 |location=[[Paramus, New Jersey]] |page=A45|via=[[Newspapers.com]]}}</ref>
+
+The northbound ''Crescent'' stopped here from November 24, 2022, to July 4, 2023.<ref>{{cite web|url=https://juckins.net/amtrak_timetables/archive/timetables_Crescent_20230704_external.pdf|title=AMTRAK'S CRESCENT|publisher=Rail Passenger's Association|date=July 4, 2023}}</ref><ref>{{cite web|url=https://juckins.net/amtrak_timetables/archive/timetables_Crescent_20221207_external.pdf|title=AMTRAK'S CRESCENT|publisher=Rail Passenger's Association|date=December 7, 2022}}</ref> On October&nbsp;13, 2023, Amtrak announced Princeton Junction station, along with [[New Brunswick station]], would receive upgraded service due to increased demand.<ref name="nb/pj2023">{{cite press release|url=https://media.amtrak.com/2023/10/new-brunswick-princeton-junction-service-increase/|title=Amtrak Adds More Service for Customers at New Brunswick and Princeton Junction|publisher=[[Amtrak]]|date=October 13, 2023|accessdate=October 14, 2023}}</ref>
+<!--
+[[Albert Einstein]], who lived at [[Albert Einstein House|112 Mercer Street in Princeton]], used to enjoy sitting at the station and watching the trains go by.<ref>{{Cite news |url=http://www.nj.com/news/index.ssf/2010/07/quicker_cheaper_bus_may_replac.html |title=Proposal to replace Princeton's longtime 'Dinky' train with bus line saddens sentimental locals |last=Frassinelli |first=Mike |date=July 17, 2010 |work=The Star-Ledger |access-date=May 9, 2012}}</ref> More than once, he employed trains to explain the practical effects of his [[General relativity|General Theory of Relativity]].
+
+-->
+
+== Service and station layout ==
+The station has two high-level [[side platform]]s for main Northeast Corridor service, along with a single side platform for the Princeton Branch services. Most of [[Amtrak]]'s [[Northeast Corridor]] lines bypass the station via the inner tracks, except for select ''Keystone Service'' and ''Northeast Regional'' trains and the weekday southbound ''Palmetto.''<ref>{{Cite web |url=http://www.amtrak.com/servlet/ContentServer?c=AM_Alert_C&pagename=am%2FAM_Alert_C%2FAlerts_Popup&cid=1251629528528 |title=Amtrak – Service Alert |access-date=November 6, 2015 |archive-url=https://web.archive.org/web/20151106233943/http://www.amtrak.com/servlet/ContentServer?c=AM_Alert_C&pagename=am%2FAM_Alert_C%2FAlerts_Popup&cid=1251629528528 |archive-date=November 6, 2015 |url-status=live }}</ref> The next northbound station is {{stl|NJ Transit|Jersey Avenue}}, but all northbound trains originating in Trenton skip this station and service {{stl|NJ Transit|New Brunswick}}, with other trains originating at Jersey Avenue.
+
+[[File:Penn Central EMU Class MP54 -698, The Dinky, the dinky on the Princeton Branch at Princeton Jct on August 1971 (24513832259).jpg|thumb|left|Princeton Branch "Dinky" in 1971]]
+As of 2017, Princeton Junction was the 6th-busiest station in the [[NJ Transit Rail Operations|NJ Transit rail system]], with an average of 6,817 weekday boardings.<ref name="NJT ridership">{{cite news |url=https://patch.com/new-jersey/livingston/here-are-new-jersey-transit-s-most-least-used-train-stations |title=Here Are New Jersey Transit's Most, Least-Used Train Stations |first=Eric |last=Kiefer |publisher=Patch.com |date=February 21, 2018 |access-date=October 15, 2018}}</ref> In addition to the [[Northeast Corridor Line]], NJT operates a {{convert|2.7|mi|adj=on}} spur line, the [[Princeton Branch]], to [[Princeton station (NJ Transit)|Princeton station]] located at the [[Princeton University]] campus in [[Princeton, New Jersey|Princeton]]. The shuttle is colloquially known as the "Dinky",<ref>{{cite web|title=Princeton University: Train Travel|url=http://www.princeton.edu/pr/visitors/traintravel.shtml|publisher=Princeton University|access-date=October 9, 2011}}</ref> and has also been known as the "PJ&B" (for "Princeton Junction and Back").<ref>{{Cite book |url=http://www.railpace.com/store/njt_book.htm |title=NJ Transit Rail Operations |last1=Rosenbaum |first1=Joel |last2=Gallo |first2=Tom |publisher=Railpace Newsmagazine |year=1997 |access-date=October 9, 2011 |archive-url=https://web.archive.org/web/20111003090513/http://www.railpace.com/store/njt_book.htm |archive-date=October 3, 2011 |url-status=dead }}</ref> Two train cars, or sometimes just one, are used. A single [[railroad switch|switch]] connects the branch to the Northeast Corridor tracks north of the station.
+
+Service on the Princeton Branch was suspended from October 14, 2018, through May 11, 2019, replaced by shuttle buses, as part of NJT's systemwide service reductions during the installation and testing of [[positive train control]].<ref>{{cite news |last1=McGeehan |first1=Patrick |title=For New Jersey Rail Commuters, a Bad Situation Is About to Get Worse |url=https://www.nytimes.com/2018/09/20/nyregion/nj-transit-trains.html |access-date=October 15, 2018 |newspaper=The New York Times |date=September 20, 2018}}</ref><ref>{{cite press release |title=Governor Murphy, NJ Transit Announce ACRL and Princeton Dinky to Resume May 12th |url=https://www.njtransit.com/tm/tm_servlet.srv?hdnPageAction=PressReleaseTo&PRESS_RELEASE_ID=3289 |publisher=New Jersey Transit |date=April 17, 2019 |access-date=May 1, 2019 |archive-date=November 2, 2019 |archive-url=https://web.archive.org/web/20191102163405/https://www.njtransit.com/tm/tm_servlet.srv?hdnPageAction=PressReleaseTo&PRESS_RELEASE_ID=3289 |url-status=dead }}</ref>
+
+Amtrak provides two early-morning trains to [[Washington, D.C.]], and two evening returns, as well as one morning train to [[Harrisburg, Pennsylvania]] and one evening return, all of which stop at [[Philadelphia]]. Many more Amtrak trains stop at the nearby [[Trenton Transit Center]]. Until 2007, all Amtrak ''[[Pennsylvanian (train)|Pennsylvanian]]'' trains stopped at Princeton Junction. The southbound Amtrak ''[[Palmetto (train)|Palmetto]]'' began stopping in Princeton Junction on weekdays in October 2015.
+
+=== Transit village ===
+Princeton Junction has been designated the core of the West Windsor [[transit village]], a [[smart growth]] initiative to promote [[transit-oriented development]] which can include government incentives to encourage compact, higher density, mixed-use development within walking distance of the station.<ref>{{Cite press release |title=West Windsor gains Transit Village designation Township becomes 24th Transit Village in New Jersey |date=January 5, 2012 |publisher=NJDOT |url=http://www.state.nj.us/transportation/about/press/2012/010512.shtm |access-date=May 25, 2012}}</ref> Development adjacent to the station permits higher densities and will include retail end entertainment elements.<ref>{{Cite news |url=https://www.nytimes.com/2011/10/09/realestate/new-jersey-in-the-region-creating-urbanism-in-a-suburb.html |title=An Unofficial Transit Village |date=October 9, 2011 |last=Martin |first=Antoinette |work=The New York Times |access-date=April 27, 2016}}</ref>
+
+{{clear left}}
+
+[[File:NJ Transit Princeton shuttle, aka The Dinky (27783912318).jpg|thumb|The platform for the "Dinky"]]
+
+== References ==
+{{Reflist}}
+
+== External links ==
+{{Commons category}}
+{{Amtrak web|PJC|Princeton Junction, NJ}}
+{{NJT links}}
+*[http://www.westwindsorpa.com/ West Windsor Parking Authority]
+*[http://www.trainweb.org/usarail/princetonjunction.htm Princeton Junction Amtrak & New Jersey Transit Station (USA RailGuide – TrainWeb)]
+*[https://maps.google.com/?ie=UTF8&ll=40.315713,-74.623026&spn=0.003869,0.013679&z=17&layer=c&cbll=40.315713,-74.623026&panoid=xCBA4EU2AuK7PZQi1OYdyA&cbp=12,291.28,,0,-2.76 Station from Google Maps Street View]
+
+{{Amtrak New Jersey stations}}
+{{NJT stations navbox}}
+{{PRR Main Line stations}}
+{{Pennsylvania Railroad New York Division stations|state=collapsed}}
+
+[[Category:NJ Transit Rail Operations stations]]
+[[Category:Stations on the Northeast Corridor]]
+[[Category:Amtrak stations in New Jersey]]
+[[Category:Railway stations in Mercer County, New Jersey]]
+[[Category:Rail junctions in the United States]]
+[[Category:Railway stations in the United States opened in 1863]]
+[[Category:West Windsor, New Jersey]]
+[[Category:Stations on the Princeton Branch]]
+[[Category:Former Pennsylvania Railroad stations]]
+[[Category:1863 establishments in New Jersey]]

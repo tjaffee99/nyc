@@ -1,0 +1,86 @@
+{{Use American English|date=August 2025}}{{Use mdy dates|date=January 2025}}
+{{Infobox hospital
+<!-- All parameters and comments should be left intact for future editors -->
+<!-- All parameters are optional, but please copy the entire template -->
+<!-- Full documentation: http://en.wikipedia.org/wiki/Template:Infobox_hospital -->
+| name = Princeton Medical Center
+| org_group = [[University of Pennsylvania Health System|Penn Medicine]] (Princeton Health)
+| logo = Penn Med PMC logo.svg
+| logo_size = 300<!-- logo size or width in pixels -->
+| image = Penn Medicine Princeton Medical Center East Side.jpg
+| image_size = 300 <!-- image size or width in pixels (225 matches default map_size) -->
+| alt = <!-- alternative text for image, see [[WP:ALT]] -->
+| caption = A panorama of the Atkinson Pavilion of the Penn Medicine Princeton Medical Center in [[Plainsboro, New Jersey]]
+| pushpin_map = <!-- uses the [[Template:Location map]] format; defines value for {{{1}}} parameter; must have latitude and longitude if using this -->
+| pushpin_relief = <!-- any non-blank value (yes, 1, etc.) will cause the template to display a relief map image, where available -->
+| pushpin_map_size = <!-- map size or width in pixels (do not include "px"); default is 225 -->
+| pushpin_alt = <!-- alternative text for map image, see WP:ALT for details -->
+| pushpin_caption = <!-- a small caption under the map such as "Shown in region, country" -->
+| location = 1 Plainsboro Road<br>[[Plainsboro Township, New Jersey|Plainsboro, New Jersey]] 08536
+| region = <!-- e.g. City or County -->
+| state = 
+| country = United States
+| coordinates = {{coord|40.339111|-74.623722|display=inline,title}}
+| healthcare = <!-- UK: NHS; AU/CA: Medicare; ELSE free-form text, e.g. Private -->
+| funding = Non-Profit
+| type = <!-- use: Community, District, General, District General, Teaching, Specialist -->
+| affiliation = [[Robert Wood Johnson Medical School]]
+| patron = <!-- the individual who acts as the hospital patron -->
+| network = 
+| standards = <!-- optional if no national standards -->
+| emergency = Yes
+| helipad = {{Airport codes|||45NJ|p=n}}<!-- Optional, use Yes, No, or use Template:Airport codes. Only list if verifiable, leave blank if unknown. -->
+| beds = 355
+| speciality = <!-- if devoted to a speciality (i.e. not a broad spectrum); ONLY displayed if type=Specialist or type=Teaching -->
+| founded = <!-- cite in article as well -->
+| closed = <!-- if defunct, please also add to Category:Defunct hospitals -->
+| demolished = <!-- if demolished at a different time from closure -->
+| website = [https://www.princetonhcs.org/our-locations/pmc princetonhcs.org/our-locations/pmc]
+| other_links = <!-- link(s) to related articles -->
+| module = <!-- or 'embedded' or 'nrhp' -->
+| former_names = University Medical Center of Princeton
+}}
+'''Penn Medicine Princeton Medical Center (PMC)''', formerly known as the '''University Medical Center of Princeton at Plainsboro''', is a 355-bed<ref>{{Cite web|url=https://www.ahd.com/free_profile.php?hcfa_id=2468638df574d54a87ebe88c13d13d2f&ek=8d338847bc6a2e412e651a1ce6701bcf|title=American Hospital Directory - Princeton Medical Center (310010) - Free Profile|website=www.ahd.com|access-date=2020-04-20}}</ref> [[non-profit]], [[Tertiary care|tertiary]], and [[Teaching hospital|academic medical center]] located in [[Plainsboro Township, New Jersey|Plainsboro, New Jersey]], servicing the [[Central Jersey]] area around [[Princeton, New Jersey|Princeton]]. The hospital is owned by the [[Perelman School of Medicine at the University of Pennsylvania|Penn Medicine Health System]] and is their only such hospital in New Jersey. PMC is a major university hospital of the [[Robert Wood Johnson Medical School]] of [[Rutgers University]]<ref>{{Cite web|url=https://rwjms.rutgers.edu/patient-care/affiliated-hospitals.xml|title=Affiliated Hospitals|website=rwjms.rutgers.edu|access-date=2020-04-20|archive-date=April 30, 2020|archive-url=https://web.archive.org/web/20200430032059/http://rwjms.rutgers.edu/patient-care/affiliated-hospitals.xml|url-status=dead}}</ref> and has a [[helipad]] to handle transport of critical patients from and to other hospitals via PennStar, the PennMed air ambulance system.<ref>{{Cite web|url=https://www.airnav.com/airport/45NJ|title=AirNav: 45NJ - Princeton Medical Center Heliport|website=www.airnav.com|access-date=2020-04-20|archive-date=2020-03-15|archive-url=https://web.archive.org/web/20200315020519/https://www.airnav.com/airport/45NJ|url-status=live}}</ref>
+
+==History==
+[[File:Penn-med-princeton-close-8330.jpg|thumb|Atkinson Pavilion of the Penn Medicine Princeton Medical Center]]
+The hospital was previously located in [[Princeton, New Jersey|Princeton]] at  253 Witherspoon Street,<ref>{{cite web | url=https://www.pennmedicine.org/news/internal-newsletters/system-news/2019/november/penn-medicine-princeton-health-celebrates-a-century | title=Penn Medicine Princeton Health Celebrates a Century - Penn Medicine }}</ref> until May 22, 2012, when the new location opened off of [[U.S. Route 1 in New Jersey|Route 1]].<ref>{{cite web|url=http://www.princetonhcs.org/default.aspx?p=8485|title=New Hospital Project|url-status=dead|archiveurl=https://web.archive.org/web/20120223081003/http://www.princetonhcs.org/default.aspx?p=8485|archivedate=February 23, 2012}}</ref> The new hospital was designed by a joint venture between [[HOK (firm)|HOK]] and [[RMJM|RMJM Hiller]].<ref>{{Cite web|title=University Medical Center of Princeton at Plainsboro Replacement Hospital, Plainsboro, NJ|url=https://syska.com/project/university-medical-center-of-princeton-at-plainsboro-replacement-hospital/|access-date=2020-10-08|website=Syska Hennessy Group|language=en-US}}</ref><ref>{{Cite web|title=Penn Medicine – Princeton Medical Center|url=https://www.hok.com/projects/view/penn-medicine-princeton-medical-center/|access-date=2020-10-08|website=HOK|language=en-US}}</ref>
+
+The hospital was a member of the Princeton HealthCare System, which was formally incorporated into the [[University of Pennsylvania Health System]] in January 2018.<ref>{{Cite web|url=https://www.phillymag.com/business/2018/01/09/penn-medicine-princeton-healthcare-system-merge/|title=Penn Medicine and Princeton HealthCare System Officially Merge|date=2018-01-09|website=Philadelphia Magazine|language=en-US|access-date=2020-01-07|archive-date=2018-01-11|archive-url=https://web.archive.org/web/20180111083239/http://www.phillymag.com/business/2018/01/09/penn-medicine-princeton-healthcare-system-merge/|url-status=live}}</ref><ref name="penn1">{{cite web |url=https://www.princetonhcs.org/about-princeton-health/strategic-planning |title=Princeton Health Joins Penn Medicine |publisher=Penn Medicine Princeton Health |access-date=January 13, 2018 |archive-date=January 13, 2018 |archive-url=https://web.archive.org/web/20180113203020/https://www.princetonhcs.org/about-princeton-health/strategic-planning |url-status=live }}</ref><ref name="penn2">{{cite news |last=Braccia |first=Zoe |date=January 10, 2018 |title=Penn Medicine officially incorporated the Princeton HealthCare System |url=http://www.thedp.com/article/2018/01/penn-medicine-princeton-healthcare-merge-upenn-new-jersey-philadelphia |work=[[The Daily Pennsylvanian]] |location=[[Philadelphia]] |access-date=January 13, 2018 |archive-date=January 14, 2018 |archive-url=https://web.archive.org/web/20180114020211/http://www.thedp.com/article/2018/01/penn-medicine-princeton-healthcare-merge-upenn-new-jersey-philadelphia |url-status=live }}</ref> The addition of the Princeton HealthCare System will make it the sixth hospital in the University of Pennsylvania Health System, which will employ over 3,000 staff and more than 1,000 physicians.<ref>{{Cite news|url=https://whyy.org/articles/amid-regulatory-uncertainty-penn-medicine-acquires-princeton-healthcare/|title=Amid regulatory uncertainty, Penn Medicine acquires Princeton HealthCare|work=WHYY|access-date=2018-07-12|language=en-US|archive-date=2018-07-12|archive-url=https://web.archive.org/web/20180712223023/https://whyy.org/articles/amid-regulatory-uncertainty-penn-medicine-acquires-princeton-healthcare/|url-status=live}}</ref>
+
+Pediatric care to the hospital is provided by doctors from the [[Children's Hospital of Philadelphia]] on PMC's inpatient pediatric wards, pediatric emergency department, and pediatric specialty care center.<ref>{{Cite web|url=https://www.chop.edu/locations/chop-care-university-medical-center-princeton-plainsboro|title=CHOP Care at Penn Medicine Princeton Medical Center|date=2014-06-01|website=www.chop.edu|language=en|access-date=2020-01-29|archive-date=2020-01-30|archive-url=https://web.archive.org/web/20200130000103/https://www.chop.edu/locations/chop-care-university-medical-center-princeton-plainsboro|url-status=live}}</ref>
+
+Adjacent to the medical center is the Children's Hospital of Philadelphia Specialty Center that treats infants, children, adolescents, and young adults up to the age of 21.<ref name=":0">{{Cite web|date=2014-06-01|title=CHOP Care at Penn Medicine Princeton Medical Center|url=https://www.chop.edu/locations/chop-care-university-medical-center-princeton-plainsboro|access-date=2020-10-08|website=www.chop.edu|language=en}}</ref>
+
+It has no relationship with the fictional ''Princeton-Plainsboro Teaching Hospital'', which was the setting for the medical drama ''[[House (TV series)|House M.D.]]'' from 2004 to 2012, even though they share a similar location and name.
+
+The previous hospital on Witherspoon Street in Princeton was notable for being [[Albert Einstein]]'s place of death.<ref>{{Cite web|url=https://www.biography.com/scientist/albert-einstein|title=Albert Einstein|website=Biography|language=en-us|access-date=2020-01-29|archive-date=2020-02-23|archive-url=https://web.archive.org/web/20200223044501/https://www.biography.com/scientist/albert-einstein|url-status=live}}</ref><ref>{{Cite web|date=2016-09-21|title=What Killed Albert Einstein?|url=https://notevenpast.org/what-killed-albert-einstein/|access-date=2020-10-08|website=Not Even Past|language=en-US}}</ref>
+
+The hospital implemented strict protocols to limit spread of illness during the [[COVID-19 pandemic in the United States|COVID-19 pandemic]] in 2020, including limiting visitors to patients throughout its facilities.<ref>{{Cite web|url=https://princetonol.com/announcement/penn-medicine-princeton-health-covid19-preparations|title=Penn Medicine Princeton Health COVID-19 Preparations|date=March 14, 2020|website=princetonol.com|access-date=2020-04-20|archive-date=2020-09-26|archive-url=https://web.archive.org/web/20200926054244/https://princetonol.com/announcement/penn-medicine-princeton-health-covid19-preparations|url-status=live}}</ref><ref>{{Cite web|last=Tarrazi|first=Alexis|date=2020-03-10|title=Coronavirus: Princeton Medical Center Asks Visitors To Stay Home|url=https://patch.com/new-jersey/princeton/coronavirus-princeton-medical-center-asks-visitors-stay-home|archive-url=|archive-date=|access-date=2020-10-08|website=Princeton, NJ Patch|language=en}}</ref>
+
+In 2020–21, ''[[U.S. News & World Report]]'' ranked the hospital as the ninth-best in [[New Jersey]], 24th-best in the [[New York City metropolitan area]], and "high performing" in the specialty of [[orthopedics]].
+
+==Affiliations==
+[[File:Penn Medicine Princeton Medical Center CHOP Specialty Center.jpg|thumb|[[Children's Hospital of Philadelphia]], a pediatric specialty center at Penn Medicine Princeton Medical Center]]
+In addition to its affiliation with [[Perelman School of Medicine at the University of Pennsylvania|Penn Medicine]], the hospital is affiliated with the [[Robert Wood Johnson Medical School]]<ref>{{Cite web|url=http://rwjms.rutgers.edu/patient-care/affiliated-hospitals|title=Affiliated Hospitals|website=rwjms.rutgers.edu|access-date=2020-01-30|archive-date=2019-12-10|archive-url=https://web.archive.org/web/20191210022957/http://rwjms.rutgers.edu/patient-care/affiliated-hospitals|url-status=live}}</ref> and [[Children's Hospital of Philadelphia]].<ref name=":0" />
+
+== See also ==
+* [[Princeton University]]
+* [[Robert Wood Johnson Medical School]]
+* [[University of Pennsylvania]]
+
+==References==
+{{Reflist}}
+
+==External links==
+{{commons category}}
+* [https://www.princetonhcs.org/our-locations/pmc Official website]
+{{PennMedicine}}
+{{Princeton, New Jersey}}
+[[Category:Hospitals in New Jersey]]
+[[Category:Plainsboro Township, New Jersey]]
+[[Category:Teaching hospitals in New Jersey]]
+[[Category:University of Medicine and Dentistry of New Jersey]]
+
+[[Category:Hospital buildings completed in 2012]]
+{{authority control}}

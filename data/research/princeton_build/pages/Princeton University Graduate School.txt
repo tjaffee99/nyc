@@ -1,0 +1,204 @@
+{{Short description|none}}
+{{Infobox university
+ | name                   = Princeton University Graduate School
+ | parent                 = Princeton University
+ | image_size             = 
+ | caption                = 
+ | established            = 1869
+ | type                   = [[Private school|Private]]
+ | dean                   = [[Rodney Priestley]] (eff. 06/01/22)
+ | city                   = [[Princeton, New Jersey|Princeton]]
+ | state                  = [[New Jersey]]
+ | country                = United States
+ | postgrad               = 3,212<ref>{{cite web |title=Enrollment Statistics |url=https://gradschool.princeton.edu/about/statistics/enrollment-statistics |website=Princeton University: Graduate School |access-date=2018-08-31 |archive-date=2021-07-21 |archive-url=https://web.archive.org/web/20210721053142/https://gradschool.princeton.edu/about/statistics/enrollment-statistics |url-status=live }}</ref>
+ | website                = {{url|https://gradschool.princeton.edu/}}
+}}
+
+The '''Graduate School of Princeton University''' is the main [[graduate school]] of [[Princeton University]]. Founded in 1869, the school offers postgraduate degrees in 42 disciplines.
+
+==History==
+{{Main|History of Princeton University}}
+{{Infobox person
+|name = President James Madison
+|image = James madison.jpg
+|image_size = 150px
+|caption = The "first graduate student" of Princeton University
+}}
+In 1771, future president [[James Madison]] began graduate work at Princeton University under the tutelage of President [[John Witherspoon]], another [[Founding Fathers of the United States|Founding Father]].<ref>{{cite web |title=History |url=https://gradschool.princeton.edu/about/history |website=Princeton University: The Graduate School |access-date=2018-08-31 |archive-date=2021-06-27 |archive-url=https://web.archive.org/web/20210627223839/https://gradschool.princeton.edu/about/history |url-status=live }}</ref> Often considered Princeton's "first graduate student,"<ref>{{cite web |title=#1: James Madison 1771 (also considered Princeton's first graduate student) |url=https://paw.princeton.edu/article/1-james-madison-1771 |website=Princeton Alumni Weekly |date=21 January 2016 |access-date=31 August 2018 |archive-date=26 June 2019 |archive-url=https://web.archive.org/web/20190626071230/https://paw.princeton.edu/article/1-james-madison-1771 |url-status=live }}</ref> Madison studied [[Hebrew]] and [[Political Philosophy]], which provided him the foundation for his later career as the delegate to the [[Congress of the Confederation]] from [[Virginia]], [[United States Secretary of State|Secretary of State]], and [[President of the United States]].<ref>{{cite web |title=James Madison |url=https://etcweb.princeton.edu/CampusWWW/Companion/madison_james.html |website=A Princeton Companion |access-date=2018-08-31 |archive-date=2018-04-26 |archive-url=https://web.archive.org/web/20180426011032/http://etcweb.princeton.edu/CampusWWW/Companion/madison_james.html |url-status=live }}</ref> After his studies, students were then permitted to stay at the university after receiving their [[bachelor's degree]]s. By 1869, graduate education was standardized through the establishment of general examinations and graduate fellowships.<ref>{{cite web |title=The Graduate School |url=http://etcweb.princeton.edu/CampusWWW/Companion/graduate_school.html |website=A Princeton Companion}}</ref> Princeton conferred the first graduate degrees to James F. Williamson and William Libby in 1879. The first dean of the graduate school was [[Andrew Fleming West]]. He envisioned a graduate institution that would both produce high quality graduate work from a small number of students. By the 1880s, eight graduate students were enrolled in programs in [[art]] and [[archaeology]], [[astronomy]], [[biology]], [[classics]], [[geology]], [[mathematics]], [[philosophy]], and [[physics]].<ref>{{cite web |title=The Graduate School |url=http://etcweb.princeton.edu/CampusWWW/Companion/graduate_school.html |website=A Princeton Companion |access-date=2018-08-31 |archive-date=2010-06-02 |archive-url=https://web.archive.org/web/20100602220533/http://etcweb.princeton.edu/CampusWWW/Companion/graduate_school.html |url-status=live }}</ref> Enrollment gradually increased over the years, particularly under the leadership of physicist [[Augustus Trowbridge]]. Applications for graduate enrollment also rose after [[World War II]] and after federal funding for graduate fellowships increased substantially, most notably in the sciences.
+
+Women began to enroll in the Graduate School in the 1960s. The first PhD was awarded in 1964.<ref>{{cite web |title=Women |url=http://etcweb.princeton.edu/CampusWWW/Companion/women.html |website=A Princeton Companion |access-date=2018-08-31 |archive-date=2018-09-13 |archive-url=https://web.archive.org/web/20180913021207/http://etcweb.princeton.edu/CampusWWW/Companion/women.html |url-status=live }}</ref> In 1977, Nina G. Garsoian accepted a position as the ninth dean of the graduate school, the first woman to occupy that position.
+
+===The Graduate College===
+{{Main|Princeton University Graduate College}}
+{{Infobox building
+|name = Graduate College
+|image = Princeton University Graduate College, NJ - looking north.jpg
+|image_size = 
+|caption = Old Graduate College and Cleveland Tower
+}}
+The [[Princeton University Graduate College|Graduate College]], the residence of the dean of the graduate school and home to many graduate students, was established in 1913. Inspired by the design of [[Magdalen Tower]] at [[Oxford University]], the architecture of the Graduate College features brown and gray Princeton stone and green and blue roofs.<ref>{{cite web |title=Graduate College History |url=https://gradschool.princeton.edu/about/history/graduate-college-history |website=Princeton University: Graduate School |access-date=2018-08-31 |archive-date=2021-07-17 |archive-url=https://web.archive.org/web/20210717031037/https://gradschool.princeton.edu/about/history/graduate-college-history |url-status=dead }}</ref> Built in 1913 and expanded in 1927, the Old Graduate College features traditional [[Gothic architecture|Gothic-style architecture]] in addition to the 173-foot tall [[Cleveland Tower]], a memorial to former university trustee and President of the United States [[Grover Cleveland]]. The central quadrangle of the Graduate College, Thomson College, is a memorial to [[United States Senator]] [[John R. Thomson]].<ref>{{cite web |title=The Graduate College |url=http://etcweb.princeton.edu/CampusWWW/Companion/graduate_college.html |website=A Princeton Companion |access-date=2018-08-31 |archive-date=2010-06-02 |archive-url=https://web.archive.org/web/20100602213329/http://etcweb.princeton.edu/CampusWWW/Companion/graduate_college.html |url-status=live }}</ref> New Graduate College was built adjacent to the Old Graduate College in 1962, presenting modern-style architecture and comfortable living spaces.<ref>{{cite web |title=Graduate College History |url=https://gradschool.princeton.edu/life-princeton/our-community/residential-life/graduate-college/graduate-college-history |website=Princeton University: Graduate School |access-date=2018-08-31 |archive-date=2018-09-16 |archive-url=https://web.archive.org/web/20180916040357/https://gradschool.princeton.edu/life-princeton/our-community/residential-life/graduate-college/graduate-college-history |url-status=live }}</ref><ref>{{cite web |title=New Graduate College |url=https://hres.princeton.edu/graduates/explore/on-campus-housing/new-graduate-college |website=Princeton University: Graduate Student Housing |access-date=2018-08-31 |archive-date=2018-01-29 |archive-url=https://web.archive.org/web/20180129031029/http://hres.princeton.edu/graduates/explore/on-campus-housing/new-graduate-college |url-status=live }}</ref>
+
+===High table===
+The tradition of "[[High Table]]" traces back to [[Oxford University]] and [[Cambridge University]]. Fellows of the college were to sit at the end of long [[refectory table]]s on raised platforms, [[dais]], above the undergraduates.<ref>{{Cite web |last=Summers |first=Robert S |title=Oxford: A Haven for Sabbaticals and Other Visits |url=https://scholarship.law.cornell.edu/cgi/viewcontent.cgi?article=2384&context=facpub |access-date=2025-12-31 |website=scholarship.law.cornell.edu}}</ref><ref>{{Cite web |title=Oxford Glossary {{!}} University of Oxford |url=https://www.ox.ac.uk/about/organisation/history/oxford-glossary |access-date=2025-12-31 |website=www.ox.ac.uk |language=en}}</ref><ref>{{Cite journal |last1=Di Domenico |first1=MariaLaura |last2=Phillips |first2=Nelson |date=2009-12-01 |title=Sustaining the Ivory Tower: Oxbridge Formal Dining as Organizational Ritual |url=https://doi.org/10.1177/1056492609336482 |journal=Journal of Management Inquiry |language=EN |volume=18 |issue=4 |pages=326–343 |doi=10.1177/1056492609336482 |issn=1056-4926|url-access=subscription }}</ref> At Princeton, the tradition began in 1913 in Procter Hall with Professor [[Howard Crosby Butler]]. Students, faculty, and guests were invited to sit with the dean of the graduate college at a monthly ceremony.<ref>{{cite web |title=High Table |url=https://gradschool.princeton.edu/life-princeton/our-community/residential-life/graduate-college/graduate-college-history/high-table |website=Princeton University: Graduate School |access-date=2018-08-31 |archive-date=2018-09-16 |archive-url=https://web.archive.org/web/20180916034039/https://gradschool.princeton.edu/life-princeton/our-community/residential-life/graduate-college/graduate-college-history/high-table |url-status=live }}</ref> Until the 1970s, dinner at Procter Hall opened with Latin grace spoken by a student, the [[Master (college)|Master (Professor)]], or the dean. High Table continues to bring select students and faculty together for discussions and, during formal events, dinner jackets or academic gowns may also be worn.<ref>{{cite web |title=High Table at Princeton |url=https://www.princeton.edu/~gradcol/perm/hightable.htm |website=Princeton University |access-date=2018-08-31 |archive-date=2017-07-12 |archive-url=https://web.archive.org/web/20170712065737/http://www.princeton.edu/%7Egradcol/perm/hightable.htm |url-status=live }}</ref>
+
+==Academics==
+Policies and procedures for graduate academics at Princeton are administered by the Office of the Dean of the Graduate School, located at Clio Hall.
+
+Admission to the Graduate School is highly selective with an acceptance rate of approximately 11.7% across all disciplines. The average [[Graduate Record Examinations|Graduate Record Examination (GRE)]] scores for admitted students were 163 out of 170 on the verbal section, 161 out of 170 on the quantitative section and 4.5 out of 6 on the analytical writing section.<ref>{{cite web |title=Princeton Graduate School to Welcome New Class |url=https://gradschool.princeton.edu/news/princeton-graduate-school-welcome-new-class |website=Princeton University: Graduate School}}</ref> In the 2018–2019 academic year, 1,373 students were admitted into the graduate school.<ref>{{cite web |title=Admission Statistics |url=https://gradschool.princeton.edu/about/statistics/admission-statistics |website=Princeton University: Graduate School |access-date=2018-08-31 |archive-date=2018-09-16 |archive-url=https://web.archive.org/web/20180916005214/https://gradschool.princeton.edu/about/statistics/admission-statistics |url-status=live }}</ref>
+
+===Degrees and programs===
+The Graduate School offers a number of degree-granting programs in the fields of [[humanities]], [[social science]]s, [[natural science]]s, and [[engineering]]. In addition to its own Masters and PhD programs, the school oversees graduate degrees for the [[Bendheim Center for Finance]], the [[Princeton University School of Engineering and Applied Science|School of Engineering and Applied Science]], the [[Princeton University School of Architecture|School of Architecture]], and the [[Woodrow Wilson School of Public and International Affairs]].<ref>{{cite web |title=The Graduate School |url=https://www.princeton.edu/pub/profile/academics/graduate-school/ |website=Princeton University: Graduate School |access-date=2018-08-31 |archive-date=2018-08-02 |archive-url=https://web.archive.org/web/20180802075209/https://www.princeton.edu/pub/profile/academics/graduate-school/ |url-status=live }}</ref>
+{{Infobox person
+| name       = Clio Hall
+| image      = Clio Hall.JPG
+| image_size = 
+| caption    = Office of the Dean of the Graduate School
+}}
+*
+
+===Rankings===
+Graduate programs at Princeton University have been consistently ranked as some of the top in their respective fields. The ''[[U.S. News & World Report Best Global Universities Ranking]]'' ranks nearly every graduate program within the top ten.<ref>{{cite web |title=Princeton University Overall Rankings |url=https://www.usnews.com/best-graduate-schools/princeton-university-186131/overall-rankings |website=U.S. News & World Report |access-date=2018-08-31 |archive-date=2019-09-01 |archive-url=https://web.archive.org/web/20190901004950/https://www.usnews.com/best-graduate-schools/princeton-university-186131/overall-rankings |url-status=live }}</ref> Similarly, the ''[[National Research Council (United States)|National Research Council (NRC)'s]]'' Research rankings, which factors in "faculty publications, citation rates, grants, and awards" ranks most programs within the top ten.<ref>{{cite web |title=Doctoral Programs by the Numbers |url=https://www.chronicle.com/article/NRC-Rankings-Overview-/124724/ |website=The Chronicle of Higher Education |date=30 September 2010 |access-date=31 August 2018 |archive-date=1 September 2018 |archive-url=https://web.archive.org/web/20180901003724/https://www.chronicle.com/article/NRC-Rankings-Overview-/124724/ |url-status=live }}</ref> The ''[[Wall Street Journal]]'' / ''[[Times Higher Education–QS World University Rankings|Times Higher Education College Rankings 2018]]'' lists Princeton University as a top ten institution, while the ''[[QS World University Rankings]]'' ranks it within the top fifteen.<ref>{{cite web |title=Wall Street Journal/Times Higher Education College Rankings 2018 |url=https://www.timeshighereducation.com/rankings/united-states/2018#!/page/0/length/25/sort_by/rank/sort_order/asc/cols/stats |website=Times Higher Education World University Rankings |date=10 October 2017 |access-date=31 August 2018 |archive-date=18 August 2018 |archive-url=https://web.archive.org/web/20180818193151/https://www.timeshighereducation.com/rankings/united-states/2018#!/page/0/length/25/sort_by/rank/sort_order/asc/cols/stats |url-status=live }}</ref><ref>{{cite web |title=QS World University Rankings |url=https://www.topuniversities.com/university-rankings/world-university-rankings/2019 |website=QS Top Universities |access-date=2018-08-31 |archive-date=2019-10-27 |archive-url=https://web.archive.org/web/20191027152217/https://www.topuniversities.com/university-rankings/world-university-rankings/2019 |url-status=live }}</ref>
+
+{| class="wikitable sortable"
+! Princeton Graduate Program
+! ''U.S. News & World Report'' Ranking (2018)<ref>{{cite web |title=Princeton University: Overall Rankings |url=https://www.usnews.com/best-graduate-schools/princeton-university-186131/overall-rankings |website=U.S. News & World Report |access-date=2018-08-31 |archive-date=2019-09-01 |archive-url=https://web.archive.org/web/20190901004950/https://www.usnews.com/best-graduate-schools/princeton-university-186131/overall-rankings |url-status=live }}</ref> 
+! ''National Research Council Research Category'' Ranking (2010)<ref>{{cite web |title=Doctoral Programs by the Numbers |url=https://www.chronicle.com/article/NRC-Rankings-Overview-/124724/ |website=The Chronicle of Higher Education|date=30 September 2010 }}</ref>
+! ''QS World University'' Ranking (2018)<ref>{{cite web |title=Princeton University |url=https://www.topuniversities.com/universities/princeton-university#wurs |website=QS World University Ranking |access-date=2018-08-31 |archive-date=2021-05-25 |archive-url=https://web.archive.org/web/20210525223545/https://www.topuniversities.com/universities/princeton-university#wurs |url-status=live }}</ref>
+|-
+! [[Princeton University Department of Economics|Economics]]
+! 1
+! 2
+! 5
+|-
+! [[Princeton University Department of History|History]]
+! 1
+! 1
+! 9
+|-
+! [[Princeton University Department of Mathematics|Mathematics]]
+! 1
+! 1
+! 6
+|-
+! Sociology
+! 1
+! 1
+! 10
+|-
+! Physics
+! 3
+! 1
+! 8
+|-
+! Political Science
+! 3
+! 13
+! 3
+|-
+! Biological Sciences
+! 6
+! 2
+! 18
+|-
+! Computer Science
+! 8
+! 1
+! 8
+|-
+! English
+! 8
+! 1
+! 7
+|-
+! [[Princeton University Department of Psychology|Psychology]]
+! 8
+! 1
+! 16
+|-
+! [[Princeton University Department of Chemistry|Chemistry]]
+! 9
+! 11
+! 11
+|-
+! [[Woodrow Wilson School of Public and International Affairs|Public Affairs]]
+! 9
+! 1
+! N/A
+|-
+! Earth Sciences
+! 10
+! 3
+! 19
+|}
+
+===Facilities===
+{{Infobox person
+|name = Firestone Library
+|image = Firestone Library, Princeton University, Princeton NJ.jpg
+|image_size = 300px
+|caption = The main library of Princeton University
+}}
+Princeton's Graduate School includes a university library system of over seven million volumes, making it one of the largest in the United States. The main one, [[Firestone Library]], opened in 1948, as the first large American university library constructed after World War II.<ref>{{cite web|url=http://library.princeton.edu/about/history.php|title=Library History - Princeton University Library|website=library.princeton.edu|access-date=2018-08-31|archive-date=2011-07-20|archive-url=https://web.archive.org/web/20110720030749/http://library.princeton.edu/about/history.php|url-status=dead}}</ref> The library is also recognized as having the most books per enrolled student than any other university in the United States.<ref>{{cite web|url=http://nces.ed.gov/surveys/libraries/compare/index.asp?LibraryType=Academic|title=NCES Library Comparison|website=nces.ed.gov|access-date=2018-08-31|archive-date=2011-04-23|archive-url=https://web.archive.org/web/20110423062916/http://nces.ed.gov/surveys/libraries/compare/index.asp?LibraryType=Academic|url-status=live}}</ref> The library system houses Department of Rare Books and Special Collections, which includes the [[Scheide Library]] and the [[Cotsen Children's Library]]. Additional libraries include the Architecture Library, [[East Asian Library and Gest Collection Princeton University|East Asian Library and Gest Collection]], Engineering Library, Lewis Science Library, Marquand Library of Art and Archaeology, [[Seeley G. Mudd Manuscript Library]], [[Princeton Plasma Physics Laboratory|Furth Plasma Physics Library]], Mendel Music Library, and the Stokes Library.
+
+The McGraw Center for Teaching and Learning provides programs and services for students to develop as professional scholars and teachers. The center provides professional development workshops and training for assistants in instruction (AIs), Princeton's equivalent of [[Teaching assistant|teaching assistants (TAs)]].<ref>{{cite web |title=Campus Academic Resources |url=https://gradschool.princeton.edu/academics/opportunities-and-resources/campus-academic-resources |website=Princeton University: Graduate School |access-date=2018-08-31 |archive-date=2018-09-16 |archive-url=https://web.archive.org/web/20180916002006/https://gradschool.princeton.edu/academics/opportunities-and-resources/campus-academic-resources |url-status=live }}</ref>
+
+===Partnerships===
+Graduate students are permitted to enroll in partnerships and exchange programs with other universities. The IvyPlus Exchange program allows take courses or conduct dissertation research at any of the [[Ivy League]] universities, the [[University of California, Berkeley]], the [[University of Chicago]], [[Massachusetts Institute of Technology|Massachusetts Institute of Technology (M.I.T.)]], or [[Stanford University]]. The Graduate School also maintains a number of partnerships and exchange programs with leading universities around the world, including:
+* [[École normale supérieure (Paris)|Ecole Normale Superieure (ENS)]]
+* [[Fondation nationale des Sciences Politiques|Fondation Nationale des Sciences Politiques (Sciences Po)]]
+* [[Freie Universitaet Berlin]]
+* [[Hebrew University of Jerusalem]]
+* [[Humboldt University of Berlin]]
+* [[Scuola Normale Superiore di Pisa|Scuola Normale Superiore (SNS)]]
+
+==Student life==
+===Demographics===
+As of 2022, the Graduate School enrolls 3,212 students, of which 408 are master's students and 2,804 are doctoral students. Approximately 58% of the student population is male, 42% female. In addition, 58% are domestic students while 42% are international students.<ref>{{cite web |title=Enrollment Statistics |url=https://gradschool.princeton.edu/about/statistics/enrollment-statistics |website=Princeton University: Graduate School |access-date=2018-08-31 |archive-date=2021-07-21 |archive-url=https://web.archive.org/web/20210721053142/https://gradschool.princeton.edu/about/statistics/enrollment-statistics |url-status=live }}</ref>
+
+{| class="wikitable sortable"
+!Graduate Population by Ethnicity
+!Percentage
+|-
+! [[White (U.S. census)|White]]
+! 52%
+|-
+! [[Asian (U.S. census)|Asian]]
+! 17%
+|-
+! [[Hispanic (U.S. census)|Hispanic]]/[[Latino (U.S. Census)|Latino]]
+! 12%
+|-
+! Unknown
+! 7%
+|-
+! [[Black or African-American (U.S. Census)|Black/African American]]
+! 7%
+|-
+! [[Multiracial Americans|Multiracial]]
+! 6%
+|-
+! [[AIAN (U.S. Census)|American Indian/Alaskan Native]]
+! <1%
+|-
+! Total
+! 100%
+|}
+
+===Activities===
+The Graduate Student Government (GSG) oversees the organization of graduate activities and events. The GSG's mission is "to advocate for the interests of graduate students at Princeton, to provide a forum for free and open discussion of matters affecting graduate students, and to provide financial and organizational support for social events that involve graduate students."<ref>{{cite web |title=Graduate Student Government |url=https://gradschool.princeton.edu/life-princeton/our-community/graduate-student-government |website=Princeton University: Graduate School |access-date=2018-08-31 |archive-date=2018-09-16 |archive-url=https://web.archive.org/web/20180916013329/https://gradschool.princeton.edu/life-princeton/our-community/graduate-student-government |url-status=live }}</ref> There are also a wide array of social, cultural, and academic student organizations for graduate students.<ref>{{cite web |title=Student Organizations |url=https://gradschool.princeton.edu/life-princeton/our-community/studentorg |website=Princeton University: Graduate School}}</ref>
+
+==References==
+{{Reflist}}
+
+==External links==
+*[https://gradschool.princeton.edu/ Official website]
+
+{{Princeton}}
+{{coord|40.34835|-74.65467|type:edu_globe:earth_region:US-NJ|display=title}}
+{{authority control}}
+
+[[Category:Princeton University schools, colleges, and departments]]
+[[Category:Graduate schools in the United States]]
+[[Category:Universities and colleges established in 1869]]
+[[Category:Educational institutions in the United States established in 1869]]
+[[Category:1869 establishments in New Jersey]]

@@ -1,0 +1,105 @@
+{{short description|Historic house in New Jersey}}
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=January 2025}}
+{{Infobox NRHP
+| name                     = Drumthwacket
+| nrhp_type                = nrhp
+| image                    = Drumthwacket1.jpg
+| location                 = 354 Stockton Street<br />[[Princeton, New Jersey]] 08540
+| coordinates              = {{coord|40|20|21|N|74|40|29|W|display=inline,title}}
+| pushpin_map              = USA New Jersey Mercer County#New Jersey#USA
+| mapframe                 = yes
+| mapframe-marker          = building
+| mapframe-zoom            = 12
+| mapframe-caption         = Interactive map showing the location of Drumthwacket
+| area                     = 
+| built                    = 1835
+| architect                = 
+| architecture             = [[Greek Revival architecture|Greek Revival]]<br />[[Georgian architecture|Colonial Georgian]]
+| added                    = June 10, 1975
+| ref_num                  = 75001142<ref name="nris">{{NRISref|version=2013a|refnum=75001142}}</ref>
+| designated_other1_name   = New Jersey Register of Historic Places
+| designated_other1_abbr   = NJRHP
+| designated_other1_link   = New Jersey Register of Historic Places
+| designated_other1_date   = May 8, 1975
+| designated_other1_number = 1744<ref name=NJRHP>{{cite web |title=New Jersey and National Registers of Historic Places — Mercer County |url=http://www.nj.gov/dep/hpo/1identify/nrsr_lists/mercer.pdf |publisher=[[New Jersey Department of Environmental Protection]] — Historic Preservation Office |page=8 |date=April 5, 2013 |access-date=June 4, 2013 |url-status=dead |archive-url=https://web.archive.org/web/20130516134942/http://www.nj.gov/dep/hpo/1identify/nrsr_lists/mercer.pdf |archive-date=May 16, 2013}}</ref>
+| designated_other1_num_position = bottom
+| designated_other1_color  = #ffc94b
+}}
+
+'''Drumthwacket''' ({{IPAc-en|ˈ|d|r|ʌ|m|ˌ|θ|w|æ|k|ɪ|t}} {{Respell|DRUM|thwak|it}}<ref>{{cite web |url=https://vimeo.com/572591430 |title=The First Lady's Welcome |work=Vimeo |date=8 July 2021 |access-date=24 April 2022}}</ref>) is the [[List of governors' residences in the United States|official residence]] of the [[governor of New Jersey|governor]] of the U.S. state of [[New Jersey]] at 354 Stockton Street in [[Princeton, New Jersey]], near the state capital of [[Trenton, New Jersey|Trenton]].
+
+The [[mansion]] was built in 1835 and expanded in 1893 and 1900. It was sold, along with its surrounding land, to the state in 1966. Drumthwacket was added to the [[National Register of Historic Places]] on June 10, 1975 for its significance in agriculture, architecture, commerce, landscape architecture, and politics.<ref name="nrhpdoc">{{cite web |last1=Greiff |first1=Constance M. |date=February 24, 1975 |title=National Register of Historic Places Inventory/Nomination: Drumthwacket |url=https://npgallery.nps.gov/NRHP/GetAsset/NRHP/75001142_text |publisher=[[National Park Service]] |access-date=August 30, 2023 |archive-date=August 30, 2023 |archive-url=https://web.archive.org/web/20230830024430/https://npgallery.nps.gov/NRHP/GetAsset/NRHP/75001142_text |url-status=live }} With {{NRHP url|id=75001142|photos=y|title=accompanying 6 photos}}</ref> It was designated the governor's mansion in 1982.
+
+The estate is administered by the [[New Jersey Department of Environmental Protection]]. It serves as the executive residence and is also a historic house museum.
+
+==History==
+Drumthwacket sits on land that was once owned by [[William Penn]], the Quaker proprietor of the [[Province of Pennsylvania]] and founder of [[Philadelphia]]. In 1695, William Olden bought the land and built a small white homestead which he named Olden House.
+
+In 1799, [[Charles Smith Olden]] was born there. Olden gained wealth working at a mercantile firm in Philadelphia and later [[New Orleans]] before returning to Princeton.  It wasn't until 1835, that construction was begun on the Drumthwacket house.  The name probably comes from Sir [[Walter Scott]]'s 1819 novel ''[[A Legend of Montrose]]'', whose comic character Dugald Dalgetty is [[laird]] of Drumthwacket.<ref name="DFHistory"/> Modern sources say ''Drumthwacket'' derives from two [[Scottish Gaelic]] words{{specify|date=December 2024}} meaning "wooded hill".<ref>{{cite journal |title=Restoring Moses Taylor Pine's Mansion |journal=Princeton Alumni Weekly |date=1 December 1981 |volume=82 |issue=7 |page=8 |url=https://books.google.com/books?id=IhNbAAAAYAAJ&pg=RA6-PA8 |publisher=Princeton University Press |language=en}}</ref><ref name="DFHistory">"[http://www.drumthwacket.org/full-history-document The History] {{Webarchive |url=https://web.archive.org/web/20150530091039/http://www.drumthwacket.org/full-history-document |date=2015-05-30 }}." Drumthwacket Foundation.</ref> Olden began his involvement in politics as a gentleman farmer and businessman, as treasurer and Trustee of the [[Princeton University|College of New Jersey]], as a state Senator, and as governor in 1860, the first to live at Drumthwacket. The original structure consisted of a center hall with two rooms on each side, including the {{frac|2|1|2}}-story center section and large [[portico]] with six [[Ionic order|Ionic columns]].<ref name="DFHistory"/>
+
+In 1893, financier, industrialist, and Princeton University benefactor [[Moses Taylor Pyne]] purchased Drumthwacket from Olden's widow. Pyne was responsible for major expansions of the home, turning it into a magnificent estate, "surpassing anything previously built in Princeton".<ref name="DFHistory"/> Pyne added two wings on each side of the house in 1893 and 1900, both designed by Raleigh C. Gildersleeve and including a paneled library. Pyne also added park-like landscaping, greenhouses, bridle paths, a dairy farm, and formal Italian gardens.<ref name="DFHistory"/>
+
+Pyne died in 1921, and his granddaughter Agnes Pyne sold the property to Abram Nathaniel Spanel in 1941.<ref name="DFHistory"/> Spanel was an industrialist and inventor who had immigrated from Russia as a child. He founded the [[Playtex|International Latex Corporation]], which became the International Playtex Corporation. Many of Spanel's staff lived at Drumthwacket, and many of his patented inventions were conceived in the Music Room.<ref name="DFHistory"/>
+
+In 1966, the Spanels sold the estate to New Jersey with the intent that it be used as the governor's official residence, to replace [[Morven (Princeton, New Jersey)|Morven]], the old governor's mansion. However, it took 15 years for the estate to be used as an official residence, with the [[New Jersey Historical Society]] raising enough funds in 1981.
+
+In 1982, the Drumthwacket Foundation, a non-profit organization responsible for preserving, restoring, and curating the house and its grounds, was established by New Jersey First Lady [[Deborah Kean]].<ref name="DFHistory"/><ref name=njc/> In addition to establishing the Drumthwacket Foundation, Kean also oversaw the conversion of the mansion into the state executive residence.<ref name=njc>{{cite news |last=Nieto-Munoz |first=Sophie |date=2021-01-03 |title=Former N.J. First Lady Debby Kean dies at 76 |work=[[NJ.com]] |url=https://www.nj.com/politics/2020/04/former-nj-first-lady-debbie-kean-dies-at-76.html |url-status=live |access-date=2021-01-31 |archive-url=https://web.archive.org/web/20200429100002if_/https://www.nj.com/politics/2020/04/former-nj-first-lady-debbie-kean-dies-at-76.html |archive-date=2020-04-29}}</ref><ref name=bcn>{{cite news |last=Deak |first=Mike |date=2020-04-24 |title=Deborah Kean, wife of former NJ Gov. Thomas Kean, dies |work=[[Courier News|Bridgewater Courier News]] |publisher=[[MyCentralJersey.com]] |url=https://www.mycentraljersey.com/story/news/local/people/2020/04/24/deborah-kean-wife-former-nj-gov-thomas-kean-dies/3022597001/ |url-status=live |access-date=2021-02-28 |archive-url=https://web.archive.org/web/20200429100002if_/https://www.nj.com/politics/2020/04/former-nj-first-lady-debbie-kean-dies-at-76.html |archive-date=2020-04-29}}</ref> Kean renovated much of the public and ceremonial rooms in the mansion. Before the renovation, much of Drumthwacket was furnished with older, donated furniture, much of which was unsuited for the home's new ceremonial role.<ref name=bcn/> The First Lady replaced those furnishings with higher quality, [[antique furniture]] and decor needed for the formal residence.<ref name=njc/><ref name=bcn/><ref name=njh>{{cite news |first= |last= |title=Deborah Bye Kean, 76, wife of former governor, dies |url=https://www.newjerseyhills.com/echoes-sentinel/news/deborah-bye-kean-76-wife-of-former-governor-dies/article_1fea921c-30e8-5a1d-aff4-41ce70d605f8.html |work=New Jersey Hills |publisher= |date=2020-04-25 |access-date=2021-02-28 |archive-url=https://web.archive.org/web/20200430021548/https://www.newjerseyhills.com/echoes-sentinel/news/deborah-bye-kean-76-wife-of-former-governor-dies/article_1fea921c-30e8-5a1d-aff4-41ce70d605f8.html |archive-date=2020-04-30 |url-status=live}}</ref> Despite her work, Governor [[Thomas Kean]] and Mrs. Deborah Kean chose to live in their own home in [[Livingston, New Jersey]], rather than Drumthwacket.<ref name=nytimes>{{cite news |first=Carla |last=Cantor |title=Lucinda Florio Steps Gently Into a Spotlight of Her Own |url=https://www.nytimes.com/1990/09/16/nyregion/lucinda-florio-steps-gently-into-a-spotlight-of-her-own.html |work=[[New York Times]] |publisher= |date=1990-09-16 |access-date=2023-07-13 |archive-url=https://web.archive.org/web/20221119122731/https://www.nytimes.com/1990/09/16/nyregion/lucinda-florio-steps-gently-into-a-spotlight-of-her-own.html |archive-date=2022-11-19 |url-status=live }}</ref>
+
+Governor [[Jim Florio]], who was in office from 1990 to 1994, and First Lady [[Lucinda Florio]] were the first gubernatorial couple to live at Drumthwacket.<ref name=nytimes/><ref name=njglobe>{{cite news |first=David |last=Wildstein |title=Lucinda Florio, former First Lady of New Jersey, dies at 75 |url=https://newjerseyglobe.com/fr/lucinda-former-first-lady-of-new-jersey-dies-at-75/ |work=[[New Jersey Globe]] |publisher= |date=2022-11-16 |access-date=2023-07-11 |archive-url=https://web.archive.org/web/20230131234454/https://newjerseyglobe.com/fr/lucinda-former-first-lady-of-new-jersey-dies-at-75/ |archive-date=2023-01-31 |url-status=live }}</ref> Mrs. Lucinda Florio also oversaw major renovations and played a key role in its conversion into a modern governor's residence.<ref name=nytimes/><ref name=njglobe/><ref name=njcom>{{cite news |first=Brent |last=Johnson |title=Lucinda Florio, former N.J. first lady and wife of Gov. Jim Florio, dies just weeks after husband's passing |url=https://www.msn.com/en-us/lifestyle/lifestyle-buzz/lucinda-florio-former-nj-first-lady-and-wife-of-gov-jim-florio-dies-just-weeks-after-husbands-passing/ar-AA14eN4l |work=[[NJ.com]] |publisher=[[MSN]] |date=2022-11-16 |access-date=2023-07-11 |archive-url=https://web.archive.org/web/20230711011049/https://www.msn.com/en-us/lifestyle/lifestyle-buzz/lucinda-florio-former-nj-first-lady-and-wife-of-gov-jim-florio-dies-just-weeks-after-husbands-passing/ar-AA14eN4l |archive-date=2023-07-11 |url-status=live }}</ref> The First Lady focused much of her work on Drumthwacket's private living quarters, which had been largely untouched by her predecessor.<ref name=nytimes/> 
+
+Florio and the Drumthwacket Foundation replaced the mansion's antiquated [[heating system]], installed new plumbing and [[drinking water]] systems, and repaired uneven [[hardwood floor]]s.<ref name="nytimes" /> Closets and storage spaces, which were absent from bedrooms in homes from the era, were added.<ref name="nytimes" /> Florio also acquired curtains and other window treatments, which were missing from many of Drumthwacket's windows.<ref name="nytimes" /> 
+
+Additionally in 1990, Florio restored the [[Italianate garden]]s on the 11-acre grounds surrounding Drumthwacket using private donations.<ref name="nytimes" /><ref name="df">{{cite news |first= |last= |title=History & Timeline: 1990 Drumthwacket's Italiante Gardens Restored |url=https://drumthwacket.org/about/history-timeline/ |work=Drumthwacket Foundation |publisher= |date= |access-date=2023-07-23 |archive-url=https://web.archive.org/web/20230628104030/https://drumthwacket.org/about/history-timeline/ |archive-date=2023-06-28 |url-status=live }}</ref><ref name="df2">{{cite news |first= |last= |title=Full History of Drumthwacket |url=https://drumthwacket.org/about/full-history/ |work=Drumthwacket Foundation |publisher= |date= |access-date=2023-07-23 |archive-url=https://web.archive.org/web/20230628103906/https://drumthwacket.org/about/full-history/ |archive-date=2023-06-28 |url-status=live }}</ref> The gardens were originally created in 1905 by the mansion's previous owner, [[Moses Taylor Pyne]], but had fallen into disrepair by the 1990s.<ref name="njcom" /><ref name="nytimes" /><ref name="df2" /> In 1990, First Lady Lucinda Florio hosted a small wedding reception for her father at the house.<ref name="nytimes" />.  
+
+In the Spring of 2026, newly elected Gov. Mikie Sherrill announced she was going to make Drumthwacket her official residence.<ref>{{Cite web |title=N.J. Governor to move to Princeton mansion with ties to the U. |url=https://www.dailyprincetonian.com/article/2026/04/princeton-news-broadfocus-sherrill-moving-to-drumthwacket-mansion-princeton-summer-new-jersey-governor |access-date=2026-05-24 |website=The Princetonian |language=en-US}}</ref>
+
+== Use by recent governors ==
+[[File:Drumthwacket Front.jpg|thumb|The front of Drumthwacket]]
+*[[Thomas Kean]] (1982–1990) lived in his private home in [[Livingston, New Jersey|Livingston]].
+*[[James Florio]] (1990–1994) lived full-time in the mansion.
+*[[Christine Todd Whitman]] (1994–2001) lived part-time in the mansion.
+*[[Donald DiFrancesco]] (2001–2002) lived part-time in the mansion.
+*[[John O. Bennett]] (2002) lived in the mansion for his 3½ days as Acting Governor.
+*[[James McGreevey]] (2002–2004) lived full-time in the mansion.
+*[[Richard Codey]] (2004–2006) lived part-time in the mansion.
+*[[Jon Corzine]] (2006–2010) lived part-time in the mansion. Drumthwacket became his full-time residence while he was recovering from injuries sustained in a severe automobile accident.<ref>{{cite news |author=Chen, David W. |url=https://www.nytimes.com/2007/04/30/nyregion/30corzine.html |title=Corzine to Make Early Exit From Hospital Monday |work=The New York Times |date=April 30, 2007 |access-date=July 30, 2008 |archive-date=August 30, 2023 |archive-url=https://web.archive.org/web/20230830024520/https://www.nytimes.com/2007/04/30/nyregion/30corzine.html |url-status=live }}</ref>
+*[[Chris Christie]] (2010–2018) only used the mansion for Sunday dinners and official functions, while living in his private home in [[Mendham Township, New Jersey|Mendham]].<ref>[http://www.trentonian.com/article/20091107/NEWS/311079983/christie-i-won-t-live-at-drumthwacket?mobredirect=true "Christie: I won’t live at Drumthwacket"] {{Webarchive |url=https://web.archive.org/web/20130927082702/http://www.trentonian.com/article/20091107/NEWS/311079983/christie-i-won-t-live-at-drumthwacket?mobredirect=true |date=2013-09-27 }}, ''[[The Trentonian]]'', November 7, 2009.</ref>
+*[[Phil Murphy]] (2018–2026) used the mansion for official functions and meetings, while living in his private home in [[Middletown Township, New Jersey|Middletown]].
+*[[Mikie Sherrill]] (2026–present) lives full-time in the mansion.
+
+==Building details and tours==
+[[File:Drumthwacket Back.jpg|thumb|The back garden of Drumthwacket]]
+There are 12 private rooms upstairs used by the first family and six public rooms on the main floor that are the site of many official functions. An annual Garden Club holiday display is a tradition at the property.<ref>Lauren Payne, "[http://njmonthly.com/articles/lifestyle/homeandgarden/christmas-at-drumthwacket.html Christmas At Drumthwacket] {{Webarchive|url=https://web.archive.org/web/20230830024437/https://njmonthly.com/articles/jersey-living/christmas-at-drumthwacket/ |date=2023-08-30 }}" (November 17, 2010). ''New Jersey Monthly''.</ref>
+
+Drumthwacket is open for guided tours on most Wednesdays, except for August, the day before [[Thanksgiving]], and several other dates. The tour includes the six public rooms used by the governor for meetings and receptions, as well as the [[Sunroom|solarium]], center hall, [[dining room]], [[parlor]], music room, [[library]], and governor's [[Study (room)|study]]. Guided tours are conducted by [[Museum docent|volunteer docents]]. Visitors can walk through the gardens and visit the Olden House, the restored farmhouse on the property that houses a gift shop and the Drumthwacket Foundation.<ref>"[http://www.drumthwacket.org/visit.html Visit Drumthwacket] {{webarchive |url=https://web.archive.org/web/20101206114023/http://www.drumthwacket.org/visit.html |date=December 6, 2010 }}." Drumthwacket Foundation.</ref>
+
+==See also==
+*[[Island Beach State Park#Governor’s Ocean Residence|Governor’s Ocean Residence]] - Official ocean front NJ Governor's residence at [[Island Beach State Park]], NJ
+
+==Notes==
+{{Reflist}}
+
+==External links==
+{{commons category|Drumthwacket}}
+*[http://www.drumthwacket.org/ Drumthwacket Foundation] official website
+*{{HABS |survey=NJ-903 |id=nj0989 |title=Drumthwacket, Italianate Garden, 344 Stockton Street (U.S. Route 206), Princeton, Mercer County, NJ |photos=24 |color= |dwgs=12 |data=15 |cap=2 |supp= }}
+
+{{US Governor Mansions}}
+{{Princeton, New Jersey}}
+{{NRHP in Mercer County, New Jersey}}
+
+[[Category:Houses completed in 1835]]
+[[Category:Governors' mansions in the United States|New Jersey]]
+[[Category:Houses on the National Register of Historic Places in New Jersey]]
+[[Category:Historic house museums in New Jersey]]
+[[Category:Museums in Princeton, New Jersey]]
+[[Category:Government buildings in New Jersey]]
+[[Category:Houses in Princeton, New Jersey]]
+[[Category:National Register of Historic Places in Mercer County, New Jersey]]
+[[Category:New Jersey Register of Historic Places]]
+[[Category:Historic American Buildings Survey in New Jersey]]
+[[Category:Governor of New Jersey]]
+[[Category:1835 establishments in New Jersey]]
+[[Category:Greek Revival houses in New Jersey]]
+[[Category:Georgian architecture in New Jersey]]

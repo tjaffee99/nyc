@@ -1,0 +1,56 @@
+{{Short description|Stadium in Princeton, NJ, USA}}
+{{Use mdy dates|date=May 2025}}
+{{Infobox venue
+| name           = Palmer Memorial Stadium
+| nickname       = 
+| image          = Princeton - Palmer Stadium.jpg
+| image_size     = 250px
+| image_caption  = 
+| location       = Princeton, NJ
+| groundbreaking = June, 1914
+| opened         = October 24, 1914
+| closed         = November 23, 1996
+| demolished     = Winter, 1997
+| owner          = [[Princeton University]]
+| operator       = Princeton University
+| surface        = Natural Grass
+| cost           = 
+| architect      = [[Henry J. Hardenburgh]]
+| former_names   = 
+| tenants        = [[Princeton Tigers football]], [[Princeton Tigers track and field]] (1914–1996)
+| capacity       = 42,000
+}}
+[[Image:Princeton - Palmer Stadium - 1914 - postcard.jpg|thumb|250px|A souvenir postcard of Palmer Stadium in 1914.]]
+
+'''The Palmer Memorial Stadium''' was a [[stadium]] in [[Princeton, New Jersey]], United States, owned operated by [[Princeton University]]. It served as the home venue for [[Princeton Tigers football]] team as well as Princeton's [[track and field]] team.<ref>{{cite web|last=Levin|first=Anne|url=http://www.princetonmagazine.com/palmer-stadium-memories-of-a-magical-time/|title=Palmer Stadium – Memories Of A Magical Time|work=Princeton Magazine}}</ref> The stadium was opened on October 24, 1914 with the [[1914 Princeton Tigers football team]]'s game against [[1914 Dartmouth football team|Dartmouth]], and held 45,750 people at its peak. It closed in 1996 with the [[1996 Princeton Tigers football team]]'s season finale. [[Princeton Stadium]] was built on the site, albeit pushed slightly further north, in 1997.
+
+The building was named for Stephen S. Palmer, a trustee of the university, by his son, Edgar Palmer III. Like [[Harvard Stadium]], it was horseshoe-shaped (which was modeled after the Greek Olympic Stadium), but was wider, including a full-sized track (around the football field). It opened to the south (facing [[Lake Carnegie (New Jersey)|Lake Carnegie]]) and the grand main entrance was at the north.
+
+Palmer Stadium hosted the [[New York Giants]] of the [[National Football League]] (NFL) for one exhibition game per season from 1965 to 1975, the first ten games against the [[Philadelphia Eagles]] and then the [[Pittsburgh Steelers]] in 1975. It hosted the championship game of the [[1981 NCAA Division I men's lacrosse tournament]]. From 1936 to its closing, the track's long-jump record was held by [[Jesse Owens]].
+
+==References==
+{{Reflist}}
+
+==External links==
+* [http://etcweb.princeton.edu/CampusWWW/Companion/palmer_stadium.html A short Palmer Stadium history] {{Webarchive|url=https://web.archive.org/web/20160303205334/http://etcweb.princeton.edu/CampusWWW/Companion/palmer_stadium.html |date=March 3, 2016 }}
+* [http://www.goprincetontigers.com/ViewArticle.dbml?DB_OEM_ID=10600&ATCLID=295165 Palmer Stadium from GoPrincetonTigers.com]
+
+{{Princeton Tigers football navbox}}
+{{Princeton}}
+{{NewYorksportsvenues}}
+{{Authority control}}
+{{coord|40.345755|-74.65003|type:landmark|display=title}}
+
+[[Category:College football venues in New Jersey]]
+[[Category:College lacrosse venues in the United States]]
+[[Category:College track and field venues in the United States]]
+[[Category:Defunct college football venues]]
+[[Category:Henry Janeway Hardenbergh buildings]]
+[[Category:Princeton Tigers football]]
+[[Category:Princeton Tigers sports venues]]
+[[Category:Sports venues completed in 1914]]
+[[Category:Sports venues demolished in 1997]]
+[[Category:1914 establishments in New Jersey]]
+[[Category:1997 disestablishments in New Jersey]]
+
+{{NewJersey-stadium-stub}}

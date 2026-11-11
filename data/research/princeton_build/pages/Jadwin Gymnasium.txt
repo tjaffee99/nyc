@@ -1,0 +1,66 @@
+{{Short description|Multi-purpose arena at Princeton University}}
+{{Infobox venue
+| name           = L. Stockwell Jadwin Gymnasium
+| nickname       = Jadwin Jungle
+| image          = Jadwin Gymnaium.jpg
+| mapframe       = yes
+| mapframe-zoom  = 15
+| coordinates    = {{coord|40.343449|-74.648595|type:landmark|display=it}}
+| location       = Princeton University<br>Princeton, NJ 08542
+| groundbreaking = 1964
+| opened         = 1969
+| closed         = 
+| demolished     = 
+| owner          = Princeton University
+| operator       = Princeton University
+| surface        = 
+| cost           = $6.5 million
+| architect      = [[Walker O. Cain]] & Assoc.
+| former_names   = 
+| tenants        = Princeton Tigers<br>(Basketball, track, fencing, squash, & tennis)
+| capacity       = 6,854
+}}
+
+'''The L. Stockwell Jadwin Gymnasium''' is a 6,854-seat multi-purpose [[arena]] at [[Princeton University]] in [[Princeton, New Jersey]]. The arena opened in 1969. It is home to the [[Princeton Tigers]] [[college basketball]] teams.  It replaced [[Dillon Gymnasium]], the home of Princeton [[volleyball]] and [[wrestling]], as the fifth main basketball arena on campus.
+
+In 1965, the mother of Leander Stockwell Jadwin, class of 1928, gave a gift of $27 million to the university in his name.  He had been the captain of the track team and had died just months after graduation in an automobile accident.  The school decided to use $6.5 million towards the building of the gymnasium, which had just barely been started.
+
+[[Image:Jadwin Gymnasium exterior at night 2018.jpg|thumb|right|upright=1.2|Jadwin Gymnasium at night]]
+
+The gymnasium, designed by the architect [[Walker O. Cain]], has {{convert|250000|sqft}} of floor space on five levels for multiple sports. It is notable for its unique roof consisting of three interlocking shells. The seating is highly asymmetrical, with bleachers on three sides and a concrete grandstand on the fourth side, holding the majority of the seats.  Behind the opposite bleachers lies the void of the indoor track, which itself sits atop an indoor baseball field and three additional levels underneath. This creates challenges for generating noise and atmosphere even when the stands are full compared to other gyms in the [[Ivy League]], which are mostly smaller and more traditional in their layout.  The television cameras also are mounted on the large grandstand side, which makes Jadwin seem smaller on television.
+
+Many of the highest attended events in Jadwin were college and high school wrestling tournaments, the 1975 NCAA Wrestling tournament drew a total of 45,000 (then the record) for six sessions, with 9,600 attending the finals. Six years later, Princeton brought in more temporary seating and averaged at least 1,000 more per session. For many years Jadwin Gymnasium was the site of the New Jersey State High School wrestling tournament, with many sessions of 8,000 to 10,000 fans.
+
+Jadwin Gymnasium hosted games of the first round of the [[NCAA Men's Division I Basketball Championship|NCAA Division I men's basketball tournament]] twice, in [[1970 NCAA Division I men's basketball tournament|1970]] and [[1972 NCAA Division I men's basketball tournament|1972]]. It was the site of the [[ECAC men's basketball tournaments|ECAC Metro Region tournament]] organized by the [[Eastern College Athletic Conference]] (ECAC) in [[ECAC men's basketball tournaments#1976 tournaments|1976]].<ref>{{Cite web |url=http://jonfmorse.com/wiki/index.php?title=1976_ECAC_Men%27s_Basketball_Tournaments |title=Varsity Pride: 1976 ECAC Men's Basketball Tournaments |access-date=2014-03-25 |archive-date=2013-12-14 |archive-url=https://web.archive.org/web/20131214162620/http://jonfmorse.com/wiki/index.php?title=1976_ECAC_Men%27s_Basketball_Tournaments |url-status=dead }}</ref> Jadwin hosted the 2023 Ivy League [[2023 Ivy League men's basketball tournament|men's]] and [[2023 Ivy League women's basketball tournament|women's]] basketball tournaments, which were both won by the homestanding Tigers.
+
+'''The Jadwin Jungle''' is the official [[student cheering section]] and basketball booster group in Jadwin Gymnasium for the Princeton Tigers basketball teams, located in the bleachers closest to the court behind the scorers' tables.  The cheering section was founded in 2003 by three Princeton undergraduates and quickly grew to be the largest student group on campus.<ref>{{cite web|title=Jadwin Jungle |url=https://www.princeton.edu/~jungle/welcome.htm|access-date=March 11, 2011}}</ref>
+
+The first Princeton Tiger basketball player to score a basket in Jadwin Gym  was  Geoff Petrie.   A Princeton BBall legend and NBA standout, until injuries sidelined his career .<ref>{{Cite web |last=Communications |first=Princeton Athletic |title=Jadwin Turns 40: The Top 40 Moments in Jadwin Gym History |url=https://goprincetontigers.com/news/2009/1/23/3651195 |access-date=2026-05-24 |website=Princeton University Athletics |language=en}}</ref>
+
+==See also==
+{{portal|New Jersey}}
+* [[List of NCAA Division I basketball arenas]]
+
+==References==
+{{Reflist}}
+
+==External links==
+* {{Official website|https://campusrec.princeton.edu/plan-your-visit/locations/jadwin-gym}}
+
+{{Princeton Tigers men's basketball navbox}}
+{{Princeton Tigers women's basketball navbox}}
+{{Princeton}}
+{{Ivy League basketball venue navbox}}
+{{Authority control}}
+
+[[Category:College basketball venues in New Jersey]]
+[[Category:College indoor track and field venues in the United States]]
+[[Category:Princeton Tigers men's basketball]]
+[[Category:Princeton Tigers women's basketball]]
+[[Category:Princeton Tigers sports venues]]
+[[Category:Fencing venues]]
+[[Category:Squash venues in the United States]]
+[[Category:Athletics (track and field) venues in New Jersey]]
+[[Category:Tennis venues in New Jersey]]
+[[Category:Sports venues completed in 1969]]
+[[Category:1969 establishments in New Jersey]]

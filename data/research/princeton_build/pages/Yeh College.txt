@@ -1,0 +1,41 @@
+{{short description|Residential college at Princeton University}}
+{{Infobox residential college
+| name           = Yeh College
+| type           = [[Princeton University#Residential colleges|Residential college]]
+| university     = [[Princeton University]]
+| shield         = Princeton Yeh College CoA.svg
+| shield_size    = 
+| image          = File:New College East, Princeton University.jpg
+| caption        = New College East near completion in 2022
+| scarf          = 
+| full_name      = 
+| latin_name     = 
+| latin_motto    = 
+| english_motto  = 
+| named_for      = 
+| former_names   = 
+| established    = 2022
+| sister_college = [[New College West]]
+| freshman_dorm  = 
+| head           = Yair Mintzker
+| dean           = 
+| HoCo_chair     = 
+| undergraduates = around 500<ref name="stateof2020">{{cite web |last1=Eisgruber |first1=Christopher |title=State of the University 2020 |url=https://www.princeton.edu/news/2020/02/03/president-eisgrubers-annual-state-university-letter-2020 |website=Princeton University |publisher=Princeton University |access-date=28 June 2020}}</ref>
+| called         = 
+| tutors         = 
+| location       = 
+| coordinates    = {{coord|40.342411|-74.654673|region:US_type:landmark_source:placeopedia|format=dms|display=inline,title}}
+| website        = https://yehcollege.princeton.edu
+}}
+
+'''Yeh College'''<ref>{{cite web |last1=Advancement Communications |title=Major gift from Jaimie and James Yeh ’87 names residential college and supports undergraduate expansion |url=https://www.princeton.edu/news/2022/05/11/major-gift-jaimie-and-james-yeh-87-names-residential-college-and-supports |website=Princeton University |publisher=Princeton University |access-date=11 May 2022 |ref=yeh}}</ref> (provisionally known as '''New College East''' until 2022, and '''Residential College 7''' until 2021) is the seventh [[Princeton University#Residential colleges|residential college]] at [[Princeton University]]. It opened at the beginning of the academic year in September 2022.<ref name="stateof2020" /> The construction of Yeh College increased the undergraduate student body population by 10 percent, or 500 students. It aims to be [[LEED Gold]] certified.<ref name="facilities">{{cite web |title=New Residential Colleges, including Perelman College |url=https://facilities.princeton.edu/projects/new-residential-colleges-including-perelman-college |website=Princeton University Facilities |publisher=Princeton University |access-date=28 June 2020 |archive-date=29 June 2020 |archive-url=https://web.archive.org/web/20200629144858/https://facilities.princeton.edu/projects/new-residential-colleges-including-perelman-college |url-status=dead }}</ref> [[Deborah Berke Partners]] are the architects of the new buildings.<ref name="roinj">{{cite web |last1=Strauss |first1=Eric |title=Perelman gift to fund new residential college at Princeton |url=https://www.roi-nj.com/2018/12/05/education/perelman-gift-to-fund-new-residential-college-at-princeton/ |website=ROI-NJ |publisher=ROI-NJ |access-date=28 June 2020}}</ref> A sister college, tentatively titled [[New College West]], was built adjacent to Yeh College, and shares the same dining facility.<ref name="facilities" /> New College West houses students displaced by the demolition of [[First College]], which is to be replaced with [[Hobson College]] in 2027.<ref>{{Cite web|date=2021-11-01|title=Home Page {{!}} Construction at Princeton|url=https://construction.princeton.edu/|archive-url=https://web.archive.org/web/20211101154145/https://construction.princeton.edu/|url-status=dead|archive-date=2021-11-01|access-date=2021-11-01}}</ref>
+
+==References==
+{{reflist}}
+
+{{Princeton}}
+
+[[Category:Colleges of Princeton University]]
+[[Category:2022 establishments in New Jersey]]
+[[Category:University and college buildings and structures completed in 2022]]
+[[Category:Buildings and structures in Princeton, New Jersey]]

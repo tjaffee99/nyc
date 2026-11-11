@@ -1,0 +1,135 @@
+{{Short description|Cemetery in Princeton, New Jersey}}
+{{For|the cemetery in Arkansas|Princeton Cemetery (Arkansas)}}
+{{Infobox cemetery
+| name = Princeton Cemetery
+| image = Presidents row, old Princeton burying ground-LCCN2008679656.tif
+| image_size = 300px
+| caption = Presidents row, showing grave of [[Vice-President of the United States|Vice-President]] [[Aaron Burr Jr.]] in front of those of his father, [[Aaron Burr Sr.]], and grandfather, [[Jonathan Edwards (theologian)|Jonathan Edwards]], both presidents of the College of New Jersey, now [[Princeton University]]
+| established = {{Date and age|1757}}<ref name=online/>
+| country = United States
+| location = [[Princeton, New Jersey]]
+| coordinates = {{coord|40|21|18|N|74|39|36|W|display=inline,title}}
+| type = <!-- private, public-->
+| owner = [[Nassau Presbyterian Church]]
+| size = 
+| graves = 9,000+
+| findagraveid = 100174
+| website = [http://www.princetonol.com/groups/cemetery/ Princeton Cemetery]
+| embedded = {{Infobox NRHP
+ |embed = yes
+ |name = Princeton Cemetery
+ |part_of = [[Princeton Historic District (Princeton, New Jersey)|Princeton Historic District]]
+ |part_of_ref_num = 75001143<ref>{{cite web |title=Princeton Historic District |url=https://npgallery.nps.gov/NRHP/GetAsset/NRHP/75001143_text |website=National Register of Historic Places |publisher=National Park Service |access-date=2023-08-18 |archive-date=2023-04-06 |archive-url=https://web.archive.org/web/20230406011724/https://npgallery.nps.gov/NRHP/GetAsset/NRHP/75001143_text |url-status=live }}</ref>
+ |nrhp_type = cp
+ |nocat = yes
+ |image = 
+ |alt = 
+ |caption = 
+ |area = 
+ |architect = 
+ |added = 27 June 1975
+ |governing_body = 
+ |mpsub =
+}}
+}}
+'''Princeton Cemetery''' is located in [[Princeton, New Jersey]], United States.<ref name=online>{{cite web |url=http://www.princetonol.com/groups/cemetery/ |title=The Princeton Cemetery |access-date=2007-08-26 |publisher=Princeton Online |archive-date=2007-08-26 |archive-url=https://web.archive.org/web/20070826173720/http://www.princetonol.com/groups/cemetery/ |url-status=live }}</ref> It is owned by the [[Nassau Presbyterian Church]].<ref>{{cite book |last=Sarapin |first=Janice Kohl |title=Old Burial Grounds of New Jersey |year=2002 |publisher=[[Rutgers University Press]] |url=https://books.google.com/books?id=uDfIJt5RFWgC&pg=PP1 |isbn=0813521114 |access-date=2020-10-18 |archive-date=2023-08-18 |archive-url=https://web.archive.org/web/20230818033939/https://books.google.com/books?id=uDfIJt5RFWgC&pg=PP1 |url-status=live }}</ref> In his 1878 history of Princeton, New Jersey, John F. Hageman refers to the cemetery as "The [[Westminster Abbey]] of the United States."<ref name=online/><ref name=nyt1/>
+
+==Notable burials==
+{{Category see also|Burials at Princeton Cemetery}}
+*[[Archibald Alexander]] (1772–1851), [[Presbyterianism|Presbyterian]] theologian
+*[[James Waddel Alexander]] (1804–1859), Presbyterian theologian and eldest son of Archibald Alexander
+*[[Joseph Addison Alexander]] (1809–1860), Presbyterian biblical scholar and third son of Archibald Alexander
+*[[William Cowper Alexander]] (1806–1874), politician, businessman and second son of Archibald Alexander
+*[[Frank Anscombe]] (1918–2001), statistician, known for [[Anscombe's quartet]]
+*[[John N. Bahcall]] (1934–2005), astrophysicist
+*[[George Wildman Ball]] (1909–1994), diplomat
+*[[George Dashiell Bayard]] (1835–1862), Civil War general
+*[[Sylvia Beach]] (1887–1962), bookshop owner
+*[[Harold H. Bender]] (1882–1951), philologist
+*[[John Berrien]] (1711–1772), [[Province of New Jersey#Judiciary|New Jersey Supreme Court]] Justice and owner of [[Rockingham (house)|Rockingham]], Washington's headquarters
+*[[William G. Bowen]], (1933–2016), president of [[Princeton University]]
+*[[Aaron Burr]] (1756–1836), controversial [[American Revolutionary War|Revolutionary War]] hero and politician, third [[vice president of the United States]], killer of [[Alexander Hamilton]], adventurer who was eventually tried and acquitted of treason
+*[[Aaron Burr Sr.]] (1716–1757), Presbyterian minister, second president of [[Princeton University]] and father of Aaron Burr
+*[[Brendan Byrne]] (1924–2018), 47th governor of New Jersey
+*[[Alonzo Church]] (1903–1995), mathematician
+*[[Grover Cleveland]] (1837–1908), 22nd and 24th [[president of the United States]]
+*[[Frances Folsom Cleveland Preston]] (1864–1947), wife of Grover Cleveland and First Lady of the United States
+*[[Ruth Cleveland]] (1891–1904), first child of Grover and Frances Cleveland and supposed name sake of the [[Baby Ruth]] candy bar
+*[[Edward Samuel Corwin]] (1878–1963), author and professor of law
+*[[Samuel Davies (Presbyterian educator)|Samuel Davies]] (1723–1761), president of [[Princeton University]]
+*[[Erling Dorf]] (1905–1984), renowned [[paleobotanist]], professor of Geology at [[Princeton University]]
+*[[Jonathan Edwards (theologian)|Jonathan Edwards]] (1703–1758), president of Princeton University and [[Calvinism|Calvinist]] theologian
+*[[Richard Stockton Field]] (1803–1870), [[US senator]] and [[New Jersey Attorney General]]
+*[[John Huston Finley]] (1863–1940), author, president of [[Knox College (Illinois)|Knox College]] and [[University of the State of New York]]
+*[[Donald B. Fullerton]] (1892–1985), missionary and founder of the [[Princeton Christian Fellowship]]
+*[[Harold Furth]] (1930–2002), physicist
+*[[George Horace Gallup]] (1901–1984), pollster
+*[[William Francis Gibbs]] (1886–1967), naval architect
+*[[Kurt Gödel]] (1906–1978), mathematician
+*[[Michael Graves]] (1934–2015), architect and product designer
+* [[Ashbel Green]] (July 6, 1762 – May 19, 1848), Chaplain of the United States House of Representatives
+*[[Peter Charles Harris]] (1865–1951), [[List of Adjutant Generals of the U.S. Army|adjutant general of the U.S. Army]]
+*[[Charles Hodge]] (1797–1878), Calvinist theologian
+*[[David Hunter]] (1802–1886), [[American Civil War|Civil War]] General
+*[[Lajos Jambor|Louis "Lajos" Jambor]] (1884–1954), Hungarian-born American painter, illustrator and muralist.<ref name=":1">{{Cite web |url=http://timesmachine.nytimes.com/timesmachine/1954/06/12/92827963.html?pageNumber=15 |title=Louis Jambor, 69, Versatile Artist; Portraitist and Mural Painter Who Also, Did Book, Film Work Succumbs Here |date=1954-06-12 |website=[[The New York Times]] |language=en |access-date=2020-02-22 |archive-date=2023-08-18 |archive-url=https://web.archive.org/web/20230818034008/https://timesmachine.nytimes.com/timesmachine/1954/06/12/92827963.html?pageNumber=15 |url-status=live }}</ref>
+*[[William Hallock Johnson]] (1865–1963), president of [[Lincoln University (Pennsylvania)|Lincoln University]] in Pennsylvania
+*[[Joseph Kargé]] (1823–1892), Civil War General and Princeton University professor
+*[[George Frost Kennan]] (1904–2005), diplomat
+*[[Alan Krueger]] (1960–2019), economist
+*[[Frank Lewin]] (1925–2008), composer
+*[[David Kellogg Lewis]] (1941–2001), philosopher
+*[[Edward Parke Custis Lewis]] (1837–1892), diplomat
+*[[John Maclean Jr.]] (1800–1886), president of Princeton University
+*[[Robert McNutt McElroy]] (1872–1959), historian and professor of history at Princeton University, [[Oxford University]], and [[Cambridge University]]
+*José Menendez (1944–1989) and Mary Louise (Kitty) Menendez (1941–1989), murder victims of their sons, [[Lyle and Erik Menendez]]
+*[[John O'Hara]] (1905–1970), author of ''[[Appointment in Samarra]]'', ''[[BUtterfield 8 (novel)|BUtterfield 8]]'', and many short stories
+*[[Moses Taylor Pyne]] (1855–1921), financier, philanthropist and owner of [[Drumthwacket]] Estate
+*[[Roger Atkinson Pryor]] (1828–1919), Special US Minister to Greece, [[United States House of Representatives|US congressman]] from Virginia, [[Confederate States of America|Confederate]] congressman and general, journalist, New York Supreme Court justice
+*[[William Drew Robeson I|William Drew Robeson]] (1844–1918), father of singer, actor and activist [[Paul Robeson]]
+*[[Henry Norris Russell]] (1877–1957), astronomer
+*[[William Milligan Sloane]] (1850–1928), first [[United States Olympic Committee|US Olympic Committee]] president
+*[[Howard Alexander Smith]] (1880–1966), US senator from New Jersey
+*[[John P. Stockton]] (1826–1900), New Jersey attorney general and U.S. senator
+*[[Richard Stockton (U.S. senator)|Richard Stockton]] (1764–1828), U.S. senator from New Jersey<ref>[http://bioguide.congress.gov/scripts/biodisplay.pl?index=S000941 Richard Stockton (1764–1828)] {{Webarchive|url=https://web.archive.org/web/20080524023558/http://bioguide.congress.gov/scripts/biodisplay.pl?index=S000941 |date=2008-05-24 }}, [[Biographical Directory of the United States Congress]]. Accessed August 20, 2007.</ref>
+*[[Robert Field Stockton]] (1795–1866), naval officer
+*[[Lyman Spitzer]] (1914–1997), astronomer
+*[[John Renshaw Thomson]] (1800–1862), U.S. senator from New Jersey
+*[[William G. Thompson]] (1840–1904), mayor of [[Detroit]]
+*[[Augustus Trowbridge]] (1870–1934), professor and dean at [[Princeton University]]<ref>{{Cite book |url=https://www.nasonline.org/wp-content/uploads/2024/06/trowbridge-augustus.pdf |title=Biographical Memoir of Augustus Trowbridge 1870–1934 |author=[[Karl Taylor Compton|Karl T. Compton]] |date=1937 |work=[[National Academy of Sciences]] |access-date=2021-07-15 |archive-date=2021-06-07 |archive-url=https://web.archive.org/web/20210607203515/http://www.nasonline.org/publications/biographical-memoirs/memoir-pdfs/trowbridge-augustus.pdf |url-status=live }}</ref>
+*[[John W. Tukey]] (1915–2000), statistician
+*[[Paul Tulane]] (1801–1887), [[Tulane University]] benefactor<ref name=nyt1>{{cite news |first=Robert |last=Strauss |title=Sometimes the Grave Is a Fine and Public Place |url=https://www.nytimes.com/2004/03/28/nyregion/sometimes-the-grave-is-a-fine-and-public-place.html |work=[[New York Times]] |date=March 28, 2004 |access-date=2013-09-06 |archive-date=2008-06-04 |archive-url=https://web.archive.org/web/20080604002810/http://query.nytimes.com/gst/fullpage.html?res=940DEFD71230F93BA15750C0A9629C8B63 |url-status=live }}</ref>
+*[[John von Neumann]] (1903–1957), mathematician
+*[[Benjamin Breckinridge Warfield]] (1851–1921), Presbyterian theologian
+*[[Andrew Fleming West]] (1853–1943), classicist, [[Giger Professor of Latin]] and first dean of the [[Princeton University Graduate School]]<ref>{{Cite web |url=https://nassauchurch.org/wp-content/uploads/2016/05/PrCemGuide2016WebVersion.pdf |title=Princeton Cemetery Guide |publisher=Nassau Presbyterian Church |accessdate=2025-11-20 }}</ref> 
+*[[Canvass White]] (1790–1834), engineer and inventor
+*[[Eugene Paul Wigner]] (1902–1995), [[Nobel Prize in Physics|Nobel Prize]]-winning physicist
+*[[John Witherspoon]] (1723–1794), signer of the [[United States Declaration of Independence|Declaration of Independence]]
+*[[William Willet]] (1867–1921), portraitist and stained glass designer
+
+==Gallery==
+<gallery heights="180px" widths="250px" mode="nolines">
+File:Grover Cleveland family grave site, Princeton Cemetery.jpg|Graves of [[Grover Cleveland]] (center), his wife [[Frances Folsom Cleveland Preston]] (right), and daughter [[Ruth Cleveland]] (left)
+File:Grave of Brendan Byrne in Princeton Cemetery.jpg|Grave of New Jersey Governor [[Brendan Byrne]]
+</gallery>
+
+==See also==
+* [[List of burial places of presidents and vice presidents of the United States]]
+
+==References==
+{{Reflist}}
+
+== External links ==
+{{Commons category|Princeton Cemetery}}
+*[http://nassauchurch.org/about/princetoncemetery/ Nassau Presbyterian Church: Princeton Cemetery]
+*[http://www.princetonol.com/groups/cemetery Princeton Online: Princeton Cemetery]
+*[http://www.richardsibbes.com/Princeton.Cemetery.htm A photographic tour through Princeton Cemetery]
+
+{{Princeton, New Jersey|state=collapsed}}
+{{Authority control}}
+
+[[Category:Cemeteries in Mercer County, New Jersey]]
+[[Category:Princeton, New Jersey]]
+[[Category:Presbyterian cemeteries in New Jersey|Presbyterian]]
+[[Category:1757 establishments in New Jersey]]
+[[Category:Historic district contributing properties in Mercer County, New Jersey]]
+[[Category:Tombs of presidents of the United States]]
