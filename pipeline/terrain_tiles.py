@@ -116,6 +116,35 @@ def lonlat_of(g):
     return np.meshgrid(lon, lat)
 
 
+_WOODS = []
+
+
+def woods_of_1957(g):
+    """Where the woods stood in the middle of the 20th century: the green woodland tint of the
+    1:250,000 sheets of about 1957 (data/manual/gapfill/all_woodland_*.geojson, read off the
+    scans by usgs_epochs.py), as a mask on the grid; None without the file. The first real
+    evidence between the forest of 1609 and today's canopy: the rest of the woods' history is
+    the model of decision 29."""
+    if not _WOODS:
+        _WOODS.append(None)
+        fs = sorted((MANUAL / "gapfill").glob("all_woodland_*.geojson"))
+        if fs:
+            try:
+                w = pd.concat([gpd.read_file(f) for f in fs], ignore_index=True)
+                _WOODS[0] = gpd.GeoDataFrame(w, geometry="geometry", crs=4326).to_crs(3857)
+            except Exception as e:  # noqa: BLE001
+                log(f"terrain: woodland of 1957 not read ({type(e).__name__}: {e})")
+    w = _WOODS[0]
+    if w is None:
+        return None
+    x0, y1 = g["X0"], g["Y0"]
+    x1, y0 = x0 + g["cols"] * g["res"], y1 - g["rows"] * g["res"]
+    sel = w.cx[x0:x1, y0:y1]
+    if not len(sel):
+        return np.zeros((g["rows"], g["cols"]), bool)
+    return rasterize_on(g, [(geom, 1) for geom in sel.geometry if geom is not None and not geom.is_empty], fill=0, dtype="uint8").astype(bool)
+
+
 def rasterize_on(g, shapes, fill=np.nan, dtype="float32", all_touched=False):
     t = Affine(*g["transform"][:6]) if not isinstance(g["transform"], Affine) else g["transform"]
     return features.rasterize(shapes, out_shape=(g["rows"], g["cols"]), transform=t, fill=fill, dtype=dtype,
@@ -821,7 +850,19 @@ def histories(name, g, d, land_only=False, reuse_land=True):
     event(farm_ok & ~pasture, FARM, F)
     event(farm_ok & pasture, PASTURE, F)
     # old fields given up: second growth from the 1880s to the 1930s (never sooner than 40 years after the clearing)
-    event(farm_ok & second_growth, FOREST, np.fmax(F + 40.0, 1882.0 + 55.0 * h))
+    # The woods of about 1957 (woods_of_1957). Open then and wooded today: the woods came back
+    # after the map, not between the 1880s and the 1930s. Wooded then and built on since: the
+    # field had gone back to woods before the houses came - without this the suburbs of the
+    # 1960s to 1990s rose from farmland that had been woods for a generation.
+    w57 = woods_of_1957(g)
+    back = np.fmax(F + 40.0, 1882.0 + 55.0 * h)
+    if w57 is not None:
+        back = np.where(~w57, np.fmax(back, 1958.0 + 35.0 * h), np.fmin(back, 1950.0)).astype(np.float32)
+        was_woods = w57 & ~wooded_now & ~is_park & is_city & (city_y > 1962.0) & farm_ok
+        event(was_woods, FOREST, np.fmin(np.fmax(F + 40.0, 1882.0 + 55.0 * h), 1950.0))
+        log(f"terrain {name}: woods of about 1957 on {int(w57.sum())} cells; {int(was_woods.sum())} cells built on since go back to woods before the houses; "
+            f"{int((second_growth & farm_ok & ~w57).sum())} cells of today's woods were open then")
+    event(farm_ok & second_growth, FOREST, back)
     # airfields (airports.py -> data/interim/airports.parquet): mown grass from the opening year;
     # one that closed hands the ground on to today's use when it closed
     ap = INTERIM / "airports.parquet"
@@ -863,7 +904,10 @@ def histories(name, g, d, land_only=False, reuse_land=True):
     event(made_lake, RESERVOIR, park_y)
     # woods that grew back on cleared or made ground (not parks: their trees are decorations)
     regrow = wooded_now & ~is_park & ~stream & (made | ~np.isin(N, [FOREST]))
-    event(regrow, FOREST, np.fmax(ground_y + 25.0, 1900.0 + 60.0 * h))
+    regrow_y = np.fmax(ground_y + 25.0, 1900.0 + 60.0 * h)
+    if w57 is not None:
+        regrow_y = np.where(w57, np.fmin(regrow_y, 1950.0), np.fmax(regrow_y, 1958.0 + 35.0 * h))
+    event(regrow, FOREST, regrow_y.astype(np.float32))
     # today's marsh on ground that was open water in 1609 (accretion, restored marsh)
     event(land_now & (wc == 90) & np.isin(N, [SHALLOW, DEEP]) & ~made, MARSH, 1900.0 + 60.0 * h)
 
@@ -907,7 +951,7 @@ def histories(name, g, d, land_only=False, reuse_land=True):
         covers[s] = np.where(n >= s, covers[s], covers[s - 1])
     log(f"terrain {name}: changes per vertex {np.bincount(n.ravel(), minlength=5).tolist()}; "
         f"made land {int(made.sum())} cells, city {int(is_city.sum())}, park {int(is_park.sum())}, farms {int(farm_ok.sum())}")
-    wood_y = np.where(regrow, np.fmax(ground_y + 25.0, 1900.0 + 60.0 * h), np.nan).astype(np.float32)
+    wood_y = np.where(regrow, regrow_y, np.nan).astype(np.float32)
     return covers, years, elev, urban_y, np.where(is_park, park_y, np.nan).astype(np.float32), wood_y
 
 
