@@ -1,0 +1,169 @@
+{
+ "total": {
+  "layer": "brooklyn_redhook_1898",
+  "plates": 3,
+  "buildings": 1631,
+  "frame": 621,
+  "brick": 980,
+  "stone": 30,
+  "gasholders": 0,
+  "on_today": 91,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 2.46
+ },
+ "plates": [
+  {
+   "plate": "8515",
+   "image": "1517529",
+   "name": "Part of Wards 6,10 & 12. Land Map Section, No. 2, Volume 1, Brooklyn Borough, New York Cit",
+   "gcps": 5,
+   "model": "affine",
+   "cv_rms": 1.7,
+   "mpp": 0.307,
+   "n": 4235,
+   "frame": 181,
+   "brick": 800,
+   "stone": 23,
+   "coincide": 66,
+   "share": 0.066,
+   "corrected": true,
+   "paper": [
+    84.0,
+    -1.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.55,
+    -0.31
+   ],
+   "off_median_m": 1.54,
+   "street": {
+    "plate": "8515",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 5,
+    "model": "affine",
+    "cv_rms": 1.7,
+    "mpp": 0.307,
+    "windows": 6,
+    "shift_median": [
+     -0.6,
+     0.7
+    ],
+    "shift_abs_median": 1.3,
+    "kind": "shift",
+    "agree": 6,
+    "fit_residual_m": 0.7,
+    "kind2": "shift",
+    "agree2": 7,
+    "fit_residual2_m": 0.7,
+    "after_windows": 7,
+    "after_abs_median": 0.5
+   },
+   "sheet": "B98-8515",
+   "clipped": 3206,
+   "lettering_dropped": 15,
+   "water_dropped": 6,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 1004,
+   "duplicates_dropped": 3,
+   "status": "ok"
+  },
+  {
+   "plate": "8516",
+   "image": "1517530",
+   "name": "Part of Ward 12. Land Map Section, No. 2, Volume 1, Brooklyn Borough, New York City.",
+   "gcps": 31,
+   "model": "affine",
+   "cv_rms": 4.8,
+   "mpp": 0.306,
+   "n": 1040,
+   "frame": 146,
+   "brick": 14,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.006,
+   "corrected": false,
+   "paper": [
+    84.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.94,
+    0.44
+   ],
+   "off_median_m": 1.68,
+   "sheet": "B98-8516",
+   "clipped": 860,
+   "lettering_dropped": 2,
+   "water_dropped": 18,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 160,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "8517",
+   "image": "1517531",
+   "name": "Part of Ward 12. Land Map Section, No. 2, Volume 1, Brooklyn Borough, New York City.",
+   "gcps": 45,
+   "model": "affine",
+   "cv_rms": 1.8,
+   "mpp": 0.307,
+   "n": 1165,
+   "frame": 294,
+   "brick": 166,
+   "stone": 7,
+   "coincide": 24,
+   "share": 0.051,
+   "corrected": true,
+   "paper": [
+    85.0,
+    -1.0,
+    9.0
+   ],
+   "off_median_vec": [
+    1.3,
+    1.9
+   ],
+   "off_median_m": 2.53,
+   "street": {
+    "plate": "8517",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 45,
+    "model": "affine",
+    "cv_rms": 1.8,
+    "mpp": 0.307,
+    "windows": 5,
+    "shift_median": [
+     -2.0,
+     0.3
+    ],
+    "shift_abs_median": 3.1,
+    "kind": "shift",
+    "agree": 5,
+    "fit_residual_m": 3.1,
+    "kind2": "affine",
+    "agree2": 10,
+    "fit_residual2_m": 1.0,
+    "after_windows": 10,
+    "after_abs_median": 1.0
+   },
+   "sheet": "B98-8517",
+   "clipped": 654,
+   "lettering_dropped": 3,
+   "water_dropped": 39,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 467,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  }
+ ]
+}

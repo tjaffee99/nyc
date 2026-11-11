@@ -129,8 +129,14 @@ def rgb2lab(rgb):
     return np.stack([116 * f[..., 1] - 16, 500 * (f[..., 0] - f[..., 1]), 200 * (f[..., 1] - f[..., 2])], -1)
 
 
-def paper_colour(img, inside=None):
-    """Lab mode of the plate's light pixels (the paper), from a 1-in-7 subsample."""
+def paper_colour(img, inside=None, pid=None):
+    """Lab mode of the plate's light pixels (the paper), from a 1-in-7 subsample. A plate that is nearly all
+    brick (the Lower East Side) has the rose of the brick for its mode: its layers.json entry may give `paper`."""
+    if pid is not None:
+        for L_ in layers().values():
+            for p_ in L_["plates"]:
+                if str(p_["id"]) == str(pid) and p_.get("paper"):
+                    return np.array(p_["paper"], float)
     sub = img[::7, ::7]
     lab = rgb2lab(sub)
     ok = lab[..., 0] > 60
@@ -421,6 +427,9 @@ class Plate:
         self.layer, self.id = layer, str(pid)
         self.spec = layers()[layer]
         self.style = dict(STYLES[self.spec["style"]], **self.spec.get("style_override", {}))
+        for p_ in self.spec["plates"]:                         # a plate whose pigments differ from its atlas's
+            if str(p_["id"]) == str(pid) and p_.get("style_override"):
+                self.style.update(p_["style_override"])
         self.m = warp.MapWarp(int(pid), verbose=verbose)
         self.m.rec["image_path"] = str(RAW / f"{self.m.rec['imageId']}.jpg")
         self.corr = None  # (A 2x2, t 2) correction applied after the control-point fit, local metres
@@ -553,7 +562,7 @@ def window_shifts(P, f=4, win_m=400.0, search_m=30.0, min_q=0.4, F=None):
     from scipy import signal
     if F is None:
         img = P.img()
-        paper = paper_colour(img, P.inside(img.shape[:2]))
+        paper = paper_colour(img, P.inside(img.shape[:2]), P.id)
         F = wash_raster(img, paper, f, P.style.get("wash_cool"))
         F = ndi.gaussian_filter(F, 1.0)  # the whole sheet: what lies outside the Map Warper mask is map all the same
         P._wash = F
@@ -666,7 +675,7 @@ def locate(layer, pid, search_km=8.0, f=12, verbose=True, hint=None, hint_km=1.0
     from scipy import signal
     P = Plate(layer, pid, verbose=False)
     img = P.img()
-    paper = paper_colour(img, P.inside(img.shape[:2]))
+    paper = paper_colour(img, P.inside(img.shape[:2]), P.id)
     F = ndi.gaussian_filter(wash_raster(img, paper, f, P.style.get("wash_cool")), 1.0)
     k = P.m.src_mpp * f
     Sx = int(search_km * 1000 / k)
@@ -836,7 +845,7 @@ def trace(layer, pid, save=True, verbose=True, window=None, tile=2400, margin=18
     st = P.style
     full = P.img()
     inside = P.inside(full.shape[:2])
-    paper = paper_colour(full, inside)
+    paper = paper_colour(full, inside, P.id)
     if window is not None:
         found = trace_window(P, full, inside, paper, window)
     else:
@@ -1025,7 +1034,7 @@ def score_frames(layer, pid, verbose=True):
     d = pickle.load(open(f, "rb"))
     P = Plate(layer, pid, verbose=False)
     img = P.img()
-    paper = paper_colour(img, P.inside(img.shape[:2]))
+    paper = paper_colour(img, P.inside(img.shape[:2]), P.id)
     vals = []
     for o in d["items"]:
         if o["material"] != "frame":
@@ -1336,7 +1345,7 @@ def overlay(layer, pid, cx, cy, size_m, out_png, px=False, scale=3, final=False)
             d.line([((a - x0) * scale, (b - y0) * scale) for a, b in q], fill=(0, 170, 255, 255), width=1)
     for o in items:
         q = np.asarray(wkb.loads(o["px"]).exterior.coords)
-        col = {"frame": (255, 0, 0, 255), "brick": (200, 0, 200, 255), "stone": (0, 0, 160, 255)}[o["material"]]
+        col = {"frame": (255, 0, 0, 255), "brick": (200, 0, 200, 255), "stone": (0, 0, 160, 255), "iron": (0, 160, 255, 255)}[o["material"]]
         if o["iou"] > 0.5:
             col = (0, 150, 0, 255)
         d.line([((a - x0) * scale, (b - y0) * scale) for a, b in q], fill=col, width=2)
@@ -1349,7 +1358,7 @@ def colours(layer, pid, box, out_png, scale=2):
     img = P.img()
     x0, y0, x1, y1 = box
     crop = img[y0:y1, x0:x1]
-    paper = paper_colour(img, P.inside(img.shape[:2]))
+    paper = paper_colour(img, P.inside(img.shape[:2]), P.id)
     c = classes(crop, paper, P.style)
     o = crop.copy()
     o[c == 2] = (0, 0, 255); o[c == 3] = (0, 200, 0); o[c == 5] = (255, 0, 255); o[c == 1] = (0, 0, 0)

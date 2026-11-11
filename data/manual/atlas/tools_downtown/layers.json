@@ -68,7 +68,12 @@
    },
    {
     "id": 8195,
-    "sheet": "8"
+    "sheet": "8",
+    "paper": [
+     82,
+     0,
+     10
+    ]
    },
    {
     "id": 8194,
@@ -96,7 +101,26 @@
    },
    {
     "id": 8189,
-    "sheet": "1"
+    "sheet": "1",
+    "style_override": {
+     "brick": {
+      "da_min": 4.5,
+      "db_max": 4.0,
+      "L_min": 45
+     }
+    }
+   },
+   {
+    "id": 900019,
+    "sheet": "19"
+   },
+   {
+    "id": 8219,
+    "sheet": "image 1516788"
+   },
+   {
+    "id": 8212,
+    "sheet": "21"
    }
   ],
   "source_url": "https://digitalcollections.nypl.org/ (Bromley, Atlas of the city of New York, Manhattan Island, 1897; NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",

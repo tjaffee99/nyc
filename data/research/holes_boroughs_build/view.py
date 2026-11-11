@@ -31,4 +31,11 @@ for k in range(-int(half//100),int(half//100)+1):
     dr.line([(X,0),(X,8)],fill=(255,255,0)); dr.line([(0,X),(8,X)],fill=(255,255,0))
 dr.text((10,10),f'{year} centre {lon},{lat} ticks 100 m, green=standing then, red=other',fill=(255,255,0))
 if sc!=1: img=img.resize((int(img.width*sc),int(img.height*sc)))
+if len(sys.argv)>7:
+    step=float(sys.argv[7]); d2=ImageDraw.Draw(img); cxp=img.width/2; cyp=img.height/2; k=step/(mpp/sc)
+    n=int(half//step)
+    for i in range(-n,n+1):
+        X=cxp+i*k; Y=cyp-i*k
+        d2.line([(X,0),(X,img.height)],fill=(0,200,255) if i else (255,255,0),width=1); d2.line([(0,Y),(img.width,Y)],fill=(0,200,255) if i else (255,255,0),width=1)
+        d2.text((X+2,2),f'E{int(i*step)}',fill=(255,255,0)); d2.text((2,Y+2),f'N{int(i*step)}',fill=(255,255,0))
 img.save(out); print(out,img.size,'m/px',round(mpp/sc,2))

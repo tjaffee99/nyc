@@ -1097,7 +1097,7 @@ def export(layer, max_off=8.0):
         for other in c_.get("outside_layers", []):
             oc = json.loads((OUT / f"{other}_coverage.geojson").read_text())
             og = [shapely.transform(sg.shape(f_["geometry"]), lambda c: np.column_stack(S.local(c[:, 0], c[:, 1]))) for f_ in oc["features"]]
-            clip = clip.difference(shapely.union_all(og).buffer(0))
+            clip = clip.difference(shapely.union_all([g_.buffer(0) for g_ in og]).buffer(0))
     for pl in spec["plates"]:
         f = WORK / layer / f"{pl['id']}.pkl"
         if pl.get("skip"):
@@ -1235,7 +1235,7 @@ def export(layer, max_off=8.0):
     # checks on the written layer
     g = np.asarray(acc, object)
     area = shapely.area(g) if len(g) else np.array([])
-    union = shapely.union_all([shapely.transform(sg.shape(c["geometry"]), lambda q: np.column_stack(S.local(q[:, 0], q[:, 1]))) for c in cov]).buffer(0) if cov else None
+    union = shapely.union_all([shapely.transform(sg.shape(c["geometry"]), lambda q: np.column_stack(S.local(q[:, 0], q[:, 1]))).buffer(0) for c in cov]).buffer(0) if cov else None
     inside = shapely.contains(union.buffer(1.0), shapely.centroid(g)) if (union is not None and len(g)) else np.array([])
     tot = dict(layer=layer, plates=len(cov), buildings=len(feats),
                frame=sum(f["properties"]["material"] == "frame" for f in feats),
