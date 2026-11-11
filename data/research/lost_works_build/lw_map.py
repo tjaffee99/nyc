@@ -50,7 +50,7 @@ def main():
         im, (a, bb_, c_, d) = tile_img(aer, x0, y0, x1, y1); ax.imshow(im, extent=(a, bb_, c_, d), zorder=0)
     else:
         water.plot(ax=ax, color="#cfe6f5")
-    b.plot(ax=ax, facecolor="none" if aer else "#d8d0c0", edgecolor="#ff0" if aer else "#a09070", linewidth=0.4)
+    if "nobld" not in rest: b.plot(ax=ax, facecolor="none" if aer else "#d8d0c0", edgecolor="#ff0" if aer else "#a09070", linewidth=0.4)
     roads.plot(ax=ax, color="#fff" if aer else "#777", linewidth=0.5); rail.plot(ax=ax, color="#c00", linewidth=0.7)
     seen = set()
     for r in roads.itertuples():

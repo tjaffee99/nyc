@@ -2,7 +2,7 @@
 import sys, math, os, numpy as np, pandas as pd
 from PIL import Image, ImageDraw
 exec(open('data/research/lost_works_build/tanks2.py').read().split("a=np.asarray")[0].split("name=sys.argv[1]")[0])
-name=sys.argv[1]; lon,lat,half=map(float,sys.argv[2:5]); year=1951
+name=sys.argv[1]; lon,lat,half=map(float,sys.argv[2:5]); year=1951; DMIN=float(sys.argv[5]) if len(sys.argv)>5 else 22
 import importlib
 src=open('data/research/lost_works_build/tanks2.py').read()
 pre=src.split("e=canny")[0].replace("name=sys.argv[1]; lon,lat,half,rmin,rmax=[float(x) for x in sys.argv[2:7]]; year=int(sys.argv[7]) if len(sys.argv)>7 else 1951","")
@@ -11,7 +11,7 @@ t=pd.read_csv(f'data/interim/lost_works_raw/tanks_{name}.csv')
 H,W=a.shape; out=[]
 yy,xx=np.mgrid[:H,:W]
 for r in t.itertuples():
-    if not (22<=r.diam_m<=60): continue
+    if not (DMIN<=r.diam_m<=60): continue
     cx,cy=px(r.lon,r.lat); cx-=x0; cy-=y0; rp=r.diam_m/2/mpp
     if cx<rp*1.5 or cy<rp*1.5 or cx>W-rp*1.5 or cy>H-rp*1.5: continue
     d2=(xx-cx)**2+(yy-cy)**2; m=d2<=(0.85*rp)**2

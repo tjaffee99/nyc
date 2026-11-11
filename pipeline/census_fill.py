@@ -592,5 +592,128 @@ def collect(*pids):
     print(g.groupby("pid").size().rename(pl.place).sort_values(ascending=False).head(30))
 
 
+# ---------------------------------------------------------------- checks
+def load_out():
+    g = gpd.read_parquet(INTERIM / "gapfill" / "gapfill_census.parquet")
+    rp = pd.read_parquet(WORK / "row_places.parquet")
+    g = g.merge(rp, on="id", how="left")
+    return g
+
+
+def check_table():
+    """persons per building before / after, per place and census year."""
+    g = load_out()
+    pts = pd.read_parquet(WORK / "model.csv".replace(".csv", ".csv")) if False else None
+    t = pd.read_csv(WORK / "model.csv", dtype={"pid": str})
+    add = []
+    for y in YEARS:
+        al = (g.start_year <= y) & (g.end_year > y)
+        c = g[al].groupby("pid").size()
+        add.append(pd.DataFrame({"pid": c.index, "year": y, "gen": c.values}))
+    a = pd.concat(add)
+    t = t.merge(a, on=["pid", "year"], how="left")
+    t["gen"] = t.gen.fillna(0)
+    t["ppb_before"] = t["pop"] / t.bld.clip(lower=1)
+    t["ppb_after"] = t["pop"] / (t.bld + t.gen).clip(lower=1)
+    t.to_csv(WORK / "table_after.csv", index=False)
+    top = g.groupby("pid").size().sort_values(ascending=False).index[:10]
+    pd.set_option("display.width", 250)
+    for pid in top:
+        x = t[(t.pid == pid) & (t.gen > 0)][["place", "year", "pop", "bld", "need", "gen", "ppb_before", "ppb_after", "ppb_t"]]
+        print(x.round(1).to_string(index=False))
+    return t
+
+
+def check_years():
+    g = load_out()
+    sy = np.floor(g.start_year).astype(int).value_counts().sort_index()
+    ey = np.floor(g.end_year).astype(int).value_counts().sort_index()
+    out = {}
+    for name, v in (("starts", sy), ("ends", ey)):
+        v = v.reindex(range(int(v.index.min()), int(v.index.max()) + 1), fill_value=0)
+        nb = (v.rolling(7, center=True, min_periods=3).sum() - v) / (v.rolling(7, center=True, min_periods=3).count() - 1)
+        ratio = (v / nb.clip(lower=1))
+        big = v[(v > 300)]
+        out[name] = {"max": int(v.max()), "max_year": int(v.idxmax()), "worst_vs_neighbours": float(ratio[v > 300].max()) if (v > 300).any() else 0.0,
+                     "year": int(ratio[v > 300].idxmax()) if (v > 300).any() else None}
+        print(name, out[name])
+        v.to_csv(WORK / f"{name}_by_year.csv")
+    return out
+
+
+def check_overlap(pid):
+    g = load_out()
+    g = g[g.pid == pid]
+    pl = pd.read_csv(WORK / "places.csv", dtype={"pid": str}, index_col=0)
+    i = int(pl.index[pl.pid == pid][0]); poly = places().geometry.iloc[i]
+    x0, y0, x1, y1 = poly.bounds
+    s, e, rg, rx, ry = load_real((x0 - .002, y0 - .002, x1 + .002, y1 + .002))
+    gp = proj(g.geometry.values)
+    tr = shapely.STRtree(rg)
+    gi, ri = tr.query(gp, predicate="intersects")
+    gs, ge = g.start_year.values[gi], g.end_year.values[gi]
+    ov = (s[ri] < ge) & (e[ri] > gs)
+    # lots against lots
+    t2 = shapely.STRtree(gp)
+    a, b = t2.query(gp, predicate="intersects")
+    m = a < b
+    ov2 = (g.start_year.values[a[m]] < g.end_year.values[b[m]]) & (g.end_year.values[a[m]] > g.start_year.values[b[m]])
+    print(pid, "rows", len(g), " overlapping a row of the map alive at the same time:", int(ov.sum()), " (distinct lots %d)" % len(set(gi[ov])), " lot-lot overlaps:", int(ov2.sum()))
+    return int(ov.sum()), int(ov2.sum())
+
+
+def holes_check():
+    """holes.py's measure on the map as it was, and on the map plus these rows (the fine grid)."""
+    import holes as H
+    from scipy import ndimage
+    pts = pd.read_parquet(WORK / "points_all.parquet", columns=["lon", "lat", "s", "e"])
+    g = load_out()
+    gc = shapely.centroid(g.geometry.values)
+    add = pd.DataFrame({"lon": shapely.get_x(gc), "lat": shapely.get_y(gc), "s": g.start_year.values, "e": g.end_year.values})
+    pl = places()
+    m, cov, yrs = grid("detail")
+    rows, cols, res, X0, Y0 = m["rows"], m["cols"], m["res"], m["X0"], m["Y0"]
+    pr = np.load(WORK / "place_raster_detail.npy") if (WORK / "place_raster_detail.npy").exists() else None
+    if pr is None:
+        from rasterio import features, transform
+        tr = Transformer.from_crs(4326, 3857, always_xy=True)
+        T = transform.Affine(res, 0, X0 - res / 2, 0, -res, Y0 + res / 2)
+        pr = np.full((rows, cols), 65535, np.uint16)
+        for i, geom in enumerate(pl.geometry):
+            gm = shapely.transform(geom, lambda a: np.column_stack(tr.transform(a[:, 0], a[:, 1])))
+            features.rasterize([(gm, i)], out=pr, transform=T, default_value=i)
+        np.save(WORK / "place_raster_detail.npy", pr)
+    cell_ha = (res * np.cos(np.radians(40.75))) ** 2 / 1e4
+    k = int(round(60.0 / (res * 0.758)))
+    out = []
+    for label, b in (("before", pts), ("after", pd.concat([pts, add], ignore_index=True))):
+        X = np.radians(b.lon.values) * R_E; Y = R_E * np.log(np.tan(np.pi / 4 + np.radians(b.lat.values) / 2))
+        c = np.rint((X - X0) / res).astype(int); r = np.rint((Y0 - Y) / res).astype(int)
+        inb = (c >= 0) & (c < cols) & (r >= 0) & (r < rows)
+        c, r, s_, e_ = c[inb], r[inb], b.s.values[inb], b.e.values[inb]
+        for y in H.YEARS:
+            urb = np.isin(H.cover_at(cov, yrs, y), [URBAN, SUBURB])
+            al = (s_ <= y) & (e_ > y)
+            has = np.zeros((rows, cols), bool); has[r[al], c[al]] = True
+            near = ndimage.binary_dilation(has, iterations=max(k, 1))
+            hole = ndimage.binary_opening(urb & ~near, iterations=1)
+            lab, n = ndimage.label(hole)
+            if not n:
+                continue
+            sizes = ndimage.sum(hole, lab, index=np.arange(1, n + 1)) * cell_ha
+            keepl = np.where(sizes >= 3.0)[0] + 1
+            msk = np.isin(lab, keepl)
+            pid_ = pr[msk]; ok = pid_ < 65535
+            ha = np.bincount(pid_[ok], minlength=len(pl)) * cell_ha
+            for i in np.where(ha > 0)[0]:
+                out.append({"which": label, "year": y, "place": pl.place.iloc[i], "pid": pl.pid.iloc[i], "ha": ha[i]})
+    d = pd.DataFrame(out)
+    d.to_csv(WORK / "holes_before_after.csv", index=False)
+    p = d.pivot_table(index=["place"], columns=["year", "which"], values="ha", aggfunc="sum", fill_value=0)
+    tot = d.groupby(["which", "year"]).ha.sum().unstack(0)
+    print(tot.round(0))
+    return d
+
+
 if __name__ == "__main__":
     globals()[sys.argv[1]](*sys.argv[2:])

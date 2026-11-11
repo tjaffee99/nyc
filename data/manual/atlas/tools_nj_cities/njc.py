@@ -5,7 +5,7 @@
 The sheet's scale (50 ft to the inch, about 0.1 m per pixel at 50 %), its rotation (north arrow) and its position are searched by normalised
 cross-correlation of the traced mask with a raster of today's footprints, coarse (4 m cells) then fine (1 m cells); the lead of the best peak over
 the best peak elsewhere is printed. refine_buildings (atlas.py) then polishes the fit on standing buildings."""
-import json, sys, pickle
+import json, sys, pickle, os
 from pathlib import Path
 import numpy as np
 HERE = Path(__file__).resolve().parent
@@ -228,8 +228,8 @@ def run(layer, tag, item, sheets, rest=False):
                 A.trace(layer, pid, verbose=False)
             st = pickle.load(open(A.WORK / layer / f"{pid}.pkl", "rb"))["stats"]; rep["n"] = st["n"]
             if st["n"] >= 40:
-                f = locate(layer, pid, city, verbose=False); write_fit(layer, pid, f); rep.update(fit={k: round(float(v), 3) for k, v in f.items()})
-                r = A.refine_buildings(layer, pid, verbose=False); rep["bld"] = r
+                pri = os.environ.get("PRIOR"); f = locate(layer, pid, city, prior=[float(v) for v in pri.split(",")[:2]] if pri else None, pr=float(pri.split(",")[2]) if pri else None, verbose=False); write_fit(layer, pid, f); rep.update(fit={k: round(float(v), 3) for k, v in f.items()})
+                r = A.refine_buildings(layer, pid, win_m=140.0, min_q=0.2, verbose=False); rep["bld"] = r
                 st = pickle.load(open(A.WORK / layer / f"{pid}.pkl", "rb"))["stats"]
                 rep.update(coincide=st["coincide"], share=st["share"], off=st.get("off_median_m"))
         except Exception as e:
