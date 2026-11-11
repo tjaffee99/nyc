@@ -20,6 +20,7 @@ import {airportLayers, groundDetailLayers, loadAirports, loadGroundDetail, setGr
 import {loadBuildings, buildingsLayer, type BuildingSet} from './layers/buildings';
 import {landmarkLayers, landmarkInfo, loadLandmarks, occupiedMask, replacedMask, type LandmarkSet} from './landmarks';
 import {loadTrees, treesLayer, type TreeSet} from './layers/trees';
+import {effectLayers, effectsActive} from './layers/effects';
 import {loadRegionTreeIndex, regionTreeLayers, regionTreesReady} from './layers/region-trees';
 import {treeLod} from './layers/decoration-meshes';
 import {loadLocalStreetIndex, loadRoads, localStreetLayers, roadLayers, trafficLayers, tickTraffic, hasTraffic} from './layers/roads';
@@ -168,9 +169,14 @@ function render() {
   layers.push(...trafficLayers(state.year, zoom));
   layers.push(...transitLayers(state.year, zoom));
   layers.push(...(labelLayers(state.year, zoom) as any));
-  overlay.setProps({layers});
+  baseLayers = layers;
+  // fires, battles and the like, in motion while the year stands at them (layers/effects.ts)
+  overlay.setProps({layers: effectsActive(state.year) ? [...layers, ...effectLayers(state.year, performance.now())] : layers});
   updateOverlays();
 }
+let baseLayers: Layer[] = [];
+let lastFx = 0;
+let fxOn = false;
 
 // ---------------------------------------------------------------- DOM
 const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -410,6 +416,16 @@ let lastTraffic = 0;
 let lastTrain = 0;
 function trafficLoop(t: number) {
   requestAnimationFrame(trafficLoop);
+  // the effects move on the wall clock: about 20 redraws a second of their own few layers
+  // (the rest of the list is the same objects, so nothing else is touched)
+  if (!document.hidden && t - lastFx >= 50) {
+    const act = effectsActive(state.year);
+    if (act || fxOn) {
+      lastFx = t;
+      fxOn = act;
+      overlay.setProps({layers: act ? [...baseLayers, ...effectLayers(state.year, t)] : baseLayers});
+    }
+  }
   const z = map.getZoom();
   if (document.hidden || z < 11.5) return;
   if (hasTraffic() && z >= 12.5 && t - lastTraffic >= 33) {

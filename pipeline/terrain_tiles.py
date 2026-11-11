@@ -425,6 +425,8 @@ def building_evidence(g, standing_only=False, free=False):
     c = np.rint((X - g["X0"]) / g["res"]).astype(np.int64)
     r = np.rint((g["Y0"] - Y) / g["res"]).astype(np.int64)
     ok = (c >= 1) & (c < cols - 1) & (r >= 1) & (r < rows - 1)
+    if not ok.any():          # (a window of the region with no building in it)
+        return urban_y, cover
     r, c, y, a = r[ok], c[ok], b.start_year.values[ok].astype(np.float32), b.area_m2.values[ok].astype(np.float32)
     cell_m2 = (g["res"] * 0.758) ** 2
     np.add.at(cover, (r, c), a / cell_m2)
