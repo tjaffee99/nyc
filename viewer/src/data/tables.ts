@@ -178,6 +178,14 @@ function seriesAt(year: number, s: [number, number][] | undefined) {
   return populationAt(year, s.map(([y, v]) => ({year: y, pop: v, estimate: false})));
 }
 
+// Connecticut's planning regions replaced its counties in 2022; the census series the counter
+// shows there are the old counties' (cities.py OUTER_AREAS), so the label names the county
+const COUNTY_LABEL: Record<string, string> = {
+  'Greater Bridgeport': 'Fairfield County',
+  'Western Connecticut': 'Fairfield County',
+  'South Central Connecticut': 'New Haven County'
+};
+
 /** The population to show for the year at this map centre and zoom. */
 export function localPopulationAt(year: number, lon: number, lat: number, zoom: number): {value: number; label: string} | null {
   if (!cities) return populationLabelAt(year);
@@ -185,7 +193,7 @@ export function localPopulationAt(year: number, lon: number, lat: number, zoom: 
   const outer = placeAt(cities.counties, lon, lat);
   if (outer && !CITY_BOROUGHS.has(outer.name)) {
     const v = seriesAt(year, cities.pop[`county:${outer.name}`]);
-    if (v != null) return {value: v, label: `${outer.name} County`};
+    if (v != null) return {value: v, label: COUNTY_LABEL[outer.name] ?? `${outer.name} County`};
   }
   if (zoom >= 11.5) {
     const city = placeAt(cities.places, lon, lat);
