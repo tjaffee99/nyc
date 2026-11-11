@@ -69,3 +69,35 @@ per model in your research note. Read two models in `viewer/src/landmarks/nj-out
 and the kit (`kit.ts`, `types.ts`) before writing. The lead registers your export in `index.ts`.
 A landmark here should be recognisable from 500 m: give it its roof, its tower, its portico —
 not a box — within a few hundred faces.
+
+## Second pass (2026-11-11, evening): the owner said "Do all of those things then"
+
+"Those things": Connecticut's inventory for New Haven's ordinary buildings (the lead does this:
+the owner allows ConnCRIS with attribution), the large buildings still undated at Princeton and
+Yale, cited heights for the new models, the same pass for Trenton, New Brunswick, West Point,
+Poughkeepsie, Stamford and Bridgeport, and the audit's leftovers (the lead).
+
+What the first pass learned — read before you start:
+
+- **Wikipedia rate-limits this machine hard** (HTTP 429). Fetch raw wikitext, one page at a time,
+  at least 4 seconds apart, and cache every page you fetch in your raw folder:
+  `https://en.wikipedia.org/w/index.php?title=<Title>&action=raw`. Do not use the search API in a
+  loop. Lists exist for some campuses ("List of Vassar College buildings" and similar): try the
+  list page before the single articles.
+- Princeton University's own pages answered 403 / 503, archive.org reset the connection.
+  Other places that open: Wikidata's SPARQL endpoint (inception P571, opening P1619, height
+  P2048, by a box of coordinates), the OpenStreetMap map API for small boxes (names, `wikidata`,
+  sometimes `height`, `building:levels`, `start_date`), SAH Archipedia (sah-archipedia.org),
+  the National Park Service's pages for National Register and National Historic Landmark
+  properties, state and city pages. Try a source once; if it fails twice, move on.
+- **Raw downloads go to `data/interim/<your part>_raw/`** (not committed), never into
+  `data/research/`. Your scratch folder under `data/research/` holds scripts and small notes only.
+- Connecticut's inventory (ConnCRIS, layer and fields in `data/research/new_haven_buildings.md`)
+  may be read for the date of a named building; the lead applies it in bulk to ordinary buildings.
+- A cited figure is one you read on a page you opened, not a search-result snippet.
+- Footprints by town: Trenton and Princeton `nj_mercer.parquet`; New Brunswick
+  `nj_middlesex.parquet`; West Point (town of Highlands) `ny_orange.parquet`; Poughkeepsie
+  `ny_dutchess.parquet`; Stamford `ct_western_connecticut.parquet`; Bridgeport
+  `ct_greater_bridgeport.parquet`; New Haven `ct_south_central_connecticut.parquet` — all in
+  `data/interim/counties/`, same columns; `height_m` is the footprint's measured or mapped roof
+  height (`height_src` says which) and is the check for an estimated model height.
