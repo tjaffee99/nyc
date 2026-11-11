@@ -230,11 +230,6 @@
     "name": "Hoboken 1930 sheet 42"
    },
    {
-    "id": 91030043,
-    "sheet": "43",
-    "name": "Hoboken 1930 sheet 43"
-   },
-   {
     "id": 91030044,
     "sheet": "44",
     "name": "Hoboken 1930 sheet 44"
@@ -260,19 +255,9 @@
     "name": "Hoboken 1930 sheet 48"
    },
    {
-    "id": 91030051,
-    "sheet": "51",
-    "name": "Hoboken 1930 sheet 51"
-   },
-   {
     "id": 91030052,
     "sheet": "52",
     "name": "Hoboken 1930 sheet 52"
-   },
-   {
-    "id": 91030054,
-    "sheet": "54",
-    "name": "Hoboken 1930 sheet 54"
    }
   ]
  }

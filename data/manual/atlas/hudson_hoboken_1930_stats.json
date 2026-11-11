@@ -2,17 +2,18 @@
  "total": {
   "layer": "hudson_hoboken_1930",
   "plates": 33,
-  "buildings": 1966,
-  "frame": 1131,
-  "brick": 830,
+  "buildings": 1990,
+  "frame": 1144,
+  "brick": 841,
   "stone": 5,
   "gasholders": 0,
-  "on_today": 336,
+  "on_today": 339,
   "invalid": 0,
   "area_out_of_range": 0,
   "outside_coverage": 0,
-  "coverage_km2": 2.53,
-  "overlap_dropped": 29
+  "coverage_km2": 2.58,
+  "overlap_dropped": 31,
+  "andrew_jackson_gardens_dropped": 0
  },
  "plates": [
   {
@@ -223,16 +224,16 @@
    "plate": "91030021",
    "image": "loc_hob1930_0021",
    "name": "Hoboken 1930, sheet 21",
-   "gcps": 5,
+   "gcps": 4,
    "model": "affine",
-   "cv_rms": 6.8,
-   "mpp": 0.104,
+   "cv_rms": 0.0,
+   "mpp": 0.103,
    "n": 24,
    "frame": 0,
    "brick": 24,
    "stone": 0,
-   "coincide": 3,
-   "share": 0.125,
+   "coincide": 5,
+   "share": 0.208,
    "corrected": false,
    "paper": [
     72.0,
@@ -240,10 +241,10 @@
     11.0
    ],
    "off_median_vec": [
-    -0.55,
-    2.72
+    -1.5,
+    2.42
    ],
-   "off_median_m": 2.78,
+   "off_median_m": 2.86,
    "sheet": "21",
    "lettering_dropped": 0,
    "water_dropped": 0,
@@ -929,46 +930,12 @@
    "status": "ok"
   },
   {
-   "plate": "91030043",
-   "image": "loc_hob1930_0043",
-   "name": "Hoboken 1930, sheet 43",
-   "gcps": 4,
-   "model": "affine",
-   "cv_rms": 0.0,
-   "mpp": 0.103,
-   "n": 4,
-   "frame": 1,
-   "brick": 3,
-   "stone": 0,
-   "coincide": 1,
-   "share": 0.25,
-   "corrected": false,
-   "paper": [
-    67.0,
-    -1.0,
-    11.0
-   ],
-   "off_median_vec": [
-    -3.18,
-    -1.7
-   ],
-   "off_median_m": 3.6,
-   "sheet": "43",
-   "lettering_dropped": 0,
-   "water_dropped": 0,
-   "band_pieces_dropped": 0,
-   "washed_dropped": 0,
-   "exported": 4,
-   "duplicates_dropped": 0,
-   "status": "ok"
-  },
-  {
    "plate": "91030044",
    "image": "loc_hob1930_0044",
    "name": "Hoboken 1930, sheet 44",
-   "gcps": 5,
+   "gcps": 4,
    "model": "affine",
-   "cv_rms": 2.2,
+   "cv_rms": 0.0,
    "mpp": 0.103,
    "n": 26,
    "frame": 15,
@@ -983,10 +950,10 @@
     11.0
    ],
    "off_median_vec": [
-    0.74,
-    5.81
+    0.97,
+    6.01
    ],
-   "off_median_m": 5.86,
+   "off_median_m": 6.08,
    "sheet": "44",
    "lettering_dropped": 0,
    "water_dropped": 0,
@@ -1034,10 +1001,10 @@
    "plate": "91030046",
    "image": "loc_hob1930_0046",
    "name": "Hoboken 1930, sheet 46",
-   "gcps": 5,
+   "gcps": 4,
    "model": "affine",
-   "cv_rms": 7.2,
-   "mpp": 0.105,
+   "cv_rms": 0.0,
+   "mpp": 0.103,
    "n": 30,
    "frame": 20,
    "brick": 10,
@@ -1051,10 +1018,10 @@
     11.0
    ],
    "off_median_vec": [
-    5.74,
-    -2.3
+    0.49,
+    -1.84
    ],
-   "off_median_m": 6.32,
+   "off_median_m": 1.96,
    "sheet": "46",
    "lettering_dropped": 0,
    "water_dropped": 0,
@@ -1129,6 +1096,40 @@
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
    "exported": 73,
+   "duplicates_dropped": 0,
+   "status": "ok"
+  },
+  {
+   "plate": "91030052",
+   "image": "loc_hob1930_0052",
+   "name": "Hoboken 1930, sheet 52",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.103,
+   "n": 31,
+   "frame": 16,
+   "brick": 14,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.067,
+   "corrected": false,
+   "paper": [
+    69.0,
+    -1.0,
+    13.0
+   ],
+   "off_median_vec": [
+    0.49,
+    -3.03
+   ],
+   "off_median_m": 3.29,
+   "sheet": "52",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 30,
    "duplicates_dropped": 0,
    "status": "ok"
   }
