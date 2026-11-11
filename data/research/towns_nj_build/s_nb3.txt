@@ -1,0 +1,2 @@
+scott_hall|Scott Hall|id:53b0421b|x|1963|https://en.wikipedia.org/wiki/Voorhees_Mall|exact: a modern structure built in 1963
+christ_church|Christ Church|id:85418c0d|x|1852|https://en.wikipedia.org/wiki/Christ_Church,_New_Brunswick,_New_Jersey|exact: in 1852 the parish replaced the 100-year-old structure and enlarged it using many stones of the first building

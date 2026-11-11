@@ -23,9 +23,10 @@ import {MORE_C} from './nyc-more-c';
 import {PRINCETON} from './princeton';
 import {NEW_HAVEN} from './new-haven';
 import {CT_TOWNS} from './ct-towns';
+import {NY_TOWNS} from './ny-towns';
 import {extentDistance, extentReady} from '../layers/extent';
 
-export const LANDMARKS: Landmark[] = [...BRIDGES, ...TOWERS, ...LOST, ...CIVIC, ...MORE_B, ...MORE_A, ...MORE_C, ...NJ_INNER, ...NY_LONG_ISLAND, ...NJ_OUTER, ...CT, ...NY_HUDSON, ...PRINCETON, ...NEW_HAVEN, ...CT_TOWNS];
+export const LANDMARKS: Landmark[] = [...BRIDGES, ...TOWERS, ...LOST, ...CIVIC, ...MORE_B, ...MORE_A, ...MORE_C, ...NJ_INNER, ...NY_LONG_ISLAND, ...NJ_OUTER, ...CT, ...NY_HUDSON, ...PRINCETON, ...NEW_HAVEN, ...CT_TOWNS, ...NY_TOWNS];
 
 export type LandmarkSet = {
   items: {lm: Landmark; vertices: number}[];

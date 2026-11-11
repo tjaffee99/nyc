@@ -1,0 +1,21 @@
+new_jersey_hall|New Jersey Hall|-74.4469|40.4996|1889|https://en.wikipedia.org/wiki/Voorhees_Mall|exact: section heading New Jersey Hall (1889)
+voorhees_hall|Voorhees Hall|-74.4464|40.5001|1903|https://en.wikipedia.org/wiki/Voorhees_Mall|exact: section heading Voorhees Hall (1903); the main library until Alexander Library opened 1956
+murray_hall|Murray Hall|-74.4466|40.5006|1909|https://en.wikipedia.org/wiki/Voorhees_Mall|exact: section heading Murray Hall (1909), designed by Douwe D. Hill with a gift from Andrew Carnegie
+milledoler_hall|Milledoler Hall|-74.4469|40.501|1910|https://en.wikipedia.org/wiki/Voorhees_Mall|exact: section heading Milledoler Hall (1910), originally the Chemistry Building
+graduate_school_education|Graduate School of Education Building|-74.4471|40.5015|1961|https://en.wikipedia.org/wiki/Voorhees_Mall|exact: its present building was constructed in 1961
+van_dyck_hall|Van Dyck Hall|-74.448|40.5008|1928|https://en.wikipedia.org/wiki/Voorhees_Mall|exact: Van Dyck Hall was built in 1928
+scott_hall|Scott Hall|-74.4475|40.4999|1963|https://en.wikipedia.org/wiki/Voorhees_Mall|exact: a modern structure built in 1963
+social_work_school|School of Social Work (former School of Ceramics)|-74.4463|40.5013|1922|https://en.wikipedia.org/wiki/Voorhees_Mall|exact: built as the home of the School of Ceramics in 1922
+riverstede|Riverstede (Demarest House)|-74.4464|40.5019|1868|https://en.wikipedia.org/wiki/Voorhees_Mall|exact: George H. Cook erected this Italianate-Victorian brownstone in 1868
+honors_college|Honors College|id:f957f96c|x|2015|https://en.wikipedia.org/wiki/Voorhees_Mall|exact: the Honors College was constructed in 2015
+jj_headquarters|Johnson and Johnson World Headquarters|id:729e7648|x|1983|https://en.wikipedia.org/wiki/Johnson_and_Johnson_Plaza|exact: the 16-story building opened in 1983 (Pei Cobb Freed and Partners)
+performing_arts_center|New Brunswick Performing Arts Center|-74.4444|40.4936|2019|https://en.wikipedia.org/wiki/New_Brunswick_Performing_Arts_Center|exact: construction 2017, completed 2019; official opening September 4, 2019
+gateway_tower|The Gateway|-74.44775|40.49741|2012|https://en.wikipedia.org/wiki/The_Gateway_(New_Brunswick,_New_Jersey)|estimate: article category Buildings and structures completed in 2012
+free_public_library|New Brunswick Free Public Library|-74.4454|40.4913|1903|https://en.wikipedia.org/wiki/New_Brunswick_Free_Public_Library|exact: the main library built 1903 (Carnegie library)
+poile_zedek|Poile Zedek Synagogue|-74.4415|40.4944|1923|https://en.wikipedia.org/wiki/Poile_Zedek_Synagogue|exact: built 1923; converted to apartments 2021 within the preserved walls
+bishop_house|Bishop House|-74.4497|40.5031|1852|https://en.wikipedia.org/wiki/Bishop_House_(New_Brunswick,_New_Jersey)|exact: erected in 1852 for James Bishop
+king_block|King Block|-74.4406|40.4956|1860|https://en.wikipedia.org/wiki/King_Block_(New_Brunswick,_New_Jersey)|exact: infobox built 1860
+wood_lawn|Wood Lawn (Neilson House)|-74.433|40.4817|1830|https://en.wikipedia.org/wiki/Wood_Lawn_(New_Brunswick,_New_Jersey)|exact: built by Colonel James Neilson in 1830
+sage_library|Gardner A. Sage Library|-74.4489|40.5018|1875|https://en.wikipedia.org/wiki/New_Brunswick_Theological_Seminary|exact: the Sage Library was completed in 1875 (Detlef Lienau)
+shi_stadium|SHI Stadium (Rutgers Stadium)|-74.4653|40.5136|1994|https://en.wikipedia.org/wiki/SHI_Stadium|exact: opened September 3, 1994 (groundbreaking March 9, 1993)
+hill_center|Hill Center for the Mathematical Sciences|id:f3ee25b7|x|1971|https://en.wikipedia.org/wiki/Busch_Campus_of_Rutgers_University|exact: Hill Center opened in 1971
