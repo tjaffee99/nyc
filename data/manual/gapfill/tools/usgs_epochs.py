@@ -258,6 +258,10 @@ PRODUCTS = {
                                   "woodland", "green woodland tint of the Army Map Service 1:250,000 series, editions 1957-1961"),
     "all_tint_1957.geojson": ("urban", ["newark57", "ny57", "providence57", "hartford61", "scranton59", "wilmington57", "albany59", "binghamton58"],
                               "built_up", "urban tint (yellow / orange) of the Army Map Service 1:250,000 series, editions 1957-1961"),
+    "all_woodland_1949.geojson": ("wood", ["newark49", "ny49", "hartford47", "scranton50", "wilmington46", "albany48"],
+                                  "woodland", "woodland tint of the Army Map Service 1:250,000 series, editions 1946-1950"),
+    "all_tint_1949.geojson": ("urban", ["newark49", "ny49", "hartford47", "scranton50", "wilmington46", "albany48"],
+                              "built_up", "urban tint (orange) of the Army Map Service 1:250,000 series, editions 1946-1950"),
 }
 
 
@@ -292,6 +296,10 @@ def assemble(names=None):
                                              "method": method, "area_ha": round(_ha(g)),
                                              "confidence": "medium" if kind == "wood" else "medium-high", "licence": "public domain (USGS)"}})
         (OUT / fn).write_text(json.dumps({"type": "FeatureCollection", "features": feats}, separators=(",", ":")))
+        if fn == "all_tint_1949.geojson":      # the outer counties alone, as the lead asked
+            o = [f for f in feats if f["properties"]["county"] not in INNER | CITY]
+            (OUT / "outer_tint_1949.geojson").write_text(json.dumps({"type": "FeatureCollection", "features": o}, separators=(",", ":")))
+            print("outer_tint_1949.geojson", len(o), "features")
         sz = (OUT / fn).stat().st_size / 1e6
         print(fn, len(feats), "features,", round(sz, 1), "MB,", sum(f["properties"]["area_ha"] for f in feats), "ha", flush=True)
 
