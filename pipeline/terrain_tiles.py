@@ -533,7 +533,7 @@ def park_layers(g, urban_fill):
 
 def settlement_seeds():
     seeds = list(SEEDS)
-    for p in (TABLES / "places.csv", TABLES / "places_counties.csv"):
+    for p in (TABLES / "places.csv", TABLES / "places_counties.csv", TABLES / "places_outer.csv"):
         if p.exists():
             t = pd.read_csv(p)
             t = t[t.tier.isin(["city", "town"]) & (pd.to_numeric(t.year_start, errors="coerce") < 1800)]
@@ -541,7 +541,7 @@ def settlement_seeds():
     return seeds
 
 
-def farm_years(g, lon, lat, boro):
+def farm_years(g, lon, lat, boro, cap=True):
     """Year each cell was cleared for fields: 12 years per km outward from the nearest colonial
     settlement (a model; `estimated`). Manhattan was bare of woods by the end of the British
     occupation (1783): firewood for the garrison took what the farms had left."""
@@ -550,8 +550,66 @@ def farm_years(g, lon, lat, boro):
     for slon, slat, sy in settlement_seeds():
         dkm = np.hypot((lon - slon) * kx, (lat - slat) * 110_574) / 1000.0
         F = np.minimum(F, (sy + 3 + 12.0 * dkm).astype(np.float32))
-    F = np.where(boro == 1, np.minimum(F, 1779.0), np.minimum(F, 1860.0))
+    if cap:
+        F = np.where(boro == 1, np.minimum(F, 1779.0), np.minimum(F, 1860.0))
     return F + 6.0 * h01_grid(*lon.shape, salt=3, block=6).astype(np.float32)
+
+
+def farm_census(g, F, order, farmable, land, boro):
+    """The clearing years of `farmable` ground, county by county, so that the cleared share of the
+    county's land follows the censuses' improved farmland (data/tables/farmland_counties.csv:
+    New York's state censuses from 1821, the federal ones from 1850). The model's order stays —
+    `order` is the year the settlement front reaches a cell plus slope and a field-sized noise, so
+    the best and nearest ground goes first and woods stay scattered among the fields — but how much
+    is cleared by a year is the census's count, not the model's guess. Before a county's first
+    census the share grows evenly from its first settlement. Ground beyond the peak share is never
+    cleared. A county without figures (and Manhattan, which the British garrison stripped) keeps
+    the model's years `F`."""
+    p = TABLES / "farmland_counties.csv"
+    if not p.exists():
+        log("terrain: no data/tables/farmland_counties.csv - farmland follows the model alone")
+        return F
+    t = pd.read_csv(p, dtype={"county_fips": str, "unit_fips": str})
+    t["share"] = pd.to_numeric(t.improved_share, errors="coerce")
+    t["year"] = pd.to_numeric(t.year, errors="coerce")
+    t = t[t.share.notna() & t.year.notna() & (t.share > 0) & (t.share <= 1.0)]
+    unit = t.unit_fips.fillna(t.county_fips) if "unit_fips" in t else t.county_fips
+    series = {}
+    for fips_list, yr, sh in zip(unit.astype(str), t.year.values, t.share.values):
+        for f in fips_list.replace(" ", "").split("+"):
+            series.setdefault(f.zfill(5), {})[float(yr)] = float(sh)
+    series = {f: sorted(v.items()) for f, v in series.items() if len(v) >= 2 and f != "36061"}
+    if not series:
+        return F
+    co = gpd.read_file(f"zip://{RAW / 'tiger' / 'tl_2024_us_county.zip'}")
+    co["fips"] = co.STATEFP + co.COUNTYFP
+    co = co[co.fips.isin(list(series))].to_crs(3857).reset_index(drop=True)
+    cid = rasterize_on(g, [(r.geometry, i + 1) for i, r in enumerate(co.itertuples())], fill=0, dtype="uint16")
+    out = F.copy()
+    said = []
+    for i, r in enumerate(co.itertuples()):
+        inside = cid == i + 1
+        n_land = int((inside & land).sum())
+        m = inside & farmable
+        if n_land < 200 or m.sum() < 50:
+            continue
+        ys = np.array([q[0] for q in series[r.fips]])
+        sh = np.array([q[1] for q in series[r.fips]])
+        k = int(np.argmax(sh))
+        first = float(np.nanmin(F[m])) if np.isfinite(F[m]).any() else 1680.0
+        first = min(first, ys[0] - 40.0)
+        # the rising branch: (year, share) from the first settlement to the peak
+        cy = np.r_[first, ys[:k + 1]]
+        cs = np.maximum.accumulate(np.r_[0.0, sh[:k + 1]])
+        o = order[m]
+        rank = (np.argsort(np.argsort(o, kind="stable"), kind="stable") + 0.5) / n_land
+        keep = np.r_[True, np.diff(cs) > 1e-6]
+        yr = np.interp(rank, cs[keep], cy[keep], right=np.inf).astype(np.float32)
+        out[m] = yr
+        got = {int(y): round(float((yr <= y).sum()) / n_land, 2) for y in (1820, 1850, 1880)}
+        said.append(f"{r.NAME} peak {sh[k]:.0%} in {int(ys[k])}, cleared {got}")
+    log(f"terrain: farmland of {len(said)} counties follows the censuses: " + "; ".join(said))
+    return out
 
 
 def lenape_fields(lon, lat):
@@ -709,6 +767,10 @@ def histories(name, g, d, land_only=False, reuse_land=True):
     # (steeper ground was cleared later, and as pasture; the Lenape's planting grounds are
     # fields from the start)
     F = (F + 220.0 * np.clip(slope - 0.03, 0.0, 0.13)).astype(np.float32)
+    order = (farm_years(g, lon, lat, boro, cap=False) + 220.0 * np.clip(slope - 0.03, 0.0, 0.13)
+             + 140.0 * h01_grid(rows, cols, salt=23, block=8)).astype(np.float32)
+    F = farm_census(g, F, order, farmable, land_now, boro)
+    del order
     fields_1609 = lenape_fields(lon, lat) & land_now & ~made & np.isin(N, [FOREST, GRASS, SCRUB]) & (slope < 0.12)
     F = np.where(fields_1609, float(YEAR_MIN), F).astype(np.float32)
     farmable |= fields_1609
