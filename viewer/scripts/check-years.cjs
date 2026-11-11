@@ -22,6 +22,15 @@ const VIEWS = [
   const msgs = [];
   page.on('console', m => { if (m.type() === 'error' || m.type() === 'warning') msgs.push(`${m.type()}: ${m.text().slice(0, 200)}`); });
   page.on('pageerror', e => msgs.push(`pageerror: ${e.message.slice(0, 300)}`));
+  // (counted from the responses: the browser's resource log keeps only its first 250 entries)
+  const got = {regionBuildingTiles: 0, countyBuildingTiles: 0, terrain13: 0, fromRawHost: 0, failed: 0};
+  page.on('response', r => {
+    const u = r.url();
+    const hit = /region-buildings\/1[13]\//.test(u) ? 'regionBuildingTiles' : /county-buildings\/1[13]\//.test(u) ? 'countyBuildingTiles'
+      : /tiles\/terrain\/13\//.test(u) ? 'terrain13' : null;
+    if (/raw\.githubusercontent\.com/.test(u)) got.fromRawHost++;
+    if (hit) { if (r.ok()) got[hit]++; else got.failed++; }
+  });
   await page.goto(`${base}#${VIEWS[0][1]}`, {waitUntil: 'load'});
   let ready = true;
   try { await page.waitForFunction(() => window.__ready === true, null, {timeout: 240000}); } catch (e) { ready = false; }
@@ -60,13 +69,7 @@ const VIEWS = [
   });
   console.log(`story: ${JSON.stringify(story)}`);
   // the heavy tile sets: read from the page's own origin locally, from the branch on the published site
-  const tiles = await page.evaluate(() => {
-    const names = performance.getEntriesByType('resource').map(e => e.name);
-    const count = re => names.filter(n => re.test(n)).length;
-    return {regionBuildingTiles: count(/region-buildings\/1[13]\//), countyBuildingTiles: count(/county-buildings\/1[13]\//),
-      terrain13: count(/tiles\/terrain\/13\//), fromRawHost: count(/raw\.githubusercontent\.com/)};
-  });
-  console.log(`heavy tiles fetched: ${JSON.stringify(tiles)}`);
+  console.log(`heavy tiles fetched: ${JSON.stringify(got)}`);
   const uniq = [...new Set(msgs)].filter(m => !/404|503|bad magic|Failed to load resource/.test(m));
   console.log(`${uniq.length} messages other than missing optional files`);
   for (const m of uniq.slice(0, 25)) console.log('  ' + m);
