@@ -1854,7 +1854,8 @@ CB_OFF = os.environ.get("GAPFILL_CB", "1") == "0"        # GAPFILL_CB=0: the rul
 CB_OLD_SHARE = 1.0 / 3.0
 CB_LATE_SHARE = 0.6
 CB_MIN_N = 3
-CB_OK_SHARE = 0.5
+CB_OK_SHARE = float(os.environ.get("GAPFILL_CB_OK", "0.5"))        # share of a block's lots that rest on evidence (a)
+CB_OK_SHARE_D = float(os.environ.get("GAPFILL_CB_OK_D", "0.3"))    # ... inside a researched district (the record says the block was built up)
 CB_POOL_M = 800.0
 CB_MAX_M2 = 40e4          # a block larger than 40 ha is not a street block of a town (parks, yards)
 
@@ -1869,7 +1870,7 @@ def cleared_districts():
                 poly = shapely.make_valid(shapely.from_geojson(json.dumps(ft["geometry"])))
                 shapely.prepare(poly)
                 pr = ft["properties"]
-                out.append((pr["name"], poly, float(pr["clearance_start"]), float(pr["clearance_end"])))
+                out.append((pr["name"], poly, float(pr["clearance_start"]), float(pr["clearance_end"]), float(pr.get("density_factor", 1.0))))
         _cache["cdist"] = out
     return _cache["cdist"]
 
@@ -1894,7 +1895,7 @@ def cleared_blocks(bx, by, lines, exc, es, rec):
     rp = shapely.get_coordinates(shapely.point_on_surface(polys))
     lo, la = px_to_lonlat(rp[:, 0], rp[:, 1])
     dist = np.full(nP, -1, int)
-    for k, (nm, poly, c0, c1) in enumerate(cleared_districts()):
+    for k, (nm, poly, c0, c1, _) in enumerate(cleared_districts()):
         dist[(dist < 0) & shapely.contains_xy(poly, lo, la)] = k
     with np.errstate(all="ignore"):
         fold = np.where(n > 0, old / n, 0.0)
@@ -2206,7 +2207,9 @@ def county_block(job, shifts=None):
         tot = np.bincount(blk_[sel], minlength=len(cbpoly)).astype(float)
         good = np.bincount(blk_[sel], weights=okl[sel].astype(float), minlength=len(cbpoly))
         with np.errstate(all="ignore"):
-            okb = (tot > 0) & (good / tot >= CB_OK_SHARE)
+            bdist = np.full(len(cbpoly), -1, int)
+            bdist[blk_[sel]] = cbd[p][sel]
+            okb = (tot > 0) & (good / tot >= np.where(bdist >= 0, CB_OK_SHARE_D, CB_OK_SHARE))
         cbrow = iscb & (blk_ >= 0) & okb[np.maximum(blk_, 0)]
         skipbig = cbbig[p] & (blk_ >= 0) & okb[np.maximum(blk_, 0)]
         st["cb_blocks_ok"] = int(okb.sum())
@@ -2225,6 +2228,9 @@ def county_block(job, shifts=None):
     cbA = cbrow & np.where(in97p, f97, f41)
     anchor = np.where(cbA, "cb", np.where(pn, "pn", np.where(sH, "sh", np.where(ti, "ti", np.where(exo, "ex", "")))))
     keep = anchor != ""
+    if cdl_ := cleared_districts():          # density_factor of a district (calibrated against its reference blocks, see README): the share of lots kept
+        dfac = np.array([c_[4] for c_ in cdl_] + [1.0])[np.where(cbd[p] >= 0, cbd[p], len(cdl_))]
+        keep &= ~(cbA & (hvec(key, "dens") >= dfac))
     if not keep.any():
         return empty, st
     u1, u2, u3, u4 = hvec(key, "s"), hvec(key, "j"), hvec(key, "e"), hvec(key, "h")
@@ -2234,7 +2240,16 @@ def county_block(job, shifts=None):
     evid = np.where(pn, "parcel_neighbourhood", np.where(sH, ink_code, np.where(ti, "usgs" + tint_year[p].astype(str) + "_tint", "usgs1897_builtup"))).astype(object)
     both = pn & sH & (T1 > INK_T)
     evid = np.where(both, "parcel_neighbourhood+" + ink_code.astype(str), evid)
-    cbev = np.where(in97p, "usgs1897_builtup", np.where(sH, ink_code.astype(str), "usgs" + tiy.astype(str) + "_tint"))
+    cbev = np.where(in97p, "usgs1897_builtup", np.where(sH, ink_code.astype(str), np.where(tiy > 0, "usgs" + tiy.astype(str) + "_tint", "")))
+    if cbA.any():                                  # a lot without a mark of its own takes the commonest label of its block
+        lab = pd.DataFrame({"b": cbb[p][cbA], "e": cbev[cbA]})
+        lab = lab[lab.e != ""]
+        if len(lab):
+            top = lab.groupby("b").e.agg(lambda x: x.value_counts().index[0])
+            fill = pd.Series(cbb[p]).map(top).fillna("usgs1897_builtup").values
+            cbev = np.where(cbev == "", fill, cbev)
+        else:
+            cbev = np.where(cbev == "", "usgs1897_builtup", cbev)
     evid = np.where(cbA, "cleared_block+" + cbev.astype(str), evid)
     # start
     hi = np.where(pn, np.minimum(dev[p] + 6.0 * u1, T1 - 2.0), np.where(sH | ti, INK_T - 1.5, 1897.0))
@@ -2935,7 +2950,7 @@ def _district_blocks():
     from scipy.spatial import cKDTree
     _county_mode()
     rows = []
-    for k, (name, poly, c0, c1) in enumerate(cleared_districts()):
+    for k, (name, poly, c0, c1, _) in enumerate(cleared_districts()):
         pm = to_px(poly)
         lo0, la0, lo1, la1 = poly.bounds
         x0, y0 = ap.lonlat_to_pixel(lo0, la1)
