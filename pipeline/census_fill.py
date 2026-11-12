@@ -1,7 +1,7 @@
 """Census fill: generated buildings where the census counts people the map has no building for.
 See data/research/census_fill.md.  Subcommands: points | table | ... (see main)."""
 from __future__ import annotations
-import sys, json, math
+import sys, os, json, math
 from pathlib import Path
 import numpy as np, pandas as pd, geopandas as gpd, duckdb, shapely
 from common import INTERIM, RAW, TABLES
@@ -242,7 +242,7 @@ def load_real(bb, placepoly=None):
     x0, y0, x1, y1 = bb
     con = duckdb.connect(); con.execute("INSTALL spatial; LOAD spatial; SET memory_limit='600MB'")
     a = con.execute(f"select start_year s, end_year e, ST_AsWKB(geometry) w from '{INTERIM}/nyc_buildings.parquet' "
-                    f"where lon between {x0} and {x1} and lat between {y0} and {y1}").df()
+                    f"where ST_Intersects(geometry, ST_MakeEnvelope({x0},{y0},{x1},{y1}))").df()
     b = con.execute(f"select start_year s, end_year e, ST_AsWKB(geometry) w from '{INTERIM}/county_buildings.parquet' "
                     f"where ST_Intersects(geometry, ST_MakeEnvelope({x0},{y0},{x1},{y1}))").df()
     d = pd.concat([a, b], ignore_index=True)
@@ -716,6 +716,8 @@ def collect(*pids):
 
 # ---------------------------------------------------------------- checks
 def load_out():
+    if os.environ.get("CF_LOOK_FILE"):
+        return gpd.read_parquet(os.environ["CF_LOOK_FILE"])
     g = gpd.read_parquet(INTERIM / "gapfill" / "gapfill_census.parquet")
     rp = pd.read_parquet(WORK / "row_places.parquet")
     g = g.merge(rp, on="id", how="left")
@@ -878,6 +880,166 @@ def look(name, year, lon, lat, half=900):
     (WORK / "look").mkdir(exist_ok=True)
     fig.savefig(WORK / "look" / f"{name}_{int(year)}.png", bbox_inches="tight"); plt.close(fig)
     print(name, year, "map", int(win.sum()), "fill", int(ga.sum()))
+
+
+# ---------------------------------------------------------------- districts (best-guess shares)
+DIST_OUT = INTERIM / "gapfill" / "gapfill_districts.parquet"
+MAIN_ST = {"coney_west_brighton": "Surf Avenue", "rockaway_beach": "Rockaway Beach Boulevard", "arverne_edgemere": "Rockaway Beach Boulevard"}
+
+
+def districts():
+    """Generated buildings in three resort districts from the coordinator's guessed shares (guess_districts.geojson)."""
+    gj = gpd.read_file(RAW.parent / "manual" / "gapfill" / "guess_districts.geojson")
+    props = json.loads((RAW.parent / "manual" / "gapfill" / "guess_districts.geojson").read_text())["features"]
+    atlas = gpd.read_file(RAW.parent / "manual" / "atlas" / "brooklyn_coney_1907.geojson").to_crs(4326)
+    atl = proj(atlas.geometry.values)
+    atl = atl[~shapely.is_empty(atl)]
+    out, report = [], []
+    for f, geom in zip(props, gj.geometry):
+        p = f["properties"]; did = p["id"]
+        rng = np.random.default_rng(abs(hash(did)) % (2 ** 31))
+        poly_u = proj([geom])[0]
+        x0, y0, x1, y1 = geom.bounds
+        bb = (x0 - 0.003, y0 - 0.003, x1 + 0.003, y1 + 0.003)
+        s, e, rg, rx, ry = load_real(bb)
+        cls, rd = load_roads(bb)
+        keep = np.isin(cls, list(HALF)); cls, rd = cls[keep], rd[keep]
+        ex = load_excl(bb)
+        con = duckdb.connect(); con.execute("INSTALL spatial; LOAD spatial")
+        env = f"ST_MakeEnvelope({bb[0]},{bb[1]},{bb[2]},{bb[3]})"
+        try:   # sand / beach of the land layer
+            bl = con.execute(f"select ST_AsWKB(geometry) w from '{O}/base_land.parquet' where (subtype in ('sand','beach') or class in ('sand','beach')) and ST_Intersects(geometry, {env})").df()
+            if len(bl):
+                ex = np.concatenate([ex, proj(shapely.make_valid(shapely.from_wkb(bl.w.apply(bytes).values)))])
+        except Exception as ex_:
+            print("no beach layer", ex_)
+        mn = con.execute(f"select ST_AsWKB(geometry) w from '{O}/roads_local.parquet' where name = '{MAIN_ST[did]}' and ST_Intersects(geometry, ST_MakeEnvelope({bb[0]-0.02},{bb[1]-0.02},{bb[2]+0.02},{bb[3]+0.02}))").df()
+        main = proj(shapely.from_wkb(mn.w.apply(bytes).values))
+        print(did, "main street segments", len(main), flush=True)
+        # trees for the district type
+        q = lambda tbl, extra: con.execute(f"select lon, lat, height h from '{INTERIM}/{tbl}.parquet' where lon between {bb[0]} and {bb[2]} and lat between {bb[1]} and {bb[3]} {extra}").df()
+        hh = pd.concat([q("nyc_building_points", "and end_year > 9000 and start_year < 1935 and area_m2 between 30 and 600"), q("county_points_inner", "and start_year < 1935 and area_m2 between 30 and 600")])
+        td = pd.concat([q("nyc_building_points", "and end_year > 9000 and area_m2 between 30 and 600"), q("county_points_inner", "and area_m2 between 30 and 600")])
+        hx, hy = T_FWD.transform(hh.lon.values, hh.lat.values); tx_, ty_ = T_FWD.transform(td.lon.values, td.lat.values)
+        dens_tree = cKDTree(np.column_stack([tx_, ty_])); old_tree = cKDTree(np.column_stack([hx, hy]))
+        hv = np.nan_to_num(hh.h.values, nan=0.0); hv = np.where(hv > 0, hv, np.nan)
+        lot_front = np.isin(cls, list(SETBACK))
+        cx, cy, w, d, ang, kind, seg, bha = make_lots_wrap(rd[lot_front], cls[lot_front], rng, dens_tree, old_tree, hv)
+        polys = rect_polys(cx, cy, w, d, ang)
+        ok = shapely.contains_xy(poly_u, cx, cy)
+        tr = shapely.STRtree(polys)
+        if len(ex):
+            ok[tr.query(ex, predicate="intersects")[1]] = False
+        for c, hw in HALF.items():
+            m = cls == c
+            if m.any():
+                ok[np.unique(tr.query(rd[m], predicate="dwithin", distance=hw)[1])] = False
+        if len(atl):
+            ok[np.unique(tr.query(atl, predicate="dwithin", distance=3.0)[1])] = False
+        sel = np.where(ok)[0]
+        cx, cy, w, d, ang, kind, polys = [a[sel] for a in (cx, cy, w, d, ang, kind, polys)]
+        tr = shapely.STRtree(polys)
+        a_, b_ = tr.query(polys, predicate="dwithin", distance=1.0)
+        mk = a_ < b_; a_, b_ = a_[mk], b_[mk]
+        o = np.argsort(a_, kind="stable"); a_, b_ = a_[o], b_[o]
+        st_ = np.searchsorted(a_, np.arange(len(polys) + 1))
+        alive = np.ones(len(polys), bool)
+        for k_ in range(len(polys)):
+            if alive[k_]:
+                alive[b_[st_[k_]:st_[k_ + 1]]] = False
+        sel = np.where(alive)[0]
+        cx, cy, w, d, ang, kind, polys = [a[sel] for a in (cx, cy, w, d, ang, kind, polys)]
+        N = len(polys)
+        # real rows within 3 m
+        rt = shapely.STRtree(rg)
+        ci, ri = rt.query(polys, predicate="dwithin", distance=3.0)
+        hit = shapely.distance(polys[ci], rg[ri]) < 3.0
+        ci, ri = ci[hit], ri[hit]
+        hs, he = s[ri].astype(float), e[ri].astype(float)
+        rr = shapely.minimum_rotated_rectangle(poly_u)
+        rc_ = np.asarray(rr.exterior.coords)[:4]
+        sides = [(rc_[i], rc_[(i + 1) % 4]) for i in range(4)]
+        sl = [np.hypot(*(b_ - a_)) for a_, b_ in sides]
+        short = sorted(range(4), key=lambda i: sl[i])[:2]
+        m1 = (sides[short[0]][0] + sides[short[0]][1]) / 2; m2 = (sides[short[1]][0] + sides[short[1]][1]) / 2
+        axis = shapely.LineString([m1, m2])
+        use_axis = did != "coney_west_brighton"
+        if not use_axis and len(main):
+            u_ = shapely.union_all(main); ax_len = axis.length
+            proj_pos = [axis.project(shapely.Point(pt)) for g_ in main for pt in shapely.get_coordinates(g_)]
+            span = (max(proj_pos) - min(proj_pos)) / ax_len
+            print(did, "Surf Avenue spans %.0f %% of the polygon's long axis" % (100 * span))
+            use_axis = span < 0.8
+        base = shapely.distance(shapely.points(cx, cy), axis if use_axis else shapely.union_all(main))
+        dist = base + rng.random(N) * 20.0
+        print(did, "order by", "long axis" if use_axis else "main street", flush=True)
+        # have: rows of the map inside the polygon (30 m2 and more), standing at the year
+        inside = shapely.contains_xy(poly_u, rx, ry) & (shapely.area(rg) >= 30)
+        ac = shapely.centroid(atl); a_in = shapely.contains_xy(poly_u, shapely.get_x(ac), shapely.get_y(ac))
+        n_atlas = int(a_in.sum())
+        pp = pd.concat([duckdb.connect().execute(f"select lon, lat, start_year s, end_year e from '{INTERIM}/{t_}.parquet' where lon between {bb[0]} and {bb[2]} and lat between {bb[1]} and {bb[3]} and area_m2 >= 30").df() for t_ in ("nyc_building_points", "county_points_inner")])
+        pin = shapely.contains_xy(geom, pp.lon.values, pp.lat.values); ps, pe = pp.s.values, pp.e.values
+        used = np.zeros(N, bool); S = np.full(N, np.nan); E = np.full(N, np.inf); basis = np.full(N, "", object)
+        u0 = rng.random(N)
+        prev = float(p["from"])
+        for ys, share in sorted((int(k_), v) for k_, v in p["shares"].items()):
+            need = share * N
+            have_map = int((pin & (ps <= ys) & (pe > ys)).sum())
+            have_atl = n_atlas if 1895 <= ys < 1925 else 0
+            have_own = int((used & (S <= ys) & (E > ys)).sum())
+            short = need - have_map - have_atl - have_own
+            row = dict(district=did, year=ys, share=share, need=round(need), have_map=have_map, have_atlas=have_atl, have_own=have_own, added=0)
+            if short >= 15:
+                lo = prev; hi = ys - 0.2
+                sc = lo + u0 * (hi - lo)
+                hm = ~used[ci]
+                hci, hsi, hei = ci[hm], hs[hm], he[hm]
+                ss = sc[hci]
+                blocked = np.zeros(N, bool); blocked[hci[(hsi <= ss) & (ss < hei)]] = True
+                er = np.full(N, np.inf); lt = hsi > ss
+                np.minimum.at(er, hci[lt], hsi[lt])
+                okc = ~used & ~blocked & ((er - sc) >= 2.0)
+                idx = np.where(okc)[0]
+                pick = idx[np.argsort(dist[idx], kind="stable")[:int(short)]]
+                used[pick] = True; S[pick] = sc[pick]
+                finite = er[pick] <= p["end_to"]
+                E[pick] = np.where(finite, er[pick] - 0.02, np.inf)
+                basis[pick] = np.where(finite, "replaced_by_map", "")
+                row["added"] = len(pick)
+            report.append(row); prev = float(ys)
+        op = used & np.isinf(E)
+        E[op] = np.maximum(S[op] + 1.0, p["end_from"] + (p["end_to"] - p["end_from"]) * rng.random(op.sum())); basis[op] = "estimated"
+        E[used] = np.maximum(E[used], S[used] + 1.0)
+        idx = np.where(used)[0]
+        Su, Eu = S[idx], E[idx]
+        kd = np.minimum(kind[idx].astype(int), 1)
+        h = rng.random(len(idx))
+        post = Su >= 1900
+        st = np.where(~post, 2, np.where(kd == 0, np.where(h < 0.75, 2, 3), np.where(h < 0.2, 2, np.where(h < 0.8, 3, 4))))
+        frame = (~post) | (kd == 0)
+        height = np.where(frame, st * 3.0 + 1.5, st * 3.3 + 1.0)
+        height = np.where(~post, 7.5, height)
+        pl_ = proj(rect_polys(cx[idx].astype(float), cy[idx].astype(float), w[idx].astype(float), d[idx].astype(float), ang[idx].astype(float)), T_INV)
+        c = shapely.centroid(pl_)
+        ids = ["cd" + ("%014x" % (hash((did, round(float(x), 6), round(float(y), 6))) & 0xFFFFFFFFFFFFFF)) for x, y in zip(shapely.get_x(c), shapely.get_y(c))]
+        g = gpd.GeoDataFrame({"id": ids, "start_year": np.round(Su, 2), "end_year": np.round(Eu, 2), "height_m": np.round(height, 1), "storeys": st.astype(float),
+                              "material": np.where(frame, "frame", "brick"), "evidence": "guess+" + did, "end_basis": basis[idx].astype(str),
+                              "area": "3" if did.startswith("coney") else "4", "geometry": pl_}, crs=4326)
+        out.append(g)
+        # checks
+        gp_ = proj(g.geometry.values)
+        gi, ri2 = rt.query(gp_, predicate="intersects")
+        ov = int(((s[ri2] < g.end_year.values[gi] - 0.05) & (e[ri2] > g.start_year.values[gi] + 0.05)).sum())
+        t2 = shapely.STRtree(gp_); a2, b2 = t2.query(gp_, predicate="intersects"); m2 = a2 < b2
+        ov2 = int(((g.start_year.values[a2[m2]] < g.end_year.values[b2[m2]]) & (g.end_year.values[a2[m2]] > g.start_year.values[b2[m2]])).sum())
+        dec = (np.floor(g.start_year / 10) * 10).astype(int).value_counts().sort_index().to_dict()
+        print(did, "candidates", N, "atlas outlines inside", n_atlas, "rows", len(g), "overlap with map", ov, "with each other", ov2)
+        print("  starts per decade", dec, " ends:", g.end_basis.value_counts().to_dict(), flush=True)
+    g = pd.concat(out, ignore_index=True)
+    g = g.drop_duplicates("id")
+    g.to_parquet(DIST_OUT)
+    r = pd.DataFrame(report); r.to_csv(WORK / "districts_report.csv", index=False)
+    print(r.to_string(index=False)); print(len(g), "rows ->", DIST_OUT)
 
 
 if __name__ == "__main__":

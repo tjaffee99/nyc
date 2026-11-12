@@ -132,3 +132,43 @@ rows taking the lots), ratio 1.7. Starts by decade: 1830s 2,600, 1840s 8,100, 18
   the boroughs were run); `hh` after 1960 (rows still open at 1960 end spread over 1960-1995, no post-1960
   deficit is computed).
 * Interior of blocks (lots reach 16 m from the frontage), back buildings and tenement rear houses.
+
+## 8. Districts filled by a best guess
+
+`census_fill.py districts` -> `data/interim/gapfill/gapfill_districts.parquet` (6,701 rows; `evidence = guess+<district id>`,
+ids `cd...`, all `procedural`; `gapfill_census.parquet` untouched). Input `data/manual/gapfill/guess_districts.geojson`
+(the coordinator's guessed share of street-front lots that carried a building, by year, for Coney Island's West Brighton /
+West End, Rockaway Beach, Arverne-Edgemere).
+
+Rule: the lots of section 2 inside the polygon with every exclusion kept (water, beach / sand, parks, rail, carriageways,
+sites) except the terrain's city-ground test; a lot within 3 m of an outline of `brooklyn_coney_1907.geojson` is dropped.
+Need at a share year = share x candidate lots; have = the plain count of rows of `nyc_building_points` and
+`county_points_inner` inside the polygon alive at the year with 30 m2 or more, + own rows alive + (Coney) 1,301 atlas
+outlines counted alive 1895-1925; rows are added up to the need if short by 15 or more. Order: Coney by distance to Surf Avenue
+(its segments span 100 % of the polygon's long axis); the two Rockaway districts by distance to the polygon's long axis
+(midpoints of the short sides) plus a random 0-20 m, so the fill grows along the whole peninsula. Starts uniform between
+the previous share year and this one. No row stands within 3 m of a row of the map alive then; it ends 0.02 y before the
+earliest later row within 3 m, else spread evenly over `end_from`..`end_to`. Before 1900 every row is a two-storey frame
+house (7.5 m); after, frame or row house by district type (tenements capped to row houses).
+
+Bug found and fixed (coordinator's check): `load_real` selected the city's rows by the `lon` / `lat` columns of
+`nyc_buildings.parquet`, which are empty for many vanished and generated rows, so those rows were missing from "have" and
+from the 3 m conflict test (2,841 rows in the Coney box against 5,839 in the points file). It now selects by geometry
+(`ST_Intersects`), and "have" is the plain points count. Effect on the stage of sections 1-7: the checks of section 5
+(and the lots' conflict hits) used the same blind loader, so those rows could stand on rows of the map missing from the
+test; `gapfill_census.parquet` has NOT been rerun and its overlap check should be repeated with the fixed loader.
+
+| district | candidate lots | need / have map / own, added at each share year | rows | ends: replaced / spread |
+|---|---|---|---|---|
+| Coney West Brighton | 3,328 | 1870 100/58/0 +41; 1880 998/119/41 +838; 1890 1664/371/862 +431; 1900-20 nothing (atlas 1,301 + own cover it) | 1,310 | 615 / 695 |
+| Rockaway Beach | 3,643 | 1880 291/17/0 +274; 1890 1093/77/267 +748; 1900 1639/294/877 +468; 1910 2368/620/1091 +656; 1920 2914/968/1437 +509 | 2,655 | 1,531 / 1,124 |
+| Arverne-Edgemere | 4,040 | 1890 202/19/0 +183; 1900 1212/174/170 +868; 1910 2222/391/929 +902; 1920 3030/731/1516 +783 | 2,736 | 1,361 / 1,375 |
+
+Checks: overlap with the map's rows alive at the same time 0, with one another 0 (all three; `districts.log` has the starts per
+decade and the end bases). Pictures (`look/d_*_1900.png`, 1,300 m windows): Rockaway Beach shows frame lots along the
+whole peninsula from Rockaway Park to Hammels, thickest in the middle, with the real rows between; Arverne-Edgemere shows lots
+along the strip from west to east, with the real rows of Far Rockaway at the top right and open grey ground between.
+
+Weak: the shares are guesses; lots are street fronts of today's streets (the resorts' own plans, boardwalks, piers and
+amusement parks are not modelled); Coney's rows stop at 1890 because the 1907 atlas outlines are assumed to cover the need
+after 1895; the beach layer excludes only what Overture calls sand / beach.
