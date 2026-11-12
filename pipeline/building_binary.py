@@ -158,6 +158,9 @@ def source_label(src: str) -> str:
         if ev.startswith("census"):     # census_fill.py: no outline, no photograph, no map of the lot - only the count
             return ("generated: the census counts more people in this place at this time than the buildings known to have stood "
                     "can house, and this ground was built-up then (a best guess: lot-sized outline along the street, years estimated)")
+        if ev.startswith("guess"):      # census_fill.py districts: a neighbourhood the written record describes, nothing surveyed
+            return ("generated: a best guess. Written accounts describe this neighbourhood as built up at this time, "
+                    "but no surveyed outline of its buildings could be traced: position, size and years are invented")
         if ev.startswith("site+"):      # site_fill.py: a roof read off the photograph inside a yard, fort or institution
             seen = ("the 1924 and 1951 aerial photographs show" if "1924+1951" in ev else
                     f"the {ev[-4:]} aerial photograph shows")
