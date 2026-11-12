@@ -719,8 +719,8 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
       outer counties are not filled; farmhouses on farmland are not its business.
     - *Districts filled by a best guess* (`census_fill.py districts`,
       `data/manual/gapfill/guess_districts.geojson` → `gapfill_districts.parquet`, 7,072 rows):
-      Coney Island's West Brighton (1,591), Rockaway Beach (2,678), Arverne-Edgemere (2,711),
-      Inwood before the subway (92). The share of a district's street-front lots built on, by
+      Coney Island's West Brighton (1,591 written, 951 in the map), Rockaway Beach (2,678 /
+      2,673), Arverne-Edgemere (2,711 / 2,493), Inwood before the subway (92). The share of a district's street-front lots built on, by
       year, is the lead's guess from general knowledge of the place (the file says what each
       rests on): not a measured figure, no opened source. Evidence `guess+<district>`; the
       popup says "a best guess … position, size and years are invented".
@@ -731,6 +731,23 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
       housing towers, the Paterson locomotive shops. Positions ±8 m (tanks read off the 1951
       photograph) to ±500 m (the Newark towers); every plan inside the New Jersey works is
       invented.
+    - *The resorts' sand* (`fill_zones.csv`: `bk_coney_west_brighton_sand` 1865-80,
+      `qn_rockaway_beach_sand` 1876-90, `qn_arverne_edgemere_sand` 1886-1900; coarse, best
+      guess): the soil survey maps the barrier beach as made land and the terrain dated it
+      from today's buildings (median 1918 at West Brighton), so the first build moved 518 of
+      Coney Island's guessed hotels of the 1880s into the 1920s-40s and dropped 400. The
+      rings date the sand to the resorts' building-up; and a lot of the census or district
+      fill whose ground comes more than 8 years after it is dropped, never moved
+      (`nyc_predecessors.py`; 1,514 lots). Coney Island's rows north of Mermaid Avenue
+      (marsh until the 1900s) are among them.
+    - *Result* (`holes.py`, hectares of built-up ground with no building within 60 m, before
+      → after): 1860 184 → 87, 1880 293 → 219, 1900 626 → 409, 1920 578 → 411; Brooklyn 1860
+      145 → 58, Paterson 1900 44 → 0, Elizabeth 1900 24 → 7, Staten Island 1900 44 → 22.
+      Buildings standing: 1850 155,000 → 169,000, 1900 622,000 → 681,000, 1925 1.36 → 1.46
+      million. Audit of 2026-11-12: 6,140,661 buildings, 0 with start >= end, 0 out of range,
+      no spike year, 12 before their ground, 7,174 overlapping pairs (6,526 before: not
+      looked into). Looked at on screen: Brooklyn around Fort Greene in 1860, Coney Island
+      in 1890, Rockaway Beach in 1900 — nothing else, and nothing on a real GPU.
     - **Recount one figure of every agent's report yourself.** The first census fill tested
       its lots against the `lon` / `lat` columns of `nyc_buildings.parquet`, which are empty
       for many vanished and generated rows: they were missing from its collision test (in
@@ -803,11 +820,9 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
 - **LiDAR massing** (`lidar_parts.py`, not ported): towers without OSM parts are flat extrusions.
 - **The Harlem USGS sheet's registration** in the city's 1609 layer may be off by tens of
   metres at Hart Island (found by the counties' agent, not corrected).
-- **The audit of 2026-11-11** (5,912,762 buildings): 78 buildings stand before their ground
-  (the same ones after a second full chain: not the ratchet of decision 37; among them early
-  and traced buildings on ground the terrain dates later — not looked into); one spike year,
-  1800 (3,368 buildings against about 960 in the years around: the assessors' "1800" for an
-  old house in several counties, below the per-county heap threshold, and 750 modelled
-  Suffolk years that stop at 1800).
+- **The audit of 2026-11-12** (6,140,661 buildings): 12 buildings stand before their ground
+  (one each of a dozen kinds of rows: not looked into); 7,174 overlapping pairs, 650 more
+  than before this round (not looked into: probably generated lots against outlines traced
+  this round that overlap them by less than 40 %).
 - Not checked on a real GPU: nothing was looked at on screen in this environment. Checks were
   numeric (`audit.py`, each part's own checks) and a headless boot without console errors.
