@@ -2,8 +2,8 @@
  "total": {
   "layer": "brooklyn_old_1880",
   "plates": 14,
-  "buildings": 2189,
-  "frame": 1923,
+  "buildings": 2174,
+  "frame": 1908,
   "brick": 266,
   "stone": 0,
   "gasholders": 0,
@@ -11,7 +11,8 @@
   "invalid": 0,
   "area_out_of_range": 0,
   "outside_coverage": 0,
-  "coverage_km2": 17.15
+  "coverage_km2": 17.15,
+  "roadway_slivers_dropped": 15
  },
  "plates": [
   {
@@ -469,7 +470,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 33,
    "washed_dropped": 0,
-   "exported": 257,
+   "exported": 253,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -527,7 +528,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 48,
    "washed_dropped": 0,
-   "exported": 330,
+   "exported": 324,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -580,7 +581,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 20,
    "washed_dropped": 0,
-   "exported": 189,
+   "exported": 186,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -691,7 +692,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 23,
    "washed_dropped": 0,
-   "exported": 61,
+   "exported": 60,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -772,7 +773,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 75,
    "washed_dropped": 0,
-   "exported": 846,
+   "exported": 845,
    "duplicates_dropped": 1,
    "status": "ok"
   },

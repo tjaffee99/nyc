@@ -122,147 +122,6 @@
    ]
   }
  },
- "brooklyn_coney_1899": {
-  "map_year": 1899,
-  "atlas": "Atlas of the Brooklyn Borough of the City of New York, vol. 3 (Gravesend; G. W. Bromley & Co., 1899), NYPL Map Division, Ward 31 plates",
-  "source": "bromley_brooklyn_1899",
-  "style": "bromley_city",
-  "require_match": 8.0,
-  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
-  "plates": [
-   {
-    "id": 28123,
-    "sheet": "B99-28123",
-    "name": "Double Page Plate No. 5: [Bounded by Bayview Ave., (Gravesend Bay) Canal Ave., W. 27th St., (Atlantic Ocean) Surf Ave. and Atlantic Ave.]"
-   },
-   {
-    "id": 28124,
-    "sheet": "B99-28124",
-    "name": "Double Page Plate No. 6: [Bounded by W. 27th St., Canal Ave., (Gravesend Bay) Warehouse Ave., Bay 47th St., Harway Ave., Avenue Z, (Harway Basin) Avenue Y, W. 12th St. and (Atlantic Ocean) Surf Ave.]"
-   },
-   {
-    "id": 28125,
-    "sheet": "B99-28125",
-    "name": "Double Page Plate No. 7: [Bounded by W. 12th St., Avenue Y, E. 2nd St., Ocean Parkway, Concourse Drive, Surf Ave. and W. 10th St.]"
-   },
-   {
-    "id": 28126,
-    "sheet": "B99-28126",
-    "name": "Double Page Plate No. 8: [Bounded by Ocean Parkway, Avenue Z, E. 12th St., Canal Ave., Coney Island Ave., (Atlantic Ocean) Surf Ave. and Sea-Breeze Ave.]"
-   },
-   {
-    "id": 28133,
-    "sheet": "B99-28133",
-    "name": "Double Page Plate No. 15: [Bounded by (Atlantic Ocean, Manhattan Beach Hotel and Land Co.) E. 12th St., Avenue Z, E. 26th St., (Sheepshead Bay) Emmons Ave. and Neptune Ave.]"
-   }
-  ],
-  "style_override": {
-   "max_m2": 20000.0,
-   "outline_big": 0.3,
-   "big_px": 4800,
-   "big_r": 16,
-   "stone": {
-    "da_abs": 5.5,
-    "db_min": -9.0,
-    "db_max": 0.5,
-    "dL_min": -28.0,
-    "dL_max": -9.0
-   },
-   "blue": {
-    "db_max": -5.5,
-    "db_min": -16.0,
-    "da_min": -6.0,
-    "da_max": 3.0,
-    "dL_min": -22.0,
-    "dL_max": -3.0
-   },
-   "street_empty": true,
-   "street_min_q": 0.2,
-   "street_win_m": 300.0,
-   "street_search": [
-    30.0,
-    15.0
-   ],
-   "stone_min_m2": 200.0,
-   "stone_min_width_m": 6.0,
-   "stone_max_aspect": 4.0
-  }
- },
- "brooklyn_coney_1880": {
-  "map_year": 1880,
-  "atlas": "Atlas of the entire city of Brooklyn, complete in one volume (Hopkins, 1880): Map of Coney Island, NYPL Map Division",
-  "source": "hopkins_brooklyn_1880",
-  "style": "robinson_300ft",
-  "require_match": 8.0,
-  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
-  "plates": [
-   {
-    "id": 7983,
-    "sheet": "H80-7983",
-    "name": "Map of Coney Island, New York."
-   }
-  ],
-  "style_override": {
-   "brick": {
-    "da_min": 5.5,
-    "db_max": 9.0,
-    "L_min": 42
-   },
-   "street_empty": true,
-   "street_min_q": 0.2,
-   "street_win_m": 300.0,
-   "street_search": [
-    30.0,
-    15.0
-   ]
-  }
- },
- "brooklyn_coney_1907": {
-  "map_year": 1907,
-  "atlas": "Atlas of the borough of Brooklyn, city of New York (E. B. Hyde, 1907): Section 21, Coney Island, plate 19, NYPL Map Division",
-  "source": "hyde_brooklyn_1907",
-  "style": "bromley_city",
-  "require_match": 8.0,
-  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
-  "plates": [
-   {
-    "id": 8402,
-    "sheet": "H07-8402",
-    "name": "Plate 19: Part of Section 21 - Coney Island."
-   }
-  ],
-  "style_override": {
-   "max_m2": 20000.0,
-   "outline_big": 0.3,
-   "big_px": 4800,
-   "big_r": 16,
-   "stone": {
-    "da_abs": 5.5,
-    "db_min": -9.0,
-    "db_max": 0.5,
-    "dL_min": -28.0,
-    "dL_max": -9.0
-   },
-   "blue": {
-    "db_max": -5.5,
-    "db_min": -16.0,
-    "da_min": -6.0,
-    "da_max": 3.0,
-    "dL_min": -22.0,
-    "dL_max": -3.0
-   },
-   "street_empty": true,
-   "street_min_q": 0.2,
-   "street_win_m": 300.0,
-   "street_search": [
-    30.0,
-    15.0
-   ],
-   "stone_min_m2": 200.0,
-   "stone_min_width_m": 6.0,
-   "stone_max_aspect": 4.0
-  }
- },
  "brooklyn_bayridge_1905": {
   "map_year": 1905,
   "atlas": "Atlas of the borough of Brooklyn, vol. 6, Ward 30 (E. Belcher Hyde, 1905), NYPL Map Division, 100 ft to the inch",
@@ -430,6 +289,122 @@
     "id": 16026,
     "sheet": "H05-16026",
     "name": "Brooklyn, Vol. 6, Double Page Plate No. 32; Part of   Ward 30, Section 19; [Map bounded by 83rd St., 17th Ave., Bath Ave., 14th Ave.;  Including Bayfifth St., 86th St., 13th Ave.]"
+   }
+  ],
+  "style_override": {
+   "wall_px": 60,
+   "line_depth": 3.5,
+   "fig_open": 5,
+   "stone_min_m2": 200.0,
+   "stone_min_width_m": 6.0,
+   "stone_max_aspect": 4.0,
+   "street_min_q": 0.25,
+   "street_win_m": 300.0,
+   "street_search": [
+    30.0,
+    15.0
+   ],
+   "front_px": 0,
+   "max_m2": 20000.0
+  }
+ },
+ "brooklyn_coney_1907": {
+  "map_year": 1907,
+  "atlas": "Atlas of the borough of Brooklyn, vol. 7, Ward 31 (E. Belcher Hyde, 1907), NYPL Map Division, 100 ft to the inch",
+  "source": "hyde_brooklyn_1907_v7",
+  "style": "bromley_city",
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 16048,
+    "sheet": "H07-16048",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 21; Part of   Ward 31, Section 21; [Map bounded by W. 6th St., Avenue Y; Including Stillwell   Ave., Avenue U]"
+   },
+   {
+    "id": 16051,
+    "sheet": "H07-16051",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 24; Part of   Ward 31, Section 21; [Map bounded by Stillwell Ave.; Including Harway Ave., 26th Ave.]"
+   },
+   {
+    "id": 16052,
+    "sheet": "H07-16052",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 25; Part of   Ward 31, Section 21; [Map bounded by W. 15th St., Canal Ave., Warehouse Ave.;    Including 26th Ave., Harway Ave., Bay 46th St.]"
+   },
+   {
+    "id": 16053,
+    "sheet": "H07-16053",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 26; Part of   Ward 31, Section 21; [Map bounded by Gravesend Bay, Seagate Ave., Beach 40th     St., Atlantic Ocean]; Sub Plan; [Map bounded by Gravesend Bay, Polar Ave.,       Highland Ave., Manhattan Ave.]"
+   },
+   {
+    "id": 16054,
+    "sheet": "H07-16054",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 27; Part of   Ward 31, Section 21; [Map bounded by W. 32nd St., Atlantic Ocean, Beach 40th     St.; Including Surf Ave., Seagate Ave., Bay View Ave., Gravesend Bay, Canal      Ave.]; Sub Plan; [Map bounded by Se"
+   },
+   {
+    "id": 16055,
+    "sheet": "H07-16055",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 28; Part of   Ward 31, Section 21; [Map bounded by W. 23rd St., Atlantic Ocean; Including W.   32nd St., Canal Ave.]"
+   },
+   {
+    "id": 16056,
+    "sheet": "H07-16056",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 29; Part of   Ward 31, Section 21; [Map bounded by Stillwell Ave., Atlantic Ocean; Including   W. 33rd St., Canal Ave.]"
+   },
+   {
+    "id": 16057,
+    "sheet": "H07-16057",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 30; Part of   Ward 31, Section 21; [Map bounded by E. 5th St., Atlantic Ocean, Stillwell Ave.; Including Neptune Ave., W. 8th St., Sheephead Road]"
+   },
+   {
+    "id": 16058,
+    "sheet": "H07-16058",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 31; Part of   Ward 31, Section 21; [Map bounded by W. 6th St., W. 8th St., Neptune Ave.;       Including Stillwell Ave., W. 15th St., Canal Ave., Avenue Y]"
+   },
+   {
+    "id": 16059,
+    "sheet": "H07-16059",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 32; Part of   Ward 31, Section 21; [Map bounded by Avenue W, Ocean Parkway, Avenue Z;          Including W. 6th St., 86th St.]"
+   },
+   {
+    "id": 16060,
+    "sheet": "H07-16060",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 33; Part of   Ward 31, Section 21; [Map bounded by Ocean Parkway, Sheepsheadbay Road, W. 8th   St.; Including Shell Road, Coney Island Creek, Avenue Z]"
+   },
+   {
+    "id": 16061,
+    "sheet": "H07-16061",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 34; Part of   Ward 31, Section 21; [Map bounded by Sheepshead Bay Road, Ocean Parkway;         Including Atlantic Ocean, W. 5th St.]; Sub Plan; [Map bounded by Sheepshead Bay  Road, E. 5th St., Seabreeze Ave., C"
+   },
+   {
+    "id": 16065,
+    "sheet": "H07-16065",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 35; Part of   Ward 31, Section 22; [Map bounded by Neptune Ave., Emmons Ave.; Including        Atlantic Ocean]; Sub Plan; [Map bounded by Sheepshead Bay, Atlantic Ocean]"
+   },
+   {
+    "id": 16066,
+    "sheet": "H07-16066",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 36; Part of   Ward 31, Sections 21 & 22; [Map bounded by Avenue Z, E. 13th St.; Including      Sheepshead Bay Road, Ocean Parkway]"
+   },
+   {
+    "id": 16067,
+    "sheet": "H07-16067",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 37; Part of   Ward 31, Sections 21 & 22; [Map bounded by Avenue W, E. 15th St.; Including      Avenue Z, Ocean Parkway]"
+   },
+   {
+    "id": 16068,
+    "sheet": "H07-16068",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 38; Part of   Ward 31, Section 22; [Map bounded by Avenue Z, E. 25th St., Sheepshead Bay,      Coney Island Creek, E. 13th St.]"
+   },
+   {
+    "id": 16069,
+    "sheet": "H07-16069",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 39; Part of   Ward 31, Section 22; [Map bounded by Ford St., Sheepshead Bay, E. 25th St.;      Including Jerome Ave., Voorhies Lane, Avenue Y]"
+   },
+   {
+    "id": 16073,
+    "sheet": "H07-16073",
+    "name": "Brooklyn, Vol. 7, Double Page Plate No. 43; Part of   Ward 31, Section 22; [Map bounded by Shell Bank Creek, Hog Point Creek;          Including Sheepshead Bay, Ford St., Avenue Y]; Sub Plan; [Map bounded by         Cerritsens Creek, Sheepshead Bay, B"
    }
   ],
   "style_override": {

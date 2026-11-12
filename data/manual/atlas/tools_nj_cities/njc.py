@@ -120,7 +120,7 @@ def locate(layer, pid, city, prior=None, pr=None, rots=None, scales=None, verbos
     polys = load_px(layer, pid)
     P = A.Plate(layer, pid, verbose=False); W, H = P.img().shape[1], P.img().shape[0]
     polys = [shapely.affinity.translate(p, -W / 2, -H / 2) for p in polys]
-    rots = rots if rots is not None else (np.arange(-40, 40.1, 2.0) if prior is not None else np.arange(-3, 3.1, 1.5))
+    rots = rots if rots is not None else (np.arange(*[float(v) for v in os.environ['ROTS'].split(',')]) if os.environ.get('ROTS') else np.arange(-40, 40.1, 2.0) if prior is not None else np.arange(-3, 3.1, 1.5))
     scales = scales if scales is not None else [0.098, 0.1, 0.102, 0.104]
     cell = 4.0
     F, tr = city_raster(city, cell); F = ndi.gaussian_filter(F, 1.5)

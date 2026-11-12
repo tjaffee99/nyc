@@ -2,16 +2,17 @@
  "total": {
   "layer": "brooklyn_bayridge_1905",
   "plates": 30,
-  "buildings": 7306,
-  "frame": 2682,
-  "brick": 4576,
-  "stone": 48,
+  "buildings": 7239,
+  "frame": 2675,
+  "brick": 4523,
+  "stone": 41,
   "gasholders": 0,
   "on_today": 1166,
   "invalid": 0,
   "area_out_of_range": 0,
   "outside_coverage": 0,
-  "coverage_km2": 18.87
+  "coverage_km2": 18.87,
+  "roadway_slivers_dropped": 67
  },
  "plates": [
   {
@@ -79,7 +80,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 383,
+   "exported": 380,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -148,7 +149,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 411,
+   "exported": 410,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -205,7 +206,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 119,
+   "exported": 114,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -331,7 +332,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 373,
+   "exported": 372,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -445,7 +446,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 149,
+   "exported": 144,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -583,7 +584,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 391,
+   "exported": 381,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -640,7 +641,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 66,
+   "exported": 65,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -801,7 +802,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 268,
+   "exported": 253,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -870,7 +871,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 322,
+   "exported": 315,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -939,7 +940,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 420,
+   "exported": 419,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -996,7 +997,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 288,
+   "exported": 279,
    "duplicates_dropped": 2,
    "status": "ok"
   },
@@ -1065,7 +1066,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 535,
+   "exported": 533,
    "duplicates_dropped": 2,
    "status": "ok"
   },
@@ -1179,7 +1180,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 410,
+   "exported": 409,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -1419,7 +1420,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 102,
+   "exported": 100,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -1545,7 +1546,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 108,
+   "exported": 107,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -1711,7 +1712,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 115,
+   "exported": 113,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -1825,7 +1826,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 114,
+   "exported": 113,
    "duplicates_dropped": 0,
    "status": "ok"
   },

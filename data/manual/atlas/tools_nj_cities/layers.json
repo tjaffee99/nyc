@@ -44,7 +44,8 @@
    {
     "id": 92150010,
     "sheet": "10",
-    "name": "Paterson 1915 sheet 10"
+    "name": "Paterson 1915 sheet 10",
+    "skip": "registration not confirmed (overlap ratio 1.02, best shift [-1, 8] m)"
    },
    {
     "id": 92150011,
@@ -74,12 +75,14 @@
    {
     "id": 92150005,
     "sheet": "5",
-    "name": "Paterson 1915 sheet 5"
+    "name": "Paterson 1915 sheet 5",
+    "skip": "registration not confirmed (overlap ratio 1.16, best shift [2, 12] m)"
    },
    {
     "id": 92150002,
     "sheet": "2",
-    "name": "Paterson 1915 sheet 2"
+    "name": "Paterson 1915 sheet 2",
+    "skip": "registration not confirmed (overlap ratio 0.84, best shift [10, -11] m)"
    },
    {
     "id": 92150003,
@@ -94,7 +97,8 @@
    {
     "id": 92150013,
     "sheet": "13",
-    "name": "Paterson 1915 sheet 13"
+    "name": "Paterson 1915 sheet 13",
+    "skip": "registration not confirmed (overlap ratio 1.42, best shift [-3, 4] m)"
    },
    {
     "id": 92150014,
@@ -109,7 +113,8 @@
    {
     "id": 92150019,
     "sheet": "19",
-    "name": "Paterson 1915 sheet 19"
+    "name": "Paterson 1915 sheet 19",
+    "skip": "registration not confirmed (overlap ratio 1.29, best shift [-4, -1] m)"
    },
    {
     "id": 92150020,
@@ -119,7 +124,8 @@
    {
     "id": 92150021,
     "sheet": "21",
-    "name": "Paterson 1915 sheet 21"
+    "name": "Paterson 1915 sheet 21",
+    "skip": "registration not confirmed (overlap ratio 1.20, best shift [0, 4] m)"
    },
    {
     "id": 92150022,
@@ -134,7 +140,8 @@
    {
     "id": 92150024,
     "sheet": "24",
-    "name": "Paterson 1915 sheet 24"
+    "name": "Paterson 1915 sheet 24",
+    "skip": "registration not confirmed (overlap ratio 1.16, best shift [1, 2] m)"
    },
    {
     "id": 92150025,
@@ -154,7 +161,8 @@
    {
     "id": 92150028,
     "sheet": "28",
-    "name": "Paterson 1915 sheet 28"
+    "name": "Paterson 1915 sheet 28",
+    "skip": "registration not confirmed (overlap ratio 1.67, best shift [-3, 3] m)"
    },
    {
     "id": 92150029,
@@ -249,7 +257,8 @@
    {
     "id": 92150051,
     "sheet": "51",
-    "name": "Paterson 1915 sheet 51"
+    "name": "Paterson 1915 sheet 51",
+    "skip": "registration not confirmed (overlap ratio 1.28, best shift [-2, 2] m)"
    },
    {
     "id": 92150052,
@@ -259,7 +268,8 @@
    {
     "id": 92150053,
     "sheet": "53",
-    "name": "Paterson 1915 sheet 53"
+    "name": "Paterson 1915 sheet 53",
+    "skip": "registration not confirmed (overlap ratio 1.04, best shift [3, -3] m)"
    },
    {
     "id": 92150054,
@@ -279,17 +289,20 @@
    {
     "id": 92150058,
     "sheet": "58",
-    "name": "Paterson 1915 sheet 58"
+    "name": "Paterson 1915 sheet 58",
+    "skip": "too few outlines to check (too few outlines)"
    },
    {
     "id": 92150059,
     "sheet": "59",
-    "name": "Paterson 1915 sheet 59"
+    "name": "Paterson 1915 sheet 59",
+    "skip": "too few outlines to check (too few outlines)"
    },
    {
     "id": 92150061,
     "sheet": "61",
-    "name": "Paterson 1915 sheet 61"
+    "name": "Paterson 1915 sheet 61",
+    "skip": "registration not confirmed (overlap ratio 1.46, best shift [-8, 1] m)"
    },
    {
     "id": 92150062,
@@ -364,22 +377,26 @@
    {
     "id": 92150087,
     "sheet": "87",
-    "name": "Paterson 1915 sheet 87"
+    "name": "Paterson 1915 sheet 87",
+    "skip": "too few outlines to check (too few outlines)"
    },
    {
     "id": 92150088,
     "sheet": "88",
-    "name": "Paterson 1915 sheet 88"
+    "name": "Paterson 1915 sheet 88",
+    "skip": "too few outlines to check (too few outlines)"
    },
    {
     "id": 92150089,
     "sheet": "89",
-    "name": "Paterson 1915 sheet 89"
+    "name": "Paterson 1915 sheet 89",
+    "skip": "too few outlines to check (too few outlines)"
    },
    {
     "id": 92150090,
     "sheet": "90",
-    "name": "Paterson 1915 sheet 90"
+    "name": "Paterson 1915 sheet 90",
+    "skip": "registration not confirmed (overlap ratio 0.81, best shift [10, 11] m)"
    },
    {
     "id": 92150094,
@@ -389,12 +406,14 @@
    {
     "id": 92150095,
     "sheet": "95",
-    "name": "Paterson 1915 sheet 95"
+    "name": "Paterson 1915 sheet 95",
+    "skip": "registration not confirmed (overlap ratio 0.79, best shift [4, 12] m)"
    },
    {
     "id": 92150096,
     "sheet": "96",
-    "name": "Paterson 1915 sheet 96"
+    "name": "Paterson 1915 sheet 96",
+    "skip": "registration not confirmed (overlap ratio 1.08, best shift [-13, 7] m)"
    },
    {
     "id": 92150047,
@@ -404,7 +423,8 @@
    {
     "id": 92150049,
     "sheet": "49",
-    "name": "Paterson 1915 sheet 49"
+    "name": "Paterson 1915 sheet 49",
+    "skip": "registration not confirmed (overlap ratio 0.83, best shift [-3, 14] m)"
    },
    {
     "id": 92150050,
@@ -414,7 +434,8 @@
    {
     "id": 92150056,
     "sheet": "56",
-    "name": "Paterson 1915 sheet 56"
+    "name": "Paterson 1915 sheet 56",
+    "skip": "registration not confirmed (overlap ratio 0.95, best shift [7, -13] m)"
    }
   ]
  },
@@ -459,6 +480,96 @@
     "id": 93080041,
     "sheet": "41",
     "name": "Newark 1908 sheet 41"
+   },
+   {
+    "id": 93080030,
+    "sheet": "30",
+    "name": "Newark 1908 sheet 30"
+   },
+   {
+    "id": 93080017,
+    "sheet": "17",
+    "name": "Newark 1908 sheet 17"
+   },
+   {
+    "id": 93080063,
+    "sheet": "63",
+    "name": "Newark 1908 sheet 63"
+   },
+   {
+    "id": 93080049,
+    "sheet": "49",
+    "name": "Newark 1908 sheet 49"
+   },
+   {
+    "id": 93080047,
+    "sheet": "47",
+    "name": "Newark 1908 sheet 47"
+   },
+   {
+    "id": 93080048,
+    "sheet": "48",
+    "name": "Newark 1908 sheet 48"
+   },
+   {
+    "id": 93080056,
+    "sheet": "56",
+    "name": "Newark 1908 sheet 56"
+   },
+   {
+    "id": 93080057,
+    "sheet": "57",
+    "name": "Newark 1908 sheet 57"
+   },
+   {
+    "id": 93080051,
+    "sheet": "51",
+    "name": "Newark 1908 sheet 51"
+   },
+   {
+    "id": 93080052,
+    "sheet": "52",
+    "name": "Newark 1908 sheet 52"
+   },
+   {
+    "id": 93080055,
+    "sheet": "55",
+    "name": "Newark 1908 sheet 55"
+   },
+   {
+    "id": 93080064,
+    "sheet": "64",
+    "name": "Newark 1908 sheet 64"
+   },
+   {
+    "id": 93080045,
+    "sheet": "45",
+    "name": "Newark 1908 sheet 45"
+   },
+   {
+    "id": 93080043,
+    "sheet": "43",
+    "name": "Newark 1908 sheet 43"
+   },
+   {
+    "id": 93080044,
+    "sheet": "44",
+    "name": "Newark 1908 sheet 44"
+   },
+   {
+    "id": 93080039,
+    "sheet": "39",
+    "name": "Newark 1908 sheet 39"
+   },
+   {
+    "id": 93080042,
+    "sheet": "42",
+    "name": "Newark 1908 sheet 42"
+   },
+   {
+    "id": 93080058,
+    "sheet": "58",
+    "name": "Newark 1908 sheet 58"
    }
   ]
  }

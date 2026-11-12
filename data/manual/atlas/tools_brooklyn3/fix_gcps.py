@@ -9,7 +9,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[1] / "extents" / "tools"))
 import warp, streets as S  # noqa
 TOL = 6.0
-SC = (0.18, 0.22)
+SC = (0.15, 0.19)
 OWNF = HERE / "gcps_own.json"
 own = json.loads(OWNF.read_text())
 for pid in sys.argv[2:]:

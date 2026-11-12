@@ -1,0 +1,3432 @@
+{
+ "total": {
+  "layer": "passaic_paterson_1915",
+  "plates": 58,
+  "buildings": 6979,
+  "frame": 6278,
+  "brick": 700,
+  "stone": 1,
+  "gasholders": 0,
+  "on_today": 1132,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 4.74,
+  "tiers": {
+   "verified": 38,
+   "consistent": 20
+  }
+ },
+ "plates": [
+  {
+   "plate": "92150008",
+   "image": "p15a_0008",
+   "name": "Paterson 1915 sheet 8",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.099,
+   "n": 90,
+   "frame": 60,
+   "brick": 28,
+   "stone": 0,
+   "coincide": 5,
+   "share": 0.057,
+   "corrected": true,
+   "paper": [
+    70.0,
+    -3.0,
+    16.0
+   ],
+   "off_median_vec": [
+    -0.29,
+    -2.19
+   ],
+   "off_median_m": 3.98,
+   "street": null,
+   "bld": {
+    "plate": "92150008",
+    "n": 90,
+    "windows": 4,
+    "shift_median": [
+     0.12,
+     0.06
+    ],
+    "fit_residual_m": 0.39,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "8",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 88,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 90,
+    "on_today": 0.73,
+    "ring": 0.42,
+    "ratio": 1.74,
+    "best_shift_m": [
+     1,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150006",
+   "image": "p15a_0006",
+   "name": "Paterson 1915 sheet 6",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 62,
+   "frame": 29,
+   "brick": 30,
+   "stone": 0,
+   "coincide": 6,
+   "share": 0.102,
+   "corrected": true,
+   "paper": [
+    72.0,
+    -1.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -0.9,
+    0.25
+   ],
+   "off_median_m": 1.89,
+   "street": null,
+   "bld": {
+    "plate": "92150006",
+    "n": 62,
+    "windows": 6,
+    "shift_median": [
+     -0.22,
+     -0.02
+    ],
+    "fit_residual_m": 0.76,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "6",
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 59,
+   "duplicates_dropped": 2,
+   "status": "ok",
+   "check": {
+    "n": 62,
+    "on_today": 0.8,
+    "ring": 0.533,
+    "ratio": 1.5,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150007",
+   "image": "p15a_0007",
+   "name": "Paterson 1915 sheet 7",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 86,
+   "frame": 35,
+   "brick": 48,
+   "stone": 0,
+   "coincide": 5,
+   "share": 0.06,
+   "corrected": true,
+   "paper": [
+    75.0,
+    -1.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -0.05,
+    0.3
+   ],
+   "off_median_m": 2.07,
+   "street": null,
+   "bld": {
+    "plate": "92150007",
+    "n": 86,
+    "windows": 6,
+    "shift_median": [
+     -0.07,
+     -0.13
+    ],
+    "fit_residual_m": 0.78,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "7",
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 83,
+   "duplicates_dropped": 2,
+   "status": "ok",
+   "check": {
+    "n": 86,
+    "on_today": 0.803,
+    "ring": 0.526,
+    "ratio": 1.53,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150009",
+   "image": "p15a_0009",
+   "name": "Paterson 1915 sheet 9",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 63,
+   "frame": 34,
+   "brick": 22,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.036,
+   "corrected": true,
+   "paper": [
+    73.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -2.05,
+    2.89
+   ],
+   "off_median_m": 3.84,
+   "street": null,
+   "bld": {
+    "plate": "92150009",
+    "n": 63,
+    "windows": 8,
+    "shift_median": [
+     -0.4,
+     0.11
+    ],
+    "fit_residual_m": 0.71,
+    "agree": 7,
+    "kind": "shift"
+   },
+   "sheet": "9",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 56,
+   "duplicates_dropped": 6,
+   "status": "ok",
+   "check": {
+    "n": 63,
+    "on_today": 0.66,
+    "ring": 0.429,
+    "ratio": 1.54,
+    "best_shift_m": [
+     -1,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150010",
+   "sheet": "10",
+   "status": "left out: registration not confirmed (overlap ratio 1.02, best shift [-1, 8] m)",
+   "check": {
+    "n": 186,
+    "on_today": 0.34,
+    "ring": 0.334,
+    "ratio": 1.02,
+    "best_shift_m": [
+     -1,
+     8
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150011",
+   "image": "p15a_0011",
+   "name": "Paterson 1915 sheet 11",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.096,
+   "n": 295,
+   "frame": 261,
+   "brick": 30,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.003,
+   "corrected": true,
+   "paper": [
+    70.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.48,
+    1.55
+   ],
+   "off_median_m": 1.62,
+   "street": null,
+   "bld": {
+    "plate": "92150011",
+    "n": 298,
+    "windows": 6,
+    "shift_median": [
+     -0.09,
+     -0.2
+    ],
+    "fit_residual_m": 0.63,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "11",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 291,
+   "duplicates_dropped": 2,
+   "status": "ok",
+   "check": {
+    "n": 295,
+    "on_today": 0.183,
+    "ring": 0.117,
+    "ratio": 1.56,
+    "best_shift_m": [
+     1,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150012",
+   "image": "p15a_0012",
+   "name": "Paterson 1915 sheet 12",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 202,
+   "frame": 182,
+   "brick": 20,
+   "stone": 0,
+   "coincide": 30,
+   "share": 0.149,
+   "corrected": true,
+   "paper": [
+    70.0,
+    -2.0,
+    12.0
+   ],
+   "off_median_vec": [
+    0.12,
+    0.18
+   ],
+   "off_median_m": 1.48,
+   "street": null,
+   "bld": {
+    "plate": "92150012",
+    "n": 202,
+    "windows": 11,
+    "shift_median": [
+     -0.02,
+     -0.06
+    ],
+    "fit_residual_m": 0.25,
+    "agree": 11,
+    "kind": "affine"
+   },
+   "sheet": "12",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 202,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 202,
+    "on_today": 0.564,
+    "ring": 0.274,
+    "ratio": 2.06,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150016",
+   "image": "p15a_0016",
+   "name": "Paterson 1915 sheet 16",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 143,
+   "frame": 102,
+   "brick": 36,
+   "stone": 0,
+   "coincide": 5,
+   "share": 0.036,
+   "corrected": true,
+   "paper": [
+    73.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -2.37,
+    0.49
+   ],
+   "off_median_m": 2.61,
+   "street": null,
+   "bld": {
+    "plate": "92150016",
+    "n": 143,
+    "windows": 10,
+    "shift_median": [
+     0.77,
+     -2.12
+    ],
+    "fit_residual_m": 1.53,
+    "agree": 8,
+    "kind": "shift"
+   },
+   "sheet": "16",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 138,
+   "duplicates_dropped": 3,
+   "status": "ok",
+   "check": {
+    "n": 143,
+    "on_today": 0.497,
+    "ring": 0.348,
+    "ratio": 1.43,
+    "best_shift_m": [
+     -1,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150017",
+   "image": "p15a_0017",
+   "name": "Paterson 1915 sheet 17",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 107,
+   "frame": 82,
+   "brick": 20,
+   "stone": 0,
+   "coincide": 6,
+   "share": 0.059,
+   "corrected": true,
+   "paper": [
+    71.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -1.64,
+    0.69
+   ],
+   "off_median_m": 3.53,
+   "street": null,
+   "bld": {
+    "plate": "92150017",
+    "n": 107,
+    "windows": 9,
+    "shift_median": [
+     0.39,
+     -0.03
+    ],
+    "fit_residual_m": 0.96,
+    "agree": 8,
+    "kind": "shift"
+   },
+   "sheet": "17",
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 102,
+   "duplicates_dropped": 4,
+   "status": "ok",
+   "check": {
+    "n": 107,
+    "on_today": 0.755,
+    "ring": 0.37,
+    "ratio": 2.04,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150018",
+   "image": "p15a_0018",
+   "name": "Paterson 1915 sheet 18",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.098,
+   "n": 125,
+   "frame": 91,
+   "brick": 27,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    73.0,
+    -2.0,
+    10.0
+   ],
+   "sheet": "18",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 118,
+   "duplicates_dropped": 7,
+   "status": "ok",
+   "check": {
+    "n": 125,
+    "on_today": 0.467,
+    "ring": 0.376,
+    "ratio": 1.24,
+    "best_shift_m": [
+     1,
+     -2
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150005",
+   "sheet": "5",
+   "status": "left out: registration not confirmed (overlap ratio 1.16, best shift [2, 12] m)",
+   "check": {
+    "n": 250,
+    "on_today": 0.307,
+    "ring": 0.265,
+    "ratio": 1.16,
+    "best_shift_m": [
+     2,
+     12
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150002",
+   "sheet": "2",
+   "status": "left out: registration not confirmed (overlap ratio 0.84, best shift [10, -11] m)",
+   "check": {
+    "n": 31,
+    "on_today": 0.4,
+    "ring": 0.475,
+    "ratio": 0.84,
+    "best_shift_m": [
+     10,
+     -11
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150003",
+   "image": "p15a_0003",
+   "name": "Paterson 1915 sheet 3",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.104,
+   "n": 133,
+   "frame": 92,
+   "brick": 38,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.015,
+   "corrected": false,
+   "paper": [
+    72.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    1.87,
+    0.55
+   ],
+   "off_median_m": 4.03,
+   "sheet": "3",
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 130,
+   "duplicates_dropped": 1,
+   "status": "ok",
+   "check": {
+    "n": 133,
+    "on_today": 0.259,
+    "ring": 0.188,
+    "ratio": 1.38,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150004",
+   "image": "p15a_0004",
+   "name": "Paterson 1915 sheet 4",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.103,
+   "n": 164,
+   "frame": 88,
+   "brick": 36,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": true,
+   "paper": [
+    73.0,
+    -3.0,
+    12.0
+   ],
+   "off_median_vec": [
+    -0.81,
+    -1.16
+   ],
+   "off_median_m": 1.42,
+   "street": null,
+   "bld": {
+    "plate": "92150004",
+    "n": 164,
+    "windows": 3,
+    "shift_median": [
+     -1.99,
+     -0.17
+    ],
+    "fit_residual_m": 1.99,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "4",
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 124,
+   "duplicates_dropped": 37,
+   "status": "ok",
+   "check": {
+    "n": 164,
+    "on_today": 0.467,
+    "ring": 0.37,
+    "ratio": 1.26,
+    "best_shift_m": [
+     1,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150013",
+   "sheet": "13",
+   "status": "left out: registration not confirmed (overlap ratio 1.42, best shift [-3, 4] m)",
+   "check": {
+    "n": 100,
+    "on_today": 0.178,
+    "ring": 0.126,
+    "ratio": 1.42,
+    "best_shift_m": [
+     -3,
+     4
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150014",
+   "image": "p15a_0014",
+   "name": "Paterson 1915 sheet 14",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.103,
+   "n": 209,
+   "frame": 177,
+   "brick": 32,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.005,
+   "corrected": false,
+   "paper": [
+    73.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.67,
+    0.11
+   ],
+   "off_median_m": 0.68,
+   "sheet": "14",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 209,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 209,
+    "on_today": 0.328,
+    "ring": 0.236,
+    "ratio": 1.39,
+    "best_shift_m": [
+     0,
+     -1
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150015",
+   "image": "p15a_0015",
+   "name": "Paterson 1915 sheet 15",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.098,
+   "n": 168,
+   "frame": 85,
+   "brick": 18,
+   "stone": 0,
+   "coincide": 6,
+   "share": 0.058,
+   "corrected": true,
+   "paper": [
+    70.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -0.23,
+    -1.39
+   ],
+   "off_median_m": 2.37,
+   "street": null,
+   "bld": {
+    "plate": "92150015",
+    "n": 168,
+    "windows": 4,
+    "shift_median": [
+     2.04,
+     0.93
+    ],
+    "fit_residual_m": 0.64,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "15",
+   "lettering_dropped": 1,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 103,
+   "duplicates_dropped": 64,
+   "status": "ok",
+   "check": {
+    "n": 168,
+    "on_today": 0.387,
+    "ring": 0.24,
+    "ratio": 1.61,
+    "best_shift_m": [
+     -1,
+     -1
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150019",
+   "sheet": "19",
+   "status": "left out: registration not confirmed (overlap ratio 1.29, best shift [-4, -1] m)",
+   "check": {
+    "n": 196,
+    "on_today": 0.481,
+    "ring": 0.373,
+    "ratio": 1.29,
+    "best_shift_m": [
+     -4,
+     -1
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150020",
+   "image": "p15a_0020",
+   "name": "Paterson 1915 sheet 20",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.096,
+   "n": 56,
+   "frame": 41,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    69.0,
+    -1.0,
+    11.0
+   ],
+   "sheet": "20",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 47,
+   "duplicates_dropped": 9,
+   "status": "ok",
+   "check": {
+    "n": 56,
+    "on_today": 0.644,
+    "ring": 0.493,
+    "ratio": 1.31,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150021",
+   "sheet": "21",
+   "status": "left out: registration not confirmed (overlap ratio 1.20, best shift [0, 4] m)",
+   "check": {
+    "n": 217,
+    "on_today": 0.303,
+    "ring": 0.251,
+    "ratio": 1.2,
+    "best_shift_m": [
+     0,
+     4
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150022",
+   "image": "p15a_0022",
+   "name": "Paterson 1915 sheet 22",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 135,
+   "frame": 123,
+   "brick": 11,
+   "stone": 0,
+   "coincide": 47,
+   "share": 0.351,
+   "corrected": true,
+   "paper": [
+    69.0,
+    -1.0,
+    11.0
+   ],
+   "off_median_vec": [
+    0.07,
+    0.05
+   ],
+   "off_median_m": 0.72,
+   "street": null,
+   "bld": {
+    "plate": "92150022",
+    "n": 135,
+    "windows": 11,
+    "shift_median": [
+     0.01,
+     -0.02
+    ],
+    "fit_residual_m": 0.09,
+    "agree": 11,
+    "kind": "affine"
+   },
+   "sheet": "22",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 134,
+   "duplicates_dropped": 1,
+   "status": "ok",
+   "check": {
+    "n": 135,
+    "on_today": 0.675,
+    "ring": 0.303,
+    "ratio": 2.22,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150023",
+   "image": "p15a_0023",
+   "name": "Paterson 1915 sheet 23",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.106,
+   "n": 233,
+   "frame": 214,
+   "brick": 15,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.004,
+   "corrected": false,
+   "paper": [
+    70.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    1.0,
+    -2.03
+   ],
+   "off_median_m": 2.26,
+   "sheet": "23",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 229,
+   "duplicates_dropped": 4,
+   "status": "ok",
+   "check": {
+    "n": 233,
+    "on_today": 0.424,
+    "ring": 0.336,
+    "ratio": 1.26,
+    "best_shift_m": [
+     1,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150024",
+   "sheet": "24",
+   "status": "left out: registration not confirmed (overlap ratio 1.16, best shift [1, 2] m)",
+   "check": {
+    "n": 176,
+    "on_today": 0.453,
+    "ring": 0.389,
+    "ratio": 1.16,
+    "best_shift_m": [
+     1,
+     2
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150025",
+   "image": "p15a_0025",
+   "name": "Paterson 1915 sheet 25",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.096,
+   "n": 94,
+   "frame": 92,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": true,
+   "paper": [
+    66.0,
+    -2.0,
+    10.0
+   ],
+   "street": null,
+   "bld": {
+    "plate": "92150025",
+    "n": 96,
+    "windows": 4,
+    "shift_median": [
+     1.03,
+     -2.06
+    ],
+    "fit_residual_m": 0.87,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "25",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 94,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 94,
+    "on_today": 0.355,
+    "ring": 0.252,
+    "ratio": 1.41,
+    "best_shift_m": [
+     -1,
+     2
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150026",
+   "image": "p15a_0026",
+   "name": "Paterson 1915 sheet 26",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.096,
+   "n": 153,
+   "frame": 124,
+   "brick": 19,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.014,
+   "corrected": false,
+   "paper": [
+    68.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    1.25,
+    -1.24
+   ],
+   "off_median_m": 2.0,
+   "sheet": "26",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 143,
+   "duplicates_dropped": 10,
+   "status": "ok",
+   "check": {
+    "n": 153,
+    "on_today": 0.392,
+    "ring": 0.299,
+    "ratio": 1.31,
+    "best_shift_m": [
+     1,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150027",
+   "image": "p15a_0027",
+   "name": "Paterson 1915 sheet 27",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 164,
+   "frame": 149,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 88,
+   "share": 0.568,
+   "corrected": true,
+   "paper": [
+    68.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    0.09,
+    -0.07
+   ],
+   "off_median_m": 0.73,
+   "street": null,
+   "bld": {
+    "plate": "92150027",
+    "n": 164,
+    "windows": 11,
+    "shift_median": [
+     -0.02,
+     0.02
+    ],
+    "fit_residual_m": 0.15,
+    "agree": 11,
+    "kind": "affine"
+   },
+   "sheet": "27",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 155,
+   "duplicates_dropped": 9,
+   "status": "ok",
+   "check": {
+    "n": 164,
+    "on_today": 0.901,
+    "ring": 0.295,
+    "ratio": 3.06,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150028",
+   "sheet": "28",
+   "status": "left out: registration not confirmed (overlap ratio 1.67, best shift [-3, 3] m)",
+   "check": {
+    "n": 94,
+    "on_today": 0.47,
+    "ring": 0.281,
+    "ratio": 1.67,
+    "best_shift_m": [
+     -3,
+     3
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150029",
+   "image": "p15a_0029",
+   "name": "Paterson 1915 sheet 29",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.096,
+   "n": 163,
+   "frame": 152,
+   "brick": 3,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.006,
+   "corrected": true,
+   "paper": [
+    70.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -1.53,
+    -0.1
+   ],
+   "off_median_m": 1.54,
+   "street": null,
+   "bld": {
+    "plate": "92150029",
+    "n": 165,
+    "windows": 3,
+    "shift_median": [
+     1.82,
+     1.06
+    ],
+    "fit_residual_m": 2.73,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "29",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 155,
+   "duplicates_dropped": 8,
+   "status": "ok",
+   "check": {
+    "n": 163,
+    "on_today": 0.468,
+    "ring": 0.386,
+    "ratio": 1.21,
+    "best_shift_m": [
+     -1,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150030",
+   "image": "p15a_0030",
+   "name": "Paterson 1915 sheet 30",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 144,
+   "frame": 141,
+   "brick": 3,
+   "stone": 0,
+   "coincide": 111,
+   "share": 0.771,
+   "corrected": true,
+   "paper": [
+    68.0,
+    -2.0,
+    12.0
+   ],
+   "off_median_vec": [
+    0.1,
+    0.05
+   ],
+   "off_median_m": 0.92,
+   "street": null,
+   "bld": {
+    "plate": "92150030",
+    "n": 144,
+    "windows": 12,
+    "shift_median": [
+     0.02,
+     0.0
+    ],
+    "fit_residual_m": 0.13,
+    "agree": 12,
+    "kind": "affine"
+   },
+   "sheet": "30",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 144,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 144,
+    "on_today": 0.936,
+    "ring": 0.271,
+    "ratio": 3.46,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150031",
+   "image": "p15a_0031",
+   "name": "Paterson 1915 sheet 31",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 146,
+   "frame": 122,
+   "brick": 24,
+   "stone": 0,
+   "coincide": 24,
+   "share": 0.164,
+   "corrected": true,
+   "paper": [
+    71.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -0.55,
+    -0.49
+   ],
+   "off_median_m": 1.23,
+   "street": null,
+   "bld": {
+    "plate": "92150031",
+    "n": 146,
+    "windows": 7,
+    "shift_median": [
+     0.61,
+     -0.58
+    ],
+    "fit_residual_m": 0.95,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "31",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 146,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 146,
+    "on_today": 0.529,
+    "ring": 0.298,
+    "ratio": 1.78,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150032",
+   "image": "p15a_0032",
+   "name": "Paterson 1915 sheet 32",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 198,
+   "frame": 170,
+   "brick": 20,
+   "stone": 0,
+   "coincide": 57,
+   "share": 0.3,
+   "corrected": true,
+   "paper": [
+    70.0,
+    -1.0,
+    11.0
+   ],
+   "off_median_vec": [
+    0.19,
+    0.13
+   ],
+   "off_median_m": 1.18,
+   "street": null,
+   "bld": {
+    "plate": "92150032",
+    "n": 198,
+    "windows": 8,
+    "shift_median": [
+     -0.49,
+     -0.37
+    ],
+    "fit_residual_m": 0.49,
+    "agree": 8,
+    "kind": "shift"
+   },
+   "sheet": "32",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 190,
+   "duplicates_dropped": 8,
+   "status": "ok",
+   "check": {
+    "n": 198,
+    "on_today": 0.654,
+    "ring": 0.302,
+    "ratio": 2.16,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150033",
+   "image": "p15a_0033",
+   "name": "Paterson 1915 sheet 33",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 193,
+   "frame": 186,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 64,
+   "share": 0.333,
+   "corrected": true,
+   "paper": [
+    69.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.54,
+    0.15
+   ],
+   "off_median_m": 1.14,
+   "street": null,
+   "bld": {
+    "plate": "92150033",
+    "n": 193,
+    "windows": 8,
+    "shift_median": [
+     -0.07,
+     0.27
+    ],
+    "fit_residual_m": 0.46,
+    "agree": 8,
+    "kind": "shift"
+   },
+   "sheet": "33",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 192,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 193,
+    "on_today": 0.669,
+    "ring": 0.272,
+    "ratio": 2.46,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150034",
+   "image": "p15a_0034",
+   "name": "Paterson 1915 sheet 34",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 212,
+   "frame": 205,
+   "brick": 4,
+   "stone": 1,
+   "coincide": 108,
+   "share": 0.514,
+   "corrected": true,
+   "paper": [
+    69.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -0.04,
+    0.1
+   ],
+   "off_median_m": 0.99,
+   "street": null,
+   "bld": {
+    "plate": "92150034",
+    "n": 212,
+    "windows": 12,
+    "shift_median": [
+     -0.16,
+     0.12
+    ],
+    "fit_residual_m": 0.25,
+    "agree": 12,
+    "kind": "affine"
+   },
+   "sheet": "34",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 210,
+   "duplicates_dropped": 2,
+   "status": "ok",
+   "check": {
+    "n": 212,
+    "on_today": 0.749,
+    "ring": 0.289,
+    "ratio": 2.6,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150035",
+   "image": "p15a_0035",
+   "name": "Paterson 1915 sheet 35",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.098,
+   "n": 55,
+   "frame": 46,
+   "brick": 4,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.02,
+   "corrected": true,
+   "paper": [
+    67.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    2.05,
+    -1.05
+   ],
+   "off_median_m": 2.31,
+   "street": null,
+   "bld": {
+    "plate": "92150035",
+    "n": 56,
+    "windows": 3,
+    "shift_median": [
+     -0.65,
+     -0.74
+    ],
+    "fit_residual_m": 2.0,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "35",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 50,
+   "duplicates_dropped": 5,
+   "status": "ok",
+   "check": {
+    "n": 55,
+    "on_today": 0.543,
+    "ring": 0.381,
+    "ratio": 1.42,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150036",
+   "image": "p15a_0036",
+   "name": "Paterson 1915 sheet 36",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.102,
+   "n": 112,
+   "frame": 107,
+   "brick": 5,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.009,
+   "corrected": false,
+   "paper": [
+    68.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -2.32,
+    0.47
+   ],
+   "off_median_m": 2.37,
+   "sheet": "36",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 112,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 112,
+    "on_today": 0.321,
+    "ring": 0.227,
+    "ratio": 1.41,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150038",
+   "image": "p15a_0038",
+   "name": "Paterson 1915 sheet 38",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.102,
+   "n": 227,
+   "frame": 201,
+   "brick": 25,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    70.0,
+    -2.0,
+    10.0
+   ],
+   "sheet": "38",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 226,
+   "duplicates_dropped": 1,
+   "status": "ok",
+   "check": {
+    "n": 227,
+    "on_today": 0.393,
+    "ring": 0.29,
+    "ratio": 1.36,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150039",
+   "image": "p15a_0039",
+   "name": "Paterson 1915 sheet 39",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.104,
+   "n": 123,
+   "frame": 111,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 12,
+   "share": 0.103,
+   "corrected": true,
+   "paper": [
+    67.0,
+    -3.0,
+    16.0
+   ],
+   "off_median_vec": [
+    -0.41,
+    -0.07
+   ],
+   "off_median_m": 2.1,
+   "street": null,
+   "bld": {
+    "plate": "92150039",
+    "n": 123,
+    "windows": 5,
+    "shift_median": [
+     1.57,
+     0.21
+    ],
+    "fit_residual_m": 1.35,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "39",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 117,
+   "duplicates_dropped": 6,
+   "status": "ok",
+   "check": {
+    "n": 123,
+    "on_today": 0.595,
+    "ring": 0.341,
+    "ratio": 1.74,
+    "best_shift_m": [
+     -2,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150040",
+   "image": "p15a_0040",
+   "name": "Paterson 1915 sheet 40",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 158,
+   "frame": 91,
+   "brick": 4,
+   "stone": 0,
+   "coincide": 10,
+   "share": 0.105,
+   "corrected": true,
+   "paper": [
+    68.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.21,
+    1.29
+   ],
+   "off_median_m": 1.75,
+   "street": null,
+   "bld": {
+    "plate": "92150040",
+    "n": 158,
+    "windows": 9,
+    "shift_median": [
+     -0.29,
+     0.56
+    ],
+    "fit_residual_m": 1.33,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "40",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 95,
+   "duplicates_dropped": 63,
+   "status": "ok",
+   "check": {
+    "n": 158,
+    "on_today": 0.6,
+    "ring": 0.325,
+    "ratio": 1.85,
+    "best_shift_m": [
+     1,
+     -2
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150041",
+   "image": "p15a_0041",
+   "name": "Paterson 1915 sheet 41",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.097,
+   "n": 126,
+   "frame": 113,
+   "brick": 11,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.008,
+   "corrected": false,
+   "paper": [
+    68.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.94,
+    -2.11
+   ],
+   "off_median_m": 2.31,
+   "sheet": "41",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 124,
+   "duplicates_dropped": 1,
+   "status": "ok",
+   "check": {
+    "n": 126,
+    "on_today": 0.403,
+    "ring": 0.276,
+    "ratio": 1.46,
+    "best_shift_m": [
+     -1,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150042",
+   "image": "p15a_0042",
+   "name": "Paterson 1915 sheet 42",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 146,
+   "frame": 134,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    69.0,
+    -1.0,
+    11.0
+   ],
+   "sheet": "42",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 136,
+   "duplicates_dropped": 10,
+   "status": "ok",
+   "check": {
+    "n": 146,
+    "on_today": 0.413,
+    "ring": 0.313,
+    "ratio": 1.32,
+    "best_shift_m": [
+     -1,
+     -1
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150043",
+   "image": "p15a_0043",
+   "name": "Paterson 1915 sheet 43",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 104,
+   "frame": 87,
+   "brick": 16,
+   "stone": 0,
+   "coincide": 3,
+   "share": 0.029,
+   "corrected": true,
+   "paper": [
+    70.0,
+    -1.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -3.09,
+    -1.15
+   ],
+   "off_median_m": 3.09,
+   "street": null,
+   "bld": {
+    "plate": "92150043",
+    "n": 104,
+    "windows": 3,
+    "shift_median": [
+     0.14,
+     -0.12
+    ],
+    "fit_residual_m": 1.14,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "43",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 103,
+   "duplicates_dropped": 1,
+   "status": "ok",
+   "check": {
+    "n": 104,
+    "on_today": 0.234,
+    "ring": 0.114,
+    "ratio": 2.05,
+    "best_shift_m": [
+     -1,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150044",
+   "image": "p15a_0044",
+   "name": "Paterson 1915 sheet 44",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 112,
+   "frame": 105,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 9,
+   "share": 0.081,
+   "corrected": true,
+   "paper": [
+    67.0,
+    -3.0,
+    16.0
+   ],
+   "off_median_vec": [
+    -0.15,
+    0.01
+   ],
+   "off_median_m": 0.81,
+   "street": null,
+   "bld": {
+    "plate": "92150044",
+    "n": 112,
+    "windows": 3,
+    "shift_median": [
+     0.78,
+     -1.41
+    ],
+    "fit_residual_m": 0.21,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "44",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 111,
+   "duplicates_dropped": 1,
+   "status": "ok",
+   "check": {
+    "n": 112,
+    "on_today": 0.454,
+    "ring": 0.209,
+    "ratio": 2.18,
+    "best_shift_m": [
+     0,
+     1
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150045",
+   "image": "p15a_0045",
+   "name": "Paterson 1915 sheet 45",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 174,
+   "frame": 170,
+   "brick": 3,
+   "stone": 0,
+   "coincide": 64,
+   "share": 0.37,
+   "corrected": true,
+   "paper": [
+    69.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    0.06,
+    -0.25
+   ],
+   "off_median_m": 0.99,
+   "street": null,
+   "bld": {
+    "plate": "92150045",
+    "n": 174,
+    "windows": 6,
+    "shift_median": [
+     -0.18,
+     -0.2
+    ],
+    "fit_residual_m": 0.22,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "45",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 173,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 174,
+    "on_today": 0.738,
+    "ring": 0.244,
+    "ratio": 3.02,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150046",
+   "image": "p15a_0046",
+   "name": "Paterson 1915 sheet 46",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 63,
+   "frame": 58,
+   "brick": 5,
+   "stone": 0,
+   "coincide": 6,
+   "share": 0.095,
+   "corrected": false,
+   "paper": [
+    67.0,
+    -1.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -0.6,
+    -1.51
+   ],
+   "off_median_m": 2.05,
+   "sheet": "46",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 63,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 63,
+    "on_today": 0.544,
+    "ring": 0.359,
+    "ratio": 1.52,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150048",
+   "image": "p15a_0048",
+   "name": "Paterson 1915 sheet 48",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 123,
+   "frame": 99,
+   "brick": 22,
+   "stone": 0,
+   "coincide": 36,
+   "share": 0.298,
+   "corrected": true,
+   "paper": [
+    72.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.08,
+    -0.17
+   ],
+   "off_median_m": 0.85,
+   "street": null,
+   "bld": {
+    "plate": "92150048",
+    "n": 123,
+    "windows": 6,
+    "shift_median": [
+     -0.45,
+     0.06
+    ],
+    "fit_residual_m": 0.6,
+    "agree": 6,
+    "kind": "shift"
+   },
+   "sheet": "48",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 121,
+   "duplicates_dropped": 2,
+   "status": "ok",
+   "check": {
+    "n": 123,
+    "on_today": 0.652,
+    "ring": 0.359,
+    "ratio": 1.82,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150051",
+   "sheet": "51",
+   "status": "left out: registration not confirmed (overlap ratio 1.28, best shift [-2, 2] m)",
+   "check": {
+    "n": 174,
+    "on_today": 0.436,
+    "ring": 0.341,
+    "ratio": 1.28,
+    "best_shift_m": [
+     -2,
+     2
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150052",
+   "image": "p15a_0052",
+   "name": "Paterson 1915 sheet 52",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.102,
+   "n": 60,
+   "frame": 52,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.017,
+   "corrected": false,
+   "paper": [
+    67.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -0.74,
+    -0.45
+   ],
+   "off_median_m": 0.87,
+   "sheet": "52",
+   "lettering_dropped": 2,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 58,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 60,
+    "on_today": 0.498,
+    "ring": 0.345,
+    "ratio": 1.44,
+    "best_shift_m": [
+     0,
+     -1
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150053",
+   "sheet": "53",
+   "status": "left out: registration not confirmed (overlap ratio 1.04, best shift [3, -3] m)",
+   "check": {
+    "n": 43,
+    "on_today": 0.5,
+    "ring": 0.481,
+    "ratio": 1.04,
+    "best_shift_m": [
+     3,
+     -3
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150054",
+   "image": "p15a_0054",
+   "name": "Paterson 1915 sheet 54",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.098,
+   "n": 53,
+   "frame": 47,
+   "brick": 5,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.019,
+   "corrected": false,
+   "paper": [
+    67.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -1.11,
+    -1.76
+   ],
+   "off_median_m": 2.08,
+   "sheet": "54",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 52,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 53,
+    "on_today": 0.512,
+    "ring": 0.28,
+    "ratio": 1.83,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150055",
+   "image": "p15a_0055",
+   "name": "Paterson 1915 sheet 55",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.096,
+   "n": 95,
+   "frame": 89,
+   "brick": 4,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    68.0,
+    -2.0,
+    8.0
+   ],
+   "sheet": "55",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 93,
+   "duplicates_dropped": 2,
+   "status": "ok",
+   "check": {
+    "n": 95,
+    "on_today": 0.47,
+    "ring": 0.33,
+    "ratio": 1.43,
+    "best_shift_m": [
+     0,
+     1
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150057",
+   "image": "p15a_0057",
+   "name": "Paterson 1915 sheet 57",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.098,
+   "n": 81,
+   "frame": 81,
+   "brick": 0,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.012,
+   "corrected": false,
+   "paper": [
+    67.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    0.24,
+    1.64
+   ],
+   "off_median_m": 1.66,
+   "sheet": "57",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 81,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 81,
+    "on_today": 0.401,
+    "ring": 0.288,
+    "ratio": 1.39,
+    "best_shift_m": [
+     -1,
+     1
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150058",
+   "sheet": "58",
+   "status": "left out: too few outlines to check (too few outlines)",
+   "check": {
+    "n": 11,
+    "verdict": "too few outlines"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150059",
+   "sheet": "59",
+   "status": "left out: too few outlines to check (too few outlines)",
+   "check": {
+    "n": 26,
+    "verdict": "too few outlines"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150061",
+   "sheet": "61",
+   "status": "left out: registration not confirmed (overlap ratio 1.46, best shift [-8, 1] m)",
+   "check": {
+    "n": 104,
+    "on_today": 0.347,
+    "ring": 0.237,
+    "ratio": 1.46,
+    "best_shift_m": [
+     -8,
+     1
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150062",
+   "image": "p15a_0062",
+   "name": "Paterson 1915 sheet 62",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.104,
+   "n": 120,
+   "frame": 101,
+   "brick": 5,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.009,
+   "corrected": false,
+   "paper": [
+    69.0,
+    -1.0,
+    11.0
+   ],
+   "off_median_vec": [
+    0.36,
+    -1.24
+   ],
+   "off_median_m": 1.29,
+   "sheet": "62",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 106,
+   "duplicates_dropped": 14,
+   "status": "ok",
+   "check": {
+    "n": 120,
+    "on_today": 0.41,
+    "ring": 0.273,
+    "ratio": 1.5,
+    "best_shift_m": [
+     1,
+     1
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150063",
+   "image": "p15a_0063",
+   "name": "Paterson 1915 sheet 63",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.103,
+   "n": 123,
+   "frame": 121,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.016,
+   "corrected": false,
+   "paper": [
+    67.0,
+    -3.0,
+    16.0
+   ],
+   "off_median_vec": [
+    0.31,
+    -0.86
+   ],
+   "off_median_m": 1.9,
+   "sheet": "63",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 123,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 123,
+    "on_today": 0.397,
+    "ring": 0.262,
+    "ratio": 1.51,
+    "best_shift_m": [
+     0,
+     1
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150064",
+   "image": "p15a_0064",
+   "name": "Paterson 1915 sheet 64",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.104,
+   "n": 113,
+   "frame": 88,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.022,
+   "corrected": false,
+   "paper": [
+    68.0,
+    -2.0,
+    12.0
+   ],
+   "off_median_vec": [
+    0.32,
+    1.3
+   ],
+   "off_median_m": 1.96,
+   "sheet": "64",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 90,
+   "duplicates_dropped": 23,
+   "status": "ok",
+   "check": {
+    "n": 113,
+    "on_today": 0.389,
+    "ring": 0.259,
+    "ratio": 1.5,
+    "best_shift_m": [
+     -1,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150065",
+   "image": "p15a_0065",
+   "name": "Paterson 1915 sheet 65",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.097,
+   "n": 82,
+   "frame": 75,
+   "brick": 4,
+   "stone": 0,
+   "coincide": 3,
+   "share": 0.038,
+   "corrected": true,
+   "paper": [
+    67.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    1.1,
+    -0.1
+   ],
+   "off_median_m": 1.29,
+   "street": null,
+   "bld": {
+    "plate": "92150065",
+    "n": 82,
+    "windows": 5,
+    "shift_median": [
+     0.22,
+     -0.24
+    ],
+    "fit_residual_m": 1.91,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "65",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 79,
+   "duplicates_dropped": 2,
+   "status": "ok",
+   "check": {
+    "n": 82,
+    "on_today": 0.549,
+    "ring": 0.298,
+    "ratio": 1.84,
+    "best_shift_m": [
+     0,
+     1
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150067",
+   "image": "p15a_0067",
+   "name": "Paterson 1915 sheet 67",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 168,
+   "frame": 152,
+   "brick": 1,
+   "stone": 0,
+   "coincide": 75,
+   "share": 0.49,
+   "corrected": true,
+   "paper": [
+    69.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    0.07,
+    0.02
+   ],
+   "off_median_m": 1.32,
+   "street": null,
+   "bld": {
+    "plate": "92150067",
+    "n": 168,
+    "windows": 9,
+    "shift_median": [
+     0.24,
+     0.0
+    ],
+    "fit_residual_m": 0.39,
+    "agree": 9,
+    "kind": "shift"
+   },
+   "sheet": "67",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 153,
+   "duplicates_dropped": 14,
+   "status": "ok",
+   "check": {
+    "n": 168,
+    "on_today": 0.808,
+    "ring": 0.248,
+    "ratio": 3.27,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150068",
+   "image": "p15a_0068",
+   "name": "Paterson 1915 sheet 68",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 155,
+   "frame": 149,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 83,
+   "share": 0.535,
+   "corrected": true,
+   "paper": [
+    69.0,
+    -1.0,
+    11.0
+   ],
+   "off_median_vec": [
+    -0.4,
+    -0.03
+   ],
+   "off_median_m": 1.25,
+   "street": null,
+   "bld": {
+    "plate": "92150068",
+    "n": 156,
+    "windows": 9,
+    "shift_median": [
+     -0.27,
+     0.56
+    ],
+    "fit_residual_m": 0.48,
+    "agree": 9,
+    "kind": "shift"
+   },
+   "sheet": "68",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 155,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 155,
+    "on_today": 0.908,
+    "ring": 0.27,
+    "ratio": 3.36,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150069",
+   "image": "p15a_0069",
+   "name": "Paterson 1915 sheet 69",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 86,
+   "frame": 81,
+   "brick": 4,
+   "stone": 0,
+   "coincide": 49,
+   "share": 0.576,
+   "corrected": true,
+   "paper": [
+    66.0,
+    -3.0,
+    16.0
+   ],
+   "off_median_vec": [
+    -0.23,
+    0.07
+   ],
+   "off_median_m": 1.25,
+   "street": null,
+   "bld": {
+    "plate": "92150069",
+    "n": 86,
+    "windows": 9,
+    "shift_median": [
+     -0.04,
+     -0.2
+    ],
+    "fit_residual_m": 0.44,
+    "agree": 9,
+    "kind": "shift"
+   },
+   "sheet": "69",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 85,
+   "duplicates_dropped": 1,
+   "status": "ok",
+   "check": {
+    "n": 86,
+    "on_today": 0.8,
+    "ring": 0.257,
+    "ratio": 3.11,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150070",
+   "image": "p15a_0070",
+   "name": "Paterson 1915 sheet 70",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 155,
+   "frame": 142,
+   "brick": 12,
+   "stone": 0,
+   "coincide": 99,
+   "share": 0.643,
+   "corrected": true,
+   "paper": [
+    68.0,
+    -2.0,
+    12.0
+   ],
+   "off_median_vec": [
+    -0.01,
+    0.0
+   ],
+   "off_median_m": 1.14,
+   "street": null,
+   "bld": {
+    "plate": "92150070",
+    "n": 155,
+    "windows": 9,
+    "shift_median": [
+     0.3,
+     0.38
+    ],
+    "fit_residual_m": 0.3,
+    "agree": 9,
+    "kind": "shift"
+   },
+   "sheet": "70",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 154,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 155,
+    "on_today": 0.858,
+    "ring": 0.231,
+    "ratio": 3.71,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150071",
+   "image": "p15a_0071",
+   "name": "Paterson 1915 sheet 71",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.106,
+   "n": 131,
+   "frame": 126,
+   "brick": 5,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.015,
+   "corrected": false,
+   "paper": [
+    68.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.46,
+    -1.5
+   ],
+   "off_median_m": 2.16,
+   "sheet": "71",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 131,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 131,
+    "on_today": 0.358,
+    "ring": 0.266,
+    "ratio": 1.35,
+    "best_shift_m": [
+     -1,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150072",
+   "image": "p15a_0072",
+   "name": "Paterson 1915 sheet 72",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 83,
+   "frame": 61,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.015,
+   "corrected": false,
+   "paper": [
+    67.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    2.26,
+    -0.05
+   ],
+   "off_median_m": 2.26,
+   "sheet": "72",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 67,
+   "duplicates_dropped": 16,
+   "status": "ok",
+   "check": {
+    "n": 83,
+    "on_today": 0.377,
+    "ring": 0.247,
+    "ratio": 1.52,
+    "best_shift_m": [
+     -1,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150081",
+   "image": "p15a_0081",
+   "name": "Paterson 1915 sheet 81",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.096,
+   "n": 94,
+   "frame": 84,
+   "brick": 2,
+   "stone": 0,
+   "coincide": 5,
+   "share": 0.058,
+   "corrected": true,
+   "paper": [
+    68.0,
+    -2.0,
+    12.0
+   ],
+   "off_median_vec": [
+    -0.4,
+    1.69
+   ],
+   "off_median_m": 1.71,
+   "street": null,
+   "bld": {
+    "plate": "92150081",
+    "n": 95,
+    "windows": 5,
+    "shift_median": [
+     -0.09,
+     -2.68
+    ],
+    "fit_residual_m": 1.42,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "81",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 86,
+   "duplicates_dropped": 7,
+   "status": "ok",
+   "check": {
+    "n": 94,
+    "on_today": 0.519,
+    "ring": 0.286,
+    "ratio": 1.82,
+    "best_shift_m": [
+     0,
+     1
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150082",
+   "image": "p15a_0082",
+   "name": "Paterson 1915 sheet 82",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 136,
+   "frame": 129,
+   "brick": 4,
+   "stone": 0,
+   "coincide": 85,
+   "share": 0.639,
+   "corrected": true,
+   "paper": [
+    68.0,
+    -2.0,
+    12.0
+   ],
+   "off_median_vec": [
+    -0.15,
+    -0.01
+   ],
+   "off_median_m": 0.96,
+   "street": null,
+   "bld": {
+    "plate": "92150082",
+    "n": 136,
+    "windows": 9,
+    "shift_median": [
+     0.38,
+     0.49
+    ],
+    "fit_residual_m": 0.36,
+    "agree": 9,
+    "kind": "shift"
+   },
+   "sheet": "82",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 133,
+   "duplicates_dropped": 3,
+   "status": "ok",
+   "check": {
+    "n": 136,
+    "on_today": 0.899,
+    "ring": 0.275,
+    "ratio": 3.27,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150085",
+   "image": "p15a_0085",
+   "name": "Paterson 1915 sheet 85",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.096,
+   "n": 66,
+   "frame": 64,
+   "brick": 1,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.015,
+   "corrected": false,
+   "paper": [
+    67.0,
+    -3.0,
+    11.0
+   ],
+   "off_median_vec": [
+    0.35,
+    -0.05
+   ],
+   "off_median_m": 0.35,
+   "sheet": "85",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 65,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 66,
+    "on_today": 0.502,
+    "ring": 0.318,
+    "ratio": 1.58,
+    "best_shift_m": [
+     1,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150086",
+   "image": "p15a_0086",
+   "name": "Paterson 1915 sheet 86",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.104,
+   "n": 108,
+   "frame": 103,
+   "brick": 1,
+   "stone": 0,
+   "coincide": 1,
+   "share": 0.01,
+   "corrected": false,
+   "paper": [
+    68.0,
+    -2.0,
+    12.0
+   ],
+   "off_median_vec": [
+    1.15,
+    -1.45
+   ],
+   "off_median_m": 1.85,
+   "sheet": "86",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 104,
+   "duplicates_dropped": 4,
+   "status": "ok",
+   "check": {
+    "n": 108,
+    "on_today": 0.367,
+    "ring": 0.272,
+    "ratio": 1.35,
+    "best_shift_m": [
+     -1,
+     0
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "consistent"
+  },
+  {
+   "plate": "92150087",
+   "sheet": "87",
+   "status": "left out: too few outlines to check (too few outlines)",
+   "check": {
+    "n": 24,
+    "verdict": "too few outlines"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150088",
+   "sheet": "88",
+   "status": "left out: too few outlines to check (too few outlines)",
+   "check": {
+    "n": 14,
+    "verdict": "too few outlines"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150089",
+   "sheet": "89",
+   "status": "left out: too few outlines to check (too few outlines)",
+   "check": {
+    "n": 11,
+    "verdict": "too few outlines"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150090",
+   "sheet": "90",
+   "status": "left out: registration not confirmed (overlap ratio 0.81, best shift [10, 11] m)",
+   "check": {
+    "n": 33,
+    "on_today": 0.312,
+    "ring": 0.383,
+    "ratio": 0.81,
+    "best_shift_m": [
+     10,
+     11
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150094",
+   "image": "p15a_0094",
+   "name": "Paterson 1915 sheet 94",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.105,
+   "n": 68,
+   "frame": 68,
+   "brick": 0,
+   "stone": 0,
+   "coincide": 3,
+   "share": 0.044,
+   "corrected": false,
+   "paper": [
+    67.0,
+    -2.0,
+    13.0
+   ],
+   "off_median_vec": [
+    -0.88,
+    1.66
+   ],
+   "off_median_m": 1.75,
+   "sheet": "94",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 68,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 68,
+    "on_today": 0.438,
+    "ring": 0.282,
+    "ratio": 1.55,
+    "best_shift_m": [
+     0,
+     1
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150095",
+   "sheet": "95",
+   "status": "left out: registration not confirmed (overlap ratio 0.79, best shift [4, 12] m)",
+   "check": {
+    "n": 48,
+    "on_today": 0.408,
+    "ring": 0.518,
+    "ratio": 0.79,
+    "best_shift_m": [
+     4,
+     12
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150096",
+   "sheet": "96",
+   "status": "left out: registration not confirmed (overlap ratio 1.08, best shift [-13, 7] m)",
+   "check": {
+    "n": 38,
+    "on_today": 0.473,
+    "ring": 0.44,
+    "ratio": 1.08,
+    "best_shift_m": [
+     -13,
+     7
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150047",
+   "image": "p15a_0047",
+   "name": "Paterson 1915 sheet 47",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.096,
+   "n": 73,
+   "frame": 60,
+   "brick": 11,
+   "stone": 0,
+   "coincide": 2,
+   "share": 0.028,
+   "corrected": true,
+   "paper": [
+    68.0,
+    -2.0,
+    10.0
+   ],
+   "off_median_vec": [
+    -0.18,
+    -0.53
+   ],
+   "off_median_m": 2.12,
+   "street": null,
+   "bld": {
+    "plate": "92150047",
+    "n": 74,
+    "windows": 4,
+    "shift_median": [
+     2.93,
+     2.36
+    ],
+    "fit_residual_m": 1.03,
+    "agree": 3,
+    "kind": "shift"
+   },
+   "sheet": "47",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 71,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 73,
+    "on_today": 0.282,
+    "ring": 0.15,
+    "ratio": 1.88,
+    "best_shift_m": [
+     0,
+     -2
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150049",
+   "sheet": "49",
+   "status": "left out: registration not confirmed (overlap ratio 0.83, best shift [-3, 14] m)",
+   "check": {
+    "n": 49,
+    "on_today": 0.42,
+    "ring": 0.505,
+    "ratio": 0.83,
+    "best_shift_m": [
+     -3,
+     14
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "92150050",
+   "image": "p15a_0050",
+   "name": "Paterson 1915 sheet 50",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.104,
+   "n": 53,
+   "frame": 46,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": true,
+   "paper": [
+    67.0,
+    -1.0,
+    11.0
+   ],
+   "street": null,
+   "bld": {
+    "plate": "92150050",
+    "n": 53,
+    "windows": 5,
+    "shift_median": [
+     -2.2,
+     -0.39
+    ],
+    "fit_residual_m": 1.28,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "50",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 52,
+   "duplicates_dropped": 1,
+   "status": "ok",
+   "check": {
+    "n": 53,
+    "on_today": 0.525,
+    "ring": 0.306,
+    "ratio": 1.72,
+    "best_shift_m": [
+     0,
+     1
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "92150056",
+   "sheet": "56",
+   "status": "left out: registration not confirmed (overlap ratio 0.95, best shift [7, -13] m)",
+   "check": {
+    "n": 43,
+    "on_today": 0.433,
+    "ring": 0.454,
+    "ratio": 0.95,
+    "best_shift_m": [
+     7,
+     -13
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  }
+ ]
+}
