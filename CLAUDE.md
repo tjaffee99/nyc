@@ -689,24 +689,86 @@ Not ported from the Bay copy (kept as reference, they do not run): `sf_predecess
       Much of what is left is real: the Central Ward after 1967, Liberty State Park's interior
       after the yards closed, landfills, parking fields, marsh.
 
+56. **The rest of the missing past: traced where a plate could be placed, generated where not**
+    (2026-11-12, second round; the owner: "bro go do it. procedurally generate it based off
+    your best guess if you need to"; `docs/ROUND5.md`).
+    - *Traced* (eight layers, 37,700 outlines; `data/research/brooklyn_atlas3.md`,
+      `boroughs_atlas3.md`, `nj_cities_atlas.md`): Brooklyn's old city where the Sanborn
+      volumes have no plate (`brooklyn_old_1880`, Hopkins, 300 ft to the inch — a row is one
+      outline; 2,174), Bay Ridge (`brooklyn_bayridge_1905`, Hyde; 7,239), Coney Island's edges
+      (`brooklyn_coney_1907`, Hyde; 2,613 — the plates of West Brighton itself could not be
+      placed), the Bronx east of the Bronx River and its north (`bronx_east_1905`,
+      `bronx_north_1905`, Bromley; 5,471 on 36 of 95 plates), southern Staten Island
+      (`staten_island_south_1917`, Bromley; 12,080 on 49 of 65 plates, about 70 % of the drawn
+      houses found, outlines ragged), Paterson (`passaic_paterson_1915`, Sanborn vol. 1 at the
+      Library of Congress; 6,201 on 53 sheets, 23 % of the city's built area, placed by
+      matching the traced mask to today's footprints) and a corner of Newark
+      (`essex_newark_1908`; 1,908 on 11 sheets — the Central Ward's sheets were not placed).
+      The lead's street check (centres within 8 m of a centre line): 2-11 %.
+    - *Census fill* (`pipeline/census_fill.py` → `gapfill_census.parquet`, 169,448 rows;
+      `data/research/census_fill.md`): where a borough or a municipality of the inner counties
+      holds fewer buildings in a census year than its count needs (persons per building from
+      the household size of the year and the density of its built-up ground, fitted on the
+      places with a complete atlas — Manhattan 1860 / 1900, Hoboken, Jersey City; trigger:
+      under 75 % of the need, filled to 85 %), lot-sized outlines along today's street fronts,
+      on ground the terrain calls city, holes first and outward from the old centre, started
+      in the decade before the census that asks for them, ended when a row of the map takes
+      the lot (else spread over 1960-1995). `procedural`, evidence `census+ground`, the popup
+      says so. Bronx 29,007, Brooklyn 17,604 (all before 1860), Yonkers 13,602, Newark 12,930,
+      Queens 11,572, Paterson 9,619. It sees places, not neighbourhoods; Manhattan and the
+      outer counties are not filled; farmhouses on farmland are not its business.
+    - *Districts filled by a best guess* (`census_fill.py districts`,
+      `data/manual/gapfill/guess_districts.geojson` → `gapfill_districts.parquet`, 7,072 rows):
+      Coney Island's West Brighton (1,591), Rockaway Beach (2,678), Arverne-Edgemere (2,711),
+      Inwood before the subway (92). The share of a district's street-front lots built on, by
+      year, is the lead's guess from general knowledge of the place (the file says what each
+      rests on): not a measured figure, no opened source. Evidence `guess+<district>`; the
+      popup says "a best guess … position, size and years are invented".
+    - *Lost works by best guess* (`notable_demolished.best_guess.csv`, 143 rows, every note
+      starting "BEST GUESS:"; `data/research/lost_works_best_guess.md`): the Kearny works,
+      Singer at Elizabethport, Colgate, the Hoboken piers, Maxwell House, Stevens Castle,
+      Roosevelt and Ruppert stadiums, Freedomland, Port Ivory, the Arthur Kill tanks, Newark's
+      housing towers, the Paterson locomotive shops. Positions ±8 m (tanks read off the 1951
+      photograph) to ±500 m (the Newark towers); every plan inside the New Jersey works is
+      invented.
+    - **Recount one figure of every agent's report yourself.** The first census fill tested
+      its lots against the `lon` / `lat` columns of `nyc_buildings.parquet`, which are empty
+      for many vanished and generated rows: they were missing from its collision test (in
+      the Coney Island box it saw 2,841 of 5,839 rows) and its "0 overlaps" was unproven. It showed only when the district fill
+      reported 14 buildings where a plain count of the points file gives 294. The loader takes
+      rows by geometry now and the whole fill was rerun.
+    - *Order of a full rebuild now*: the first four stages without the markers
+      `gapfill_census.ok` / `gapfill_districts.ok` (the fill must not count itself) →
+      `census_fill.py points`, `assign`, `table`, `urban_area`, `model_table`, per place
+      `cands` + `select` (`run_cf.sh`, `run_county`), `collect`, `districts` (8 minutes in
+      all) → `touch` the markers → the whole chain. `gap_fill.py`, `site_fill.py` and
+      `port_fill.py` were not rerun this round: their rows give way to the new traced
+      outlines in the build.
+
 ## What is not done (as of 2026-11-12)
 
 - **Between the atlases and 1996** nothing real shows what stood: one atlas state per
   district (two or three in the South Bronx), then the photographs of 1924 and 1951 as
   generated lots, then the city's removals from 1996. Clearance dates are records only for
   housing projects, parks and highways.
-- **Traced layers still missing**: Inwood; Bay Ridge, Coney Island and Brooklyn before 1880
-  (229 ha of the old city are built-up ground without buildings in 1860); the Bronx east of
-  the Bronx River and the far north; Flushing's centre, the Rockaway beach towns; Staten
-  Island beyond the north shore; Hoboken's piers, shipyards and north end, Weehawken, Union
-  City, West New York, Bayonne (the Library of Congress Sanborn sheets are placed by street
-  crossings: `data/manual/atlas/tools_hoboken/`); Paterson (thin before 1920: 2,800
-  buildings in 1900 for 105,000 people) and Newark have no traced atlas at all. Manhattan
-  has one state (1897) between 1857 and 1996. Storeys were not read off any atlas.
-- **Lost works that could not be placed** (decision 55): the Koppers coke works and Western
-  Electric at Kearny, the Singer works at Elizabethport, Paterson's locomotive works,
-  Ruppert and Roosevelt stadiums, the Port Ivory works, the Arthur Kill tank farms,
-  Freedomland's structures, the Hamburg-American piers, Colgate, Stevens Castle.
+- **Traced layers still missing**: Inwood and Coney Island's centre (generated by a best
+  guess only, decision 56); Brooklyn before 1880 inside the Sanborn volumes' ground (the
+  1880 outlines there were clipped away: one state per block) and before 1855 anywhere; 59
+  of the 95 plates of the 1905 Bronx atlas (not registered) and the Bronx of 1898; 16 plates
+  of Staten Island; Flushing's centre (the only plates are too coarse), College Point,
+  Whitestone, Corona, Richmond Hill, the Rockaway beach towns (best guess only); Hoboken's
+  piers, shipyards and north end, Weehawken, Union City, West New York, Bayonne; Paterson
+  beyond volume 1 of 1915 (77 % of its built area) and before 1915; Newark beyond 11
+  sheets of 1908 (the Central Ward, the Ironbound, downtown). Manhattan has one state
+  (1897) between 1857 and 1996. Storeys were not read off any atlas.
+- **Lost works** (decisions 55, 56): the Kearny works, Singer, Colgate, the Hoboken piers,
+  Stevens Castle, the stadiums, Freedomland, Port Ivory and the tank farms stand where a
+  best guess puts them (±8 m to ±500 m, plans invented); Lorillard, Hayes Homes, the
+  Holland America pier, Federal's Port Newark yard and about half the Arthur Kill tanks are
+  not placed at all.
+- **The census fill** (decision 56) is a model with six calibration points; Brooklyn in
+  1860 south and east of Fort Greene and the Bronx around 1910-20 are its least certain
+  parts; nothing in it was checked against a photograph or a map of the lot.
 - **Yards, forts and institutions before the 1860s**: only researched buildings (decision 36);
   Fort Hamilton, Fort Schuyler, Fort Tilden, Governors Island's lost buildings, Hart Island,
   Creedmoor, Kings County and the other hospital campuses were not researched building by
