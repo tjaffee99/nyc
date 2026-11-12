@@ -829,7 +829,8 @@
     "id": 15395,
     "sheet": "image 1646264",
     "name": "Part of Ward 3. [Map bound by State Line, Richmond    Terrace (Shore RD), Arlington Ave, Baltimore a",
-    "new": 1.0
+    "new": 1.0,
+    "skip": "street match only 9 windows with a constant shift and 5.5-6.7 m left after it, no outline on a standing building: registration not good enough"
    },
    {
     "id": 15402,
@@ -973,7 +974,8 @@
     "id": 15426,
     "sheet": "image 1646295",
     "name": "Part of Ward 5. [Map bound by Barclay Ave, Raritan    Bay, Poillon Ave (Harrison Ave), Arbutus Lake,",
-    "new": 1.0
+    "new": 1.0,
+    "skip": "street match only 9 windows with a constant shift and 5.5-6.7 m left after it, no outline on a standing building: registration not good enough"
    },
    {
     "id": 15427,
@@ -1100,6 +1102,573 @@
     "sheet": "image 1646328",
     "name": "Part of Ward 1. [Map bound by Pierhead Line, N.       Burgher Ave (Burgher Ave), Castleton Ave, Clov",
     "new": 0.86
+   }
+  ],
+  "clip": {
+   "outside_layers": [
+    "bronx_23rd_ward_1887",
+    "bronx_south_1904",
+    "bronx_south_1921",
+    "brooklyn_bayridge_1898",
+    "brooklyn_bayridge_1905",
+    "brooklyn_bedstuy_1888",
+    "brooklyn_browns_1887",
+    "brooklyn_bushwick_1888",
+    "brooklyn_coney_1907",
+    "brooklyn_crownheights_1888",
+    "brooklyn_downtown_1887",
+    "brooklyn_greenpoint_1887",
+    "brooklyn_heights_1898",
+    "brooklyn_old_1880",
+    "brooklyn_parkslope_1888",
+    "brooklyn_redhook_1898",
+    "brooklyn_southwest_1886",
+    "brooklyn_sunsetpark_1898",
+    "brooklyn_williamsburg_1887",
+    "brooklyn_williamsburg_1898",
+    "essex_newark_1908",
+    "harlem_1897",
+    "hudson_heights_1873",
+    "hudson_heights_1887",
+    "hudson_hoboken_1891",
+    "hudson_hoboken_1930",
+    "hudson_hoboken_b_1891",
+    "hudson_jersey_city_1919",
+    "kings_towns_1890",
+    "manhattan_downtown_1897",
+    "manhattan_midtown_1897",
+    "passaic_paterson_1915",
+    "queens_flushing_1901",
+    "queens_jamaica_1901",
+    "queens_lic_1901",
+    "queens_rockaway_1907",
+    "staten_island_north_1917"
+   ]
+  }
+ },
+ "queens_jamaica_1907": {
+  "map_year": 1907,
+  "atlas": "Atlas of the borough of Queens, city of New York (E. Belcher Hyde, 1907), volume 1 (Fourth ward: Jamaica outskirts, Richmond Hill, Woodhaven, Ozone Park, Hollis, Queens Village)",
+  "source": "queens_wards45_1907",
+  "style": "bromley_city",
+  "style_override": {
+   "frame": {
+    "db_min": 4.0,
+    "hue": 0.42,
+    "L_min": 45,
+    "L_max": 88
+   },
+   "outline": 0.25,
+   "stone": null,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0
+  },
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 15631,
+    "sheet": "1",
+    "name": "Queens, Vol. 1, Double Page Plate No. 1; Part of ward Four, Jamaica; [Map bounded by Borough of Broo",
+    "new": 0.8
+   },
+   {
+    "id": 15594,
+    "sheet": "6",
+    "name": "Queens, Vol. 1, Double Page Plate No. 6; Part of Ward 4, Jamaica; [Map bounded by Atlantic Ave., Jef",
+    "new": 0.97
+   },
+   {
+    "id": 15595,
+    "sheet": "7",
+    "name": "Queens, Vol. 1, Double Page Plate No. 7; Part of Ward 4, Jamaica; [Map bounded by Rockaway Turnpike,",
+    "new": 0.99
+   },
+   {
+    "id": 15596,
+    "sheet": "8",
+    "name": "Queens, Vol. 1, Double Page Plate No. 8; Part of Ward 4, Jamaica; [Map bounded by Kaplan Ave., Pette",
+    "new": 0.93
+   },
+   {
+    "id": 15597,
+    "sheet": "9",
+    "name": "Queens, Vol. 1, Double Page Plate No. 9; Sub          Plan;[Map bounded by Flushing Ave., Grand Ave.",
+    "new": 1.0
+   },
+   {
+    "id": 15598,
+    "sheet": "10",
+    "name": "Queens, Vol. 1, Double Page Plate No. 10; Part of     Ward 4, Jamaica; [Map bounded by New York Ave.",
+    "new": 1.0
+   },
+   {
+    "id": 15601,
+    "sheet": "13",
+    "name": "Queens, Vol. 1, Double Page Plate No. 13; Part of     Ward 4 Jamaica; (Formerly Town of Flushing 3rd",
+    "new": 0.91
+   },
+   {
+    "id": 15602,
+    "sheet": "14",
+    "name": "Queens, Vol. 1, Double Page Plate No. 14; Sub Plan    No. 1; [Map Bounded by Hempstead and Jamaica P",
+    "new": 0.95
+   },
+   {
+    "id": 15603,
+    "sheet": "15",
+    "name": "Queens, Vol. 1, Double Page Plate No. 15; Sub Plan;   Formerly Town of Flushing 3rd Ward; [Map bound",
+    "new": 1.0
+   },
+   {
+    "id": 15604,
+    "sheet": "16",
+    "name": "Queens, Vol. 1, Double Page Plate No. 16; Part of     Ward 4; Jamaica; [Map bounded by Jericho Turnp",
+    "new": 1.0
+   },
+   {
+    "id": 15605,
+    "sheet": "17",
+    "name": "Queens, Vol. 1, Double Page Plate No. 17; Part of     Ward 4; Jamaica; [Map bounded by Liberty Ave.,",
+    "new": 1.0
+   },
+   {
+    "id": 15614,
+    "sheet": "18",
+    "name": "Queens, Vol. 1, Double Page Plate No. 18; Part of     Ward 4; Jamaica; [Map bounded by South St., Co",
+    "new": 1.0
+   },
+   {
+    "id": 15606,
+    "sheet": "19",
+    "name": "Queens, Vol. 1, Double Page Plate No. 19; Part Of     Ward 4; Jamaica; [Map bounded by Conduit Long ",
+    "new": 1.0
+   },
+   {
+    "id": 15607,
+    "sheet": "20",
+    "name": "Queens, Vol. 1, Double Page Plate No. 20; Part of     Ward 4; Jamaica; Sub Plan From Plate No. 19; R",
+    "new": 1.0
+   },
+   {
+    "id": 15608,
+    "sheet": "21",
+    "name": "Queens, Vol. 1, Double Page Plate No. 21; Part of     Ward 4; [Map bounded by Metropolis Ave., Mill ",
+    "new": 1.0
+   },
+   {
+    "id": 15609,
+    "sheet": "22",
+    "name": "Queens, Vol. 1, Double Page Plate No. 22; Part of     Ward 4; [Map bounded by Road to Landing, Ocean",
+    "new": 1.0
+   },
+   {
+    "id": 15610,
+    "sheet": "23",
+    "name": "Queens, Vol. 1, Double Page Plate No. 23; Part of     Ward 4; Jamaica; [Map bounded by Rockaway Plan",
+    "new": 1.0
+   },
+   {
+    "id": 15611,
+    "sheet": "24",
+    "name": "Queens, Vol. 1, Double Page Plate No. 24; Part of     Ward 4; Jamaica; Sub Plan From Plate 18; [Map ",
+    "new": 1.0
+   },
+   {
+    "id": 15612,
+    "sheet": "25",
+    "name": "Queens, Vol. 1, Double Page Plate No. 25; Part of     Ward 4; Jamaica; [Map bounded by Liberty  Ave.",
+    "new": 1.0
+   },
+   {
+    "id": 15613,
+    "sheet": "26",
+    "name": "Queens, Vol. 1, Double Page Plate No. 26; Part of     Ward 4; [Map bounded by Woodlawn Ave., Remsen ",
+    "new": 1.0
+   },
+   {
+    "id": 15615,
+    "sheet": "27",
+    "name": "Queens, Vol. 1, Double Page Plate No. 27; Sub Plan    No. 2; [Map bounded by Springfield Road, Bank ",
+    "new": 1.0
+   },
+   {
+    "id": 15616,
+    "sheet": "28",
+    "name": "Queens, Vol. 1, Double Page Plate No. 28; Part of     Ward 4; Jamaica; [Map bounded by Broadway Turn",
+    "new": 1.0
+   },
+   {
+    "id": 15617,
+    "sheet": "29",
+    "name": "Queens, Vol. 1, Double Page Plate No. 29; Part of     Ward 4; Jamaica; Sub Plan; [Map bounded by Mer",
+    "new": 1.0
+   },
+   {
+    "id": 15618,
+    "sheet": "30",
+    "name": "Queens, Vol. 1, Double Page Plate No. 30; Part of     Ward 4; Sub Plan From Plate Nos. 18 and 19; [ ",
+    "new": 1.0
+   },
+   {
+    "id": 15619,
+    "sheet": "31",
+    "name": "Queens, Vol. 1, Double Page Plate No. 31; Part of     Ward 4; Jamaica; [Map bounded by Farmers Ave.,",
+    "new": 1.0
+   },
+   {
+    "id": 15629,
+    "sheet": "41",
+    "name": "Queens, Vol. 1, Double Page Plate No. 41; Part of     Ward 4; [Map bounded by Merrick Road, Road to ",
+    "new": 1.0
+   }
+  ],
+  "clip": {
+   "outside_layers": [
+    "bronx_23rd_ward_1887",
+    "bronx_south_1904",
+    "bronx_south_1921",
+    "brooklyn_bayridge_1898",
+    "brooklyn_bayridge_1905",
+    "brooklyn_bedstuy_1888",
+    "brooklyn_browns_1887",
+    "brooklyn_bushwick_1888",
+    "brooklyn_coney_1907",
+    "brooklyn_crownheights_1888",
+    "brooklyn_downtown_1887",
+    "brooklyn_greenpoint_1887",
+    "brooklyn_heights_1898",
+    "brooklyn_old_1880",
+    "brooklyn_parkslope_1888",
+    "brooklyn_redhook_1898",
+    "brooklyn_southwest_1886",
+    "brooklyn_sunsetpark_1898",
+    "brooklyn_williamsburg_1887",
+    "brooklyn_williamsburg_1898",
+    "essex_newark_1908",
+    "harlem_1897",
+    "hudson_heights_1873",
+    "hudson_heights_1887",
+    "hudson_hoboken_1891",
+    "hudson_hoboken_1930",
+    "hudson_hoboken_b_1891",
+    "hudson_jersey_city_1919",
+    "kings_towns_1890",
+    "manhattan_downtown_1897",
+    "manhattan_midtown_1897",
+    "passaic_paterson_1915",
+    "queens_flushing_1901",
+    "queens_jamaica_1901",
+    "queens_lic_1901",
+    "queens_rockaway_1907",
+    "staten_island_north_1917"
+   ]
+  }
+ },
+ "queens_rockaway_beach_1907": {
+  "map_year": 1907,
+  "atlas": "Atlas of the borough of Queens, city of New York (E. Belcher Hyde, 1907), volume 1 (Fifth ward: the Rockaway peninsula plates 33, 36, 37, 40 not in queens_rockaway_1907)",
+  "source": "queens_wards45_1907",
+  "style": "bromley_city",
+  "style_override": {
+   "frame": {
+    "db_min": 4.0,
+    "hue": 0.42,
+    "L_min": 45,
+    "L_max": 88
+   },
+   "outline": 0.25,
+   "stone": null,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0
+  },
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 15621,
+    "sheet": "33",
+    "name": "Queens, Vol. 1, Double Page Plate No. 33; Sub Plan    No. 1; [Map bounded by Jamaica Bay, Mott Ave.;",
+    "new": 0.81
+   },
+   {
+    "id": 15624,
+    "sheet": "36",
+    "name": "Queens, Vol. 1, Double Page Plate No. 36; Sub Plan;   [Map bounded by Isabel Ave., Amstel Canal; Inc",
+    "new": 0.94
+   },
+   {
+    "id": 15625,
+    "sheet": "37",
+    "name": "Queens, Vol. 1, Double Page Plate No. 37; Part of     Ward 5; Farrockaway; [Remsen Ave., Henry St., ",
+    "new": 0.99
+   },
+   {
+    "id": 15628,
+    "sheet": "40",
+    "name": "Queens, Vol. 1, Double Page Plate No. 40; Part of     Ward 5; Farrockaway; [map bounded by Jamaica B",
+    "new": 0.82
+   }
+  ],
+  "clip": {
+   "outside_layers": [
+    "bronx_23rd_ward_1887",
+    "bronx_south_1904",
+    "bronx_south_1921",
+    "brooklyn_bayridge_1898",
+    "brooklyn_bayridge_1905",
+    "brooklyn_bedstuy_1888",
+    "brooklyn_browns_1887",
+    "brooklyn_bushwick_1888",
+    "brooklyn_coney_1907",
+    "brooklyn_crownheights_1888",
+    "brooklyn_downtown_1887",
+    "brooklyn_greenpoint_1887",
+    "brooklyn_heights_1898",
+    "brooklyn_old_1880",
+    "brooklyn_parkslope_1888",
+    "brooklyn_redhook_1898",
+    "brooklyn_southwest_1886",
+    "brooklyn_sunsetpark_1898",
+    "brooklyn_williamsburg_1887",
+    "brooklyn_williamsburg_1898",
+    "essex_newark_1908",
+    "harlem_1897",
+    "hudson_heights_1873",
+    "hudson_heights_1887",
+    "hudson_hoboken_1891",
+    "hudson_hoboken_1930",
+    "hudson_hoboken_b_1891",
+    "hudson_jersey_city_1919",
+    "kings_towns_1890",
+    "manhattan_downtown_1897",
+    "manhattan_midtown_1897",
+    "passaic_paterson_1915",
+    "queens_flushing_1901",
+    "queens_jamaica_1901",
+    "queens_lic_1901",
+    "queens_rockaway_1907",
+    "staten_island_north_1917"
+   ]
+  }
+ },
+ "queens_newtown_1907": {
+  "map_year": 1907,
+  "atlas": "Atlas of the borough of Queens, city of New York (E. Belcher Hyde, 1907), volume 2 (Second ward: Newtown, Elmhurst, Corona, Maspeth, Middle Village, Glendale, Woodside, North Beach; First ward north shore)",
+  "source": "queens_wards12_1907",
+  "style": "bromley_city",
+  "style_override": {
+   "frame": {
+    "db_min": 4.0,
+    "hue": 0.42,
+    "L_min": 45,
+    "L_max": 88
+   },
+   "outline": 0.25,
+   "stone": null,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0
+  },
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 15642,
+    "sheet": "3",
+    "name": "Queens, Vol. 2, Double Page Plate No. 3; Part of Long Island City Ward One (Part of Old Wards 2, 3 a",
+    "new": 0.83
+   },
+   {
+    "id": 15694,
+    "sheet": "3",
+    "name": "Queens, Vol. 2, Double Page Plate No. 3; Part of Long Island City Ward One (Part of Old Ward 2, 3 & ",
+    "new": 0.92
+   },
+   {
+    "id": 15650,
+    "sheet": "11",
+    "name": "Queens, Vol. 2, Double Page Plate No. 11; Part of     Long Island City Ward One (Part of Old Ward 5)",
+    "new": 0.97
+   },
+   {
+    "id": 15652,
+    "sheet": "13",
+    "name": "Queens, Vol. 2, Double Page Plate No. 13; Part of     Ward Two Newtown; [Map bounded by Long Island ",
+    "new": 0.99
+   },
+   {
+    "id": 15653,
+    "sheet": "14",
+    "name": "Queens, Vol. 2, Double Page Plate No. 14; Part of     Ward two Newtown; [Map bounded by Hunter PL., ",
+    "new": 0.97
+   },
+   {
+    "id": 15656,
+    "sheet": "17",
+    "name": "Queens, Vol. 2, Double Page Plate No. 17; Part of     Ward Two Elmhurst; [Map bounded by Jackson Ave",
+    "new": 0.99
+   },
+   {
+    "id": 15657,
+    "sheet": "18",
+    "name": "Queens, Vol. 2, Double Page Plate No. 18; Part of     Ward Two Newtown; [Map bounded by Trains Meado",
+    "new": 0.99
+   },
+   {
+    "id": 15658,
+    "sheet": "19",
+    "name": "Queens, Vol. 2, Double Page Plate No. 19; Part of     Ward two North Beach; [Map bounded by Flushing",
+    "new": 1.0
+   },
+   {
+    "id": 15659,
+    "sheet": "20",
+    "name": "Queens, Vol. 2, Double Page Plate No. 20; Part of     Ward two Newtown; [Map bounded by Flushing Bay",
+    "new": 0.88
+   },
+   {
+    "id": 15660,
+    "sheet": "21",
+    "name": "Queens, Vol. 2, Double Page Plate No. 21; Sub Plan    No. 1; [Map bounded by Flushing and Newtown Ro",
+    "new": 0.97
+   },
+   {
+    "id": 15663,
+    "sheet": "24",
+    "name": "Queens, Vol. 2, Double Page Plate No. 24; Part of     Ward Two Corona Park; [Map bounded by Grand Av",
+    "new": 0.54
+   },
+   {
+    "id": 15665,
+    "sheet": "26",
+    "name": "Queens, Vol. 2, Double Page Plate No. 26; Part of     Ward two Nassau Heights and Newtown Heights; [",
+    "new": 0.99
+   },
+   {
+    "id": 15666,
+    "sheet": "27",
+    "name": "Queens, Vol. 2, Double Page Plate No. 27; Part of     Ward Two Maspeth and Nassau Heights; [Map boun",
+    "new": 0.72
+   },
+   {
+    "id": 15667,
+    "sheet": "28",
+    "name": "Queens, Vol. 2, Double Page Plate No. 28; Part of     Ward Two Maspeth; [Map bounded by Maurice Ave.",
+    "new": 0.53
+   },
+   {
+    "id": 15668,
+    "sheet": "29",
+    "name": "Queens, vol. 2, Double Page Plate No. 29; Part of     Ward Two Newtown; [Map bounded by Greenpoint A",
+    "new": 0.95
+   },
+   {
+    "id": 15669,
+    "sheet": "30",
+    "name": "Queens, Vol. 2, Double Page Plate No. 30; Part of     Ward Two Laurel Hill; [Map bounded by Berlin A",
+    "new": 1.0
+   },
+   {
+    "id": 15670,
+    "sheet": "31",
+    "name": "Queens, Vol. 2, Double Page Plate No. 31; Part of     Ward two Newtown; [Map bounded by Newtown Ave.",
+    "new": 0.99
+   },
+   {
+    "id": 15672,
+    "sheet": "33",
+    "name": "Queens, Vol. 2, Double Page Plate No. 33; Part of     Ward Two Newtown; [Map bounded by Flushing Ave",
+    "new": 0.66
+   },
+   {
+    "id": 15674,
+    "sheet": "35",
+    "name": "Queens, Vol. 2, Double Page Plate No. 35; Part of     Ward Two East Williamsburgh; [Map bounded by C",
+    "new": 0.96
+   },
+   {
+    "id": 15675,
+    "sheet": "36",
+    "name": "Queens, Vol. 2, Double Page Plate No. 36; Part of     Ward Two Newtown; [Map bounded by Cooper Ave.,",
+    "new": 1.0
+   },
+   {
+    "id": 15677,
+    "sheet": "38",
+    "name": "Queens, Vol. 2, Double Page Plate No. 38; Part of     Ward Two Newtown; [Map bounded by Mt. Olivet A",
+    "new": 0.93
+   },
+   {
+    "id": 15678,
+    "sheet": "39",
+    "name": "Queens, Vol. 2, Double Page Plate No. 39; Part of     Ward Two Middle Village; [Map bounded by Junip",
+    "new": 0.48
+   },
+   {
+    "id": 15679,
+    "sheet": "40",
+    "name": "Queens, Vol. 2, Double Page Plate No. 40; Part of     Ward Two Newtown; [Map bounded by Johnson Ave.",
+    "new": 1.0
+   },
+   {
+    "id": 15680,
+    "sheet": "41",
+    "name": "Queens, Vol. 2, Double Page Plate No. 41; Part of     Ward Two Newtown; [Map bounded by Trotting Cou",
+    "new": 1.0
+   },
+   {
+    "id": 15681,
+    "sheet": "42",
+    "name": "Queens, Vol. 2, Double Page Plate No. 42; Part of     Ward Two Newtown; [Map bounded by Trotting Cou",
+    "new": 0.99
+   },
+   {
+    "id": 15682,
+    "sheet": "43",
+    "name": "Queens, Vol. 2, Double Page Plate No. 43; Part of     Ward Two Newtown; [Map bounded by Metropolitan",
+    "new": 1.0
+   },
+   {
+    "id": 15683,
+    "sheet": "44",
+    "name": "Queens, Vol. 2, Double Page Plate No. 44; Part of     Ward Two Newtown; [Map bounded by Union Turnpi",
+    "new": 0.97
+   },
+   {
+    "id": 15688,
+    "sheet": "45",
+    "name": "Queens, Vol. 2, Double Page Plate No. 45; Part of     Ward Two Newtown; [Map bounded by Burns St., U",
+    "new": 1.0
+   },
+   {
+    "id": 15684,
+    "sheet": "46",
+    "name": "Queens, Vol. 2, Double Page Plate No. 46; Part of     Ward Two Newtown; [Map bounded by Meteor St., ",
+    "new": 1.0
+   },
+   {
+    "id": 15685,
+    "sheet": "47",
+    "name": "Queens, Vol. 2, Double Page Plate No. 47; Part of     Ward Two Newtown; [Map bounded by north Hempst",
+    "new": 1.0
+   },
+   {
+    "id": 15686,
+    "sheet": "48",
+    "name": "Queens, Vol. 2, Double Page Plate No. 48; Part of     Ward Two Newtown; [Map bounded by Court St., M",
+    "new": 1.0
+   },
+   {
+    "id": 15687,
+    "sheet": "49",
+    "name": "Queens, Vol. 2, Double Page Plate No. 49; Part of     Ward Two Newtown; [Map bounded by Flushing Bay",
+    "new": 0.76
+   },
+   {
+    "id": 15701,
+    "sheet": "image 1693956",
+    "name": "Queens, Vol. 2, Double Page No. 11; Part of Long      Island City Ward One (Part of Old Ward 5); [Ma",
+    "new": 0.97
    }
   ],
   "clip": {
