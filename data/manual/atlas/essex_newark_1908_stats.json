@@ -1,0 +1,806 @@
+{
+ "total": {
+  "layer": "essex_newark_1908",
+  "plates": 11,
+  "buildings": 1908,
+  "frame": 1755,
+  "brick": 153,
+  "stone": 0,
+  "gasholders": 0,
+  "on_today": 448,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 1.06,
+  "tiers": {
+   "verified": 10,
+   "consistent": 0,
+   "street crossings": 1
+  }
+ },
+ "plates": [
+  {
+   "plate": "93080046",
+   "sheet": "46",
+   "status": "left out: too few outlines to check (not traced)"
+  },
+  {
+   "plate": "93080050",
+   "image": "n08c_0050",
+   "name": "Newark 1908 sheet 50",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 183,
+   "frame": 159,
+   "brick": 19,
+   "stone": 0,
+   "coincide": 39,
+   "share": 0.219,
+   "corrected": true,
+   "paper": [
+    69.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.2,
+    -0.03
+   ],
+   "off_median_m": 0.88,
+   "street": null,
+   "bld": {
+    "plate": "93080050",
+    "n": 183,
+    "windows": 13,
+    "shift_median": [
+     1.22,
+     0.86
+    ],
+    "fit_residual_m": 0.78,
+    "agree": 12,
+    "kind": "affine"
+   },
+   "sheet": "50",
+   "lettering_dropped": 4,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 178,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 183,
+    "on_today": 0.587,
+    "ring": 0.269,
+    "ratio": 2.18,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "93080034",
+   "sheet": "34",
+   "status": "left out: too few outlines to check (not traced)"
+  },
+  {
+   "plate": "93080041",
+   "sheet": "41",
+   "status": "left out: too few outlines to check (not traced)"
+  },
+  {
+   "plate": "93080030",
+   "sheet": "30",
+   "status": "left out: too few outlines to check (not traced)"
+  },
+  {
+   "plate": "93080017",
+   "sheet": "17",
+   "status": "left out: registration not confirmed (overlap ratio 1.24, best shift [-2, 2] m)",
+   "check": {
+    "n": 75,
+    "on_today": 0.352,
+    "ring": 0.285,
+    "ratio": 1.24,
+    "best_shift_m": [
+     -2,
+     2
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "93080063",
+   "image": "n08c_0063",
+   "name": "Newark 1908 sheet 63",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 154,
+   "frame": 132,
+   "brick": 22,
+   "stone": 0,
+   "coincide": 7,
+   "share": 0.045,
+   "corrected": true,
+   "paper": [
+    68.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.22,
+    0.01
+   ],
+   "off_median_m": 1.0,
+   "street": null,
+   "bld": {
+    "plate": "93080063",
+    "n": 154,
+    "windows": 6,
+    "shift_median": [
+     -1.42,
+     -4.46
+    ],
+    "fit_residual_m": 0.35,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "63",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 154,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 154,
+    "on_today": 0.469,
+    "ring": 0.302,
+    "ratio": 1.55,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "93080049",
+   "sheet": "49",
+   "status": "left out: registration not confirmed (overlap ratio 1.32, best shift [-5, -8] m)",
+   "check": {
+    "n": 190,
+    "on_today": 0.329,
+    "ring": 0.249,
+    "ratio": 1.32,
+    "best_shift_m": [
+     -5,
+     -8
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "93080047",
+   "image": "n08c_0047",
+   "name": "Newark 1908 sheet 47",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.099,
+   "n": 115,
+   "frame": 101,
+   "brick": 12,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    69.0,
+    -2.0,
+    8.0
+   ],
+   "sheet": "47",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 113,
+   "duplicates_dropped": 2,
+   "status": "ok",
+   "check": {
+    "n": 115,
+    "on_today": 0.14,
+    "ring": 0.128,
+    "ratio": 1.09,
+    "best_shift_m": [
+     -4,
+     -14
+    ],
+    "verdict": "not verified"
+   },
+   "tier": "street crossings"
+  },
+  {
+   "plate": "93080048",
+   "sheet": "48",
+   "status": "left out: registration not confirmed (overlap ratio 1.10, best shift [-5, 3] m)",
+   "check": {
+    "n": 211,
+    "on_today": 0.343,
+    "ring": 0.313,
+    "ratio": 1.1,
+    "best_shift_m": [
+     -5,
+     3
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "93080056",
+   "image": "n08c_0056",
+   "name": "Newark 1908 sheet 56",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.1,
+   "n": 234,
+   "frame": 226,
+   "brick": 7,
+   "stone": 0,
+   "coincide": 109,
+   "share": 0.468,
+   "corrected": true,
+   "paper": [
+    70.0,
+    0.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.14,
+    -0.07
+   ],
+   "off_median_m": 0.75,
+   "street": null,
+   "bld": {
+    "plate": "93080056",
+    "n": 234,
+    "windows": 18,
+    "shift_median": [
+     -1.74,
+     -0.89
+    ],
+    "fit_residual_m": 0.27,
+    "agree": 17,
+    "kind": "affine"
+   },
+   "sheet": "56",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 233,
+   "duplicates_dropped": 1,
+   "status": "ok",
+   "check": {
+    "n": 234,
+    "on_today": 0.704,
+    "ring": 0.287,
+    "ratio": 2.45,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "93080057",
+   "image": "n08c_0057",
+   "name": "Newark 1908 sheet 57",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.101,
+   "n": 236,
+   "frame": 220,
+   "brick": 15,
+   "stone": 0,
+   "coincide": 111,
+   "share": 0.472,
+   "corrected": true,
+   "paper": [
+    71.0,
+    0.0,
+    9.0
+   ],
+   "off_median_vec": [
+    -0.05,
+    0.07
+   ],
+   "off_median_m": 0.9,
+   "street": null,
+   "bld": {
+    "plate": "93080057",
+    "n": 236,
+    "windows": 18,
+    "shift_median": [
+     -1.04,
+     -3.7
+    ],
+    "fit_residual_m": 0.47,
+    "agree": 17,
+    "kind": "affine"
+   },
+   "sheet": "57",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 235,
+   "duplicates_dropped": 1,
+   "status": "ok",
+   "check": {
+    "n": 236,
+    "on_today": 0.593,
+    "ring": 0.258,
+    "ratio": 2.3,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "93080051",
+   "sheet": "51",
+   "status": "left out: registration not confirmed (overlap ratio 0.90, best shift [14, 3] m)",
+   "check": {
+    "n": 163,
+    "on_today": 0.263,
+    "ring": 0.29,
+    "ratio": 0.9,
+    "best_shift_m": [
+     14,
+     3
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "93080052",
+   "image": "n08c_0052",
+   "name": "Newark 1908 sheet 52",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.102,
+   "n": 164,
+   "frame": 155,
+   "brick": 8,
+   "stone": 0,
+   "coincide": 22,
+   "share": 0.135,
+   "corrected": true,
+   "paper": [
+    68.0,
+    0.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.17,
+    -0.58
+   ],
+   "off_median_m": 1.65,
+   "street": null,
+   "bld": {
+    "plate": "93080052",
+    "n": 164,
+    "windows": 8,
+    "shift_median": [
+     -1.75,
+     2.45
+    ],
+    "fit_residual_m": 1.74,
+    "agree": 7,
+    "kind": "shift"
+   },
+   "sheet": "52",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 163,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 164,
+    "on_today": 0.574,
+    "ring": 0.282,
+    "ratio": 2.04,
+    "best_shift_m": [
+     -1,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "93080055",
+   "sheet": "55",
+   "status": "left out: registration not confirmed (overlap ratio 1.40, best shift [3, 9] m)",
+   "check": {
+    "n": 137,
+    "on_today": 0.436,
+    "ring": 0.311,
+    "ratio": 1.4,
+    "best_shift_m": [
+     3,
+     9
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "93080064",
+   "image": "n08c_0064",
+   "name": "Newark 1908 sheet 64",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.099,
+   "n": 143,
+   "frame": 126,
+   "brick": 15,
+   "stone": 0,
+   "coincide": 20,
+   "share": 0.142,
+   "corrected": true,
+   "paper": [
+    69.0,
+    0.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.54,
+    0.97
+   ],
+   "off_median_m": 1.5,
+   "street": null,
+   "bld": {
+    "plate": "93080064",
+    "n": 143,
+    "windows": 9,
+    "shift_median": [
+     -3.21,
+     3.91
+    ],
+    "fit_residual_m": 1.68,
+    "agree": 7,
+    "kind": "shift"
+   },
+   "sheet": "64",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 141,
+   "duplicates_dropped": 1,
+   "status": "ok",
+   "check": {
+    "n": 143,
+    "on_today": 0.572,
+    "ring": 0.271,
+    "ratio": 2.12,
+    "best_shift_m": [
+     0,
+     1
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "93080045",
+   "sheet": "45",
+   "status": "left out: registration not confirmed (overlap ratio 0.89, best shift [-12, -8] m)",
+   "check": {
+    "n": 123,
+    "on_today": 0.267,
+    "ring": 0.301,
+    "ratio": 0.89,
+    "best_shift_m": [
+     -12,
+     -8
+    ],
+    "verdict": "not verified"
+   },
+   "tier": null
+  },
+  {
+   "plate": "93080043",
+   "sheet": "43",
+   "status": "left out: too few outlines to check (not traced)"
+  },
+  {
+   "plate": "93080044",
+   "sheet": "44",
+   "status": "left out: too few outlines to check (not traced)"
+  },
+  {
+   "plate": "93080039",
+   "sheet": "39",
+   "status": "left out: too few outlines to check (not traced)"
+  },
+  {
+   "plate": "93080042",
+   "sheet": "42",
+   "status": "left out: too few outlines to check (not traced)"
+  },
+  {
+   "plate": "93080058",
+   "image": "n08c_0058",
+   "name": "Newark 1908 sheet 58",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.098,
+   "n": 219,
+   "frame": 196,
+   "brick": 23,
+   "stone": 0,
+   "coincide": 104,
+   "share": 0.475,
+   "corrected": true,
+   "paper": [
+    69.0,
+    0.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.23,
+    0.15
+   ],
+   "off_median_m": 1.0,
+   "street": null,
+   "bld": {
+    "plate": "93080058",
+    "n": 219,
+    "windows": 16,
+    "shift_median": [
+     -2.92,
+     -2.5
+    ],
+    "fit_residual_m": 0.3,
+    "agree": 14,
+    "kind": "affine"
+   },
+   "sheet": "58",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 219,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 219,
+    "on_today": 0.747,
+    "ring": 0.292,
+    "ratio": 2.56,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "93080065",
+   "image": "n08c_0065",
+   "name": "Newark 1908 sheet 65",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.102,
+   "n": 173,
+   "frame": 162,
+   "brick": 11,
+   "stone": 0,
+   "coincide": 11,
+   "share": 0.064,
+   "corrected": true,
+   "paper": [
+    67.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    0.47,
+    -0.34
+   ],
+   "off_median_m": 1.94,
+   "street": null,
+   "bld": {
+    "plate": "93080065",
+    "n": 173,
+    "windows": 6,
+    "shift_median": [
+     1.6,
+     3.87
+    ],
+    "fit_residual_m": 1.0,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "65",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 173,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 173,
+    "on_today": 0.278,
+    "ring": 0.162,
+    "ratio": 1.72,
+    "best_shift_m": [
+     0,
+     1
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "93080066",
+   "image": "n08c_0066",
+   "name": "Newark 1908 sheet 66",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.097,
+   "n": 108,
+   "frame": 101,
+   "brick": 6,
+   "stone": 0,
+   "coincide": 6,
+   "share": 0.056,
+   "corrected": true,
+   "paper": [
+    68.0,
+    -2.0,
+    8.0
+   ],
+   "off_median_vec": [
+    -0.68,
+    1.27
+   ],
+   "off_median_m": 1.55,
+   "street": null,
+   "bld": {
+    "plate": "93080066",
+    "n": 108,
+    "windows": 4,
+    "shift_median": [
+     2.77,
+     0.71
+    ],
+    "fit_residual_m": 1.85,
+    "agree": 4,
+    "kind": "shift"
+   },
+   "sheet": "66",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 107,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 108,
+    "on_today": 0.505,
+    "ring": 0.249,
+    "ratio": 2.03,
+    "best_shift_m": [
+     0,
+     0
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "93080062",
+   "sheet": "62",
+   "status": "left out: too few outlines to check (not traced)"
+  },
+  {
+   "plate": "93080059",
+   "image": "n08c_0059",
+   "name": "Newark 1908 sheet 59",
+   "gcps": 9,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.097,
+   "n": 192,
+   "frame": 177,
+   "brick": 15,
+   "stone": 0,
+   "coincide": 19,
+   "share": 0.099,
+   "corrected": true,
+   "paper": [
+    68.0,
+    -2.0,
+    9.0
+   ],
+   "off_median_vec": [
+    0.23,
+    0.08
+   ],
+   "off_median_m": 1.12,
+   "street": null,
+   "bld": {
+    "plate": "93080059",
+    "n": 192,
+    "windows": 6,
+    "shift_median": [
+     2.01,
+     4.4
+    ],
+    "fit_residual_m": 0.75,
+    "agree": 5,
+    "kind": "shift"
+   },
+   "sheet": "59",
+   "lettering_dropped": 0,
+   "water_dropped": 0,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 192,
+   "duplicates_dropped": 0,
+   "status": "ok",
+   "check": {
+    "n": 192,
+    "on_today": 0.53,
+    "ring": 0.269,
+    "ratio": 1.97,
+    "best_shift_m": [
+     1,
+     2
+    ],
+    "verdict": "verified"
+   },
+   "tier": "verified"
+  },
+  {
+   "plate": "93080060",
+   "sheet": "60",
+   "status": "left out: too few outlines to check (not traced)"
+  }
+ ]
+}

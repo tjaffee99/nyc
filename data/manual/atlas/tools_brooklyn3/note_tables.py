@@ -11,5 +11,5 @@ for L in sys.argv[1:]:
             left.append(f"{p['sheet']} ({p['plate']}; {p.get('n')} traced; {p['status']})"); continue
         reg = (st.get('kind') or 'none') + ((' + ' + st['kind2']) if st.get('kind2') else '') + (f" ({st.get('agree')} windows)" if st.get('agree') else '')
         if p.get('corrected') is False: reg = 'control points only'
-        print(f"| {p['sheet']} | {p['plate']} | {p['gcps']} ({p['cv_rms']}) | {p['mpp']} | {reg} | {st.get('after_abs_median')} | {p['n']} | {p['exported']} | {p['coincide']} ({p['off_median_m']}) |")
+        print(f"| {p['sheet']} | {p['plate']} | {p['gcps']} ({p['cv_rms']}) | {p['mpp']} | {reg} | {st.get('after_abs_median')} | {p['n']} | {p.get('exported')} | {p.get('coincide')} ({p.get('off_median_m')}) |")
     if left: print("\nLeft out:", "; ".join(left))

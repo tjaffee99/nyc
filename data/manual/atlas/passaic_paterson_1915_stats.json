@@ -1,20 +1,21 @@
 {
  "total": {
   "layer": "passaic_paterson_1915",
-  "plates": 58,
-  "buildings": 6979,
-  "frame": 6278,
-  "brick": 700,
+  "plates": 53,
+  "buildings": 6201,
+  "frame": 5545,
+  "brick": 655,
   "stone": 1,
   "gasholders": 0,
-  "on_today": 1132,
+  "on_today": 1133,
   "invalid": 0,
   "area_out_of_range": 0,
   "outside_coverage": 0,
-  "coverage_km2": 4.74,
+  "coverage_km2": 4.47,
   "tiers": {
    "verified": 38,
-   "consistent": 20
+   "consistent": 15,
+   "street crossings": 0
   }
  },
  "plates": [
@@ -945,37 +946,8 @@
   },
   {
    "plate": "92150023",
-   "image": "p15a_0023",
-   "name": "Paterson 1915 sheet 23",
-   "gcps": 9,
-   "model": "affine",
-   "cv_rms": 0.0,
-   "mpp": 0.106,
-   "n": 233,
-   "frame": 214,
-   "brick": 15,
-   "stone": 0,
-   "coincide": 1,
-   "share": 0.004,
-   "corrected": false,
-   "paper": [
-    70.0,
-    -2.0,
-    10.0
-   ],
-   "off_median_vec": [
-    1.0,
-    -2.03
-   ],
-   "off_median_m": 2.26,
    "sheet": "23",
-   "lettering_dropped": 0,
-   "water_dropped": 0,
-   "band_pieces_dropped": 0,
-   "washed_dropped": 0,
-   "exported": 229,
-   "duplicates_dropped": 4,
-   "status": "ok",
+   "status": "left out: consistent tier only and 20-24 % of its outlines lie on today's street centre lines (above the layer's 8 %)",
    "check": {
     "n": 233,
     "on_today": 0.424,
@@ -987,7 +959,7 @@
     ],
     "verdict": "not verified"
    },
-   "tier": "consistent"
+   "tier": null
   },
   {
    "plate": "92150024",
@@ -1597,37 +1569,8 @@
   },
   {
    "plate": "92150036",
-   "image": "p15a_0036",
-   "name": "Paterson 1915 sheet 36",
-   "gcps": 9,
-   "model": "affine",
-   "cv_rms": 0.0,
-   "mpp": 0.102,
-   "n": 112,
-   "frame": 107,
-   "brick": 5,
-   "stone": 0,
-   "coincide": 1,
-   "share": 0.009,
-   "corrected": false,
-   "paper": [
-    68.0,
-    -2.0,
-    8.0
-   ],
-   "off_median_vec": [
-    -2.32,
-    0.47
-   ],
-   "off_median_m": 2.37,
    "sheet": "36",
-   "lettering_dropped": 0,
-   "water_dropped": 0,
-   "band_pieces_dropped": 0,
-   "washed_dropped": 0,
-   "exported": 112,
-   "duplicates_dropped": 0,
-   "status": "ok",
+   "status": "left out: consistent tier only and 20-24 % of its outlines lie on today's street centre lines (above the layer's 8 %)",
    "check": {
     "n": 112,
     "on_today": 0.321,
@@ -1639,36 +1582,12 @@
     ],
     "verdict": "not verified"
    },
-   "tier": "consistent"
+   "tier": null
   },
   {
    "plate": "92150038",
-   "image": "p15a_0038",
-   "name": "Paterson 1915 sheet 38",
-   "gcps": 9,
-   "model": "affine",
-   "cv_rms": 0.0,
-   "mpp": 0.102,
-   "n": 227,
-   "frame": 201,
-   "brick": 25,
-   "stone": 0,
-   "coincide": 0,
-   "share": 0.0,
-   "corrected": false,
-   "paper": [
-    70.0,
-    -2.0,
-    10.0
-   ],
    "sheet": "38",
-   "lettering_dropped": 0,
-   "water_dropped": 0,
-   "band_pieces_dropped": 0,
-   "washed_dropped": 0,
-   "exported": 226,
-   "duplicates_dropped": 1,
-   "status": "ok",
+   "status": "left out: consistent tier only and 20-24 % of its outlines lie on today's street centre lines (above the layer's 8 %)",
    "check": {
     "n": 227,
     "on_today": 0.393,
@@ -1680,7 +1599,7 @@
     ],
     "verdict": "not verified"
    },
-   "tier": "consistent"
+   "tier": null
   },
   {
    "plate": "92150039",
@@ -1691,11 +1610,11 @@
    "cv_rms": 0.0,
    "mpp": 0.104,
    "n": 123,
-   "frame": 111,
-   "brick": 6,
+   "frame": 116,
+   "brick": 7,
    "stone": 0,
    "coincide": 12,
-   "share": 0.103,
+   "share": 0.098,
    "corrected": true,
    "paper": [
     67.0,
@@ -1725,8 +1644,8 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 117,
-   "duplicates_dropped": 6,
+   "exported": 123,
+   "duplicates_dropped": 0,
    "status": "ok",
    "check": {
     "n": 123,
@@ -1848,32 +1767,8 @@
   },
   {
    "plate": "92150042",
-   "image": "p15a_0042",
-   "name": "Paterson 1915 sheet 42",
-   "gcps": 9,
-   "model": "affine",
-   "cv_rms": 0.0,
-   "mpp": 0.101,
-   "n": 146,
-   "frame": 134,
-   "brick": 2,
-   "stone": 0,
-   "coincide": 0,
-   "share": 0.0,
-   "corrected": false,
-   "paper": [
-    69.0,
-    -1.0,
-    11.0
-   ],
    "sheet": "42",
-   "lettering_dropped": 0,
-   "water_dropped": 0,
-   "band_pieces_dropped": 0,
-   "washed_dropped": 0,
-   "exported": 136,
-   "duplicates_dropped": 10,
-   "status": "ok",
+   "status": "left out: consistent tier only and 20-24 % of its outlines lie on today's street centre lines (above the layer's 8 %)",
    "check": {
     "n": 146,
     "on_today": 0.413,
@@ -1885,7 +1780,7 @@
     ],
     "verdict": "not verified"
    },
-   "tier": "consistent"
+   "tier": null
   },
   {
    "plate": "92150043",
@@ -1955,11 +1850,11 @@
    "cv_rms": 0.0,
    "mpp": 0.1,
    "n": 112,
-   "frame": 105,
+   "frame": 106,
    "brick": 6,
    "stone": 0,
-   "coincide": 9,
-   "share": 0.081,
+   "coincide": 10,
+   "share": 0.089,
    "corrected": true,
    "paper": [
     67.0,
@@ -1989,8 +1884,8 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 111,
-   "duplicates_dropped": 1,
+   "exported": 112,
+   "duplicates_dropped": 0,
    "status": "ok",
    "check": {
     "n": 112,
@@ -2428,8 +2323,8 @@
    "cv_rms": 0.0,
    "mpp": 0.104,
    "n": 120,
-   "frame": 101,
-   "brick": 5,
+   "frame": 108,
+   "brick": 6,
    "stone": 0,
    "coincide": 1,
    "share": 0.009,
@@ -2449,8 +2344,8 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 106,
-   "duplicates_dropped": 14,
+   "exported": 114,
+   "duplicates_dropped": 6,
    "status": "ok",
    "check": {
     "n": 120,
@@ -2625,11 +2520,11 @@
    "cv_rms": 0.0,
    "mpp": 0.1,
    "n": 168,
-   "frame": 152,
-   "brick": 1,
+   "frame": 165,
+   "brick": 2,
    "stone": 0,
-   "coincide": 75,
-   "share": 0.49,
+   "coincide": 78,
+   "share": 0.467,
    "corrected": true,
    "paper": [
     69.0,
@@ -2659,8 +2554,8 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 153,
-   "duplicates_dropped": 14,
+   "exported": 167,
+   "duplicates_dropped": 0,
    "status": "ok",
    "check": {
     "n": 168,
@@ -3110,37 +3005,8 @@
   },
   {
    "plate": "92150086",
-   "image": "p15a_0086",
-   "name": "Paterson 1915 sheet 86",
-   "gcps": 9,
-   "model": "affine",
-   "cv_rms": 0.0,
-   "mpp": 0.104,
-   "n": 108,
-   "frame": 103,
-   "brick": 1,
-   "stone": 0,
-   "coincide": 1,
-   "share": 0.01,
-   "corrected": false,
-   "paper": [
-    68.0,
-    -2.0,
-    12.0
-   ],
-   "off_median_vec": [
-    1.15,
-    -1.45
-   ],
-   "off_median_m": 1.85,
    "sheet": "86",
-   "lettering_dropped": 0,
-   "water_dropped": 0,
-   "band_pieces_dropped": 0,
-   "washed_dropped": 0,
-   "exported": 104,
-   "duplicates_dropped": 4,
-   "status": "ok",
+   "status": "left out: consistent tier only and 20-24 % of its outlines lie on today's street centre lines (above the layer's 8 %)",
    "check": {
     "n": 108,
     "on_today": 0.367,
@@ -3152,7 +3018,7 @@
     ],
     "verdict": "not verified"
    },
-   "tier": "consistent"
+   "tier": null
   },
   {
    "plate": "92150087",

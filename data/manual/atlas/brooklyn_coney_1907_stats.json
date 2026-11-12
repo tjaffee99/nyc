@@ -2,16 +2,17 @@
  "total": {
   "layer": "brooklyn_coney_1907",
   "plates": 13,
-  "buildings": 2679,
-  "frame": 2601,
-  "brick": 70,
-  "stone": 8,
+  "buildings": 2613,
+  "frame": 2540,
+  "brick": 67,
+  "stone": 6,
   "gasholders": 0,
   "on_today": 16,
   "invalid": 0,
   "area_out_of_range": 0,
   "outside_coverage": 0,
-  "coverage_km2": 8.21
+  "coverage_km2": 8.21,
+  "roadway_slivers_dropped": 66
  },
  "plates": [
   {
@@ -85,7 +86,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 44,
+   "exported": 43,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -137,7 +138,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 123,
+   "exported": 110,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -303,7 +304,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 303,
+   "exported": 298,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -360,7 +361,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 639,
+   "exported": 633,
    "duplicates_dropped": 5,
    "status": "ok"
   },
@@ -417,7 +418,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 428,
+   "exported": 425,
    "duplicates_dropped": 4,
    "status": "ok"
   },
@@ -505,14 +506,14 @@
    "plate": "16060",
    "image": "1697804",
    "name": "Brooklyn, Vol. 7, Double Page Plate No. 33; Part of  \r\nWard 31, Section 21; [Map bounded b",
-   "gcps": 5,
+   "gcps": 3,
    "model": "affine",
-   "cv_rms": 52.3,
-   "mpp": 0.154,
-   "n": 194,
-   "frame": 167,
-   "brick": 4,
-   "stone": 23,
+   "cv_rms": 0.0,
+   "mpp": 0.167,
+   "n": 222,
+   "frame": 192,
+   "brick": 6,
+   "stone": 24,
    "coincide": 0,
    "share": 0.0,
    "corrected": false,
@@ -522,7 +523,7 @@
     10.0
    ],
    "sheet": "H07-16060",
-   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 52.3 m)"
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 0.0 m)"
   },
   {
    "plate": "16061",
@@ -569,7 +570,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 168,
+   "exported": 159,
    "duplicates_dropped": 5,
    "status": "ok"
   },
@@ -644,7 +645,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 30,
+   "exported": 26,
    "duplicates_dropped": 1,
    "status": "ok"
   },
@@ -753,7 +754,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 516,
+   "exported": 497,
    "duplicates_dropped": 0,
    "status": "ok"
   },
@@ -810,7 +811,7 @@
    "water_dropped": 0,
    "band_pieces_dropped": 0,
    "washed_dropped": 0,
-   "exported": 121,
+   "exported": 115,
    "duplicates_dropped": 1,
    "status": "ok"
   },

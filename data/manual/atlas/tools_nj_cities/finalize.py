@@ -10,13 +10,19 @@ import numpy as np
 layer = sys.argv[1]
 L = jl(lay_p); chk = json.loads((A.WORK / layer / "chk.json").read_text())
 tier = {}
+own = json.loads((HERE / 'gcps_own.json').read_text())
 for p in L[layer]["plates"]:
     c = chk.get(p["sheet"]); p.pop("skip", None)
     if not c or "ratio" not in c: p["skip"] = "too few outlines to check (%s)" % (c or {}).get("verdict", "not traced"); continue
     sh = float(np.hypot(*c["best_shift_m"]))
     if c["ratio"] >= 1.5 and sh <= 3: tier[p["sheet"]] = "verified"
     elif c["ratio"] >= 1.2 and sh <= 2.5: tier[p["sheet"]] = "consistent"
+    elif (lambda f: f.get("kind") == "crossings" and f["n"] >= 4 and max(f["res_m"]) <= 2 and max(f["loo_m"]) <= 3 and 0.097 <= f["mpp"] <= 0.103)(own.get(str(p["id"]), {}).get("fit", {})): tier[p["sheet"]] = "street crossings"
     else: p["skip"] = "registration not confirmed (overlap ratio %.2f, best shift %s m)" % (c["ratio"], c["best_shift_m"])
+EXTRA = {"passaic_paterson_1915": {"38", "42", "23", "36", "86"}}.get(layer, set())
+for p in L[layer]["plates"]:
+    if p["sheet"] in EXTRA and tier.get(p["sheet"]) == "consistent":
+        p["skip"] = "consistent tier only and 20-24 % of its outlines lie on today's street centre lines (above the layer's 8 %)"; tier.pop(p["sheet"])
 lay_p.write_text(json.dumps(L, indent=1))
 A.export(layer)
 OUT = A.OUT
@@ -29,6 +35,6 @@ st = json.loads((OUT / f"{layer}_stats.json").read_text())
 for r in st["plates"]:
     s = str(r.get("sheet")); 
     if s in chk: r["check"] = chk[s]; r["tier"] = tier.get(s)
-st["total"]["tiers"] = {k: sum(v == k for v in tier.values()) for k in ("verified", "consistent")}
+st["total"]["tiers"] = {k: sum(v == k for v in tier.values()) for k in ("verified", "consistent", "street crossings")}
 (OUT / f"{layer}_stats.json").write_text(json.dumps(st, indent=1))
 print(st["total"])

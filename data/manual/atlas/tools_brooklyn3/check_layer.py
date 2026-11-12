@@ -13,7 +13,7 @@ for layer in sys.argv[1:]:
     cg = [transform(shape(f["geometry"]), lambda c: np.column_stack(T.transform(c[:, 0], c[:, 1]))) for f in cov["features"]]
     ids = [f["properties"]["id"] for f in d["features"]]
     a = shapely.area(np.array(g, object))
-    cu = shapely.union_all(cg).buffer(0)
+    cu = shapely.union_all([c.buffer(0) for c in cg]).buffer(0)
     cen = shapely.centroid(np.array(g, object))
     pa = np.array(g, object)
     i, j = shapely.STRtree(pa).query(pa, predicate="intersects")

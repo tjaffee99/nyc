@@ -20,7 +20,7 @@ S = A.S
 S.BBOX = (-74.40, 40.55, -73.9, 41.1)
 ROOT = A.ROOT
 MODE = os.environ.get('LOCMODE', 'mix')
-CITY = {"paterson": (-74.23, 40.86, -74.10, 40.96), "newark": (-74.26, 40.67, -74.10, 40.80)}
+CITY = {"paterson": (-74.23, 40.86, -74.10, 40.96), "newark": (-74.215, 40.72, -74.14, 40.78)}
 CENTRE = {"paterson": (-74.1715, 40.9165), "newark": (-74.1700, 40.7350)}
 STYLE = {"core": 12, "wall_px": 240, "hole_px": 500, "front_px": 2500, "frame": {"db_min": 6.5, "hue": 0.42, "L_min": 50, "L_max": 92}}
 own_p = HERE / "gcps_own.json"; lay_p = HERE / "layers.json"

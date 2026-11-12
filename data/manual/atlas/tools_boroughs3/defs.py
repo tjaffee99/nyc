@@ -1,6 +1,6 @@
 BRX = (-73.93, 40.78, -73.74, 40.93)
 lay["bronx_east_1905"] = layer(1905, "Atlas of the borough of the Bronx, city of New York, Volume A (G. W. Bromley & Co., Philadelphia, 1905): the district east of the Bronx River (Unionport, Westchester, Castle Hill, Clason Point, Throgs Neck, Pelham Parkway)", "bromley_bronx_1905", pick(r"Bronx, V\. A, Plate.*From Vol\. A$", box=BRX), BRONX_SO)
 lay["bronx_north_1905"] = layer(1905, "Atlas of the borough of the Bronx, city of New York, Volume B (G. W. Bromley & Co., Philadelphia, 1905): Williamsbridge, Wakefield, Eastchester, Baychester, Pelham Bay and City Island", "bromley_bronx_1905", pick(r"Bronx, V\. B, Plate.*From Vol\. B$", box=BRX), BRONX_SO)
-SI_SO = {"frame": {"db_min": 5.0, "hue": 0.42, "L_min": 50, "L_max": 84}, "outline": 0.4, "street_min_q": 0.2, "street_win_m": 300.0}
+SI_SO = {"frame": {"db_min": 4.0, "hue": 0.42, "L_min": 45, "L_max": 88}, "outline": 0.2, "stone": None, "street_min_q": 0.2, "street_win_m": 300.0}
 lay["staten_island_south_1917"] = layer(1917, "Atlas of the city of New York, borough of Richmond, Staten Island (G. W. Bromley & Co., 1917): the plates of Wards 1-5 outside the layer staten_island_north_1917", "bromley_richmond_1917", pick(r"^Part of Wards?|Nelson Ave, Cleveland Ave, 2nd St", box=(-74.30, 40.45, -74.03, 40.66), minnew=0.3), SI_SO)
 lay["staten_island_south_1917"]["plates"] = [q for q in lay["staten_island_south_1917"]["plates"] if 15367 <= q["id"] <= 15460]

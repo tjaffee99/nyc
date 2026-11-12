@@ -1094,7 +1094,10 @@ def export(layer, max_off=8.0):
             u_ = (b_ - a_) / np.hypot(*(b_ - a_))
             n_ = np.array([-u_[1], u_[0]])
             clip = sg.Polygon([a_ - 2e4 * u_, b_ + 2e4 * u_, b_ + 2e4 * u_ + 4e4 * n_, a_ - 2e4 * u_ + 4e4 * n_])
-        for other in c_.get("outside_layers", []):
+        mine_ = set(layers())
+        others_ = sorted(f_.name[:-len("_coverage.geojson")] for f_ in OUT.glob("*_coverage.geojson") if f_.name[:-len("_coverage.geojson")] not in mine_)
+        print("clipped outside", len(others_), "existing layers", flush=True)
+        for other in others_:
             oc = json.loads((OUT / f"{other}_coverage.geojson").read_text())
             og = [shapely.transform(sg.shape(f_["geometry"]), lambda c: np.column_stack(S.local(c[:, 0], c[:, 1]))) for f_ in oc["features"]]
             clip = clip.difference(shapely.union_all([g_.buffer(0) for g_ in og]).buffer(0))

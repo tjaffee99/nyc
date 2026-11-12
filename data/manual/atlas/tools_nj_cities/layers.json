@@ -135,7 +135,8 @@
    {
     "id": 92150023,
     "sheet": "23",
-    "name": "Paterson 1915 sheet 23"
+    "name": "Paterson 1915 sheet 23",
+    "skip": "consistent tier only and 20-24 % of its outlines lie on today's street centre lines (above the layer's 8 %)"
    },
    {
     "id": 92150024,
@@ -202,12 +203,14 @@
    {
     "id": 92150036,
     "sheet": "36",
-    "name": "Paterson 1915 sheet 36"
+    "name": "Paterson 1915 sheet 36",
+    "skip": "consistent tier only and 20-24 % of its outlines lie on today's street centre lines (above the layer's 8 %)"
    },
    {
     "id": 92150038,
     "sheet": "38",
-    "name": "Paterson 1915 sheet 38"
+    "name": "Paterson 1915 sheet 38",
+    "skip": "consistent tier only and 20-24 % of its outlines lie on today's street centre lines (above the layer's 8 %)"
    },
    {
     "id": 92150039,
@@ -227,7 +230,8 @@
    {
     "id": 92150042,
     "sheet": "42",
-    "name": "Paterson 1915 sheet 42"
+    "name": "Paterson 1915 sheet 42",
+    "skip": "consistent tier only and 20-24 % of its outlines lie on today's street centre lines (above the layer's 8 %)"
    },
    {
     "id": 92150043,
@@ -372,7 +376,8 @@
    {
     "id": 92150086,
     "sheet": "86",
-    "name": "Paterson 1915 sheet 86"
+    "name": "Paterson 1915 sheet 86",
+    "skip": "consistent tier only and 20-24 % of its outlines lie on today's street centre lines (above the layer's 8 %)"
    },
    {
     "id": 92150087,
@@ -464,7 +469,8 @@
    {
     "id": 93080046,
     "sheet": "46",
-    "name": "Newark 1908 sheet 46"
+    "name": "Newark 1908 sheet 46",
+    "skip": "too few outlines to check (not traced)"
    },
    {
     "id": 93080050,
@@ -474,22 +480,26 @@
    {
     "id": 93080034,
     "sheet": "34",
-    "name": "Newark 1908 sheet 34"
+    "name": "Newark 1908 sheet 34",
+    "skip": "too few outlines to check (not traced)"
    },
    {
     "id": 93080041,
     "sheet": "41",
-    "name": "Newark 1908 sheet 41"
+    "name": "Newark 1908 sheet 41",
+    "skip": "too few outlines to check (not traced)"
    },
    {
     "id": 93080030,
     "sheet": "30",
-    "name": "Newark 1908 sheet 30"
+    "name": "Newark 1908 sheet 30",
+    "skip": "too few outlines to check (not traced)"
    },
    {
     "id": 93080017,
     "sheet": "17",
-    "name": "Newark 1908 sheet 17"
+    "name": "Newark 1908 sheet 17",
+    "skip": "registration not confirmed (overlap ratio 1.24, best shift [-2, 2] m)"
    },
    {
     "id": 93080063,
@@ -499,7 +509,8 @@
    {
     "id": 93080049,
     "sheet": "49",
-    "name": "Newark 1908 sheet 49"
+    "name": "Newark 1908 sheet 49",
+    "skip": "registration not confirmed (overlap ratio 1.32, best shift [-5, -8] m)"
    },
    {
     "id": 93080047,
@@ -509,7 +520,8 @@
    {
     "id": 93080048,
     "sheet": "48",
-    "name": "Newark 1908 sheet 48"
+    "name": "Newark 1908 sheet 48",
+    "skip": "registration not confirmed (overlap ratio 1.10, best shift [-5, 3] m)"
    },
    {
     "id": 93080056,
@@ -524,7 +536,8 @@
    {
     "id": 93080051,
     "sheet": "51",
-    "name": "Newark 1908 sheet 51"
+    "name": "Newark 1908 sheet 51",
+    "skip": "registration not confirmed (overlap ratio 0.90, best shift [14, 3] m)"
    },
    {
     "id": 93080052,
@@ -534,7 +547,8 @@
    {
     "id": 93080055,
     "sheet": "55",
-    "name": "Newark 1908 sheet 55"
+    "name": "Newark 1908 sheet 55",
+    "skip": "registration not confirmed (overlap ratio 1.40, best shift [3, 9] m)"
    },
    {
     "id": 93080064,
@@ -544,32 +558,64 @@
    {
     "id": 93080045,
     "sheet": "45",
-    "name": "Newark 1908 sheet 45"
+    "name": "Newark 1908 sheet 45",
+    "skip": "registration not confirmed (overlap ratio 0.89, best shift [-12, -8] m)"
    },
    {
     "id": 93080043,
     "sheet": "43",
-    "name": "Newark 1908 sheet 43"
+    "name": "Newark 1908 sheet 43",
+    "skip": "too few outlines to check (not traced)"
    },
    {
     "id": 93080044,
     "sheet": "44",
-    "name": "Newark 1908 sheet 44"
+    "name": "Newark 1908 sheet 44",
+    "skip": "too few outlines to check (not traced)"
    },
    {
     "id": 93080039,
     "sheet": "39",
-    "name": "Newark 1908 sheet 39"
+    "name": "Newark 1908 sheet 39",
+    "skip": "too few outlines to check (not traced)"
    },
    {
     "id": 93080042,
     "sheet": "42",
-    "name": "Newark 1908 sheet 42"
+    "name": "Newark 1908 sheet 42",
+    "skip": "too few outlines to check (not traced)"
    },
    {
     "id": 93080058,
     "sheet": "58",
     "name": "Newark 1908 sheet 58"
+   },
+   {
+    "id": 93080065,
+    "sheet": "65",
+    "name": "Newark 1908 sheet 65"
+   },
+   {
+    "id": 93080066,
+    "sheet": "66",
+    "name": "Newark 1908 sheet 66"
+   },
+   {
+    "id": 93080062,
+    "sheet": "62",
+    "name": "Newark 1908 sheet 62",
+    "skip": "too few outlines to check (not traced)"
+   },
+   {
+    "id": 93080059,
+    "sheet": "59",
+    "name": "Newark 1908 sheet 59"
+   },
+   {
+    "id": 93080060,
+    "sheet": "60",
+    "name": "Newark 1908 sheet 60",
+    "skip": "too few outlines to check (not traced)"
    }
   ]
  }
