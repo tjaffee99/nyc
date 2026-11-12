@@ -19,6 +19,7 @@ from affine import Affine
 S = A.S
 S.BBOX = (-74.40, 40.55, -73.9, 41.1)
 ROOT = A.ROOT
+MODE = os.environ.get('LOCMODE', 'mix')
 CITY = {"paterson": (-74.23, 40.86, -74.10, 40.96), "newark": (-74.26, 40.67, -74.10, 40.80)}
 CENTRE = {"paterson": (-74.1715, 40.9165), "newark": (-74.1700, 40.7350)}
 STYLE = {"core": 12, "wall_px": 240, "hole_px": 500, "front_px": 2500, "frame": {"db_min": 6.5, "hue": 0.42, "L_min": 50, "L_max": 92}}
@@ -72,16 +73,33 @@ def city_raster(city, cell):
     _foot[key] = (F, tr)
     return F, tr
 
+def road_raster(city, cell):
+    key = (city, cell, "road")
+    if key in _foot: return _foot[key]
+    p = ROOT / f"data/interim/atlas_nj_cities/R_{city}_{cell:g}.npy"
+    F0, tr = city_raster(city, cell)
+    if p.exists(): R = np.load(p)
+    else:
+        names, g = S.roads()
+        b = shapely.bounds(g); x0 = tr.c; y1 = tr.f; x1 = x0 + F0.shape[1] * cell; y0 = y1 - F0.shape[0] * cell
+        sel = (b[:, 2] > x0) & (b[:, 0] < x1) & (b[:, 3] > y0) & (b[:, 1] < y1)
+        R = features.rasterize([(q.buffer(6.5), 1) for q in g[sel]], out_shape=F0.shape, transform=tr, dtype="uint8").astype(np.float32)
+        np.save(p, 1 - R)
+        R = 1 - R
+    _foot[key] = (R, tr)
+    return R, tr
+
 def load_px(layer, pid):
     d = pickle.load(open(A.WORK / layer / f"{pid}.pkl", "rb"))
     return [wkb.loads(o["px"]) for o in d["items"]]
 
-def tmpl(polys_px, Amat, cell, blur):
+def tmpl(polys_px, Amat, cell, blur, grow=0.0, like=None):
     """Raster of the traced mask in metres about its own centre: returns (array, offset of array origin (x_min,y_max) in metres relative to image-centre ground)."""
     g = [shapely.affinity.affine_transform(p, [Amat[0, 0], Amat[0, 1], Amat[1, 0], Amat[1, 1], 0, 0]) for p in polys_px]
     b = shapely.total_bounds(np.array(g, object))
     x0, y1 = np.floor(b[0] / cell) * cell - 2 * cell, np.ceil(b[3] / cell) * cell + 2 * cell
     w = int((np.ceil(b[2] / cell) * cell + 2 * cell - x0) / cell); h = int((y1 - (np.floor(b[1] / cell) * cell - 2 * cell)) / cell)
+    if grow: g = [q.buffer(grow) for q in g]
     T = features.rasterize([(q, 1) for q in g], out_shape=(h, w), transform=Affine(cell, 0, x0, 0, -cell, y1), dtype="uint8").astype(np.float32)
     if blur: T = ndi.gaussian_filter(T, blur / cell)
     return T, (x0, y1)
@@ -106,17 +124,20 @@ def locate(layer, pid, city, prior=None, pr=None, rots=None, scales=None, verbos
     scales = scales if scales is not None else [0.098, 0.1, 0.102, 0.104]
     cell = 4.0
     F, tr = city_raster(city, cell); F = ndi.gaussian_filter(F, 1.5)
+    G = ndi.gaussian_filter(road_raster(city, cell)[0], 1.5) if MODE != 'foot' else None
     if prior is not None:
         cx, cy = prior
         R = pr + 260
         j0 = max(0, int((cx - R - tr.c) / cell)); j1 = int((cx + R - tr.c) / cell); i0 = max(0, int((tr.f - (cy + R)) / cell)); i1 = int((tr.f - (cy - R)) / cell)
-        F = F[i0:i1, j0:j1]; tr = Affine(cell, 0, tr.c + j0 * cell, 0, -cell, tr.f - i0 * cell)
+        F = F[i0:i1, j0:j1]; G = G[i0:i1, j0:j1] if G is not None else None; tr = Affine(cell, 0, tr.c + j0 * cell, 0, -cell, tr.f - i0 * cell)
     cand = []
     for th in rots:
         for s in scales:
             T, (ox, oy) = tmpl(polys, amat(th, s), cell, 4.0)
             if T.shape[0] >= F.shape[0] or T.shape[1] >= F.shape[1]: continue
             C = ncc(F, T, None)
+            if G is not None:
+                T2, _ = tmpl(polys, amat(th, s), cell, 4.0, grow=3.0); C2 = ncc(G, T2, None); C = C2 if MODE == 'road' else 0.5 * (C + C2)
             # centre ground of the image for window origin (i, j): window top-left at tr * (j, i); template origin is (ox, oy) rel. centre
             if prior is not None:
                 ii, jj = np.mgrid[0:C.shape[0], 0:C.shape[1]]
@@ -131,12 +152,13 @@ def locate(layer, pid, city, prior=None, pr=None, rots=None, scales=None, verbos
     if verbose: print(layer, pid, "coarse best", [round(v, 3) if isinstance(v, float) else v for v in best[:5]], "second place (>40 m away) %.3f" % lead, flush=True)
     # fine
     cell = 1.0
-    F1, tr1 = city_raster(city, cell)
+    F1, tr1 = city_raster(city, cell); G1 = road_raster(city, cell)[0] if MODE != 'foot' else None
     if prior is not None:
         R = pr + 260
         j0 = max(0, int((cx - R - tr1.c) / cell)); j1 = int((cx + R - tr1.c) / cell); i0 = max(0, int((tr1.f - (cy + R)) / cell)); i1 = int((tr1.f - (cy - R)) / cell)
-        F1 = F1[i0:i1, j0:j1]; tr1 = Affine(cell, 0, tr1.c + j0 * cell, 0, -cell, tr1.f - i0 * cell)
+        F1 = F1[i0:i1, j0:j1]; G1 = G1[i0:i1, j0:j1] if G1 is not None else None; tr1 = Affine(cell, 0, tr1.c + j0 * cell, 0, -cell, tr1.f - i0 * cell)
     F1 = ndi.gaussian_filter(F1, 1.0)
+    if G1 is not None: G1 = ndi.gaussian_filter(G1, 1.0)
     sc0, th0, s0, gx0, gy0 = best[:5]
     # window of the fine raster around the coarse position (template extent + 60 m)
     res = []
@@ -151,6 +173,8 @@ def locate(layer, pid, city, prior=None, pr=None, rots=None, scales=None, verbos
             sub = F1[i0:i0 + hh, j0:j0 + ww]
             if sub.shape[0] <= T.shape[0] or sub.shape[1] <= T.shape[1]: continue
             C = ncc(sub, T, None)
+            if G1 is not None:
+                T2, _ = tmpl(polys, amat(th, s), cell, 1.5, grow=3.0); sub2 = G1[i0:i0 + hh, j0:j0 + ww]; C2 = ncc(sub2, T2, None); C = C2 if MODE == 'road' else 0.5 * (C + C2)
             j = np.unravel_index(np.argmax(C), C.shape)
             res.append((float(C[j]), th, s, tr1.c + (j0 + j[1]) * cell - ox, tr1.f - (i0 + j[0]) * cell - oy))
     res.sort(reverse=True)

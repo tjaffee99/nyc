@@ -281,7 +281,7 @@ def fills_rows(c, line, st, inside):
     a small grey piece against a rose one is that house's stone front and is joined to it."""
     ink = (c == 1) | line
     fill = ((c == 2) | (c == 3) | (c == 4) | (c == 6)) & inside
-    thin = ink & ~_dil(_open(c == 1, 3), 1)
+    thin = ink & ~_dil(_open(c == 1, st.get("fig_open", 3)), 1)
     lab, n = ndi.label(thin, structure=SQ3)
     if n:
         big = np.zeros(n + 1, bool)

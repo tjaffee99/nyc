@@ -187,5 +187,266 @@
    "stone_min_width_m": 6.0,
    "stone_max_aspect": 4.0
   }
+ },
+ "brooklyn_coney_1880": {
+  "map_year": 1880,
+  "atlas": "Atlas of the entire city of Brooklyn, complete in one volume (Hopkins, 1880): Map of Coney Island, NYPL Map Division",
+  "source": "hopkins_brooklyn_1880",
+  "style": "robinson_300ft",
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 7983,
+    "sheet": "H80-7983",
+    "name": "Map of Coney Island, New York."
+   }
+  ],
+  "style_override": {
+   "brick": {
+    "da_min": 5.5,
+    "db_max": 9.0,
+    "L_min": 42
+   },
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    30.0,
+    15.0
+   ]
+  }
+ },
+ "brooklyn_coney_1907": {
+  "map_year": 1907,
+  "atlas": "Atlas of the borough of Brooklyn, city of New York (E. B. Hyde, 1907): Section 21, Coney Island, plate 19, NYPL Map Division",
+  "source": "hyde_brooklyn_1907",
+  "style": "bromley_city",
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 8402,
+    "sheet": "H07-8402",
+    "name": "Plate 19: Part of Section 21 - Coney Island."
+   }
+  ],
+  "style_override": {
+   "max_m2": 20000.0,
+   "outline_big": 0.3,
+   "big_px": 4800,
+   "big_r": 16,
+   "stone": {
+    "da_abs": 5.5,
+    "db_min": -9.0,
+    "db_max": 0.5,
+    "dL_min": -28.0,
+    "dL_max": -9.0
+   },
+   "blue": {
+    "db_max": -5.5,
+    "db_min": -16.0,
+    "da_min": -6.0,
+    "da_max": 3.0,
+    "dL_min": -22.0,
+    "dL_max": -3.0
+   },
+   "street_empty": true,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0,
+   "street_search": [
+    30.0,
+    15.0
+   ],
+   "stone_min_m2": 200.0,
+   "stone_min_width_m": 6.0,
+   "stone_max_aspect": 4.0
+  }
+ },
+ "brooklyn_bayridge_1905": {
+  "map_year": 1905,
+  "atlas": "Atlas of the borough of Brooklyn, vol. 6, Ward 30 (E. Belcher Hyde, 1905), NYPL Map Division, 100 ft to the inch",
+  "source": "hyde_brooklyn_1905_v6",
+  "style": "bromley_city",
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 15992,
+    "sheet": "H05-15992",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 1; Part of    Ward 30, Section 17; [Map bounded by 12th Ave., 49th St., 9th Ave.; Including    37th St., 10th Ave., 39th St.]"
+   },
+   {
+    "id": 15993,
+    "sheet": "H05-15993",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 2; Part of    Ward 30, Section 17; [Map bounded by 15th Ave., 42nd St., New Utrecht Ave., 12th Ave.; Including 40th St., 13th Ave., 41st St., 42nd St., 14th Ave.]"
+   },
+   {
+    "id": 15995,
+    "sheet": "H05-15995",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 4; Part of    Wards 30 & 31, Section 17; [Map bounded by Gravesend Ave., 53rd St.; Including   18th Ave.]; Sub Plan; [Map bounded by Ocean Parkway, Avenue L, Avenue M, West    St.; Including 58th St., Avenue K ("
+   },
+   {
+    "id": 15997,
+    "sheet": "H05-15997",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 6; Part of    Ward 30, Section 17; [Map bounded by 18th Ave., 67th St.; Including 15th Ave.,   55th St.]"
+   },
+   {
+    "id": 15998,
+    "sheet": "H05-15998",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 7; Part of    Ward 30, Section 17; [Map bounded by 15th Ave., 64th St.; Including 12th Ave.,   52nd St.]"
+   },
+   {
+    "id": 15999,
+    "sheet": "H05-15999",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 8; Part of    Ward 30, Section 17; [Map bounded by 49th St., 12th Ave.; Including 58th St.,    8th Ave.]"
+   },
+   {
+    "id": 16000,
+    "sheet": "H05-16000",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 9; Part of    Ward 30, Section 17; [Map bounded by 58th St., 12th Ave.; Including 67th St.,    8th Ave.]"
+   },
+   {
+    "id": 16001,
+    "sheet": "H05-16001",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 10; Part of   Ward 30, Section 18; [Map bounded by 8th Ave., 72nd St.; Including 5th Ave.,     60th St.]"
+   },
+   {
+    "id": 16002,
+    "sheet": "H05-16002",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 11; Part of   Ward 30, Section 18; [Map bounded by 5th Ave., Bayridge Ave., Ridge Blvd.;       Including 2nd Ave., 60th St.]"
+   },
+   {
+    "id": 16003,
+    "sheet": "H05-16003",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 12; Part of   Ward 30, Section 18; [Map bounded by 2nd Ave., Ridge Blvd., 68th St.; Including  Shore Road, 60th St.]"
+   },
+   {
+    "id": 16004,
+    "sheet": "H05-16004",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 13; Part of   Ward 30, Section 18; [Map bounded by 68th St., Ridge Blvd.; Including 75th St.,  Bay Ridge Parkway]"
+   },
+   {
+    "id": 16005,
+    "sheet": "H05-16005",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 14; Part of   Ward 30, Section 18; [Map bounded by 5th Ave., 18th St.; Including Ridge Blvd.,  Bay Ridge Ave.]"
+   },
+   {
+    "id": 16006,
+    "sheet": "H05-16006",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 15; Part of   Ward 30, Section 18; [Map bounded by 72nd St., 7th Ave.; Including 10th Ave.,    81st St., 5th Ave.]"
+   },
+   {
+    "id": 16007,
+    "sheet": "H05-16007",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 16; Part of   Ward 30, Sections 17, 18 & 19; [Map bounded by 67th St., 12th Ave., 76th St.;    Including 7th Ave., 8th Ave.]"
+   },
+   {
+    "id": 16008,
+    "sheet": "H05-16008",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 17; Part of   Ward 30, Sections 17 & 19; [Map bounded by 15th Ave., 76th St.; Including 12th   Ave., 64th St.]"
+   },
+   {
+    "id": 16009,
+    "sheet": "H05-16009",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 18; Part of   Ward 30, Sections 17 & 19; [Map bounded by 18th Ave., 68th St.; Including 15th   Ave., 67th St.]"
+   },
+   {
+    "id": 16010,
+    "sheet": "H05-16010",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 19; Part of   Ward 30, Sections 17 & 19; [Map bounded by 62nd St., 22nd Ave.; Including 70th   St., 18th Ave.]"
+   },
+   {
+    "id": 16011,
+    "sheet": "H05-16011",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 20; Part of   Ward 30, Section 19; [Map bounded by 70th St., 22nd Ave.; Including 78th St.,    18th Ave.]"
+   },
+   {
+    "id": 16012,
+    "sheet": "H05-16012",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 21; Part of   Wards 30 & 31, Section 19; [Map bounded by 23rd Ave., Benson Ave., 20th Ave.,    28th St.; Including 22nd Ave., Avenue P, Stillwell Ave.]"
+   },
+   {
+    "id": 16013,
+    "sheet": "H05-16013",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 22; Part of   Ward 30, Section 19; [Map bounded by 20th Ave., Benson Ave., Ruthrford Pl.;      Including 17th Ave., New Utrech Ave., 78th St.]"
+   },
+   {
+    "id": 16014,
+    "sheet": "H05-16014",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 23; Part of   Ward 30, Section 19; [Map bounded by 76th St., 15th Ave., 78th St., 17th Ave.;   Including New Utrecht Ave., 83rd St., 13th Ave.]"
+   },
+   {
+    "id": 16015,
+    "sheet": "H05-16015",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 24; Part of   Ward 30, Sections 18 & 19; [Map bounded by 13th Ave., 86th St.; Including 10th   Ave., 76th St.]"
+   },
+   {
+    "id": 16016,
+    "sheet": "H05-16016",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 25; Part of   Ward 30, Section 18; [Map bounded by 10th Ave., 92nd St.; Including 5th Ave.,    81st St.]"
+   },
+   {
+    "id": 16017,
+    "sheet": "H05-16017",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 26; Part of   Ward 30, Section 18; [Map bounded by 5th Ave., 91st St.; Including Ridge Blvd.,  80th St.]"
+   },
+   {
+    "id": 16018,
+    "sheet": "H05-16018",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 27; Part of   Ward 30, Section 18; [Map bounded by 75th St., Ridge Blvd.; Including 83rd St.,  Bay Ridge Parkway]"
+   },
+   {
+    "id": 16019,
+    "sheet": "H05-16019",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 28; Part of   Ward 30, Section 18; [Map bounded by 83rd St., Ridge Blvd., 91st St., Bay Ridge  Parkway]"
+   },
+   {
+    "id": 16020,
+    "sheet": "H05-16020",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 29; Part of   Ward 30, Section 18; [Map bounded by 3rd Ave., Bay Ridge Parkway; Including 91st St.]"
+   },
+   {
+    "id": 16021,
+    "sheet": "H05-16021",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 33; Part of   Ward 30, Section 19; [Map bounded by 17th Ave., Warehouse Ave., Sharp Ave.;      Including Bay Eighth St., Cropsey Ave., 14th Ave., Bath Ave.]"
+   },
+   {
+    "id": 16023,
+    "sheet": "H05-16023",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 35; Part of   Ward 30, Section 19; [Map bounded by 23rd Ave., Warehouse Ave., 20th Ave.,       Benson Ave.]"
+   },
+   {
+    "id": 16024,
+    "sheet": "H05-16024",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 30; Part of   Ward 30, Section 18; [Map bounded by Battery Ave., Fort Hamilton Ave., Bay Ridge Parkway; Including 3rd Ave., 91st St., 5th Ave., 92nd St.]; Sub Plan; [Map       bounded by Fort Hamilton Ave., Bay "
+   },
+   {
+    "id": 16025,
+    "sheet": "H05-16025",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 31; Part of   Ward 30, Sections 18 & 19; [Map bounded by Bay Second St., Warehouse Ave.,       Battery Ave.; Including 102nd St., 7th Ave., 86th St.]; Sub Plan; [Map bounded   by 7th Ave., 102nd St., Battery Ave"
+   },
+   {
+    "id": 16026,
+    "sheet": "H05-16026",
+    "name": "Brooklyn, Vol. 6, Double Page Plate No. 32; Part of   Ward 30, Section 19; [Map bounded by 83rd St., 17th Ave., Bath Ave., 14th Ave.;  Including Bayfifth St., 86th St., 13th Ave.]"
+   }
+  ],
+  "style_override": {
+   "wall_px": 60,
+   "line_depth": 3.5,
+   "fig_open": 5,
+   "stone_min_m2": 200.0,
+   "stone_min_width_m": 6.0,
+   "stone_max_aspect": 4.0,
+   "street_min_q": 0.25,
+   "street_win_m": 300.0,
+   "street_search": [
+    30.0,
+    15.0
+   ],
+   "front_px": 0,
+   "max_m2": 20000.0
+  }
  }
 }

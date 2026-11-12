@@ -1,0 +1,154 @@
+{
+ "total": {
+  "layer": "brooklyn_coney_1899",
+  "plates": 1,
+  "buildings": 272,
+  "frame": 189,
+  "brick": 83,
+  "stone": 0,
+  "gasholders": 0,
+  "on_today": 0,
+  "invalid": 0,
+  "area_out_of_range": 0,
+  "outside_coverage": 0,
+  "coverage_km2": 2.18
+ },
+ "plates": [
+  {
+   "plate": "28123",
+   "image": "5189279",
+   "name": "Double Page Plate No. 5: [Bounded by Bayview Ave., (Gravesend Bay) Canal Ave., W. 27th St.",
+   "gcps": 3,
+   "model": "affine",
+   "cv_rms": 0.0,
+   "mpp": 0.199,
+   "n": 285,
+   "frame": 189,
+   "brick": 83,
+   "stone": 0,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": true,
+   "paper": [
+    81.0,
+    2.0,
+    6.0
+   ],
+   "street": {
+    "plate": "28123",
+    "min_q": 0.2,
+    "win_m": 300.0,
+    "gcps": 3,
+    "model": "affine",
+    "cv_rms": 0.0,
+    "mpp": 0.199,
+    "windows": 8,
+    "shift_median": [
+     25.9,
+     -20.9
+    ],
+    "shift_abs_median": 33.3,
+    "kind": "shift",
+    "agree": 5,
+    "fit_residual_m": 2.1,
+    "kind2": "shift",
+    "agree2": 5,
+    "fit_residual2_m": 3.5,
+    "after_windows": 5,
+    "after_abs_median": 3.4
+   },
+   "sheet": "B99-28123",
+   "lettering_dropped": 4,
+   "water_dropped": 6,
+   "band_pieces_dropped": 0,
+   "washed_dropped": 0,
+   "exported": 272,
+   "duplicates_dropped": 2,
+   "status": "ok"
+  },
+  {
+   "plate": "28124",
+   "image": "5189280",
+   "name": "Double Page Plate No. 6: [Bounded by W. 27th St., Canal Ave., (Gravesend Bay) Warehouse Av",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 354.1,
+   "mpp": 0.198,
+   "n": 577,
+   "frame": 491,
+   "brick": 50,
+   "stone": 4,
+   "coincide": 1,
+   "share": 0.002,
+   "corrected": false,
+   "paper": [
+    81.0,
+    1.0,
+    6.0
+   ],
+   "off_median_vec": [
+    -1.6,
+    1.06
+   ],
+   "off_median_m": 1.92,
+   "sheet": "B99-28124",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 1.92 m; control points CV rms 354.1 m)"
+  },
+  {
+   "plate": "28125",
+   "image": "5189281",
+   "name": "Double Page Plate No. 7: [Bounded by W. 12th St., Avenue Y, E. 2nd St., Ocean Parkway, Con",
+   "gcps": 7,
+   "model": "affine",
+   "cv_rms": 95.6,
+   "mpp": 0.196,
+   "n": 478,
+   "frame": 405,
+   "brick": 9,
+   "stone": 3,
+   "coincide": 1,
+   "share": 0.002,
+   "corrected": false,
+   "paper": [
+    80.0,
+    1.0,
+    7.0
+   ],
+   "off_median_vec": [
+    1.06,
+    -3.37
+   ],
+   "off_median_m": 3.53,
+   "sheet": "B99-28125",
+   "status": "left out: not placed reliably (no street or building match; 1 outlines on standing footprints, median offset 3.53 m; control points CV rms 95.6 m)"
+  },
+  {
+   "plate": "28126",
+   "image": "5189282",
+   "name": "Double Page Plate No. 8: [Bounded by Ocean Parkway, Avenue Z, E. 12th St., Canal Ave., Con",
+   "gcps": 4,
+   "model": "affine",
+   "cv_rms": 7.4,
+   "mpp": 0.198,
+   "n": 206,
+   "frame": 130,
+   "brick": 53,
+   "stone": 1,
+   "coincide": 0,
+   "share": 0.0,
+   "corrected": false,
+   "paper": [
+    81.0,
+    2.0,
+    6.0
+   ],
+   "sheet": "B99-28126",
+   "status": "left out: not placed reliably (no street or building match; 0 outlines on standing footprints, median offset None m; control points CV rms 7.4 m)"
+  },
+  {
+   "plate": "28133",
+   "sheet": "B99-28133",
+   "status": "not traced"
+  }
+ ]
+}

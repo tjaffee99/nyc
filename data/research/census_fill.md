@@ -74,9 +74,9 @@ ends in that decade (6,515: `census_decline`), or the ground stops being city (1
 
 ## 5. Checks (all on the file in `data/interim/gapfill/`)
 
-Rows: Bronx 19,862, Brooklyn 15,800, Yonkers 12,407, Paterson 11,524, Newark 7,743, Passaic 6,085, Queens 5,937, East
-Orange 5,826 (ids differ), Elizabeth 5,654, Mount Vernon ...; 88 places, 139,932 rows (Staten Island 3,535).
-Manhattan was run and left out (see below).
+Rows: Bronx 19,862, Brooklyn 15,800, Yonkers 12,407, Paterson 11,524, Newark 7,743, Queens 5,937, Passaic about 5,800,
+East Orange about 5,800, Elizabeth 5,654, Staten Island 3,535, Mount Vernon about 4,000 ... 83 places, 139,932 rows in
+all (per place: `data/interim/census_fill/row_places.parquet`). Manhattan was run and left out (see below).
 
 Persons per building, before / after at the year of the largest deficit (target in brackets):
 Brooklyn 1860 15.3 / 8.3 (7.0); Paterson 1910 15.6 / 6.9 (5.8), 1900 16.1 / 7.3; Newark 1880 10.7 / 6.8 (5.8), 1900

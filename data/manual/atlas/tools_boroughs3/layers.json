@@ -339,10 +339,12 @@
     "brooklyn_bedstuy_1888",
     "brooklyn_browns_1887",
     "brooklyn_bushwick_1888",
+    "brooklyn_coney_1899",
     "brooklyn_crownheights_1888",
     "brooklyn_downtown_1887",
     "brooklyn_greenpoint_1887",
     "brooklyn_heights_1898",
+    "brooklyn_old_1880",
     "brooklyn_parkslope_1888",
     "brooklyn_redhook_1898",
     "brooklyn_southwest_1886",
@@ -653,10 +655,461 @@
     "brooklyn_bedstuy_1888",
     "brooklyn_browns_1887",
     "brooklyn_bushwick_1888",
+    "brooklyn_coney_1899",
     "brooklyn_crownheights_1888",
     "brooklyn_downtown_1887",
     "brooklyn_greenpoint_1887",
     "brooklyn_heights_1898",
+    "brooklyn_old_1880",
+    "brooklyn_parkslope_1888",
+    "brooklyn_redhook_1898",
+    "brooklyn_southwest_1886",
+    "brooklyn_sunsetpark_1898",
+    "brooklyn_williamsburg_1887",
+    "brooklyn_williamsburg_1898",
+    "harlem_1897",
+    "hudson_heights_1873",
+    "hudson_heights_1887",
+    "hudson_hoboken_1891",
+    "hudson_hoboken_1930",
+    "hudson_hoboken_b_1891",
+    "hudson_jersey_city_1919",
+    "kings_towns_1890",
+    "manhattan_downtown_1897",
+    "manhattan_midtown_1897",
+    "queens_flushing_1901",
+    "queens_jamaica_1901",
+    "queens_lic_1901",
+    "queens_rockaway_1907",
+    "staten_island_north_1917"
+   ]
+  }
+ },
+ "staten_island_south_1917": {
+  "map_year": 1917,
+  "atlas": "Atlas of the city of New York, borough of Richmond, Staten Island (G. W. Bromley & Co., 1917): the plates of Wards 1-5 outside the layer staten_island_north_1917",
+  "source": "bromley_richmond_1917",
+  "style": "bromley_city",
+  "style_override": {
+   "frame": {
+    "db_min": 5.0,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 84
+   },
+   "outline": 0.4,
+   "street_min_q": 0.2,
+   "street_win_m": 300.0
+  },
+  "require_match": 8.0,
+  "source_url": "https://digitalcollections.nypl.org/ (NYPL Map Division, public domain); control points: https://s3.amazonaws.com/spacetime-nypl-org/datasets/mapwarper/mapwarper.objects.ndjson (CC0)",
+  "plates": [
+   {
+    "id": 15375,
+    "sheet": "image 1646244",
+    "name": "Part of Wards 1 & 3. [Map bound by Union Ave, Maple   Ave, Van Pelt Ave, Van Name Ave, Simonson Ave,",
+    "new": 0.98
+   },
+   {
+    "id": 15377,
+    "sheet": "image 1646246",
+    "name": "Part of Ward 1. [Map bound by Egbert Ave, Brookside   Ave, Forest Ave, Clove Road, Purcell St, Ralei",
+    "new": 0.99
+   },
+   {
+    "id": 15378,
+    "sheet": "image 1646247",
+    "name": "Part of Wards 1 & 2. [Map bound by Dongan Ave,        Fairview Ave, Knox PL (1st St), Slosson Ave, R",
+    "new": 1.0
+   },
+   {
+    "id": 15379,
+    "sheet": "image 1646248",
+    "name": "Part of Ward 2. [Map bound by Ocean Terrace, Little   Clove Road, Seneca Ave, Schohaire St, Clove Ro",
+    "new": 1.0
+   },
+   {
+    "id": 15380,
+    "sheet": "image 1646249",
+    "name": "Part of Ward 2. [Map bound by Ridge Ave, Prospect     Ave, Ocean Terrace, Douglas Road, Richmond Roa",
+    "new": 1.0
+   },
+   {
+    "id": 15381,
+    "sheet": "image 1646250",
+    "name": "Part of Ward 2. [Map bound by Area PL, Franklin PL,   Norwalk Ave, Todt Hill Road, Ocean Terrace, Re",
+    "new": 1.0
+   },
+   {
+    "id": 15382,
+    "sheet": "image 1646251",
+    "name": "Part of Ward 2. [Map bound by Todt Hill Road, New     York Ave, Benedict Ave (Atlantic Ave), Corners",
+    "new": 1.0
+   },
+   {
+    "id": 15383,
+    "sheet": "image 1646252",
+    "name": "Part of Ward 2. [Map bound by Moravian Cemetery, Todt Hill Road, Flagg (Prospect Ave) PL, Richmond R",
+    "new": 1.0
+   },
+   {
+    "id": 15384,
+    "sheet": "image 1646253",
+    "name": "Part of Ward 3. [Map bound by London Road, Meisner    Ave, Rockland Ave (Egbert), Richmond Road, Chu",
+    "new": 1.0
+   },
+   {
+    "id": 15385,
+    "sheet": "image 1646254",
+    "name": "Part of Wards 2 & 3. [Map bound by Rockland Ave (Saw  Mill RD), Bradley Ave (Manor RD), Washington S",
+    "new": 1.0
+   },
+   {
+    "id": 15386,
+    "sheet": "image 1646255",
+    "name": "Part of Wards 1 & 2. [Map bound by Buchanan Ave,      Willow Brook RD, Roosevelt Ave, Mann Ave, Gann",
+    "new": 1.0
+   },
+   {
+    "id": 15387,
+    "sheet": "image 1646256",
+    "name": "Part of Wards 1, 2 & 3. [Map bound by Forest Hill     Road (Fort Richmond), Willow Brook Road (Gun F",
+    "new": 1.0
+   },
+   {
+    "id": 15388,
+    "sheet": "image 1646257",
+    "name": "Part of Ward 3. [Map bound by Attorney St, Essex St,  Lambert St, Center St, Spring St, De Puy St (C",
+    "new": 1.0
+   },
+   {
+    "id": 15389,
+    "sheet": "image 1646258",
+    "name": "Part of Ward 3. [Map bound by Richmond Turnpike,      Darcys Lane, Willow Brook Road (Gun Factory RD",
+    "new": 1.0
+   },
+   {
+    "id": 15390,
+    "sheet": "image 1646259",
+    "name": "Part of Ward 3. [Map bound by Forest Hill Road (Old   Mill Road), Richmond Hill Road, Klondike Ave, ",
+    "new": 1.0
+   },
+   {
+    "id": 15391,
+    "sheet": "image 1646260",
+    "name": "Part of Ward 3. [Map bound by Richmond Creek, Fresh   Kills, Springville Flaak, Springville Creek, T",
+    "new": 1.0
+   },
+   {
+    "id": 15392,
+    "sheet": "image 1646261",
+    "name": "Part of Ward 3. [Map bound by Little Fresh Kills,     Richmond Turnpike, Burying Hill Road, Cannon A",
+    "new": 1.0
+   },
+   {
+    "id": 15393,
+    "sheet": "image 1646262",
+    "name": "Part of Ward 3. [Map bound by River Road (Water St),  Chelsea Road, Bloomfield Ave (Decker Ave), Hug",
+    "new": 1.0
+   },
+   {
+    "id": 15394,
+    "sheet": "image 1646263",
+    "name": "Part of Ward 3. [Map bound by Sedge Pond, Old Place   Creek, Western Ave, Washington Ave, John St, N",
+    "new": 1.0
+   },
+   {
+    "id": 15395,
+    "sheet": "image 1646264",
+    "name": "Part of Ward 3. [Map bound by State Line, Richmond    Terrace (Shore RD), Arlington Ave, Baltimore a",
+    "new": 1.0
+   },
+   {
+    "id": 15402,
+    "sheet": "image 1646271",
+    "name": "Part of Ward 4. [Map bound by The Narrows, Lower New  York Bay, Richmond Ave, Tompkins Ave, Lyman Av",
+    "new": 1.0
+   },
+   {
+    "id": 15403,
+    "sheet": "image 1646272",
+    "name": "Part of Ward 4. [Map bound by Richmond Road,          Vanderbilt Ave, Tompkins Ave (Centre St), Clif",
+    "new": 1.0
+   },
+   {
+    "id": 15405,
+    "sheet": "image 1646274",
+    "name": "Part of Ward 4. [Map bound by Mosel Ave, Staten       Island Rail Road, Rockwell Ave, Pennsylvania A",
+    "new": 0.98
+   },
+   {
+    "id": 15406,
+    "sheet": "image 1646275",
+    "name": "Part of Ward 4. [Map bound by Fingerboard Road,       Sherman Ave, Grant Ave, Tompkins Ave, Richmond",
+    "new": 1.0
+   },
+   {
+    "id": 15407,
+    "sheet": "image 1646276",
+    "name": "Part of Ward 4. [Map bound by Richmond Ave, Sea Ave   (Sand), Seaside Boulevard, Lower New York Bay,",
+    "new": 1.0
+   },
+   {
+    "id": 15408,
+    "sheet": "image 1646277",
+    "name": "Part of Ward 4. [Map bound by Staten Island Rail      Road, Fingerboard Road, Old Town Road, Scott A",
+    "new": 1.0
+   },
+   {
+    "id": 15409,
+    "sheet": "image 1646278",
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Baltic   Ave, Hanover Ave (Main), Neckar Ave, Weser Ave",
+    "new": 1.0
+   },
+   {
+    "id": 15410,
+    "sheet": "image 1646279",
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Old Town Road, Wilson Ave, Cornelia St, Pelton St, Ever",
+    "new": 1.0
+   },
+   {
+    "id": 15411,
+    "sheet": "image 1646280",
+    "name": "Part of Ward 4. [Map bound by Scott Ave, Old Town     Road, South Field Beach Rail Road, New Creek, ",
+    "new": 1.0
+   },
+   {
+    "id": 15412,
+    "sheet": "image 1646281",
+    "name": "Part of Ward 4. [Map bound by Liberty Ave, Seaview    Ave, Scotland Ave, New Creek, South Field Beac",
+    "new": 1.0
+   },
+   {
+    "id": 15413,
+    "sheet": "image 1646282",
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Stobe    Ave (Jackson Ave), South Side Boulevard, Linco",
+    "new": 1.0
+   },
+   {
+    "id": 15414,
+    "sheet": "image 1646283",
+    "name": "Part of Ward 4. [Map bound by Franklin Ave, 6th St,   Maple Ave, Midland Beach, Lower New York Bay, ",
+    "new": 1.0
+   },
+   {
+    "id": 15415,
+    "sheet": "image 1646284",
+    "name": "Part of Ward 4. [Map bound by Amboy Road, Bishop Ave, Dale Ave, Dorothea PL, Grace RD, Richmond Road",
+    "new": 1.0
+   },
+   {
+    "id": 15416,
+    "sheet": "image 1646285",
+    "name": "Part of Ward 4. [Map bound by New Dorp Lane, New Dorp Beach, Lower New York Bay, Old Mill Road (Cole",
+    "new": 1.0
+   },
+   {
+    "id": 15417,
+    "sheet": "image 1646286",
+    "name": "Part of Ward 4. [Map bound by Oak Ave, Mill Road,     Kissam Ave, Lower New York Bay, Brook Ave, Mil",
+    "new": 1.0
+   },
+   {
+    "id": 15418,
+    "sheet": "image 1646287",
+    "name": "Part of Ward 4. [Map bound by Amboy Road, Cedarview   Ave, Oak Ave, South Side Boulevard, 9th St, 14",
+    "new": 1.0
+   },
+   {
+    "id": 15419,
+    "sheet": "image 1646288",
+    "name": "Part of Ward 4. [Map bound by Richmond Road, Grand    St, Clarke Ave, Amboy Road, Tysens St, Center ",
+    "new": 1.0
+   },
+   {
+    "id": 15420,
+    "sheet": "image 1646289",
+    "name": "Part of Ward 4. [Map bound by Center St, Clarke Ave,  St. Agnes Cemetery, Amboy Road, Staten Island ",
+    "new": 1.0
+   },
+   {
+    "id": 15421,
+    "sheet": "image 1646290",
+    "name": "Part of Wards 4 & 5. [Map bound by Ocean View         Cemetery, Staten Island Rail Road, Amboy Road,",
+    "new": 1.0
+   },
+   {
+    "id": 15422,
+    "sheet": "image 1646291",
+    "name": "Nelson Ave, Cleveland Ave, 2nd St, Madison TER, Great Kills RD, South Side Boulevard, Cole PL, Cole ",
+    "new": 1.0
+   },
+   {
+    "id": 15423,
+    "sheet": "image 1646292",
+    "name": "Part of Wards 4 & 5. [Map bound by Linderwood Ave,    Nelson Ave, Crescent Beach, Lower New York Bay",
+    "new": 1.0
+   },
+   {
+    "id": 15424,
+    "sheet": "image 1646293",
+    "name": "Part of Wards 4 & 5. [Map bound by Richmond Ave,      (Eltingville Ave), South Side Boulevard, Wakef",
+    "new": 1.0
+   },
+   {
+    "id": 15425,
+    "sheet": "image 1646294",
+    "name": "Part of Ward 5. [Map bound by Sheldon Ave, Jefferson  Boulevard, Rathbun Ave, Arden Ave (Washington ",
+    "new": 1.0
+   },
+   {
+    "id": 15426,
+    "sheet": "image 1646295",
+    "name": "Part of Ward 5. [Map bound by Barclay Ave, Raritan    Bay, Poillon Ave (Harrison Ave), Arbutus Lake,",
+    "new": 1.0
+   },
+   {
+    "id": 15427,
+    "sheet": "image 1646296",
+    "name": "Part of Ward 5. [Map bound by Arbutus Ave (Broadway), Arbutus Lake, 5th St, Raritan Bay, Sycamore Av",
+    "new": 1.0
+   },
+   {
+    "id": 15428,
+    "sheet": "image 1646297",
+    "name": "Part of Ward 5. [Map bound by Maguire Ave, Ramona     Ave, Lamont Ave, Ionia Ave, Edgegrove Ave, Det",
+    "new": 1.0
+   },
+   {
+    "id": 15429,
+    "sheet": "image 1646298",
+    "name": "Part of Ward 5. [Map bound by Holton St, Henry St,    Seguine Ave, William St, Melville St, Wilbur S",
+    "new": 1.0
+   },
+   {
+    "id": 15430,
+    "sheet": "image 1646299",
+    "name": "Part of Ward 5. [Map bound by Amboy Road, Bedell St   (Seguine RD). Sharrot Ave (Pleasant Plains RD)",
+    "new": 1.0
+   },
+   {
+    "id": 15432,
+    "sheet": "image 1646301",
+    "name": "Part of Ward 5. [Map bound by Page sty (Beach),       Raritan Bay, Surf Ave, Rockaway St, Belmont Av",
+    "new": 0.99
+   },
+   {
+    "id": 15434,
+    "sheet": "image 1646303",
+    "name": "Part of Ward 5. [Map bound by Pierhead And Bulkhead   Line, Barnard Ave (James St), Amboy Road]",
+    "new": 1.0
+   },
+   {
+    "id": 15435,
+    "sheet": "image 1646304",
+    "name": "Part of Ward 5. [Map bound by Arthur Kill, Arthur     Kill Road (Fresh Kills RD), Richmond Valley Ro",
+    "new": 1.0
+   },
+   {
+    "id": 15436,
+    "sheet": "image 1646305",
+    "name": "Part of Ward 5. [Map bound by Gifford Lane, Staten    Island Rail Road, Richmond Ave (Bridge Ave), A",
+    "new": 1.0
+   },
+   {
+    "id": 15437,
+    "sheet": "image 1646306",
+    "name": "Part of Ward 5. [Map bound by Arthur Kill Road (Fresh Kills RD), Arden Ave (Washington), Carneaux Av",
+    "new": 1.0
+   },
+   {
+    "id": 15438,
+    "sheet": "image 1646307",
+    "name": "Part of Ward 5. [Map bound by Arthur Kill Road,       Rossville Ave, Woodrow Road, Foster Road (Ross",
+    "new": 1.0
+   },
+   {
+    "id": 15439,
+    "sheet": "image 1646308",
+    "name": "Part of Ward 5. [Map bound by Winant PL, Arthur Kill  Road (Fresh Kills RD), Sharrotts Road, Bogardu",
+    "new": 1.0
+   },
+   {
+    "id": 15440,
+    "sheet": "image 1646309",
+    "name": "Part of Ward 5. [Map bound by Arthur Kill or Staten   Island Sound, Arthur Kill Road (Fresh Kills RD",
+    "new": 1.0
+   },
+   {
+    "id": 15441,
+    "sheet": "image 1646310",
+    "name": "Part of Ward 5. [Map bound by Great Fresh Kills,      Fresh Kills, Richmond Creek, Arthur Kill Road,",
+    "new": 1.0
+   },
+   {
+    "id": 15443,
+    "sheet": "image 1646312",
+    "name": "Part of Ward 1. [Map bound by Bement Ave, Harvest     Ave, Revere Ave (Laurel Ave), University PL, G",
+    "new": 0.97
+   },
+   {
+    "id": 15449,
+    "sheet": "image 1646318",
+    "name": "Part of Ward 1. [Map bound by Richmond Terrace (Bay   St), Pierhead Line, Hyatt St, St. Marks PL (To",
+    "new": 0.98
+   },
+   {
+    "id": 15453,
+    "sheet": "image 1646322",
+    "name": "Part of Ward 1. [Map bound by Greenwood Ave,          Ridgewood PL, Castleton Ave, Brighton Ave, Thi",
+    "new": 0.97
+   },
+   {
+    "id": 15455,
+    "sheet": "image 1646324",
+    "name": "Part of Ward 2. [Map bound by St. Pauls Ave, Beach    St, Jackson St, Van Duzer St (Richmond RD), Sa",
+    "new": 0.98
+   },
+   {
+    "id": 15456,
+    "sheet": "image 1646325",
+    "name": "Part of Ward 2. [Map bound by Broad St, Bay St,       Thompson St, Front St, Dock St, Vanderbilt Ave",
+    "new": 1.0
+   },
+   {
+    "id": 15457,
+    "sheet": "image 1646326",
+    "name": "Part of Ward 2. [Map bound by Serpentine Road, Howard Ave (Serpentine RD) , Broad St, Gordon St, Tom",
+    "new": 0.97
+   },
+   {
+    "id": 15458,
+    "sheet": "image 1646327",
+    "name": "Part of Ward 1. [Map bound by N. Burgher Ave          (Burgher), Richmond Terrace, Pierhead Line, Ki",
+    "new": 0.97
+   },
+   {
+    "id": 15459,
+    "sheet": "image 1646328",
+    "name": "Part of Ward 1. [Map bound by Pierhead Line, N.       Burgher Ave (Burgher Ave), Castleton Ave, Clov",
+    "new": 0.86
+   }
+  ],
+  "clip": {
+   "outside_layers": [
+    "bronx_23rd_ward_1887",
+    "bronx_south_1904",
+    "bronx_south_1921",
+    "brooklyn_bayridge_1898",
+    "brooklyn_bedstuy_1888",
+    "brooklyn_browns_1887",
+    "brooklyn_bushwick_1888",
+    "brooklyn_coney_1899",
+    "brooklyn_crownheights_1888",
+    "brooklyn_downtown_1887",
+    "brooklyn_greenpoint_1887",
+    "brooklyn_heights_1898",
+    "brooklyn_old_1880",
     "brooklyn_parkslope_1888",
     "brooklyn_redhook_1898",
     "brooklyn_southwest_1886",

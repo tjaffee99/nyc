@@ -3,7 +3,7 @@ sys.path.insert(0, "/home/user/nyc/data/research/lost_works_build"); from lwlib 
 rows = []
 C = (40.7153, -74.0328)
 B = ("BEST GUESS: {w}. The Colgate & Company plant (85-99 Hudson Street, Jersey City, on the Hudson waterfront; the company's works from 1847; demolished in 1985 for 30 Hudson Street, the Goldman Sachs Tower - Wikipedia 'Colgate Clock (Jersey City)'; "
-     "Library of Congress HAER NJ-71-B). The works is put where the Goldman tower stands (the clock stood 1300 ft north of its present place), good to about 60 m; the number of buildings, plans and heights are ESTIMATED; start years are guesses.")
+     "Library of Congress HAER NJ-71-B). The works is put where the Goldman tower stands (the clock stood 1300 ft north of its present place), good to about 60 m before the shifts noted below (at most 120 m in all); the number of buildings, plans and heights are ESTIMATED; start years are guesses.")
 for k, nm, dx, dy, w, d, h, y0 in [("main", "main loft building with the octagonal clock on the roof (Buildings B-7 and B-8, about 100 x 32 m, six storeys)", -15, 20, 100, 32, 28, 1900),
         ("north", "north factory block", 10, 70, 80, 30, 22, 1890),
         ("south", "south factory block", 5, -35, 70, 30, 22, 1912),
