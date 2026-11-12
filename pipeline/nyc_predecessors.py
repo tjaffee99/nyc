@@ -596,6 +596,13 @@ def add_predecessors(g):
     wet = np.isfinite(es) & (out.start_year.values < es)
     st2 = np.where(wet, es + 0.5 * hashes(out.fid_key.values, "gr"), out.start_year.values)
     gone = st2 > out.end_year.values - 1.0
+    # a lot generated for a census year or by a best guess is a guess about THAT time: one whose ground comes more
+    # than 8 years after it is dropped, not moved (moved, 518 guessed hotels of the 1880s stood at Coney Island
+    # in the 1920s-40s)
+    guessed = np.array([s_.startswith(("gapfill:census", "gapfill:guess")) for s_ in out.year_src.values.astype(str)])
+    late_guess = wet & guessed & (es - out.start_year.values > 8.0)
+    log(f"predecessors: {int((late_guess & ~gone).sum())} generated lots of the census and district fills dropped: their ground comes more than 8 years late")
+    gone = gone | late_guess
     log(f"predecessors: {int(wet.sum())} vanished structures moved to after their ground was made, "
         f"{int((wet & gone).sum())} of them dropped (the ground came after they were gone)")
     out = out.assign(start_year=st2)[~(wet & gone)]
