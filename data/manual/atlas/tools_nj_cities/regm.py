@@ -11,14 +11,14 @@ import njc
 from njc import A, S, jl, own_p, lay_p, pid_of
 import shapely
 from PIL import Image, ImageDraw
-def view(layer, out, sheets, w=700):
+def view(layer, out, sheets, w=700, lines=True):
     ims = []
     names, g = S.roads(); b = shapely.bounds(g)
     for sh in sheets:
         P = A.Plate(layer, pid_of(layer, sh), verbose=False); img = P.img(); H, W = img.shape[:2]; f = W / w
         im = Image.fromarray(img).resize((w, int(H / f)), Image.LANCZOS); d = ImageDraw.Draw(im, "RGBA")
         cs = P.fwd(np.array([[0, 0], [W, 0], [W, H], [0, H]], float)); x0, y0, x1, y1 = cs[:, 0].min() - 60, cs[:, 1].min() - 60, cs[:, 0].max() + 60, cs[:, 1].max() + 60
-        sel = np.flatnonzero((b[:, 2] > x0) & (b[:, 0] < x1) & (b[:, 3] > y0) & (b[:, 1] < y1))
+        sel = np.flatnonzero((b[:, 2] > x0)) if False else (np.flatnonzero((b[:, 2] > x0) & (b[:, 0] < x1) & (b[:, 3] > y0) & (b[:, 1] < y1)) if lines else [])
         for i in sel:
             for ln in getattr(g[i], "geoms", [g[i]]):
                 q = P.inv(np.asarray(ln.coords)) / f
@@ -68,5 +68,5 @@ def reg(layer, spec):
         print(sh, "n", len(px), "res", e["fit"]["res_m"], "loo", e["fit"]["loo_m"], "mpp", e["fit"]["mpp"], "| bld", r.get("kind"), r.get("shift_median"), "coincide", st["coincide"], st.get("off_median_m"), flush=True)
 if __name__ == "__main__":
     a = sys.argv[1:]
-    if a[0] == "view": view(a[1], a[2], a[3:])
+    if a[0] == "view": view(a[1], a[2], a[3:], lines=not os.environ.get("NOLINES"))
     else: reg(a[1], a[2])

@@ -258,7 +258,7 @@ def run(layer, tag, item, sheets, rest=False):
                 add(layer, tag, [sh])
                 A.trace(layer, pid, verbose=False)
             st = pickle.load(open(A.WORK / layer / f"{pid}.pkl", "rb"))["stats"]; rep["n"] = st["n"]
-            if st["n"] >= 40:
+            if st["n"] >= 40 and not os.environ.get("NOLOC"):
                 pri = json.load(open(os.environ["PRIORS"])).get(str(sh)) if os.environ.get("PRIORS") else None; f = locate(layer, pid, city, prior=pri[:2] if pri else None, pr=pri[2] if pri else None, verbose=False); write_fit(layer, pid, f); rep.update(fit={k: round(float(v), 3) for k, v in f.items()})
                 r = A.refine_buildings(layer, pid, win_m=140.0, min_q=0.2, verbose=False); rep["bld"] = r
                 st = pickle.load(open(A.WORK / layer / f"{pid}.pkl", "rb"))["stats"]

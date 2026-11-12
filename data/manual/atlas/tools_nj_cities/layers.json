@@ -220,6 +220,245 @@
     "id": 92150042,
     "sheet": "42",
     "name": "Paterson 1915 sheet 42"
+   },
+   {
+    "id": 92150043,
+    "sheet": "43",
+    "name": "Paterson 1915 sheet 43"
+   },
+   {
+    "id": 92150044,
+    "sheet": "44",
+    "name": "Paterson 1915 sheet 44"
+   },
+   {
+    "id": 92150045,
+    "sheet": "45",
+    "name": "Paterson 1915 sheet 45"
+   },
+   {
+    "id": 92150046,
+    "sheet": "46",
+    "name": "Paterson 1915 sheet 46"
+   },
+   {
+    "id": 92150048,
+    "sheet": "48",
+    "name": "Paterson 1915 sheet 48"
+   },
+   {
+    "id": 92150051,
+    "sheet": "51",
+    "name": "Paterson 1915 sheet 51"
+   },
+   {
+    "id": 92150052,
+    "sheet": "52",
+    "name": "Paterson 1915 sheet 52"
+   },
+   {
+    "id": 92150053,
+    "sheet": "53",
+    "name": "Paterson 1915 sheet 53"
+   },
+   {
+    "id": 92150054,
+    "sheet": "54",
+    "name": "Paterson 1915 sheet 54"
+   },
+   {
+    "id": 92150055,
+    "sheet": "55",
+    "name": "Paterson 1915 sheet 55"
+   },
+   {
+    "id": 92150057,
+    "sheet": "57",
+    "name": "Paterson 1915 sheet 57"
+   },
+   {
+    "id": 92150058,
+    "sheet": "58",
+    "name": "Paterson 1915 sheet 58"
+   },
+   {
+    "id": 92150059,
+    "sheet": "59",
+    "name": "Paterson 1915 sheet 59"
+   },
+   {
+    "id": 92150061,
+    "sheet": "61",
+    "name": "Paterson 1915 sheet 61"
+   },
+   {
+    "id": 92150062,
+    "sheet": "62",
+    "name": "Paterson 1915 sheet 62"
+   },
+   {
+    "id": 92150063,
+    "sheet": "63",
+    "name": "Paterson 1915 sheet 63"
+   },
+   {
+    "id": 92150064,
+    "sheet": "64",
+    "name": "Paterson 1915 sheet 64"
+   },
+   {
+    "id": 92150065,
+    "sheet": "65",
+    "name": "Paterson 1915 sheet 65"
+   },
+   {
+    "id": 92150067,
+    "sheet": "67",
+    "name": "Paterson 1915 sheet 67"
+   },
+   {
+    "id": 92150068,
+    "sheet": "68",
+    "name": "Paterson 1915 sheet 68"
+   },
+   {
+    "id": 92150069,
+    "sheet": "69",
+    "name": "Paterson 1915 sheet 69"
+   },
+   {
+    "id": 92150070,
+    "sheet": "70",
+    "name": "Paterson 1915 sheet 70"
+   },
+   {
+    "id": 92150071,
+    "sheet": "71",
+    "name": "Paterson 1915 sheet 71"
+   },
+   {
+    "id": 92150072,
+    "sheet": "72",
+    "name": "Paterson 1915 sheet 72"
+   },
+   {
+    "id": 92150081,
+    "sheet": "81",
+    "name": "Paterson 1915 sheet 81"
+   },
+   {
+    "id": 92150082,
+    "sheet": "82",
+    "name": "Paterson 1915 sheet 82"
+   },
+   {
+    "id": 92150085,
+    "sheet": "85",
+    "name": "Paterson 1915 sheet 85"
+   },
+   {
+    "id": 92150086,
+    "sheet": "86",
+    "name": "Paterson 1915 sheet 86"
+   },
+   {
+    "id": 92150087,
+    "sheet": "87",
+    "name": "Paterson 1915 sheet 87"
+   },
+   {
+    "id": 92150088,
+    "sheet": "88",
+    "name": "Paterson 1915 sheet 88"
+   },
+   {
+    "id": 92150089,
+    "sheet": "89",
+    "name": "Paterson 1915 sheet 89"
+   },
+   {
+    "id": 92150090,
+    "sheet": "90",
+    "name": "Paterson 1915 sheet 90"
+   },
+   {
+    "id": 92150094,
+    "sheet": "94",
+    "name": "Paterson 1915 sheet 94"
+   },
+   {
+    "id": 92150095,
+    "sheet": "95",
+    "name": "Paterson 1915 sheet 95"
+   },
+   {
+    "id": 92150096,
+    "sheet": "96",
+    "name": "Paterson 1915 sheet 96"
+   },
+   {
+    "id": 92150047,
+    "sheet": "47",
+    "name": "Paterson 1915 sheet 47"
+   },
+   {
+    "id": 92150049,
+    "sheet": "49",
+    "name": "Paterson 1915 sheet 49"
+   },
+   {
+    "id": 92150050,
+    "sheet": "50",
+    "name": "Paterson 1915 sheet 50"
+   },
+   {
+    "id": 92150056,
+    "sheet": "56",
+    "name": "Paterson 1915 sheet 56"
+   }
+  ]
+ },
+ "essex_newark_1908": {
+  "city": "newark",
+  "map_year": 1908,
+  "source": "sanborn_newark_1908",
+  "source_url": "https://www.loc.gov/item/sanborn05571_008/",
+  "atlas": "Insurance maps of Newark, New Jersey, vol. 3 (Sanborn Map Co. 1908, key map 1908-1909), 50 ft to the inch",
+  "style": "bromley_city",
+  "style_override": {
+   "core": 12,
+   "wall_px": 240,
+   "hole_px": 500,
+   "front_px": 2500,
+   "frame": {
+    "db_min": 6.5,
+    "hue": 0.42,
+    "L_min": 50,
+    "L_max": 92
+   }
+  },
+  "id0": "9308",
+  "name": "Newark 1908",
+  "plates": [
+   {
+    "id": 93080046,
+    "sheet": "46",
+    "name": "Newark 1908 sheet 46"
+   },
+   {
+    "id": 93080050,
+    "sheet": "50",
+    "name": "Newark 1908 sheet 50"
+   },
+   {
+    "id": 93080034,
+    "sheet": "34",
+    "name": "Newark 1908 sheet 34"
+   },
+   {
+    "id": 93080041,
+    "sheet": "41",
+    "name": "Newark 1908 sheet 41"
    }
   ]
  }
