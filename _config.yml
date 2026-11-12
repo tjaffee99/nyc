@@ -1,0 +1,9 @@
+# written by pipeline/deploy.py
+exclude:
+  - data/region-buildings
+  - data/county-buildings
+  - data/outer-buildings
+  - tiles/terrain/13
+  - data/region-streets
+  - data/region-trees
+  - data/region-ground-detail.bin.gz
