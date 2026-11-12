@@ -888,7 +888,7 @@ MAIN_ST = {"coney_west_brighton": "Surf Avenue", "rockaway_beach": "Rockaway Bea
 
 
 def districts():
-    """Generated buildings in three resort districts from the coordinator's guessed shares (guess_districts.geojson)."""
+    """Generated buildings in the districts of guess_districts.geojson, from the coordinator's guessed shares."""
     gj = gpd.read_file(RAW.parent / "manual" / "gapfill" / "guess_districts.geojson")
     props = json.loads((RAW.parent / "manual" / "gapfill" / "guess_districts.geojson").read_text())["features"]
     atlas = gpd.read_file(RAW.parent / "manual" / "atlas" / "brooklyn_coney_1907.geojson").to_crs(4326)
@@ -897,7 +897,8 @@ def districts():
     out, report = [], []
     for f, geom in zip(props, gj.geometry):
         p = f["properties"]; did = p["id"]
-        rng = np.random.default_rng(abs(hash(did)) % (2 ** 31))
+        import zlib
+        rng = np.random.default_rng(zlib.crc32(did.encode()) % (2 ** 31))      # (stable: hash() of a str is salted per process)
         poly_u = proj([geom])[0]
         x0, y0, x1, y1 = geom.bounds
         bb = (x0 - 0.003, y0 - 0.003, x1 + 0.003, y1 + 0.003)
@@ -913,7 +914,7 @@ def districts():
                 ex = np.concatenate([ex, proj(shapely.make_valid(shapely.from_wkb(bl.w.apply(bytes).values)))])
         except Exception as ex_:
             print("no beach layer", ex_)
-        mn = con.execute(f"select ST_AsWKB(geometry) w from '{O}/roads_local.parquet' where name = '{MAIN_ST[did]}' and ST_Intersects(geometry, ST_MakeEnvelope({bb[0]-0.02},{bb[1]-0.02},{bb[2]+0.02},{bb[3]+0.02}))").df()
+        mn = con.execute(f"select ST_AsWKB(geometry) w from '{O}/roads_local.parquet' where name = '{MAIN_ST.get(did, '-')}' and ST_Intersects(geometry, ST_MakeEnvelope({bb[0]-0.02},{bb[1]-0.02},{bb[2]+0.02},{bb[3]+0.02}))").df()
         main = proj(shapely.from_wkb(mn.w.apply(bytes).values))
         print(did, "main street segments", len(main), flush=True)
         # trees for the district type
@@ -985,7 +986,7 @@ def districts():
         for ys, share in sorted((int(k_), v) for k_, v in p["shares"].items()):
             need = share * N
             have_map = int((pin & (ps <= ys) & (pe > ys)).sum())
-            have_atl = n_atlas if 1895 <= ys < 1925 else 0
+            have_atl = (n_atlas if 1895 <= ys < 1925 else 0) if os.environ.get("CF_ATLAS_UNBUILT") else 0      # (the 1907 layer is in the built map now: its rows are in have_map)
             have_own = int((used & (S <= ys) & (E > ys)).sum())
             short = need - have_map - have_atl - have_own
             row = dict(district=did, year=ys, share=share, need=round(need), have_map=have_map, have_atlas=have_atl, have_own=have_own, added=0)
@@ -1021,10 +1022,11 @@ def districts():
         height = np.where(~post, 7.5, height)
         pl_ = proj(rect_polys(cx[idx].astype(float), cy[idx].astype(float), w[idx].astype(float), d[idx].astype(float), ang[idx].astype(float)), T_INV)
         c = shapely.centroid(pl_)
-        ids = ["cd" + ("%014x" % (hash((did, round(float(x), 6), round(float(y), 6))) & 0xFFFFFFFFFFFFFF)) for x, y in zip(shapely.get_x(c), shapely.get_y(c))]
+        import hashlib      # (not hash(): a str in the tuple is salted per process, the ids would change with every run)
+        ids = ["cd" + hashlib.md5(f"{did}:{float(x):.6f}:{float(y):.6f}".encode()).hexdigest()[:14] for x, y in zip(shapely.get_x(c), shapely.get_y(c))]
         g = gpd.GeoDataFrame({"id": ids, "start_year": np.round(Su, 2), "end_year": np.round(Eu, 2), "height_m": np.round(height, 1), "storeys": st.astype(float),
                               "material": np.where(frame, "frame", "brick"), "evidence": "guess+" + did, "end_basis": basis[idx].astype(str),
-                              "area": "3" if did.startswith("coney") else "4", "geometry": pl_}, crs=4326)
+                              "area": str(p.get("area") or ("3" if did.startswith("coney") else "4")), "geometry": pl_}, crs=4326)
         out.append(g)
         # checks
         gp_ = proj(g.geometry.values)

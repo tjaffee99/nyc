@@ -1,48 +1,202 @@
 {
-  "type": "FeatureCollection",
-  "note": "Districts filled by a best guess (decision 56): places the written record describes as built up, where no atlas plate could be placed and the borough as a whole shows no deficit against the census. 'shares' is the lead's best guess of the share of the district's street-front lots that carried a building in each year; it is NOT a measured figure. Outlines are drawn from today's street positions (Overture), generous at the water (the generator keeps lots off water, beach and parks).",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "coney_west_brighton",
-        "name": "Coney Island (West Brighton and the West End)",
-        "from": 1868,
-        "shares": {"1870": 0.03, "1880": 0.30, "1890": 0.50, "1900": 0.65, "1910": 0.75, "1920": 0.85},
-        "end_from": 1925,
-        "end_to": 1970,
-        "kind": "resort",
-        "basis": "best guess: the railroads reached West Brighton in 1875-79; hotels, pavilions and bathhouses lined Surf Avenue and the Bowery in the 1880s; Steeplechase Park 1897, Luna Park 1903, Dreamland 1904; the subway reached Stillwell Avenue in 1920; the West End was cleared for housing in the 1950s-70s. The plates of the 1907 atlas for this part could not be placed."
-      },
-      "geometry": {"type": "Polygon", "coordinates": [[[-74.0042, 40.5722], [-73.9712, 40.5738], [-73.9712, 40.5800], [-74.0042, 40.5812], [-74.0042, 40.5722]]]}
+ "type": "FeatureCollection",
+ "note": "Districts filled by a best guess (decision 56): places the written record describes as built up, where no atlas plate could be placed and the borough as a whole shows no deficit against the census. 'shares' is the lead's best guess of the share of the district's street-front lots that carried a building in each year; it is NOT a measured figure. Outlines are drawn from today's street positions (Overture), generous at the water (the generator keeps lots off water, beach and parks).",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "coney_west_brighton",
+    "name": "Coney Island (West Brighton and the West End)",
+    "from": 1868,
+    "shares": {
+     "1870": 0.03,
+     "1880": 0.3,
+     "1890": 0.5,
+     "1900": 0.65,
+     "1910": 0.75,
+     "1920": 0.85
     },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "rockaway_beach",
-        "name": "Rockaway Beach (Seaside, Hammels, Holland)",
-        "from": 1878,
-        "shares": {"1880": 0.08, "1890": 0.30, "1900": 0.45, "1910": 0.65, "1920": 0.80},
-        "end_from": 1930,
-        "end_to": 1975,
-        "kind": "resort",
-        "basis": "best guess: the railroad across Jamaica Bay opened in 1880; Seaside and Hammels were resorts of hotels, bathhouses and pavilions in the 1880s (Seaside burned in 1892 and was rebuilt); bungalows and boarding houses filled the streets 1900-1920; much was cleared for Shore Front Parkway (1939) and for housing in the 1950s-70s."
-      },
-      "geometry": {"type": "Polygon", "coordinates": [[[-73.8390, 40.5775], [-73.8010, 40.5880], [-73.8010, 40.5935], [-73.8390, 40.5825], [-73.8390, 40.5775]]]}
+    "end_from": 1925,
+    "end_to": 1970,
+    "kind": "resort",
+    "basis": "best guess: the railroads reached West Brighton in 1875-79; hotels, pavilions and bathhouses lined Surf Avenue and the Bowery in the 1880s; Steeplechase Park 1897, Luna Park 1903, Dreamland 1904; the subway reached Stillwell Avenue in 1920; the West End was cleared for housing in the 1950s-70s. The plates of the 1907 atlas for this part could not be placed.",
+    "area": "3"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -74.0042,
+       40.5722
+      ],
+      [
+       -73.9712,
+       40.5738
+      ],
+      [
+       -73.9712,
+       40.58
+      ],
+      [
+       -74.0042,
+       40.5812
+      ],
+      [
+       -74.0042,
+       40.5722
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "rockaway_beach",
+    "name": "Rockaway Beach (Seaside, Hammels, Holland)",
+    "from": 1878,
+    "shares": {
+     "1880": 0.08,
+     "1890": 0.3,
+     "1900": 0.45,
+     "1910": 0.65,
+     "1920": 0.8
     },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "arverne_edgemere",
-        "name": "Arverne and Edgemere",
-        "from": 1888,
-        "shares": {"1890": 0.05, "1900": 0.30, "1910": 0.55, "1920": 0.75},
-        "end_from": 1940,
-        "end_to": 1975,
-        "kind": "resort",
-        "basis": "best guess: Arverne-by-the-Sea was laid out by Remington Vernam in 1888, Edgemere in 1892; hotels, then streets of frame cottages and bungalows by 1910-1920; fire of 1922; the district was cleared for an urban renewal area in the late 1960s and stood empty for decades."
-      },
-      "geometry": {"type": "Polygon", "coordinates": [[[-73.8010, 40.5880], [-73.7640, 40.5915], [-73.7640, 40.5985], [-73.8010, 40.5935], [-73.8010, 40.5880]]]}
-    }
-  ]
+    "end_from": 1930,
+    "end_to": 1975,
+    "kind": "resort",
+    "basis": "best guess: the railroad across Jamaica Bay opened in 1880; Seaside and Hammels were resorts of hotels, bathhouses and pavilions in the 1880s (Seaside burned in 1892 and was rebuilt); bungalows and boarding houses filled the streets 1900-1920; much was cleared for Shore Front Parkway (1939) and for housing in the 1950s-70s.",
+    "area": "4"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -73.839,
+       40.5775
+      ],
+      [
+       -73.801,
+       40.588
+      ],
+      [
+       -73.801,
+       40.5935
+      ],
+      [
+       -73.839,
+       40.5825
+      ],
+      [
+       -73.839,
+       40.5775
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "arverne_edgemere",
+    "name": "Arverne and Edgemere",
+    "from": 1888,
+    "shares": {
+     "1890": 0.05,
+     "1900": 0.3,
+     "1910": 0.55,
+     "1920": 0.75
+    },
+    "end_from": 1940,
+    "end_to": 1975,
+    "kind": "resort",
+    "basis": "best guess: Arverne-by-the-Sea was laid out by Remington Vernam in 1888, Edgemere in 1892; hotels, then streets of frame cottages and bungalows by 1910-1920; fire of 1922; the district was cleared for an urban renewal area in the late 1960s and stood empty for decades.",
+    "area": "4"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -73.801,
+       40.588
+      ],
+      [
+       -73.764,
+       40.5915
+      ],
+      [
+       -73.764,
+       40.5985
+      ],
+      [
+       -73.801,
+       40.5935
+      ],
+      [
+       -73.801,
+       40.588
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "inwood",
+    "name": "Inwood (Tubby Hook and the Kingsbridge Road)",
+    "area": "1",
+    "from": 1845,
+    "shares": {
+     "1860": 0.015,
+     "1870": 0.025,
+     "1880": 0.035,
+     "1890": 0.05,
+     "1900": 0.065
+    },
+    "end_from": 1905,
+    "end_to": 1935,
+    "kind": "village",
+    "basis": "best guess: Tubby Hook, a village at the Hudson River Railroad's station (1847) at the foot of Dyckman Street, a few dozen frame houses by the 1860s; farmhouses, estates and institutions along the Kingsbridge Road (Broadway); the district was built up only after the subway of 1906, when the apartment houses replaced them. The plate of the 1897 atlas could not be registered."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -73.9335,
+       40.87
+      ],
+      [
+       -73.9215,
+       40.859
+      ],
+      [
+       -73.91,
+       40.869
+      ],
+      [
+       -73.911,
+       40.8745
+      ],
+      [
+       -73.923,
+       40.877
+      ],
+      [
+       -73.9335,
+       40.874
+      ],
+      [
+       -73.9335,
+       40.87
+      ]
+     ]
+    ]
+   }
+  }
+ ]
 }
